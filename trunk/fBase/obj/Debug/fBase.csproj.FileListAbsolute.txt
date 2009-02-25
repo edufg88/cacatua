@@ -1,0 +1,8 @@
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\bin\Debug\fBase.exe
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\bin\Debug\fBase.pdb
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\obj\Debug\fBase.Properties.Resources.resources
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\obj\Debug\fBase.csproj.GenerateResource.Cache
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\obj\Debug\fBase.exe
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\obj\Debug\fBase.pdb
+C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fBase\obj\Debug\fBase.fBase.resources
