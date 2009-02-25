@@ -1,9 +1,0 @@
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\fInicio.fInicio.resources
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\fInicio.Properties.Resources.resources
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\CacaUA.csproj.GenerateResource.Cache
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\fInicio.exe
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\bin\Debug\fInicio.exe
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\bin\Debug\fInicio.pdb
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\fInicio.pdb
-C:\Documents and Settings\jorge\Mis documentos\Visual Studio 2008\Projects\CacatUA\fInicio\obj\Debug\fInicio.formularioBase.resources
