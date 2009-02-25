@@ -31,15 +31,14 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.foroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apuntesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peticionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -52,7 +51,6 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuarioToolStripMenuItem,
             this.mToolStripMenuItem,
-            this.foroToolStripMenuItem,
             this.apuntesToolStripMenuItem,
             this.peticionesToolStripMenuItem,
             this.ayudaToolStripMenuItem});
@@ -75,12 +73,6 @@
             this.mToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.mToolStripMenuItem.Text = "Edicion";
             // 
-            // foroToolStripMenuItem
-            // 
-            this.foroToolStripMenuItem.Name = "foroToolStripMenuItem";
-            this.foroToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.foroToolStripMenuItem.Text = "Ver";
-            // 
             // apuntesToolStripMenuItem
             // 
             this.apuntesToolStripMenuItem.Name = "apuntesToolStripMenuItem";
@@ -92,6 +84,27 @@
             this.peticionesToolStripMenuItem.Name = "peticionesToolStripMenuItem";
             this.peticionesToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.peticionesToolStripMenuItem.Text = "Ventanas";
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeToolStripMenuItem,
+            this.ayudaToolStripMenuItem1});
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de...";
+            // 
+            // ayudaToolStripMenuItem1
+            // 
+            this.ayudaToolStripMenuItem1.Name = "ayudaToolStripMenuItem1";
+            this.ayudaToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.ayudaToolStripMenuItem1.Text = "Ayuda";
             // 
             // tabControl1
             // 
@@ -129,27 +142,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Foro";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // ayudaToolStripMenuItem
-            // 
-            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.acercaDeToolStripMenuItem,
-            this.ayudaToolStripMenuItem1});
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
-            // 
-            // acercaDeToolStripMenuItem
-            // 
-            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.acercaDeToolStripMenuItem.Text = "Acerca de...";
-            // 
-            // ayudaToolStripMenuItem1
-            // 
-            this.ayudaToolStripMenuItem1.Name = "ayudaToolStripMenuItem1";
-            this.ayudaToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.ayudaToolStripMenuItem1.Text = "Ayuda";
             // 
             // tabPage3
             // 
@@ -202,7 +194,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem foroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apuntesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem peticionesToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
