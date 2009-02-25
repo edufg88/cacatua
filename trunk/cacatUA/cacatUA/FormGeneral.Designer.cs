@@ -44,12 +44,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(300, 207);
+            this.label2.Location = new System.Drawing.Point(280, 207);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 13);
+            this.label2.Size = new System.Drawing.Size(367, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Raul";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Text = "Si quereis dejar algo para que lo leamos todo podeis escribirlo aqui por ahora";
             // 
             // FormGeneral
             // 
