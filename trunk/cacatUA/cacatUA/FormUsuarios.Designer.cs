@@ -62,8 +62,39 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button18 = new System.Windows.Forms.Button();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.button22 = new System.Windows.Forms.Button();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.Edu = new System.Windows.Forms.ListBox();
@@ -78,37 +109,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button14 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button18 = new System.Windows.Forms.Button();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button22 = new System.Windows.Forms.Button();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -117,12 +117,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -499,6 +499,105 @@
             this.tabPage3.Text = "Galería";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel5.Controls.Add(this.pictureBox3);
+            this.panel5.Location = new System.Drawing.Point(240, 17);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(196, 208);
+            this.panel5.TabIndex = 58;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(50, 56);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(98, 87);
+            this.pictureBox3.TabIndex = 19;
+            this.pictureBox3.TabStop = false;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(301, 231);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(75, 23);
+            this.button15.TabIndex = 57;
+            this.button15.Text = "Borrar";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // listBox2
+            // 
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(9, 133);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(195, 121);
+            this.listBox2.TabIndex = 55;
+            // 
+            // button18
+            // 
+            this.button18.Location = new System.Drawing.Point(56, 98);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 51;
+            this.button18.Text = "Buscar";
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(103, 67);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(65, 20);
+            this.textBox16.TabIndex = 50;
+            this.textBox16.Text = "2007";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(56, 67);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(41, 20);
+            this.textBox17.TabIndex = 49;
+            this.textBox17.Text = "11";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(9, 67);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(41, 20);
+            this.textBox18.TabIndex = 48;
+            this.textBox18.Text = "12";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(5, 36);
+            this.label18.Name = "label18";
+            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label18.Size = new System.Drawing.Size(199, 20);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Buscar por fecha (dia / mes / año) : ";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(5, 9);
+            this.label19.Name = "label19";
+            this.label19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label19.Size = new System.Drawing.Size(122, 20);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "Fotos de usuario: ";
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.button11);
@@ -520,6 +619,127 @@
             this.tabPage4.Text = "Mensajes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(333, 234);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(75, 23);
+            this.button11.TabIndex = 57;
+            this.button11.Text = "Borrar";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(252, 234);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 56;
+            this.button12.Text = "Editar";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(210, 16);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(228, 212);
+            this.listBox1.TabIndex = 55;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(56, 193);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(75, 23);
+            this.button13.TabIndex = 54;
+            this.button13.Text = "Buscar";
+            this.button13.UseVisualStyleBackColor = true;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(9, 162);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(159, 20);
+            this.textBox11.TabIndex = 53;
+            this.textBox11.Text = "Peter Mazinger Rufai";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(5, 134);
+            this.label11.Name = "label11";
+            this.label11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label11.Size = new System.Drawing.Size(142, 20);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Buscar por destinatario : ";
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(56, 98);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(75, 23);
+            this.button14.TabIndex = 51;
+            this.button14.Text = "Buscar";
+            this.button14.UseVisualStyleBackColor = true;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(103, 67);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(65, 20);
+            this.textBox12.TabIndex = 50;
+            this.textBox12.Text = "2007";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(56, 67);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(41, 20);
+            this.textBox13.TabIndex = 49;
+            this.textBox13.Text = "11";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(9, 67);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(41, 20);
+            this.textBox14.TabIndex = 48;
+            this.textBox14.Text = "12";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(5, 36);
+            this.label15.Name = "label15";
+            this.label15.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label15.Size = new System.Drawing.Size(199, 20);
+            this.label15.TabIndex = 47;
+            this.label15.Text = "Buscar por fecha (dia / mes / año) : ";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(5, 9);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label16.Size = new System.Drawing.Size(149, 20);
+            this.label16.TabIndex = 46;
+            this.label16.Text = "Mensajes de usuario: ";
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.button19);
@@ -537,6 +757,95 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Peticiones";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button19
+            // 
+            this.button19.Location = new System.Drawing.Point(333, 234);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(75, 23);
+            this.button19.TabIndex = 57;
+            this.button19.Text = "Borrar";
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.Location = new System.Drawing.Point(252, 234);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(75, 23);
+            this.button20.TabIndex = 56;
+            this.button20.Text = "Editar";
+            this.button20.UseVisualStyleBackColor = true;
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(210, 16);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(228, 212);
+            this.listBox3.TabIndex = 55;
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(56, 98);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(75, 23);
+            this.button22.TabIndex = 51;
+            this.button22.Text = "Buscar";
+            this.button22.UseVisualStyleBackColor = true;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(103, 67);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(65, 20);
+            this.textBox20.TabIndex = 50;
+            this.textBox20.Text = "2007";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(56, 67);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(41, 20);
+            this.textBox21.TabIndex = 49;
+            this.textBox21.Text = "11";
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(9, 67);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(41, 20);
+            this.textBox22.TabIndex = 48;
+            this.textBox22.Text = "12";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(5, 36);
+            this.label21.Name = "label21";
+            this.label21.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label21.Size = new System.Drawing.Size(199, 20);
+            this.label21.TabIndex = 47;
+            this.label21.Text = "Buscar por fecha (dia / mes / año) : ";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.BackColor = System.Drawing.Color.Transparent;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(5, 9);
+            this.label22.Name = "label22";
+            this.label22.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label22.Size = new System.Drawing.Size(154, 20);
+            this.label22.TabIndex = 46;
+            this.label22.Text = "Peticiones de usuario: ";
             // 
             // button2
             // 
@@ -700,315 +1009,6 @@
             this.label9.TabIndex = 34;
             this.label9.Text = "Firmas de usuario: ";
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(333, 234);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 57;
-            this.button11.Text = "Borrar";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(252, 234);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 56;
-            this.button12.Text = "Editar";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(210, 16);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(228, 212);
-            this.listBox1.TabIndex = 55;
-            // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(56, 193);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 54;
-            this.button13.Text = "Buscar";
-            this.button13.UseVisualStyleBackColor = true;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(9, 162);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(159, 20);
-            this.textBox11.TabIndex = 53;
-            this.textBox11.Text = "Peter Mazinger Rufai";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(5, 134);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label11.Size = new System.Drawing.Size(142, 20);
-            this.label11.TabIndex = 52;
-            this.label11.Text = "Buscar por destinatario : ";
-            // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(56, 98);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 51;
-            this.button14.Text = "Buscar";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(103, 67);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(65, 20);
-            this.textBox12.TabIndex = 50;
-            this.textBox12.Text = "2007";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(56, 67);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(41, 20);
-            this.textBox13.TabIndex = 49;
-            this.textBox13.Text = "11";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(9, 67);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(41, 20);
-            this.textBox14.TabIndex = 48;
-            this.textBox14.Text = "12";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(5, 36);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label15.Size = new System.Drawing.Size(199, 20);
-            this.label15.TabIndex = 47;
-            this.label15.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(5, 9);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label16.Size = new System.Drawing.Size(149, 20);
-            this.label16.TabIndex = 46;
-            this.label16.Text = "Mensajes de usuario: ";
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(301, 231);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 57;
-            this.button15.Text = "Borrar";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(9, 133);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(195, 121);
-            this.listBox2.TabIndex = 55;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(56, 98);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 51;
-            this.button18.Text = "Buscar";
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(103, 67);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(65, 20);
-            this.textBox16.TabIndex = 50;
-            this.textBox16.Text = "2007";
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(56, 67);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(41, 20);
-            this.textBox17.TabIndex = 49;
-            this.textBox17.Text = "11";
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(9, 67);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(41, 20);
-            this.textBox18.TabIndex = 48;
-            this.textBox18.Text = "12";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(5, 36);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label18.Size = new System.Drawing.Size(199, 20);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(5, 9);
-            this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label19.Size = new System.Drawing.Size(122, 20);
-            this.label19.TabIndex = 46;
-            this.label19.Text = "Fotos de usuario: ";
-            // 
-            // button19
-            // 
-            this.button19.Location = new System.Drawing.Point(333, 234);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 23);
-            this.button19.TabIndex = 57;
-            this.button19.Text = "Borrar";
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.Location = new System.Drawing.Point(252, 234);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(75, 23);
-            this.button20.TabIndex = 56;
-            this.button20.Text = "Editar";
-            this.button20.UseVisualStyleBackColor = true;
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(210, 16);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(228, 212);
-            this.listBox3.TabIndex = 55;
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(56, 98);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(75, 23);
-            this.button22.TabIndex = 51;
-            this.button22.Text = "Buscar";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(103, 67);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(65, 20);
-            this.textBox20.TabIndex = 50;
-            this.textBox20.Text = "2007";
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(56, 67);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(41, 20);
-            this.textBox21.TabIndex = 49;
-            this.textBox21.Text = "11";
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(9, 67);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(41, 20);
-            this.textBox22.TabIndex = 48;
-            this.textBox22.Text = "12";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(5, 36);
-            this.label21.Name = "label21";
-            this.label21.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label21.Size = new System.Drawing.Size(199, 20);
-            this.label21.TabIndex = 47;
-            this.label21.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // label22
-            // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(5, 9);
-            this.label22.Name = "label22";
-            this.label22.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label22.Size = new System.Drawing.Size(131, 20);
-            this.label22.TabIndex = 46;
-            this.label22.Text = "Firmas de usuario: ";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel5.Controls.Add(this.pictureBox3);
-            this.panel5.Location = new System.Drawing.Point(240, 17);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(196, 208);
-            this.panel5.TabIndex = 58;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(50, 56);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(98, 87);
-            this.pictureBox3.TabIndex = 19;
-            this.pictureBox3.TabStop = false;
-            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1031,6 +1031,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -1039,8 +1041,6 @@
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
