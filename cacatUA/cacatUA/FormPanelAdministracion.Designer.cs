@@ -166,6 +166,7 @@
             this.button_categorias.TabIndex = 9;
             this.button_categorias.Text = "Categorías";
             this.button_categorias.UseVisualStyleBackColor = true;
+            this.button_categorias.Click += new System.EventHandler(this.button_categorias_Click);
             // 
             // FormPanelAdministracion
             // 

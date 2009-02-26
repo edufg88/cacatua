@@ -75,5 +75,15 @@ namespace cacatUA
             form.Show();
             this.Hide(); 
         }
+
+        private void button_categorias_Click(object sender, EventArgs e)
+        {
+            FormCategorias form = new FormCategorias();
+            form.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            form.Location = new Point(this.Location.X, this.Location.Y);
+            form.Size = new Size(this.Size.Width, this.Size.Height);
+            form.Show();
+            this.Hide(); 
+        }
     }
 }
