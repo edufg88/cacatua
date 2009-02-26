@@ -13,7 +13,7 @@ namespace cacatUA
     {
         public FormPanelAdministracion()
         {
-            InitializeComponent();      
+            InitializeComponent();
         }
 
         private void button_usuarios_Click(object sender, EventArgs e)
