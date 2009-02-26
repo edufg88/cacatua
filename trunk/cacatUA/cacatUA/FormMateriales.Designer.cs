@@ -63,7 +63,7 @@
             this.panelMateriales.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMateriales.Location = new System.Drawing.Point(197, 100);
             this.panelMateriales.Name = "panelMateriales";
-            this.panelMateriales.Size = new System.Drawing.Size(652, 778);
+            this.panelMateriales.Size = new System.Drawing.Size(595, 367);
             this.panelMateriales.TabIndex = 28;
             // 
             // tableLayoutPanel2
@@ -75,7 +75,6 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -96,7 +95,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(652, 778);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(595, 367);
             this.tableLayoutPanel2.TabIndex = 31;
             // 
             // panel1
@@ -121,9 +120,9 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 42);
+            this.panel1.Location = new System.Drawing.Point(3, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 733);
+            this.panel1.Size = new System.Drawing.Size(589, 330);
             this.panel1.TabIndex = 48;
             // 
             // comboBox1
@@ -283,9 +282,9 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 11);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(646, 25);
+            this.panel2.Size = new System.Drawing.Size(589, 25);
             this.panel2.TabIndex = 30;
             // 
             // label1
@@ -305,7 +304,7 @@
             // FormMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(849, 878);
+            this.ClientSize = new System.Drawing.Size(792, 467);
             this.Controls.Add(this.panelMateriales);
             this.Name = "FormMateriales";
             this.Controls.SetChildIndex(this.panelMateriales, 0);

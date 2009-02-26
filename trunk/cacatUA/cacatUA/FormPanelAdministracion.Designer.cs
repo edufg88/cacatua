@@ -100,7 +100,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(246, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(237, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(403, 94);
             this.pictureBox1.TabIndex = 2;
@@ -129,7 +129,7 @@
             this.tableLayoutPanel_logo.Name = "tableLayoutPanel_logo";
             this.tableLayoutPanel_logo.RowCount = 1;
             this.tableLayoutPanel_logo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_logo.Size = new System.Drawing.Size(895, 100);
+            this.tableLayoutPanel_logo.Size = new System.Drawing.Size(878, 100);
             this.tableLayoutPanel_logo.TabIndex = 7;
             // 
             // tableLayoutPanel_botones
@@ -155,7 +155,7 @@
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 423);
+            this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 367);
             this.tableLayoutPanel_botones.TabIndex = 8;
             // 
             // button_categorias
@@ -171,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 523);
+            this.ClientSize = new System.Drawing.Size(878, 467);
             this.Controls.Add(this.tableLayoutPanel_botones);
             this.Controls.Add(this.tableLayoutPanel_logo);
             this.Name = "FormPanelAdministracion";
