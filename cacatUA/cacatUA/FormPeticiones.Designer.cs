@@ -28,137 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panelPeticiones = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.labelPeticiones = new System.Windows.Forms.Label();
+            this.panelFondo = new System.Windows.Forms.Panel();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.Recientes = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.listbox1 = new System.Windows.Forms.ListBox();
+            this.buttonMensajes = new System.Windows.Forms.Button();
+            this.richTextBoxMensaje = new System.Windows.Forms.RichTextBox();
+            this.checkBoxRealizada = new System.Windows.Forms.CheckBox();
+            this.labelEnviadoR = new System.Windows.Forms.Label();
+            this.textBoxEnviadoR = new System.Windows.Forms.TextBox();
+            this.textBoxAsuntoR = new System.Windows.Forms.TextBox();
+            this.labelAsuntoR = new System.Windows.Forms.Label();
+            this.labelDescR = new System.Windows.Forms.Label();
+            this.richTextBoxDescrR = new System.Windows.Forms.RichTextBox();
+            this.listboxPeticionesR = new System.Windows.Forms.ListBox();
             this.Antiguas = new System.Windows.Forms.TabPage();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.richTextBox5 = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.labelEnviadoA = new System.Windows.Forms.Label();
+            this.textBoxEnviadoA = new System.Windows.Forms.TextBox();
+            this.textBoxAsuntoA = new System.Windows.Forms.TextBox();
+            this.labelAsuntoA = new System.Windows.Forms.Label();
+            this.labelDescA = new System.Windows.Forms.Label();
+            this.richTextBoxDescA = new System.Windows.Forms.RichTextBox();
+            this.listBoxPeticionesA = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel.SuspendLayout();
             this.panelPeticiones.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.panelFondo.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.Recientes.SuspendLayout();
             this.Antiguas.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel2
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.panelPeticiones, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(197, 100);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(577, 364);
-            this.tableLayoutPanel2.TabIndex = 32;
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Controls.Add(this.panelPeticiones, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.panelFondo, 0, 1);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(197, 100);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(577, 364);
+            this.tableLayoutPanel.TabIndex = 32;
             // 
             // panelPeticiones
             // 
             this.panelPeticiones.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panelPeticiones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPeticiones.Controls.Add(this.label1);
+            this.panelPeticiones.Controls.Add(this.labelPeticiones);
             this.panelPeticiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPeticiones.Location = new System.Drawing.Point(3, 3);
             this.panelPeticiones.Name = "panelPeticiones";
             this.panelPeticiones.Size = new System.Drawing.Size(571, 25);
             this.panelPeticiones.TabIndex = 30;
             // 
-            // label1
+            // labelPeticiones
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.labelPeticiones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(83, 22);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Peticiones";
+            this.labelPeticiones.AutoSize = true;
+            this.labelPeticiones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPeticiones.Location = new System.Drawing.Point(3, 0);
+            this.labelPeticiones.Name = "labelPeticiones";
+            this.labelPeticiones.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.labelPeticiones.Size = new System.Drawing.Size(83, 22);
+            this.labelPeticiones.TabIndex = 7;
+            this.labelPeticiones.Text = "Peticiones";
             // 
-            // panel1
+            // panelFondo
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.tabControl1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 34);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 327);
-            this.panel1.TabIndex = 31;
+            this.panelFondo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFondo.Controls.Add(this.tabControl);
+            this.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFondo.Location = new System.Drawing.Point(3, 34);
+            this.panelFondo.Name = "panelFondo";
+            this.panelFondo.Size = new System.Drawing.Size(571, 327);
+            this.panelFondo.TabIndex = 31;
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.Recientes);
-            this.tabControl1.Controls.Add(this.Antiguas);
-            this.tabControl1.Location = new System.Drawing.Point(2, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(564, 320);
-            this.tabControl1.TabIndex = 33;
+            this.tabControl.Controls.Add(this.Recientes);
+            this.tabControl.Controls.Add(this.Antiguas);
+            this.tabControl.Location = new System.Drawing.Point(2, 2);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(564, 320);
+            this.tabControl.TabIndex = 33;
             // 
             // Recientes
             // 
-            this.Recientes.Controls.Add(this.button6);
-            this.Recientes.Controls.Add(this.richTextBox2);
-            this.Recientes.Controls.Add(this.checkBox1);
-            this.Recientes.Controls.Add(this.label4);
-            this.Recientes.Controls.Add(this.textBox2);
-            this.Recientes.Controls.Add(this.textBox1);
-            this.Recientes.Controls.Add(this.label3);
-            this.Recientes.Controls.Add(this.label2);
-            this.Recientes.Controls.Add(this.richTextBox1);
-            this.Recientes.Controls.Add(this.listbox1);
+            this.Recientes.Controls.Add(this.buttonMensajes);
+            this.Recientes.Controls.Add(this.richTextBoxMensaje);
+            this.Recientes.Controls.Add(this.checkBoxRealizada);
+            this.Recientes.Controls.Add(this.labelEnviadoR);
+            this.Recientes.Controls.Add(this.textBoxEnviadoR);
+            this.Recientes.Controls.Add(this.textBoxAsuntoR);
+            this.Recientes.Controls.Add(this.labelAsuntoR);
+            this.Recientes.Controls.Add(this.labelDescR);
+            this.Recientes.Controls.Add(this.richTextBoxDescrR);
+            this.Recientes.Controls.Add(this.listboxPeticionesR);
             this.Recientes.Location = new System.Drawing.Point(4, 22);
             this.Recientes.Name = "Recientes";
             this.Recientes.Padding = new System.Windows.Forms.Padding(3);
@@ -167,103 +157,107 @@
             this.Recientes.Text = "Recientes";
             this.Recientes.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // buttonMensajes
             // 
-            this.button6.Location = new System.Drawing.Point(317, 263);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(232, 23);
-            this.button6.TabIndex = 58;
-            this.button6.Text = "Enviar mensaje al usuario";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonMensajes.Location = new System.Drawing.Point(317, 263);
+            this.buttonMensajes.Name = "buttonMensajes";
+            this.buttonMensajes.Size = new System.Drawing.Size(232, 23);
+            this.buttonMensajes.TabIndex = 58;
+            this.buttonMensajes.Text = "Enviar mensaje al usuario";
+            this.buttonMensajes.UseVisualStyleBackColor = true;
             // 
-            // richTextBox2
+            // richTextBoxMensaje
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(317, 149);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(232, 108);
-            this.richTextBox2.TabIndex = 8;
-            this.richTextBox2.Text = "Ya he creado la asignatura, gracias por avisar.";
+            this.richTextBoxMensaje.Location = new System.Drawing.Point(317, 149);
+            this.richTextBoxMensaje.Name = "richTextBoxMensaje";
+            this.richTextBoxMensaje.Size = new System.Drawing.Size(232, 108);
+            this.richTextBoxMensaje.TabIndex = 8;
+            this.richTextBoxMensaje.Text = "Ya he creado la asignatura, gracias por avisar.";
             // 
-            // checkBox1
+            // checkBoxRealizada
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(317, 126);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(73, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "Realizada";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxRealizada.AutoSize = true;
+            this.checkBoxRealizada.Location = new System.Drawing.Point(317, 126);
+            this.checkBoxRealizada.Name = "checkBoxRealizada";
+            this.checkBoxRealizada.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxRealizada.TabIndex = 7;
+            this.checkBoxRealizada.Text = "Realizada";
+            this.checkBoxRealizada.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // labelEnviadoR
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(314, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Enviada por:";
+            this.labelEnviadoR.AutoSize = true;
+            this.labelEnviadoR.Location = new System.Drawing.Point(314, 101);
+            this.labelEnviadoR.Name = "labelEnviadoR";
+            this.labelEnviadoR.Size = new System.Drawing.Size(67, 13);
+            this.labelEnviadoR.TabIndex = 6;
+            this.labelEnviadoR.Text = "Enviada por:";
             // 
-            // textBox2
+            // textBoxEnviadoR
             // 
-            this.textBox2.Location = new System.Drawing.Point(387, 98);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "Raul";
+            this.textBoxEnviadoR.Location = new System.Drawing.Point(387, 98);
+            this.textBoxEnviadoR.Name = "textBoxEnviadoR";
+            this.textBoxEnviadoR.ReadOnly = true;
+            this.textBoxEnviadoR.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEnviadoR.TabIndex = 5;
+            this.textBoxEnviadoR.Text = "Raul";
             // 
-            // textBox1
+            // textBoxAsuntoR
             // 
-            this.textBox1.Location = new System.Drawing.Point(55, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Quiero una categoria nueva";
+            this.textBoxAsuntoR.Location = new System.Drawing.Point(55, 98);
+            this.textBoxAsuntoR.Name = "textBoxAsuntoR";
+            this.textBoxAsuntoR.ReadOnly = true;
+            this.textBoxAsuntoR.Size = new System.Drawing.Size(180, 20);
+            this.textBoxAsuntoR.TabIndex = 4;
+            this.textBoxAsuntoR.Text = "Quiero una categoria nueva";
             // 
-            // label3
+            // labelAsuntoR
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Asunto:";
+            this.labelAsuntoR.AutoSize = true;
+            this.labelAsuntoR.Location = new System.Drawing.Point(6, 101);
+            this.labelAsuntoR.Name = "labelAsuntoR";
+            this.labelAsuntoR.Size = new System.Drawing.Size(43, 13);
+            this.labelAsuntoR.TabIndex = 3;
+            this.labelAsuntoR.Text = "Asunto:";
             // 
-            // label2
+            // labelDescR
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 129);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Descripción:";
+            this.labelDescR.AutoSize = true;
+            this.labelDescR.Location = new System.Drawing.Point(6, 129);
+            this.labelDescR.Name = "labelDescR";
+            this.labelDescR.Size = new System.Drawing.Size(66, 13);
+            this.labelDescR.TabIndex = 2;
+            this.labelDescR.Text = "Descripción:";
             // 
-            // richTextBox1
+            // richTextBoxDescrR
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 149);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(300, 137);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "He querido subir un material y no encontre la asignatura de DPAA";
+            this.richTextBoxDescrR.Location = new System.Drawing.Point(6, 149);
+            this.richTextBoxDescrR.Name = "richTextBoxDescrR";
+            this.richTextBoxDescrR.ReadOnly = true;
+            this.richTextBoxDescrR.Size = new System.Drawing.Size(300, 137);
+            this.richTextBoxDescrR.TabIndex = 1;
+            this.richTextBoxDescrR.Text = "He querido subir un material y no encontre la asignatura de DPAA";
             // 
-            // listbox1
+            // listboxPeticionesR
             // 
-            this.listbox1.FormattingEnabled = true;
-            this.listbox1.Items.AddRange(new object[] {
+            this.listboxPeticionesR.FormattingEnabled = true;
+            this.listboxPeticionesR.Items.AddRange(new object[] {
             "Quiero una categoria nueva"});
-            this.listbox1.Location = new System.Drawing.Point(3, 6);
-            this.listbox1.Name = "listbox1";
-            this.listbox1.Size = new System.Drawing.Size(303, 82);
-            this.listbox1.TabIndex = 0;
+            this.listboxPeticionesR.Location = new System.Drawing.Point(3, 6);
+            this.listboxPeticionesR.Name = "listboxPeticionesR";
+            this.listboxPeticionesR.ScrollAlwaysVisible = true;
+            this.listboxPeticionesR.Size = new System.Drawing.Size(303, 82);
+            this.listboxPeticionesR.TabIndex = 0;
             // 
             // Antiguas
             // 
-            this.Antiguas.Controls.Add(this.label8);
-            this.Antiguas.Controls.Add(this.textBox5);
-            this.Antiguas.Controls.Add(this.textBox6);
-            this.Antiguas.Controls.Add(this.label9);
-            this.Antiguas.Controls.Add(this.label10);
-            this.Antiguas.Controls.Add(this.richTextBox5);
-            this.Antiguas.Controls.Add(this.listBox2);
+            this.Antiguas.Controls.Add(this.labelEnviadoA);
+            this.Antiguas.Controls.Add(this.textBoxEnviadoA);
+            this.Antiguas.Controls.Add(this.textBoxAsuntoA);
+            this.Antiguas.Controls.Add(this.labelAsuntoA);
+            this.Antiguas.Controls.Add(this.labelDescA);
+            this.Antiguas.Controls.Add(this.richTextBoxDescA);
+            this.Antiguas.Controls.Add(this.listBoxPeticionesA);
             this.Antiguas.Location = new System.Drawing.Point(4, 22);
             this.Antiguas.Name = "Antiguas";
             this.Antiguas.Padding = new System.Windows.Forms.Padding(3);
@@ -272,167 +266,83 @@
             this.Antiguas.Text = "Antiguas";
             this.Antiguas.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // labelEnviadoA
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Items.AddRange(new object[] {
+            this.labelEnviadoA.AutoSize = true;
+            this.labelEnviadoA.Location = new System.Drawing.Point(314, 101);
+            this.labelEnviadoA.Name = "labelEnviadoA";
+            this.labelEnviadoA.Size = new System.Drawing.Size(67, 13);
+            this.labelEnviadoA.TabIndex = 12;
+            this.labelEnviadoA.Text = "Enviada por:";
+            // 
+            // textBoxEnviadoA
+            // 
+            this.textBoxEnviadoA.Location = new System.Drawing.Point(387, 98);
+            this.textBoxEnviadoA.Name = "textBoxEnviadoA";
+            this.textBoxEnviadoA.ReadOnly = true;
+            this.textBoxEnviadoA.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEnviadoA.TabIndex = 11;
+            this.textBoxEnviadoA.Text = "Raul";
+            // 
+            // textBoxAsuntoA
+            // 
+            this.textBoxAsuntoA.Location = new System.Drawing.Point(55, 98);
+            this.textBoxAsuntoA.Name = "textBoxAsuntoA";
+            this.textBoxAsuntoA.ReadOnly = true;
+            this.textBoxAsuntoA.Size = new System.Drawing.Size(180, 20);
+            this.textBoxAsuntoA.TabIndex = 10;
+            this.textBoxAsuntoA.Text = "Quiero una categoria nueva";
+            // 
+            // labelAsuntoA
+            // 
+            this.labelAsuntoA.AutoSize = true;
+            this.labelAsuntoA.Location = new System.Drawing.Point(6, 101);
+            this.labelAsuntoA.Name = "labelAsuntoA";
+            this.labelAsuntoA.Size = new System.Drawing.Size(43, 13);
+            this.labelAsuntoA.TabIndex = 9;
+            this.labelAsuntoA.Text = "Asunto:";
+            // 
+            // labelDescA
+            // 
+            this.labelDescA.AutoSize = true;
+            this.labelDescA.Location = new System.Drawing.Point(6, 129);
+            this.labelDescA.Name = "labelDescA";
+            this.labelDescA.Size = new System.Drawing.Size(66, 13);
+            this.labelDescA.TabIndex = 8;
+            this.labelDescA.Text = "Descripción:";
+            // 
+            // richTextBoxDescA
+            // 
+            this.richTextBoxDescA.Location = new System.Drawing.Point(6, 151);
+            this.richTextBoxDescA.Name = "richTextBoxDescA";
+            this.richTextBoxDescA.ReadOnly = true;
+            this.richTextBoxDescA.Size = new System.Drawing.Size(527, 137);
+            this.richTextBoxDescA.TabIndex = 7;
+            this.richTextBoxDescA.Text = "He querido subir un material y no encontre la asignatura de DPAA";
+            // 
+            // listBoxPeticionesA
+            // 
+            this.listBoxPeticionesA.FormattingEnabled = true;
+            this.listBoxPeticionesA.Items.AddRange(new object[] {
             "Quiero una categoria nueva"});
-            this.listBox2.Location = new System.Drawing.Point(3, 6);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(303, 82);
-            this.listBox2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(325, 263);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(224, 23);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "Enviar mensaje al usuario";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(325, 149);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(224, 108);
-            this.richTextBox3.TabIndex = 8;
-            this.richTextBox3.Text = "Ya he creado la asignatura, gracias por avisar.";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(325, 127);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(73, 17);
-            this.checkBox2.TabIndex = 7;
-            this.checkBox2.Text = "Realizada";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(252, 101);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Enviada por:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(325, 98);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
-            this.textBox3.Text = "Raul";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(55, 98);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(180, 20);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "Quiero una categoria nueva";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Asunto:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 129);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Descripción:";
-            // 
-            // richTextBox4
-            // 
-            this.richTextBox4.Location = new System.Drawing.Point(6, 149);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(300, 137);
-            this.richTextBox4.TabIndex = 1;
-            this.richTextBox4.Text = "He querido subir un material y no encontre la asignatura de DPAA";
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Items.AddRange(new object[] {
-            "Quiero una categoria nueva"});
-            this.listBox3.Location = new System.Drawing.Point(3, 6);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(303, 82);
-            this.listBox3.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(314, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Enviada por:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(387, 98);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 11;
-            this.textBox5.Text = "Raul";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(55, 98);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(180, 20);
-            this.textBox6.TabIndex = 10;
-            this.textBox6.Text = "Quiero una categoria nueva";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 101);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Asunto:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 129);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 13);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Descripción:";
-            // 
-            // richTextBox5
-            // 
-            this.richTextBox5.Location = new System.Drawing.Point(6, 151);
-            this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(527, 137);
-            this.richTextBox5.TabIndex = 7;
-            this.richTextBox5.Text = "He querido subir un material y no encontre la asignatura de DPAA";
+            this.listBoxPeticionesA.Location = new System.Drawing.Point(3, 6);
+            this.listBoxPeticionesA.Name = "listBoxPeticionesA";
+            this.listBoxPeticionesA.ScrollAlwaysVisible = true;
+            this.listBoxPeticionesA.Size = new System.Drawing.Size(303, 82);
+            this.listBoxPeticionesA.TabIndex = 1;
             // 
             // FormPeticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(774, 464);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Name = "FormPeticiones";
-            this.Controls.SetChildIndex(this.tableLayoutPanel2, 0);
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.Controls.SetChildIndex(this.tableLayoutPanel, 0);
+            this.tableLayoutPanel.ResumeLayout(false);
             this.panelPeticiones.ResumeLayout(false);
             this.panelPeticiones.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.panelFondo.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.Recientes.ResumeLayout(false);
             this.Recientes.PerformLayout();
             this.Antiguas.ResumeLayout(false);
@@ -443,40 +353,30 @@
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Panel panelPeticiones;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Label labelPeticiones;
+        private System.Windows.Forms.Panel panelFondo;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage Recientes;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.RichTextBox richTextBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.ListBox listbox1;
+        private System.Windows.Forms.Button buttonMensajes;
+        private System.Windows.Forms.RichTextBox richTextBoxMensaje;
+        private System.Windows.Forms.CheckBox checkBoxRealizada;
+        private System.Windows.Forms.Label labelEnviadoR;
+        private System.Windows.Forms.TextBox textBoxEnviadoR;
+        private System.Windows.Forms.TextBox textBoxAsuntoR;
+        private System.Windows.Forms.Label labelAsuntoR;
+        private System.Windows.Forms.Label labelDescR;
+        private System.Windows.Forms.RichTextBox richTextBoxDescrR;
+        private System.Windows.Forms.ListBox listboxPeticionesR;
         private System.Windows.Forms.TabPage Antiguas;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RichTextBox richTextBox4;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox richTextBox5;
+        private System.Windows.Forms.ListBox listBoxPeticionesA;
+        private System.Windows.Forms.Label labelEnviadoA;
+        private System.Windows.Forms.TextBox textBoxEnviadoA;
+        private System.Windows.Forms.TextBox textBoxAsuntoA;
+        private System.Windows.Forms.Label labelAsuntoA;
+        private System.Windows.Forms.Label labelDescA;
+        private System.Windows.Forms.RichTextBox richTextBoxDescA;
 
 
 
