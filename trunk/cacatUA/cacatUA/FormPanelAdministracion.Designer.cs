@@ -39,6 +39,7 @@
             this.tableLayoutPanel_logo = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_botones = new System.Windows.Forms.TableLayoutPanel();
             this.button_categorias = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel_logo.SuspendLayout();
             this.tableLayoutPanel_botones.SuspendLayout();
@@ -145,6 +146,7 @@
             this.tableLayoutPanel_botones.Controls.Add(this.button_grupos, 0, 5);
             this.tableLayoutPanel_botones.Controls.Add(this.button_foro, 0, 3);
             this.tableLayoutPanel_botones.Controls.Add(this.button_peticiones, 0, 4);
+            this.tableLayoutPanel_botones.Controls.Add(this.buttonSalir, 0, 7);
             this.tableLayoutPanel_botones.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel_botones.Location = new System.Drawing.Point(0, 100);
             this.tableLayoutPanel_botones.Name = "tableLayoutPanel_botones";
@@ -169,6 +171,16 @@
             this.button_categorias.Text = "Categorías";
             this.button_categorias.UseVisualStyleBackColor = true;
             this.button_categorias.Click += new System.EventHandler(this.button_categorias_Click);
+            // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Location = new System.Drawing.Point(3, 318);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(184, 39);
+            this.buttonSalir.TabIndex = 10;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormPanelAdministracion
             // 
@@ -200,6 +212,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_logo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_botones;
         private System.Windows.Forms.Button button_categorias;
+        private System.Windows.Forms.Button buttonSalir;
 
 
     }
