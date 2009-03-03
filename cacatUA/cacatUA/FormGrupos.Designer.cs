@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupos));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panelPeticiones = new System.Windows.Forms.Panel();
             this.labelGrupos = new System.Windows.Forms.Label();
@@ -368,7 +369,7 @@
             // 
             // buttonTraspaso
             // 
-            this.buttonTraspaso.Image = global::cacatUA.Properties.Resources.flecha3;
+            this.buttonTraspaso.Image = ((System.Drawing.Image)(resources.GetObject("buttonTraspaso.Image")));
             this.buttonTraspaso.Location = new System.Drawing.Point(333, 156);
             this.buttonTraspaso.Name = "buttonTraspaso";
             this.buttonTraspaso.Size = new System.Drawing.Size(43, 38);
