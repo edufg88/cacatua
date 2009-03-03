@@ -119,6 +119,7 @@
             // 
             // tableLayoutPanel_logo
             // 
+            this.tableLayoutPanel_logo.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tableLayoutPanel_logo.ColumnCount = 3;
             this.tableLayoutPanel_logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel_logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 409F));
@@ -134,6 +135,7 @@
             // 
             // tableLayoutPanel_botones
             // 
+            this.tableLayoutPanel_botones.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tableLayoutPanel_botones.ColumnCount = 1;
             this.tableLayoutPanel_botones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_botones.Controls.Add(this.button_categorias, 0, 6);
