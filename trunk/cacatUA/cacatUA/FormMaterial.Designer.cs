@@ -49,7 +49,21 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button_guardar = new System.Windows.Forms.Button();
             this.button_borrar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.holToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jjjToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hhhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kkkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jjkkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kllkklToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.llklToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.klkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -200,6 +214,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.button_guardar);
             this.panel1.Controls.Add(this.button_borrar);
@@ -222,7 +239,7 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(724, 311);
+            this.panel1.Size = new System.Drawing.Size(744, 315);
             this.panel1.TabIndex = 77;
             // 
             // textBox6
@@ -250,16 +267,115 @@
             this.button_borrar.Text = "Borrar";
             this.button_borrar.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.menuStrip1);
+            this.panel2.Location = new System.Drawing.Point(624, 190);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(86, 23);
+            this.panel2.TabIndex = 81;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.holToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(86, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // holToolStripMenuItem
+            // 
+            this.holToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jjjToolStripMenuItem,
+            this.kkkToolStripMenuItem,
+            this.kllkklToolStripMenuItem});
+            this.holToolStripMenuItem.Name = "holToolStripMenuItem";
+            this.holToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.holToolStripMenuItem.Text = "Seleccionar";
+            // 
+            // jjjToolStripMenuItem
+            // 
+            this.jjjToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hhhToolStripMenuItem});
+            this.jjjToolStripMenuItem.Name = "jjjToolStripMenuItem";
+            this.jjjToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.jjjToolStripMenuItem.Text = "jjj";
+            // 
+            // hhhToolStripMenuItem
+            // 
+            this.hhhToolStripMenuItem.Name = "hhhToolStripMenuItem";
+            this.hhhToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hhhToolStripMenuItem.Text = "hhh";
+            // 
+            // kkkToolStripMenuItem
+            // 
+            this.kkkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jjkkToolStripMenuItem});
+            this.kkkToolStripMenuItem.Name = "kkkToolStripMenuItem";
+            this.kkkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kkkToolStripMenuItem.Text = "kkk";
+            // 
+            // jjkkToolStripMenuItem
+            // 
+            this.jjkkToolStripMenuItem.Name = "jjkkToolStripMenuItem";
+            this.jjkkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.jjkkToolStripMenuItem.Text = "jjkk";
+            // 
+            // kllkklToolStripMenuItem
+            // 
+            this.kllkklToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.llklToolStripMenuItem});
+            this.kllkklToolStripMenuItem.Name = "kllkklToolStripMenuItem";
+            this.kllkklToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kllkklToolStripMenuItem.Text = "kllkkl";
+            // 
+            // llklToolStripMenuItem
+            // 
+            this.llklToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.klkToolStripMenuItem});
+            this.llklToolStripMenuItem.Name = "llklToolStripMenuItem";
+            this.llklToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.llklToolStripMenuItem.Text = "llkl";
+            // 
+            // klkToolStripMenuItem
+            // 
+            this.klkToolStripMenuItem.Name = "klkToolStripMenuItem";
+            this.klkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.klkToolStripMenuItem.Text = "klk";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(469, 191);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(149, 20);
+            this.textBox8.TabIndex = 82;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(388, 193);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 83;
+            this.label1.Text = "Subcategoría:";
+            // 
             // FormMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 331);
+            this.ClientSize = new System.Drawing.Size(914, 460);
             this.Controls.Add(this.panel1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMaterial";
             this.Text = "FormMaterial";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -287,5 +403,17 @@
         private System.Windows.Forms.Button button_guardar;
         private System.Windows.Forms.Button button_borrar;
         private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem holToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jjjToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hhhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kkkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jjkkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kllkklToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem llklToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem klkToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label1;
     }
 }
