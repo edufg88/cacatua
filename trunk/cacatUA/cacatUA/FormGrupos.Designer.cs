@@ -32,9 +32,23 @@
             this.panelPeticiones = new System.Windows.Forms.Panel();
             this.labelGrupos = new System.Windows.Forms.Label();
             this.panelFondo = new System.Windows.Forms.Panel();
+            this.groupBoxDescripcion = new System.Windows.Forms.GroupBox();
+            this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
+            this.textBoxCreadorGrupo = new System.Windows.Forms.TextBox();
+            this.labelCreadorGrupo = new System.Windows.Forms.Label();
+            this.textBoxNombreGrupo = new System.Windows.Forms.TextBox();
+            this.labelNombreGrupo = new System.Windows.Forms.Label();
+            this.groupBoxListar = new System.Windows.Forms.GroupBox();
+            this.radioButtonPublicosL = new System.Windows.Forms.RadioButton();
+            this.radioButtonPrivadosL = new System.Windows.Forms.RadioButton();
             this.buttonListar = new System.Windows.Forms.Button();
-            this.labelBuscar = new System.Windows.Forms.Label();
+            this.radioButtonTodosL = new System.Windows.Forms.RadioButton();
+            this.groupBoxBuscar = new System.Windows.Forms.GroupBox();
+            this.radioButtonPublicosB = new System.Windows.Forms.RadioButton();
+            this.radioButtonPrivadosB = new System.Windows.Forms.RadioButton();
+            this.radioButtonTodosB = new System.Windows.Forms.RadioButton();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
+            this.labelBuscar = new System.Windows.Forms.Label();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.buttonUsuario = new System.Windows.Forms.Button();
             this.buttonBorrar = new System.Windows.Forms.Button();
@@ -45,26 +59,12 @@
             this.listBoxUsuario = new System.Windows.Forms.ListBox();
             this.labelGrupo = new System.Windows.Forms.Label();
             this.listBoxGrupo = new System.Windows.Forms.ListBox();
-            this.groupBoxBuscar = new System.Windows.Forms.GroupBox();
-            this.groupBoxListar = new System.Windows.Forms.GroupBox();
-            this.radioButtonTodosB = new System.Windows.Forms.RadioButton();
-            this.radioButtonPrivadosB = new System.Windows.Forms.RadioButton();
-            this.radioButtonPublicosB = new System.Windows.Forms.RadioButton();
-            this.radioButtonPublicosL = new System.Windows.Forms.RadioButton();
-            this.radioButtonPrivadosL = new System.Windows.Forms.RadioButton();
-            this.radioButtonTodosL = new System.Windows.Forms.RadioButton();
-            this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
-            this.labelCreadorGrupo = new System.Windows.Forms.Label();
-            this.labelNombreGrupo = new System.Windows.Forms.Label();
-            this.textBoxNombreGrupo = new System.Windows.Forms.TextBox();
-            this.textBoxCreadorGrupo = new System.Windows.Forms.TextBox();
-            this.groupBoxDescripcion = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel.SuspendLayout();
             this.panelPeticiones.SuspendLayout();
             this.panelFondo.SuspendLayout();
-            this.groupBoxBuscar.SuspendLayout();
-            this.groupBoxListar.SuspendLayout();
             this.groupBoxDescripcion.SuspendLayout();
+            this.groupBoxListar.SuspendLayout();
+            this.groupBoxBuscar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -145,6 +145,98 @@
             this.panelFondo.Size = new System.Drawing.Size(692, 386);
             this.panelFondo.TabIndex = 31;
             // 
+            // groupBoxDescripcion
+            // 
+            this.groupBoxDescripcion.Controls.Add(this.richTextBoxDesc);
+            this.groupBoxDescripcion.Controls.Add(this.textBoxCreadorGrupo);
+            this.groupBoxDescripcion.Controls.Add(this.labelCreadorGrupo);
+            this.groupBoxDescripcion.Controls.Add(this.textBoxNombreGrupo);
+            this.groupBoxDescripcion.Controls.Add(this.labelNombreGrupo);
+            this.groupBoxDescripcion.Location = new System.Drawing.Point(6, 238);
+            this.groupBoxDescripcion.Name = "groupBoxDescripcion";
+            this.groupBoxDescripcion.Size = new System.Drawing.Size(666, 138);
+            this.groupBoxDescripcion.TabIndex = 22;
+            this.groupBoxDescripcion.TabStop = false;
+            this.groupBoxDescripcion.Text = "Descripción del Grupo:";
+            // 
+            // richTextBoxDesc
+            // 
+            this.richTextBoxDesc.Location = new System.Drawing.Point(9, 19);
+            this.richTextBoxDesc.Name = "richTextBoxDesc";
+            this.richTextBoxDesc.ReadOnly = true;
+            this.richTextBoxDesc.Size = new System.Drawing.Size(304, 113);
+            this.richTextBoxDesc.TabIndex = 16;
+            this.richTextBoxDesc.Text = "";
+            // 
+            // textBoxCreadorGrupo
+            // 
+            this.textBoxCreadorGrupo.Location = new System.Drawing.Point(437, 91);
+            this.textBoxCreadorGrupo.Name = "textBoxCreadorGrupo";
+            this.textBoxCreadorGrupo.ReadOnly = true;
+            this.textBoxCreadorGrupo.Size = new System.Drawing.Size(191, 20);
+            this.textBoxCreadorGrupo.TabIndex = 21;
+            // 
+            // labelCreadorGrupo
+            // 
+            this.labelCreadorGrupo.AutoSize = true;
+            this.labelCreadorGrupo.Location = new System.Drawing.Point(332, 94);
+            this.labelCreadorGrupo.Name = "labelCreadorGrupo";
+            this.labelCreadorGrupo.Size = new System.Drawing.Size(96, 13);
+            this.labelCreadorGrupo.TabIndex = 18;
+            this.labelCreadorGrupo.Text = "Creador del Grupo:";
+            // 
+            // textBoxNombreGrupo
+            // 
+            this.textBoxNombreGrupo.Location = new System.Drawing.Point(437, 36);
+            this.textBoxNombreGrupo.Name = "textBoxNombreGrupo";
+            this.textBoxNombreGrupo.ReadOnly = true;
+            this.textBoxNombreGrupo.Size = new System.Drawing.Size(191, 20);
+            this.textBoxNombreGrupo.TabIndex = 20;
+            // 
+            // labelNombreGrupo
+            // 
+            this.labelNombreGrupo.AutoSize = true;
+            this.labelNombreGrupo.Location = new System.Drawing.Point(332, 39);
+            this.labelNombreGrupo.Name = "labelNombreGrupo";
+            this.labelNombreGrupo.Size = new System.Drawing.Size(96, 13);
+            this.labelNombreGrupo.TabIndex = 19;
+            this.labelNombreGrupo.Text = "Nombre del Grupo:";
+            // 
+            // groupBoxListar
+            // 
+            this.groupBoxListar.Controls.Add(this.radioButtonPublicosL);
+            this.groupBoxListar.Controls.Add(this.radioButtonPrivadosL);
+            this.groupBoxListar.Controls.Add(this.buttonListar);
+            this.groupBoxListar.Controls.Add(this.radioButtonTodosL);
+            this.groupBoxListar.Location = new System.Drawing.Point(352, 13);
+            this.groupBoxListar.Name = "groupBoxListar";
+            this.groupBoxListar.Size = new System.Drawing.Size(330, 70);
+            this.groupBoxListar.TabIndex = 15;
+            this.groupBoxListar.TabStop = false;
+            this.groupBoxListar.Text = "Listar:";
+            // 
+            // radioButtonPublicosL
+            // 
+            this.radioButtonPublicosL.AutoSize = true;
+            this.radioButtonPublicosL.Location = new System.Drawing.Point(244, 20);
+            this.radioButtonPublicosL.Name = "radioButtonPublicosL";
+            this.radioButtonPublicosL.Size = new System.Drawing.Size(65, 17);
+            this.radioButtonPublicosL.TabIndex = 18;
+            this.radioButtonPublicosL.TabStop = true;
+            this.radioButtonPublicosL.Text = "Públicos";
+            this.radioButtonPublicosL.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPrivadosL
+            // 
+            this.radioButtonPrivadosL.AutoSize = true;
+            this.radioButtonPrivadosL.Location = new System.Drawing.Point(129, 20);
+            this.radioButtonPrivadosL.Name = "radioButtonPrivadosL";
+            this.radioButtonPrivadosL.Size = new System.Drawing.Size(66, 17);
+            this.radioButtonPrivadosL.TabIndex = 17;
+            this.radioButtonPrivadosL.TabStop = true;
+            this.radioButtonPrivadosL.Text = "Privados";
+            this.radioButtonPrivadosL.UseVisualStyleBackColor = true;
+            // 
             // buttonListar
             // 
             this.buttonListar.Location = new System.Drawing.Point(102, 41);
@@ -154,6 +246,72 @@
             this.buttonListar.Text = "Listar";
             this.buttonListar.UseVisualStyleBackColor = true;
             // 
+            // radioButtonTodosL
+            // 
+            this.radioButtonTodosL.AutoSize = true;
+            this.radioButtonTodosL.Location = new System.Drawing.Point(16, 20);
+            this.radioButtonTodosL.Name = "radioButtonTodosL";
+            this.radioButtonTodosL.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonTodosL.TabIndex = 16;
+            this.radioButtonTodosL.TabStop = true;
+            this.radioButtonTodosL.Text = "Todos";
+            this.radioButtonTodosL.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxBuscar
+            // 
+            this.groupBoxBuscar.Controls.Add(this.radioButtonPublicosB);
+            this.groupBoxBuscar.Controls.Add(this.radioButtonPrivadosB);
+            this.groupBoxBuscar.Controls.Add(this.radioButtonTodosB);
+            this.groupBoxBuscar.Controls.Add(this.textBoxBuscar);
+            this.groupBoxBuscar.Controls.Add(this.labelBuscar);
+            this.groupBoxBuscar.Controls.Add(this.buttonBuscar);
+            this.groupBoxBuscar.Location = new System.Drawing.Point(6, 13);
+            this.groupBoxBuscar.Name = "groupBoxBuscar";
+            this.groupBoxBuscar.Size = new System.Drawing.Size(340, 70);
+            this.groupBoxBuscar.TabIndex = 14;
+            this.groupBoxBuscar.TabStop = false;
+            this.groupBoxBuscar.Text = "Buscar:";
+            // 
+            // radioButtonPublicosB
+            // 
+            this.radioButtonPublicosB.AutoSize = true;
+            this.radioButtonPublicosB.Location = new System.Drawing.Point(237, 20);
+            this.radioButtonPublicosB.Name = "radioButtonPublicosB";
+            this.radioButtonPublicosB.Size = new System.Drawing.Size(65, 17);
+            this.radioButtonPublicosB.TabIndex = 15;
+            this.radioButtonPublicosB.TabStop = true;
+            this.radioButtonPublicosB.Text = "Públicos";
+            this.radioButtonPublicosB.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPrivadosB
+            // 
+            this.radioButtonPrivadosB.AutoSize = true;
+            this.radioButtonPrivadosB.Location = new System.Drawing.Point(122, 20);
+            this.radioButtonPrivadosB.Name = "radioButtonPrivadosB";
+            this.radioButtonPrivadosB.Size = new System.Drawing.Size(66, 17);
+            this.radioButtonPrivadosB.TabIndex = 14;
+            this.radioButtonPrivadosB.TabStop = true;
+            this.radioButtonPrivadosB.Text = "Privados";
+            this.radioButtonPrivadosB.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonTodosB
+            // 
+            this.radioButtonTodosB.AutoSize = true;
+            this.radioButtonTodosB.Location = new System.Drawing.Point(9, 20);
+            this.radioButtonTodosB.Name = "radioButtonTodosB";
+            this.radioButtonTodosB.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonTodosB.TabIndex = 13;
+            this.radioButtonTodosB.TabStop = true;
+            this.radioButtonTodosB.Text = "Todos";
+            this.radioButtonTodosB.UseVisualStyleBackColor = true;
+            // 
+            // textBoxBuscar
+            // 
+            this.textBoxBuscar.Location = new System.Drawing.Point(59, 43);
+            this.textBoxBuscar.Name = "textBoxBuscar";
+            this.textBoxBuscar.Size = new System.Drawing.Size(179, 20);
+            this.textBoxBuscar.TabIndex = 11;
+            // 
             // labelBuscar
             // 
             this.labelBuscar.AutoSize = true;
@@ -162,13 +320,6 @@
             this.labelBuscar.Size = new System.Drawing.Size(47, 13);
             this.labelBuscar.TabIndex = 12;
             this.labelBuscar.Text = "Nombre:";
-            // 
-            // textBoxBuscar
-            // 
-            this.textBoxBuscar.Location = new System.Drawing.Point(59, 43);
-            this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(179, 20);
-            this.textBoxBuscar.TabIndex = 11;
             // 
             // buttonBuscar
             // 
@@ -217,11 +368,11 @@
             // 
             // buttonTraspaso
             // 
+            this.buttonTraspaso.Image = global::cacatUA.Properties.Resources.flecha3;
             this.buttonTraspaso.Location = new System.Drawing.Point(333, 156);
             this.buttonTraspaso.Name = "buttonTraspaso";
             this.buttonTraspaso.Size = new System.Drawing.Size(43, 38);
             this.buttonTraspaso.TabIndex = 5;
-            this.buttonTraspaso.Text = "|>";
             this.buttonTraspaso.UseVisualStyleBackColor = true;
             this.buttonTraspaso.Click += new System.EventHandler(this.buttonTraspaso_Click);
             // 
@@ -263,157 +414,6 @@
             this.listBoxGrupo.Size = new System.Drawing.Size(210, 108);
             this.listBoxGrupo.TabIndex = 1;
             // 
-            // groupBoxBuscar
-            // 
-            this.groupBoxBuscar.Controls.Add(this.radioButtonPublicosB);
-            this.groupBoxBuscar.Controls.Add(this.radioButtonPrivadosB);
-            this.groupBoxBuscar.Controls.Add(this.radioButtonTodosB);
-            this.groupBoxBuscar.Controls.Add(this.textBoxBuscar);
-            this.groupBoxBuscar.Controls.Add(this.labelBuscar);
-            this.groupBoxBuscar.Controls.Add(this.buttonBuscar);
-            this.groupBoxBuscar.Location = new System.Drawing.Point(6, 13);
-            this.groupBoxBuscar.Name = "groupBoxBuscar";
-            this.groupBoxBuscar.Size = new System.Drawing.Size(340, 70);
-            this.groupBoxBuscar.TabIndex = 14;
-            this.groupBoxBuscar.TabStop = false;
-            this.groupBoxBuscar.Text = "Buscar:";
-            // 
-            // groupBoxListar
-            // 
-            this.groupBoxListar.Controls.Add(this.radioButtonPublicosL);
-            this.groupBoxListar.Controls.Add(this.radioButtonPrivadosL);
-            this.groupBoxListar.Controls.Add(this.buttonListar);
-            this.groupBoxListar.Controls.Add(this.radioButtonTodosL);
-            this.groupBoxListar.Location = new System.Drawing.Point(352, 13);
-            this.groupBoxListar.Name = "groupBoxListar";
-            this.groupBoxListar.Size = new System.Drawing.Size(330, 70);
-            this.groupBoxListar.TabIndex = 15;
-            this.groupBoxListar.TabStop = false;
-            this.groupBoxListar.Text = "Listar:";
-            // 
-            // radioButtonTodosB
-            // 
-            this.radioButtonTodosB.AutoSize = true;
-            this.radioButtonTodosB.Location = new System.Drawing.Point(9, 20);
-            this.radioButtonTodosB.Name = "radioButtonTodosB";
-            this.radioButtonTodosB.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonTodosB.TabIndex = 13;
-            this.radioButtonTodosB.TabStop = true;
-            this.radioButtonTodosB.Text = "Todos";
-            this.radioButtonTodosB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPrivadosB
-            // 
-            this.radioButtonPrivadosB.AutoSize = true;
-            this.radioButtonPrivadosB.Location = new System.Drawing.Point(122, 20);
-            this.radioButtonPrivadosB.Name = "radioButtonPrivadosB";
-            this.radioButtonPrivadosB.Size = new System.Drawing.Size(66, 17);
-            this.radioButtonPrivadosB.TabIndex = 14;
-            this.radioButtonPrivadosB.TabStop = true;
-            this.radioButtonPrivadosB.Text = "Privados";
-            this.radioButtonPrivadosB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPublicosB
-            // 
-            this.radioButtonPublicosB.AutoSize = true;
-            this.radioButtonPublicosB.Location = new System.Drawing.Point(237, 20);
-            this.radioButtonPublicosB.Name = "radioButtonPublicosB";
-            this.radioButtonPublicosB.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonPublicosB.TabIndex = 15;
-            this.radioButtonPublicosB.TabStop = true;
-            this.radioButtonPublicosB.Text = "Públicos";
-            this.radioButtonPublicosB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPublicosL
-            // 
-            this.radioButtonPublicosL.AutoSize = true;
-            this.radioButtonPublicosL.Location = new System.Drawing.Point(244, 20);
-            this.radioButtonPublicosL.Name = "radioButtonPublicosL";
-            this.radioButtonPublicosL.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonPublicosL.TabIndex = 18;
-            this.radioButtonPublicosL.TabStop = true;
-            this.radioButtonPublicosL.Text = "Públicos";
-            this.radioButtonPublicosL.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPrivadosL
-            // 
-            this.radioButtonPrivadosL.AutoSize = true;
-            this.radioButtonPrivadosL.Location = new System.Drawing.Point(129, 20);
-            this.radioButtonPrivadosL.Name = "radioButtonPrivadosL";
-            this.radioButtonPrivadosL.Size = new System.Drawing.Size(66, 17);
-            this.radioButtonPrivadosL.TabIndex = 17;
-            this.radioButtonPrivadosL.TabStop = true;
-            this.radioButtonPrivadosL.Text = "Privados";
-            this.radioButtonPrivadosL.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonTodosL
-            // 
-            this.radioButtonTodosL.AutoSize = true;
-            this.radioButtonTodosL.Location = new System.Drawing.Point(16, 20);
-            this.radioButtonTodosL.Name = "radioButtonTodosL";
-            this.radioButtonTodosL.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonTodosL.TabIndex = 16;
-            this.radioButtonTodosL.TabStop = true;
-            this.radioButtonTodosL.Text = "Todos";
-            this.radioButtonTodosL.UseVisualStyleBackColor = true;
-            // 
-            // richTextBoxDesc
-            // 
-            this.richTextBoxDesc.Location = new System.Drawing.Point(9, 19);
-            this.richTextBoxDesc.Name = "richTextBoxDesc";
-            this.richTextBoxDesc.ReadOnly = true;
-            this.richTextBoxDesc.Size = new System.Drawing.Size(304, 113);
-            this.richTextBoxDesc.TabIndex = 16;
-            this.richTextBoxDesc.Text = "";
-            // 
-            // labelCreadorGrupo
-            // 
-            this.labelCreadorGrupo.AutoSize = true;
-            this.labelCreadorGrupo.Location = new System.Drawing.Point(332, 94);
-            this.labelCreadorGrupo.Name = "labelCreadorGrupo";
-            this.labelCreadorGrupo.Size = new System.Drawing.Size(96, 13);
-            this.labelCreadorGrupo.TabIndex = 18;
-            this.labelCreadorGrupo.Text = "Creador del Grupo:";
-            // 
-            // labelNombreGrupo
-            // 
-            this.labelNombreGrupo.AutoSize = true;
-            this.labelNombreGrupo.Location = new System.Drawing.Point(332, 39);
-            this.labelNombreGrupo.Name = "labelNombreGrupo";
-            this.labelNombreGrupo.Size = new System.Drawing.Size(96, 13);
-            this.labelNombreGrupo.TabIndex = 19;
-            this.labelNombreGrupo.Text = "Nombre del Grupo:";
-            // 
-            // textBoxNombreGrupo
-            // 
-            this.textBoxNombreGrupo.Location = new System.Drawing.Point(437, 36);
-            this.textBoxNombreGrupo.Name = "textBoxNombreGrupo";
-            this.textBoxNombreGrupo.ReadOnly = true;
-            this.textBoxNombreGrupo.Size = new System.Drawing.Size(191, 20);
-            this.textBoxNombreGrupo.TabIndex = 20;
-            // 
-            // textBoxCreadorGrupo
-            // 
-            this.textBoxCreadorGrupo.Location = new System.Drawing.Point(437, 91);
-            this.textBoxCreadorGrupo.Name = "textBoxCreadorGrupo";
-            this.textBoxCreadorGrupo.ReadOnly = true;
-            this.textBoxCreadorGrupo.Size = new System.Drawing.Size(191, 20);
-            this.textBoxCreadorGrupo.TabIndex = 21;
-            // 
-            // groupBoxDescripcion
-            // 
-            this.groupBoxDescripcion.Controls.Add(this.richTextBoxDesc);
-            this.groupBoxDescripcion.Controls.Add(this.textBoxCreadorGrupo);
-            this.groupBoxDescripcion.Controls.Add(this.labelCreadorGrupo);
-            this.groupBoxDescripcion.Controls.Add(this.textBoxNombreGrupo);
-            this.groupBoxDescripcion.Controls.Add(this.labelNombreGrupo);
-            this.groupBoxDescripcion.Location = new System.Drawing.Point(6, 238);
-            this.groupBoxDescripcion.Name = "groupBoxDescripcion";
-            this.groupBoxDescripcion.Size = new System.Drawing.Size(666, 138);
-            this.groupBoxDescripcion.TabIndex = 22;
-            this.groupBoxDescripcion.TabStop = false;
-            this.groupBoxDescripcion.Text = "Descripción del Grupo:";
-            // 
             // FormGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,12 +426,12 @@
             this.panelPeticiones.PerformLayout();
             this.panelFondo.ResumeLayout(false);
             this.panelFondo.PerformLayout();
-            this.groupBoxBuscar.ResumeLayout(false);
-            this.groupBoxBuscar.PerformLayout();
-            this.groupBoxListar.ResumeLayout(false);
-            this.groupBoxListar.PerformLayout();
             this.groupBoxDescripcion.ResumeLayout(false);
             this.groupBoxDescripcion.PerformLayout();
+            this.groupBoxListar.ResumeLayout(false);
+            this.groupBoxListar.PerformLayout();
+            this.groupBoxBuscar.ResumeLayout(false);
+            this.groupBoxBuscar.PerformLayout();
             this.ResumeLayout(false);
 
         }
