@@ -33,15 +33,15 @@
             this.button_foro = new System.Windows.Forms.Button();
             this.button_peticiones = new System.Windows.Forms.Button();
             this.button_grupos = new System.Windows.Forms.Button();
-            this.button_materiales = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button_usuarios = new System.Windows.Forms.Button();
             this.tableLayoutPanel_logo = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_botones = new System.Windows.Forms.TableLayoutPanel();
             this.button_categorias = new System.Windows.Forms.Button();
+            this.button_usuarios = new System.Windows.Forms.Button();
+            this.button_materiales = new System.Windows.Forms.Button();
             this.buttonSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel_logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel_botones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,47 +85,14 @@
             this.button_grupos.UseVisualStyleBackColor = true;
             this.button_grupos.Click += new System.EventHandler(this.button_grupos_Click);
             // 
-            // button_materiales
-            // 
-            this.button_materiales.Image = ((System.Drawing.Image)(resources.GetObject("button_materiales.Image")));
-            this.button_materiales.Location = new System.Drawing.Point(3, 93);
-            this.button_materiales.Name = "button_materiales";
-            this.button_materiales.Size = new System.Drawing.Size(184, 39);
-            this.button_materiales.TabIndex = 3;
-            this.button_materiales.UseVisualStyleBackColor = true;
-            this.button_materiales.Click += new System.EventHandler(this.button_materiales_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(237, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(403, 94);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button_usuarios
-            // 
-            this.button_usuarios.FlatAppearance.BorderSize = 0;
-            this.button_usuarios.Image = global::cacatUA.Properties.Resources.usuarios;
-            this.button_usuarios.Location = new System.Drawing.Point(3, 48);
-            this.button_usuarios.Name = "button_usuarios";
-            this.button_usuarios.Size = new System.Drawing.Size(184, 39);
-            this.button_usuarios.TabIndex = 0;
-            this.button_usuarios.UseVisualStyleBackColor = true;
-            this.button_usuarios.Click += new System.EventHandler(this.button_usuarios_Click);
-            // 
             // tableLayoutPanel_logo
             // 
             this.tableLayoutPanel_logo.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel_logo.ColumnCount = 3;
             this.tableLayoutPanel_logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 409F));
+            this.tableLayoutPanel_logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel_logo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_logo.Controls.Add(this.pictureBox1, 1, 0);
+            this.tableLayoutPanel_logo.Controls.Add(this.pictureBox1, 0, 0);
             this.tableLayoutPanel_logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel_logo.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_logo.Name = "tableLayoutPanel_logo";
@@ -133,6 +100,18 @@
             this.tableLayoutPanel_logo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_logo.Size = new System.Drawing.Size(878, 100);
             this.tableLayoutPanel_logo.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 94);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel_botones
             // 
@@ -172,6 +151,27 @@
             this.button_categorias.UseVisualStyleBackColor = true;
             this.button_categorias.Click += new System.EventHandler(this.button_categorias_Click);
             // 
+            // button_usuarios
+            // 
+            this.button_usuarios.FlatAppearance.BorderSize = 0;
+            this.button_usuarios.Image = global::cacatUA.Properties.Resources.usuarios;
+            this.button_usuarios.Location = new System.Drawing.Point(3, 48);
+            this.button_usuarios.Name = "button_usuarios";
+            this.button_usuarios.Size = new System.Drawing.Size(184, 39);
+            this.button_usuarios.TabIndex = 0;
+            this.button_usuarios.UseVisualStyleBackColor = true;
+            this.button_usuarios.Click += new System.EventHandler(this.button_usuarios_Click);
+            // 
+            // button_materiales
+            // 
+            this.button_materiales.Image = ((System.Drawing.Image)(resources.GetObject("button_materiales.Image")));
+            this.button_materiales.Location = new System.Drawing.Point(3, 93);
+            this.button_materiales.Name = "button_materiales";
+            this.button_materiales.Size = new System.Drawing.Size(184, 39);
+            this.button_materiales.TabIndex = 3;
+            this.button_materiales.UseVisualStyleBackColor = true;
+            this.button_materiales.Click += new System.EventHandler(this.button_materiales_Click);
+            // 
             // buttonSalir
             // 
             this.buttonSalir.Location = new System.Drawing.Point(3, 318);
@@ -193,8 +193,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel de administración";
             this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel_logo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel_botones.ResumeLayout(false);
             this.ResumeLayout(false);
 
