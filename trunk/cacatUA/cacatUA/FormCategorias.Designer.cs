@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCategorias));
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
@@ -207,7 +208,7 @@
             // 
             // button2
             // 
-            this.button2.Image = global::cacatUA.Properties.Resources.flecha2;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(422, 122);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 23);
@@ -217,7 +218,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::cacatUA.Properties.Resources.flecha1;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(221, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 23);
