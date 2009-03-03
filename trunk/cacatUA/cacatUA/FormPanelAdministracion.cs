@@ -85,5 +85,10 @@ namespace cacatUA
             form.Show();
             this.Hide(); 
         }
+
+        private void FormPanelAdministracion_Load(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -42,6 +42,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -78,6 +79,12 @@
     </Compile>
     <Compile Include="FormGrupos.Designer.cs">
       <DependentUpon>FormGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHilo.Designer.cs">
+      <DependentUpon>FormHilo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -127,6 +134,9 @@
     <EmbeddedResource Include="FormGrupos.resx">
       <DependentUpon>FormGrupos.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHilo.resx">
+      <DependentUpon>FormHilo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

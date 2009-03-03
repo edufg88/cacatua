@@ -48,7 +48,7 @@
             // 
             this.button_general.Location = new System.Drawing.Point(3, 3);
             this.button_general.Name = "button_general";
-            this.button_general.Size = new System.Drawing.Size(75, 23);
+            this.button_general.Size = new System.Drawing.Size(184, 39);
             this.button_general.TabIndex = 1;
             this.button_general.Text = "General";
             this.button_general.UseVisualStyleBackColor = true;
@@ -58,7 +58,7 @@
             // 
             this.button_foro.Location = new System.Drawing.Point(3, 138);
             this.button_foro.Name = "button_foro";
-            this.button_foro.Size = new System.Drawing.Size(75, 22);
+            this.button_foro.Size = new System.Drawing.Size(184, 39);
             this.button_foro.TabIndex = 4;
             this.button_foro.Text = "Foro";
             this.button_foro.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             // 
             this.button_peticiones.Location = new System.Drawing.Point(3, 183);
             this.button_peticiones.Name = "button_peticiones";
-            this.button_peticiones.Size = new System.Drawing.Size(75, 22);
+            this.button_peticiones.Size = new System.Drawing.Size(184, 39);
             this.button_peticiones.TabIndex = 5;
             this.button_peticiones.Text = "Peticiones";
             this.button_peticiones.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             // 
             this.button_grupos.Location = new System.Drawing.Point(3, 228);
             this.button_grupos.Name = "button_grupos";
-            this.button_grupos.Size = new System.Drawing.Size(75, 22);
+            this.button_grupos.Size = new System.Drawing.Size(184, 39);
             this.button_grupos.TabIndex = 6;
             this.button_grupos.Text = "Grupos";
             this.button_grupos.UseVisualStyleBackColor = true;
@@ -162,7 +162,7 @@
             // 
             this.button_categorias.Location = new System.Drawing.Point(3, 273);
             this.button_categorias.Name = "button_categorias";
-            this.button_categorias.Size = new System.Drawing.Size(75, 23);
+            this.button_categorias.Size = new System.Drawing.Size(184, 39);
             this.button_categorias.TabIndex = 9;
             this.button_categorias.Text = "Categorías";
             this.button_categorias.UseVisualStyleBackColor = true;
@@ -178,6 +178,7 @@
             this.Name = "FormPanelAdministracion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel de administración";
+            this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel_logo.ResumeLayout(false);
             this.tableLayoutPanel_botones.ResumeLayout(false);
