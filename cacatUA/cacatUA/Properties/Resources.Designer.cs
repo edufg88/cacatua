@@ -74,34 +74,6 @@ namespace cacatUA.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap flecha {
-            get {
-                object obj = ResourceManager.GetObject("flecha", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap flecha1 {
-            get {
-                object obj = ResourceManager.GetObject("flecha1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap flecha2 {
-            get {
-                object obj = ResourceManager.GetObject("flecha2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap flecha3 {
-            get {
-                object obj = ResourceManager.GetObject("flecha3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
