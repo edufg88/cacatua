@@ -448,7 +448,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(657, 174);
+            this.dataGridView2.Size = new System.Drawing.Size(664, 179);
             this.dataGridView2.TabIndex = 67;
             // 
             // dataGridViewTextBoxColumn1
