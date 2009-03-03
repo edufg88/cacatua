@@ -34,15 +34,16 @@
             this.button_peticiones = new System.Windows.Forms.Button();
             this.button_grupos = new System.Windows.Forms.Button();
             this.tableLayoutPanel_logo = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_botones = new System.Windows.Forms.TableLayoutPanel();
             this.button_categorias = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.button_usuarios = new System.Windows.Forms.Button();
             this.button_materiales = new System.Windows.Forms.Button();
-            this.buttonSalir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_logo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel_botones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button_general
@@ -98,20 +99,8 @@
             this.tableLayoutPanel_logo.Name = "tableLayoutPanel_logo";
             this.tableLayoutPanel_logo.RowCount = 1;
             this.tableLayoutPanel_logo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_logo.Size = new System.Drawing.Size(878, 100);
+            this.tableLayoutPanel_logo.Size = new System.Drawing.Size(981, 100);
             this.tableLayoutPanel_logo.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 94);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel_botones
             // 
@@ -138,7 +127,7 @@
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 367);
+            this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 448);
             this.tableLayoutPanel_botones.TabIndex = 8;
             // 
             // button_categorias
@@ -150,6 +139,25 @@
             this.button_categorias.Text = "Categorías";
             this.button_categorias.UseVisualStyleBackColor = true;
             this.button_categorias.Click += new System.EventHandler(this.button_categorias_Click);
+            // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Location = new System.Drawing.Point(3, 318);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(184, 39);
+            this.buttonSalir.TabIndex = 10;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(197, 100);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 448);
+            this.panel1.TabIndex = 9;
             // 
             // button_usuarios
             // 
@@ -172,21 +180,24 @@
             this.button_materiales.UseVisualStyleBackColor = true;
             this.button_materiales.Click += new System.EventHandler(this.button_materiales_Click);
             // 
-            // buttonSalir
+            // pictureBox1
             // 
-            this.buttonSalir.Location = new System.Drawing.Point(3, 318);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(184, 39);
-            this.buttonSalir.TabIndex = 10;
-            this.buttonSalir.Text = "Salir";
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            this.buttonSalir.Click += new System.EventHandler(this.button1_Click);
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(451, 94);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FormPanelAdministracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 467);
+            this.ClientSize = new System.Drawing.Size(981, 548);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel_botones);
             this.Controls.Add(this.tableLayoutPanel_logo);
             this.Name = "FormPanelAdministracion";
@@ -194,8 +205,8 @@
             this.Text = "Panel de administración";
             this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
             this.tableLayoutPanel_logo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel_botones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -213,6 +224,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_botones;
         private System.Windows.Forms.Button button_categorias;
         private System.Windows.Forms.Button buttonSalir;
+        private System.Windows.Forms.Panel panel1;
 
 
     }

@@ -27,7 +27,7 @@ namespace cacatUA
             if (correcto == true)
             {
                 // Mostramos el panel de administración
-                FormGeneral panel = new FormGeneral();
+                FormPanelAdministracion panel = new FormPanelAdministracion();
                 //FormPanelAdministracion panel = new FormPanelAdministracion();
                 panel.Show();
                 this.Hide();
