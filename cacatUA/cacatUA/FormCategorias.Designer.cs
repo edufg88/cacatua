@@ -207,21 +207,21 @@
             // 
             // button2
             // 
+            this.button2.Image = global::cacatUA.Properties.Resources.flecha2;
             this.button2.Location = new System.Drawing.Point(422, 122);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(30, 23);
             this.button2.TabIndex = 16;
-            this.button2.Text = "|>";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
+            this.button1.Image = global::cacatUA.Properties.Resources.flecha1;
             this.button1.Location = new System.Drawing.Point(221, 122);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 23);
             this.button1.TabIndex = 15;
-            this.button1.Text = "|>";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

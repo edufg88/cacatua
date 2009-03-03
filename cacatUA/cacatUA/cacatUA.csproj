@@ -205,6 +205,8 @@
     <None Include="datos\add.jpg" />
     <Content Include="datos\avatar.jpg" />
     <Content Include="datos\CacatUA EER.JPG" />
+    <None Include="datos\flecha.png" />
+    <None Include="Resources\flecha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
