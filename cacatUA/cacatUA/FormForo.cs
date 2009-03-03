@@ -14,5 +14,13 @@ namespace cacatUA
         {
             InitializeComponent();
         }
+
+        private void bCrearHilo_Click(object sender, EventArgs e)
+        {
+            FormHilo form = new FormHilo();
+            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            form.Size = new Size(900, 500);
+            form.Show();
+        }
     }
 }
