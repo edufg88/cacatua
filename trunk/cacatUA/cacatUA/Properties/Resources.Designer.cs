@@ -60,6 +60,13 @@ namespace cacatUA.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cacatuap {
             get {
                 object obj = ResourceManager.GetObject("cacatuap", resourceCulture);
