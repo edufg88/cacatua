@@ -15,5 +15,13 @@ namespace cacatUA
         {
             InitializeComponent();
         }
+
+        private void bForo_Click(object sender, EventArgs e)
+        {
+            FormForo form = new FormForo();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(form);
+            form.Dock = DockStyle.Fill;
+        }
     }
 }
