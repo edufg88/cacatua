@@ -32,6 +32,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_añadir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -52,6 +53,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -68,8 +70,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button_añadir = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -137,6 +137,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 282);
             this.panel1.TabIndex = 48;
+            // 
+            // button_añadir
+            // 
+            this.button_añadir.Image = global::cacatUA.Properties.Resources.add;
+            this.button_añadir.Location = new System.Drawing.Point(26, 4);
+            this.button_añadir.Name = "button_añadir";
+            this.button_añadir.Size = new System.Drawing.Size(77, 71);
+            this.button_añadir.TabIndex = 70;
+            this.button_añadir.Text = "Añadir";
+            this.button_añadir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_añadir.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -360,6 +371,17 @@
             this.panel4.Size = new System.Drawing.Size(846, 484);
             this.panel4.TabIndex = 48;
             // 
+            // button1
+            // 
+            this.button1.Image = global::cacatUA.Properties.Resources.add;
+            this.button1.Location = new System.Drawing.Point(26, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(77, 71);
+            this.button1.TabIndex = 70;
+            this.button1.Text = "Añadir";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.button3);
@@ -426,7 +448,7 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(563, 166);
+            this.dataGridView2.Size = new System.Drawing.Size(657, 174);
             this.dataGridView2.TabIndex = 67;
             // 
             // dataGridViewTextBoxColumn1
@@ -505,28 +527,6 @@
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 63;
             this.label5.Text = "Categoría:";
-            // 
-            // button1
-            // 
-            this.button1.Image = global::cacatUA.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(26, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 71);
-            this.button1.TabIndex = 70;
-            this.button1.Text = "Añadir";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button_añadir
-            // 
-            this.button_añadir.Image = global::cacatUA.Properties.Resources.add;
-            this.button_añadir.Location = new System.Drawing.Point(26, 4);
-            this.button_añadir.Name = "button_añadir";
-            this.button_añadir.Size = new System.Drawing.Size(77, 71);
-            this.button_añadir.TabIndex = 70;
-            this.button_añadir.Text = "Añadir";
-            this.button_añadir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_añadir.UseVisualStyleBackColor = true;
             // 
             // FormMateriales
             // 
