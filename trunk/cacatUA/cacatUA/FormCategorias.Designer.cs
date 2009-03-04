@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("IB");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Segundo");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Grupo del martes");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
-            treeNode13});
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12,
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Biologia");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Matematicas");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("IB");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Segundo");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grupo del martes");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Biologia");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Matematicas");
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,7 +56,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textboxNombre = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -137,7 +137,7 @@
             this.bForo.Name = "bForo";
             this.bForo.Size = new System.Drawing.Size(151, 23);
             this.bForo.TabIndex = 18;
-            this.bForo.Text = "Foro";
+            this.bForo.Text = "Ir al foro";
             this.bForo.UseVisualStyleBackColor = true;
             this.bForo.Click += new System.EventHandler(this.bForo_Click);
             // 
@@ -191,7 +191,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 23);
             this.button3.TabIndex = 12;
-            this.button3.Text = "Materiales";
+            this.button3.Text = "Ir a materiales";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // treeView1
@@ -200,35 +200,36 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(38, 40);
             this.treeView1.Name = "treeView1";
-            treeNode10.Name = "Nodo6";
-            treeNode10.Text = "IB";
-            treeNode11.Name = "Nodo5";
-            treeNode11.Text = "Primero";
-            treeNode12.Name = "Nodo7";
-            treeNode12.Text = "Segundo";
-            treeNode13.Name = "Nodo10";
-            treeNode13.Text = "Grupo del martes";
-            treeNode14.Name = "Nodo9";
-            treeNode14.Text = "DPAA";
-            treeNode15.Name = "Nodo8";
-            treeNode15.Text = "Tercero";
-            treeNode16.Name = "Nodo0";
-            treeNode16.Text = "Informatica";
-            treeNode17.Name = "Nodo1";
-            treeNode17.Text = "Biologia";
-            treeNode18.Name = "Nodo2";
-            treeNode18.Text = "Matematicas";
+            treeNode1.Name = "Nodo6";
+            treeNode1.Text = "IB";
+            treeNode2.Name = "Nodo5";
+            treeNode2.Text = "Primero";
+            treeNode3.Name = "Nodo7";
+            treeNode3.Text = "Segundo";
+            treeNode4.Name = "Nodo10";
+            treeNode4.Text = "Grupo del martes";
+            treeNode5.Name = "Nodo9";
+            treeNode5.Text = "DPAA";
+            treeNode6.Name = "Nodo8";
+            treeNode6.Text = "Tercero";
+            treeNode7.Name = "nInformatica";
+            treeNode7.Text = "Informatica";
+            treeNode8.Name = "Nodo1";
+            treeNode8.Text = "Biologia";
+            treeNode9.Name = "Nodo2";
+            treeNode9.Text = "Matematicas";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17,
-            treeNode18});
+            treeNode7,
+            treeNode8,
+            treeNode9});
             this.treeView1.Size = new System.Drawing.Size(206, 353);
             this.treeView1.TabIndex = 13;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textboxNombre);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Location = new System.Drawing.Point(296, 40);
@@ -247,12 +248,12 @@
             this.button5.Text = "Cambiar nombre";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textboxNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(22, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 4;
+            this.textboxNombre.Location = new System.Drawing.Point(22, 28);
+            this.textboxNombre.Name = "textboxNombre";
+            this.textboxNombre.Size = new System.Drawing.Size(150, 20);
+            this.textboxNombre.TabIndex = 4;
             // 
             // button4
             // 
@@ -322,7 +323,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textboxNombre;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel6;

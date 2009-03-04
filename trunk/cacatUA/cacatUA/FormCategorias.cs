@@ -23,5 +23,10 @@ namespace cacatUA
             panel1.Controls.Add(form);
             form.Dock = DockStyle.Fill;
         }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            textboxNombre.Text = treeView1.SelectedNode.Text.ToString();
+        }
     }
 }
