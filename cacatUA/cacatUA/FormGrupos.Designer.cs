@@ -29,448 +29,401 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupos));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panelFondo = new System.Windows.Forms.Panel();
-            this.groupBoxDescripcion = new System.Windows.Forms.GroupBox();
-            this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
-            this.textBoxCreadorGrupo = new System.Windows.Forms.TextBox();
-            this.labelCreadorGrupo = new System.Windows.Forms.Label();
-            this.textBoxNombreGrupo = new System.Windows.Forms.TextBox();
-            this.labelNombreGrupo = new System.Windows.Forms.Label();
-            this.groupBoxListar = new System.Windows.Forms.GroupBox();
-            this.radioButtonPublicosL = new System.Windows.Forms.RadioButton();
-            this.radioButtonPrivadosL = new System.Windows.Forms.RadioButton();
-            this.buttonListar = new System.Windows.Forms.Button();
-            this.radioButtonTodosL = new System.Windows.Forms.RadioButton();
-            this.groupBoxBuscar = new System.Windows.Forms.GroupBox();
-            this.radioButtonPublicosB = new System.Windows.Forms.RadioButton();
-            this.radioButtonPrivadosB = new System.Windows.Forms.RadioButton();
-            this.radioButtonTodosB = new System.Windows.Forms.RadioButton();
-            this.textBoxBuscar = new System.Windows.Forms.TextBox();
-            this.labelBuscar = new System.Windows.Forms.Label();
+            this.tableLayoutPanelGrupos = new System.Windows.Forms.TableLayoutPanel();
+            this.panelGrupos = new System.Windows.Forms.Panel();
             this.buttonBuscar = new System.Windows.Forms.Button();
-            this.buttonUsuario = new System.Windows.Forms.Button();
-            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.numericUpDownUsuarios2 = new System.Windows.Forms.NumericUpDown();
+            this.labelNumUsuarios2 = new System.Windows.Forms.Label();
+            this.numericUpDownUsuarios1 = new System.Windows.Forms.NumericUpDown();
+            this.labelNumUsuarios1 = new System.Windows.Forms.Label();
+            this.textBoxCreador = new System.Windows.Forms.TextBox();
+            this.labelCreador = new System.Windows.Forms.Label();
+            this.dateTimePickerHasta = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDesde = new System.Windows.Forms.DateTimePicker();
+            this.labelFechaHasta = new System.Windows.Forms.Label();
+            this.labelFechaDesde = new System.Windows.Forms.Label();
+            this.labelTipoFiltro = new System.Windows.Forms.Label();
+            this.comboBoxTipoFiltro = new System.Windows.Forms.ComboBox();
+            this.textBox1Filtro = new System.Windows.Forms.TextBox();
+            this.labelFiltro = new System.Windows.Forms.Label();
+            this.dataGridViewGrupos = new System.Windows.Forms.DataGridView();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCreador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonAgregar = new System.Windows.Forms.Button();
+            this.buttonVer = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
-            this.buttonCrear = new System.Windows.Forms.Button();
-            this.buttonTraspaso = new System.Windows.Forms.Button();
-            this.labelUsuario = new System.Windows.Forms.Label();
-            this.listBoxUsuario = new System.Windows.Forms.ListBox();
-            this.labelGrupo = new System.Windows.Forms.Label();
-            this.listBoxGrupo = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panelFondo.SuspendLayout();
-            this.groupBoxDescripcion.SuspendLayout();
-            this.groupBoxListar.SuspendLayout();
-            this.groupBoxBuscar.SuspendLayout();
+            this.buttonBorrar = new System.Windows.Forms.Button();
+            this.panelTitulo = new System.Windows.Forms.Panel();
+            this.labelTitulo = new System.Windows.Forms.Label();
+            this.tableLayoutPanelGrupos.SuspendLayout();
+            this.panelGrupos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUsuarios2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUsuarios1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrupos)).BeginInit();
+            this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanelGrupos
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panelFondo, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(782, 451);
-            this.tableLayoutPanel1.TabIndex = 34;
+            this.tableLayoutPanelGrupos.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanelGrupos.ColumnCount = 1;
+            this.tableLayoutPanelGrupos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelGrupos.Controls.Add(this.panelGrupos, 0, 1);
+            this.tableLayoutPanelGrupos.Controls.Add(this.panelTitulo, 0, 0);
+            this.tableLayoutPanelGrupos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelGrupos.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelGrupos.Name = "tableLayoutPanelGrupos";
+            this.tableLayoutPanelGrupos.RowCount = 2;
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelGrupos.Size = new System.Drawing.Size(832, 463);
+            this.tableLayoutPanelGrupos.TabIndex = 34;
             // 
-            // panel1
+            // panelGrupos
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 25);
-            this.panel1.TabIndex = 30;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label2.Size = new System.Drawing.Size(72, 19);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Usuarios";
-            // 
-            // panelFondo
-            // 
-            this.panelFondo.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panelFondo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelFondo.Controls.Add(this.groupBoxDescripcion);
-            this.panelFondo.Controls.Add(this.groupBoxListar);
-            this.panelFondo.Controls.Add(this.groupBoxBuscar);
-            this.panelFondo.Controls.Add(this.buttonUsuario);
-            this.panelFondo.Controls.Add(this.buttonBorrar);
-            this.panelFondo.Controls.Add(this.buttonModificar);
-            this.panelFondo.Controls.Add(this.buttonCrear);
-            this.panelFondo.Controls.Add(this.buttonTraspaso);
-            this.panelFondo.Controls.Add(this.labelUsuario);
-            this.panelFondo.Controls.Add(this.listBoxUsuario);
-            this.panelFondo.Controls.Add(this.labelGrupo);
-            this.panelFondo.Controls.Add(this.listBoxGrupo);
-            this.panelFondo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFondo.Location = new System.Drawing.Point(3, 34);
-            this.panelFondo.Name = "panelFondo";
-            this.panelFondo.Size = new System.Drawing.Size(776, 414);
-            this.panelFondo.TabIndex = 33;
-            // 
-            // groupBoxDescripcion
-            // 
-            this.groupBoxDescripcion.Controls.Add(this.richTextBoxDesc);
-            this.groupBoxDescripcion.Controls.Add(this.textBoxCreadorGrupo);
-            this.groupBoxDescripcion.Controls.Add(this.labelCreadorGrupo);
-            this.groupBoxDescripcion.Controls.Add(this.textBoxNombreGrupo);
-            this.groupBoxDescripcion.Controls.Add(this.labelNombreGrupo);
-            this.groupBoxDescripcion.Location = new System.Drawing.Point(6, 238);
-            this.groupBoxDescripcion.Name = "groupBoxDescripcion";
-            this.groupBoxDescripcion.Size = new System.Drawing.Size(666, 138);
-            this.groupBoxDescripcion.TabIndex = 22;
-            this.groupBoxDescripcion.TabStop = false;
-            this.groupBoxDescripcion.Text = "Descripción del Grupo:";
-            // 
-            // richTextBoxDesc
-            // 
-            this.richTextBoxDesc.Location = new System.Drawing.Point(9, 19);
-            this.richTextBoxDesc.Name = "richTextBoxDesc";
-            this.richTextBoxDesc.ReadOnly = true;
-            this.richTextBoxDesc.Size = new System.Drawing.Size(304, 113);
-            this.richTextBoxDesc.TabIndex = 16;
-            this.richTextBoxDesc.Text = "";
-            // 
-            // textBoxCreadorGrupo
-            // 
-            this.textBoxCreadorGrupo.Location = new System.Drawing.Point(437, 91);
-            this.textBoxCreadorGrupo.Name = "textBoxCreadorGrupo";
-            this.textBoxCreadorGrupo.ReadOnly = true;
-            this.textBoxCreadorGrupo.Size = new System.Drawing.Size(191, 20);
-            this.textBoxCreadorGrupo.TabIndex = 21;
-            // 
-            // labelCreadorGrupo
-            // 
-            this.labelCreadorGrupo.AutoSize = true;
-            this.labelCreadorGrupo.Location = new System.Drawing.Point(332, 94);
-            this.labelCreadorGrupo.Name = "labelCreadorGrupo";
-            this.labelCreadorGrupo.Size = new System.Drawing.Size(96, 13);
-            this.labelCreadorGrupo.TabIndex = 18;
-            this.labelCreadorGrupo.Text = "Creador del Grupo:";
-            // 
-            // textBoxNombreGrupo
-            // 
-            this.textBoxNombreGrupo.Location = new System.Drawing.Point(437, 36);
-            this.textBoxNombreGrupo.Name = "textBoxNombreGrupo";
-            this.textBoxNombreGrupo.ReadOnly = true;
-            this.textBoxNombreGrupo.Size = new System.Drawing.Size(191, 20);
-            this.textBoxNombreGrupo.TabIndex = 20;
-            // 
-            // labelNombreGrupo
-            // 
-            this.labelNombreGrupo.AutoSize = true;
-            this.labelNombreGrupo.Location = new System.Drawing.Point(332, 39);
-            this.labelNombreGrupo.Name = "labelNombreGrupo";
-            this.labelNombreGrupo.Size = new System.Drawing.Size(96, 13);
-            this.labelNombreGrupo.TabIndex = 19;
-            this.labelNombreGrupo.Text = "Nombre del Grupo:";
-            // 
-            // groupBoxListar
-            // 
-            this.groupBoxListar.Controls.Add(this.radioButtonPublicosL);
-            this.groupBoxListar.Controls.Add(this.radioButtonPrivadosL);
-            this.groupBoxListar.Controls.Add(this.buttonListar);
-            this.groupBoxListar.Controls.Add(this.radioButtonTodosL);
-            this.groupBoxListar.Location = new System.Drawing.Point(352, 13);
-            this.groupBoxListar.Name = "groupBoxListar";
-            this.groupBoxListar.Size = new System.Drawing.Size(330, 70);
-            this.groupBoxListar.TabIndex = 15;
-            this.groupBoxListar.TabStop = false;
-            this.groupBoxListar.Text = "Listar:";
-            // 
-            // radioButtonPublicosL
-            // 
-            this.radioButtonPublicosL.AutoSize = true;
-            this.radioButtonPublicosL.Location = new System.Drawing.Point(244, 20);
-            this.radioButtonPublicosL.Name = "radioButtonPublicosL";
-            this.radioButtonPublicosL.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonPublicosL.TabIndex = 18;
-            this.radioButtonPublicosL.TabStop = true;
-            this.radioButtonPublicosL.Text = "Públicos";
-            this.radioButtonPublicosL.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPrivadosL
-            // 
-            this.radioButtonPrivadosL.AutoSize = true;
-            this.radioButtonPrivadosL.Location = new System.Drawing.Point(129, 20);
-            this.radioButtonPrivadosL.Name = "radioButtonPrivadosL";
-            this.radioButtonPrivadosL.Size = new System.Drawing.Size(66, 17);
-            this.radioButtonPrivadosL.TabIndex = 17;
-            this.radioButtonPrivadosL.TabStop = true;
-            this.radioButtonPrivadosL.Text = "Privados";
-            this.radioButtonPrivadosL.UseVisualStyleBackColor = true;
-            // 
-            // buttonListar
-            // 
-            this.buttonListar.Location = new System.Drawing.Point(102, 41);
-            this.buttonListar.Name = "buttonListar";
-            this.buttonListar.Size = new System.Drawing.Size(75, 23);
-            this.buttonListar.TabIndex = 13;
-            this.buttonListar.Text = "Listar";
-            this.buttonListar.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonTodosL
-            // 
-            this.radioButtonTodosL.AutoSize = true;
-            this.radioButtonTodosL.Location = new System.Drawing.Point(16, 20);
-            this.radioButtonTodosL.Name = "radioButtonTodosL";
-            this.radioButtonTodosL.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonTodosL.TabIndex = 16;
-            this.radioButtonTodosL.TabStop = true;
-            this.radioButtonTodosL.Text = "Todos";
-            this.radioButtonTodosL.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxBuscar
-            // 
-            this.groupBoxBuscar.Controls.Add(this.radioButtonPublicosB);
-            this.groupBoxBuscar.Controls.Add(this.radioButtonPrivadosB);
-            this.groupBoxBuscar.Controls.Add(this.radioButtonTodosB);
-            this.groupBoxBuscar.Controls.Add(this.textBoxBuscar);
-            this.groupBoxBuscar.Controls.Add(this.labelBuscar);
-            this.groupBoxBuscar.Controls.Add(this.buttonBuscar);
-            this.groupBoxBuscar.Location = new System.Drawing.Point(6, 13);
-            this.groupBoxBuscar.Name = "groupBoxBuscar";
-            this.groupBoxBuscar.Size = new System.Drawing.Size(340, 70);
-            this.groupBoxBuscar.TabIndex = 14;
-            this.groupBoxBuscar.TabStop = false;
-            this.groupBoxBuscar.Text = "Buscar:";
-            // 
-            // radioButtonPublicosB
-            // 
-            this.radioButtonPublicosB.AutoSize = true;
-            this.radioButtonPublicosB.Location = new System.Drawing.Point(237, 20);
-            this.radioButtonPublicosB.Name = "radioButtonPublicosB";
-            this.radioButtonPublicosB.Size = new System.Drawing.Size(65, 17);
-            this.radioButtonPublicosB.TabIndex = 15;
-            this.radioButtonPublicosB.TabStop = true;
-            this.radioButtonPublicosB.Text = "Públicos";
-            this.radioButtonPublicosB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPrivadosB
-            // 
-            this.radioButtonPrivadosB.AutoSize = true;
-            this.radioButtonPrivadosB.Location = new System.Drawing.Point(122, 20);
-            this.radioButtonPrivadosB.Name = "radioButtonPrivadosB";
-            this.radioButtonPrivadosB.Size = new System.Drawing.Size(66, 17);
-            this.radioButtonPrivadosB.TabIndex = 14;
-            this.radioButtonPrivadosB.TabStop = true;
-            this.radioButtonPrivadosB.Text = "Privados";
-            this.radioButtonPrivadosB.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonTodosB
-            // 
-            this.radioButtonTodosB.AutoSize = true;
-            this.radioButtonTodosB.Location = new System.Drawing.Point(9, 20);
-            this.radioButtonTodosB.Name = "radioButtonTodosB";
-            this.radioButtonTodosB.Size = new System.Drawing.Size(55, 17);
-            this.radioButtonTodosB.TabIndex = 13;
-            this.radioButtonTodosB.TabStop = true;
-            this.radioButtonTodosB.Text = "Todos";
-            this.radioButtonTodosB.UseVisualStyleBackColor = true;
-            // 
-            // textBoxBuscar
-            // 
-            this.textBoxBuscar.Location = new System.Drawing.Point(59, 43);
-            this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(179, 20);
-            this.textBoxBuscar.TabIndex = 11;
-            // 
-            // labelBuscar
-            // 
-            this.labelBuscar.AutoSize = true;
-            this.labelBuscar.Location = new System.Drawing.Point(6, 46);
-            this.labelBuscar.Name = "labelBuscar";
-            this.labelBuscar.Size = new System.Drawing.Size(47, 13);
-            this.labelBuscar.TabIndex = 12;
-            this.labelBuscar.Text = "Nombre:";
+            this.panelGrupos.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelGrupos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGrupos.Controls.Add(this.buttonBuscar);
+            this.panelGrupos.Controls.Add(this.numericUpDownUsuarios2);
+            this.panelGrupos.Controls.Add(this.labelNumUsuarios2);
+            this.panelGrupos.Controls.Add(this.numericUpDownUsuarios1);
+            this.panelGrupos.Controls.Add(this.labelNumUsuarios1);
+            this.panelGrupos.Controls.Add(this.textBoxCreador);
+            this.panelGrupos.Controls.Add(this.labelCreador);
+            this.panelGrupos.Controls.Add(this.dateTimePickerHasta);
+            this.panelGrupos.Controls.Add(this.dateTimePickerDesde);
+            this.panelGrupos.Controls.Add(this.labelFechaHasta);
+            this.panelGrupos.Controls.Add(this.labelFechaDesde);
+            this.panelGrupos.Controls.Add(this.labelTipoFiltro);
+            this.panelGrupos.Controls.Add(this.comboBoxTipoFiltro);
+            this.panelGrupos.Controls.Add(this.textBox1Filtro);
+            this.panelGrupos.Controls.Add(this.labelFiltro);
+            this.panelGrupos.Controls.Add(this.dataGridViewGrupos);
+            this.panelGrupos.Controls.Add(this.buttonAgregar);
+            this.panelGrupos.Controls.Add(this.buttonVer);
+            this.panelGrupos.Controls.Add(this.buttonModificar);
+            this.panelGrupos.Controls.Add(this.buttonBorrar);
+            this.panelGrupos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGrupos.Location = new System.Drawing.Point(3, 34);
+            this.panelGrupos.Name = "panelGrupos";
+            this.panelGrupos.Size = new System.Drawing.Size(826, 426);
+            this.panelGrupos.TabIndex = 33;
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Location = new System.Drawing.Point(257, 41);
+            this.buttonBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBuscar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscar.Image")));
+            this.buttonBuscar.Location = new System.Drawing.Point(770, 107);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(75, 23);
-            this.buttonBuscar.TabIndex = 10;
-            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(24, 24);
+            this.buttonBuscar.TabIndex = 41;
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
-            // buttonUsuario
+            // numericUpDownUsuarios2
             // 
-            this.buttonUsuario.Location = new System.Drawing.Point(586, 171);
-            this.buttonUsuario.Name = "buttonUsuario";
-            this.buttonUsuario.Size = new System.Drawing.Size(75, 23);
-            this.buttonUsuario.TabIndex = 9;
-            this.buttonUsuario.Text = "Ver Usuario";
-            this.buttonUsuario.UseVisualStyleBackColor = true;
+            this.numericUpDownUsuarios2.Location = new System.Drawing.Point(546, 64);
+            this.numericUpDownUsuarios2.Name = "numericUpDownUsuarios2";
+            this.numericUpDownUsuarios2.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownUsuarios2.TabIndex = 40;
+            // 
+            // labelNumUsuarios2
+            // 
+            this.labelNumUsuarios2.AutoSize = true;
+            this.labelNumUsuarios2.Location = new System.Drawing.Point(527, 66);
+            this.labelNumUsuarios2.Name = "labelNumUsuarios2";
+            this.labelNumUsuarios2.Size = new System.Drawing.Size(12, 13);
+            this.labelNumUsuarios2.TabIndex = 39;
+            this.labelNumUsuarios2.Text = "y";
+            // 
+            // numericUpDownUsuarios1
+            // 
+            this.numericUpDownUsuarios1.Location = new System.Drawing.Point(469, 64);
+            this.numericUpDownUsuarios1.Name = "numericUpDownUsuarios1";
+            this.numericUpDownUsuarios1.Size = new System.Drawing.Size(52, 20);
+            this.numericUpDownUsuarios1.TabIndex = 38;
+            // 
+            // labelNumUsuarios1
+            // 
+            this.labelNumUsuarios1.AutoSize = true;
+            this.labelNumUsuarios1.Location = new System.Drawing.Point(333, 66);
+            this.labelNumUsuarios1.Name = "labelNumUsuarios1";
+            this.labelNumUsuarios1.Size = new System.Drawing.Size(130, 13);
+            this.labelNumUsuarios1.TabIndex = 37;
+            this.labelNumUsuarios1.Text = "Numero de Usuarios entre";
+            // 
+            // textBoxCreador
+            // 
+            this.textBoxCreador.Location = new System.Drawing.Point(102, 63);
+            this.textBoxCreador.Name = "textBoxCreador";
+            this.textBoxCreador.Size = new System.Drawing.Size(140, 20);
+            this.textBoxCreador.TabIndex = 36;
+            // 
+            // labelCreador
+            // 
+            this.labelCreador.AutoSize = true;
+            this.labelCreador.Location = new System.Drawing.Point(17, 66);
+            this.labelCreador.Name = "labelCreador";
+            this.labelCreador.Size = new System.Drawing.Size(79, 13);
+            this.labelCreador.TabIndex = 35;
+            this.labelCreador.Text = "Creador Grupo:";
+            // 
+            // dateTimePickerHasta
+            // 
+            this.dateTimePickerHasta.Location = new System.Drawing.Point(402, 109);
+            this.dateTimePickerHasta.Name = "dateTimePickerHasta";
+            this.dateTimePickerHasta.Size = new System.Drawing.Size(234, 20);
+            this.dateTimePickerHasta.TabIndex = 33;
+            // 
+            // dateTimePickerDesde
+            // 
+            this.dateTimePickerDesde.Location = new System.Drawing.Point(100, 109);
+            this.dateTimePickerDesde.Name = "dateTimePickerDesde";
+            this.dateTimePickerDesde.Size = new System.Drawing.Size(235, 20);
+            this.dateTimePickerDesde.TabIndex = 32;
+            // 
+            // labelFechaHasta
+            // 
+            this.labelFechaHasta.AutoSize = true;
+            this.labelFechaHasta.Location = new System.Drawing.Point(363, 113);
+            this.labelFechaHasta.Name = "labelFechaHasta";
+            this.labelFechaHasta.Size = new System.Drawing.Size(33, 13);
+            this.labelFechaHasta.TabIndex = 31;
+            this.labelFechaHasta.Text = "hasta";
+            // 
+            // labelFechaDesde
+            // 
+            this.labelFechaDesde.AutoSize = true;
+            this.labelFechaDesde.Location = new System.Drawing.Point(17, 113);
+            this.labelFechaDesde.Name = "labelFechaDesde";
+            this.labelFechaDesde.Size = new System.Drawing.Size(74, 13);
+            this.labelFechaDesde.TabIndex = 30;
+            this.labelFechaDesde.Text = "Mostrar desde";
+            // 
+            // labelTipoFiltro
+            // 
+            this.labelTipoFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTipoFiltro.AutoSize = true;
+            this.labelTipoFiltro.Location = new System.Drawing.Point(556, 21);
+            this.labelTipoFiltro.Name = "labelTipoFiltro";
+            this.labelTipoFiltro.Size = new System.Drawing.Size(68, 13);
+            this.labelTipoFiltro.TabIndex = 29;
+            this.labelTipoFiltro.Text = "Tipo de filtro:";
+            // 
+            // comboBoxTipoFiltro
+            // 
+            this.comboBoxTipoFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxTipoFiltro.FormattingEnabled = true;
+            this.comboBoxTipoFiltro.Items.AddRange(new object[] {
+            "Contiene alguna palabra",
+            "Contiene todas las palabras",
+            ""});
+            this.comboBoxTipoFiltro.Location = new System.Drawing.Point(630, 18);
+            this.comboBoxTipoFiltro.Name = "comboBoxTipoFiltro";
+            this.comboBoxTipoFiltro.Size = new System.Drawing.Size(169, 21);
+            this.comboBoxTipoFiltro.TabIndex = 28;
+            // 
+            // textBox1Filtro
+            // 
+            this.textBox1Filtro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1Filtro.Location = new System.Drawing.Point(120, 18);
+            this.textBox1Filtro.Name = "textBox1Filtro";
+            this.textBox1Filtro.Size = new System.Drawing.Size(407, 20);
+            this.textBox1Filtro.TabIndex = 27;
+            // 
+            // labelFiltro
+            // 
+            this.labelFiltro.AutoSize = true;
+            this.labelFiltro.Location = new System.Drawing.Point(17, 21);
+            this.labelFiltro.Name = "labelFiltro";
+            this.labelFiltro.Size = new System.Drawing.Size(97, 13);
+            this.labelFiltro.TabIndex = 26;
+            this.labelFiltro.Text = "Filtro de búsqueda:";
+            // 
+            // dataGridViewGrupos
+            // 
+            this.dataGridViewGrupos.AllowUserToAddRows = false;
+            this.dataGridViewGrupos.AllowUserToDeleteRows = false;
+            this.dataGridViewGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGrupos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnNombre,
+            this.ColumnCreador,
+            this.ColumnNumUsuarios,
+            this.ColumnFecha});
+            this.dataGridViewGrupos.Location = new System.Drawing.Point(20, 170);
+            this.dataGridViewGrupos.Name = "dataGridViewGrupos";
+            this.dataGridViewGrupos.ReadOnly = true;
+            this.dataGridViewGrupos.RowHeadersVisible = false;
+            this.dataGridViewGrupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewGrupos.Size = new System.Drawing.Size(774, 189);
+            this.dataGridViewGrupos.TabIndex = 19;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            // 
+            // ColumnCreador
+            // 
+            this.ColumnCreador.HeaderText = "Creador";
+            this.ColumnCreador.Name = "ColumnCreador";
+            this.ColumnCreador.ReadOnly = true;
+            this.ColumnCreador.Width = 120;
+            // 
+            // ColumnNumUsuarios
+            // 
+            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
+            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
+            this.ColumnNumUsuarios.ReadOnly = true;
+            this.ColumnNumUsuarios.Width = 128;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha de Creación";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            this.ColumnFecha.Width = 122;
+            // 
+            // buttonAgregar
+            // 
+            this.buttonAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAgregar.Location = new System.Drawing.Point(516, 385);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(75, 23);
+            this.buttonAgregar.TabIndex = 18;
+            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            // 
+            // buttonVer
+            // 
+            this.buttonVer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonVer.Location = new System.Drawing.Point(416, 385);
+            this.buttonVer.Name = "buttonVer";
+            this.buttonVer.Size = new System.Drawing.Size(75, 23);
+            this.buttonVer.TabIndex = 17;
+            this.buttonVer.Text = "Ver";
+            this.buttonVer.UseVisualStyleBackColor = true;
+            this.buttonVer.Click += new System.EventHandler(this.buttonVer_Click);
+            // 
+            // buttonModificar
+            // 
+            this.buttonModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonModificar.Location = new System.Drawing.Point(618, 385);
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.Size = new System.Drawing.Size(75, 23);
+            this.buttonModificar.TabIndex = 16;
+            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonBorrar
             // 
-            this.buttonBorrar.Location = new System.Drawing.Point(15, 195);
+            this.buttonBorrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBorrar.Location = new System.Drawing.Point(719, 385);
             this.buttonBorrar.Name = "buttonBorrar";
             this.buttonBorrar.Size = new System.Drawing.Size(75, 23);
             this.buttonBorrar.TabIndex = 8;
             this.buttonBorrar.Text = "Borrar";
             this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
             // 
-            // buttonModificar
+            // panelTitulo
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(15, 163);
-            this.buttonModificar.Name = "buttonModificar";
-            this.buttonModificar.Size = new System.Drawing.Size(75, 23);
-            this.buttonModificar.TabIndex = 7;
-            this.buttonModificar.Text = "Modificar";
-            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.panelTitulo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panelTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTitulo.Controls.Add(this.labelTitulo);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTitulo.Location = new System.Drawing.Point(3, 3);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(826, 25);
+            this.panelTitulo.TabIndex = 30;
             // 
-            // buttonCrear
+            // labelTitulo
             // 
-            this.buttonCrear.Location = new System.Drawing.Point(15, 134);
-            this.buttonCrear.Name = "buttonCrear";
-            this.buttonCrear.Size = new System.Drawing.Size(75, 23);
-            this.buttonCrear.TabIndex = 6;
-            this.buttonCrear.Text = "Crear";
-            this.buttonCrear.UseVisualStyleBackColor = true;
-            // 
-            // buttonTraspaso
-            // 
-            this.buttonTraspaso.Image = ((System.Drawing.Image)(resources.GetObject("buttonTraspaso.Image")));
-            this.buttonTraspaso.Location = new System.Drawing.Point(333, 156);
-            this.buttonTraspaso.Name = "buttonTraspaso";
-            this.buttonTraspaso.Size = new System.Drawing.Size(43, 38);
-            this.buttonTraspaso.TabIndex = 5;
-            this.buttonTraspaso.UseVisualStyleBackColor = true;
-            // 
-            // labelUsuario
-            // 
-            this.labelUsuario.AutoSize = true;
-            this.labelUsuario.Location = new System.Drawing.Point(408, 97);
-            this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(51, 13);
-            this.labelUsuario.TabIndex = 4;
-            this.labelUsuario.Text = "Usuarios:";
-            // 
-            // listBoxUsuario
-            // 
-            this.listBoxUsuario.FormattingEnabled = true;
-            this.listBoxUsuario.Location = new System.Drawing.Point(391, 124);
-            this.listBoxUsuario.Name = "listBoxUsuario";
-            this.listBoxUsuario.Size = new System.Drawing.Size(183, 108);
-            this.listBoxUsuario.TabIndex = 3;
-            // 
-            // labelGrupo
-            // 
-            this.labelGrupo.AutoSize = true;
-            this.labelGrupo.Location = new System.Drawing.Point(95, 97);
-            this.labelGrupo.Name = "labelGrupo";
-            this.labelGrupo.Size = new System.Drawing.Size(44, 13);
-            this.labelGrupo.TabIndex = 2;
-            this.labelGrupo.Text = "Grupos:";
-            // 
-            // listBoxGrupo
-            // 
-            this.listBoxGrupo.FormattingEnabled = true;
-            this.listBoxGrupo.Items.AddRange(new object[] {
-            "Alcoy",
-            "cacatUA"});
-            this.listBoxGrupo.Location = new System.Drawing.Point(98, 124);
-            this.listBoxGrupo.Name = "listBoxGrupo";
-            this.listBoxGrupo.ScrollAlwaysVisible = true;
-            this.listBoxGrupo.Size = new System.Drawing.Size(210, 108);
-            this.listBoxGrupo.TabIndex = 1;
+            this.labelTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Location = new System.Drawing.Point(3, 0);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.labelTitulo.Size = new System.Drawing.Size(61, 19);
+            this.labelTitulo.TabIndex = 7;
+            this.labelTitulo.Text = "Grupos";
             // 
             // FormGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanelGrupos);
             this.Name = "FormGrupos";
-            this.Size = new System.Drawing.Size(782, 451);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panelFondo.ResumeLayout(false);
-            this.panelFondo.PerformLayout();
-            this.groupBoxDescripcion.ResumeLayout(false);
-            this.groupBoxDescripcion.PerformLayout();
-            this.groupBoxListar.ResumeLayout(false);
-            this.groupBoxListar.PerformLayout();
-            this.groupBoxBuscar.ResumeLayout(false);
-            this.groupBoxBuscar.PerformLayout();
+            this.Size = new System.Drawing.Size(832, 463);
+            this.tableLayoutPanelGrupos.ResumeLayout(false);
+            this.panelGrupos.ResumeLayout(false);
+            this.panelGrupos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUsuarios2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUsuarios1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGrupos)).EndInit();
+            this.panelTitulo.ResumeLayout(false);
+            this.panelTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panelFondo;
-        private System.Windows.Forms.GroupBox groupBoxDescripcion;
-        private System.Windows.Forms.RichTextBox richTextBoxDesc;
-        private System.Windows.Forms.TextBox textBoxCreadorGrupo;
-        private System.Windows.Forms.Label labelCreadorGrupo;
-        private System.Windows.Forms.TextBox textBoxNombreGrupo;
-        private System.Windows.Forms.Label labelNombreGrupo;
-        private System.Windows.Forms.GroupBox groupBoxListar;
-        private System.Windows.Forms.RadioButton radioButtonPublicosL;
-        private System.Windows.Forms.RadioButton radioButtonPrivadosL;
-        private System.Windows.Forms.Button buttonListar;
-        private System.Windows.Forms.RadioButton radioButtonTodosL;
-        private System.Windows.Forms.GroupBox groupBoxBuscar;
-        private System.Windows.Forms.RadioButton radioButtonPublicosB;
-        private System.Windows.Forms.RadioButton radioButtonPrivadosB;
-        private System.Windows.Forms.RadioButton radioButtonTodosB;
-        private System.Windows.Forms.TextBox textBoxBuscar;
-        private System.Windows.Forms.Label labelBuscar;
-        private System.Windows.Forms.Button buttonBuscar;
-        private System.Windows.Forms.Button buttonUsuario;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelGrupos;
+        private System.Windows.Forms.Panel panelGrupos;
         private System.Windows.Forms.Button buttonBorrar;
+        private System.Windows.Forms.Panel panelTitulo;
+        private System.Windows.Forms.Label labelTitulo;
+        private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.Button buttonVer;
         private System.Windows.Forms.Button buttonModificar;
-        private System.Windows.Forms.Button buttonCrear;
-        private System.Windows.Forms.Button buttonTraspaso;
-        private System.Windows.Forms.Label labelUsuario;
-        private System.Windows.Forms.ListBox listBoxUsuario;
-        private System.Windows.Forms.Label labelGrupo;
-        private System.Windows.Forms.ListBox listBoxGrupo;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridViewGrupos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCreador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHasta;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDesde;
+        private System.Windows.Forms.Label labelFechaHasta;
+        private System.Windows.Forms.Label labelFechaDesde;
+        private System.Windows.Forms.Label labelTipoFiltro;
+        private System.Windows.Forms.ComboBox comboBoxTipoFiltro;
+        private System.Windows.Forms.TextBox textBox1Filtro;
+        private System.Windows.Forms.Label labelFiltro;
+        private System.Windows.Forms.Label labelCreador;
+        private System.Windows.Forms.NumericUpDown numericUpDownUsuarios2;
+        private System.Windows.Forms.Label labelNumUsuarios2;
+        private System.Windows.Forms.NumericUpDown numericUpDownUsuarios1;
+        private System.Windows.Forms.Label labelNumUsuarios1;
+        private System.Windows.Forms.TextBox textBoxCreador;
+        private System.Windows.Forms.Button buttonBuscar;
 
     }
 }
