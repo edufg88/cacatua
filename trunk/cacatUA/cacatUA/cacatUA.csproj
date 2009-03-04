@@ -62,6 +62,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGrupo.Designer.cs">
+      <DependentUpon>FormGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCategorias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,17 +135,24 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGrupo.resx">
+      <DependentUpon>FormGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormForo.resx">
       <DependentUpon>FormForo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGeneral.resx">
       <DependentUpon>FormGeneral.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupos.resx">
       <DependentUpon>FormGrupos.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHilo.resx">
       <DependentUpon>FormHilo.cs</DependentUpon>
@@ -159,9 +172,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPeticiones.resx">
       <DependentUpon>FormPeticiones.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
