@@ -137,6 +137,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupo.resx">
       <DependentUpon>FormGrupo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
@@ -223,6 +224,7 @@
   <ItemGroup>
     <None Include="datos\add.jpg" />
     <Content Include="datos\avatar.jpg" />
+    <None Include="datos\buscar.gif" />
     <Content Include="datos\CacatUA EER.JPG" />
     <None Include="datos\flecha.png" />
   </ItemGroup>
