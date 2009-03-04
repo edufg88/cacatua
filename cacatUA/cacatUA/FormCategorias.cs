@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace cacatUA
 {
+
     public partial class FormCategorias : UserControl
     {
         public FormCategorias()
@@ -24,9 +25,9 @@ namespace cacatUA
             form.Dock = DockStyle.Fill;
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            textboxNombre.Text = treeView1.SelectedNode.Text.ToString();
+            textBoxRaiz.Text = treeViewCategorias.SelectedNode.FullPath;
         }
     }
 }
