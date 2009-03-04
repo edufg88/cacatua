@@ -35,13 +35,10 @@
             this.numericUpDownUsuarios2 = new System.Windows.Forms.NumericUpDown();
             this.labelNumUsuarios2 = new System.Windows.Forms.Label();
             this.numericUpDownUsuarios1 = new System.Windows.Forms.NumericUpDown();
-            this.labelNumUsuarios1 = new System.Windows.Forms.Label();
             this.textBoxCreador = new System.Windows.Forms.TextBox();
-            this.labelCreador = new System.Windows.Forms.Label();
             this.dateTimePickerHasta = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDesde = new System.Windows.Forms.DateTimePicker();
             this.labelFechaHasta = new System.Windows.Forms.Label();
-            this.labelFechaDesde = new System.Windows.Forms.Label();
             this.labelTipoFiltro = new System.Windows.Forms.Label();
             this.comboBoxTipoFiltro = new System.Windows.Forms.ComboBox();
             this.textBox1Filtro = new System.Windows.Forms.TextBox();
@@ -57,6 +54,9 @@
             this.buttonBorrar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
+            this.checkBoxCreador = new System.Windows.Forms.CheckBox();
+            this.checkBoxNumUsuario = new System.Windows.Forms.CheckBox();
+            this.checkBoxFecha = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanelGrupos.SuspendLayout();
             this.panelGrupos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUsuarios2)).BeginInit();
@@ -102,17 +102,17 @@
             // 
             this.panelGrupos.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panelGrupos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelGrupos.Controls.Add(this.checkBoxFecha);
+            this.panelGrupos.Controls.Add(this.checkBoxNumUsuario);
+            this.panelGrupos.Controls.Add(this.checkBoxCreador);
             this.panelGrupos.Controls.Add(this.buttonBuscar);
             this.panelGrupos.Controls.Add(this.numericUpDownUsuarios2);
             this.panelGrupos.Controls.Add(this.labelNumUsuarios2);
             this.panelGrupos.Controls.Add(this.numericUpDownUsuarios1);
-            this.panelGrupos.Controls.Add(this.labelNumUsuarios1);
             this.panelGrupos.Controls.Add(this.textBoxCreador);
-            this.panelGrupos.Controls.Add(this.labelCreador);
             this.panelGrupos.Controls.Add(this.dateTimePickerHasta);
             this.panelGrupos.Controls.Add(this.dateTimePickerDesde);
             this.panelGrupos.Controls.Add(this.labelFechaHasta);
-            this.panelGrupos.Controls.Add(this.labelFechaDesde);
             this.panelGrupos.Controls.Add(this.labelTipoFiltro);
             this.panelGrupos.Controls.Add(this.comboBoxTipoFiltro);
             this.panelGrupos.Controls.Add(this.textBox1Filtro);
@@ -140,7 +140,8 @@
             // 
             // numericUpDownUsuarios2
             // 
-            this.numericUpDownUsuarios2.Location = new System.Drawing.Point(546, 64);
+            this.numericUpDownUsuarios2.Enabled = false;
+            this.numericUpDownUsuarios2.Location = new System.Drawing.Point(546, 71);
             this.numericUpDownUsuarios2.Name = "numericUpDownUsuarios2";
             this.numericUpDownUsuarios2.Size = new System.Drawing.Size(50, 20);
             this.numericUpDownUsuarios2.TabIndex = 40;
@@ -148,7 +149,7 @@
             // labelNumUsuarios2
             // 
             this.labelNumUsuarios2.AutoSize = true;
-            this.labelNumUsuarios2.Location = new System.Drawing.Point(527, 66);
+            this.labelNumUsuarios2.Location = new System.Drawing.Point(527, 73);
             this.labelNumUsuarios2.Name = "labelNumUsuarios2";
             this.labelNumUsuarios2.Size = new System.Drawing.Size(12, 13);
             this.labelNumUsuarios2.TabIndex = 39;
@@ -156,46 +157,32 @@
             // 
             // numericUpDownUsuarios1
             // 
-            this.numericUpDownUsuarios1.Location = new System.Drawing.Point(469, 64);
+            this.numericUpDownUsuarios1.Enabled = false;
+            this.numericUpDownUsuarios1.Location = new System.Drawing.Point(469, 71);
             this.numericUpDownUsuarios1.Name = "numericUpDownUsuarios1";
             this.numericUpDownUsuarios1.Size = new System.Drawing.Size(52, 20);
             this.numericUpDownUsuarios1.TabIndex = 38;
             // 
-            // labelNumUsuarios1
-            // 
-            this.labelNumUsuarios1.AutoSize = true;
-            this.labelNumUsuarios1.Location = new System.Drawing.Point(333, 66);
-            this.labelNumUsuarios1.Name = "labelNumUsuarios1";
-            this.labelNumUsuarios1.Size = new System.Drawing.Size(130, 13);
-            this.labelNumUsuarios1.TabIndex = 37;
-            this.labelNumUsuarios1.Text = "Numero de Usuarios entre";
-            // 
             // textBoxCreador
             // 
-            this.textBoxCreador.Location = new System.Drawing.Point(102, 63);
+            this.textBoxCreador.Enabled = false;
+            this.textBoxCreador.Location = new System.Drawing.Point(120, 70);
             this.textBoxCreador.Name = "textBoxCreador";
             this.textBoxCreador.Size = new System.Drawing.Size(140, 20);
             this.textBoxCreador.TabIndex = 36;
             // 
-            // labelCreador
-            // 
-            this.labelCreador.AutoSize = true;
-            this.labelCreador.Location = new System.Drawing.Point(17, 66);
-            this.labelCreador.Name = "labelCreador";
-            this.labelCreador.Size = new System.Drawing.Size(79, 13);
-            this.labelCreador.TabIndex = 35;
-            this.labelCreador.Text = "Creador Grupo:";
-            // 
             // dateTimePickerHasta
             // 
-            this.dateTimePickerHasta.Location = new System.Drawing.Point(402, 109);
+            this.dateTimePickerHasta.Enabled = false;
+            this.dateTimePickerHasta.Location = new System.Drawing.Point(425, 124);
             this.dateTimePickerHasta.Name = "dateTimePickerHasta";
             this.dateTimePickerHasta.Size = new System.Drawing.Size(234, 20);
             this.dateTimePickerHasta.TabIndex = 33;
             // 
             // dateTimePickerDesde
             // 
-            this.dateTimePickerDesde.Location = new System.Drawing.Point(100, 109);
+            this.dateTimePickerDesde.Enabled = false;
+            this.dateTimePickerDesde.Location = new System.Drawing.Point(123, 124);
             this.dateTimePickerDesde.Name = "dateTimePickerDesde";
             this.dateTimePickerDesde.Size = new System.Drawing.Size(235, 20);
             this.dateTimePickerDesde.TabIndex = 32;
@@ -203,20 +190,11 @@
             // labelFechaHasta
             // 
             this.labelFechaHasta.AutoSize = true;
-            this.labelFechaHasta.Location = new System.Drawing.Point(363, 113);
+            this.labelFechaHasta.Location = new System.Drawing.Point(373, 128);
             this.labelFechaHasta.Name = "labelFechaHasta";
             this.labelFechaHasta.Size = new System.Drawing.Size(33, 13);
             this.labelFechaHasta.TabIndex = 31;
             this.labelFechaHasta.Text = "hasta";
-            // 
-            // labelFechaDesde
-            // 
-            this.labelFechaDesde.AutoSize = true;
-            this.labelFechaDesde.Location = new System.Drawing.Point(17, 113);
-            this.labelFechaDesde.Name = "labelFechaDesde";
-            this.labelFechaDesde.Size = new System.Drawing.Size(74, 13);
-            this.labelFechaDesde.TabIndex = 30;
-            this.labelFechaDesde.Text = "Mostrar desde";
             // 
             // labelTipoFiltro
             // 
@@ -375,6 +353,39 @@
             this.labelTitulo.TabIndex = 7;
             this.labelTitulo.Text = "Grupos";
             // 
+            // checkBoxCreador
+            // 
+            this.checkBoxCreador.AutoSize = true;
+            this.checkBoxCreador.Location = new System.Drawing.Point(20, 73);
+            this.checkBoxCreador.Name = "checkBoxCreador";
+            this.checkBoxCreador.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxCreador.TabIndex = 42;
+            this.checkBoxCreador.Text = "Creador Grupo";
+            this.checkBoxCreador.UseVisualStyleBackColor = true;
+            this.checkBoxCreador.CheckedChanged += new System.EventHandler(this.checkBoxCreador_CheckedChanged);
+            // 
+            // checkBoxNumUsuario
+            // 
+            this.checkBoxNumUsuario.AutoSize = true;
+            this.checkBoxNumUsuario.Location = new System.Drawing.Point(314, 73);
+            this.checkBoxNumUsuario.Name = "checkBoxNumUsuario";
+            this.checkBoxNumUsuario.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxNumUsuario.TabIndex = 43;
+            this.checkBoxNumUsuario.Text = "Número de Usuarios entre";
+            this.checkBoxNumUsuario.UseVisualStyleBackColor = true;
+            this.checkBoxNumUsuario.CheckedChanged += new System.EventHandler(this.checkBoxNumUsuario_CheckedChanged);
+            // 
+            // checkBoxFecha
+            // 
+            this.checkBoxFecha.AutoSize = true;
+            this.checkBoxFecha.Location = new System.Drawing.Point(20, 128);
+            this.checkBoxFecha.Name = "checkBoxFecha";
+            this.checkBoxFecha.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxFecha.TabIndex = 44;
+            this.checkBoxFecha.Text = "Mostrar desde";
+            this.checkBoxFecha.UseVisualStyleBackColor = true;
+            this.checkBoxFecha.CheckedChanged += new System.EventHandler(this.checkBoxFecha_CheckedChanged);
+            // 
             // FormGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,18 +423,18 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerHasta;
         private System.Windows.Forms.DateTimePicker dateTimePickerDesde;
         private System.Windows.Forms.Label labelFechaHasta;
-        private System.Windows.Forms.Label labelFechaDesde;
         private System.Windows.Forms.Label labelTipoFiltro;
         private System.Windows.Forms.ComboBox comboBoxTipoFiltro;
         private System.Windows.Forms.TextBox textBox1Filtro;
         private System.Windows.Forms.Label labelFiltro;
-        private System.Windows.Forms.Label labelCreador;
         private System.Windows.Forms.NumericUpDown numericUpDownUsuarios2;
         private System.Windows.Forms.Label labelNumUsuarios2;
         private System.Windows.Forms.NumericUpDown numericUpDownUsuarios1;
-        private System.Windows.Forms.Label labelNumUsuarios1;
         private System.Windows.Forms.TextBox textBoxCreador;
         private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.CheckBox checkBoxNumUsuario;
+        private System.Windows.Forms.CheckBox checkBoxCreador;
+        private System.Windows.Forms.CheckBox checkBoxFecha;
 
     }
 }
