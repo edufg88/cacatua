@@ -15,6 +15,17 @@ namespace cacatUA
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Activa las opciones para poder modificar el Grupo.
+        /// </summary>
+        public void Modificar()
+        {
+            textBoxNombreGrupo.ReadOnly = false;
+            textBoxCreadorGrupo.ReadOnly = false;
+            richTextBoxDesc.ReadOnly = false;
+            panelAgregar.Visible = true;
+        }
+
 
         private void buttonUsuario_Click(object sender, EventArgs e)
         {
@@ -23,12 +34,6 @@ namespace cacatUA
             form.Size = new Size(900, 500);
             form.Show();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panelAgregar.Visible = true;
-        }
-
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             if (listBoxUsuarios.SelectedIndex != -1)
@@ -47,6 +52,5 @@ namespace cacatUA
                 listBoxUsuarioGrupo.Items.Remove(listBoxUsuarioGrupo.SelectedItem);
             }
         }
-
     }
 }

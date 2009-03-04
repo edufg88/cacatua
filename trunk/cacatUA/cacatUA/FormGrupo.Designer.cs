@@ -42,7 +42,6 @@
             this.listBoxUsuarios = new System.Windows.Forms.ListBox();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonBorrar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBoxDescripcion.SuspendLayout();
             this.groupBoxComponentes.SuspendLayout();
             this.panelAgregar.SuspendLayout();
@@ -120,7 +119,7 @@
             // 
             // buttonUsuario
             // 
-            this.buttonUsuario.Location = new System.Drawing.Point(164, 209);
+            this.buttonUsuario.Location = new System.Drawing.Point(110, 209);
             this.buttonUsuario.Name = "buttonUsuario";
             this.buttonUsuario.Size = new System.Drawing.Size(75, 23);
             this.buttonUsuario.TabIndex = 24;
@@ -130,7 +129,6 @@
             // 
             // groupBoxComponentes
             // 
-            this.groupBoxComponentes.Controls.Add(this.button1);
             this.groupBoxComponentes.Controls.Add(this.panelAgregar);
             this.groupBoxComponentes.Controls.Add(this.listBoxUsuarioGrupo);
             this.groupBoxComponentes.Controls.Add(this.buttonUsuario);
@@ -184,16 +182,6 @@
             this.buttonBorrar.UseVisualStyleBackColor = true;
             this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(57, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Provisional";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +214,5 @@
         private System.Windows.Forms.Button buttonBorrar;
         private System.Windows.Forms.Button buttonAgregar;
         private System.Windows.Forms.Panel panelAgregar;
-        private System.Windows.Forms.Button button1;
     }
 }
