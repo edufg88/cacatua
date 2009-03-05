@@ -118,6 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonAgregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAYAAADESFVDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAALEwAA
+        CxMBAJqcGAAAAQ5JREFUKFNj/PXrFwMeYAOUk2YAKcKBQ66+vPQNKJfJ8PPnT2y4CKjgf8KMiP9AeQxF
+        zEDBySAFlmX6WBVxAhVshCnYcGvx/6gpQRCTfvz4AcISQHzyyouLYBNACsr2Z/8PnuD9HygOVqQCxPdg
+        CqIWBYAVgLBPlzNcUf7NJ9f/S6Rx/9cpVvhv26z/H6QwY0Psf8dmC4ii79+/g3DajcfX/vAnsKAoNK/R
+        +w+UgysCKQwBKvyJrFCvVBmi6Nu3b8jY6fqja59hClXypf4D5TMZvn79io6Nrz+8+gqkUDpD8D9QHqsi
+        kCZ1oMK3IsmcEEVfvnzBhXmuPbiyESifyfD582d8WBooH05IEUieGQCpUH1diXSwKAAAAABJRU5ErkJg
+        gg==
+</value>
+  </data>
   <data name="buttonBorrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAYAAADESFVDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
