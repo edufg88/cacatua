@@ -226,6 +226,7 @@
     <Content Include="datos\avatar.jpg" />
     <None Include="datos\buscar.gif" />
     <Content Include="datos\CacatUA EER.JPG" />
+    <Content Include="datos\flechaInv.png" />
     <None Include="datos\flecha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

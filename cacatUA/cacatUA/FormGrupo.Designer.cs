@@ -164,11 +164,11 @@
             // 
             // buttonAgregar
             // 
+            this.buttonAgregar.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregar.Image")));
             this.buttonAgregar.Location = new System.Drawing.Point(13, 32);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(43, 38);
             this.buttonAgregar.TabIndex = 27;
-            this.buttonAgregar.Text = "<-";
             this.buttonAgregar.UseVisualStyleBackColor = true;
             this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
             // 
