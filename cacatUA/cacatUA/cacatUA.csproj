@@ -223,16 +223,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="datos\add.jpg" />
+    <Content Include="datos\add.png" />
     <Content Include="datos\avatar.jpg" />
     <None Include="datos\buscar.gif" />
     <Content Include="datos\CacatUA EER.JPG" />
     <Content Include="datos\categorias.png" />
+    <Content Include="datos\close.png" />
     <Content Include="datos\flechaInv.png" />
     <Content Include="datos\foro.png" />
     <Content Include="datos\general.png" />
+    <Content Include="datos\lupa.png" />
     <Content Include="datos\personas.png" />
     <Content Include="datos\peticiones.png" />
     <Content Include="datos\salir.png" />
+    <Content Include="datos\tool.png" />
     <None Include="datos\flecha.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
