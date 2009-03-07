@@ -28,27 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("IB");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Segundo");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grupo del martes");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Biologia");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Matematicas");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("IB");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Segundo");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Grupo del martes");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
+            treeNode14});
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
+            treeNode12,
+            treeNode13,
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Biologia");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Matematicas");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBoxAdministrar = new System.Windows.Forms.GroupBox();
+            this.labelCategoria = new System.Windows.Forms.Label();
+            this.textBoxRaiz = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.bForo = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -60,17 +66,11 @@
             this.treeViewCategorias = new System.Windows.Forms.TreeView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.groupBoxAdministrar = new System.Windows.Forms.GroupBox();
-            this.labelCategoria = new System.Windows.Forms.Label();
-            this.textBoxRaiz = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBoxAdministrar.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.groupBoxAdministrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -119,6 +119,64 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(808, 490);
             this.panel1.TabIndex = 31;
+            // 
+            // groupBoxAdministrar
+            // 
+            this.groupBoxAdministrar.Controls.Add(this.labelCategoria);
+            this.groupBoxAdministrar.Controls.Add(this.textBoxRaiz);
+            this.groupBoxAdministrar.Controls.Add(this.button5);
+            this.groupBoxAdministrar.Controls.Add(this.button4);
+            this.groupBoxAdministrar.Controls.Add(this.button2);
+            this.groupBoxAdministrar.Location = new System.Drawing.Point(292, 41);
+            this.groupBoxAdministrar.Name = "groupBoxAdministrar";
+            this.groupBoxAdministrar.Size = new System.Drawing.Size(426, 102);
+            this.groupBoxAdministrar.TabIndex = 15;
+            this.groupBoxAdministrar.TabStop = false;
+            this.groupBoxAdministrar.Text = "Administración";
+            // 
+            // labelCategoria
+            // 
+            this.labelCategoria.AutoSize = true;
+            this.labelCategoria.Location = new System.Drawing.Point(23, 24);
+            this.labelCategoria.Name = "labelCategoria";
+            this.labelCategoria.Size = new System.Drawing.Size(55, 13);
+            this.labelCategoria.TabIndex = 24;
+            this.labelCategoria.Text = "Categoria:";
+            // 
+            // textBoxRaiz
+            // 
+            this.textBoxRaiz.Location = new System.Drawing.Point(97, 21);
+            this.textBoxRaiz.Name = "textBoxRaiz";
+            this.textBoxRaiz.ReadOnly = true;
+            this.textBoxRaiz.Size = new System.Drawing.Size(284, 20);
+            this.textBoxRaiz.TabIndex = 23;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(26, 58);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(96, 23);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "Editar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(145, 58);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(96, 23);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Borrar";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(260, 58);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 23);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Crear subcategoria";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -203,28 +261,28 @@
             // 
             this.treeViewCategorias.Location = new System.Drawing.Point(38, 40);
             this.treeViewCategorias.Name = "treeViewCategorias";
-            treeNode1.Name = "Nodo6";
-            treeNode1.Text = "IB";
-            treeNode2.Name = "Nodo5";
-            treeNode2.Text = "Primero";
-            treeNode3.Name = "Nodo7";
-            treeNode3.Text = "Segundo";
-            treeNode4.Name = "Nodo10";
-            treeNode4.Text = "Grupo del martes";
-            treeNode5.Name = "Nodo9";
-            treeNode5.Text = "DPAA";
-            treeNode6.Name = "Nodo8";
-            treeNode6.Text = "Tercero";
-            treeNode7.Name = "nInformatica";
-            treeNode7.Text = "Informatica";
-            treeNode8.Name = "Nodo1";
-            treeNode8.Text = "Biologia";
-            treeNode9.Name = "Nodo2";
-            treeNode9.Text = "Matematicas";
-            treeNode10.Name = "Nodo0";
-            treeNode10.Text = "CacatUA";
+            treeNode11.Name = "Nodo6";
+            treeNode11.Text = "IB";
+            treeNode12.Name = "Nodo5";
+            treeNode12.Text = "Primero";
+            treeNode13.Name = "Nodo7";
+            treeNode13.Text = "Segundo";
+            treeNode14.Name = "Nodo10";
+            treeNode14.Text = "Grupo del martes";
+            treeNode15.Name = "Nodo9";
+            treeNode15.Text = "DPAA";
+            treeNode16.Name = "Nodo8";
+            treeNode16.Text = "Tercero";
+            treeNode17.Name = "nInformatica";
+            treeNode17.Text = "Informatica";
+            treeNode18.Name = "Nodo1";
+            treeNode18.Text = "Biologia";
+            treeNode19.Name = "Nodo2";
+            treeNode19.Text = "Matematicas";
+            treeNode20.Name = "Nodo0";
+            treeNode20.Text = "CacatUA";
             this.treeViewCategorias.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode20});
             this.treeViewCategorias.PathSeparator = "/";
             this.treeViewCategorias.Size = new System.Drawing.Size(206, 340);
             this.treeViewCategorias.TabIndex = 13;
@@ -232,7 +290,7 @@
             // 
             // panel6
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(5)))), ((int)(((byte)(160)))));
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.label8);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -247,71 +305,14 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(3, 0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label8.Size = new System.Drawing.Size(86, 19);
+            this.label8.Size = new System.Drawing.Size(76, 19);
             this.label8.TabIndex = 7;
             this.label8.Text = "Categorías";
-            // 
-            // groupBoxAdministrar
-            // 
-            this.groupBoxAdministrar.Controls.Add(this.labelCategoria);
-            this.groupBoxAdministrar.Controls.Add(this.textBoxRaiz);
-            this.groupBoxAdministrar.Controls.Add(this.button5);
-            this.groupBoxAdministrar.Controls.Add(this.button4);
-            this.groupBoxAdministrar.Controls.Add(this.button2);
-            this.groupBoxAdministrar.Location = new System.Drawing.Point(292, 41);
-            this.groupBoxAdministrar.Name = "groupBoxAdministrar";
-            this.groupBoxAdministrar.Size = new System.Drawing.Size(426, 102);
-            this.groupBoxAdministrar.TabIndex = 15;
-            this.groupBoxAdministrar.TabStop = false;
-            this.groupBoxAdministrar.Text = "Administración";
-            // 
-            // labelCategoria
-            // 
-            this.labelCategoria.AutoSize = true;
-            this.labelCategoria.Location = new System.Drawing.Point(23, 24);
-            this.labelCategoria.Name = "labelCategoria";
-            this.labelCategoria.Size = new System.Drawing.Size(55, 13);
-            this.labelCategoria.TabIndex = 24;
-            this.labelCategoria.Text = "Categoria:";
-            // 
-            // textBoxRaiz
-            // 
-            this.textBoxRaiz.Location = new System.Drawing.Point(97, 21);
-            this.textBoxRaiz.Name = "textBoxRaiz";
-            this.textBoxRaiz.ReadOnly = true;
-            this.textBoxRaiz.Size = new System.Drawing.Size(284, 20);
-            this.textBoxRaiz.TabIndex = 23;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(26, 58);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(96, 23);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "Editar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(145, 58);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Borrar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(260, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Crear subcategoria";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // FormCategorias
             // 
@@ -322,12 +323,12 @@
             this.Size = new System.Drawing.Size(814, 527);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBoxAdministrar.ResumeLayout(false);
+            this.groupBoxAdministrar.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.groupBoxAdministrar.ResumeLayout(false);
-            this.groupBoxAdministrar.PerformLayout();
             this.ResumeLayout(false);
 
         }

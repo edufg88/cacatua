@@ -104,8 +104,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label36 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Recientes = new System.Windows.Forms.TabPage();
@@ -127,6 +125,8 @@
             this.labelDescA = new System.Windows.Forms.Label();
             this.richTextBoxDescA = new System.Windows.Forms.RichTextBox();
             this.listBoxPeticionesA = new System.Windows.Forms.ListBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label36 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -141,11 +141,11 @@
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.Recientes.SuspendLayout();
             this.Antiguas.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -989,31 +989,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(815, 456);
             this.tableLayoutPanel1.TabIndex = 35;
             // 
-            // label36
-            // 
-            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(3, 0);
-            this.label36.Name = "label36";
-            this.label36.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label36.Size = new System.Drawing.Size(83, 19);
-            this.label36.TabIndex = 7;
-            this.label36.Text = "Peticiones";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.label36);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(809, 25);
-            this.panel10.TabIndex = 30;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -1230,6 +1205,32 @@
             this.listBoxPeticionesA.Size = new System.Drawing.Size(303, 82);
             this.listBoxPeticionesA.TabIndex = 1;
             // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(196)))), ((int)(((byte)(29)))));
+            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel10.Controls.Add(this.label36);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(809, 25);
+            this.panel10.TabIndex = 30;
+            // 
+            // label36
+            // 
+            this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.White;
+            this.label36.Location = new System.Drawing.Point(3, 0);
+            this.label36.Name = "label36";
+            this.label36.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.label36.Size = new System.Drawing.Size(73, 19);
+            this.label36.TabIndex = 7;
+            this.label36.Text = "Peticiones";
+            // 
             // FormPeticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1259,14 +1260,14 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
             this.Recientes.ResumeLayout(false);
             this.Recientes.PerformLayout();
             this.Antiguas.ResumeLayout(false);
             this.Antiguas.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
 
         }

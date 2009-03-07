@@ -32,17 +32,17 @@
             this.button_peticiones = new System.Windows.Forms.Button();
             this.button_grupos = new System.Windows.Forms.Button();
             this.tableLayoutPanel_logo = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel_botones = new System.Windows.Forms.TableLayoutPanel();
             this.button_categorias = new System.Windows.Forms.Button();
-            this.buttonSalir = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.button_general = new System.Windows.Forms.Button();
             this.button_usuarios = new System.Windows.Forms.Button();
             this.button_materiales = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonSalir = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_logo.SuspendLayout();
-            this.tableLayoutPanel_botones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel_botones.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_foro
@@ -103,6 +103,18 @@
             this.tableLayoutPanel_logo.Size = new System.Drawing.Size(981, 100);
             this.tableLayoutPanel_logo.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(451, 94);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // tableLayoutPanel_botones
             // 
             this.tableLayoutPanel_botones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -145,31 +157,6 @@
             this.button_categorias.UseVisualStyleBackColor = true;
             this.button_categorias.Click += new System.EventHandler(this.button_categorias_Click);
             // 
-            // buttonSalir
-            // 
-            this.buttonSalir.FlatAppearance.BorderSize = 0;
-            this.buttonSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
-            this.buttonSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.buttonSalir.Image = global::cacatUA.Properties.Resources.salir;
-            this.buttonSalir.Location = new System.Drawing.Point(3, 318);
-            this.buttonSalir.Name = "buttonSalir";
-            this.buttonSalir.Size = new System.Drawing.Size(190, 39);
-            this.buttonSalir.TabIndex = 7;
-            this.buttonSalir.UseVisualStyleBackColor = true;
-            this.buttonSalir.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.AutoScrollMinSize = new System.Drawing.Size(630, 0);
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(197, 100);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 448);
-            this.panel1.TabIndex = 0;
-            // 
             // button_general
             // 
             this.button_general.FlatAppearance.BorderSize = 0;
@@ -186,6 +173,7 @@
             // 
             // button_usuarios
             // 
+            this.button_usuarios.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button_usuarios.FlatAppearance.BorderSize = 0;
             this.button_usuarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.button_usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
@@ -212,17 +200,30 @@
             this.button_materiales.UseVisualStyleBackColor = true;
             this.button_materiales.Click += new System.EventHandler(this.button_materiales_Click);
             // 
-            // pictureBox1
+            // buttonSalir
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::cacatUA.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(451, 94);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.buttonSalir.FlatAppearance.BorderSize = 0;
+            this.buttonSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.buttonSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.buttonSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonSalir.Image = global::cacatUA.Properties.Resources.salir;
+            this.buttonSalir.Location = new System.Drawing.Point(3, 318);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(190, 39);
+            this.buttonSalir.TabIndex = 7;
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.AutoScrollMinSize = new System.Drawing.Size(630, 0);
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(197, 100);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 448);
+            this.panel1.TabIndex = 0;
             // 
             // FormPanelAdministracion
             // 
@@ -237,8 +238,8 @@
             this.Text = "Panel de administración";
             this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
             this.tableLayoutPanel_logo.ResumeLayout(false);
-            this.tableLayoutPanel_botones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel_botones.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrupos));
             this.tableLayoutPanelGrupos = new System.Windows.Forms.TableLayoutPanel();
             this.panelGrupos = new System.Windows.Forms.Panel();
+            this.checkBoxFecha = new System.Windows.Forms.CheckBox();
+            this.checkBoxNumUsuario = new System.Windows.Forms.CheckBox();
+            this.checkBoxCreador = new System.Windows.Forms.CheckBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.numericUpDownUsuarios2 = new System.Windows.Forms.NumericUpDown();
             this.labelNumUsuarios2 = new System.Windows.Forms.Label();
@@ -54,9 +57,6 @@
             this.buttonBorrar = new System.Windows.Forms.Button();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.checkBoxCreador = new System.Windows.Forms.CheckBox();
-            this.checkBoxNumUsuario = new System.Windows.Forms.CheckBox();
-            this.checkBoxFecha = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanelGrupos.SuspendLayout();
             this.panelGrupos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownUsuarios2)).BeginInit();
@@ -127,6 +127,39 @@
             this.panelGrupos.Name = "panelGrupos";
             this.panelGrupos.Size = new System.Drawing.Size(826, 426);
             this.panelGrupos.TabIndex = 33;
+            // 
+            // checkBoxFecha
+            // 
+            this.checkBoxFecha.AutoSize = true;
+            this.checkBoxFecha.Location = new System.Drawing.Point(20, 128);
+            this.checkBoxFecha.Name = "checkBoxFecha";
+            this.checkBoxFecha.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxFecha.TabIndex = 44;
+            this.checkBoxFecha.Text = "Mostrar desde";
+            this.checkBoxFecha.UseVisualStyleBackColor = true;
+            this.checkBoxFecha.CheckedChanged += new System.EventHandler(this.checkBoxFecha_CheckedChanged);
+            // 
+            // checkBoxNumUsuario
+            // 
+            this.checkBoxNumUsuario.AutoSize = true;
+            this.checkBoxNumUsuario.Location = new System.Drawing.Point(314, 73);
+            this.checkBoxNumUsuario.Name = "checkBoxNumUsuario";
+            this.checkBoxNumUsuario.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxNumUsuario.TabIndex = 43;
+            this.checkBoxNumUsuario.Text = "Número de Usuarios entre";
+            this.checkBoxNumUsuario.UseVisualStyleBackColor = true;
+            this.checkBoxNumUsuario.CheckedChanged += new System.EventHandler(this.checkBoxNumUsuario_CheckedChanged);
+            // 
+            // checkBoxCreador
+            // 
+            this.checkBoxCreador.AutoSize = true;
+            this.checkBoxCreador.Location = new System.Drawing.Point(20, 73);
+            this.checkBoxCreador.Name = "checkBoxCreador";
+            this.checkBoxCreador.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxCreador.TabIndex = 42;
+            this.checkBoxCreador.Text = "Creador Grupo";
+            this.checkBoxCreador.UseVisualStyleBackColor = true;
+            this.checkBoxCreador.CheckedChanged += new System.EventHandler(this.checkBoxCreador_CheckedChanged);
             // 
             // buttonBuscar
             // 
@@ -330,7 +363,7 @@
             // 
             // panelTitulo
             // 
-            this.panelTitulo.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(182)))), ((int)(((byte)(56)))));
             this.panelTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTitulo.Controls.Add(this.labelTitulo);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -345,46 +378,14 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.ForeColor = System.Drawing.Color.White;
             this.labelTitulo.Location = new System.Drawing.Point(3, 0);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.labelTitulo.Size = new System.Drawing.Size(61, 19);
+            this.labelTitulo.Size = new System.Drawing.Size(55, 19);
             this.labelTitulo.TabIndex = 7;
             this.labelTitulo.Text = "Grupos";
-            // 
-            // checkBoxCreador
-            // 
-            this.checkBoxCreador.AutoSize = true;
-            this.checkBoxCreador.Location = new System.Drawing.Point(20, 73);
-            this.checkBoxCreador.Name = "checkBoxCreador";
-            this.checkBoxCreador.Size = new System.Drawing.Size(95, 17);
-            this.checkBoxCreador.TabIndex = 42;
-            this.checkBoxCreador.Text = "Creador Grupo";
-            this.checkBoxCreador.UseVisualStyleBackColor = true;
-            this.checkBoxCreador.CheckedChanged += new System.EventHandler(this.checkBoxCreador_CheckedChanged);
-            // 
-            // checkBoxNumUsuario
-            // 
-            this.checkBoxNumUsuario.AutoSize = true;
-            this.checkBoxNumUsuario.Location = new System.Drawing.Point(314, 73);
-            this.checkBoxNumUsuario.Name = "checkBoxNumUsuario";
-            this.checkBoxNumUsuario.Size = new System.Drawing.Size(149, 17);
-            this.checkBoxNumUsuario.TabIndex = 43;
-            this.checkBoxNumUsuario.Text = "Número de Usuarios entre";
-            this.checkBoxNumUsuario.UseVisualStyleBackColor = true;
-            this.checkBoxNumUsuario.CheckedChanged += new System.EventHandler(this.checkBoxNumUsuario_CheckedChanged);
-            // 
-            // checkBoxFecha
-            // 
-            this.checkBoxFecha.AutoSize = true;
-            this.checkBoxFecha.Location = new System.Drawing.Point(20, 128);
-            this.checkBoxFecha.Name = "checkBoxFecha";
-            this.checkBoxFecha.Size = new System.Drawing.Size(93, 17);
-            this.checkBoxFecha.TabIndex = 44;
-            this.checkBoxFecha.Text = "Mostrar desde";
-            this.checkBoxFecha.UseVisualStyleBackColor = true;
-            this.checkBoxFecha.CheckedChanged += new System.EventHandler(this.checkBoxFecha_CheckedChanged);
             // 
             // FormGrupos
             // 
