@@ -56,11 +56,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormCategoria.Designer.cs">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGrupo.cs">
       <SubType>Form</SubType>
@@ -110,12 +110,6 @@
     <Compile Include="FormMaterial.Designer.cs">
       <DependentUpon>FormMaterial.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNuevoMaterial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNuevoMaterial.Designer.cs">
-      <DependentUpon>FormNuevoMaterial.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPanelAdministracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,8 +131,8 @@
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormCategoria.resx">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupo.resx">
@@ -172,9 +166,6 @@
     <EmbeddedResource Include="FormMaterial.resx">
       <DependentUpon>FormMaterial.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNuevoMaterial.resx">
-      <DependentUpon>FormNuevoMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPanelAdministracion.resx">
       <DependentUpon>FormPanelAdministracion.cs</DependentUpon>
