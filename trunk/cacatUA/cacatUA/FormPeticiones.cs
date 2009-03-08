@@ -42,10 +42,10 @@ namespace cacatUA
         }
         private void buttonMensajes_Click(object sender, EventArgs e)
         {
-            /*Form1 form = new Form1();
+            FormMensaje form = new FormMensaje();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(900, 500);
-            form.Show();*/
+            form.Size = new Size(758, 348);
+            form.Show();
         }
 
         private void buttonRealizada_Click(object sender, EventArgs e)
