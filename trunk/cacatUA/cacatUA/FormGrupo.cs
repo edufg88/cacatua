@@ -29,10 +29,10 @@ namespace cacatUA
 
         private void buttonUsuario_Click(object sender, EventArgs e)
         {
-            FormCategoria form = new FormCategoria();
+            /*FormCategoria form = new FormCategoria();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             form.Size = new Size(900, 500);
-            form.Show();
+            form.Show();*/
         }
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
@@ -51,6 +51,11 @@ namespace cacatUA
                 listBoxUsuarios.Items.Add(listBoxUsuarioGrupo.SelectedItem);
                 listBoxUsuarioGrupo.Items.Remove(listBoxUsuarioGrupo.SelectedItem);
             }
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -40,6 +40,8 @@
             this.panelDesc = new System.Windows.Forms.Panel();
             this.labelDesc = new System.Windows.Forms.Label();
             this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
+            this.buttonEnviar = new System.Windows.Forms.Button();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.tableLayoutPanelPara.SuspendLayout();
             this.panel11.SuspendLayout();
             this.tableLayoutPanelAsunto.SuspendLayout();
@@ -50,6 +52,8 @@
             // 
             // tableLayoutPanelPara
             // 
+            this.tableLayoutPanelPara.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelPara.ColumnCount = 2;
             this.tableLayoutPanelPara.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelPara.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -96,6 +100,8 @@
             // 
             // tableLayoutPanelAsunto
             // 
+            this.tableLayoutPanelAsunto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelAsunto.ColumnCount = 2;
             this.tableLayoutPanelAsunto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.tableLayoutPanelAsunto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -141,6 +147,8 @@
             // 
             // tableLayoutPanelDesc
             // 
+            this.tableLayoutPanelDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelDesc.ColumnCount = 1;
             this.tableLayoutPanelDesc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelDesc.Controls.Add(this.panelDesc, 0, 0);
@@ -183,11 +191,33 @@
             this.richTextBoxDesc.TabIndex = 89;
             this.richTextBoxDesc.Text = "descripción detallada del mensaje";
             // 
+            // buttonEnviar
+            // 
+            this.buttonEnviar.Location = new System.Drawing.Point(2, 317);
+            this.buttonEnviar.Name = "buttonEnviar";
+            this.buttonEnviar.Size = new System.Drawing.Size(75, 23);
+            this.buttonEnviar.TabIndex = 115;
+            this.buttonEnviar.Text = "Enviar";
+            this.buttonEnviar.UseVisualStyleBackColor = true;
+            // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalir.Location = new System.Drawing.Point(673, 317);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalir.TabIndex = 116;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
+            // 
             // FormMensaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 314);
+            this.ClientSize = new System.Drawing.Size(751, 352);
+            this.Controls.Add(this.buttonSalir);
+            this.Controls.Add(this.buttonEnviar);
             this.Controls.Add(this.tableLayoutPanelDesc);
             this.Controls.Add(this.tableLayoutPanelAsunto);
             this.Controls.Add(this.tableLayoutPanelPara);
@@ -223,5 +253,7 @@
         private System.Windows.Forms.Panel panelDesc;
         private System.Windows.Forms.Label labelDesc;
         private System.Windows.Forms.RichTextBox richTextBoxDesc;
+        private System.Windows.Forms.Button buttonEnviar;
+        private System.Windows.Forms.Button buttonSalir;
     }
 }
