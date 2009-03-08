@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -110,6 +110,12 @@
     <Compile Include="FormMaterial.Designer.cs">
       <DependentUpon>FormMaterial.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNuevoMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNuevoMaterial.Designer.cs">
+      <DependentUpon>FormNuevoMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPanelAdministracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="FormMaterial.resx">
       <DependentUpon>FormMaterial.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNuevoMaterial.resx">
+      <DependentUpon>FormNuevoMaterial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPanelAdministracion.resx">
       <DependentUpon>FormPanelAdministracion.cs</DependentUpon>
