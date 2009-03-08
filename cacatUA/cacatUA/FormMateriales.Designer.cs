@@ -54,9 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label57 = new System.Windows.Forms.Label();
-            this.button11 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,33 +63,31 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.comboBox_unidad = new System.Windows.Forms.ComboBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.comboBox_valoracion = new System.Windows.Forms.ComboBox();
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
-            this.comboBox16 = new System.Windows.Forms.ComboBox();
+            this.comboBox_idioma = new System.Windows.Forms.ComboBox();
+            this.comboBox_fecha = new System.Windows.Forms.ComboBox();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
+            this.button_buscarCategoria = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox16 = new System.Windows.Forms.TextBox();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
+            this.comboBox_tipoBusqueda = new System.Windows.Forms.ComboBox();
             this.label56 = new System.Windows.Forms.Label();
-            this.comboBox18 = new System.Windows.Forms.ComboBox();
             this.button10 = new System.Windows.Forms.Button();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewMateriales = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,6 +95,12 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.butto_editarMaterial = new System.Windows.Forms.Button();
+            this.button_añadirMaterial = new System.Windows.Forms.Button();
+            this.button_borrarMaterial = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -180,6 +181,10 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.bCrearHilo = new System.Windows.Forms.Button();
+            this.bEliminarHilo = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -189,14 +194,15 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tableLayoutPanel14.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.tableLayoutPanel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMateriales)).BeginInit();
+            this.tableLayoutPanel19.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -206,6 +212,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
+            this.tableLayoutPanel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -495,50 +502,16 @@
             // 
             this.tableLayoutPanel9.ColumnCount = 1;
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.panel8, 0, 2);
             this.tableLayoutPanel9.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 0, 1);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 3;
+            this.tableLayoutPanel9.RowCount = 2;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(852, 474);
             this.tableLayoutPanel9.TabIndex = 88;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Silver;
-            this.panel8.Controls.Add(this.label57);
-            this.panel8.Controls.Add(this.button11);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(6, 447);
-            this.panel8.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(840, 24);
-            this.panel8.TabIndex = 92;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(6, 6);
-            this.label57.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(130, 13);
-            this.label57.TabIndex = 4;
-            this.label57.Text = "Añadir nuevo material";
-            // 
-            // button11
-            // 
-            this.button11.Image = global::cacatUA.Properties.Resources.add;
-            this.button11.Location = new System.Drawing.Point(142, 0);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(31, 24);
-            this.button11.TabIndex = 3;
-            this.button11.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -579,24 +552,24 @@
             this.tableLayoutPanel15.Controls.Add(this.label44, 1, 0);
             this.tableLayoutPanel15.Controls.Add(this.label45, 0, 6);
             this.tableLayoutPanel15.Controls.Add(this.textBox13, 2, 0);
-            this.tableLayoutPanel15.Controls.Add(this.comboBox13, 3, 5);
-            this.tableLayoutPanel15.Controls.Add(this.button8, 3, 0);
+            this.tableLayoutPanel15.Controls.Add(this.comboBox_unidad, 3, 5);
             this.tableLayoutPanel15.Controls.Add(this.textBox14, 2, 5);
-            this.tableLayoutPanel15.Controls.Add(this.button9, 3, 1);
             this.tableLayoutPanel15.Controls.Add(this.label46, 1, 5);
             this.tableLayoutPanel15.Controls.Add(this.textBox15, 2, 1);
             this.tableLayoutPanel15.Controls.Add(this.label47, 0, 5);
             this.tableLayoutPanel15.Controls.Add(this.label48, 1, 1);
-            this.tableLayoutPanel15.Controls.Add(this.comboBox14, 2, 4);
+            this.tableLayoutPanel15.Controls.Add(this.comboBox_valoracion, 2, 4);
             this.tableLayoutPanel15.Controls.Add(this.label49, 0, 1);
             this.tableLayoutPanel15.Controls.Add(this.label50, 1, 4);
             this.tableLayoutPanel15.Controls.Add(this.label51, 0, 2);
             this.tableLayoutPanel15.Controls.Add(this.label52, 0, 4);
             this.tableLayoutPanel15.Controls.Add(this.label53, 1, 2);
-            this.tableLayoutPanel15.Controls.Add(this.comboBox15, 2, 3);
-            this.tableLayoutPanel15.Controls.Add(this.comboBox16, 2, 2);
+            this.tableLayoutPanel15.Controls.Add(this.comboBox_idioma, 2, 3);
+            this.tableLayoutPanel15.Controls.Add(this.comboBox_fecha, 2, 2);
             this.tableLayoutPanel15.Controls.Add(this.label54, 1, 3);
             this.tableLayoutPanel15.Controls.Add(this.label55, 0, 3);
+            this.tableLayoutPanel15.Controls.Add(this.button_buscarCategoria, 3, 0);
+            this.tableLayoutPanel15.Controls.Add(this.button9, 3, 1);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 38);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
@@ -667,22 +640,18 @@
             this.textBox13.TabIndex = 86;
             this.textBox13.Text = "cualquier categoría";
             // 
-            // comboBox13
+            // comboBox_unidad
             // 
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Location = new System.Drawing.Point(572, 143);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(42, 21);
-            this.comboBox13.TabIndex = 137;
-            // 
-            // button8
-            // 
-            this.button8.Image = global::cacatUA.Properties.Resources.buscar;
-            this.button8.Location = new System.Drawing.Point(572, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(28, 22);
-            this.button8.TabIndex = 87;
-            this.button8.UseVisualStyleBackColor = true;
+            this.comboBox_unidad.FormattingEnabled = true;
+            this.comboBox_unidad.Items.AddRange(new object[] {
+            "B",
+            "KB",
+            "MB",
+            "GB"});
+            this.comboBox_unidad.Location = new System.Drawing.Point(572, 143);
+            this.comboBox_unidad.Name = "comboBox_unidad";
+            this.comboBox_unidad.Size = new System.Drawing.Size(42, 21);
+            this.comboBox_unidad.TabIndex = 137;
             // 
             // textBox14
             // 
@@ -692,15 +661,6 @@
             this.textBox14.Size = new System.Drawing.Size(105, 20);
             this.textBox14.TabIndex = 136;
             this.textBox14.Text = "cualquier tamaño";
-            // 
-            // button9
-            // 
-            this.button9.Image = global::cacatUA.Properties.Resources.buscar;
-            this.button9.Location = new System.Drawing.Point(572, 31);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(28, 22);
-            this.button9.TabIndex = 88;
-            this.button9.UseVisualStyleBackColor = true;
             // 
             // label46
             // 
@@ -739,14 +699,26 @@
             this.label48.TabIndex = 92;
             this.label48.Text = "Mostrar materiales enviador por";
             // 
-            // comboBox14
+            // comboBox_valoracion
             // 
-            this.comboBox14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Location = new System.Drawing.Point(461, 115);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(105, 21);
-            this.comboBox14.TabIndex = 133;
+            this.comboBox_valoracion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.comboBox_valoracion.FormattingEnabled = true;
+            this.comboBox_valoracion.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBox_valoracion.Location = new System.Drawing.Point(461, 115);
+            this.comboBox_valoracion.Name = "comboBox_valoracion";
+            this.comboBox_valoracion.Size = new System.Drawing.Size(105, 21);
+            this.comboBox_valoracion.TabIndex = 133;
             // 
             // label49
             // 
@@ -796,23 +768,33 @@
             this.label53.TabIndex = 126;
             this.label53.Text = "Mostrar materiales enviados en ";
             // 
-            // comboBox15
+            // comboBox_idioma
             // 
-            this.comboBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Location = new System.Drawing.Point(353, 87);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(213, 21);
-            this.comboBox15.TabIndex = 130;
+            this.comboBox_idioma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_idioma.FormattingEnabled = true;
+            this.comboBox_idioma.Items.AddRange(new object[] {
+            "en cualquier idioma",
+            "Español",
+            "Inglés"});
+            this.comboBox_idioma.Location = new System.Drawing.Point(353, 87);
+            this.comboBox_idioma.Name = "comboBox_idioma";
+            this.comboBox_idioma.Size = new System.Drawing.Size(213, 21);
+            this.comboBox_idioma.TabIndex = 130;
             // 
-            // comboBox16
+            // comboBox_fecha
             // 
-            this.comboBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox16.FormattingEnabled = true;
-            this.comboBox16.Location = new System.Drawing.Point(353, 59);
-            this.comboBox16.Name = "comboBox16";
-            this.comboBox16.Size = new System.Drawing.Size(213, 21);
-            this.comboBox16.TabIndex = 127;
+            this.comboBox_fecha.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBox_fecha.FormattingEnabled = true;
+            this.comboBox_fecha.Items.AddRange(new object[] {
+            "en cualquier momento",
+            "en las últimas 24 horas",
+            "durante la última semana",
+            "en el último mes",
+            "en el último año"});
+            this.comboBox_fecha.Location = new System.Drawing.Point(353, 59);
+            this.comboBox_fecha.Name = "comboBox_fecha";
+            this.comboBox_fecha.Size = new System.Drawing.Size(213, 21);
+            this.comboBox_fecha.TabIndex = 127;
             // 
             // label54
             // 
@@ -833,20 +815,45 @@
             this.label55.TabIndex = 128;
             this.label55.Text = "Idioma";
             // 
+            // button_buscarCategoria
+            // 
+            this.button_buscarCategoria.BackColor = System.Drawing.SystemColors.Control;
+            this.button_buscarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_buscarCategoria.FlatAppearance.BorderSize = 0;
+            this.button_buscarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_buscarCategoria.Image = global::cacatUA.Properties.Resources.lupa;
+            this.button_buscarCategoria.Location = new System.Drawing.Point(572, 3);
+            this.button_buscarCategoria.Name = "button_buscarCategoria";
+            this.button_buscarCategoria.Size = new System.Drawing.Size(32, 22);
+            this.button_buscarCategoria.TabIndex = 141;
+            this.button_buscarCategoria.UseVisualStyleBackColor = false;
+            this.button_buscarCategoria.Click += new System.EventHandler(this.button_buscarCategoria_Click);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.Control;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Image = global::cacatUA.Properties.Resources.lupa;
+            this.button9.Location = new System.Drawing.Point(572, 31);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(32, 22);
+            this.button9.TabIndex = 142;
+            this.button9.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel16
             // 
             this.tableLayoutPanel16.BackColor = System.Drawing.Color.Silver;
-            this.tableLayoutPanel16.ColumnCount = 5;
+            this.tableLayoutPanel16.ColumnCount = 4;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.tableLayoutPanel16.Controls.Add(this.textBox16, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.comboBox17, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.comboBox_tipoBusqueda, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label56, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.comboBox18, 3, 0);
-            this.tableLayoutPanel16.Controls.Add(this.button10, 4, 0);
+            this.tableLayoutPanel16.Controls.Add(this.button10, 3, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 3);
@@ -859,25 +866,26 @@
             // textBox16
             // 
             this.textBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox16.Location = new System.Drawing.Point(321, 3);
+            this.textBox16.Location = new System.Drawing.Point(321, 4);
+            this.textBox16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 3);
             this.textBox16.MinimumSize = new System.Drawing.Size(100, 4);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(266, 20);
+            this.textBox16.Size = new System.Drawing.Size(418, 20);
             this.textBox16.TabIndex = 3;
             // 
-            // comboBox17
+            // comboBox_tipoBusqueda
             // 
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Items.AddRange(new object[] {
+            this.comboBox_tipoBusqueda.FormattingEnabled = true;
+            this.comboBox_tipoBusqueda.Items.AddRange(new object[] {
             "Contiene alguna palabra",
             "Contiene todas las palabras",
             "Contiene la frase exacta"});
-            this.comboBox17.Location = new System.Drawing.Point(133, 3);
-            this.comboBox17.MaximumSize = new System.Drawing.Size(160, 0);
-            this.comboBox17.MinimumSize = new System.Drawing.Size(160, 0);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(160, 21);
-            this.comboBox17.TabIndex = 2;
+            this.comboBox_tipoBusqueda.Location = new System.Drawing.Point(133, 3);
+            this.comboBox_tipoBusqueda.MaximumSize = new System.Drawing.Size(160, 0);
+            this.comboBox_tipoBusqueda.MinimumSize = new System.Drawing.Size(160, 0);
+            this.comboBox_tipoBusqueda.Name = "comboBox_tipoBusqueda";
+            this.comboBox_tipoBusqueda.Size = new System.Drawing.Size(160, 21);
+            this.comboBox_tipoBusqueda.TabIndex = 2;
             // 
             // label56
             // 
@@ -890,20 +898,12 @@
             this.label56.TabIndex = 1;
             this.label56.Text = "Mostrar materiales";
             // 
-            // comboBox18
-            // 
-            this.comboBox18.Dock = System.Windows.Forms.DockStyle.Right;
-            this.comboBox18.FormattingEnabled = true;
-            this.comboBox18.Location = new System.Drawing.Point(616, 3);
-            this.comboBox18.Name = "comboBox18";
-            this.comboBox18.Size = new System.Drawing.Size(121, 21);
-            this.comboBox18.TabIndex = 4;
-            // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(743, 3);
+            this.button10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button10.Location = new System.Drawing.Point(762, 3);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 22);
+            this.button10.Size = new System.Drawing.Size(75, 23);
             this.button10.TabIndex = 5;
             this.button10.Text = "Buscar";
             this.button10.UseVisualStyleBackColor = true;
@@ -912,37 +912,32 @@
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel18, 0, 1);
             this.tableLayoutPanel10.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.dataGridViewMateriales, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 253);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 2;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(846, 188);
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(846, 218);
             this.tableLayoutPanel10.TabIndex = 90;
             // 
-            // panel6
+            // tableLayoutPanel18
             // 
-            this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.Controls.Add(this.label26);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(840, 29);
-            this.panel6.TabIndex = 86;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(3, 6);
-            this.label26.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(70, 13);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "Resultados";
+            this.tableLayoutPanel18.ColumnCount = 2;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel18.Controls.Add(this.dataGridViewMateriales, 0, 0);
+            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel19, 1, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 38);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 1;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(840, 177);
+            this.tableLayoutPanel18.TabIndex = 87;
             // 
             // dataGridViewMateriales
             // 
@@ -957,13 +952,13 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dataGridViewMateriales.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMateriales.Location = new System.Drawing.Point(3, 38);
+            this.dataGridViewMateriales.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewMateriales.Name = "dataGridViewMateriales";
             this.dataGridViewMateriales.ReadOnly = true;
             this.dataGridViewMateriales.RowHeadersVisible = false;
             this.dataGridViewMateriales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMateriales.Size = new System.Drawing.Size(840, 147);
-            this.dataGridViewMateriales.TabIndex = 84;
+            this.dataGridViewMateriales.Size = new System.Drawing.Size(784, 171);
+            this.dataGridViewMateriales.TabIndex = 85;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1002,6 +997,91 @@
             this.dataGridViewTextBoxColumn9.HeaderText = "Valoración";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 1;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Controls.Add(this.butto_editarMaterial, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.button_añadirMaterial, 0, 0);
+            this.tableLayoutPanel19.Controls.Add(this.button_borrarMaterial, 0, 2);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(793, 3);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 3;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(44, 171);
+            this.tableLayoutPanel19.TabIndex = 8;
+            // 
+            // butto_editarMaterial
+            // 
+            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
+            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
+            this.butto_editarMaterial.Location = new System.Drawing.Point(3, 48);
+            this.butto_editarMaterial.Name = "butto_editarMaterial";
+            this.butto_editarMaterial.Size = new System.Drawing.Size(35, 35);
+            this.butto_editarMaterial.TabIndex = 6;
+            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
+            this.butto_editarMaterial.UseVisualStyleBackColor = true;
+            this.butto_editarMaterial.Click += new System.EventHandler(this.butto_editarMaterial_Click);
+            // 
+            // button_añadirMaterial
+            // 
+            this.button_añadirMaterial.AccessibleName = "";
+            this.button_añadirMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_añadirMaterial.FlatAppearance.BorderSize = 0;
+            this.button_añadirMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_añadirMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_añadirMaterial.Image = global::cacatUA.Properties.Resources.add1;
+            this.button_añadirMaterial.Location = new System.Drawing.Point(3, 3);
+            this.button_añadirMaterial.Name = "button_añadirMaterial";
+            this.button_añadirMaterial.Size = new System.Drawing.Size(35, 35);
+            this.button_añadirMaterial.TabIndex = 4;
+            this.button_añadirMaterial.Tag = "";
+            this.button_añadirMaterial.UseVisualStyleBackColor = true;
+            this.button_añadirMaterial.Click += new System.EventHandler(this.button_añadirMaterial_Click);
+            // 
+            // button_borrarMaterial
+            // 
+            this.button_borrarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarMaterial.FlatAppearance.BorderSize = 0;
+            this.button_borrarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarMaterial.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarMaterial.Location = new System.Drawing.Point(3, 93);
+            this.button_borrarMaterial.Name = "button_borrarMaterial";
+            this.button_borrarMaterial.Size = new System.Drawing.Size(35, 35);
+            this.button_borrarMaterial.TabIndex = 5;
+            this.button_borrarMaterial.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarMaterial.UseVisualStyleBackColor = true;
+            this.button_borrarMaterial.Click += new System.EventHandler(this.button_borrarMaterial_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Silver;
+            this.panel6.Controls.Add(this.label26);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(840, 29);
+            this.panel6.TabIndex = 86;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(3, 6);
+            this.label26.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(70, 13);
+            this.label26.TabIndex = 2;
+            this.label26.Text = "Resultados";
             // 
             // tableLayoutPanel6
             // 
@@ -1782,6 +1862,65 @@
             this.button6.TabIndex = 88;
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Controls.Add(this.button12, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.bCrearHilo, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 3;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel17.TabIndex = 0;
+            // 
+            // button12
+            // 
+            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button12.Image = global::cacatUA.Properties.Resources.tool;
+            this.button12.Location = new System.Drawing.Point(3, 23);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(35, 14);
+            this.button12.TabIndex = 6;
+            this.button12.Tag = "Modificar hilo seleccionado";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // bCrearHilo
+            // 
+            this.bCrearHilo.AccessibleName = "";
+            this.bCrearHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bCrearHilo.FlatAppearance.BorderSize = 0;
+            this.bCrearHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCrearHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bCrearHilo.Image = global::cacatUA.Properties.Resources.add1;
+            this.bCrearHilo.Location = new System.Drawing.Point(3, 3);
+            this.bCrearHilo.Name = "bCrearHilo";
+            this.bCrearHilo.Size = new System.Drawing.Size(35, 14);
+            this.bCrearHilo.TabIndex = 4;
+            this.bCrearHilo.Tag = "";
+            this.bCrearHilo.UseVisualStyleBackColor = true;
+            // 
+            // bEliminarHilo
+            // 
+            this.bEliminarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bEliminarHilo.FlatAppearance.BorderSize = 0;
+            this.bEliminarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bEliminarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bEliminarHilo.Image = global::cacatUA.Properties.Resources.close;
+            this.bEliminarHilo.Location = new System.Drawing.Point(3, 93);
+            this.bEliminarHilo.Name = "bEliminarHilo";
+            this.bEliminarHilo.Size = new System.Drawing.Size(35, 35);
+            this.bEliminarHilo.TabIndex = 5;
+            this.bEliminarHilo.Tag = "Eliminar hilo seleccionado";
+            this.bEliminarHilo.UseVisualStyleBackColor = true;
+            // 
             // FormMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1802,8 +1941,6 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.tableLayoutPanel14.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
@@ -1811,9 +1948,11 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel18.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMateriales)).EndInit();
+            this.tableLayoutPanel19.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMateriales)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -1828,6 +1967,7 @@
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
+            this.tableLayoutPanel17.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1867,13 +2007,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.DataGridView dataGridViewMateriales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label25;
@@ -1957,34 +2090,46 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ComboBox comboBox_unidad;
         private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.ComboBox comboBox14;
+        private System.Windows.Forms.ComboBox comboBox_valoracion;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.ComboBox comboBox15;
-        private System.Windows.Forms.ComboBox comboBox16;
+        private System.Windows.Forms.ComboBox comboBox_idioma;
+        private System.Windows.Forms.ComboBox comboBox_fecha;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.ComboBox comboBox17;
+        private System.Windows.Forms.ComboBox comboBox_tipoBusqueda;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.ComboBox comboBox18;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button bCrearHilo;
+        private System.Windows.Forms.Button bEliminarHilo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
+        private System.Windows.Forms.DataGridView dataGridViewMateriales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel19;
+        private System.Windows.Forms.Button butto_editarMaterial;
+        private System.Windows.Forms.Button button_añadirMaterial;
+        private System.Windows.Forms.Button button_borrarMaterial;
+        private System.Windows.Forms.Button button_buscarCategoria;
+        private System.Windows.Forms.Button button9;
     }
 }

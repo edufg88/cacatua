@@ -30,6 +30,11 @@ namespace cacatUA
             comboBox_subcategoria.Items.Add("Fundamentos de programación I");
             comboBox_subcategoria.Items.Add("Fundamentos de programación II");
              */
+            comboBox_tipoBusqueda.SelectedIndex = 0;
+            comboBox_fecha.SelectedIndex = 0;    
+            comboBox_unidad.SelectedIndex = 1;
+            comboBox_idioma.SelectedIndex = 0;
+            comboBox_valoracion.SelectedIndex = 0;
             // Añadimos unos cuantos materiales
             crearMateriales();
         }
@@ -52,10 +57,41 @@ namespace cacatUA
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button_añadirMaterial_Click(object sender, EventArgs e)
         {
-            Form1 fo = new Form1();
-            fo.Show();
+            FormMaterial form = new FormMaterial();
+            form.Show();
+        }
+
+        private void butto_editarMaterial_Click(object sender, EventArgs e)
+        {
+            FormMaterial form = new FormMaterial();
+            form.Show();
+        }
+
+        private void button_borrarMaterial_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Estás seguro que deseas eliminar esos materiales?","Confirmación",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                // Obtenemos todas las filas seleccionada
+                DataGridViewSelectedRowCollection filas = dataGridViewMateriales.SelectedRows;
+                for (int i = 0; i < filas.Count; i++)
+                {
+                    // Obtenemos la fila
+                    DataGridViewRow fila = filas[i];
+                    // Eliminamos la fila
+                    dataGridViewMateriales.Rows.Remove(fila);
+                }
+            }
+        }
+
+        private void button_buscarCategoria_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            form.Location = new Point(button_buscarCategoria.Location.X, button_buscarCategoria.Location.Y);
+            form.ShowDialog();
         }
     }
 }
