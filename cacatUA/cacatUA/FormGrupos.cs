@@ -37,46 +37,5 @@ namespace cacatUA
             form.Show();
             form.Modificar();
         }
-
-        private void checkBoxNumUsuario_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxNumUsuario.Checked == true)
-            {
-                numericUpDownUsuarios1.Enabled = true;
-                numericUpDownUsuarios2.Enabled = true;
-            }
-            else
-            {
-                numericUpDownUsuarios1.Enabled = false;
-                numericUpDownUsuarios2.Enabled = false;
-            }
-        }
-
-        private void checkBoxCreador_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxCreador.Checked == true)
-            {
-                textBoxCreador.Enabled = true;
-            }
-            else
-            {
-                textBoxCreador.Enabled = false;
-            }
-        }
-
-        private void checkBoxFecha_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxFecha.Checked == true)
-            {
-                dateTimePickerDesde.Enabled = true;
-                dateTimePickerHasta.Enabled = true;
-            }
-            else
-            {
-                dateTimePickerDesde.Enabled = false;
-                dateTimePickerHasta.Enabled = false;
-            }
-        }
-
     }
 }
