@@ -25,7 +25,7 @@ namespace cacatUA
         {
             FormGrupo form = new FormGrupo();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(900, 500);
+            form.Size = new Size(900, 550);
             form.Show();
         }
 
@@ -33,7 +33,7 @@ namespace cacatUA
         {
             FormGrupo form = new FormGrupo();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(900, 500);
+            form.Size = new Size(900, 550);
             form.Show();
             form.Modificar();
         }
