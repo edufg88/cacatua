@@ -60,12 +60,14 @@ namespace cacatUA
         private void button_añadirMaterial_Click(object sender, EventArgs e)
         {
             FormMaterial form = new FormMaterial();
+            form.setModo(FormMaterial.modos.NUEVO);
             form.Show();
         }
 
         private void butto_editarMaterial_Click(object sender, EventArgs e)
         {
             FormMaterial form = new FormMaterial();
+            form.setModo(FormMaterial.modos.EDITAR);
             form.Show();
         }
 
@@ -88,9 +90,9 @@ namespace cacatUA
 
         private void button_buscarCategoria_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            form.Location = new Point(button_buscarCategoria.Location.X, button_buscarCategoria.Location.Y);
+            FormCategoria form = new FormCategoria();
+            //form.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            //form.Location = new Point(button_buscarCategoria.Location.X, button_buscarCategoria.Location.Y);
             form.ShowDialog();
         }
     }

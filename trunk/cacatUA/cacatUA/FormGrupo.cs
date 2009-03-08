@@ -29,7 +29,7 @@ namespace cacatUA
 
         private void buttonUsuario_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
+            FormCategoria form = new FormCategoria();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             form.Size = new Size(900, 500);
             form.Show();

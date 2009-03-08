@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace cacatUA
 {
-    public partial class FormNuevoMaterial : Form
+    public partial class FormCategoria : Form
     {
-        public FormNuevoMaterial()
+        public FormCategoria()
         {
             InitializeComponent();
         }

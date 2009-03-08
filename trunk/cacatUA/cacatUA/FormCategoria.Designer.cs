@@ -1,6 +1,6 @@
 ﻿namespace cacatUA
 {
-    partial class Form1
+    partial class FormCategoria
     {
         /// <summary>
         /// Required designer variable.
