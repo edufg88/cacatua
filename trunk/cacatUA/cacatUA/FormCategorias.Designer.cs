@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("IB");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
-            treeNode11});
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Segundo");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Grupo del martes");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
-            treeNode12,
-            treeNode13,
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Biologia");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Matematicas");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode19});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("IB");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Segundo");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grupo del martes");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
+            treeNode3,
+            treeNode6});
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Biologia");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Matematicas");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxAdministrar = new System.Windows.Forms.GroupBox();
@@ -122,14 +122,17 @@
             // 
             // groupBoxAdministrar
             // 
+            this.groupBoxAdministrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxAdministrar.Controls.Add(this.labelCategoria);
             this.groupBoxAdministrar.Controls.Add(this.textBoxRaiz);
             this.groupBoxAdministrar.Controls.Add(this.button5);
             this.groupBoxAdministrar.Controls.Add(this.button4);
             this.groupBoxAdministrar.Controls.Add(this.button2);
-            this.groupBoxAdministrar.Location = new System.Drawing.Point(292, 41);
+            this.groupBoxAdministrar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBoxAdministrar.Location = new System.Drawing.Point(295, 3);
             this.groupBoxAdministrar.Name = "groupBoxAdministrar";
-            this.groupBoxAdministrar.Size = new System.Drawing.Size(426, 102);
+            this.groupBoxAdministrar.Size = new System.Drawing.Size(508, 102);
             this.groupBoxAdministrar.TabIndex = 15;
             this.groupBoxAdministrar.TabStop = false;
             this.groupBoxAdministrar.Text = "Administración";
@@ -137,6 +140,7 @@
             // labelCategoria
             // 
             this.labelCategoria.AutoSize = true;
+            this.labelCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelCategoria.Location = new System.Drawing.Point(23, 24);
             this.labelCategoria.Name = "labelCategoria";
             this.labelCategoria.Size = new System.Drawing.Size(55, 13);
@@ -145,14 +149,18 @@
             // 
             // textBoxRaiz
             // 
+            this.textBoxRaiz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRaiz.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.textBoxRaiz.Location = new System.Drawing.Point(97, 21);
             this.textBoxRaiz.Name = "textBoxRaiz";
             this.textBoxRaiz.ReadOnly = true;
-            this.textBoxRaiz.Size = new System.Drawing.Size(284, 20);
+            this.textBoxRaiz.Size = new System.Drawing.Size(387, 20);
             this.textBoxRaiz.TabIndex = 23;
             // 
             // button5
             // 
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button5.Location = new System.Drawing.Point(26, 58);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(96, 23);
@@ -162,6 +170,7 @@
             // 
             // button4
             // 
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button4.Location = new System.Drawing.Point(145, 58);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(96, 23);
@@ -171,6 +180,7 @@
             // 
             // button2
             // 
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(260, 58);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 23);
@@ -180,6 +190,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.bForo);
             this.groupBox2.Controls.Add(this.button8);
             this.groupBox2.Controls.Add(this.button7);
@@ -187,15 +200,17 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.listBox1);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(295, 149);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBox2.Location = new System.Drawing.Point(295, 111);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 231);
+            this.groupBox2.Size = new System.Drawing.Size(508, 374);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informacion";
             // 
             // bForo
             // 
+            this.bForo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.bForo.Location = new System.Drawing.Point(217, 42);
             this.bForo.Name = "bForo";
             this.bForo.Size = new System.Drawing.Size(151, 23);
@@ -206,7 +221,9 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(244, 175);
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button8.Location = new System.Drawing.Point(384, 175);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 25);
             this.button8.TabIndex = 17;
@@ -215,7 +232,9 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(244, 144);
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button7.Location = new System.Drawing.Point(384, 144);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 25);
             this.button7.TabIndex = 16;
@@ -224,7 +243,9 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(244, 113);
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button6.Location = new System.Drawing.Point(384, 113);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 25);
             this.button6.TabIndex = 15;
@@ -234,7 +255,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 82);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(20, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 13);
             this.label3.TabIndex = 14;
@@ -242,14 +264,18 @@
             // 
             // listBox1
             // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(23, 113);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(188, 95);
+            this.listBox1.Size = new System.Drawing.Size(345, 238);
             this.listBox1.TabIndex = 13;
             // 
             // button3
             // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button3.Location = new System.Drawing.Point(23, 42);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(151, 23);
@@ -259,32 +285,34 @@
             // 
             // treeViewCategorias
             // 
-            this.treeViewCategorias.Location = new System.Drawing.Point(38, 40);
+            this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.treeViewCategorias.Location = new System.Drawing.Point(6, 3);
             this.treeViewCategorias.Name = "treeViewCategorias";
-            treeNode11.Name = "Nodo6";
-            treeNode11.Text = "IB";
-            treeNode12.Name = "Nodo5";
-            treeNode12.Text = "Primero";
-            treeNode13.Name = "Nodo7";
-            treeNode13.Text = "Segundo";
-            treeNode14.Name = "Nodo10";
-            treeNode14.Text = "Grupo del martes";
-            treeNode15.Name = "Nodo9";
-            treeNode15.Text = "DPAA";
-            treeNode16.Name = "Nodo8";
-            treeNode16.Text = "Tercero";
-            treeNode17.Name = "nInformatica";
-            treeNode17.Text = "Informatica";
-            treeNode18.Name = "Nodo1";
-            treeNode18.Text = "Biologia";
-            treeNode19.Name = "Nodo2";
-            treeNode19.Text = "Matematicas";
-            treeNode20.Name = "Nodo0";
-            treeNode20.Text = "CacatUA";
+            treeNode1.Name = "Nodo6";
+            treeNode1.Text = "IB";
+            treeNode2.Name = "Nodo5";
+            treeNode2.Text = "Primero";
+            treeNode3.Name = "Nodo7";
+            treeNode3.Text = "Segundo";
+            treeNode4.Name = "Nodo10";
+            treeNode4.Text = "Grupo del martes";
+            treeNode5.Name = "Nodo9";
+            treeNode5.Text = "DPAA";
+            treeNode6.Name = "Nodo8";
+            treeNode6.Text = "Tercero";
+            treeNode7.Name = "nInformatica";
+            treeNode7.Text = "Informatica";
+            treeNode8.Name = "Nodo1";
+            treeNode8.Text = "Biologia";
+            treeNode9.Name = "Nodo2";
+            treeNode9.Text = "Matematicas";
+            treeNode10.Name = "Nodo0";
+            treeNode10.Text = "CacatUA";
             this.treeViewCategorias.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode20});
+            treeNode10});
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(206, 340);
+            this.treeViewCategorias.Size = new System.Drawing.Size(280, 482);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
