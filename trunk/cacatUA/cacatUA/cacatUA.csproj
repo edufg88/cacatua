@@ -181,6 +181,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMensaje.resx">
       <DependentUpon>FormMensaje.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPanelAdministracion.resx">
       <DependentUpon>FormPanelAdministracion.cs</DependentUpon>
