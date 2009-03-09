@@ -36,6 +36,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -52,7 +53,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +71,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +84,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
@@ -96,6 +105,8 @@
             this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -108,20 +119,10 @@
             this.Edu = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.butto_editarMaterial = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -133,7 +134,6 @@
             this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tabPage7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -210,6 +210,16 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(116, 104);
             this.panel4.TabIndex = 53;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.ErrorImage = null;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(8, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(105, 92);
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
             // 
             // textBox5
             // 
@@ -385,6 +395,35 @@
             this.label3.TabIndex = 34;
             this.label3.Text = "Firmas de usuario: ";
             // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Image = global::cacatUA.Properties.Resources.close;
+            this.button4.Location = new System.Drawing.Point(605, 69);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 65;
+            this.button4.Tag = "Eliminar hilo seleccionado";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // butto_editarMaterial
+            // 
+            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
+            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
+            this.butto_editarMaterial.Location = new System.Drawing.Point(605, 28);
+            this.butto_editarMaterial.Name = "butto_editarMaterial";
+            this.butto_editarMaterial.Size = new System.Drawing.Size(35, 35);
+            this.butto_editarMaterial.TabIndex = 64;
+            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
+            this.butto_editarMaterial.UseVisualStyleBackColor = true;
+            this.butto_editarMaterial.Click += new System.EventHandler(this.button_editarUsuarioFirma_Click);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button9);
@@ -405,6 +444,35 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Galería";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button9.Image = global::cacatUA.Properties.Resources.close;
+            this.button9.Location = new System.Drawing.Point(605, 69);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(35, 35);
+            this.button9.TabIndex = 72;
+            this.button9.Tag = "Eliminar hilo seleccionado";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button10.Image = global::cacatUA.Properties.Resources.tool;
+            this.button10.Location = new System.Drawing.Point(605, 28);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(35, 35);
+            this.button10.TabIndex = 71;
+            this.button10.Tag = "Modificar hilo seleccionado";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button_editarUsuarioGaleria_Click);
             // 
             // dataGridView2
             // 
@@ -546,6 +614,35 @@
             this.tabPage4.Text = "Mensajes";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // button12
+            // 
+            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button12.Image = global::cacatUA.Properties.Resources.close;
+            this.button12.Location = new System.Drawing.Point(605, 69);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(35, 35);
+            this.button12.TabIndex = 79;
+            this.button12.Tag = "Eliminar hilo seleccionado";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button13.Image = global::cacatUA.Properties.Resources.tool;
+            this.button13.Location = new System.Drawing.Point(605, 28);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(35, 35);
+            this.button13.TabIndex = 78;
+            this.button13.Tag = "Modificar hilo seleccionado";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button_editarUsuarioMensaje_Click);
+            // 
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -662,6 +759,35 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Peticiones";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Image = global::cacatUA.Properties.Resources.close;
+            this.button3.Location = new System.Drawing.Point(605, 69);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 98;
+            this.button3.Tag = "Eliminar hilo seleccionado";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button14.Image = global::cacatUA.Properties.Resources.tool;
+            this.button14.Location = new System.Drawing.Point(605, 28);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(35, 35);
+            this.button14.TabIndex = 97;
+            this.button14.Tag = "Modificar hilo seleccionado";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button_editarUsuarioPeticion_Click);
             // 
             // textBox9
             // 
@@ -868,6 +994,35 @@
             this.label17.TabIndex = 83;
             this.label17.Text = "Encuestas de usuario: ";
             // 
+            // button15
+            // 
+            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button15.Image = global::cacatUA.Properties.Resources.close;
+            this.button15.Location = new System.Drawing.Point(605, 69);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(35, 35);
+            this.button15.TabIndex = 89;
+            this.button15.Tag = "Eliminar hilo seleccionado";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button17.Image = global::cacatUA.Properties.Resources.tool;
+            this.button17.Location = new System.Drawing.Point(605, 28);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(35, 35);
+            this.button17.TabIndex = 88;
+            this.button17.Tag = "Modificar hilo seleccionado";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button_editarUsuarioEncuesta_Click);
+            // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.textBox6);
@@ -990,159 +1145,6 @@
             this.button2.Text = "Crear";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(8, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(105, 92);
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = global::cacatUA.Properties.Resources.close;
-            this.button4.Location = new System.Drawing.Point(605, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 65;
-            this.button4.Tag = "Eliminar hilo seleccionado";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // butto_editarMaterial
-            // 
-            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
-            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarMaterial.Location = new System.Drawing.Point(605, 28);
-            this.butto_editarMaterial.Name = "butto_editarMaterial";
-            this.butto_editarMaterial.Size = new System.Drawing.Size(35, 35);
-            this.butto_editarMaterial.TabIndex = 64;
-            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
-            this.butto_editarMaterial.UseVisualStyleBackColor = true;
-            this.butto_editarMaterial.Click += new System.EventHandler(this.button_editarUsuarioFirma_Click);
-            // 
-            // button9
-            // 
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Image = global::cacatUA.Properties.Resources.close;
-            this.button9.Location = new System.Drawing.Point(605, 69);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(35, 35);
-            this.button9.TabIndex = 72;
-            this.button9.Tag = "Eliminar hilo seleccionado";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button10.Image = global::cacatUA.Properties.Resources.tool;
-            this.button10.Location = new System.Drawing.Point(605, 28);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(35, 35);
-            this.button10.TabIndex = 71;
-            this.button10.Tag = "Modificar hilo seleccionado";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button_editarUsuarioGaleria_Click);
-            // 
-            // button12
-            // 
-            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Image = global::cacatUA.Properties.Resources.close;
-            this.button12.Location = new System.Drawing.Point(605, 69);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(35, 35);
-            this.button12.TabIndex = 79;
-            this.button12.Tag = "Eliminar hilo seleccionado";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button13.Image = global::cacatUA.Properties.Resources.tool;
-            this.button13.Location = new System.Drawing.Point(605, 28);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(35, 35);
-            this.button13.TabIndex = 78;
-            this.button13.Tag = "Modificar hilo seleccionado";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button_editarUsuarioMensaje_Click);
-            // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = global::cacatUA.Properties.Resources.close;
-            this.button3.Location = new System.Drawing.Point(605, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 98;
-            this.button3.Tag = "Eliminar hilo seleccionado";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button14.Image = global::cacatUA.Properties.Resources.tool;
-            this.button14.Location = new System.Drawing.Point(605, 28);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(35, 35);
-            this.button14.TabIndex = 97;
-            this.button14.Tag = "Modificar hilo seleccionado";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button15.Image = global::cacatUA.Properties.Resources.close;
-            this.button15.Location = new System.Drawing.Point(605, 69);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(35, 35);
-            this.button15.TabIndex = 89;
-            this.button15.Tag = "Eliminar hilo seleccionado";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button17.Image = global::cacatUA.Properties.Resources.tool;
-            this.button17.Location = new System.Drawing.Point(605, 28);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(35, 35);
-            this.button17.TabIndex = 88;
-            this.button17.Tag = "Modificar hilo seleccionado";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1159,6 +1161,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1176,7 +1179,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
