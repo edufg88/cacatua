@@ -134,6 +134,24 @@
     <Compile Include="FormUsuario.Designer.cs">
       <DependentUpon>FormUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormUsuarioFirma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioFirma.Designer.cs">
+      <DependentUpon>FormUsuarioFirma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioGaleria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioGaleria.Designer.cs">
+      <DependentUpon>FormUsuarioGaleria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioMensaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioMensaje.Designer.cs">
+      <DependentUpon>FormUsuarioMensaje.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +211,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuario.resx">
       <DependentUpon>FormUsuario.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioFirma.resx">
+      <DependentUpon>FormUsuarioFirma.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioGaleria.resx">
+      <DependentUpon>FormUsuarioGaleria.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioMensaje.resx">
+      <DependentUpon>FormUsuarioMensaje.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
