@@ -37,5 +37,10 @@ namespace cacatUA
             form.Show();
             form.Modificar();
         }
+
+        private void tableLayoutPanelGrupos_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
