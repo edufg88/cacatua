@@ -15,5 +15,26 @@ namespace cacatUA
         {
             InitializeComponent();
         }
+
+        private void button_editarUsuarioFirma_Click(object sender, EventArgs e)
+        {
+            FormUsuarioFirma form = new FormUsuarioFirma();
+            //form.setModo(FormUsuario.modos.NUEVO);
+            form.Show();
+        }
+
+        private void button_editarUsuarioGaleria_Click(object sender, EventArgs e)
+        {
+            FormUsuarioGaleria form = new FormUsuarioGaleria();
+            //form.setModo(FormUsuario.modos.NUEVO);
+            form.Show();
+        }
+
+        private void button_editarUsuarioMensaje_Click(object sender, EventArgs e)
+        {
+            FormUsuarioMensaje form = new FormUsuarioMensaje();
+            //form.setModo(FormUsuario.modos.NUEVO);
+            form.Show();
+        }
     }
 }

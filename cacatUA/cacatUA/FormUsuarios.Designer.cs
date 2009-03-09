@@ -32,10 +32,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialesPublicados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fotosPublicadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.encuestasRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,15 +54,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.button_añadirMaterial = new System.Windows.Forms.Button();
             this.button_borrarMaterial = new System.Windows.Forms.Button();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialesPublicados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fotosPublicadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.encuestasRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -152,52 +152,6 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(64, 321);
             this.tableLayoutPanel4.TabIndex = 9;
             // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = global::cacatUA.Properties.Resources.tool;
-            this.button2.Location = new System.Drawing.Point(3, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 35);
-            this.button2.TabIndex = 6;
-            this.button2.Tag = "Modificar hilo seleccionado";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_editarUsuario_Click);
-            // 
-            // button3
-            // 
-            this.button3.AccessibleName = "";
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = global::cacatUA.Properties.Resources.add1;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 4;
-            this.button3.Tag = "";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button_añadirUsuario_Click);
-            // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = global::cacatUA.Properties.Resources.close;
-            this.button4.Location = new System.Drawing.Point(3, 93);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 5;
-            this.button4.Tag = "Eliminar hilo seleccionado";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button_borrarUsuario_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -218,6 +172,46 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(804, 321);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // Usuario
+            // 
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.HeaderText = "Fecha de ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
+            this.fechaIngreso.Width = 150;
+            // 
+            // materialesPublicados
+            // 
+            this.materialesPublicados.HeaderText = "Materiales publicados";
+            this.materialesPublicados.Name = "materialesPublicados";
+            this.materialesPublicados.ReadOnly = true;
+            this.materialesPublicados.Width = 150;
+            // 
+            // fotosPublicadas
+            // 
+            this.fotosPublicadas.HeaderText = "Fotos publicadas";
+            this.fotosPublicadas.Name = "fotosPublicadas";
+            this.fotosPublicadas.ReadOnly = true;
+            this.fotosPublicadas.Width = 150;
+            // 
+            // encuestasRealizadas
+            // 
+            this.encuestasRealizadas.HeaderText = "Encuestas realizadas";
+            this.encuestasRealizadas.Name = "encuestasRealizadas";
+            this.encuestasRealizadas.ReadOnly = true;
+            this.encuestasRealizadas.Width = 150;
             // 
             // panel4
             // 
@@ -251,7 +245,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.30556F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.69444F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.button1, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
@@ -277,7 +271,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(555, 29);
+            this.button1.Location = new System.Drawing.Point(553, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 11;
@@ -292,7 +286,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(342, 0);
+            this.label3.Location = new System.Drawing.Point(340, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label3.Size = new System.Drawing.Size(207, 26);
@@ -301,7 +295,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(170, 29);
+            this.textBox2.Location = new System.Drawing.Point(169, 29);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(135, 20);
             this.textBox2.TabIndex = 12;
@@ -315,16 +309,16 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(170, 0);
+            this.label1.Location = new System.Drawing.Point(169, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(166, 26);
+            this.label1.Size = new System.Drawing.Size(165, 26);
             this.label1.TabIndex = 13;
             this.label1.Text = "E-mail: ";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(342, 29);
+            this.dateTimePicker1.Location = new System.Drawing.Point(340, 29);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 15;
@@ -340,7 +334,7 @@
             this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label4.Size = new System.Drawing.Size(161, 26);
+            this.label4.Size = new System.Drawing.Size(160, 26);
             this.label4.TabIndex = 7;
             this.label4.Text = "Nombre de usuario: ";
             // 
@@ -412,6 +406,52 @@
             this.tableLayoutPanel19.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel19.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Image = global::cacatUA.Properties.Resources.tool;
+            this.button2.Location = new System.Drawing.Point(3, 48);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 35);
+            this.button2.TabIndex = 6;
+            this.button2.Tag = "Modificar hilo seleccionado";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button_editarUsuario_Click);
+            // 
+            // button3
+            // 
+            this.button3.AccessibleName = "";
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Image = global::cacatUA.Properties.Resources.add1;
+            this.button3.Location = new System.Drawing.Point(3, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 4;
+            this.button3.Tag = "";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button_añadirUsuario_Click);
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Image = global::cacatUA.Properties.Resources.close;
+            this.button4.Location = new System.Drawing.Point(3, 93);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 5;
+            this.button4.Tag = "Eliminar hilo seleccionado";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button_borrarUsuario_Click);
+            // 
             // butto_editarMaterial
             // 
             this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -454,46 +494,6 @@
             this.button_borrarMaterial.TabIndex = 5;
             this.button_borrarMaterial.Tag = "Eliminar hilo seleccionado";
             this.button_borrarMaterial.UseVisualStyleBackColor = true;
-            // 
-            // Usuario
-            // 
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.HeaderText = "Fecha de ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
-            this.fechaIngreso.Width = 150;
-            // 
-            // materialesPublicados
-            // 
-            this.materialesPublicados.HeaderText = "Materiales publicados";
-            this.materialesPublicados.Name = "materialesPublicados";
-            this.materialesPublicados.ReadOnly = true;
-            this.materialesPublicados.Width = 150;
-            // 
-            // fotosPublicadas
-            // 
-            this.fotosPublicadas.HeaderText = "Fotos publicadas";
-            this.fotosPublicadas.Name = "fotosPublicadas";
-            this.fotosPublicadas.ReadOnly = true;
-            this.fotosPublicadas.Width = 150;
-            // 
-            // encuestasRealizadas
-            // 
-            this.encuestasRealizadas.HeaderText = "Encuestas realizadas";
-            this.encuestasRealizadas.Name = "encuestasRealizadas";
-            this.encuestasRealizadas.ReadOnly = true;
-            this.encuestasRealizadas.Width = 150;
             // 
             // FormUsuarios
             // 
