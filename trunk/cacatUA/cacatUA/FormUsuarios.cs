@@ -18,9 +18,9 @@ namespace cacatUA
 
         private void button_añadirUsuario_Click(object sender, EventArgs e)
         {
-            //FormUsuario form = new FormUsuario();
+            FormUsuario form = new FormUsuario();
             //form.setModo(FormUsuario.modos.NUEVO);
-            //form.Show();
+            form.Show();
         }
 
         private void button_editarUsuario_Click(object sender, EventArgs e)
