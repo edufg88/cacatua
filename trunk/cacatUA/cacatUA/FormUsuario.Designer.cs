@@ -43,8 +43,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
-            this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.autorFirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinatarioFirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +53,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -84,6 +84,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
@@ -92,14 +94,10 @@
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,6 +105,8 @@
             this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.button15 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -145,7 +145,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Location = new System.Drawing.Point(2, 3);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(663, 305);
@@ -257,8 +257,6 @@
             // 
             this.tabPage2.Controls.Add(this.radioButton4);
             this.tabPage2.Controls.Add(this.radioButton3);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.butto_editarMaterial);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Controls.Add(this.dateTimePicker2);
             this.tabPage2.Controls.Add(this.button8);
@@ -266,6 +264,8 @@
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.butto_editarMaterial);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -296,34 +296,6 @@
             this.radioButton3.Text = "Realizadas por usuario";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = global::cacatUA.Properties.Resources.close;
-            this.button4.Location = new System.Drawing.Point(605, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 65;
-            this.button4.Tag = "Eliminar hilo seleccionado";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // butto_editarMaterial
-            // 
-            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
-            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarMaterial.Location = new System.Drawing.Point(605, 28);
-            this.butto_editarMaterial.Name = "butto_editarMaterial";
-            this.butto_editarMaterial.Size = new System.Drawing.Size(35, 35);
-            this.butto_editarMaterial.TabIndex = 64;
-            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
-            this.butto_editarMaterial.UseVisualStyleBackColor = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -331,7 +303,7 @@
             this.autorFirma,
             this.destinatarioFirma,
             this.fechaFirma});
-            this.dataGridView1.Location = new System.Drawing.Point(216, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(217, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(383, 253);
@@ -363,7 +335,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(7, 214);
+            this.button8.Location = new System.Drawing.Point(58, 242);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 42;
@@ -423,6 +395,34 @@
             this.label3.TabIndex = 34;
             this.label3.Text = "Firmas de usuario: ";
             // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Image = global::cacatUA.Properties.Resources.close;
+            this.button4.Location = new System.Drawing.Point(605, 69);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 65;
+            this.button4.Tag = "Eliminar hilo seleccionado";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // butto_editarMaterial
+            // 
+            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
+            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
+            this.butto_editarMaterial.Location = new System.Drawing.Point(605, 28);
+            this.butto_editarMaterial.Name = "butto_editarMaterial";
+            this.butto_editarMaterial.Size = new System.Drawing.Size(35, 35);
+            this.butto_editarMaterial.TabIndex = 64;
+            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
+            this.butto_editarMaterial.UseVisualStyleBackColor = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.button9);
@@ -451,7 +451,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button9.Image = global::cacatUA.Properties.Resources.close;
-            this.button9.Location = new System.Drawing.Point(606, 60);
+            this.button9.Location = new System.Drawing.Point(605, 69);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(35, 35);
             this.button9.TabIndex = 72;
@@ -465,7 +465,7 @@
             this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button10.Image = global::cacatUA.Properties.Resources.tool;
-            this.button10.Location = new System.Drawing.Point(606, 19);
+            this.button10.Location = new System.Drawing.Point(605, 28);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(35, 35);
             this.button10.TabIndex = 71;
@@ -479,7 +479,7 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dataGridView2.Location = new System.Drawing.Point(217, 6);
+            this.dataGridView2.Location = new System.Drawing.Point(217, 12);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.Size = new System.Drawing.Size(383, 253);
@@ -504,7 +504,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 173);
+            this.textBox4.Location = new System.Drawing.Point(8, 170);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(159, 20);
             this.textBox4.TabIndex = 68;
@@ -518,7 +518,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(5, 142);
+            this.label8.Location = new System.Drawing.Point(5, 139);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label8.Size = new System.Drawing.Size(98, 20);
@@ -527,14 +527,14 @@
             // 
             // dateTimePicker3
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(7, 60);
+            this.dateTimePicker3.Location = new System.Drawing.Point(7, 57);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker3.TabIndex = 66;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(8, 221);
+            this.button6.Location = new System.Drawing.Point(58, 242);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 65;
@@ -543,7 +543,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(8, 115);
+            this.textBox3.Location = new System.Drawing.Point(8, 112);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(159, 20);
             this.textBox3.TabIndex = 64;
@@ -557,7 +557,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 86);
+            this.label5.Location = new System.Drawing.Point(4, 83);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label5.Size = new System.Drawing.Size(106, 20);
@@ -572,7 +572,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 30);
+            this.label6.Location = new System.Drawing.Point(4, 27);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label6.Size = new System.Drawing.Size(199, 20);
@@ -619,7 +619,7 @@
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button12.Image = global::cacatUA.Properties.Resources.close;
-            this.button12.Location = new System.Drawing.Point(608, 68);
+            this.button12.Location = new System.Drawing.Point(605, 69);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(35, 35);
             this.button12.TabIndex = 79;
@@ -633,7 +633,7 @@
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button13.Image = global::cacatUA.Properties.Resources.tool;
-            this.button13.Location = new System.Drawing.Point(608, 27);
+            this.button13.Location = new System.Drawing.Point(605, 28);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(35, 35);
             this.button13.TabIndex = 78;
@@ -647,7 +647,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridView3.Location = new System.Drawing.Point(219, 6);
+            this.dataGridView3.Location = new System.Drawing.Point(217, 12);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.Size = new System.Drawing.Size(383, 253);
@@ -702,7 +702,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(8, 162);
+            this.button11.Location = new System.Drawing.Point(58, 242);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(75, 23);
             this.button11.TabIndex = 72;
@@ -732,7 +732,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 4);
+            this.label16.Location = new System.Drawing.Point(3, 3);
             this.label16.Name = "label16";
             this.label16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label16.Size = new System.Drawing.Size(149, 20);
@@ -741,14 +741,14 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button3);
+            this.tabPage5.Controls.Add(this.button14);
             this.tabPage5.Controls.Add(this.textBox9);
             this.tabPage5.Controls.Add(this.label11);
             this.tabPage5.Controls.Add(this.button16);
             this.tabPage5.Controls.Add(this.dateTimePicker5);
             this.tabPage5.Controls.Add(this.label20);
             this.tabPage5.Controls.Add(this.dataGridView4);
-            this.tabPage5.Controls.Add(this.button3);
-            this.tabPage5.Controls.Add(this.button14);
             this.tabPage5.Controls.Add(this.label22);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -756,6 +756,34 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Peticiones";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Image = global::cacatUA.Properties.Resources.close;
+            this.button3.Location = new System.Drawing.Point(605, 69);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 35);
+            this.button3.TabIndex = 98;
+            this.button3.Tag = "Eliminar hilo seleccionado";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button14
+            // 
+            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button14.FlatAppearance.BorderSize = 0;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button14.Image = global::cacatUA.Properties.Resources.tool;
+            this.button14.Location = new System.Drawing.Point(605, 28);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(35, 35);
+            this.button14.TabIndex = 97;
+            this.button14.Tag = "Modificar hilo seleccionado";
+            this.button14.UseVisualStyleBackColor = true;
             // 
             // textBox9
             // 
@@ -782,7 +810,7 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(6, 162);
+            this.button16.Location = new System.Drawing.Point(58, 242);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(75, 23);
             this.button16.TabIndex = 94;
@@ -817,7 +845,7 @@
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
-            this.dataGridView4.Location = new System.Drawing.Point(221, 5);
+            this.dataGridView4.Location = new System.Drawing.Point(217, 12);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersVisible = false;
             this.dataGridView4.Size = new System.Drawing.Size(383, 253);
@@ -835,34 +863,6 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 200;
             // 
-            // button3
-            // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = global::cacatUA.Properties.Resources.close;
-            this.button3.Location = new System.Drawing.Point(610, 67);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 82;
-            this.button3.Tag = "Eliminar hilo seleccionado";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button14.Image = global::cacatUA.Properties.Resources.tool;
-            this.button14.Location = new System.Drawing.Point(610, 26);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(35, 35);
-            this.button14.TabIndex = 81;
-            this.button14.Tag = "Modificar hilo seleccionado";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
             // label22
             // 
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -871,7 +871,7 @@
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.Transparent;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 5);
+            this.label22.Location = new System.Drawing.Point(3, 3);
             this.label22.Name = "label22";
             this.label22.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label22.Size = new System.Drawing.Size(154, 20);
@@ -882,13 +882,13 @@
             // 
             this.tabPage6.Controls.Add(this.textBox8);
             this.tabPage6.Controls.Add(this.label18);
-            this.tabPage6.Controls.Add(this.button15);
-            this.tabPage6.Controls.Add(this.button17);
             this.tabPage6.Controls.Add(this.dataGridView5);
             this.tabPage6.Controls.Add(this.button18);
             this.tabPage6.Controls.Add(this.dateTimePicker6);
             this.tabPage6.Controls.Add(this.label15);
             this.tabPage6.Controls.Add(this.label17);
+            this.tabPage6.Controls.Add(this.button15);
+            this.tabPage6.Controls.Add(this.button17);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -920,41 +920,13 @@
             this.label18.TabIndex = 90;
             this.label18.Text = "Buscar por asunto:";
             // 
-            // button15
-            // 
-            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button15.Image = global::cacatUA.Properties.Resources.close;
-            this.button15.Location = new System.Drawing.Point(610, 70);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(35, 35);
-            this.button15.TabIndex = 89;
-            this.button15.Tag = "Eliminar hilo seleccionado";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button17.Image = global::cacatUA.Properties.Resources.tool;
-            this.button17.Location = new System.Drawing.Point(610, 29);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(35, 35);
-            this.button17.TabIndex = 88;
-            this.button17.Tag = "Modificar hilo seleccionado";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
             // dataGridView5
             // 
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn12});
-            this.dataGridView5.Location = new System.Drawing.Point(221, 8);
+            this.dataGridView5.Location = new System.Drawing.Point(217, 12);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.Size = new System.Drawing.Size(383, 253);
@@ -974,7 +946,7 @@
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(6, 160);
+            this.button18.Location = new System.Drawing.Point(58, 242);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(75, 23);
             this.button18.TabIndex = 86;
@@ -1011,12 +983,40 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 8);
+            this.label17.Location = new System.Drawing.Point(3, 3);
             this.label17.Name = "label17";
             this.label17.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label17.Size = new System.Drawing.Size(153, 20);
             this.label17.TabIndex = 83;
             this.label17.Text = "Encuestas de usuario: ";
+            // 
+            // button15
+            // 
+            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button15.FlatAppearance.BorderSize = 0;
+            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button15.Image = global::cacatUA.Properties.Resources.close;
+            this.button15.Location = new System.Drawing.Point(605, 69);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(35, 35);
+            this.button15.TabIndex = 89;
+            this.button15.Tag = "Eliminar hilo seleccionado";
+            this.button15.UseVisualStyleBackColor = true;
+            // 
+            // button17
+            // 
+            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button17.FlatAppearance.BorderSize = 0;
+            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button17.Image = global::cacatUA.Properties.Resources.tool;
+            this.button17.Location = new System.Drawing.Point(605, 28);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(35, 35);
+            this.button17.TabIndex = 88;
+            this.button17.Tag = "Modificar hilo seleccionado";
+            this.button17.UseVisualStyleBackColor = true;
             // 
             // tabPage7
             // 
@@ -1082,7 +1082,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 3);
+            this.label4.Location = new System.Drawing.Point(3, 3);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label4.Size = new System.Drawing.Size(186, 20);
@@ -1250,8 +1250,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button15;
@@ -1271,5 +1269,7 @@
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.DateTimePicker dateTimePicker5;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button14;
     }
 }
