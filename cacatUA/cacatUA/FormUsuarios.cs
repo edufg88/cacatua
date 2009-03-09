@@ -20,7 +20,7 @@ namespace cacatUA
         {
             //FormUsuario form = new FormUsuario();
             //form.setModo(FormUsuario.modos.NUEVO);
-            form.Show();
+            //form.Show();
         }
 
         private void button_editarUsuario_Click(object sender, EventArgs e)
