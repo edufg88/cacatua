@@ -36,5 +36,19 @@ namespace cacatUA
             //form.setModo(FormUsuario.modos.NUEVO);
             form.Show();
         }
+
+        private void button_editarUsuarioPeticion_Click(object sender, EventArgs e)
+        {
+            FormUsuarioPeticion form = new FormUsuarioPeticion();
+            //form.setModo(FormUsuario.modos.NUEVO);
+            form.Show();
+        }
+
+        private void button_editarUsuarioEncuesta_Click(object sender, EventArgs e)
+        {
+            FormUsuarioEncuesta form = new FormUsuarioEncuesta();
+            //form.setModo(FormUsuario.modos.NUEVO);
+            form.Show();
+        }
     }
 }
