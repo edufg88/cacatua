@@ -23,17 +23,30 @@ namespace cacatUA
             textBoxNombreGrupo.ReadOnly = false;
             textBoxCreadorGrupo.ReadOnly = false;
             richTextBoxDesc.ReadOnly = false;
+        }
+        /// <summary>
+        /// Activa las opciones para poder crear un Grupo.
+        /// </summary>
+        public void Anadir()
+        {
+            textBoxNombreGrupo.ReadOnly = false;
+            textBoxCreadorGrupo.ReadOnly = false;
+            richTextBoxDesc.ReadOnly = false;
             panelAgregar.Visible = true;
+            panelVer.Visible = true;
         }
 
 
         private void buttonUsuario_Click(object sender, EventArgs e)
         {
-            /*FormCategoria form = new FormCategoria();
-            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(900, 500);
-            form.Show();*/
+            if (listBoxUsuarioGrupo.SelectedIndex != -1)
+            {
+                FormUsuario form = new FormUsuario();
+                form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                form.Show();
+            }
         }
+
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             if (listBoxUsuarios.SelectedIndex != -1)
@@ -56,6 +69,22 @@ namespace cacatUA
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buttonVer2_Click(object sender, EventArgs e)
+        {
+            if (listBoxUsuarios.SelectedIndex != -1)
+            {
+                FormUsuario form = new FormUsuario();
+                form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+                form.Show();
+            }
+        }
+
+        private void buttonAddUsuario_Click(object sender, EventArgs e)
+        {
+            panelAgregar.Visible = true;
+            panelVer.Visible = true;
         }
     }
 }

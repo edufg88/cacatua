@@ -53,12 +53,14 @@
             this.buttonUsuario = new System.Windows.Forms.Button();
             this.tableLayoutPanelCreador = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxCreadorGrupo = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panelCreador = new System.Windows.Forms.Panel();
+            this.labelCreador = new System.Windows.Forms.Label();
             this.tableLayoutPanelDesc = new System.Windows.Forms.TableLayoutPanel();
             this.panelDesc = new System.Windows.Forms.Panel();
             this.labelDesc = new System.Windows.Forms.Label();
             this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
+            this.buttonAddUsuario = new System.Windows.Forms.Button();
+            this.panelVer = new System.Windows.Forms.Panel();
             this.tableLayoutPanelPara.SuspendLayout();
             this.panelNombreGrupo.SuspendLayout();
             this.panelTituloResultado.SuspendLayout();
@@ -68,9 +70,10 @@
             this.panelAgregar.SuspendLayout();
             this.panelAgregarUsuario.SuspendLayout();
             this.tableLayoutPanelCreador.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelCreador.SuspendLayout();
             this.tableLayoutPanelDesc.SuspendLayout();
             this.panelDesc.SuspendLayout();
+            this.panelVer.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelPara
@@ -169,10 +172,13 @@
             // 
             this.panelComponentes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelComponentes.Controls.Add(this.panelVer);
+            this.panelComponentes.Controls.Add(this.buttonAddUsuario);
             this.panelComponentes.Controls.Add(this.panelAgregados);
             this.panelComponentes.Controls.Add(this.buttonSalir);
             this.panelComponentes.Controls.Add(this.panelAgregar);
             this.panelComponentes.Controls.Add(this.listBoxUsuarioGrupo);
+            this.panelComponentes.Controls.Add(this.buttonGuardar);
             this.panelComponentes.Controls.Add(this.buttonUsuario);
             this.panelComponentes.Location = new System.Drawing.Point(7, 256);
             this.panelComponentes.Name = "panelComponentes";
@@ -216,14 +222,12 @@
             this.panelAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panelAgregar.Controls.Add(this.panelAgregarUsuario);
-            this.panelAgregar.Controls.Add(this.buttonGuardar);
-            this.panelAgregar.Controls.Add(this.buttonVer2);
             this.panelAgregar.Controls.Add(this.listBoxUsuarios);
             this.panelAgregar.Controls.Add(this.buttonAgregar);
             this.panelAgregar.Controls.Add(this.buttonBorrar);
-            this.panelAgregar.Location = new System.Drawing.Point(305, 3);
+            this.panelAgregar.Location = new System.Drawing.Point(294, 0);
             this.panelAgregar.Name = "panelAgregar";
-            this.panelAgregar.Size = new System.Drawing.Size(396, 243);
+            this.panelAgregar.Size = new System.Drawing.Size(396, 203);
             this.panelAgregar.TabIndex = 34;
             this.panelAgregar.Visible = false;
             // 
@@ -250,7 +254,8 @@
             // 
             // buttonGuardar
             // 
-            this.buttonGuardar.Location = new System.Drawing.Point(251, 206);
+            this.buttonGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonGuardar.Location = new System.Drawing.Point(630, 209);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(75, 23);
             this.buttonGuardar.TabIndex = 31;
@@ -260,12 +265,12 @@
             // buttonVer2
             // 
             this.buttonVer2.Image = global::cacatUA.Properties.Resources.lupa;
-            this.buttonVer2.Location = new System.Drawing.Point(131, 205);
+            this.buttonVer2.Location = new System.Drawing.Point(196, 6);
             this.buttonVer2.Name = "buttonVer2";
             this.buttonVer2.Size = new System.Drawing.Size(75, 24);
             this.buttonVer2.TabIndex = 30;
             this.buttonVer2.UseVisualStyleBackColor = true;
-            this.buttonVer2.Click += new System.EventHandler(this.buttonUsuario_Click);
+            this.buttonVer2.Click += new System.EventHandler(this.buttonVer2_Click);
             // 
             // listBoxUsuarios
             // 
@@ -315,11 +320,12 @@
             // buttonUsuario
             // 
             this.buttonUsuario.Image = global::cacatUA.Properties.Resources.lupa;
-            this.buttonUsuario.Location = new System.Drawing.Point(84, 208);
+            this.buttonUsuario.Location = new System.Drawing.Point(61, 208);
             this.buttonUsuario.Name = "buttonUsuario";
             this.buttonUsuario.Size = new System.Drawing.Size(75, 24);
             this.buttonUsuario.TabIndex = 33;
             this.buttonUsuario.UseVisualStyleBackColor = true;
+            this.buttonUsuario.Click += new System.EventHandler(this.buttonUsuario_Click);
             // 
             // tableLayoutPanelCreador
             // 
@@ -329,7 +335,7 @@
             this.tableLayoutPanelCreador.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelCreador.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelCreador.Controls.Add(this.textBoxCreadorGrupo, 1, 0);
-            this.tableLayoutPanelCreador.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanelCreador.Controls.Add(this.panelCreador, 0, 0);
             this.tableLayoutPanelCreador.Location = new System.Drawing.Point(7, 71);
             this.tableLayoutPanelCreador.Name = "tableLayoutPanelCreador";
             this.tableLayoutPanelCreador.RowCount = 1;
@@ -347,27 +353,27 @@
             this.textBoxCreadorGrupo.Size = new System.Drawing.Size(696, 20);
             this.textBoxCreadorGrupo.TabIndex = 85;
             // 
-            // panel2
+            // panelCreador
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(94, 21);
-            this.panel2.TabIndex = 113;
+            this.panelCreador.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panelCreador.Controls.Add(this.labelCreador);
+            this.panelCreador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCreador.Location = new System.Drawing.Point(3, 3);
+            this.panelCreador.Name = "panelCreador";
+            this.panelCreador.Size = new System.Drawing.Size(94, 21);
+            this.panelCreador.TabIndex = 113;
             // 
-            // label2
+            // labelCreador
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 13);
-            this.label2.TabIndex = 84;
-            this.label2.Text = "Creador";
+            this.labelCreador.AutoSize = true;
+            this.labelCreador.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreador.ForeColor = System.Drawing.Color.Black;
+            this.labelCreador.Location = new System.Drawing.Point(3, 3);
+            this.labelCreador.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.labelCreador.Name = "labelCreador";
+            this.labelCreador.Size = new System.Drawing.Size(51, 13);
+            this.labelCreador.TabIndex = 84;
+            this.labelCreador.Text = "Creador";
             // 
             // tableLayoutPanelDesc
             // 
@@ -416,6 +422,27 @@
             this.richTextBoxDesc.TabIndex = 89;
             this.richTextBoxDesc.Text = "descripción detallada del mensaje";
             // 
+            // buttonAddUsuario
+            // 
+            this.buttonAddUsuario.Location = new System.Drawing.Point(164, 209);
+            this.buttonAddUsuario.Name = "buttonAddUsuario";
+            this.buttonAddUsuario.Size = new System.Drawing.Size(91, 23);
+            this.buttonAddUsuario.TabIndex = 115;
+            this.buttonAddUsuario.Text = "Añadir Usuario";
+            this.buttonAddUsuario.UseVisualStyleBackColor = true;
+            this.buttonAddUsuario.Click += new System.EventHandler(this.buttonAddUsuario_Click);
+            // 
+            // panelVer
+            // 
+            this.panelVer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelVer.Controls.Add(this.buttonVer2);
+            this.panelVer.Location = new System.Drawing.Point(294, 202);
+            this.panelVer.Name = "panelVer";
+            this.panelVer.Size = new System.Drawing.Size(307, 39);
+            this.panelVer.TabIndex = 116;
+            this.panelVer.Visible = false;
+            // 
             // FormGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,11 +472,12 @@
             this.panelAgregarUsuario.PerformLayout();
             this.tableLayoutPanelCreador.ResumeLayout(false);
             this.tableLayoutPanelCreador.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelCreador.ResumeLayout(false);
+            this.panelCreador.PerformLayout();
             this.tableLayoutPanelDesc.ResumeLayout(false);
             this.panelDesc.ResumeLayout(false);
             this.panelDesc.PerformLayout();
+            this.panelVer.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -476,8 +504,8 @@
         private System.Windows.Forms.Button buttonUsuario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCreador;
         private System.Windows.Forms.TextBox textBoxCreadorGrupo;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panelCreador;
+        private System.Windows.Forms.Label labelCreador;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDesc;
         private System.Windows.Forms.Panel panelDesc;
         private System.Windows.Forms.Label labelDesc;
@@ -486,5 +514,7 @@
         private System.Windows.Forms.Label labelAgregados;
         private System.Windows.Forms.Panel panelAgregarUsuario;
         private System.Windows.Forms.Label labelAgregarUsuario;
+        private System.Windows.Forms.Button buttonAddUsuario;
+        private System.Windows.Forms.Panel panelVer;
     }
 }

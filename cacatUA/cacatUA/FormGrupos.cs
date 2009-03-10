@@ -38,9 +38,13 @@ namespace cacatUA
             form.Modificar();
         }
 
-        private void tableLayoutPanelGrupos_Paint(object sender, PaintEventArgs e)
+        private void buttonAgregar_Click(object sender, EventArgs e)
         {
-
+            FormGrupo form = new FormGrupo();
+            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            form.Size = new Size(900, 550);
+            form.Show();
+            form.Anadir();
         }
     }
 }

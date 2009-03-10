@@ -193,6 +193,7 @@
             // 
             // buttonEnviar
             // 
+            this.buttonEnviar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonEnviar.Location = new System.Drawing.Point(2, 317);
             this.buttonEnviar.Name = "buttonEnviar";
             this.buttonEnviar.Size = new System.Drawing.Size(75, 23);

@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanelGrupos = new System.Windows.Forms.TableLayoutPanel();
-            this.panelTitulo = new System.Windows.Forms.Panel();
-            this.labelTitulo = new System.Windows.Forms.Label();
             this.panelGrupos = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelResultado = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelTabla = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBotones = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonBorrar = new System.Windows.Forms.Button();
-            this.buttoModificar = new System.Windows.Forms.Button();
             this.buttonAgregar = new System.Windows.Forms.Button();
+            this.buttoModificar = new System.Windows.Forms.Button();
+            this.buttonBorrar = new System.Windows.Forms.Button();
             this.dataGridViewGrupos = new System.Windows.Forms.DataGridView();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCreador = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,17 +55,18 @@
             this.comboBoxFecha = new System.Windows.Forms.ComboBox();
             this.buttonBuscarUsuario = new System.Windows.Forms.Button();
             this.textBoxUsuario = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDownEntre = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanelBuscar = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.comboBoxTipoBusqueda = new System.Windows.Forms.ComboBox();
             this.labelBuscar = new System.Windows.Forms.Label();
             this.buttonBuscar = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDownEntre = new System.Windows.Forms.NumericUpDown();
+            this.panelTitulo = new System.Windows.Forms.Panel();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.tableLayoutPanelGrupos.SuspendLayout();
-            this.panelTitulo.SuspendLayout();
             this.panelGrupos.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelResultado.SuspendLayout();
@@ -77,10 +76,11 @@
             this.panelTituloResultado.SuspendLayout();
             this.tableLayoutPanelOpcionesBuscar.SuspendLayout();
             this.tableLayoutPanelOpciones.SuspendLayout();
-            this.tableLayoutPanelBuscar.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEntre)).BeginInit();
+            this.tableLayoutPanelBuscar.SuspendLayout();
+            this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelGrupos
@@ -115,33 +115,6 @@
             this.tableLayoutPanelGrupos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelGrupos.Size = new System.Drawing.Size(860, 513);
             this.tableLayoutPanelGrupos.TabIndex = 34;
-            this.tableLayoutPanelGrupos.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelGrupos_Paint);
-            // 
-            // panelTitulo
-            // 
-            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(182)))), ((int)(((byte)(56)))));
-            this.panelTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTitulo.Controls.Add(this.labelTitulo);
-            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTitulo.Location = new System.Drawing.Point(3, 3);
-            this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(854, 25);
-            this.panelTitulo.TabIndex = 30;
-            // 
-            // labelTitulo
-            // 
-            this.labelTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.White;
-            this.labelTitulo.Location = new System.Drawing.Point(3, 0);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.labelTitulo.Size = new System.Drawing.Size(55, 19);
-            this.labelTitulo.TabIndex = 7;
-            this.labelTitulo.Text = "Grupos";
             // 
             // panelGrupos
             // 
@@ -220,34 +193,6 @@
             this.tableLayoutPanelBotones.Size = new System.Drawing.Size(44, 291);
             this.tableLayoutPanelBotones.TabIndex = 8;
             // 
-            // buttonBorrar
-            // 
-            this.buttonBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonBorrar.FlatAppearance.BorderSize = 0;
-            this.buttonBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBorrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonBorrar.Image = global::cacatUA.Properties.Resources.close;
-            this.buttonBorrar.Location = new System.Drawing.Point(3, 93);
-            this.buttonBorrar.Name = "buttonBorrar";
-            this.buttonBorrar.Size = new System.Drawing.Size(35, 37);
-            this.buttonBorrar.TabIndex = 5;
-            this.buttonBorrar.Tag = "";
-            this.buttonBorrar.UseVisualStyleBackColor = true;
-            // 
-            // buttoModificar
-            // 
-            this.buttoModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttoModificar.FlatAppearance.BorderSize = 0;
-            this.buttoModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttoModificar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttoModificar.Image = global::cacatUA.Properties.Resources.tool;
-            this.buttoModificar.Location = new System.Drawing.Point(3, 48);
-            this.buttoModificar.Name = "buttoModificar";
-            this.buttoModificar.Size = new System.Drawing.Size(35, 35);
-            this.buttoModificar.TabIndex = 6;
-            this.buttoModificar.Tag = "";
-            this.buttoModificar.UseVisualStyleBackColor = true;
-            // 
             // buttonAgregar
             // 
             this.buttonAgregar.AccessibleName = "";
@@ -262,6 +207,37 @@
             this.buttonAgregar.TabIndex = 4;
             this.buttonAgregar.Tag = "";
             this.buttonAgregar.UseVisualStyleBackColor = true;
+            this.buttonAgregar.Click += new System.EventHandler(this.buttonAgregar_Click);
+            // 
+            // buttoModificar
+            // 
+            this.buttoModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttoModificar.FlatAppearance.BorderSize = 0;
+            this.buttoModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttoModificar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttoModificar.Image = global::cacatUA.Properties.Resources.tool;
+            this.buttoModificar.Location = new System.Drawing.Point(3, 48);
+            this.buttoModificar.Name = "buttoModificar";
+            this.buttoModificar.Size = new System.Drawing.Size(35, 35);
+            this.buttoModificar.TabIndex = 6;
+            this.buttoModificar.Tag = "";
+            this.buttoModificar.UseVisualStyleBackColor = true;
+            this.buttoModificar.Click += new System.EventHandler(this.buttonModificar_Click);
+            // 
+            // buttonBorrar
+            // 
+            this.buttonBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonBorrar.FlatAppearance.BorderSize = 0;
+            this.buttonBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBorrar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonBorrar.Image = global::cacatUA.Properties.Resources.close;
+            this.buttonBorrar.Location = new System.Drawing.Point(3, 93);
+            this.buttonBorrar.Name = "buttonBorrar";
+            this.buttonBorrar.Size = new System.Drawing.Size(35, 37);
+            this.buttonBorrar.TabIndex = 5;
+            this.buttonBorrar.Tag = "";
+            this.buttonBorrar.UseVisualStyleBackColor = true;
+            this.buttonBorrar.Click += new System.EventHandler(this.buttonBorrar_Click);
             // 
             // dataGridViewGrupos
             // 
@@ -471,6 +447,47 @@
             this.textBoxUsuario.TabIndex = 143;
             this.textBoxUsuario.Text = "cualquier usuario";
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.numericUpDown1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.numericUpDownEntre, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(311, 32);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 23);
+            this.tableLayoutPanel2.TabIndex = 150;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.numericUpDown1.Location = new System.Drawing.Point(121, 3);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(62, 20);
+            this.numericUpDown1.TabIndex = 148;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(88, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(9, 13);
+            this.label1.TabIndex = 147;
+            this.label1.Text = "y";
+            // 
+            // numericUpDownEntre
+            // 
+            this.numericUpDownEntre.Location = new System.Drawing.Point(3, 3);
+            this.numericUpDownEntre.Name = "numericUpDownEntre";
+            this.numericUpDownEntre.Size = new System.Drawing.Size(60, 20);
+            this.numericUpDownEntre.TabIndex = 145;
+            // 
             // tableLayoutPanelBuscar
             // 
             this.tableLayoutPanelBuscar.BackColor = System.Drawing.Color.Silver;
@@ -537,46 +554,31 @@
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel2
+            // panelTitulo
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDownEntre, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(311, 32);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(186, 23);
-            this.tableLayoutPanel2.TabIndex = 150;
+            this.panelTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(182)))), ((int)(((byte)(56)))));
+            this.panelTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTitulo.Controls.Add(this.labelTitulo);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTitulo.Location = new System.Drawing.Point(3, 3);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(854, 25);
+            this.panelTitulo.TabIndex = 30;
             // 
-            // numericUpDown1
+            // labelTitulo
             // 
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.numericUpDown1.Location = new System.Drawing.Point(121, 3);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(62, 20);
-            this.numericUpDown1.TabIndex = 148;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(9, 13);
-            this.label1.TabIndex = 147;
-            this.label1.Text = "y";
-            // 
-            // numericUpDownEntre
-            // 
-            this.numericUpDownEntre.Location = new System.Drawing.Point(3, 3);
-            this.numericUpDownEntre.Name = "numericUpDownEntre";
-            this.numericUpDownEntre.Size = new System.Drawing.Size(60, 20);
-            this.numericUpDownEntre.TabIndex = 145;
+            this.labelTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.ForeColor = System.Drawing.Color.White;
+            this.labelTitulo.Location = new System.Drawing.Point(3, 0);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.labelTitulo.Size = new System.Drawing.Size(55, 19);
+            this.labelTitulo.TabIndex = 7;
+            this.labelTitulo.Text = "Grupos";
             // 
             // FormGrupos
             // 
@@ -586,8 +588,6 @@
             this.Name = "FormGrupos";
             this.Size = new System.Drawing.Size(860, 513);
             this.tableLayoutPanelGrupos.ResumeLayout(false);
-            this.panelTitulo.ResumeLayout(false);
-            this.panelTitulo.PerformLayout();
             this.panelGrupos.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanelResultado.ResumeLayout(false);
@@ -599,12 +599,14 @@
             this.tableLayoutPanelOpcionesBuscar.ResumeLayout(false);
             this.tableLayoutPanelOpciones.ResumeLayout(false);
             this.tableLayoutPanelOpciones.PerformLayout();
-            this.tableLayoutPanelBuscar.ResumeLayout(false);
-            this.tableLayoutPanelBuscar.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEntre)).EndInit();
+            this.tableLayoutPanelBuscar.ResumeLayout(false);
+            this.tableLayoutPanelBuscar.PerformLayout();
+            this.panelTitulo.ResumeLayout(false);
+            this.panelTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }
