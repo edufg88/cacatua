@@ -32,6 +32,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +57,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.button_añadirMaterial = new System.Windows.Forms.Button();
             this.button_borrarMaterial = new System.Windows.Forms.Button();
@@ -122,15 +122,18 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 92.13793F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.862069F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 119);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(880, 327);
             this.tableLayoutPanel3.TabIndex = 16;
             // 
@@ -142,20 +145,67 @@
             this.tableLayoutPanel4.Controls.Add(this.button3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button4, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(813, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(838, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(64, 321);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(39, 321);
             this.tableLayoutPanel4.TabIndex = 9;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Image = global::cacatUA.Properties.Resources.tool;
+            this.button2.Location = new System.Drawing.Point(3, 48);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(33, 35);
+            this.button2.TabIndex = 6;
+            this.button2.Tag = "Modificar hilo seleccionado";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button_editarUsuario_Click);
+            // 
+            // button3
+            // 
+            this.button3.AccessibleName = "";
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Image = global::cacatUA.Properties.Resources.add1;
+            this.button3.Location = new System.Drawing.Point(3, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(33, 35);
+            this.button3.TabIndex = 4;
+            this.button3.Tag = "";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button_añadirUsuario_Click);
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button4.Image = global::cacatUA.Properties.Resources.close;
+            this.button4.Location = new System.Drawing.Point(3, 93);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(33, 35);
+            this.button4.TabIndex = 5;
+            this.button4.Tag = "Eliminar hilo seleccionado";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button_borrarUsuario_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Usuario,
@@ -170,7 +220,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(804, 321);
+            this.dataGridView1.Size = new System.Drawing.Size(829, 321);
             this.dataGridView1.TabIndex = 1;
             // 
             // Usuario
@@ -190,28 +240,24 @@
             this.fechaIngreso.HeaderText = "Fecha de ingreso";
             this.fechaIngreso.Name = "fechaIngreso";
             this.fechaIngreso.ReadOnly = true;
-            this.fechaIngreso.Width = 150;
             // 
             // materialesPublicados
             // 
             this.materialesPublicados.HeaderText = "Materiales publicados";
             this.materialesPublicados.Name = "materialesPublicados";
             this.materialesPublicados.ReadOnly = true;
-            this.materialesPublicados.Width = 150;
             // 
             // fotosPublicadas
             // 
             this.fotosPublicadas.HeaderText = "Fotos publicadas";
             this.fotosPublicadas.Name = "fotosPublicadas";
             this.fotosPublicadas.ReadOnly = true;
-            this.fotosPublicadas.Width = 150;
             // 
             // encuestasRealizadas
             // 
             this.encuestasRealizadas.HeaderText = "Encuestas realizadas";
             this.encuestasRealizadas.Name = "encuestasRealizadas";
             this.encuestasRealizadas.ReadOnly = true;
-            this.encuestasRealizadas.Width = 150;
             // 
             // panel4
             // 
@@ -245,7 +291,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.30556F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.69444F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 213F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.button1, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.label3, 2, 0);
@@ -271,7 +317,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(553, 29);
+            this.button1.Location = new System.Drawing.Point(552, 29);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 11;
@@ -286,7 +332,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(340, 0);
+            this.label3.Location = new System.Drawing.Point(339, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.label3.Size = new System.Drawing.Size(207, 26);
@@ -312,13 +358,13 @@
             this.label1.Location = new System.Drawing.Point(169, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(165, 26);
+            this.label1.Size = new System.Drawing.Size(164, 26);
             this.label1.TabIndex = 13;
             this.label1.Text = "E-mail: ";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(340, 29);
+            this.dateTimePicker1.Location = new System.Drawing.Point(339, 29);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 15;
@@ -405,52 +451,6 @@
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel19.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel19.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Image = global::cacatUA.Properties.Resources.tool;
-            this.button2.Location = new System.Drawing.Point(3, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 35);
-            this.button2.TabIndex = 6;
-            this.button2.Tag = "Modificar hilo seleccionado";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button_editarUsuario_Click);
-            // 
-            // button3
-            // 
-            this.button3.AccessibleName = "";
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = global::cacatUA.Properties.Resources.add1;
-            this.button3.Location = new System.Drawing.Point(3, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 4;
-            this.button3.Tag = "";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button_añadirUsuario_Click);
-            // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = global::cacatUA.Properties.Resources.close;
-            this.button4.Location = new System.Drawing.Point(3, 93);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 5;
-            this.button4.Tag = "Eliminar hilo seleccionado";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button_borrarUsuario_Click);
             // 
             // butto_editarMaterial
             // 
