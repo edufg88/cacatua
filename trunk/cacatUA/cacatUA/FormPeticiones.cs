@@ -35,16 +35,15 @@ namespace cacatUA
 
         private void buttonUsuario_Click(object sender, EventArgs e)
         {
-            /*Form1 form = new Form1();
+            FormUsuario form = new FormUsuario();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(900, 500);
-            form.Show();*/
+            form.Show();
         }
         private void buttonMensajes_Click(object sender, EventArgs e)
         {
             FormMensaje form = new FormMensaje();
             form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(758, 348);
+            form.Size = new Size(800, 400);
             form.Show();
         }
 
