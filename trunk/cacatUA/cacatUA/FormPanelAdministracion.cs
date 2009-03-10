@@ -14,6 +14,10 @@ namespace cacatUA
         public FormPanelAdministracion()
         {
             InitializeComponent();
+            FormGeneral form = new FormGeneral();
+            panel1.Controls.Clear();
+            panel1.Controls.Add(form);
+            form.Dock = DockStyle.Fill;
         }
 
         private void button_usuarios_Click(object sender, EventArgs e)
