@@ -119,6 +119,7 @@
             this.Edu = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -153,6 +154,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkBox1);
             this.tabPage1.Controls.Add(this.dateTimePicker1);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.textBox2);
@@ -1145,6 +1147,16 @@
             this.button2.Text = "Crear";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(214, 39);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(102, 17);
+            this.checkBox1.TabIndex = 62;
+            this.checkBox1.Text = "es administrador";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1276,5 +1288,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
