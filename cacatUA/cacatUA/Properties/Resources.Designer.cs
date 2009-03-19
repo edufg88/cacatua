@@ -81,6 +81,20 @@ namespace cacatUA.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap buscar1 {
+            get {
+                object obj = ResourceManager.GetObject("buscar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap buscar2 {
+            get {
+                object obj = ResourceManager.GetObject("buscar2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap cacatuap {
             get {
                 object obj = ResourceManager.GetObject("cacatuap", resourceCulture);
@@ -102,6 +116,13 @@ namespace cacatUA.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap eliminar {
+            get {
+                object obj = ResourceManager.GetObject("eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap foro {
             get {
                 object obj = ResourceManager.GetObject("foro", resourceCulture);
@@ -112,6 +133,13 @@ namespace cacatUA.Properties {
         internal static System.Drawing.Bitmap general {
             get {
                 object obj = ResourceManager.GetObject("general", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap guardar {
+            get {
+                object obj = ResourceManager.GetObject("guardar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +161,13 @@ namespace cacatUA.Properties {
         internal static System.Drawing.Bitmap materiales {
             get {
                 object obj = ResourceManager.GetObject("materiales", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap nuevo {
+            get {
+                object obj = ResourceManager.GetObject("nuevo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
