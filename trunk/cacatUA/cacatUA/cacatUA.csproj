@@ -336,6 +336,12 @@
     <None Include="datos\flecha.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Libreria\Libreria.csproj">
+      <Project>{CD721870-5DEA-4363-8DA3-0CA84C416EF1}</Project>
+      <Name>Libreria</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
