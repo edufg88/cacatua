@@ -56,7 +56,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ENMaterialCRUD.cs" />
     <Compile Include="FormBusquedaMateriales.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -184,7 +183,6 @@
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
-    <Compile Include="MaterialCAD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBusquedaMateriales.resx">

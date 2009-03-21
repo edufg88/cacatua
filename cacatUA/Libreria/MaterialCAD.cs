@@ -8,9 +8,9 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
-namespace cacatUA
+namespace Libreria
 {
-    class MaterialCAD
+    public class MaterialCAD
     {
         static string cadenaConexion = "Data Source=PORTATIL\\SQLEXPRESS;Initial Catalog=cacatuaDB;Integrated Security=True;Pooling=False";
         public MaterialCAD()

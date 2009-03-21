@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace cacatUA
+namespace Libreria
 {
-    class ENMaterialCRUD
+    public class ENMaterialCRUD
     {
         // Dispone de un materialCAD para acceder a los datos
         private int id;
