@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cacatUA", "cacatUA\cacatUA.csproj", "{3018E7D2-3E10-4183-9931-67C1E9D73602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libreria", "Libreria\Libreria.csproj", "{CD721870-5DEA-4363-8DA3-0CA84C416EF1}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -17,6 +19,10 @@ Global
 		{3018E7D2-3E10-4183-9931-67C1E9D73602}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3018E7D2-3E10-4183-9931-67C1E9D73602}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3018E7D2-3E10-4183-9931-67C1E9D73602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD721870-5DEA-4363-8DA3-0CA84C416EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD721870-5DEA-4363-8DA3-0CA84C416EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD721870-5DEA-4363-8DA3-0CA84C416EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD721870-5DEA-4363-8DA3-0CA84C416EF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
