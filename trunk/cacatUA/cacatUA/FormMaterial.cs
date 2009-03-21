@@ -25,12 +25,12 @@ namespace cacatUA
             {
                 case modos.EDITAR:
                     {
-                        button_accion.Text = "Guardar";
+                        //button_accion.Text = "Guardar";
                         break;
                     }
                 case modos.NUEVO:
                     {
-                        button_accion.Text = "Crear";
+                        //button_accion.Text = "Crear";
                         break;
                     }
             }
