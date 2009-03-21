@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -56,11 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ENMaterialCRUD.cs" />
+    <Compile Include="FormBusquedaMateriales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormBusquedaMateriales.Designer.cs">
+      <DependentUpon>FormBusquedaMateriales.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCategoria.Designer.cs">
       <DependentUpon>FormCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditarMateriales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormEditarMateriales.Designer.cs">
+      <DependentUpon>FormEditarMateriales.cs</DependentUpon>
     </Compile>
     <Compile Include="FormGrupo.cs">
       <SubType>Form</SubType>
@@ -171,10 +184,19 @@
       <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs" />
+    <Compile Include="MaterialCAD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormBusquedaMateriales.resx">
+      <DependentUpon>FormBusquedaMateriales.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCategoria.resx">
       <DependentUpon>FormCategoria.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditarMateriales.resx">
+      <DependentUpon>FormEditarMateriales.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupo.resx">
