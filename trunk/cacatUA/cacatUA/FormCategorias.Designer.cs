@@ -28,41 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("IB");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Segundo");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Grupo del martes");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3,
-            treeNode6});
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Biologia");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Matematicas");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8,
-            treeNode9});
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("IB");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
+            treeNode31});
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Segundo");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Grupo del martes");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
+            treeNode35});
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33,
+            treeNode36});
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Biologia");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Matematicas");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
+            treeNode37,
+            treeNode38,
+            treeNode39});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxAdministrar = new System.Windows.Forms.GroupBox();
+            this.button_Guardar = new System.Windows.Forms.Button();
             this.labelCategoria = new System.Windows.Forms.Label();
             this.textBoxRaiz = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_Editar = new System.Windows.Forms.Button();
+            this.button_Borrar = new System.Windows.Forms.Button();
+            this.button_Crear = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.bForo = new System.Windows.Forms.Button();
+            this.button_Hilos = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.button_quitarUsuario = new System.Windows.Forms.Button();
+            this.button_verUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.button_Materiales = new System.Windows.Forms.Button();
             this.treeViewCategorias = new System.Windows.Forms.TreeView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -124,18 +125,29 @@
             // 
             this.groupBoxAdministrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxAdministrar.Controls.Add(this.button_Guardar);
             this.groupBoxAdministrar.Controls.Add(this.labelCategoria);
             this.groupBoxAdministrar.Controls.Add(this.textBoxRaiz);
-            this.groupBoxAdministrar.Controls.Add(this.button5);
-            this.groupBoxAdministrar.Controls.Add(this.button4);
-            this.groupBoxAdministrar.Controls.Add(this.button2);
+            this.groupBoxAdministrar.Controls.Add(this.button_Editar);
+            this.groupBoxAdministrar.Controls.Add(this.button_Borrar);
+            this.groupBoxAdministrar.Controls.Add(this.button_Crear);
             this.groupBoxAdministrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBoxAdministrar.Location = new System.Drawing.Point(295, 3);
+            this.groupBoxAdministrar.Location = new System.Drawing.Point(284, 24);
             this.groupBoxAdministrar.Name = "groupBoxAdministrar";
-            this.groupBoxAdministrar.Size = new System.Drawing.Size(508, 102);
+            this.groupBoxAdministrar.Size = new System.Drawing.Size(507, 102);
             this.groupBoxAdministrar.TabIndex = 15;
             this.groupBoxAdministrar.TabStop = false;
             this.groupBoxAdministrar.Text = "Administración";
+            // 
+            // button_Guardar
+            // 
+            this.button_Guardar.Enabled = false;
+            this.button_Guardar.Location = new System.Drawing.Point(258, 58);
+            this.button_Guardar.Name = "button_Guardar";
+            this.button_Guardar.Size = new System.Drawing.Size(110, 25);
+            this.button_Guardar.TabIndex = 25;
+            this.button_Guardar.Text = "Guardar";
+            this.button_Guardar.UseVisualStyleBackColor = true;
             // 
             // labelCategoria
             // 
@@ -155,110 +167,112 @@
             this.textBoxRaiz.Location = new System.Drawing.Point(97, 21);
             this.textBoxRaiz.Name = "textBoxRaiz";
             this.textBoxRaiz.ReadOnly = true;
-            this.textBoxRaiz.Size = new System.Drawing.Size(387, 20);
+            this.textBoxRaiz.Size = new System.Drawing.Size(375, 20);
             this.textBoxRaiz.TabIndex = 23;
             // 
-            // button5
+            // button_Editar
             // 
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(26, 58);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(96, 23);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "Editar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button_Editar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Editar.Location = new System.Drawing.Point(142, 58);
+            this.button_Editar.Name = "button_Editar";
+            this.button_Editar.Size = new System.Drawing.Size(110, 25);
+            this.button_Editar.TabIndex = 22;
+            this.button_Editar.Text = "Editar";
+            this.button_Editar.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // button_Borrar
             // 
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(145, 58);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Borrar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button_Borrar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Borrar.Location = new System.Drawing.Point(374, 58);
+            this.button_Borrar.Name = "button_Borrar";
+            this.button_Borrar.Size = new System.Drawing.Size(110, 25);
+            this.button_Borrar.TabIndex = 21;
+            this.button_Borrar.Text = "Borrar";
+            this.button_Borrar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button_Crear
             // 
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(260, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 23);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Crear subcategoria";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_Crear.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Crear.Location = new System.Drawing.Point(26, 58);
+            this.button_Crear.Name = "button_Crear";
+            this.button_Crear.Size = new System.Drawing.Size(110, 25);
+            this.button_Crear.TabIndex = 20;
+            this.button_Crear.Text = "Crear subcategoria";
+            this.button_Crear.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.bForo);
+            this.groupBox2.Controls.Add(this.button_Hilos);
             this.groupBox2.Controls.Add(this.button8);
-            this.groupBox2.Controls.Add(this.button7);
-            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.button_quitarUsuario);
+            this.groupBox2.Controls.Add(this.button_verUsuario);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.listBox1);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button_Materiales);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox2.Location = new System.Drawing.Point(295, 111);
+            this.groupBox2.Location = new System.Drawing.Point(284, 146);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(508, 374);
+            this.groupBox2.Size = new System.Drawing.Size(507, 316);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informacion";
+            this.groupBox2.Text = "Información";
             // 
-            // bForo
+            // button_Hilos
             // 
-            this.bForo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bForo.Location = new System.Drawing.Point(217, 42);
-            this.bForo.Name = "bForo";
-            this.bForo.Size = new System.Drawing.Size(151, 23);
-            this.bForo.TabIndex = 18;
-            this.bForo.Text = "Ir al foro";
-            this.bForo.UseVisualStyleBackColor = true;
-            this.bForo.Click += new System.EventHandler(this.bForo_Click);
+            this.button_Hilos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Hilos.Location = new System.Drawing.Point(204, 38);
+            this.button_Hilos.Name = "button_Hilos";
+            this.button_Hilos.Size = new System.Drawing.Size(151, 23);
+            this.button_Hilos.TabIndex = 18;
+            this.button_Hilos.Text = "Ver hilos";
+            this.button_Hilos.UseVisualStyleBackColor = true;
+            this.button_Hilos.Click += new System.EventHandler(this.button_Hilos_Click);
             // 
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(384, 175);
+            this.button8.Location = new System.Drawing.Point(383, 175);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 25);
             this.button8.TabIndex = 17;
             this.button8.Text = "Añadir usuario";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // button_quitarUsuario
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(384, 144);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 25);
-            this.button7.TabIndex = 16;
-            this.button7.Text = "Quitar usuario";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_quitarUsuario.Location = new System.Drawing.Point(383, 144);
+            this.button_quitarUsuario.Name = "button_quitarUsuario";
+            this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_quitarUsuario.TabIndex = 16;
+            this.button_quitarUsuario.Text = "Quitar usuario";
+            this.button_quitarUsuario.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button_verUsuario
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(384, 113);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 25);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Ver usuario";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_verUsuario.Location = new System.Drawing.Point(383, 113);
+            this.button_verUsuario.Name = "button_verUsuario";
+            this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_verUsuario.TabIndex = 15;
+            this.button_verUsuario.Text = "Ver usuario";
+            this.button_verUsuario.UseVisualStyleBackColor = true;
+            this.button_verUsuario.Click += new System.EventHandler(this.button_verUsuario_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(20, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 13);
+            this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Usuarios suscritos:";
             // 
@@ -270,49 +284,50 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(23, 113);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(345, 238);
+            this.listBox1.Size = new System.Drawing.Size(344, 173);
             this.listBox1.TabIndex = 13;
             // 
-            // button3
+            // button_Materiales
             // 
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(23, 42);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 23);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Ir a materiales";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_Materiales.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_Materiales.Location = new System.Drawing.Point(23, 38);
+            this.button_Materiales.Name = "button_Materiales";
+            this.button_Materiales.Size = new System.Drawing.Size(151, 23);
+            this.button_Materiales.TabIndex = 12;
+            this.button_Materiales.Text = "Ver materiales";
+            this.button_Materiales.UseVisualStyleBackColor = true;
+            this.button_Materiales.Click += new System.EventHandler(this.button_Materiales_Click);
             // 
             // treeViewCategorias
             // 
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeViewCategorias.Location = new System.Drawing.Point(6, 3);
+            this.treeViewCategorias.Location = new System.Drawing.Point(6, 24);
             this.treeViewCategorias.Name = "treeViewCategorias";
-            treeNode1.Name = "Nodo6";
-            treeNode1.Text = "IB";
-            treeNode2.Name = "Nodo5";
-            treeNode2.Text = "Primero";
-            treeNode3.Name = "Nodo7";
-            treeNode3.Text = "Segundo";
-            treeNode4.Name = "Nodo10";
-            treeNode4.Text = "Grupo del martes";
-            treeNode5.Name = "Nodo9";
-            treeNode5.Text = "DPAA";
-            treeNode6.Name = "Nodo8";
-            treeNode6.Text = "Tercero";
-            treeNode7.Name = "nInformatica";
-            treeNode7.Text = "Informatica";
-            treeNode8.Name = "Nodo1";
-            treeNode8.Text = "Biologia";
-            treeNode9.Name = "Nodo2";
-            treeNode9.Text = "Matematicas";
-            treeNode10.Name = "Nodo0";
-            treeNode10.Text = "CacatUA";
+            treeNode31.Name = "Nodo6";
+            treeNode31.Text = "IB";
+            treeNode32.Name = "Nodo5";
+            treeNode32.Text = "Primero";
+            treeNode33.Name = "Nodo7";
+            treeNode33.Text = "Segundo";
+            treeNode34.Name = "Nodo10";
+            treeNode34.Text = "Grupo del martes";
+            treeNode35.Name = "Nodo9";
+            treeNode35.Text = "DPAA";
+            treeNode36.Name = "Nodo8";
+            treeNode36.Text = "Tercero";
+            treeNode37.Name = "nInformatica";
+            treeNode37.Text = "Informatica";
+            treeNode38.Name = "Nodo1";
+            treeNode38.Text = "Biologia";
+            treeNode39.Name = "Nodo2";
+            treeNode39.Text = "Matematicas";
+            treeNode40.Name = "Nodo0";
+            treeNode40.Text = "CacatUA";
             this.treeViewCategorias.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10});
+            treeNode40});
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(280, 482);
+            this.treeViewCategorias.Size = new System.Drawing.Size(261, 438);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
@@ -369,19 +384,20 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TreeView treeViewCategorias;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button bForo;
+        private System.Windows.Forms.Button button_Hilos;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button_quitarUsuario;
+        private System.Windows.Forms.Button button_verUsuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button_Materiales;
         private System.Windows.Forms.GroupBox groupBoxAdministrar;
         private System.Windows.Forms.Label labelCategoria;
         private System.Windows.Forms.TextBox textBoxRaiz;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_Editar;
+        private System.Windows.Forms.Button button_Borrar;
+        private System.Windows.Forms.Button button_Crear;
+        private System.Windows.Forms.Button button_Guardar;
 
     }
 }
