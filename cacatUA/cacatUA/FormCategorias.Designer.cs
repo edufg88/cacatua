@@ -28,27 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("IB");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
-            treeNode31});
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Segundo");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Grupo del martes");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
-            treeNode35});
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33,
-            treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Biologia");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Matematicas");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
-            treeNode37,
-            treeNode38,
-            treeNode39});
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("IB");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Primero", new System.Windows.Forms.TreeNode[] {
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Segundo");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Grupo del martes");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("DPAA", new System.Windows.Forms.TreeNode[] {
+            treeNode24});
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Tercero", new System.Windows.Forms.TreeNode[] {
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Informatica", new System.Windows.Forms.TreeNode[] {
+            treeNode22,
+            treeNode23,
+            treeNode26});
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Biologia");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Matematicas");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("CacatUA", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_Volver = new System.Windows.Forms.Button();
             this.groupBoxAdministrar = new System.Windows.Forms.GroupBox();
             this.button_Guardar = new System.Windows.Forms.Button();
             this.labelCategoria = new System.Windows.Forms.Label();
@@ -111,6 +112,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button_Volver);
             this.panel1.Controls.Add(this.groupBoxAdministrar);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.treeViewCategorias);
@@ -120,6 +122,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(808, 490);
             this.panel1.TabIndex = 31;
+            // 
+            // button_Volver
+            // 
+            this.button_Volver.Enabled = false;
+            this.button_Volver.Location = new System.Drawing.Point(675, 450);
+            this.button_Volver.Name = "button_Volver";
+            this.button_Volver.Size = new System.Drawing.Size(116, 24);
+            this.button_Volver.TabIndex = 16;
+            this.button_Volver.Text = "Volver";
+            this.button_Volver.UseVisualStyleBackColor = true;
+            this.button_Volver.Visible = false;
             // 
             // groupBoxAdministrar
             // 
@@ -215,7 +228,7 @@
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox2.Location = new System.Drawing.Point(284, 146);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(507, 316);
+            this.groupBox2.Size = new System.Drawing.Size(507, 289);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información";
@@ -284,7 +297,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(23, 113);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(344, 173);
+            this.listBox1.Size = new System.Drawing.Size(344, 134);
             this.listBox1.TabIndex = 13;
             // 
             // button_Materiales
@@ -304,30 +317,30 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeViewCategorias.Location = new System.Drawing.Point(6, 24);
             this.treeViewCategorias.Name = "treeViewCategorias";
-            treeNode31.Name = "Nodo6";
-            treeNode31.Text = "IB";
-            treeNode32.Name = "Nodo5";
-            treeNode32.Text = "Primero";
-            treeNode33.Name = "Nodo7";
-            treeNode33.Text = "Segundo";
-            treeNode34.Name = "Nodo10";
-            treeNode34.Text = "Grupo del martes";
-            treeNode35.Name = "Nodo9";
-            treeNode35.Text = "DPAA";
-            treeNode36.Name = "Nodo8";
-            treeNode36.Text = "Tercero";
-            treeNode37.Name = "nInformatica";
-            treeNode37.Text = "Informatica";
-            treeNode38.Name = "Nodo1";
-            treeNode38.Text = "Biologia";
-            treeNode39.Name = "Nodo2";
-            treeNode39.Text = "Matematicas";
-            treeNode40.Name = "Nodo0";
-            treeNode40.Text = "CacatUA";
+            treeNode21.Name = "Nodo6";
+            treeNode21.Text = "IB";
+            treeNode22.Name = "Nodo5";
+            treeNode22.Text = "Primero";
+            treeNode23.Name = "Nodo7";
+            treeNode23.Text = "Segundo";
+            treeNode24.Name = "Nodo10";
+            treeNode24.Text = "Grupo del martes";
+            treeNode25.Name = "Nodo9";
+            treeNode25.Text = "DPAA";
+            treeNode26.Name = "Nodo8";
+            treeNode26.Text = "Tercero";
+            treeNode27.Name = "nInformatica";
+            treeNode27.Text = "Informatica";
+            treeNode28.Name = "Nodo1";
+            treeNode28.Text = "Biologia";
+            treeNode29.Name = "Nodo2";
+            treeNode29.Text = "Matematicas";
+            treeNode30.Name = "Nodo0";
+            treeNode30.Text = "CacatUA";
             this.treeViewCategorias.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode40});
+            treeNode30});
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(261, 438);
+            this.treeViewCategorias.Size = new System.Drawing.Size(261, 411);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
@@ -398,6 +411,7 @@
         private System.Windows.Forms.Button button_Borrar;
         private System.Windows.Forms.Button button_Crear;
         private System.Windows.Forms.Button button_Guardar;
+        private System.Windows.Forms.Button button_Volver;
 
     }
 }
