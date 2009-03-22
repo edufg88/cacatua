@@ -321,6 +321,7 @@
     <Content Include="datos\categorias.png" />
     <Content Include="datos\close.png" />
     <Content Include="datos\eliminar.png" />
+    <None Include="datos\fileopen.bmp" />
     <Content Include="datos\flechaInv.png" />
     <Content Include="datos\foro.png" />
     <Content Include="datos\general.png" />
