@@ -77,41 +77,36 @@ namespace cacatUA
             }
         }
 
-        private void validarDatos(string[] nombreControles)
+        private bool validarDatos(string[] nombreControles, ENMaterialCRUD material)
         {
+            errorProvider.Clear();
+            bool correcto = true;
+            // Comprobamos que todos los campos estén 
             foreach (KeyValuePair<string, Control> i in controles)
             {
                 // Obtenemos el nombre
                 string nombre = i.Key;
                 // Obtenemos el control
                 Control control = i.Value;
-                if (nombre == "nombre")
+                // Obtenemos el tipo del control
+                Console.WriteLine(control.ToString());
+                switch (obtenerTipo(control.ToString()))
                 {
-
-
+                    case "System.Windows.Forms.TextBox":
+                        {
+                            TextBox textBox = (TextBox)control;
+                            // Validamos el dato
+                            string msjError = material.validarDato(nombre);
+                            if (msjError != "OK")
+                            {
+                                correcto = false;
+                                errorProvider.SetError(control, msjError);
+                            }
+                            break;
+                        }
                 }
             }
-            /*
-            limpiarFormulario();
-            // Activamos los controles que se indican y desactivamos el resto
-            foreach (KeyValuePair<string, Control> i in controles)
-            {
-                // Obtenemos el nombre
-                string nombre = i.Key;
-                // Obtenemos el control
-                Control control = i.Value;
-                // Comprobamos si el control está en el array de controles a activar
-                if (nombreControles.Contains(nombre) == true)
-                {
-                    // Lo activamos
-                    control.Enabled = true;
-                }
-                else
-                {
-                    // Lo desactivamos
-                    control.Enabled = false;
-                }
-            }*/
+            return correcto;
         }
 
         public void limpiarFormulario()
@@ -188,9 +183,6 @@ namespace cacatUA
             {
                 case modos.CREAR:
                     {
-                        // Comprobamos que los campos sean válidos
-                        validarDatos(controlesCrear);
-
                         // Creamos el nuevo material
                         ENMaterialCRUD material = new ENMaterialCRUD();
                         material.Nombre = textBox_nombre.Text.ToString();
@@ -201,8 +193,12 @@ namespace cacatUA
                         material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
                         material.Idioma = comboBox_idioma.SelectedItem.ToString();
                         material.Referencia = textBox_referencia.Text.ToString();
-                        // Añadimos el material a la base de datos
-                        material.crearMaterial();
+                        // Validamos los datos
+                        if (validarDatos(controlesCrear,material) == true)
+                        {
+                            // Añadimos el material a la base de datos
+                            material.crearMaterial();
+                        }
                         break;
                     }
                 case modos.EDITAR:
@@ -240,13 +236,26 @@ namespace cacatUA
             }
         }
 
+        private string obtenerTipo(string tipo)
+        {
+            Console.WriteLine(tipo);
+            tipo = tipo.Remove(tipo.IndexOf(","));
+            tipo.Trim();
+            Console.WriteLine(tipo);
+            return tipo;
+        }
+
         private int convertirTamaño(string tamaño)
         {
             // Quitamos la medida
-            Console.WriteLine(tamaño.IndexOf(' '));
-            tamaño = tamaño.Remove(tamaño.IndexOf(' '));
-            tamaño.Trim();
-            return int.Parse(tamaño);
+            if (tamaño != "")
+            {
+                tamaño = tamaño.Remove(tamaño.IndexOf(' '));
+                tamaño.Trim();
+                return int.Parse(tamaño);
+            }
+            else
+                return 0;
         }
 
     }
