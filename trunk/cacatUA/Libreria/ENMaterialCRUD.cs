@@ -8,6 +8,17 @@ namespace Libreria
 {
     public class ENMaterialCRUD
     {
+        const int maxTamNombre = 30;
+        const int minTamNombre = 5;
+        const int maxTamUsuario = 15;
+        const int minTamUsuario = 4;
+        const int maxTamCategoria = 100;
+        const int minTamCategoria = 5;
+        const int maxTamArchivo = 100;
+        const int minTamArchivo = 5;
+
+        const string msj_blanco = "Este campo no puede dejarse en blanco";
+
         private int id;
         private string nombre;
         private string descripcion;
@@ -38,6 +49,66 @@ namespace Libreria
             votos = 0;
             referencia = "";
             //materialCAD = new MaterialCAD();
+        }
+
+        public string validarDato(string dato)
+        {
+            string error = "OK";
+            switch (dato)
+            {
+                case "nombre":
+                    {
+                        if (nombre == "")
+                            error = msj_blanco;
+                        else
+                        {
+                            if (nombre.Length > maxTamNombre || nombre.Length < minTamNombre)
+                                error = "Debe tener entre " + minTamNombre + " y " + maxTamNombre + " caracteres";
+                        }
+                        break;
+                    }
+                case "usuario":
+                    {
+                        if (usuario == "")
+                            error = msj_blanco;
+                        else
+                        {
+                            if (usuario.Length > maxTamUsuario || usuario.Length < minTamUsuario)
+                                error = "Debe tener entre " + minTamUsuario + " y " + maxTamUsuario + " caracteres";
+                            else
+                            {
+                                // Comprobamos si el usuario existe en la base de datos
+                                bool existe = MaterialCAD.existeUsuario(usuario);
+                                if(existe == false)
+                                    error = "El usuario " + usuario + " no está registrado";
+                            }
+                        }
+                        break;
+                    }
+                case "categoria":
+                    {
+                        if (categoria == "")
+                            error = msj_blanco;
+                        else
+                        {
+                            if (categoria.Length > maxTamCategoria || categoria.Length < minTamCategoria)
+                                error = "Debe tener entre " + minTamCategoria + " y " + maxTamCategoria + " caracteres";
+                        }
+                        break;
+                    }
+                case "archivo":
+                    {
+                        if (archivo == "")
+                            error = msj_blanco;
+                        else
+                        {
+                            if (archivo.Length > maxTamArchivo || archivo.Length < minTamArchivo)
+                                error = "Debe tener entre " + minTamArchivo + " y " + maxTamArchivo + " caracteres";
+                        }
+                        break;
+                    }
+            }
+            return error;
         }
 
         public static ArrayList obtenerMateriales()
@@ -88,7 +159,10 @@ namespace Libreria
         public string Usuario
         {
             get { return usuario; }
-            set { usuario = value; }
+            set
+            {
+                usuario = value;
+            }
         }
 
         public string Categoria

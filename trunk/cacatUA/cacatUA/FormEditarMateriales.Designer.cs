@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
@@ -35,7 +36,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox_nombre = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox_categoria = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -75,12 +75,17 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_referencia = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.textBox_categoria = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -98,6 +103,8 @@
             this.panel7.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -171,7 +178,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox_nombre, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel11, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -203,14 +210,14 @@
             this.label2.TabIndex = 84;
             this.label2.Text = "Nombre";
             // 
-            // textBox_nombre
+            // panel11
             // 
-            this.textBox_nombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_nombre.Location = new System.Drawing.Point(103, 3);
-            this.textBox_nombre.Name = "textBox_nombre";
-            this.textBox_nombre.Size = new System.Drawing.Size(694, 20);
-            this.textBox_nombre.TabIndex = 85;
-            this.textBox_nombre.Text = "material 2";
+            this.panel11.Controls.Add(this.textBox_nombre);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(103, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(694, 21);
+            this.panel11.TabIndex = 114;
             // 
             // tableLayoutPanel3
             // 
@@ -275,32 +282,28 @@
             // 
             // textBox_usuario
             // 
-            this.textBox_usuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_usuario.Location = new System.Drawing.Point(103, 3);
             this.textBox_usuario.Name = "textBox_usuario";
-            this.textBox_usuario.Size = new System.Drawing.Size(309, 20);
+            this.textBox_usuario.Size = new System.Drawing.Size(288, 20);
             this.textBox_usuario.TabIndex = 86;
             this.textBox_usuario.Text = "jose";
             // 
             // dateTimePicker_fecha
             // 
             this.dateTimePicker_fecha.CustomFormat = "dd MMM yyyy HH:mm";
-            this.dateTimePicker_fecha.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(488, 3);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(309, 20);
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(279, 20);
             this.dateTimePicker_fecha.TabIndex = 108;
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel4.Controls.Add(this.panel13, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.textBox_categoria, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.button9, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 69);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -328,15 +331,6 @@
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 104;
             this.label6.Text = "Categoría";
-            // 
-            // textBox_categoria
-            // 
-            this.textBox_categoria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_categoria.Location = new System.Drawing.Point(103, 3);
-            this.textBox_categoria.Name = "textBox_categoria";
-            this.textBox_categoria.Size = new System.Drawing.Size(665, 20);
-            this.textBox_categoria.TabIndex = 105;
-            this.textBox_categoria.Text = "prueba";
             // 
             // tableLayoutPanel5
             // 
@@ -656,17 +650,21 @@
             this.textBox_referencia.TabIndex = 97;
             this.textBox_referencia.Text = "aux";
             // 
-            // button9
+            // errorProvider
             // 
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Image = global::cacatUA.Properties.Resources.lupa;
-            this.button9.Location = new System.Drawing.Point(774, 3);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(23, 21);
-            this.button9.TabIndex = 90;
-            this.button9.UseVisualStyleBackColor = true;
+            this.errorProvider.ContainerControl = this;
+            // 
+            // textBox_nombre
+            // 
+            this.textBox_nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_nombre.BackColor = System.Drawing.Color.White;
+            this.errorProvider.SetIconPadding(this.textBox_nombre, 2);
+            this.textBox_nombre.Location = new System.Drawing.Point(4, 0);
+            this.textBox_nombre.Name = "textBox_nombre";
+            this.textBox_nombre.Size = new System.Drawing.Size(660, 20);
+            this.textBox_nombre.TabIndex = 88;
+            this.textBox_nombre.Text = "material 2";
             // 
             // button4
             // 
@@ -681,6 +679,39 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
             // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.button9);
+            this.panel13.Controls.Add(this.textBox_categoria);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(103, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(694, 21);
+            this.panel13.TabIndex = 114;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Image = global::cacatUA.Properties.Resources.lupa;
+            this.button9.Location = new System.Drawing.Point(642, 4);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(22, 16);
+            this.button9.TabIndex = 116;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // textBox_categoria
+            // 
+            this.textBox_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorProvider.SetIconPadding(this.textBox_categoria, 5);
+            this.textBox_categoria.Location = new System.Drawing.Point(3, 3);
+            this.textBox_categoria.Name = "textBox_categoria";
+            this.textBox_categoria.Size = new System.Drawing.Size(661, 20);
+            this.textBox_categoria.TabIndex = 1;
+            // 
             // FormEditarMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -692,9 +723,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -702,7 +734,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -728,6 +759,9 @@
             this.tableLayoutPanel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -741,7 +775,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox_nombre;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
@@ -752,8 +785,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox_categoria;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
@@ -783,5 +814,11 @@
         private System.Windows.Forms.TextBox textBox_referencia;
         private System.Windows.Forms.TextBox textBox_votos;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.TextBox textBox_nombre;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.TextBox textBox_categoria;
     }
 }

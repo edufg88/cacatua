@@ -65,6 +65,16 @@
             this.button_borrarMaterial = new System.Windows.Forms.Button();
             this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.dataGridViewMateriales = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -151,16 +161,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.bEliminarHilo = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -471,7 +471,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(879, 532);
             this.panel4.TabIndex = 48;
-
             // 
             // tableLayoutPanel9
             // 
@@ -658,6 +657,73 @@
             this.dataGridViewMateriales.Size = new System.Drawing.Size(819, 92);
             this.dataGridViewMateriales.TabIndex = 85;
             this.dataGridViewMateriales.DoubleClick += new System.EventHandler(this.editarMaterial);
+            // 
+            // dataGridViewTextBoxColumn_id
+            // 
+            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn_id.MinimumWidth = 40;
+            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
+            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_id.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn_nombre
+            // 
+            this.dataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn_nombre.Name = "dataGridViewTextBoxColumn_nombre";
+            this.dataGridViewTextBoxColumn_nombre.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewTextBoxColumn_descripcion
+            // 
+            this.dataGridViewTextBoxColumn_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn_descripcion.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn_descripcion.Name = "dataGridViewTextBoxColumn_descripcion";
+            this.dataGridViewTextBoxColumn_descripcion.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_categoria
+            // 
+            this.dataGridViewTextBoxColumn_categoria.HeaderText = "Categoría";
+            this.dataGridViewTextBoxColumn_categoria.Name = "dataGridViewTextBoxColumn_categoria";
+            this.dataGridViewTextBoxColumn_categoria.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_usuario
+            // 
+            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Enviado por";
+            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
+            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_fecha
+            // 
+            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
+            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_idioma
+            // 
+            this.dataGridViewTextBoxColumn_idioma.HeaderText = "Idioma";
+            this.dataGridViewTextBoxColumn_idioma.Name = "dataGridViewTextBoxColumn_idioma";
+            this.dataGridViewTextBoxColumn_idioma.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_tamaño
+            // 
+            this.dataGridViewTextBoxColumn_tamaño.HeaderText = "Tamaño";
+            this.dataGridViewTextBoxColumn_tamaño.Name = "dataGridViewTextBoxColumn_tamaño";
+            this.dataGridViewTextBoxColumn_tamaño.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_tamaño.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn_descargas
+            // 
+            this.dataGridViewTextBoxColumn_descargas.HeaderText = "Descargas";
+            this.dataGridViewTextBoxColumn_descargas.Name = "dataGridViewTextBoxColumn_descargas";
+            this.dataGridViewTextBoxColumn_descargas.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_descargas.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn_valoracion
+            // 
+            this.dataGridViewTextBoxColumn_valoracion.HeaderText = "Valoración";
+            this.dataGridViewTextBoxColumn_valoracion.Name = "dataGridViewTextBoxColumn_valoracion";
+            this.dataGridViewTextBoxColumn_valoracion.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_valoracion.Width = 80;
             // 
             // panel6
             // 
@@ -1517,73 +1583,6 @@
             this.bEliminarHilo.TabIndex = 5;
             this.bEliminarHilo.Tag = "Eliminar hilo seleccionado";
             this.bEliminarHilo.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewTextBoxColumn_id
-            // 
-            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn_id.MinimumWidth = 40;
-            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
-            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_id.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn_nombre
-            // 
-            this.dataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn_nombre.Name = "dataGridViewTextBoxColumn_nombre";
-            this.dataGridViewTextBoxColumn_nombre.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewTextBoxColumn_descripcion
-            // 
-            this.dataGridViewTextBoxColumn_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn_descripcion.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn_descripcion.Name = "dataGridViewTextBoxColumn_descripcion";
-            this.dataGridViewTextBoxColumn_descripcion.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_categoria
-            // 
-            this.dataGridViewTextBoxColumn_categoria.HeaderText = "Categoría";
-            this.dataGridViewTextBoxColumn_categoria.Name = "dataGridViewTextBoxColumn_categoria";
-            this.dataGridViewTextBoxColumn_categoria.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_usuario
-            // 
-            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Enviado por";
-            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
-            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_fecha
-            // 
-            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
-            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_idioma
-            // 
-            this.dataGridViewTextBoxColumn_idioma.HeaderText = "Idioma";
-            this.dataGridViewTextBoxColumn_idioma.Name = "dataGridViewTextBoxColumn_idioma";
-            this.dataGridViewTextBoxColumn_idioma.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_tamaño
-            // 
-            this.dataGridViewTextBoxColumn_tamaño.HeaderText = "Tamaño";
-            this.dataGridViewTextBoxColumn_tamaño.Name = "dataGridViewTextBoxColumn_tamaño";
-            this.dataGridViewTextBoxColumn_tamaño.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_tamaño.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn_descargas
-            // 
-            this.dataGridViewTextBoxColumn_descargas.HeaderText = "Descargas";
-            this.dataGridViewTextBoxColumn_descargas.Name = "dataGridViewTextBoxColumn_descargas";
-            this.dataGridViewTextBoxColumn_descargas.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_descargas.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn_valoracion
-            // 
-            this.dataGridViewTextBoxColumn_valoracion.HeaderText = "Valoración";
-            this.dataGridViewTextBoxColumn_valoracion.Name = "dataGridViewTextBoxColumn_valoracion";
-            this.dataGridViewTextBoxColumn_valoracion.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_valoracion.Width = 80;
             // 
             // FormMateriales
             // 

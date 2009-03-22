@@ -19,6 +19,28 @@ namespace Libreria
 
         }
 
+        public static bool existeUsuario(string nombre)
+        {
+            bool existe = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM usuarios where nombre = @nombre";
+                comando.Parameters.AddWithValue("@nombre", nombre);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    existe = true;
+                }
+            }
+            return existe;
+        }
+
         private static ENMaterialCRUD obtenerDatos(SqlDataReader reader)
         {
             ENMaterialCRUD material = new ENMaterialCRUD();
