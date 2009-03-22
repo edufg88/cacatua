@@ -13,7 +13,7 @@ namespace cacatUA
 
     public partial class FormCategorias : UserControl
     {
-        private ENCategoria categoria;
+        private ENCategoriaCRUD categoria;
         private UserControl volver;
 
         public FormCategorias()
@@ -23,13 +23,16 @@ namespace cacatUA
 
         public FormCategorias(ENCategoriaCRUD categoria, UserControl formVolver)
         {
+            InitializeComponent();
             this.categoria = categoria;
             volver = formVolver;
+            button_Volver.Visible = true;
         }
 
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
             textBoxRaiz.Text = treeViewCategorias.SelectedNode.FullPath;
+            button_Volver.Enabled = true;
         }
 
         private void button_verUsuario_Click(object sender, EventArgs e)
