@@ -12,10 +12,46 @@ namespace cacatUA
 {
     public partial class FormForo : UserControl
     {
+        private FormForoEdicion formEdicion;
+        private FormForoBusqueda formBusqueda;
+
         public FormForo()
         {
             InitializeComponent();
+
+            // Se crean los formularios que se van a utilizar.
+            formEdicion = new FormForoEdicion();
+            formBusqueda = new FormForoBusqueda();
+            formEdicion.Dock = DockStyle.Top;
+            formBusqueda.Dock = DockStyle.Top;
+
+            // Se oculta la fila del TableLayoutEditor que contiene el botón "Volver".
+            tableLayoutPanel_principal.RowStyles[6].Height = 0;
+
+            formularioBusqueda();
+
             anadirAlgunosHilos();
+        }
+
+        private void formularioBusqueda()
+        {
+            label_seccion1.Text = "Búsqueda";
+            panel_contenedor.Controls.Clear();
+            panel_contenedor.Controls.Add(formBusqueda);
+            tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
+        }
+
+        private void formularioEdicion()
+        {
+            label_seccion1.Text = "Edición";
+            panel_contenedor.Controls.Clear();
+            panel_contenedor.Controls.Add(formEdicion);
+            tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
+        }
+
+        public void Limpiar()
+        {
+
         }
 
         private void anadirAlgunosHilos()
@@ -74,32 +110,6 @@ namespace cacatUA
             form.ShowDialog();
         }
 
-        private void button_eliminarHilo_Click(object sender, EventArgs e)
-        {
-            DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
-            String mensaje;
-            if (filas.Count > 1)
-            {
-                mensaje = "¿Está seguro de que desea eliminar los hilos seleccionados?";
-            }
-            else
-            {
-                mensaje = "¿Está seguro de que desea eliminar el hilo seleccionado?";
-            }
-
-            DialogResult resultado = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
-            {
-                for (int i = 0; i < filas.Count; i++)
-                {
-                    // Obtenemos la fila
-                    DataGridViewRow fila = filas[i];
-                    // Eliminamos la fila
-                    dataGridView_resultados.Rows.Remove(fila);
-                }
-            }
-        }
-
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
             formularioBusqueda();
@@ -110,68 +120,35 @@ namespace cacatUA
             formularioEdicion();
         }
 
-        private void formularioBusqueda()
+        private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            label_seccion1.Text = "Búsqueda";
-            tableLayoutPanel_secundario.RowStyles.Insert(0, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[0].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(1, new RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            tableLayoutPanel_secundario.Controls[1].Visible = false;
-            tableLayoutPanel_secundario.RowStyles.Insert(2, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[2].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(3, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[3].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(4, new RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            tableLayoutPanel_secundario.Controls[4].Visible = false;
-            tableLayoutPanel_secundario.RowStyles.Insert(5, new RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            tableLayoutPanel_secundario.Controls[5].Visible = false;
-            tableLayoutPanel_secundario.RowStyles.Insert(6, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[6].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(7, new RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            tableLayoutPanel_secundario.Controls[7].Visible = false;
-
-            button_buscar.Enabled = true;
-            button_seleccionar.Enabled = false;
-            button_guardar.Enabled = false;
-            button_eliminar.Enabled = false;
-        }
-
-        private void formularioEdicion()
-        {
-            label_seccion1.Text = "Edición";
-            tableLayoutPanel_secundario.RowStyles.Insert(0, new RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            tableLayoutPanel_secundario.Controls[0].Visible = false;
-            tableLayoutPanel_secundario.RowStyles.Insert(1, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[1].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(2, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[2].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(3, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[3].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(4, new RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            tableLayoutPanel_secundario.Controls[4].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(5, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[5].Visible = true;
-            tableLayoutPanel_secundario.RowStyles.Insert(6, new RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            tableLayoutPanel_secundario.Controls[6].Visible = false;
-            tableLayoutPanel_secundario.RowStyles.Insert(7, new RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            tableLayoutPanel_secundario.Controls[7].Visible = true;
-
-            button_buscar.Enabled = false;
-            button_seleccionar.Enabled = false;
-            button_guardar.Enabled = true;
-            button_eliminar.Enabled = true;
-        }
-
-        private void dataGridView_resultados_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewRow filaSeleccionada = dataGridView_resultados.SelectedRows[0];
-            textBox_id.Text = filaSeleccionada.Cells[0].Value.ToString();
-            textBox_titulo.Text = filaSeleccionada.Cells[1].Value.ToString();
-            textBox_texto.Text = filaSeleccionada.Cells[2].Value.ToString();
-            textBox_autor.Text = filaSeleccionada.Cells[3].Value.ToString();
+            /* FALTA CREAR LA CLASE ENHiloNoseque Y AÑADIR UN MÉTODO A FormForoEdicion QUE RECIBA UN OBJETO DE ESE TIPO.
+             * DataGridViewRow filaSeleccionada = dataGridView_resultados.SelectedRows[0];
+            formEdicion.textBox_id.Text = filaSeleccionada.Cells[0].Value.ToString();
+            formEdicion.textBox_titulo.Text = filaSeleccionada.Cells[1].Value.ToString();
+            formEdicion.textBox_texto.Text = filaSeleccionada.Cells[2].Value.ToString();
+            formEdicion.textBox_autor.Text = filaSeleccionada.Cells[3].Value.ToString();
             //dateTimePicker_fecha.Text = filaSeleccionada.Cells[4].Value.ToString();
-            textBox_respuestas.Text = filaSeleccionada.Cells[5].Value.ToString();
+            formEdicion.textBox_respuestas.Text = filaSeleccionada.Cells[5].Value.ToString();*/
 
+            formularioEdicion();
+        }
+
+        private void button_borrarHilo_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
+            if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea borrar los hilos seleccionados?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+            {
+                foreach (DataGridViewRow i in filas)
+                {
+                    // Borrarlo de la lista y borrarlo de la BD.
+                    dataGridView_resultados.Rows.Remove(i);
+                }
+            }
+        }
+
+        private void butto_editarHilo_Click(object sender, EventArgs e)
+        {
             formularioEdicion();
         }
     }
