@@ -32,16 +32,17 @@
             this.panelFondo = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Recientes = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanelBotones = new System.Windows.Forms.TableLayoutPanel();
-            this.labelDescR = new System.Windows.Forms.Label();
-            this.buttonRealizada = new System.Windows.Forms.Button();
-            this.buttonMensajes = new System.Windows.Forms.Button();
-            this.buttonUsuario = new System.Windows.Forms.Button();
-            this.tableLayoutPanelDescripcion = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBoxDescrR = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanelListado = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridViewRecientes = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanelBotones = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonUsuario = new System.Windows.Forms.Button();
+            this.buttonRealizada = new System.Windows.Forms.Button();
+            this.buttonMensajes = new System.Windows.Forms.Button();
+            this.tableLayoutPanelDescripcion = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBoxDescrR = new System.Windows.Forms.RichTextBox();
+            this.labelDescR = new System.Windows.Forms.Label();
             this.Antiguas = new System.Windows.Forms.TabPage();
             this.labelDescA = new System.Windows.Forms.Label();
             this.richTextBoxDescA = new System.Windows.Forms.RichTextBox();
@@ -50,18 +51,17 @@
             this.ColumnUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.tableLayoutPanelListado = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel.SuspendLayout();
             this.panelFondo.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.Recientes.SuspendLayout();
+            this.tableLayoutPanelListado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecientes)).BeginInit();
             this.tableLayoutPanelBotones.SuspendLayout();
             this.tableLayoutPanelDescripcion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecientes)).BeginInit();
             this.Antiguas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAntiguas)).BeginInit();
             this.panelTitulo.SuspendLayout();
-            this.tableLayoutPanelListado.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel
@@ -136,96 +136,18 @@
             this.Recientes.Text = "Recientes";
             this.Recientes.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanelBotones
+            // tableLayoutPanelListado
             // 
-            this.tableLayoutPanelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelBotones.ColumnCount = 5;
-            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 429F));
-            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
-            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
-            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
-            this.tableLayoutPanelBotones.Controls.Add(this.buttonUsuario, 2, 1);
-            this.tableLayoutPanelBotones.Controls.Add(this.buttonRealizada, 3, 1);
-            this.tableLayoutPanelBotones.Controls.Add(this.buttonMensajes, 4, 1);
-            this.tableLayoutPanelBotones.Location = new System.Drawing.Point(90, 214);
-            this.tableLayoutPanelBotones.Name = "tableLayoutPanelBotones";
-            this.tableLayoutPanelBotones.RowCount = 2;
-            this.tableLayoutPanelBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanelBotones.Size = new System.Drawing.Size(711, 40);
-            this.tableLayoutPanelBotones.TabIndex = 100;
-            // 
-            // labelDescR
-            // 
-            this.labelDescR.AutoSize = true;
-            this.labelDescR.Location = new System.Drawing.Point(6, 232);
-            this.labelDescR.Name = "labelDescR";
-            this.labelDescR.Size = new System.Drawing.Size(66, 13);
-            this.labelDescR.TabIndex = 2;
-            this.labelDescR.Text = "Descripción:";
-            // 
-            // buttonRealizada
-            // 
-            this.buttonRealizada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRealizada.Location = new System.Drawing.Point(521, 12);
-            this.buttonRealizada.Name = "buttonRealizada";
-            this.buttonRealizada.Size = new System.Drawing.Size(75, 25);
-            this.buttonRealizada.TabIndex = 60;
-            this.buttonRealizada.Text = "Realizada";
-            this.buttonRealizada.UseVisualStyleBackColor = true;
-            this.buttonRealizada.Click += new System.EventHandler(this.buttonRealizada_Click);
-            // 
-            // buttonMensajes
-            // 
-            this.buttonMensajes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMensajes.Location = new System.Drawing.Point(613, 12);
-            this.buttonMensajes.Name = "buttonMensajes";
-            this.buttonMensajes.Size = new System.Drawing.Size(95, 25);
-            this.buttonMensajes.TabIndex = 58;
-            this.buttonMensajes.Text = "Enviar mensaje";
-            this.buttonMensajes.UseVisualStyleBackColor = true;
-            this.buttonMensajes.Click += new System.EventHandler(this.buttonMensajes_Click);
-            // 
-            // buttonUsuario
-            // 
-            this.buttonUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUsuario.Location = new System.Drawing.Point(429, 12);
-            this.buttonUsuario.Name = "buttonUsuario";
-            this.buttonUsuario.Size = new System.Drawing.Size(75, 25);
-            this.buttonUsuario.TabIndex = 59;
-            this.buttonUsuario.Text = "Ver Usuario";
-            this.buttonUsuario.UseVisualStyleBackColor = true;
-            this.buttonUsuario.Click += new System.EventHandler(this.buttonUsuario_Click);
-            // 
-            // tableLayoutPanelDescripcion
-            // 
-            this.tableLayoutPanelDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanelDescripcion.ColumnCount = 1;
-            this.tableLayoutPanelDescripcion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelDescripcion.Controls.Add(this.richTextBoxDescrR, 0, 0);
-            this.tableLayoutPanelDescripcion.Location = new System.Drawing.Point(3, 257);
-            this.tableLayoutPanelDescripcion.Name = "tableLayoutPanelDescripcion";
-            this.tableLayoutPanelDescripcion.RowCount = 1;
-            this.tableLayoutPanelDescripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelDescripcion.Size = new System.Drawing.Size(798, 165);
-            this.tableLayoutPanelDescripcion.TabIndex = 2;
-            // 
-            // richTextBoxDescrR
-            // 
-            this.richTextBoxDescrR.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxDescrR.Location = new System.Drawing.Point(3, 3);
-            this.richTextBoxDescrR.Name = "richTextBoxDescrR";
-            this.richTextBoxDescrR.ReadOnly = true;
-            this.richTextBoxDescrR.Size = new System.Drawing.Size(792, 159);
-            this.richTextBoxDescrR.TabIndex = 1;
-            this.richTextBoxDescrR.Text = "";
+            this.tableLayoutPanelListado.ColumnCount = 1;
+            this.tableLayoutPanelListado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelListado.Controls.Add(this.dataGridViewRecientes, 0, 0);
+            this.tableLayoutPanelListado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanelListado.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelListado.Name = "tableLayoutPanelListado";
+            this.tableLayoutPanelListado.RowCount = 1;
+            this.tableLayoutPanelListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelListado.Size = new System.Drawing.Size(798, 217);
+            this.tableLayoutPanelListado.TabIndex = 4;
             // 
             // dataGridViewRecientes
             // 
@@ -259,6 +181,97 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Usuario";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // tableLayoutPanelBotones
+            // 
+            this.tableLayoutPanelBotones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelBotones.ColumnCount = 5;
+            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 429F));
+            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
+            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92F));
+            this.tableLayoutPanelBotones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanelBotones.Controls.Add(this.buttonUsuario, 2, 1);
+            this.tableLayoutPanelBotones.Controls.Add(this.buttonRealizada, 3, 1);
+            this.tableLayoutPanelBotones.Controls.Add(this.buttonMensajes, 4, 1);
+            this.tableLayoutPanelBotones.Location = new System.Drawing.Point(90, 214);
+            this.tableLayoutPanelBotones.Name = "tableLayoutPanelBotones";
+            this.tableLayoutPanelBotones.RowCount = 2;
+            this.tableLayoutPanelBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelBotones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanelBotones.Size = new System.Drawing.Size(711, 40);
+            this.tableLayoutPanelBotones.TabIndex = 100;
+            // 
+            // buttonUsuario
+            // 
+            this.buttonUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUsuario.Location = new System.Drawing.Point(429, 12);
+            this.buttonUsuario.Name = "buttonUsuario";
+            this.buttonUsuario.Size = new System.Drawing.Size(75, 25);
+            this.buttonUsuario.TabIndex = 59;
+            this.buttonUsuario.Text = "Ver Usuario";
+            this.buttonUsuario.UseVisualStyleBackColor = true;
+            this.buttonUsuario.Click += new System.EventHandler(this.buttonUsuario_Click);
+            // 
+            // buttonRealizada
+            // 
+            this.buttonRealizada.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRealizada.Location = new System.Drawing.Point(521, 12);
+            this.buttonRealizada.Name = "buttonRealizada";
+            this.buttonRealizada.Size = new System.Drawing.Size(75, 25);
+            this.buttonRealizada.TabIndex = 60;
+            this.buttonRealizada.Text = "Realizada";
+            this.buttonRealizada.UseVisualStyleBackColor = true;
+            this.buttonRealizada.Click += new System.EventHandler(this.buttonRealizada_Click);
+            // 
+            // buttonMensajes
+            // 
+            this.buttonMensajes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonMensajes.Location = new System.Drawing.Point(613, 12);
+            this.buttonMensajes.Name = "buttonMensajes";
+            this.buttonMensajes.Size = new System.Drawing.Size(95, 25);
+            this.buttonMensajes.TabIndex = 58;
+            this.buttonMensajes.Text = "Enviar mensaje";
+            this.buttonMensajes.UseVisualStyleBackColor = true;
+            this.buttonMensajes.Click += new System.EventHandler(this.buttonMensajes_Click);
+            // 
+            // tableLayoutPanelDescripcion
+            // 
+            this.tableLayoutPanelDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanelDescripcion.ColumnCount = 1;
+            this.tableLayoutPanelDescripcion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDescripcion.Controls.Add(this.richTextBoxDescrR, 0, 0);
+            this.tableLayoutPanelDescripcion.Location = new System.Drawing.Point(3, 257);
+            this.tableLayoutPanelDescripcion.Name = "tableLayoutPanelDescripcion";
+            this.tableLayoutPanelDescripcion.RowCount = 1;
+            this.tableLayoutPanelDescripcion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelDescripcion.Size = new System.Drawing.Size(798, 165);
+            this.tableLayoutPanelDescripcion.TabIndex = 2;
+            // 
+            // richTextBoxDescrR
+            // 
+            this.richTextBoxDescrR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxDescrR.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxDescrR.Name = "richTextBoxDescrR";
+            this.richTextBoxDescrR.ReadOnly = true;
+            this.richTextBoxDescrR.Size = new System.Drawing.Size(792, 159);
+            this.richTextBoxDescrR.TabIndex = 1;
+            this.richTextBoxDescrR.Text = "";
+            // 
+            // labelDescR
+            // 
+            this.labelDescR.AutoSize = true;
+            this.labelDescR.Location = new System.Drawing.Point(6, 232);
+            this.labelDescR.Name = "labelDescR";
+            this.labelDescR.Size = new System.Drawing.Size(66, 13);
+            this.labelDescR.TabIndex = 2;
+            this.labelDescR.Text = "Descripción:";
             // 
             // Antiguas
             // 
@@ -356,19 +369,6 @@
             this.labelTitulo.TabIndex = 7;
             this.labelTitulo.Text = "Peticiones";
             // 
-            // tableLayoutPanelListado
-            // 
-            this.tableLayoutPanelListado.ColumnCount = 1;
-            this.tableLayoutPanelListado.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelListado.Controls.Add(this.dataGridViewRecientes, 0, 0);
-            this.tableLayoutPanelListado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelListado.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanelListado.Name = "tableLayoutPanelListado";
-            this.tableLayoutPanelListado.RowCount = 1;
-            this.tableLayoutPanelListado.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelListado.Size = new System.Drawing.Size(798, 217);
-            this.tableLayoutPanelListado.TabIndex = 4;
-            // 
             // FormPeticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,15 +381,15 @@
             this.tabControl.ResumeLayout(false);
             this.Recientes.ResumeLayout(false);
             this.Recientes.PerformLayout();
+            this.tableLayoutPanelListado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecientes)).EndInit();
             this.tableLayoutPanelBotones.ResumeLayout(false);
             this.tableLayoutPanelDescripcion.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRecientes)).EndInit();
             this.Antiguas.ResumeLayout(false);
             this.Antiguas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAntiguas)).EndInit();
             this.panelTitulo.ResumeLayout(false);
             this.panelTitulo.PerformLayout();
-            this.tableLayoutPanelListado.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
