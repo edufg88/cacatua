@@ -74,5 +74,31 @@ namespace cacatUA
         {
 
         }
+
+        private void Antiguas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_buscarPetTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl_peticiones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_contestarPeticion_Click(object sender, EventArgs e)
+        {
+            FormContestarPeticion form = new FormContestarPeticion();
+            form.Show();
+        }
     }
 }
