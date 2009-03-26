@@ -59,6 +59,30 @@
             this.button_contestarPeticion = new System.Windows.Forms.Button();
             this.button_borrarPeticion = new System.Windows.Forms.Button();
             this.Antiguas = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label_seccionBuscarAnt = new System.Windows.Forms.Label();
+            this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_buscarPetTituloAnt = new System.Windows.Forms.Label();
+            this.button18 = new System.Windows.Forms.Button();
+            this.label_buscarPetTextoAnt = new System.Windows.Forms.Label();
+            this.label_buscarPetAutorAnt = new System.Windows.Forms.Label();
+            this.label_buscarPetFechaAnt = new System.Windows.Forms.Label();
+            this.textBox_buscarPetTituloAnt = new System.Windows.Forms.TextBox();
+            this.textBox_buscarPetTextoAnt = new System.Windows.Forms.TextBox();
+            this.textBox_buscarPetAutorAnt = new System.Windows.Forms.TextBox();
+            this.dateTimePicker_buscarPetFechaAnt = new System.Windows.Forms.DateTimePicker();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel35 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_resultadosPeticionAnt = new System.Windows.Forms.Label();
+            this.dataGridView_Anteriores = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_peticionSeleccionadaAnt = new System.Windows.Forms.Label();
+            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
+            this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_borrarPeticionAnt = new System.Windows.Forms.Button();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -197,30 +221,6 @@
             this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label_seccionBuscarAnt = new System.Windows.Forms.Label();
-            this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_buscarPetTituloAnt = new System.Windows.Forms.Label();
-            this.button18 = new System.Windows.Forms.Button();
-            this.label_buscarPetTextoAnt = new System.Windows.Forms.Label();
-            this.label_buscarPetAutorAnt = new System.Windows.Forms.Label();
-            this.label_buscarPetFechaAnt = new System.Windows.Forms.Label();
-            this.textBox_buscarPetTituloAnt = new System.Windows.Forms.TextBox();
-            this.textBox_buscarPetTextoAnt = new System.Windows.Forms.TextBox();
-            this.textBox_buscarPetAutorAnt = new System.Windows.Forms.TextBox();
-            this.dateTimePicker_buscarPetFechaAnt = new System.Windows.Forms.DateTimePicker();
-            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
-            this.tableLayoutPanel35 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_resultadosPeticionAnt = new System.Windows.Forms.Label();
-            this.dataGridView_Anteriores = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_peticionSeleccionadaAnt = new System.Windows.Forms.Label();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
-            this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_borrarPeticionAnt = new System.Windows.Forms.Button();
             this.panelTitulo.SuspendLayout();
             this.panelFondo.SuspendLayout();
             this.tabControl_peticiones.SuspendLayout();
@@ -233,6 +233,13 @@
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             this.Antiguas.SuspendLayout();
+            this.tableLayoutPanel25.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel34.SuspendLayout();
+            this.tableLayoutPanel35.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Anteriores)).BeginInit();
+            this.tableLayoutPanel36.SuspendLayout();
+            this.tableLayoutPanel37.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -271,13 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.tableLayoutPanel32.SuspendLayout();
             this.tableLayoutPanel33.SuspendLayout();
-            this.tableLayoutPanel25.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.tableLayoutPanel34.SuspendLayout();
-            this.tableLayoutPanel35.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Anteriores)).BeginInit();
-            this.tableLayoutPanel36.SuspendLayout();
-            this.tableLayoutPanel37.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTitulo
@@ -639,6 +639,275 @@
             this.Antiguas.Text = "Antiguas";
             this.Antiguas.UseVisualStyleBackColor = true;
             this.Antiguas.Click += new System.EventHandler(this.Antiguas_Click);
+            // 
+            // tableLayoutPanel25
+            // 
+            this.tableLayoutPanel25.ColumnCount = 1;
+            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel25.Controls.Add(this.panel6, 0, 0);
+            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel34, 0, 1);
+            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel35, 0, 2);
+            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel36, 0, 3);
+            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel37, 0, 4);
+            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
+            this.tableLayoutPanel25.RowCount = 5;
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(798, 387);
+            this.tableLayoutPanel25.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.LightGray;
+            this.panel6.Controls.Add(this.label_seccionBuscarAnt);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(792, 34);
+            this.panel6.TabIndex = 100;
+            // 
+            // label_seccionBuscarAnt
+            // 
+            this.label_seccionBuscarAnt.AutoSize = true;
+            this.label_seccionBuscarAnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label_seccionBuscarAnt.Location = new System.Drawing.Point(13, 10);
+            this.label_seccionBuscarAnt.Name = "label_seccionBuscarAnt";
+            this.label_seccionBuscarAnt.Size = new System.Drawing.Size(63, 13);
+            this.label_seccionBuscarAnt.TabIndex = 0;
+            this.label_seccionBuscarAnt.Text = "Búsqueda";
+            // 
+            // tableLayoutPanel34
+            // 
+            this.tableLayoutPanel34.ColumnCount = 3;
+            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
+            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
+            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetTituloAnt, 0, 0);
+            this.tableLayoutPanel34.Controls.Add(this.button18, 2, 0);
+            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetTextoAnt, 0, 1);
+            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetAutorAnt, 0, 2);
+            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetFechaAnt, 0, 3);
+            this.tableLayoutPanel34.Controls.Add(this.textBox_buscarPetTituloAnt, 1, 0);
+            this.tableLayoutPanel34.Controls.Add(this.textBox_buscarPetTextoAnt, 1, 1);
+            this.tableLayoutPanel34.Controls.Add(this.textBox_buscarPetAutorAnt, 1, 2);
+            this.tableLayoutPanel34.Controls.Add(this.dateTimePicker_buscarPetFechaAnt, 1, 3);
+            this.tableLayoutPanel34.Controls.Add(this.linkLabel6, 2, 2);
+            this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel34.Name = "tableLayoutPanel34";
+            this.tableLayoutPanel34.RowCount = 4;
+            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(792, 124);
+            this.tableLayoutPanel34.TabIndex = 101;
+            // 
+            // label_buscarPetTituloAnt
+            // 
+            this.label_buscarPetTituloAnt.AutoSize = true;
+            this.label_buscarPetTituloAnt.Location = new System.Drawing.Point(3, 0);
+            this.label_buscarPetTituloAnt.Name = "label_buscarPetTituloAnt";
+            this.label_buscarPetTituloAnt.Size = new System.Drawing.Size(36, 13);
+            this.label_buscarPetTituloAnt.TabIndex = 0;
+            this.label_buscarPetTituloAnt.Text = "Titulo:";
+            // 
+            // button18
+            // 
+            this.button18.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button18.FlatAppearance.BorderSize = 0;
+            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button18.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button18.Location = new System.Drawing.Point(503, 3);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(36, 24);
+            this.button18.TabIndex = 4;
+            this.button18.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.button18.UseVisualStyleBackColor = true;
+            // 
+            // label_buscarPetTextoAnt
+            // 
+            this.label_buscarPetTextoAnt.AutoSize = true;
+            this.label_buscarPetTextoAnt.Location = new System.Drawing.Point(3, 30);
+            this.label_buscarPetTextoAnt.Name = "label_buscarPetTextoAnt";
+            this.label_buscarPetTextoAnt.Size = new System.Drawing.Size(37, 13);
+            this.label_buscarPetTextoAnt.TabIndex = 1;
+            this.label_buscarPetTextoAnt.Text = "Texto:";
+            // 
+            // label_buscarPetAutorAnt
+            // 
+            this.label_buscarPetAutorAnt.AutoSize = true;
+            this.label_buscarPetAutorAnt.Location = new System.Drawing.Point(3, 60);
+            this.label_buscarPetAutorAnt.Name = "label_buscarPetAutorAnt";
+            this.label_buscarPetAutorAnt.Size = new System.Drawing.Size(35, 13);
+            this.label_buscarPetAutorAnt.TabIndex = 2;
+            this.label_buscarPetAutorAnt.Text = "Autor:";
+            // 
+            // label_buscarPetFechaAnt
+            // 
+            this.label_buscarPetFechaAnt.AutoSize = true;
+            this.label_buscarPetFechaAnt.Location = new System.Drawing.Point(3, 90);
+            this.label_buscarPetFechaAnt.Name = "label_buscarPetFechaAnt";
+            this.label_buscarPetFechaAnt.Size = new System.Drawing.Size(40, 13);
+            this.label_buscarPetFechaAnt.TabIndex = 3;
+            this.label_buscarPetFechaAnt.Text = "Fecha:";
+            // 
+            // textBox_buscarPetTituloAnt
+            // 
+            this.textBox_buscarPetTituloAnt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_buscarPetTituloAnt.Location = new System.Drawing.Point(103, 3);
+            this.textBox_buscarPetTituloAnt.Name = "textBox_buscarPetTituloAnt";
+            this.textBox_buscarPetTituloAnt.Size = new System.Drawing.Size(394, 20);
+            this.textBox_buscarPetTituloAnt.TabIndex = 4;
+            // 
+            // textBox_buscarPetTextoAnt
+            // 
+            this.textBox_buscarPetTextoAnt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_buscarPetTextoAnt.Location = new System.Drawing.Point(103, 33);
+            this.textBox_buscarPetTextoAnt.Name = "textBox_buscarPetTextoAnt";
+            this.textBox_buscarPetTextoAnt.Size = new System.Drawing.Size(394, 20);
+            this.textBox_buscarPetTextoAnt.TabIndex = 5;
+            // 
+            // textBox_buscarPetAutorAnt
+            // 
+            this.textBox_buscarPetAutorAnt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_buscarPetAutorAnt.Location = new System.Drawing.Point(103, 63);
+            this.textBox_buscarPetAutorAnt.Name = "textBox_buscarPetAutorAnt";
+            this.textBox_buscarPetAutorAnt.Size = new System.Drawing.Size(394, 20);
+            this.textBox_buscarPetAutorAnt.TabIndex = 6;
+            // 
+            // dateTimePicker_buscarPetFechaAnt
+            // 
+            this.dateTimePicker_buscarPetFechaAnt.Location = new System.Drawing.Point(103, 93);
+            this.dateTimePicker_buscarPetFechaAnt.Name = "dateTimePicker_buscarPetFechaAnt";
+            this.dateTimePicker_buscarPetFechaAnt.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_buscarPetFechaAnt.TabIndex = 7;
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Location = new System.Drawing.Point(503, 68);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(65, 13);
+            this.linkLabel6.TabIndex = 8;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Ver usuarios";
+            // 
+            // tableLayoutPanel35
+            // 
+            this.tableLayoutPanel35.ColumnCount = 1;
+            this.tableLayoutPanel35.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel35.Controls.Add(this.label_resultadosPeticionAnt, 0, 0);
+            this.tableLayoutPanel35.Controls.Add(this.dataGridView_Anteriores, 0, 1);
+            this.tableLayoutPanel35.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 173);
+            this.tableLayoutPanel35.Name = "tableLayoutPanel35";
+            this.tableLayoutPanel35.RowCount = 2;
+            this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel35.Size = new System.Drawing.Size(792, 106);
+            this.tableLayoutPanel35.TabIndex = 102;
+            // 
+            // label_resultadosPeticionAnt
+            // 
+            this.label_resultadosPeticionAnt.AutoSize = true;
+            this.label_resultadosPeticionAnt.Location = new System.Drawing.Point(3, 0);
+            this.label_resultadosPeticionAnt.Name = "label_resultadosPeticionAnt";
+            this.label_resultadosPeticionAnt.Size = new System.Drawing.Size(63, 13);
+            this.label_resultadosPeticionAnt.TabIndex = 0;
+            this.label_resultadosPeticionAnt.Text = "Resultados:";
+            // 
+            // dataGridView_Anteriores
+            // 
+            this.dataGridView_Anteriores.AllowUserToAddRows = false;
+            this.dataGridView_Anteriores.AllowUserToDeleteRows = false;
+            this.dataGridView_Anteriores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Anteriores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.dataGridView_Anteriores.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView_Anteriores.Location = new System.Drawing.Point(3, 23);
+            this.dataGridView_Anteriores.Name = "dataGridView_Anteriores";
+            this.dataGridView_Anteriores.ReadOnly = true;
+            this.dataGridView_Anteriores.Size = new System.Drawing.Size(786, 98);
+            this.dataGridView_Anteriores.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Mensaje";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // tableLayoutPanel36
+            // 
+            this.tableLayoutPanel36.ColumnCount = 1;
+            this.tableLayoutPanel36.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel36.Controls.Add(this.label_peticionSeleccionadaAnt, 0, 0);
+            this.tableLayoutPanel36.Controls.Add(this.richTextBox12, 0, 1);
+            this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 285);
+            this.tableLayoutPanel36.Name = "tableLayoutPanel36";
+            this.tableLayoutPanel36.RowCount = 2;
+            this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(792, 68);
+            this.tableLayoutPanel36.TabIndex = 103;
+            // 
+            // label_peticionSeleccionadaAnt
+            // 
+            this.label_peticionSeleccionadaAnt.AutoSize = true;
+            this.label_peticionSeleccionadaAnt.Location = new System.Drawing.Point(3, 0);
+            this.label_peticionSeleccionadaAnt.Name = "label_peticionSeleccionadaAnt";
+            this.label_peticionSeleccionadaAnt.Size = new System.Drawing.Size(48, 13);
+            this.label_peticionSeleccionadaAnt.TabIndex = 0;
+            this.label_peticionSeleccionadaAnt.Text = "Peticion:";
+            // 
+            // richTextBox12
+            // 
+            this.richTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox12.Location = new System.Drawing.Point(3, 23);
+            this.richTextBox12.Name = "richTextBox12";
+            this.richTextBox12.Size = new System.Drawing.Size(786, 96);
+            this.richTextBox12.TabIndex = 1;
+            this.richTextBox12.Text = "";
+            // 
+            // tableLayoutPanel37
+            // 
+            this.tableLayoutPanel37.ColumnCount = 2;
+            this.tableLayoutPanel37.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel37.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 692F));
+            this.tableLayoutPanel37.Controls.Add(this.button_borrarPeticionAnt, 0, 0);
+            this.tableLayoutPanel37.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 359);
+            this.tableLayoutPanel37.Name = "tableLayoutPanel37";
+            this.tableLayoutPanel37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel37.RowCount = 1;
+            this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel37.Size = new System.Drawing.Size(792, 25);
+            this.tableLayoutPanel37.TabIndex = 104;
+            // 
+            // button_borrarPeticionAnt
+            // 
+            this.button_borrarPeticionAnt.Location = new System.Drawing.Point(699, 3);
+            this.button_borrarPeticionAnt.Name = "button_borrarPeticionAnt";
+            this.button_borrarPeticionAnt.Size = new System.Drawing.Size(90, 19);
+            this.button_borrarPeticionAnt.TabIndex = 1;
+            this.button_borrarPeticionAnt.Text = "Borrar";
+            this.button_borrarPeticionAnt.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel
             // 
@@ -2153,275 +2422,6 @@
             this.button17.Text = "Borrar";
             this.button17.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel25
-            // 
-            this.tableLayoutPanel25.ColumnCount = 1;
-            this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel34, 0, 1);
-            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel35, 0, 2);
-            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel36, 0, 3);
-            this.tableLayoutPanel25.Controls.Add(this.tableLayoutPanel37, 0, 4);
-            this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel25.Name = "tableLayoutPanel25";
-            this.tableLayoutPanel25.RowCount = 5;
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(798, 387);
-            this.tableLayoutPanel25.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.LightGray;
-            this.panel6.Controls.Add(this.label_seccionBuscarAnt);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(792, 34);
-            this.panel6.TabIndex = 100;
-            // 
-            // label_seccionBuscarAnt
-            // 
-            this.label_seccionBuscarAnt.AutoSize = true;
-            this.label_seccionBuscarAnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.label_seccionBuscarAnt.Location = new System.Drawing.Point(13, 10);
-            this.label_seccionBuscarAnt.Name = "label_seccionBuscarAnt";
-            this.label_seccionBuscarAnt.Size = new System.Drawing.Size(63, 13);
-            this.label_seccionBuscarAnt.TabIndex = 0;
-            this.label_seccionBuscarAnt.Text = "Búsqueda";
-            // 
-            // tableLayoutPanel34
-            // 
-            this.tableLayoutPanel34.ColumnCount = 3;
-            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 346F));
-            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetTituloAnt, 0, 0);
-            this.tableLayoutPanel34.Controls.Add(this.button18, 2, 0);
-            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetTextoAnt, 0, 1);
-            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetAutorAnt, 0, 2);
-            this.tableLayoutPanel34.Controls.Add(this.label_buscarPetFechaAnt, 0, 3);
-            this.tableLayoutPanel34.Controls.Add(this.textBox_buscarPetTituloAnt, 1, 0);
-            this.tableLayoutPanel34.Controls.Add(this.textBox_buscarPetTextoAnt, 1, 1);
-            this.tableLayoutPanel34.Controls.Add(this.textBox_buscarPetAutorAnt, 1, 2);
-            this.tableLayoutPanel34.Controls.Add(this.dateTimePicker_buscarPetFechaAnt, 1, 3);
-            this.tableLayoutPanel34.Controls.Add(this.linkLabel6, 2, 2);
-            this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 43);
-            this.tableLayoutPanel34.Name = "tableLayoutPanel34";
-            this.tableLayoutPanel34.RowCount = 4;
-            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(792, 124);
-            this.tableLayoutPanel34.TabIndex = 101;
-            // 
-            // label_buscarPetTituloAnt
-            // 
-            this.label_buscarPetTituloAnt.AutoSize = true;
-            this.label_buscarPetTituloAnt.Location = new System.Drawing.Point(3, 0);
-            this.label_buscarPetTituloAnt.Name = "label_buscarPetTituloAnt";
-            this.label_buscarPetTituloAnt.Size = new System.Drawing.Size(36, 13);
-            this.label_buscarPetTituloAnt.TabIndex = 0;
-            this.label_buscarPetTituloAnt.Text = "Titulo:";
-            // 
-            // button18
-            // 
-            this.button18.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Image = global::cacatUA.Properties.Resources.buscar1;
-            this.button18.Location = new System.Drawing.Point(503, 3);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(36, 24);
-            this.button18.TabIndex = 4;
-            this.button18.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.button18.UseVisualStyleBackColor = true;
-            // 
-            // label_buscarPetTextoAnt
-            // 
-            this.label_buscarPetTextoAnt.AutoSize = true;
-            this.label_buscarPetTextoAnt.Location = new System.Drawing.Point(3, 30);
-            this.label_buscarPetTextoAnt.Name = "label_buscarPetTextoAnt";
-            this.label_buscarPetTextoAnt.Size = new System.Drawing.Size(37, 13);
-            this.label_buscarPetTextoAnt.TabIndex = 1;
-            this.label_buscarPetTextoAnt.Text = "Texto:";
-            // 
-            // label_buscarPetAutorAnt
-            // 
-            this.label_buscarPetAutorAnt.AutoSize = true;
-            this.label_buscarPetAutorAnt.Location = new System.Drawing.Point(3, 60);
-            this.label_buscarPetAutorAnt.Name = "label_buscarPetAutorAnt";
-            this.label_buscarPetAutorAnt.Size = new System.Drawing.Size(35, 13);
-            this.label_buscarPetAutorAnt.TabIndex = 2;
-            this.label_buscarPetAutorAnt.Text = "Autor:";
-            // 
-            // label_buscarPetFechaAnt
-            // 
-            this.label_buscarPetFechaAnt.AutoSize = true;
-            this.label_buscarPetFechaAnt.Location = new System.Drawing.Point(3, 90);
-            this.label_buscarPetFechaAnt.Name = "label_buscarPetFechaAnt";
-            this.label_buscarPetFechaAnt.Size = new System.Drawing.Size(40, 13);
-            this.label_buscarPetFechaAnt.TabIndex = 3;
-            this.label_buscarPetFechaAnt.Text = "Fecha:";
-            // 
-            // textBox_buscarPetTituloAnt
-            // 
-            this.textBox_buscarPetTituloAnt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_buscarPetTituloAnt.Location = new System.Drawing.Point(103, 3);
-            this.textBox_buscarPetTituloAnt.Name = "textBox_buscarPetTituloAnt";
-            this.textBox_buscarPetTituloAnt.Size = new System.Drawing.Size(394, 20);
-            this.textBox_buscarPetTituloAnt.TabIndex = 4;
-            // 
-            // textBox_buscarPetTextoAnt
-            // 
-            this.textBox_buscarPetTextoAnt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_buscarPetTextoAnt.Location = new System.Drawing.Point(103, 33);
-            this.textBox_buscarPetTextoAnt.Name = "textBox_buscarPetTextoAnt";
-            this.textBox_buscarPetTextoAnt.Size = new System.Drawing.Size(394, 20);
-            this.textBox_buscarPetTextoAnt.TabIndex = 5;
-            // 
-            // textBox_buscarPetAutorAnt
-            // 
-            this.textBox_buscarPetAutorAnt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_buscarPetAutorAnt.Location = new System.Drawing.Point(103, 63);
-            this.textBox_buscarPetAutorAnt.Name = "textBox_buscarPetAutorAnt";
-            this.textBox_buscarPetAutorAnt.Size = new System.Drawing.Size(394, 20);
-            this.textBox_buscarPetAutorAnt.TabIndex = 6;
-            // 
-            // dateTimePicker_buscarPetFechaAnt
-            // 
-            this.dateTimePicker_buscarPetFechaAnt.Location = new System.Drawing.Point(103, 93);
-            this.dateTimePicker_buscarPetFechaAnt.Name = "dateTimePicker_buscarPetFechaAnt";
-            this.dateTimePicker_buscarPetFechaAnt.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_buscarPetFechaAnt.TabIndex = 7;
-            // 
-            // linkLabel6
-            // 
-            this.linkLabel6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.linkLabel6.AutoSize = true;
-            this.linkLabel6.Location = new System.Drawing.Point(503, 68);
-            this.linkLabel6.Name = "linkLabel6";
-            this.linkLabel6.Size = new System.Drawing.Size(65, 13);
-            this.linkLabel6.TabIndex = 8;
-            this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "Ver usuarios";
-            // 
-            // tableLayoutPanel35
-            // 
-            this.tableLayoutPanel35.ColumnCount = 1;
-            this.tableLayoutPanel35.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel35.Controls.Add(this.label_resultadosPeticionAnt, 0, 0);
-            this.tableLayoutPanel35.Controls.Add(this.dataGridView_Anteriores, 0, 1);
-            this.tableLayoutPanel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 173);
-            this.tableLayoutPanel35.Name = "tableLayoutPanel35";
-            this.tableLayoutPanel35.RowCount = 2;
-            this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel35.Size = new System.Drawing.Size(792, 106);
-            this.tableLayoutPanel35.TabIndex = 102;
-            // 
-            // label_resultadosPeticionAnt
-            // 
-            this.label_resultadosPeticionAnt.AutoSize = true;
-            this.label_resultadosPeticionAnt.Location = new System.Drawing.Point(3, 0);
-            this.label_resultadosPeticionAnt.Name = "label_resultadosPeticionAnt";
-            this.label_resultadosPeticionAnt.Size = new System.Drawing.Size(63, 13);
-            this.label_resultadosPeticionAnt.TabIndex = 0;
-            this.label_resultadosPeticionAnt.Text = "Resultados:";
-            // 
-            // dataGridView_Anteriores
-            // 
-            this.dataGridView_Anteriores.AllowUserToAddRows = false;
-            this.dataGridView_Anteriores.AllowUserToDeleteRows = false;
-            this.dataGridView_Anteriores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Anteriores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
-            this.dataGridView_Anteriores.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_Anteriores.Location = new System.Drawing.Point(3, 23);
-            this.dataGridView_Anteriores.Name = "dataGridView_Anteriores";
-            this.dataGridView_Anteriores.ReadOnly = true;
-            this.dataGridView_Anteriores.Size = new System.Drawing.Size(786, 98);
-            this.dataGridView_Anteriores.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Mensaje";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // tableLayoutPanel36
-            // 
-            this.tableLayoutPanel36.ColumnCount = 1;
-            this.tableLayoutPanel36.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel36.Controls.Add(this.label_peticionSeleccionadaAnt, 0, 0);
-            this.tableLayoutPanel36.Controls.Add(this.richTextBox12, 0, 1);
-            this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 285);
-            this.tableLayoutPanel36.Name = "tableLayoutPanel36";
-            this.tableLayoutPanel36.RowCount = 2;
-            this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(792, 68);
-            this.tableLayoutPanel36.TabIndex = 103;
-            // 
-            // label_peticionSeleccionadaAnt
-            // 
-            this.label_peticionSeleccionadaAnt.AutoSize = true;
-            this.label_peticionSeleccionadaAnt.Location = new System.Drawing.Point(3, 0);
-            this.label_peticionSeleccionadaAnt.Name = "label_peticionSeleccionadaAnt";
-            this.label_peticionSeleccionadaAnt.Size = new System.Drawing.Size(48, 13);
-            this.label_peticionSeleccionadaAnt.TabIndex = 0;
-            this.label_peticionSeleccionadaAnt.Text = "Peticion:";
-            // 
-            // richTextBox12
-            // 
-            this.richTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox12.Location = new System.Drawing.Point(3, 23);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(786, 96);
-            this.richTextBox12.TabIndex = 1;
-            this.richTextBox12.Text = "";
-            // 
-            // tableLayoutPanel37
-            // 
-            this.tableLayoutPanel37.ColumnCount = 2;
-            this.tableLayoutPanel37.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel37.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 692F));
-            this.tableLayoutPanel37.Controls.Add(this.button_borrarPeticionAnt, 0, 0);
-            this.tableLayoutPanel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 359);
-            this.tableLayoutPanel37.Name = "tableLayoutPanel37";
-            this.tableLayoutPanel37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel37.RowCount = 1;
-            this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel37.Size = new System.Drawing.Size(792, 25);
-            this.tableLayoutPanel37.TabIndex = 104;
-            // 
-            // button_borrarPeticionAnt
-            // 
-            this.button_borrarPeticionAnt.Location = new System.Drawing.Point(699, 3);
-            this.button_borrarPeticionAnt.Name = "button_borrarPeticionAnt";
-            this.button_borrarPeticionAnt.Size = new System.Drawing.Size(90, 19);
-            this.button_borrarPeticionAnt.TabIndex = 1;
-            this.button_borrarPeticionAnt.Text = "Borrar";
-            this.button_borrarPeticionAnt.UseVisualStyleBackColor = true;
-            // 
             // FormPeticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2446,6 +2446,17 @@
             this.tableLayoutPanel23.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
             this.Antiguas.ResumeLayout(false);
+            this.tableLayoutPanel25.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.tableLayoutPanel34.ResumeLayout(false);
+            this.tableLayoutPanel34.PerformLayout();
+            this.tableLayoutPanel35.ResumeLayout(false);
+            this.tableLayoutPanel35.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Anteriores)).EndInit();
+            this.tableLayoutPanel36.ResumeLayout(false);
+            this.tableLayoutPanel36.PerformLayout();
+            this.tableLayoutPanel37.ResumeLayout(false);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -2504,17 +2515,6 @@
             this.tableLayoutPanel32.ResumeLayout(false);
             this.tableLayoutPanel32.PerformLayout();
             this.tableLayoutPanel33.ResumeLayout(false);
-            this.tableLayoutPanel25.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.tableLayoutPanel34.ResumeLayout(false);
-            this.tableLayoutPanel34.PerformLayout();
-            this.tableLayoutPanel35.ResumeLayout(false);
-            this.tableLayoutPanel35.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Anteriores)).EndInit();
-            this.tableLayoutPanel36.ResumeLayout(false);
-            this.tableLayoutPanel36.PerformLayout();
-            this.tableLayoutPanel37.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
