@@ -31,9 +31,12 @@
             this.buttonSalir = new System.Windows.Forms.Button();
             this.buttonEnviar = new System.Windows.Forms.Button();
             this.tableLayoutPanelDesc = new System.Windows.Forms.TableLayoutPanel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panelDesc = new System.Windows.Forms.Panel();
             this.labelDesc = new System.Windows.Forms.Label();
             this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanelAsunto = new System.Windows.Forms.TableLayoutPanel();
             this.panelAsunto = new System.Windows.Forms.Panel();
             this.labelAsunto = new System.Windows.Forms.Label();
@@ -42,16 +45,13 @@
             this.panel11 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanelDesc.SuspendLayout();
             this.panelDesc.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanelAsunto.SuspendLayout();
             this.panelAsunto.SuspendLayout();
             this.tableLayoutPanelPara.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSalir
@@ -94,6 +94,15 @@
             this.tableLayoutPanelDesc.Size = new System.Drawing.Size(746, 239);
             this.tableLayoutPanelDesc.TabIndex = 119;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(3, 152);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(740, 84);
+            this.richTextBox1.TabIndex = 115;
+            this.richTextBox1.Text = "descripción detallada del mensaje";
+            // 
             // panelDesc
             // 
             this.panelDesc.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -124,6 +133,26 @@
             this.richTextBoxDesc.Size = new System.Drawing.Size(740, 83);
             this.richTextBoxDesc.TabIndex = 89;
             this.richTextBoxDesc.Text = "peticion del usuario";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(3, 122);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(740, 24);
+            this.panel1.TabIndex = 114;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 5);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 88;
+            this.label1.Text = "Respuesta";
             // 
             // tableLayoutPanelAsunto
             // 
@@ -221,35 +250,6 @@
             this.textBox8.Size = new System.Drawing.Size(640, 20);
             this.textBox8.TabIndex = 85;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(3, 122);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(740, 24);
-            this.panel1.TabIndex = 114;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 88;
-            this.label1.Text = "Respuesta";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 152);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(740, 84);
-            this.richTextBox1.TabIndex = 115;
-            this.richTextBox1.Text = "descripción detallada del mensaje";
-            // 
             // FormContestarPeticion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,6 +265,8 @@
             this.tableLayoutPanelDesc.ResumeLayout(false);
             this.panelDesc.ResumeLayout(false);
             this.panelDesc.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanelAsunto.ResumeLayout(false);
             this.tableLayoutPanelAsunto.PerformLayout();
             this.panelAsunto.ResumeLayout(false);
@@ -273,8 +275,6 @@
             this.tableLayoutPanelPara.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
