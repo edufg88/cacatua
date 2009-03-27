@@ -15,7 +15,7 @@ namespace cacatUA
     {
         private ENCategoriaCRUD categoria;
         private UserControl volver;
-        private CategoriaCAD seleccionada;
+        private int idSeleccionada;
 
         public FormCategorias()
         {
@@ -36,7 +36,11 @@ namespace cacatUA
         {
             textBox_Raiz.Text = treeViewCategorias.SelectedNode.FullPath;
             textBox_descripcion.Text = treeViewCategorias.SelectedNode.Tag.ToString();
-            //seleccionada = int.Parse(treeViewCategorias.SelectedNode.Name);
+            idSeleccionada = int.Parse(treeViewCategorias.SelectedNode.Name);
+
+            ENCategoriaCRUD seleccionada = CategoriaCAD.obtenerCategoria(idSeleccionada);
+            textBox_nHilos.Text = seleccionada.NumHilos().ToString();
+            textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
 
             button_Seleccionar.Enabled = true;
         }
@@ -76,22 +80,46 @@ namespace cacatUA
 
             foreach (ENCategoriaCRUD categoria in CategoriaCAD.obtenerCategoriasSuperiores())
             {
-                TreeNode nodo = new TreeNode();
-                nodo.Name = categoria.Id.ToString();
-                nodo.Text = categoria.Nombre;
-                nodo.Tag = categoria.Descripcion;
-
-                treeViewCategorias.Nodes.Add(nodo);
+                MeterEnArbol(categoria, cacatua);
+            }
+        }
+        
+        private void MeterEnArbol(ENCategoriaCRUD cat, TreeNode padre) {
+            TreeNode nodo = new TreeNode();
+            nodo.Name = cat.Id.ToString();
+            nodo.Text = cat.Nombre;
+            nodo.Tag = cat.Descripcion;
+            padre.Nodes.Add(nodo);
+            
+            foreach (ENCategoriaCRUD c in cat.obtenerHijos())
+            {
+                MeterEnArbol(c, nodo);
             }
         }
 
         private void button_crearSubcategoria_Click(object sender, EventArgs e)
         {
+            //Activar controles
             textBox_descripcion.ReadOnly = false;
             textBox_descripcion.Clear();
             textBox_Raiz.ReadOnly = false;
             textBox_Raiz.Clear();
-                
+            button_Guardar.Enabled = true;
+            button_noGuardar.Enabled = true;
+        }
+
+        private void button_noGuardar_Click(object sender, EventArgs e)
+        {
+            //Desactivar controles
+            textBox_descripcion.ReadOnly = true;
+            textBox_descripcion.Clear();
+            textBox_Raiz.ReadOnly = true;
+            textBox_Raiz.Clear();
+            button_Guardar.Enabled = false;
+            button_noGuardar.Enabled = false;
+
+            //Pasar el foco al arbol
+            treeViewCategorias.Focus();
         }
     }
 }

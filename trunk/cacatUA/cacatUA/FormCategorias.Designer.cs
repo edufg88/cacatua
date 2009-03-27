@@ -34,22 +34,26 @@
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.button_Seleccionar = new System.Windows.Forms.Button();
             this.groupBox_Categoria = new System.Windows.Forms.GroupBox();
-            this.button_Hilos = new System.Windows.Forms.Button();
+            this.linkLabel_verMateriales = new System.Windows.Forms.LinkLabel();
+            this.textBox_nMateriales = new System.Windows.Forms.TextBox();
+            this.textBox_nHilos = new System.Windows.Forms.TextBox();
+            this.linkLabel_verHilos = new System.Windows.Forms.LinkLabel();
+            this.label_nMateriales = new System.Windows.Forms.Label();
+            this.label_nHilos = new System.Windows.Forms.Label();
+            this.textBox_Raiz = new System.Windows.Forms.TextBox();
+            this.textBox_descripcion = new System.Windows.Forms.TextBox();
+            this.button_noGuardar = new System.Windows.Forms.Button();
+            this.button_Guardar = new System.Windows.Forms.Button();
+            this.button_crearSubcategoria = new System.Windows.Forms.Button();
+            this.butto_editarCategoria = new System.Windows.Forms.Button();
+            this.button_borrarCategoria = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button_quitarUsuario = new System.Windows.Forms.Button();
             this.button_verUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button_Materiales = new System.Windows.Forms.Button();
             this.treeViewCategorias = new System.Windows.Forms.TreeView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.butto_editarCategoria = new System.Windows.Forms.Button();
-            this.button_borrarCategoria = new System.Windows.Forms.Button();
-            this.button_crearSubcategoria = new System.Windows.Forms.Button();
-            this.button_Guardar = new System.Windows.Forms.Button();
-            this.button_noGuardar = new System.Windows.Forms.Button();
-            this.textBox_descripcion = new System.Windows.Forms.TextBox();
-            this.textBox_Raiz = new System.Windows.Forms.TextBox();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox_Categoria.SuspendLayout();
@@ -125,6 +129,12 @@
             this.groupBox_Categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Categoria.Controls.Add(this.linkLabel_verMateriales);
+            this.groupBox_Categoria.Controls.Add(this.textBox_nMateriales);
+            this.groupBox_Categoria.Controls.Add(this.textBox_nHilos);
+            this.groupBox_Categoria.Controls.Add(this.linkLabel_verHilos);
+            this.groupBox_Categoria.Controls.Add(this.label_nMateriales);
+            this.groupBox_Categoria.Controls.Add(this.label_nHilos);
             this.groupBox_Categoria.Controls.Add(this.textBox_Raiz);
             this.groupBox_Categoria.Controls.Add(this.textBox_descripcion);
             this.groupBox_Categoria.Controls.Add(this.button_noGuardar);
@@ -132,31 +142,154 @@
             this.groupBox_Categoria.Controls.Add(this.button_crearSubcategoria);
             this.groupBox_Categoria.Controls.Add(this.butto_editarCategoria);
             this.groupBox_Categoria.Controls.Add(this.button_borrarCategoria);
-            this.groupBox_Categoria.Controls.Add(this.button_Hilos);
             this.groupBox_Categoria.Controls.Add(this.button8);
             this.groupBox_Categoria.Controls.Add(this.button_quitarUsuario);
             this.groupBox_Categoria.Controls.Add(this.button_verUsuario);
             this.groupBox_Categoria.Controls.Add(this.label3);
             this.groupBox_Categoria.Controls.Add(this.listBox1);
-            this.groupBox_Categoria.Controls.Add(this.button_Materiales);
             this.groupBox_Categoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox_Categoria.Location = new System.Drawing.Point(284, 24);
             this.groupBox_Categoria.Name = "groupBox_Categoria";
             this.groupBox_Categoria.Size = new System.Drawing.Size(507, 411);
-            this.groupBox_Categoria.TabIndex = 14;
+            this.groupBox_Categoria.TabIndex = 3;
             this.groupBox_Categoria.TabStop = false;
             this.groupBox_Categoria.Text = "Categoria";
             // 
-            // button_Hilos
+            // linkLabel_verMateriales
             // 
-            this.button_Hilos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Hilos.Location = new System.Drawing.Point(128, 218);
-            this.button_Hilos.Name = "button_Hilos";
-            this.button_Hilos.Size = new System.Drawing.Size(85, 23);
-            this.button_Hilos.TabIndex = 18;
-            this.button_Hilos.Text = "Hilos";
-            this.button_Hilos.UseVisualStyleBackColor = true;
-            this.button_Hilos.Click += new System.EventHandler(this.button_Hilos_Click);
+            this.linkLabel_verMateriales.AutoSize = true;
+            this.linkLabel_verMateriales.Location = new System.Drawing.Point(255, 225);
+            this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
+            this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
+            this.linkLabel_verMateriales.TabIndex = 45;
+            this.linkLabel_verMateriales.TabStop = true;
+            this.linkLabel_verMateriales.Text = "Ver materiales";
+            // 
+            // textBox_nMateriales
+            // 
+            this.textBox_nMateriales.Location = new System.Drawing.Point(181, 222);
+            this.textBox_nMateriales.Name = "textBox_nMateriales";
+            this.textBox_nMateriales.ReadOnly = true;
+            this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
+            this.textBox_nMateriales.TabIndex = 44;
+            // 
+            // textBox_nHilos
+            // 
+            this.textBox_nHilos.Location = new System.Drawing.Point(181, 188);
+            this.textBox_nHilos.Name = "textBox_nHilos";
+            this.textBox_nHilos.ReadOnly = true;
+            this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
+            this.textBox_nHilos.TabIndex = 43;
+            // 
+            // linkLabel_verHilos
+            // 
+            this.linkLabel_verHilos.AutoSize = true;
+            this.linkLabel_verHilos.Location = new System.Drawing.Point(255, 191);
+            this.linkLabel_verHilos.Name = "linkLabel_verHilos";
+            this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
+            this.linkLabel_verHilos.TabIndex = 42;
+            this.linkLabel_verHilos.TabStop = true;
+            this.linkLabel_verHilos.Text = "Ver hilos";
+            // 
+            // label_nMateriales
+            // 
+            this.label_nMateriales.AutoSize = true;
+            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nMateriales.Location = new System.Drawing.Point(20, 225);
+            this.label_nMateriales.Name = "label_nMateriales";
+            this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
+            this.label_nMateriales.TabIndex = 41;
+            this.label_nMateriales.Text = "Número de materiales: ";
+            // 
+            // label_nHilos
+            // 
+            this.label_nHilos.AutoSize = true;
+            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nHilos.Location = new System.Drawing.Point(20, 191);
+            this.label_nHilos.Name = "label_nHilos";
+            this.label_nHilos.Size = new System.Drawing.Size(106, 13);
+            this.label_nHilos.TabIndex = 40;
+            this.label_nHilos.Text = "Número de hilos: ";
+            // 
+            // textBox_Raiz
+            // 
+            this.textBox_Raiz.Location = new System.Drawing.Point(26, 30);
+            this.textBox_Raiz.Name = "textBox_Raiz";
+            this.textBox_Raiz.ReadOnly = true;
+            this.textBox_Raiz.Size = new System.Drawing.Size(389, 20);
+            this.textBox_Raiz.TabIndex = 39;
+            // 
+            // textBox_descripcion
+            // 
+            this.textBox_descripcion.Location = new System.Drawing.Point(26, 59);
+            this.textBox_descripcion.Multiline = true;
+            this.textBox_descripcion.Name = "textBox_descripcion";
+            this.textBox_descripcion.ReadOnly = true;
+            this.textBox_descripcion.Size = new System.Drawing.Size(389, 62);
+            this.textBox_descripcion.TabIndex = 38;
+            // 
+            // button_noGuardar
+            // 
+            this.button_noGuardar.Enabled = false;
+            this.button_noGuardar.Location = new System.Drawing.Point(333, 136);
+            this.button_noGuardar.Name = "button_noGuardar";
+            this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
+            this.button_noGuardar.TabIndex = 37;
+            this.button_noGuardar.Text = "Cancelar";
+            this.button_noGuardar.UseVisualStyleBackColor = true;
+            this.button_noGuardar.Click += new System.EventHandler(this.button_noGuardar_Click);
+            // 
+            // button_Guardar
+            // 
+            this.button_Guardar.Enabled = false;
+            this.button_Guardar.Location = new System.Drawing.Point(221, 136);
+            this.button_Guardar.Name = "button_Guardar";
+            this.button_Guardar.Size = new System.Drawing.Size(82, 24);
+            this.button_Guardar.TabIndex = 36;
+            this.button_Guardar.Text = "Guardar";
+            this.button_Guardar.UseVisualStyleBackColor = true;
+            // 
+            // button_crearSubcategoria
+            // 
+            this.button_crearSubcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_crearSubcategoria.FlatAppearance.BorderSize = 0;
+            this.button_crearSubcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_crearSubcategoria.Image = global::cacatUA.Properties.Resources.nuevo;
+            this.button_crearSubcategoria.Location = new System.Drawing.Point(445, 30);
+            this.button_crearSubcategoria.Name = "button_crearSubcategoria";
+            this.button_crearSubcategoria.Size = new System.Drawing.Size(36, 36);
+            this.button_crearSubcategoria.TabIndex = 35;
+            this.button_crearSubcategoria.Tag = "Crear subcategoria";
+            this.button_crearSubcategoria.UseVisualStyleBackColor = true;
+            this.button_crearSubcategoria.Click += new System.EventHandler(this.button_crearSubcategoria_Click);
+            // 
+            // butto_editarCategoria
+            // 
+            this.butto_editarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butto_editarCategoria.FlatAppearance.BorderSize = 0;
+            this.butto_editarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butto_editarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.butto_editarCategoria.Image = global::cacatUA.Properties.Resources.tool;
+            this.butto_editarCategoria.Location = new System.Drawing.Point(445, 70);
+            this.butto_editarCategoria.Name = "butto_editarCategoria";
+            this.butto_editarCategoria.Size = new System.Drawing.Size(36, 36);
+            this.butto_editarCategoria.TabIndex = 33;
+            this.butto_editarCategoria.Tag = "Modificar categoria seleccionada";
+            this.butto_editarCategoria.UseVisualStyleBackColor = true;
+            // 
+            // button_borrarCategoria
+            // 
+            this.button_borrarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarCategoria.FlatAppearance.BorderSize = 0;
+            this.button_borrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarCategoria.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarCategoria.Location = new System.Drawing.Point(445, 112);
+            this.button_borrarCategoria.Name = "button_borrarCategoria";
+            this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
+            this.button_borrarCategoria.TabIndex = 34;
+            this.button_borrarCategoria.Tag = "Borrar categoria seleccionada";
+            this.button_borrarCategoria.UseVisualStyleBackColor = true;
             // 
             // button8
             // 
@@ -214,17 +347,6 @@
             this.listBox1.Size = new System.Drawing.Size(344, 108);
             this.listBox1.TabIndex = 13;
             // 
-            // button_Materiales
-            // 
-            this.button_Materiales.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_Materiales.Location = new System.Drawing.Point(23, 218);
-            this.button_Materiales.Name = "button_Materiales";
-            this.button_Materiales.Size = new System.Drawing.Size(85, 23);
-            this.button_Materiales.TabIndex = 12;
-            this.button_Materiales.Text = "Materiales";
-            this.button_Materiales.UseVisualStyleBackColor = true;
-            this.button_Materiales.Click += new System.EventHandler(this.button_Materiales_Click);
-            // 
             // treeViewCategorias
             // 
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -269,85 +391,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 527);
             this.tableLayoutPanel1.TabIndex = 35;
             // 
-            // butto_editarCategoria
-            // 
-            this.butto_editarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarCategoria.FlatAppearance.BorderSize = 0;
-            this.butto_editarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarCategoria.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarCategoria.Location = new System.Drawing.Point(445, 70);
-            this.butto_editarCategoria.Name = "butto_editarCategoria";
-            this.butto_editarCategoria.Size = new System.Drawing.Size(36, 36);
-            this.butto_editarCategoria.TabIndex = 33;
-            this.butto_editarCategoria.Tag = "Modificar categoria seleccionada";
-            this.butto_editarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // button_borrarCategoria
-            // 
-            this.button_borrarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarCategoria.FlatAppearance.BorderSize = 0;
-            this.button_borrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarCategoria.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarCategoria.Location = new System.Drawing.Point(445, 112);
-            this.button_borrarCategoria.Name = "button_borrarCategoria";
-            this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarCategoria.TabIndex = 34;
-            this.button_borrarCategoria.Tag = "Borrar categoria seleccionada";
-            this.button_borrarCategoria.UseVisualStyleBackColor = true;
-            // 
-            // button_crearSubcategoria
-            // 
-            this.button_crearSubcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_crearSubcategoria.FlatAppearance.BorderSize = 0;
-            this.button_crearSubcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_crearSubcategoria.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_crearSubcategoria.Location = new System.Drawing.Point(445, 30);
-            this.button_crearSubcategoria.Name = "button_crearSubcategoria";
-            this.button_crearSubcategoria.Size = new System.Drawing.Size(36, 36);
-            this.button_crearSubcategoria.TabIndex = 35;
-            this.button_crearSubcategoria.Tag = "Crear subcategoria";
-            this.button_crearSubcategoria.UseVisualStyleBackColor = true;
-            this.button_crearSubcategoria.Click += new System.EventHandler(this.button_crearSubcategoria_Click);
-            // 
-            // button_Guardar
-            // 
-            this.button_Guardar.Enabled = false;
-            this.button_Guardar.Location = new System.Drawing.Point(230, 154);
-            this.button_Guardar.Name = "button_Guardar";
-            this.button_Guardar.Size = new System.Drawing.Size(82, 24);
-            this.button_Guardar.TabIndex = 36;
-            this.button_Guardar.Text = "Guardar";
-            this.button_Guardar.UseVisualStyleBackColor = true;
-            // 
-            // button_noGuardar
-            // 
-            this.button_noGuardar.Enabled = false;
-            this.button_noGuardar.Location = new System.Drawing.Point(335, 154);
-            this.button_noGuardar.Name = "button_noGuardar";
-            this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
-            this.button_noGuardar.TabIndex = 37;
-            this.button_noGuardar.Text = "Cancelar";
-            this.button_noGuardar.UseVisualStyleBackColor = true;
-            // 
-            // textBox_descripcion
-            // 
-            this.textBox_descripcion.Location = new System.Drawing.Point(26, 59);
-            this.textBox_descripcion.Multiline = true;
-            this.textBox_descripcion.Name = "textBox_descripcion";
-            this.textBox_descripcion.ReadOnly = true;
-            this.textBox_descripcion.Size = new System.Drawing.Size(389, 89);
-            this.textBox_descripcion.TabIndex = 38;
-            // 
-            // textBox_Raiz
-            // 
-            this.textBox_Raiz.Location = new System.Drawing.Point(26, 30);
-            this.textBox_Raiz.Name = "textBox_Raiz";
-            this.textBox_Raiz.ReadOnly = true;
-            this.textBox_Raiz.Size = new System.Drawing.Size(389, 20);
-            this.textBox_Raiz.TabIndex = 39;
-            // 
             // FormCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,13 +416,11 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_Seleccionar;
         private System.Windows.Forms.GroupBox groupBox_Categoria;
-        private System.Windows.Forms.Button button_Hilos;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button_quitarUsuario;
         private System.Windows.Forms.Button button_verUsuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button_Materiales;
         private System.Windows.Forms.TreeView treeViewCategorias;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button_Cancelar;
@@ -390,6 +431,12 @@
         private System.Windows.Forms.Button button_Guardar;
         private System.Windows.Forms.TextBox textBox_descripcion;
         private System.Windows.Forms.TextBox textBox_Raiz;
+        private System.Windows.Forms.TextBox textBox_nMateriales;
+        private System.Windows.Forms.TextBox textBox_nHilos;
+        private System.Windows.Forms.LinkLabel linkLabel_verHilos;
+        private System.Windows.Forms.Label label_nMateriales;
+        private System.Windows.Forms.Label label_nHilos;
+        private System.Windows.Forms.LinkLabel linkLabel_verMateriales;
 
 
     }
