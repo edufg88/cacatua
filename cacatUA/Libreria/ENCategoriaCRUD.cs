@@ -25,6 +25,21 @@ namespace Libreria
             return CategoriaCAD.obtenerHijosDe(this);
         }
 
+        public ArrayList usuariosSuscritos()
+        {
+            return CategoriaCAD.usuariosSuscritosA(this);
+        }
+
+        public int NumMateriales()
+        {
+            return CategoriaCAD.NumMaterialesEn(this);
+        }
+
+        public int NumHilos()
+        {
+            return CategoriaCAD.NumHilosEn(this);
+        }
+
         public int Id
         {
             get { return id; }
