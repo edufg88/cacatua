@@ -13,9 +13,10 @@ namespace cacatUA
 
     public partial class FormCategorias : UserControl
     {
-        private ENCategoriaCRUD categoria;
+        private ENCategoriaCRUD devolverCategoria;
         private UserControl volver;
-        private int idSeleccionada;
+        private ENCategoriaCRUD seleccionada;
+        private bool editar;
 
         public FormCategorias()
         {
@@ -25,7 +26,7 @@ namespace cacatUA
         public FormCategorias(ENCategoriaCRUD categoria, UserControl formVolver)
         {
             InitializeComponent();
-            this.categoria = categoria;
+            this.devolverCategoria = categoria;
             volver = formVolver;
 
             button_Seleccionar.Visible = true;
@@ -34,43 +35,29 @@ namespace cacatUA
 
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //Obtenemos la instancia de la Categoria seleccionada
+            seleccionada = CategoriaCAD.obtenerCategoria(int.Parse(treeViewCategorias.SelectedNode.Name));
+
+            //Llevar datos a los controles
             textBox_Raiz.Text = treeViewCategorias.SelectedNode.FullPath;
             textBox_descripcion.Text = treeViewCategorias.SelectedNode.Tag.ToString();
-            idSeleccionada = int.Parse(treeViewCategorias.SelectedNode.Name);
-
-            ENCategoriaCRUD seleccionada = CategoriaCAD.obtenerCategoria(idSeleccionada);
             textBox_nHilos.Text = seleccionada.NumHilos().ToString();
             textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
 
+            listBox_usuarios.Items.Clear();
+            foreach (String u in seleccionada.usuariosSuscritos())
+            {
+                listBox_usuarios.Items.Add(u);
+            }
+
+            //Opcion de volver
+            devolverCategoria = seleccionada;
             button_Seleccionar.Enabled = true;
-        }
-
-        private void button_verUsuario_Click(object sender, EventArgs e)
-        {
-            /*FormUsuario form = new FormUsuario();
-            panel1.Controls.Clear();
-            panel1.Controls.Add(form);
-            form.Dock = DockStyle.Fill;*/
-        }
-
-        private void button_Hilos_Click(object sender, EventArgs e)
-        {
-            FormForo form = new FormForo();
-            tableLayoutPanel1.Controls.Clear();
-            tableLayoutPanel1.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
-        }
-
-        private void button_Materiales_Click(object sender, EventArgs e)
-        {
-            FormMateriales form = new FormMateriales();
-            tableLayoutPanel1.Controls.Clear();
-            tableLayoutPanel1.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
         }
 
         private void FormCategorias_Load(object sender, EventArgs e)
         {
+            treeViewCategorias.Nodes.Clear();
             TreeNode cacatua = new TreeNode();
             cacatua.Name = "0";
             cacatua.Text = "CacatUA";
@@ -99,27 +86,85 @@ namespace cacatUA
 
         private void button_crearSubcategoria_Click(object sender, EventArgs e)
         {
-            //Activar controles
+            //Activar/Desactivar controles
             textBox_descripcion.ReadOnly = false;
             textBox_descripcion.Clear();
             textBox_Raiz.ReadOnly = false;
             textBox_Raiz.Clear();
             button_Guardar.Enabled = true;
             button_noGuardar.Enabled = true;
+            treeViewCategorias.Enabled = false;
+
+            //Parametros
+            editar = false;
         }
 
         private void button_noGuardar_Click(object sender, EventArgs e)
         {
-            //Desactivar controles
+            //Activar/Desactivar controles
             textBox_descripcion.ReadOnly = true;
-            textBox_descripcion.Clear();
             textBox_Raiz.ReadOnly = true;
-            textBox_Raiz.Clear();
             button_Guardar.Enabled = false;
             button_noGuardar.Enabled = false;
+            treeViewCategorias.Enabled = true;
+
+            if (!editar)
+            {
+                textBox_descripcion.Clear();
+                textBox_Raiz.Clear();
+            }
 
             //Pasar el foco al arbol
             treeViewCategorias.Focus();
+        }
+
+        private void button_editarCategoria_Click(object sender, EventArgs e)
+        {
+            //Activar/Desactivar controles
+            textBox_descripcion.ReadOnly = false;
+            textBox_Raiz.ReadOnly = false;
+            button_Guardar.Enabled = true;
+            button_noGuardar.Enabled = true;
+            treeViewCategorias.Enabled = false;
+
+            //Parametros
+            editar = true;
+        }
+
+        private void button_Guardar_Click(object sender, EventArgs e)
+        {
+            //Activar/Desactivar controles
+            textBox_descripcion.ReadOnly = true;
+            textBox_Raiz.ReadOnly = true;
+            button_Guardar.Enabled = false;
+            button_noGuardar.Enabled = false;
+            treeViewCategorias.Enabled = true;
+
+            //Comprobar accion a realizar
+            if (editar == true)
+            {
+                //Actualizar
+                seleccionada.Nombre = textBox_Raiz.Text;
+                seleccionada.Descripcion = textBox_descripcion.Text;
+                seleccionada.actualizarCategoria();
+            }
+            else
+            {
+                //Crear objeto y almacenarlo en la BBDD
+                new ENCategoriaCRUD(0, textBox_Raiz.Text, textBox_descripcion.Text, seleccionada.Id).crearCategoria(); ;
+            }
+        }
+
+        private void button_verUsuario_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button_Hilos_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button_Materiales_Click(object sender, EventArgs e)
+        {
         }
     }
 }

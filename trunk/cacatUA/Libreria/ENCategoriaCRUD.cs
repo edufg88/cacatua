@@ -20,8 +20,20 @@ namespace Libreria
             this.descripcion = descripcion;
         }
 
+        public void crearCategoria()
+        {
+        }
+
+        public void actualizarCategoria()
+        {
+        }
+
+        public void borrarCategoria() { 
+        }
+
         public ArrayList obtenerHijos()
         {
+            //select 
             return CategoriaCAD.obtenerHijosDe(this);
         }
 
@@ -39,6 +51,9 @@ namespace Libreria
         {
             return CategoriaCAD.NumHilosEn(this);
         }
+
+
+        //Propiedades
 
         public int Id
         {
