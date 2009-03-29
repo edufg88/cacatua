@@ -9,11 +9,13 @@ namespace Libreria
     {
         public static ENCategoriaCRUD obtenerCategoria(int id)
         {
+            //select * from CATEGORIAS where id = @id
             return new ENCategoriaCRUD(id,"Informatica","Desc. inf.",0);
         }
 
         public static ArrayList obtenerCategoriasSuperiores()
         {
+            //select * from CATEGORIAS where padre = null
             ArrayList categorias = new ArrayList();
             categorias.Add(new ENCategoriaCRUD(1,"Informatica","Desc. inf.",0));
             categorias.Add(new ENCategoriaCRUD(2,"Biologia","Desc. bio.",0));
@@ -23,6 +25,7 @@ namespace Libreria
 
         public static ArrayList obtenerHijosDe(ENCategoriaCRUD padre)
         {
+            //select * from CATEGORIAS where padre = padre.id
             ArrayList hijos = new ArrayList();
             if (padre.Id == 1 || padre.Id == 2 || padre.Id == 3)
             {
@@ -35,16 +38,23 @@ namespace Libreria
 
         public static ArrayList usuariosSuscritosA(ENCategoriaCRUD categoria)
         {
-            return new ArrayList();
+            //select usuario from SUSCRITOACATEGORIA where categoria = categoria.id
+            ArrayList usuarios = new ArrayList();
+            usuarios.Add("Jorge");
+            usuarios.Add("Antonio");
+            usuarios.Add("Juan");
+            return usuarios;
         }
 
         public static int NumHilosEn(ENCategoriaCRUD categoria)
         {
+            //select count(*) from HILOS where categoria = categoria.id
             return 4;
         }
 
         public static int NumMaterialesEn(ENCategoriaCRUD categoria)
         {
+            //select count(*) from MATERIALES where categoria = categoria.id
             return 2;
         }
     }

@@ -45,13 +45,13 @@
             this.button_noGuardar = new System.Windows.Forms.Button();
             this.button_Guardar = new System.Windows.Forms.Button();
             this.button_crearSubcategoria = new System.Windows.Forms.Button();
-            this.butto_editarCategoria = new System.Windows.Forms.Button();
+            this.button_editarCategoria = new System.Windows.Forms.Button();
             this.button_borrarCategoria = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button_quitarUsuario = new System.Windows.Forms.Button();
             this.button_verUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox_usuarios = new System.Windows.Forms.ListBox();
             this.treeViewCategorias = new System.Windows.Forms.TreeView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6.SuspendLayout();
@@ -140,13 +140,13 @@
             this.groupBox_Categoria.Controls.Add(this.button_noGuardar);
             this.groupBox_Categoria.Controls.Add(this.button_Guardar);
             this.groupBox_Categoria.Controls.Add(this.button_crearSubcategoria);
-            this.groupBox_Categoria.Controls.Add(this.butto_editarCategoria);
+            this.groupBox_Categoria.Controls.Add(this.button_editarCategoria);
             this.groupBox_Categoria.Controls.Add(this.button_borrarCategoria);
             this.groupBox_Categoria.Controls.Add(this.button8);
             this.groupBox_Categoria.Controls.Add(this.button_quitarUsuario);
             this.groupBox_Categoria.Controls.Add(this.button_verUsuario);
             this.groupBox_Categoria.Controls.Add(this.label3);
-            this.groupBox_Categoria.Controls.Add(this.listBox1);
+            this.groupBox_Categoria.Controls.Add(this.listBox_usuarios);
             this.groupBox_Categoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox_Categoria.Location = new System.Drawing.Point(284, 24);
             this.groupBox_Categoria.Name = "groupBox_Categoria";
@@ -213,25 +213,30 @@
             // 
             // textBox_Raiz
             // 
+            this.textBox_Raiz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Raiz.Location = new System.Drawing.Point(26, 30);
             this.textBox_Raiz.Name = "textBox_Raiz";
             this.textBox_Raiz.ReadOnly = true;
-            this.textBox_Raiz.Size = new System.Drawing.Size(389, 20);
+            this.textBox_Raiz.Size = new System.Drawing.Size(409, 20);
             this.textBox_Raiz.TabIndex = 39;
             // 
             // textBox_descripcion
             // 
+            this.textBox_descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_descripcion.Location = new System.Drawing.Point(26, 59);
             this.textBox_descripcion.Multiline = true;
             this.textBox_descripcion.Name = "textBox_descripcion";
             this.textBox_descripcion.ReadOnly = true;
-            this.textBox_descripcion.Size = new System.Drawing.Size(389, 62);
+            this.textBox_descripcion.Size = new System.Drawing.Size(409, 62);
             this.textBox_descripcion.TabIndex = 38;
             // 
             // button_noGuardar
             // 
+            this.button_noGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_noGuardar.Enabled = false;
-            this.button_noGuardar.Location = new System.Drawing.Point(333, 136);
+            this.button_noGuardar.Location = new System.Drawing.Point(353, 127);
             this.button_noGuardar.Name = "button_noGuardar";
             this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
             this.button_noGuardar.TabIndex = 37;
@@ -241,21 +246,24 @@
             // 
             // button_Guardar
             // 
+            this.button_Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Guardar.Enabled = false;
-            this.button_Guardar.Location = new System.Drawing.Point(221, 136);
+            this.button_Guardar.Location = new System.Drawing.Point(265, 127);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(82, 24);
             this.button_Guardar.TabIndex = 36;
             this.button_Guardar.Text = "Guardar";
             this.button_Guardar.UseVisualStyleBackColor = true;
+            this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
             // 
             // button_crearSubcategoria
             // 
+            this.button_crearSubcategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_crearSubcategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_crearSubcategoria.FlatAppearance.BorderSize = 0;
             this.button_crearSubcategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_crearSubcategoria.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_crearSubcategoria.Location = new System.Drawing.Point(445, 30);
+            this.button_crearSubcategoria.Location = new System.Drawing.Point(454, 19);
             this.button_crearSubcategoria.Name = "button_crearSubcategoria";
             this.button_crearSubcategoria.Size = new System.Drawing.Size(36, 36);
             this.button_crearSubcategoria.TabIndex = 35;
@@ -263,28 +271,31 @@
             this.button_crearSubcategoria.UseVisualStyleBackColor = true;
             this.button_crearSubcategoria.Click += new System.EventHandler(this.button_crearSubcategoria_Click);
             // 
-            // butto_editarCategoria
+            // button_editarCategoria
             // 
-            this.butto_editarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarCategoria.FlatAppearance.BorderSize = 0;
-            this.butto_editarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarCategoria.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarCategoria.Location = new System.Drawing.Point(445, 70);
-            this.butto_editarCategoria.Name = "butto_editarCategoria";
-            this.butto_editarCategoria.Size = new System.Drawing.Size(36, 36);
-            this.butto_editarCategoria.TabIndex = 33;
-            this.butto_editarCategoria.Tag = "Modificar categoria seleccionada";
-            this.butto_editarCategoria.UseVisualStyleBackColor = true;
+            this.button_editarCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarCategoria.FlatAppearance.BorderSize = 0;
+            this.button_editarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarCategoria.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarCategoria.Location = new System.Drawing.Point(454, 59);
+            this.button_editarCategoria.Name = "button_editarCategoria";
+            this.button_editarCategoria.Size = new System.Drawing.Size(36, 36);
+            this.button_editarCategoria.TabIndex = 33;
+            this.button_editarCategoria.Tag = "Modificar categoria seleccionada";
+            this.button_editarCategoria.UseVisualStyleBackColor = true;
+            this.button_editarCategoria.Click += new System.EventHandler(this.button_editarCategoria_Click);
             // 
             // button_borrarCategoria
             // 
+            this.button_borrarCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_borrarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_borrarCategoria.FlatAppearance.BorderSize = 0;
             this.button_borrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_borrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_borrarCategoria.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarCategoria.Location = new System.Drawing.Point(445, 112);
+            this.button_borrarCategoria.Location = new System.Drawing.Point(454, 101);
             this.button_borrarCategoria.Name = "button_borrarCategoria";
             this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_borrarCategoria.TabIndex = 34;
@@ -336,16 +347,16 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Usuarios suscritos:";
             // 
-            // listBox1
+            // listBox_usuarios
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.listBox_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(23, 288);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(344, 108);
-            this.listBox1.TabIndex = 13;
+            this.listBox_usuarios.FormattingEnabled = true;
+            this.listBox_usuarios.Location = new System.Drawing.Point(23, 288);
+            this.listBox_usuarios.Name = "listBox_usuarios";
+            this.listBox_usuarios.Size = new System.Drawing.Size(344, 108);
+            this.listBox_usuarios.TabIndex = 13;
             // 
             // treeViewCategorias
             // 
@@ -420,11 +431,11 @@
         private System.Windows.Forms.Button button_quitarUsuario;
         private System.Windows.Forms.Button button_verUsuario;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox_usuarios;
         private System.Windows.Forms.TreeView treeViewCategorias;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button_Cancelar;
-        private System.Windows.Forms.Button butto_editarCategoria;
+        private System.Windows.Forms.Button button_editarCategoria;
         private System.Windows.Forms.Button button_borrarCategoria;
         private System.Windows.Forms.Button button_crearSubcategoria;
         private System.Windows.Forms.Button button_noGuardar;
