@@ -12,6 +12,10 @@ namespace Libreria
         private String descripcion;
         private int padre;
 
+        public ENCategoriaCRUD()
+        {
+        }
+
         public ENCategoriaCRUD(int id, String nombre, String descripcion, int padre)
         {
             this.id = id;
@@ -20,20 +24,22 @@ namespace Libreria
             this.descripcion = descripcion;
         }
 
-        public void crearCategoria()
+        public bool crear()
         {
+            return CategoriaCAD.crearCategoria(this);
         }
 
-        public void actualizarCategoria()
+        public bool actualizar()
         {
+            return CategoriaCAD.actualizarCategoria(this);
         }
 
-        public void borrarCategoria() { 
+        public bool borrar() {
+            return CategoriaCAD.borrarCategoria(this);
         }
 
         public ArrayList obtenerHijos()
         {
-            //select 
             return CategoriaCAD.obtenerHijosDe(this);
         }
 
