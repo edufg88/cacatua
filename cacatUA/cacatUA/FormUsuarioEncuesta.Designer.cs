@@ -29,213 +29,213 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.groupBox_respuestas = new System.Windows.Forms.GroupBox();
+            this.radioButton_r3 = new System.Windows.Forms.RadioButton();
+            this.radioButton_r2 = new System.Windows.Forms.RadioButton();
+            this.radioButton_r1 = new System.Windows.Forms.RadioButton();
+            this.textBox_pregunta = new System.Windows.Forms.TextBox();
+            this.button_eliminarParticipante = new System.Windows.Forms.Button();
+            this.comboBox_enEstaEncuesta = new System.Windows.Forms.ComboBox();
+            this.label_enEstaEncuesta = new System.Windows.Forms.Label();
+            this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
+            this.label_fecha = new System.Windows.Forms.Label();
+            this.label_encuestaDeUsuario = new System.Windows.Forms.Label();
+            this.button_modificar = new System.Windows.Forms.Button();
+            this.label_pregunta = new System.Windows.Forms.Label();
+            this.label_autor = new System.Windows.Forms.Label();
+            this.textBox_autor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox_respuestas.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox10);
+            this.panel1.Controls.Add(this.groupBox_respuestas);
+            this.panel1.Controls.Add(this.textBox_pregunta);
+            this.panel1.Controls.Add(this.button_eliminarParticipante);
+            this.panel1.Controls.Add(this.comboBox_enEstaEncuesta);
+            this.panel1.Controls.Add(this.label_enEstaEncuesta);
+            this.panel1.Controls.Add(this.dateTimePicker_fecha);
+            this.panel1.Controls.Add(this.label_fecha);
+            this.panel1.Controls.Add(this.label_encuestaDeUsuario);
+            this.panel1.Controls.Add(this.button_modificar);
+            this.panel1.Controls.Add(this.label_pregunta);
+            this.panel1.Controls.Add(this.label_autor);
+            this.panel1.Controls.Add(this.textBox_autor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 376);
             this.panel1.TabIndex = 2;
             // 
-            // groupBox1
+            // groupBox_respuestas
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(6, 231);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(197, 113);
-            this.groupBox1.TabIndex = 56;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Respuestas:";
+            this.groupBox_respuestas.Controls.Add(this.radioButton_r3);
+            this.groupBox_respuestas.Controls.Add(this.radioButton_r2);
+            this.groupBox_respuestas.Controls.Add(this.radioButton_r1);
+            this.groupBox_respuestas.Location = new System.Drawing.Point(6, 231);
+            this.groupBox_respuestas.Name = "groupBox_respuestas";
+            this.groupBox_respuestas.Size = new System.Drawing.Size(197, 113);
+            this.groupBox_respuestas.TabIndex = 56;
+            this.groupBox_respuestas.TabStop = false;
+            this.groupBox_respuestas.Text = "Respuestas:";
             // 
-            // radioButton3
+            // radioButton_r3
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 71);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(91, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Bastante pura";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton_r3.AutoSize = true;
+            this.radioButton_r3.Location = new System.Drawing.Point(6, 71);
+            this.radioButton_r3.Name = "radioButton_r3";
+            this.radioButton_r3.Size = new System.Drawing.Size(91, 17);
+            this.radioButton_r3.TabIndex = 2;
+            this.radioButton_r3.TabStop = true;
+            this.radioButton_r3.Text = "Bastante pura";
+            this.radioButton_r3.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioButton_r2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 48);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(39, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "No";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_r2.AutoSize = true;
+            this.radioButton_r2.Location = new System.Drawing.Point(6, 48);
+            this.radioButton_r2.Name = "radioButton_r2";
+            this.radioButton_r2.Size = new System.Drawing.Size(39, 17);
+            this.radioButton_r2.TabIndex = 1;
+            this.radioButton_r2.TabStop = true;
+            this.radioButton_r2.Text = "No";
+            this.radioButton_r2.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButton_r1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 25);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(36, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Sí";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton_r1.AutoSize = true;
+            this.radioButton_r1.Location = new System.Drawing.Point(6, 25);
+            this.radioButton_r1.Name = "radioButton_r1";
+            this.radioButton_r1.Size = new System.Drawing.Size(36, 17);
+            this.radioButton_r1.TabIndex = 0;
+            this.radioButton_r1.TabStop = true;
+            this.radioButton_r1.Text = "Sí";
+            this.radioButton_r1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBox_pregunta
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 202);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(197, 20);
-            this.textBox1.TabIndex = 55;
-            this.textBox1.Text = "¿Tengo el alma pura?";
+            this.textBox_pregunta.Location = new System.Drawing.Point(6, 202);
+            this.textBox_pregunta.Name = "textBox_pregunta";
+            this.textBox_pregunta.Size = new System.Drawing.Size(197, 20);
+            this.textBox_pregunta.TabIndex = 55;
+            this.textBox_pregunta.Text = "¿Tengo el alma pura?";
             // 
-            // button2
+            // button_eliminarParticipante
             // 
-            this.button2.Location = new System.Drawing.Point(171, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 23);
-            this.button2.TabIndex = 54;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button_eliminarParticipante.Location = new System.Drawing.Point(171, 96);
+            this.button_eliminarParticipante.Name = "button_eliminarParticipante";
+            this.button_eliminarParticipante.Size = new System.Drawing.Size(68, 23);
+            this.button_eliminarParticipante.TabIndex = 54;
+            this.button_eliminarParticipante.Text = "Eliminar";
+            this.button_eliminarParticipante.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // comboBox_enEstaEncuesta
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 98);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 53;
+            this.comboBox_enEstaEncuesta.FormattingEnabled = true;
+            this.comboBox_enEstaEncuesta.Location = new System.Drawing.Point(6, 98);
+            this.comboBox_enEstaEncuesta.Name = "comboBox_enEstaEncuesta";
+            this.comboBox_enEstaEncuesta.Size = new System.Drawing.Size(159, 21);
+            this.comboBox_enEstaEncuesta.TabIndex = 53;
             // 
-            // label5
+            // label_enEstaEncuesta
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_enEstaEncuesta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 72);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label5.Size = new System.Drawing.Size(110, 20);
-            this.label5.TabIndex = 52;
-            this.label5.Text = "En esta encuesta : ";
+            this.label_enEstaEncuesta.AutoSize = true;
+            this.label_enEstaEncuesta.BackColor = System.Drawing.Color.Transparent;
+            this.label_enEstaEncuesta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_enEstaEncuesta.Location = new System.Drawing.Point(3, 72);
+            this.label_enEstaEncuesta.Name = "label_enEstaEncuesta";
+            this.label_enEstaEncuesta.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_enEstaEncuesta.Size = new System.Drawing.Size(110, 20);
+            this.label_enEstaEncuesta.TabIndex = 52;
+            this.label_enEstaEncuesta.Text = "En esta encuesta : ";
             // 
-            // dateTimePicker1
+            // dateTimePicker_fecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 147);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 51;
+            this.dateTimePicker_fecha.Location = new System.Drawing.Point(6, 147);
+            this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker_fecha.TabIndex = 51;
             // 
-            // label4
+            // label_fecha
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 122);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label4.Size = new System.Drawing.Size(44, 20);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Fecha:";
+            this.label_fecha.AutoSize = true;
+            this.label_fecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fecha.Location = new System.Drawing.Point(3, 122);
+            this.label_fecha.Name = "label_fecha";
+            this.label_fecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_fecha.Size = new System.Drawing.Size(44, 20);
+            this.label_fecha.TabIndex = 50;
+            this.label_fecha.Text = "Fecha:";
             // 
-            // label3
+            // label_encuestaDeUsuario
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_encuestaDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 1);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(146, 20);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Encuesta de usuario: ";
+            this.label_encuestaDeUsuario.AutoSize = true;
+            this.label_encuestaDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_encuestaDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_encuestaDeUsuario.Location = new System.Drawing.Point(3, 1);
+            this.label_encuestaDeUsuario.Name = "label_encuestaDeUsuario";
+            this.label_encuestaDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_encuestaDeUsuario.Size = new System.Drawing.Size(146, 20);
+            this.label_encuestaDeUsuario.TabIndex = 49;
+            this.label_encuestaDeUsuario.Text = "Encuesta de usuario: ";
             // 
-            // button1
+            // button_modificar
             // 
-            this.button1.Location = new System.Drawing.Point(102, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_modificar.Location = new System.Drawing.Point(102, 350);
+            this.button_modificar.Name = "button_modificar";
+            this.button_modificar.Size = new System.Drawing.Size(75, 23);
+            this.button_modificar.TabIndex = 48;
+            this.button_modificar.Text = "Modificar";
+            this.button_modificar.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label_pregunta
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_pregunta.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 173);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(66, 20);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Pregunta : ";
+            this.label_pregunta.AutoSize = true;
+            this.label_pregunta.BackColor = System.Drawing.Color.Transparent;
+            this.label_pregunta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pregunta.Location = new System.Drawing.Point(3, 173);
+            this.label_pregunta.Name = "label_pregunta";
+            this.label_pregunta.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_pregunta.Size = new System.Drawing.Size(66, 20);
+            this.label_pregunta.TabIndex = 46;
+            this.label_pregunta.Text = "Pregunta : ";
             // 
-            // label10
+            // label_autor
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_autor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 22);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(44, 20);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Autor : ";
+            this.label_autor.AutoSize = true;
+            this.label_autor.BackColor = System.Drawing.Color.Transparent;
+            this.label_autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_autor.Location = new System.Drawing.Point(3, 22);
+            this.label_autor.Name = "label_autor";
+            this.label_autor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_autor.Size = new System.Drawing.Size(44, 20);
+            this.label_autor.TabIndex = 43;
+            this.label_autor.Text = "Autor : ";
             // 
-            // textBox10
+            // textBox_autor
             // 
-            this.textBox10.Location = new System.Drawing.Point(6, 49);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(159, 20);
-            this.textBox10.TabIndex = 42;
-            this.textBox10.Text = "Peter Mazinger Rufai";
+            this.textBox_autor.Location = new System.Drawing.Point(6, 49);
+            this.textBox_autor.Name = "textBox_autor";
+            this.textBox_autor.Size = new System.Drawing.Size(159, 20);
+            this.textBox_autor.TabIndex = 42;
+            this.textBox_autor.Text = "Peter Mazinger Rufai";
             // 
             // FormUsuarioEncuesta
             // 
@@ -247,8 +247,8 @@
             this.Text = "FormUsuarioEncuesta";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox_respuestas.ResumeLayout(false);
+            this.groupBox_respuestas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -256,21 +256,21 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.GroupBox groupBox_respuestas;
+        private System.Windows.Forms.RadioButton radioButton_r3;
+        private System.Windows.Forms.RadioButton radioButton_r2;
+        private System.Windows.Forms.RadioButton radioButton_r1;
+        private System.Windows.Forms.TextBox textBox_pregunta;
+        private System.Windows.Forms.Button button_eliminarParticipante;
+        private System.Windows.Forms.ComboBox comboBox_enEstaEncuesta;
+        private System.Windows.Forms.Label label_enEstaEncuesta;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
+        private System.Windows.Forms.Label label_fecha;
+        private System.Windows.Forms.Label label_encuestaDeUsuario;
+        private System.Windows.Forms.Button button_modificar;
+        private System.Windows.Forms.Label label_pregunta;
+        private System.Windows.Forms.Label label_autor;
+        private System.Windows.Forms.TextBox textBox_autor;
 
     }
 }
