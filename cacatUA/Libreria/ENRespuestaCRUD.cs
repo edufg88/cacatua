@@ -9,7 +9,7 @@ namespace Libreria
     {
         private int id;
         private String texto;
-        //private ENUsuarioCRUD autor;
+        private ENUsuarioCRUD autor;
         private DateTime fecha;
 
         public ENRespuestaCRUD()
@@ -31,11 +31,11 @@ namespace Libreria
             set { texto = value; }
         }
 
-        /*public ENUsuarioCRUD Autor
+        public ENUsuarioCRUD Autor
         {
             get { return autor; }
             set { autor = value; }
-        }*/
+        }
 
         public DateTime Fecha
         {
