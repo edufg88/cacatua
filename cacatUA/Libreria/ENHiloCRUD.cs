@@ -11,7 +11,7 @@ namespace Libreria
         private int id;
 	    private String titulo;
 	    private String texto;
-	    //private ENUsuarioCRUD autor;
+	    private ENUsuarioCRUD autor;
 	    private DateTime fecha;
         private ENCategoriaCRUD categoria;
         private ArrayList respuestas;
@@ -24,7 +24,7 @@ namespace Libreria
             id = 0;
             titulo = "";
             texto = "";
-            //autor = null;
+            autor = null;
             fecha = new DateTime();
             categoria = null;
             respuestas = null;
@@ -35,12 +35,12 @@ namespace Libreria
             Obtener(id);
         }
 
-        public ENHiloCRUD(String titulo, String texto/*, ENUsuarioCRUD autor*/, DateTime fecha, ENCategoriaCRUD categoria)
+        public ENHiloCRUD(String titulo, String texto, ENUsuarioCRUD autor, DateTime fecha, ENCategoriaCRUD categoria)
         {
             id = 0;
             this.titulo = titulo;
             this.texto = texto;
-            //autor = autor;
+            this.autor = autor;
             this.fecha = fecha;
             this.categoria = categoria;
             respuestas = null;
@@ -59,7 +59,7 @@ namespace Libreria
                 this.id = auxiliar.id;
                 titulo = auxiliar.titulo;
                 texto = auxiliar.texto;
-                //autor = auxiliar.autor;
+                autor = auxiliar.autor;
                 fecha = auxiliar.fecha;
                 categoria = auxiliar.categoria;
                 respuestas = auxiliar.respuestas;
@@ -105,11 +105,11 @@ namespace Libreria
             set { texto = value; }
         }
 
-        /*public ENUsuarioCRUD Autor
+        public ENUsuarioCRUD Autor
         {
             get { return autor; }
             set { autor = value; }
-        }*/
+        }
 
         public DateTime Fecha
         {

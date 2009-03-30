@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace Libreria
 {
@@ -41,7 +42,7 @@ namespace Libreria
             activo = false;
         }
 
-        public string validarFormulario(string campo, string dato)
+        public string ValidarFormulario(string campo, string dato)
         {
             string error = "";
             const string campoEnBlanco1 = "El campo ";
@@ -144,6 +145,26 @@ namespace Libreria
             }
 
             return (error);
+        }
+
+        public static ArrayList ObtenerUsuarios()
+        {
+            return UsuarioCAD.ObtenerUsuarios();
+        }
+
+        public void CrearUsuario()
+        {
+            UsuarioCAD.CrearUsuario(usuario, contrasena, nombre, dni, correo, activo, adicional);
+        }
+
+        public bool BorrarUsuario()
+        {
+            return UsuarioCAD.BorrarUsuario(id);
+        }
+
+        public static bool BorrarUsuario(int pid)
+        {
+            return UsuarioCAD.BorrarUsuario(pid);
         }
 
         public int Id
