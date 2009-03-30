@@ -46,45 +46,51 @@ namespace Libreria
             respuestas = null;
         }
 
-        public void Obtener(int id)
+        public static ArrayList Obtener()
+        {
+            return HiloCAD.Obtener();
+        }
+
+        public bool Obtener(int id)
         {
             ENHiloCRUD auxiliar = HiloCAD.Obtener(id);
-            id = auxiliar.id;
-            titulo = auxiliar.titulo;
-            texto = auxiliar.texto;
-            //autor = auxiliar.autor;
-            fecha = auxiliar.fecha;
-            categoria = auxiliar.categoria;
-            respuestas = auxiliar.respuestas;
+            if (auxiliar != null)
+            {
+                this.id = auxiliar.id;
+                titulo = auxiliar.titulo;
+                texto = auxiliar.texto;
+                //autor = auxiliar.autor;
+                fecha = auxiliar.fecha;
+                categoria = auxiliar.categoria;
+                respuestas = auxiliar.respuestas;
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
         /// Este método sólo tiene sentido utilizarlo si 'id' es 0. En otro caso, tendría
         /// que utilizarse el método Actualizar.
         /// </summary>
-        public void Guardar()
+        public bool Guardar()
         {
-            HiloCAD.Guardar(this);
+            return HiloCAD.Guardar(this);
         }
 
-        public void Borrar()
+        public bool Borrar()
         {
-            HiloCAD.Borrar(this);
+            return HiloCAD.Borrar(this);
         }
 
-        public void Actualizar()
+        public bool Actualizar()
         {
-            HiloCAD.Actualizar(this);
+            return HiloCAD.Actualizar(this);
         }
 
-
-        /// <summary>
-        /// Identificador del hilo. Sólo se permite su lectura. Si es 0, significa que no está
-        /// almacenado en la base de datos.
-        /// </summary>
         public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
         public String Titulo
