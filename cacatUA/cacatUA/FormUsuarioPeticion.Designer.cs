@@ -29,152 +29,152 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
+            this.label_fecha = new System.Windows.Forms.Label();
+            this.label_peticionDeUsuario = new System.Windows.Forms.Label();
+            this.button_modificar = new System.Windows.Forms.Button();
+            this.textBox_texto = new System.Windows.Forms.TextBox();
+            this.label_texto = new System.Windows.Forms.Label();
+            this.textBox_asunto = new System.Windows.Forms.TextBox();
+            this.label_asunto = new System.Windows.Forms.Label();
+            this.label_autor = new System.Windows.Forms.Label();
+            this.textBox_autor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox10);
+            this.panel1.Controls.Add(this.dateTimePicker_fecha);
+            this.panel1.Controls.Add(this.label_fecha);
+            this.panel1.Controls.Add(this.label_peticionDeUsuario);
+            this.panel1.Controls.Add(this.button_modificar);
+            this.panel1.Controls.Add(this.textBox_texto);
+            this.panel1.Controls.Add(this.label_texto);
+            this.panel1.Controls.Add(this.textBox_asunto);
+            this.panel1.Controls.Add(this.label_asunto);
+            this.panel1.Controls.Add(this.label_autor);
+            this.panel1.Controls.Add(this.textBox_autor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(308, 386);
             this.panel1.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dateTimePicker_fecha
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 147);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 51;
+            this.dateTimePicker_fecha.Location = new System.Drawing.Point(6, 147);
+            this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker_fecha.TabIndex = 51;
             // 
-            // label4
+            // label_fecha
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 122);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label4.Size = new System.Drawing.Size(44, 20);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Fecha:";
+            this.label_fecha.AutoSize = true;
+            this.label_fecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fecha.Location = new System.Drawing.Point(3, 122);
+            this.label_fecha.Name = "label_fecha";
+            this.label_fecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_fecha.Size = new System.Drawing.Size(44, 20);
+            this.label_fecha.TabIndex = 50;
+            this.label_fecha.Text = "Fecha:";
             // 
-            // label3
+            // label_peticionDeUsuario
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_peticionDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 1);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(139, 20);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Petición de usuario: ";
+            this.label_peticionDeUsuario.AutoSize = true;
+            this.label_peticionDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_peticionDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_peticionDeUsuario.Location = new System.Drawing.Point(3, 1);
+            this.label_peticionDeUsuario.Name = "label_peticionDeUsuario";
+            this.label_peticionDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_peticionDeUsuario.Size = new System.Drawing.Size(139, 20);
+            this.label_peticionDeUsuario.TabIndex = 49;
+            this.label_peticionDeUsuario.Text = "Petición de usuario: ";
             // 
-            // button1
+            // button_modificar
             // 
-            this.button1.Location = new System.Drawing.Point(102, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button_modificar.Location = new System.Drawing.Point(102, 350);
+            this.button_modificar.Name = "button_modificar";
+            this.button_modificar.Size = new System.Drawing.Size(75, 23);
+            this.button_modificar.TabIndex = 48;
+            this.button_modificar.Text = "Modificar";
+            this.button_modificar.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // textBox_texto
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 198);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(294, 143);
-            this.textBox2.TabIndex = 47;
-            this.textBox2.Text = "Ayuda no paran de mandarme mensajes con insultos y barbaridades...";
+            this.textBox_texto.Location = new System.Drawing.Point(6, 198);
+            this.textBox_texto.Multiline = true;
+            this.textBox_texto.Name = "textBox_texto";
+            this.textBox_texto.Size = new System.Drawing.Size(294, 143);
+            this.textBox_texto.TabIndex = 47;
+            this.textBox_texto.Text = "Ayuda no paran de mandarme mensajes con insultos y barbaridades...";
             // 
-            // label2
+            // label_texto
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_texto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 173);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(46, 20);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Texto : ";
+            this.label_texto.AutoSize = true;
+            this.label_texto.BackColor = System.Drawing.Color.Transparent;
+            this.label_texto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_texto.Location = new System.Drawing.Point(3, 173);
+            this.label_texto.Name = "label_texto";
+            this.label_texto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_texto.Size = new System.Drawing.Size(46, 20);
+            this.label_texto.TabIndex = 46;
+            this.label_texto.Text = "Texto : ";
             // 
-            // textBox1
+            // textBox_asunto
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 45;
-            this.textBox1.Text = "Baloo";
+            this.textBox_asunto.Location = new System.Drawing.Point(6, 99);
+            this.textBox_asunto.Name = "textBox_asunto";
+            this.textBox_asunto.Size = new System.Drawing.Size(159, 20);
+            this.textBox_asunto.TabIndex = 45;
+            this.textBox_asunto.Text = "Baloo";
             // 
-            // label1
+            // label_asunto
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_asunto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 72);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Asunto : ";
+            this.label_asunto.AutoSize = true;
+            this.label_asunto.BackColor = System.Drawing.Color.Transparent;
+            this.label_asunto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_asunto.Location = new System.Drawing.Point(3, 72);
+            this.label_asunto.Name = "label_asunto";
+            this.label_asunto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_asunto.Size = new System.Drawing.Size(53, 20);
+            this.label_asunto.TabIndex = 44;
+            this.label_asunto.Text = "Asunto : ";
             // 
-            // label10
+            // label_autor
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_autor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 22);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(44, 20);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Autor : ";
+            this.label_autor.AutoSize = true;
+            this.label_autor.BackColor = System.Drawing.Color.Transparent;
+            this.label_autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_autor.Location = new System.Drawing.Point(3, 22);
+            this.label_autor.Name = "label_autor";
+            this.label_autor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_autor.Size = new System.Drawing.Size(44, 20);
+            this.label_autor.TabIndex = 43;
+            this.label_autor.Text = "Autor : ";
             // 
-            // textBox10
+            // textBox_autor
             // 
-            this.textBox10.Location = new System.Drawing.Point(6, 49);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(159, 20);
-            this.textBox10.TabIndex = 42;
-            this.textBox10.Text = "Peter Mazinger Rufai";
+            this.textBox_autor.Location = new System.Drawing.Point(6, 49);
+            this.textBox_autor.Name = "textBox_autor";
+            this.textBox_autor.Size = new System.Drawing.Size(159, 20);
+            this.textBox_autor.TabIndex = 42;
+            this.textBox_autor.Text = "Peter Mazinger Rufai";
             // 
             // FormUsuarioPeticion
             // 
@@ -193,15 +193,15 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
+        private System.Windows.Forms.Label label_fecha;
+        private System.Windows.Forms.Label label_peticionDeUsuario;
+        private System.Windows.Forms.Button button_modificar;
+        private System.Windows.Forms.TextBox textBox_texto;
+        private System.Windows.Forms.Label label_texto;
+        private System.Windows.Forms.TextBox textBox_asunto;
+        private System.Windows.Forms.Label label_asunto;
+        private System.Windows.Forms.Label label_autor;
+        private System.Windows.Forms.TextBox textBox_autor;
     }
 }

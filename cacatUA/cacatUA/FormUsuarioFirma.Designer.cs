@@ -29,152 +29,152 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
+            this.label_fecha = new System.Windows.Forms.Label();
+            this.label_firmaDeUsuario = new System.Windows.Forms.Label();
+            this.button_modificarFirma = new System.Windows.Forms.Button();
+            this.textBox_texto = new System.Windows.Forms.TextBox();
+            this.label_texto = new System.Windows.Forms.Label();
+            this.textBox_destinatario = new System.Windows.Forms.TextBox();
+            this.label_destinatario = new System.Windows.Forms.Label();
+            this.label_autor = new System.Windows.Forms.Label();
+            this.textBox_autor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox10);
+            this.panel1.Controls.Add(this.dateTimePicker_fecha);
+            this.panel1.Controls.Add(this.label_fecha);
+            this.panel1.Controls.Add(this.label_firmaDeUsuario);
+            this.panel1.Controls.Add(this.button_modificarFirma);
+            this.panel1.Controls.Add(this.textBox_texto);
+            this.panel1.Controls.Add(this.label_texto);
+            this.panel1.Controls.Add(this.textBox_destinatario);
+            this.panel1.Controls.Add(this.label_destinatario);
+            this.panel1.Controls.Add(this.label_autor);
+            this.panel1.Controls.Add(this.textBox_autor);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(310, 380);
             this.panel1.TabIndex = 0;
             // 
-            // textBox2
+            // dateTimePicker_fecha
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 198);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(294, 143);
-            this.textBox2.TabIndex = 47;
-            this.textBox2.Text = "Eh tío cuánto tiempo sin verte...";
+            this.dateTimePicker_fecha.Location = new System.Drawing.Point(6, 147);
+            this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker_fecha.TabIndex = 51;
             // 
-            // label2
+            // label_fecha
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_fecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 173);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label2.Size = new System.Drawing.Size(46, 20);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Texto : ";
+            this.label_fecha.AutoSize = true;
+            this.label_fecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_fecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fecha.Location = new System.Drawing.Point(3, 122);
+            this.label_fecha.Name = "label_fecha";
+            this.label_fecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_fecha.Size = new System.Drawing.Size(44, 20);
+            this.label_fecha.TabIndex = 50;
+            this.label_fecha.Text = "Fecha:";
             // 
-            // label1
+            // label_firmaDeUsuario
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_firmaDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 72);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label1.Size = new System.Drawing.Size(82, 20);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Destinatario : ";
+            this.label_firmaDeUsuario.AutoSize = true;
+            this.label_firmaDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_firmaDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_firmaDeUsuario.Location = new System.Drawing.Point(3, 1);
+            this.label_firmaDeUsuario.Name = "label_firmaDeUsuario";
+            this.label_firmaDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_firmaDeUsuario.Size = new System.Drawing.Size(124, 20);
+            this.label_firmaDeUsuario.TabIndex = 49;
+            this.label_firmaDeUsuario.Text = "Firma de usuario: ";
             // 
-            // label10
+            // button_modificarFirma
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.button_modificarFirma.Location = new System.Drawing.Point(102, 350);
+            this.button_modificarFirma.Name = "button_modificarFirma";
+            this.button_modificarFirma.Size = new System.Drawing.Size(75, 23);
+            this.button_modificarFirma.TabIndex = 48;
+            this.button_modificarFirma.Text = "Modificar";
+            this.button_modificarFirma.UseVisualStyleBackColor = true;
+            // 
+            // textBox_texto
+            // 
+            this.textBox_texto.Location = new System.Drawing.Point(6, 198);
+            this.textBox_texto.Multiline = true;
+            this.textBox_texto.Name = "textBox_texto";
+            this.textBox_texto.Size = new System.Drawing.Size(294, 143);
+            this.textBox_texto.TabIndex = 47;
+            this.textBox_texto.Text = "Eh tío cuánto tiempo sin verte...";
+            // 
+            // label_texto
+            // 
+            this.label_texto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 22);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(44, 20);
-            this.label10.TabIndex = 43;
-            this.label10.Text = "Autor : ";
+            this.label_texto.AutoSize = true;
+            this.label_texto.BackColor = System.Drawing.Color.Transparent;
+            this.label_texto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_texto.Location = new System.Drawing.Point(3, 173);
+            this.label_texto.Name = "label_texto";
+            this.label_texto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_texto.Size = new System.Drawing.Size(46, 20);
+            this.label_texto.TabIndex = 46;
+            this.label_texto.Text = "Texto : ";
             // 
-            // textBox10
+            // textBox_destinatario
             // 
-            this.textBox10.Location = new System.Drawing.Point(6, 49);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(159, 20);
-            this.textBox10.TabIndex = 42;
-            this.textBox10.Text = "Peter Mazinger Rufai";
+            this.textBox_destinatario.Location = new System.Drawing.Point(6, 99);
+            this.textBox_destinatario.Name = "textBox_destinatario";
+            this.textBox_destinatario.Size = new System.Drawing.Size(159, 20);
+            this.textBox_destinatario.TabIndex = 45;
+            this.textBox_destinatario.Text = "Baloo";
             // 
-            // button1
+            // label_destinatario
             // 
-            this.button1.Location = new System.Drawing.Point(102, 350);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_destinatario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 1);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(124, 20);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Firma de usuario: ";
+            this.label_destinatario.AutoSize = true;
+            this.label_destinatario.BackColor = System.Drawing.Color.Transparent;
+            this.label_destinatario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_destinatario.Location = new System.Drawing.Point(3, 72);
+            this.label_destinatario.Name = "label_destinatario";
+            this.label_destinatario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_destinatario.Size = new System.Drawing.Size(82, 20);
+            this.label_destinatario.TabIndex = 44;
+            this.label_destinatario.Text = "Destinatario : ";
             // 
-            // textBox1
+            // label_autor
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 45;
-            this.textBox1.Text = "Baloo";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_autor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 122);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label4.Size = new System.Drawing.Size(44, 20);
-            this.label4.TabIndex = 50;
-            this.label4.Text = "Fecha:";
+            this.label_autor.AutoSize = true;
+            this.label_autor.BackColor = System.Drawing.Color.Transparent;
+            this.label_autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_autor.Location = new System.Drawing.Point(3, 22);
+            this.label_autor.Name = "label_autor";
+            this.label_autor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_autor.Size = new System.Drawing.Size(44, 20);
+            this.label_autor.TabIndex = 43;
+            this.label_autor.Text = "Autor : ";
             // 
-            // dateTimePicker1
+            // textBox_autor
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 147);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
-            this.dateTimePicker1.TabIndex = 51;
+            this.textBox_autor.Location = new System.Drawing.Point(6, 49);
+            this.textBox_autor.Name = "textBox_autor";
+            this.textBox_autor.Size = new System.Drawing.Size(159, 20);
+            this.textBox_autor.TabIndex = 42;
+            this.textBox_autor.Text = "Peter Mazinger Rufai";
             // 
             // FormUsuarioFirma
             // 
@@ -193,16 +193,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox_autor;
+        private System.Windows.Forms.TextBox textBox_texto;
+        private System.Windows.Forms.Label label_texto;
+        private System.Windows.Forms.Label label_destinatario;
+        private System.Windows.Forms.Label label_autor;
+        private System.Windows.Forms.Button button_modificarFirma;
+        private System.Windows.Forms.Label label_firmaDeUsuario;
+        private System.Windows.Forms.TextBox textBox_destinatario;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
+        private System.Windows.Forms.Label label_fecha;
 
     }
 }

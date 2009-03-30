@@ -29,180 +29,190 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuario));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl_usuario = new System.Windows.Forms.TabControl();
+            this.tabPage_datos = new System.Windows.Forms.TabPage();
+            this.checkBox_esAdmin = new System.Windows.Forms.CheckBox();
+            this.dateTimePicker_fechaDeIngreso = new System.Windows.Forms.DateTimePicker();
+            this.label_fechaDeIngreso = new System.Windows.Forms.Label();
+            this.textBox_email = new System.Windows.Forms.TextBox();
+            this.label_email = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox_nombre = new System.Windows.Forms.TextBox();
+            this.label_datosDeUsuario = new System.Windows.Forms.Label();
+            this.label_nombre = new System.Windows.Forms.Label();
+            this.tabPage_firmas = new System.Windows.Forms.TabPage();
+            this.radioButton_recibidasPorUsuario = new System.Windows.Forms.RadioButton();
+            this.radioButton_realizadasPorUsuario = new System.Windows.Forms.RadioButton();
+            this.dataGridView_firmas = new System.Windows.Forms.DataGridView();
             this.autorFirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinatarioFirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaFirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button8 = new System.Windows.Forms.Button();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.butto_editarMaterial = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker_fechaFirma = new System.Windows.Forms.DateTimePicker();
+            this.button_buscarFirma = new System.Windows.Forms.Button();
+            this.textBox_autorFirma = new System.Windows.Forms.TextBox();
+            this.label_buscarFirmaPorAutor = new System.Windows.Forms.Label();
+            this.label_buscarFirmaPorFecha = new System.Windows.Forms.Label();
+            this.label_firmasDeUsuario = new System.Windows.Forms.Label();
+            this.button_borrarFirma = new System.Windows.Forms.Button();
+            this.button_editarFirma = new System.Windows.Forms.Button();
+            this.tabPage_galeria = new System.Windows.Forms.TabPage();
+            this.button_borrarGaleria = new System.Windows.Forms.Button();
+            this.button_editarGaleria = new System.Windows.Forms.Button();
+            this.dataGridView_galeria = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.textBox_tituloGaleria = new System.Windows.Forms.TextBox();
+            this.label_buscarGaleriaPorTitulo = new System.Windows.Forms.Label();
+            this.dateTimePicker_fechaGaleria = new System.Windows.Forms.DateTimePicker();
+            this.button_buscarGaleria = new System.Windows.Forms.Button();
+            this.textBox_autorGaleria = new System.Windows.Forms.TextBox();
+            this.label_buscarGaleriaPorAutor = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label_fotosDeUsuario = new System.Windows.Forms.Label();
+            this.tabPage_mensajes = new System.Windows.Forms.TabPage();
+            this.button_borrarMensaje = new System.Windows.Forms.Button();
+            this.button_editarMensaje = new System.Windows.Forms.Button();
+            this.dataGridView_mensajes = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.textBox_tituloMensaje = new System.Windows.Forms.TextBox();
+            this.label_buscarMensajePorTitulo = new System.Windows.Forms.Label();
+            this.dateTimePicker_fechaMensaje = new System.Windows.Forms.DateTimePicker();
+            this.button_buscarMensaje = new System.Windows.Forms.Button();
+            this.label_buscarMensajePorFecha = new System.Windows.Forms.Label();
+            this.label_mensajesDeUsuario = new System.Windows.Forms.Label();
+            this.tabPage_peticiones = new System.Windows.Forms.TabPage();
+            this.button_borrarPeticion = new System.Windows.Forms.Button();
+            this.button_editarPeticion = new System.Windows.Forms.Button();
+            this.textBox_asuntoPeticion = new System.Windows.Forms.TextBox();
+            this.label_buscarPeticionPorAsunto = new System.Windows.Forms.Label();
+            this.button_buscarPeticion = new System.Windows.Forms.Button();
+            this.dateTimePicker_fechaPeticion = new System.Windows.Forms.DateTimePicker();
+            this.label_buscarPeticionPorFecha = new System.Windows.Forms.Label();
+            this.dataGridView_peticiones = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.label_peticionesDeUsuario = new System.Windows.Forms.Label();
+            this.tabPage_encuestas = new System.Windows.Forms.TabPage();
+            this.textBox_asuntoEncuesta = new System.Windows.Forms.TextBox();
+            this.label_buscarEncuestaPorAsunto = new System.Windows.Forms.Label();
+            this.dataGridView_encuestas = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button18 = new System.Windows.Forms.Button();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.button_buscarEncuesta = new System.Windows.Forms.Button();
+            this.dateTimePicker_fechaEncuesta = new System.Windows.Forms.DateTimePicker();
+            this.label_buscarEncuestaPorFecha = new System.Windows.Forms.Label();
+            this.label_encuestasDeUsuario = new System.Windows.Forms.Label();
+            this.button_borrarEncuesta = new System.Windows.Forms.Button();
+            this.button_editarEncuesta = new System.Windows.Forms.Button();
+            this.tabPage_enviarMensaje = new System.Windows.Forms.TabPage();
+            this.textBox_enviarAlEmail = new System.Windows.Forms.TextBox();
+            this.radioButton_enviarAlEmail = new System.Windows.Forms.RadioButton();
+            this.radioButton_enviarComoPrivado = new System.Windows.Forms.RadioButton();
+            this.button_enviarMensaje = new System.Windows.Forms.Button();
+            this.label_enviarMensajeUsuario = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.richTextBox_textoMensaje = new System.Windows.Forms.RichTextBox();
+            this.button_cancelar = new System.Windows.Forms.Button();
             this.Edu = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.button_crear = new System.Windows.Forms.Button();
+            this.tabControl_usuario.SuspendLayout();
+            this.tabPage_datos.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
-            this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
-            this.tabPage7.SuspendLayout();
+            this.tabPage_firmas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_firmas)).BeginInit();
+            this.tabPage_galeria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_galeria)).BeginInit();
+            this.tabPage_mensajes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_mensajes)).BeginInit();
+            this.tabPage_peticiones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_peticiones)).BeginInit();
+            this.tabPage_encuestas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_encuestas)).BeginInit();
+            this.tabPage_enviarMensaje.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl_usuario
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(663, 305);
-            this.tabControl1.TabIndex = 34;
+            this.tabControl_usuario.Controls.Add(this.tabPage_datos);
+            this.tabControl_usuario.Controls.Add(this.tabPage_firmas);
+            this.tabControl_usuario.Controls.Add(this.tabPage_galeria);
+            this.tabControl_usuario.Controls.Add(this.tabPage_mensajes);
+            this.tabControl_usuario.Controls.Add(this.tabPage_peticiones);
+            this.tabControl_usuario.Controls.Add(this.tabPage_encuestas);
+            this.tabControl_usuario.Controls.Add(this.tabPage_enviarMensaje);
+            this.tabControl_usuario.Location = new System.Drawing.Point(3, 3);
+            this.tabControl_usuario.Name = "tabControl_usuario";
+            this.tabControl_usuario.SelectedIndex = 0;
+            this.tabControl_usuario.Size = new System.Drawing.Size(663, 305);
+            this.tabControl_usuario.TabIndex = 34;
             // 
-            // tabPage1
+            // tabPage_datos
             // 
-            this.tabPage1.Controls.Add(this.checkBox1);
-            this.tabPage1.Controls.Add(this.dateTimePicker1);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.panel4);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(655, 279);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Datos";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage_datos.Controls.Add(this.checkBox_esAdmin);
+            this.tabPage_datos.Controls.Add(this.dateTimePicker_fechaDeIngreso);
+            this.tabPage_datos.Controls.Add(this.label_fechaDeIngreso);
+            this.tabPage_datos.Controls.Add(this.textBox_email);
+            this.tabPage_datos.Controls.Add(this.label_email);
+            this.tabPage_datos.Controls.Add(this.panel4);
+            this.tabPage_datos.Controls.Add(this.textBox_nombre);
+            this.tabPage_datos.Controls.Add(this.label_datosDeUsuario);
+            this.tabPage_datos.Controls.Add(this.label_nombre);
+            this.tabPage_datos.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_datos.Name = "tabPage_datos";
+            this.tabPage_datos.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_datos.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_datos.TabIndex = 0;
+            this.tabPage_datos.Text = "Datos";
+            this.tabPage_datos.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // checkBox_esAdmin
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(104, 107);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 60;
+            this.checkBox_esAdmin.AutoSize = true;
+            this.checkBox_esAdmin.Location = new System.Drawing.Point(214, 39);
+            this.checkBox_esAdmin.Name = "checkBox_esAdmin";
+            this.checkBox_esAdmin.Size = new System.Drawing.Size(102, 17);
+            this.checkBox_esAdmin.TabIndex = 62;
+            this.checkBox_esAdmin.Text = "es administrador";
+            this.checkBox_esAdmin.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // dateTimePicker_fechaDeIngreso
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "Fecha de ingreso: ";
+            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(104, 107);
+            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
+            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaDeIngreso.TabIndex = 60;
             // 
-            // textBox2
+            // label_fechaDeIngreso
             // 
-            this.textBox2.Location = new System.Drawing.Point(64, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 55;
-            this.textBox2.Text = "usuario@cacatua.org";
+            this.label_fechaDeIngreso.AutoSize = true;
+            this.label_fechaDeIngreso.Location = new System.Drawing.Point(4, 111);
+            this.label_fechaDeIngreso.Name = "label_fechaDeIngreso";
+            this.label_fechaDeIngreso.Size = new System.Drawing.Size(95, 13);
+            this.label_fechaDeIngreso.TabIndex = 59;
+            this.label_fechaDeIngreso.Text = "Fecha de ingreso: ";
             // 
-            // label1
+            // textBox_email
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 54;
-            this.label1.Text = "Email: ";
+            this.textBox_email.Location = new System.Drawing.Point(64, 71);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(120, 20);
+            this.textBox_email.TabIndex = 55;
+            this.textBox_email.Text = "usuario@cacatua.org";
+            // 
+            // label_email
+            // 
+            this.label_email.AutoSize = true;
+            this.label_email.Location = new System.Drawing.Point(5, 74);
+            this.label_email.Name = "label_email";
+            this.label_email.Size = new System.Drawing.Size(38, 13);
+            this.label_email.TabIndex = 54;
+            this.label_email.Text = "Email: ";
             // 
             // panel4
             // 
@@ -223,93 +233,93 @@
             this.pictureBox2.TabIndex = 19;
             this.pictureBox2.TabStop = false;
             // 
-            // textBox5
+            // textBox_nombre
             // 
-            this.textBox5.Location = new System.Drawing.Point(64, 37);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 34;
-            this.textBox5.Text = "Edu";
+            this.textBox_nombre.Location = new System.Drawing.Point(64, 37);
+            this.textBox_nombre.Name = "textBox_nombre";
+            this.textBox_nombre.Size = new System.Drawing.Size(120, 20);
+            this.textBox_nombre.TabIndex = 34;
+            this.textBox_nombre.Text = "Edu";
             // 
-            // label12
+            // label_datosDeUsuario
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_datosDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 3);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label12.Size = new System.Drawing.Size(124, 20);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Datos de usuario: ";
+            this.label_datosDeUsuario.AutoSize = true;
+            this.label_datosDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_datosDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_datosDeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_datosDeUsuario.Name = "label_datosDeUsuario";
+            this.label_datosDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_datosDeUsuario.Size = new System.Drawing.Size(124, 20);
+            this.label_datosDeUsuario.TabIndex = 33;
+            this.label_datosDeUsuario.Text = "Datos de usuario: ";
             // 
-            // label13
+            // label_nombre
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(5, 40);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(50, 13);
-            this.label13.TabIndex = 32;
-            this.label13.Text = "Nombre: ";
+            this.label_nombre.AutoSize = true;
+            this.label_nombre.Location = new System.Drawing.Point(5, 40);
+            this.label_nombre.Name = "label_nombre";
+            this.label_nombre.Size = new System.Drawing.Size(50, 13);
+            this.label_nombre.TabIndex = 32;
+            this.label_nombre.Text = "Nombre: ";
             // 
-            // tabPage2
+            // tabPage_firmas
             // 
-            this.tabPage2.Controls.Add(this.radioButton4);
-            this.tabPage2.Controls.Add(this.radioButton3);
-            this.tabPage2.Controls.Add(this.dataGridView1);
-            this.tabPage2.Controls.Add(this.dateTimePicker2);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Controls.Add(this.textBox10);
-            this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.butto_editarMaterial);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(655, 279);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Firmas";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage_firmas.Controls.Add(this.radioButton_recibidasPorUsuario);
+            this.tabPage_firmas.Controls.Add(this.radioButton_realizadasPorUsuario);
+            this.tabPage_firmas.Controls.Add(this.dataGridView_firmas);
+            this.tabPage_firmas.Controls.Add(this.dateTimePicker_fechaFirma);
+            this.tabPage_firmas.Controls.Add(this.button_buscarFirma);
+            this.tabPage_firmas.Controls.Add(this.textBox_autorFirma);
+            this.tabPage_firmas.Controls.Add(this.label_buscarFirmaPorAutor);
+            this.tabPage_firmas.Controls.Add(this.label_buscarFirmaPorFecha);
+            this.tabPage_firmas.Controls.Add(this.label_firmasDeUsuario);
+            this.tabPage_firmas.Controls.Add(this.button_borrarFirma);
+            this.tabPage_firmas.Controls.Add(this.button_editarFirma);
+            this.tabPage_firmas.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_firmas.Name = "tabPage_firmas";
+            this.tabPage_firmas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_firmas.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_firmas.TabIndex = 1;
+            this.tabPage_firmas.Text = "Firmas";
+            this.tabPage_firmas.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // radioButton_recibidasPorUsuario
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(6, 60);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(127, 17);
-            this.radioButton4.TabIndex = 67;
-            this.radioButton4.Text = "Recibidas por usuario";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton_recibidasPorUsuario.AutoSize = true;
+            this.radioButton_recibidasPorUsuario.Location = new System.Drawing.Point(6, 60);
+            this.radioButton_recibidasPorUsuario.Name = "radioButton_recibidasPorUsuario";
+            this.radioButton_recibidasPorUsuario.Size = new System.Drawing.Size(127, 17);
+            this.radioButton_recibidasPorUsuario.TabIndex = 67;
+            this.radioButton_recibidasPorUsuario.Text = "Recibidas por usuario";
+            this.radioButton_recibidasPorUsuario.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioButton_realizadasPorUsuario
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 33);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(132, 17);
-            this.radioButton3.TabIndex = 66;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Realizadas por usuario";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton_realizadasPorUsuario.AutoSize = true;
+            this.radioButton_realizadasPorUsuario.Checked = true;
+            this.radioButton_realizadasPorUsuario.Location = new System.Drawing.Point(6, 33);
+            this.radioButton_realizadasPorUsuario.Name = "radioButton_realizadasPorUsuario";
+            this.radioButton_realizadasPorUsuario.Size = new System.Drawing.Size(132, 17);
+            this.radioButton_realizadasPorUsuario.TabIndex = 66;
+            this.radioButton_realizadasPorUsuario.TabStop = true;
+            this.radioButton_realizadasPorUsuario.Text = "Realizadas por usuario";
+            this.radioButton_realizadasPorUsuario.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView_firmas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_firmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_firmas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.autorFirma,
             this.destinatarioFirma,
             this.fechaFirma});
-            this.dataGridView1.Location = new System.Drawing.Point(217, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(383, 253);
-            this.dataGridView1.TabIndex = 62;
+            this.dataGridView_firmas.Location = new System.Drawing.Point(217, 12);
+            this.dataGridView_firmas.Name = "dataGridView_firmas";
+            this.dataGridView_firmas.RowHeadersVisible = false;
+            this.dataGridView_firmas.Size = new System.Drawing.Size(383, 253);
+            this.dataGridView_firmas.TabIndex = 62;
             // 
             // autorFirma
             // 
@@ -328,166 +338,166 @@
             this.fechaFirma.HeaderText = "Fecha";
             this.fechaFirma.Name = "fechaFirma";
             // 
-            // dateTimePicker2
+            // dateTimePicker_fechaFirma
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(6, 114);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 61;
+            this.dateTimePicker_fechaFirma.Location = new System.Drawing.Point(6, 114);
+            this.dateTimePicker_fechaFirma.Name = "dateTimePicker_fechaFirma";
+            this.dateTimePicker_fechaFirma.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaFirma.TabIndex = 61;
             // 
-            // button8
+            // button_buscarFirma
             // 
-            this.button8.Location = new System.Drawing.Point(58, 242);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 42;
-            this.button8.Text = "Buscar";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button_buscarFirma.Location = new System.Drawing.Point(58, 242);
+            this.button_buscarFirma.Name = "button_buscarFirma";
+            this.button_buscarFirma.Size = new System.Drawing.Size(75, 23);
+            this.button_buscarFirma.TabIndex = 42;
+            this.button_buscarFirma.Text = "Buscar";
+            this.button_buscarFirma.UseVisualStyleBackColor = true;
             // 
-            // textBox10
+            // textBox_autorFirma
             // 
-            this.textBox10.Location = new System.Drawing.Point(7, 169);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(159, 20);
-            this.textBox10.TabIndex = 41;
-            this.textBox10.Text = "Peter Mazinger Rufai";
+            this.textBox_autorFirma.Location = new System.Drawing.Point(7, 169);
+            this.textBox_autorFirma.Name = "textBox_autorFirma";
+            this.textBox_autorFirma.Size = new System.Drawing.Size(159, 20);
+            this.textBox_autorFirma.TabIndex = 41;
+            this.textBox_autorFirma.Text = "Peter Mazinger Rufai";
             // 
-            // label10
+            // label_buscarFirmaPorAutor
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarFirmaPorAutor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 140);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label10.Size = new System.Drawing.Size(106, 20);
-            this.label10.TabIndex = 40;
-            this.label10.Text = "Buscar por autor : ";
+            this.label_buscarFirmaPorAutor.AutoSize = true;
+            this.label_buscarFirmaPorAutor.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarFirmaPorAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarFirmaPorAutor.Location = new System.Drawing.Point(3, 140);
+            this.label_buscarFirmaPorAutor.Name = "label_buscarFirmaPorAutor";
+            this.label_buscarFirmaPorAutor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarFirmaPorAutor.Size = new System.Drawing.Size(106, 20);
+            this.label_buscarFirmaPorAutor.TabIndex = 40;
+            this.label_buscarFirmaPorAutor.Text = "Buscar por autor : ";
             // 
-            // label7
+            // label_buscarFirmaPorFecha
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarFirmaPorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 84);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label7.Size = new System.Drawing.Size(199, 20);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Buscar por fecha (dia / mes / año) : ";
+            this.label_buscarFirmaPorFecha.AutoSize = true;
+            this.label_buscarFirmaPorFecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarFirmaPorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarFirmaPorFecha.Location = new System.Drawing.Point(3, 84);
+            this.label_buscarFirmaPorFecha.Name = "label_buscarFirmaPorFecha";
+            this.label_buscarFirmaPorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarFirmaPorFecha.Size = new System.Drawing.Size(199, 20);
+            this.label_buscarFirmaPorFecha.TabIndex = 35;
+            this.label_buscarFirmaPorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
-            // label3
+            // label_firmasDeUsuario
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_firmasDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 3);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label3.Size = new System.Drawing.Size(131, 20);
-            this.label3.TabIndex = 34;
-            this.label3.Text = "Firmas de usuario: ";
+            this.label_firmasDeUsuario.AutoSize = true;
+            this.label_firmasDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_firmasDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_firmasDeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_firmasDeUsuario.Name = "label_firmasDeUsuario";
+            this.label_firmasDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_firmasDeUsuario.Size = new System.Drawing.Size(131, 20);
+            this.label_firmasDeUsuario.TabIndex = 34;
+            this.label_firmasDeUsuario.Text = "Firmas de usuario: ";
             // 
-            // button4
+            // button_borrarFirma
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Image = global::cacatUA.Properties.Resources.close;
-            this.button4.Location = new System.Drawing.Point(605, 69);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 65;
-            this.button4.Tag = "Eliminar hilo seleccionado";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button_borrarFirma.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarFirma.FlatAppearance.BorderSize = 0;
+            this.button_borrarFirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarFirma.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarFirma.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarFirma.Location = new System.Drawing.Point(605, 69);
+            this.button_borrarFirma.Name = "button_borrarFirma";
+            this.button_borrarFirma.Size = new System.Drawing.Size(35, 35);
+            this.button_borrarFirma.TabIndex = 65;
+            this.button_borrarFirma.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarFirma.UseVisualStyleBackColor = true;
             // 
-            // butto_editarMaterial
+            // button_editarFirma
             // 
-            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
-            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarMaterial.Location = new System.Drawing.Point(605, 28);
-            this.butto_editarMaterial.Name = "butto_editarMaterial";
-            this.butto_editarMaterial.Size = new System.Drawing.Size(35, 35);
-            this.butto_editarMaterial.TabIndex = 64;
-            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
-            this.butto_editarMaterial.UseVisualStyleBackColor = true;
-            this.butto_editarMaterial.Click += new System.EventHandler(this.button_editarUsuarioFirma_Click);
+            this.button_editarFirma.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarFirma.FlatAppearance.BorderSize = 0;
+            this.button_editarFirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarFirma.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarFirma.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarFirma.Location = new System.Drawing.Point(605, 28);
+            this.button_editarFirma.Name = "button_editarFirma";
+            this.button_editarFirma.Size = new System.Drawing.Size(35, 35);
+            this.button_editarFirma.TabIndex = 64;
+            this.button_editarFirma.Tag = "Modificar hilo seleccionado";
+            this.button_editarFirma.UseVisualStyleBackColor = true;
+            this.button_editarFirma.Click += new System.EventHandler(this.button_editarUsuarioFirma_Click);
             // 
-            // tabPage3
+            // tabPage_galeria
             // 
-            this.tabPage3.Controls.Add(this.button9);
-            this.tabPage3.Controls.Add(this.button10);
-            this.tabPage3.Controls.Add(this.dataGridView2);
-            this.tabPage3.Controls.Add(this.textBox4);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Controls.Add(this.dateTimePicker3);
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.textBox3);
-            this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.label6);
-            this.tabPage3.Controls.Add(this.label19);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(655, 279);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Galería";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage_galeria.Controls.Add(this.button_borrarGaleria);
+            this.tabPage_galeria.Controls.Add(this.button_editarGaleria);
+            this.tabPage_galeria.Controls.Add(this.dataGridView_galeria);
+            this.tabPage_galeria.Controls.Add(this.textBox_tituloGaleria);
+            this.tabPage_galeria.Controls.Add(this.label_buscarGaleriaPorTitulo);
+            this.tabPage_galeria.Controls.Add(this.dateTimePicker_fechaGaleria);
+            this.tabPage_galeria.Controls.Add(this.button_buscarGaleria);
+            this.tabPage_galeria.Controls.Add(this.textBox_autorGaleria);
+            this.tabPage_galeria.Controls.Add(this.label_buscarGaleriaPorAutor);
+            this.tabPage_galeria.Controls.Add(this.label6);
+            this.tabPage_galeria.Controls.Add(this.label_fotosDeUsuario);
+            this.tabPage_galeria.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_galeria.Name = "tabPage_galeria";
+            this.tabPage_galeria.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_galeria.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_galeria.TabIndex = 2;
+            this.tabPage_galeria.Text = "Galería";
+            this.tabPage_galeria.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // button_borrarGaleria
             // 
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button9.Image = global::cacatUA.Properties.Resources.close;
-            this.button9.Location = new System.Drawing.Point(605, 69);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(35, 35);
-            this.button9.TabIndex = 72;
-            this.button9.Tag = "Eliminar hilo seleccionado";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button_borrarGaleria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarGaleria.FlatAppearance.BorderSize = 0;
+            this.button_borrarGaleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarGaleria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarGaleria.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarGaleria.Location = new System.Drawing.Point(605, 69);
+            this.button_borrarGaleria.Name = "button_borrarGaleria";
+            this.button_borrarGaleria.Size = new System.Drawing.Size(35, 35);
+            this.button_borrarGaleria.TabIndex = 72;
+            this.button_borrarGaleria.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarGaleria.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // button_editarGaleria
             // 
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button10.Image = global::cacatUA.Properties.Resources.tool;
-            this.button10.Location = new System.Drawing.Point(605, 28);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(35, 35);
-            this.button10.TabIndex = 71;
-            this.button10.Tag = "Modificar hilo seleccionado";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button_editarUsuarioGaleria_Click);
+            this.button_editarGaleria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarGaleria.FlatAppearance.BorderSize = 0;
+            this.button_editarGaleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarGaleria.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarGaleria.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarGaleria.Location = new System.Drawing.Point(605, 28);
+            this.button_editarGaleria.Name = "button_editarGaleria";
+            this.button_editarGaleria.Size = new System.Drawing.Size(35, 35);
+            this.button_editarGaleria.TabIndex = 71;
+            this.button_editarGaleria.Tag = "Modificar hilo seleccionado";
+            this.button_editarGaleria.UseVisualStyleBackColor = true;
+            this.button_editarGaleria.Click += new System.EventHandler(this.button_editarUsuarioGaleria_Click);
             // 
-            // dataGridView2
+            // dataGridView_galeria
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_galeria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_galeria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3});
-            this.dataGridView2.Location = new System.Drawing.Point(217, 12);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(383, 253);
-            this.dataGridView2.TabIndex = 69;
+            this.dataGridView_galeria.Location = new System.Drawing.Point(217, 12);
+            this.dataGridView_galeria.Name = "dataGridView_galeria";
+            this.dataGridView_galeria.RowHeadersVisible = false;
+            this.dataGridView_galeria.Size = new System.Drawing.Size(383, 253);
+            this.dataGridView_galeria.TabIndex = 69;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -506,67 +516,67 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // textBox4
+            // textBox_tituloGaleria
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 170);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(159, 20);
-            this.textBox4.TabIndex = 68;
-            this.textBox4.Text = "El toro y la luna";
+            this.textBox_tituloGaleria.Location = new System.Drawing.Point(8, 170);
+            this.textBox_tituloGaleria.Name = "textBox_tituloGaleria";
+            this.textBox_tituloGaleria.Size = new System.Drawing.Size(159, 20);
+            this.textBox_tituloGaleria.TabIndex = 68;
+            this.textBox_tituloGaleria.Text = "El toro y la luna";
             // 
-            // label8
+            // label_buscarGaleriaPorTitulo
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarGaleriaPorTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(5, 139);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label8.Size = new System.Drawing.Size(98, 20);
-            this.label8.TabIndex = 67;
-            this.label8.Text = "Buscar por título:";
+            this.label_buscarGaleriaPorTitulo.AutoSize = true;
+            this.label_buscarGaleriaPorTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarGaleriaPorTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarGaleriaPorTitulo.Location = new System.Drawing.Point(5, 139);
+            this.label_buscarGaleriaPorTitulo.Name = "label_buscarGaleriaPorTitulo";
+            this.label_buscarGaleriaPorTitulo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarGaleriaPorTitulo.Size = new System.Drawing.Size(98, 20);
+            this.label_buscarGaleriaPorTitulo.TabIndex = 67;
+            this.label_buscarGaleriaPorTitulo.Text = "Buscar por título:";
             // 
-            // dateTimePicker3
+            // dateTimePicker_fechaGaleria
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(7, 57);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker3.TabIndex = 66;
+            this.dateTimePicker_fechaGaleria.Location = new System.Drawing.Point(7, 57);
+            this.dateTimePicker_fechaGaleria.Name = "dateTimePicker_fechaGaleria";
+            this.dateTimePicker_fechaGaleria.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaGaleria.TabIndex = 66;
             // 
-            // button6
+            // button_buscarGaleria
             // 
-            this.button6.Location = new System.Drawing.Point(58, 242);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 65;
-            this.button6.Text = "Buscar";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button_buscarGaleria.Location = new System.Drawing.Point(58, 242);
+            this.button_buscarGaleria.Name = "button_buscarGaleria";
+            this.button_buscarGaleria.Size = new System.Drawing.Size(75, 23);
+            this.button_buscarGaleria.TabIndex = 65;
+            this.button_buscarGaleria.Text = "Buscar";
+            this.button_buscarGaleria.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // textBox_autorGaleria
             // 
-            this.textBox3.Location = new System.Drawing.Point(8, 112);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(159, 20);
-            this.textBox3.TabIndex = 64;
-            this.textBox3.Text = "Peter Mazinger Rufai";
+            this.textBox_autorGaleria.Location = new System.Drawing.Point(8, 112);
+            this.textBox_autorGaleria.Name = "textBox_autorGaleria";
+            this.textBox_autorGaleria.Size = new System.Drawing.Size(159, 20);
+            this.textBox_autorGaleria.TabIndex = 64;
+            this.textBox_autorGaleria.Text = "Peter Mazinger Rufai";
             // 
-            // label5
+            // label_buscarGaleriaPorAutor
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarGaleriaPorAutor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(4, 83);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label5.Size = new System.Drawing.Size(106, 20);
-            this.label5.TabIndex = 63;
-            this.label5.Text = "Buscar por autor : ";
+            this.label_buscarGaleriaPorAutor.AutoSize = true;
+            this.label_buscarGaleriaPorAutor.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarGaleriaPorAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarGaleriaPorAutor.Location = new System.Drawing.Point(4, 83);
+            this.label_buscarGaleriaPorAutor.Name = "label_buscarGaleriaPorAutor";
+            this.label_buscarGaleriaPorAutor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarGaleriaPorAutor.Size = new System.Drawing.Size(106, 20);
+            this.label_buscarGaleriaPorAutor.TabIndex = 63;
+            this.label_buscarGaleriaPorAutor.Text = "Buscar por autor : ";
             // 
             // label6
             // 
@@ -583,80 +593,80 @@
             this.label6.TabIndex = 62;
             this.label6.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
-            // label19
+            // label_fotosDeUsuario
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_fotosDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(3, 3);
-            this.label19.Name = "label19";
-            this.label19.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label19.Size = new System.Drawing.Size(122, 20);
-            this.label19.TabIndex = 46;
-            this.label19.Text = "Fotos de usuario: ";
+            this.label_fotosDeUsuario.AutoSize = true;
+            this.label_fotosDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_fotosDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fotosDeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_fotosDeUsuario.Name = "label_fotosDeUsuario";
+            this.label_fotosDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_fotosDeUsuario.Size = new System.Drawing.Size(122, 20);
+            this.label_fotosDeUsuario.TabIndex = 46;
+            this.label_fotosDeUsuario.Text = "Fotos de usuario: ";
             // 
-            // tabPage4
+            // tabPage_mensajes
             // 
-            this.tabPage4.Controls.Add(this.button12);
-            this.tabPage4.Controls.Add(this.button13);
-            this.tabPage4.Controls.Add(this.dataGridView3);
-            this.tabPage4.Controls.Add(this.textBox7);
-            this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Controls.Add(this.dateTimePicker4);
-            this.tabPage4.Controls.Add(this.button11);
-            this.tabPage4.Controls.Add(this.label14);
-            this.tabPage4.Controls.Add(this.label16);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(655, 279);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Mensajes";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage_mensajes.Controls.Add(this.button_borrarMensaje);
+            this.tabPage_mensajes.Controls.Add(this.button_editarMensaje);
+            this.tabPage_mensajes.Controls.Add(this.dataGridView_mensajes);
+            this.tabPage_mensajes.Controls.Add(this.textBox_tituloMensaje);
+            this.tabPage_mensajes.Controls.Add(this.label_buscarMensajePorTitulo);
+            this.tabPage_mensajes.Controls.Add(this.dateTimePicker_fechaMensaje);
+            this.tabPage_mensajes.Controls.Add(this.button_buscarMensaje);
+            this.tabPage_mensajes.Controls.Add(this.label_buscarMensajePorFecha);
+            this.tabPage_mensajes.Controls.Add(this.label_mensajesDeUsuario);
+            this.tabPage_mensajes.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_mensajes.Name = "tabPage_mensajes";
+            this.tabPage_mensajes.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_mensajes.TabIndex = 3;
+            this.tabPage_mensajes.Text = "Mensajes";
+            this.tabPage_mensajes.UseVisualStyleBackColor = true;
             // 
-            // button12
+            // button_borrarMensaje
             // 
-            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Image = global::cacatUA.Properties.Resources.close;
-            this.button12.Location = new System.Drawing.Point(605, 69);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(35, 35);
-            this.button12.TabIndex = 79;
-            this.button12.Tag = "Eliminar hilo seleccionado";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button_borrarMensaje.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarMensaje.FlatAppearance.BorderSize = 0;
+            this.button_borrarMensaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarMensaje.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarMensaje.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarMensaje.Location = new System.Drawing.Point(605, 69);
+            this.button_borrarMensaje.Name = "button_borrarMensaje";
+            this.button_borrarMensaje.Size = new System.Drawing.Size(35, 35);
+            this.button_borrarMensaje.TabIndex = 79;
+            this.button_borrarMensaje.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarMensaje.UseVisualStyleBackColor = true;
             // 
-            // button13
+            // button_editarMensaje
             // 
-            this.button13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button13.Image = global::cacatUA.Properties.Resources.tool;
-            this.button13.Location = new System.Drawing.Point(605, 28);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(35, 35);
-            this.button13.TabIndex = 78;
-            this.button13.Tag = "Modificar hilo seleccionado";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button_editarUsuarioMensaje_Click);
+            this.button_editarMensaje.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarMensaje.FlatAppearance.BorderSize = 0;
+            this.button_editarMensaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarMensaje.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarMensaje.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarMensaje.Location = new System.Drawing.Point(605, 28);
+            this.button_editarMensaje.Name = "button_editarMensaje";
+            this.button_editarMensaje.Size = new System.Drawing.Size(35, 35);
+            this.button_editarMensaje.TabIndex = 78;
+            this.button_editarMensaje.Tag = "Modificar hilo seleccionado";
+            this.button_editarMensaje.UseVisualStyleBackColor = true;
+            this.button_editarMensaje.Click += new System.EventHandler(this.button_editarUsuarioMensaje_Click);
             // 
-            // dataGridView3
+            // dataGridView_mensajes
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_mensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_mensajes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.dataGridView3.Location = new System.Drawing.Point(217, 12);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.Size = new System.Drawing.Size(383, 253);
-            this.dataGridView3.TabIndex = 76;
+            this.dataGridView_mensajes.Location = new System.Drawing.Point(217, 12);
+            this.dataGridView_mensajes.Name = "dataGridView_mensajes";
+            this.dataGridView_mensajes.RowHeadersVisible = false;
+            this.dataGridView_mensajes.Size = new System.Drawing.Size(383, 253);
+            this.dataGridView_mensajes.TabIndex = 76;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -675,187 +685,187 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // textBox7
+            // textBox_tituloMensaje
             // 
-            this.textBox7.Location = new System.Drawing.Point(8, 114);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(159, 20);
-            this.textBox7.TabIndex = 75;
-            this.textBox7.Text = "El toro y la luna";
+            this.textBox_tituloMensaje.Location = new System.Drawing.Point(8, 114);
+            this.textBox_tituloMensaje.Name = "textBox_tituloMensaje";
+            this.textBox_tituloMensaje.Size = new System.Drawing.Size(159, 20);
+            this.textBox_tituloMensaje.TabIndex = 75;
+            this.textBox_tituloMensaje.Text = "El toro y la luna";
             // 
-            // label9
+            // label_buscarMensajePorTitulo
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarMensajePorTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(5, 83);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label9.Size = new System.Drawing.Size(98, 20);
-            this.label9.TabIndex = 74;
-            this.label9.Text = "Buscar por título:";
+            this.label_buscarMensajePorTitulo.AutoSize = true;
+            this.label_buscarMensajePorTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarMensajePorTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarMensajePorTitulo.Location = new System.Drawing.Point(5, 83);
+            this.label_buscarMensajePorTitulo.Name = "label_buscarMensajePorTitulo";
+            this.label_buscarMensajePorTitulo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarMensajePorTitulo.Size = new System.Drawing.Size(98, 20);
+            this.label_buscarMensajePorTitulo.TabIndex = 74;
+            this.label_buscarMensajePorTitulo.Text = "Buscar por título:";
             // 
-            // dateTimePicker4
+            // dateTimePicker_fechaMensaje
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(7, 60);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker4.TabIndex = 73;
+            this.dateTimePicker_fechaMensaje.Location = new System.Drawing.Point(7, 60);
+            this.dateTimePicker_fechaMensaje.Name = "dateTimePicker_fechaMensaje";
+            this.dateTimePicker_fechaMensaje.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaMensaje.TabIndex = 73;
             // 
-            // button11
+            // button_buscarMensaje
             // 
-            this.button11.Location = new System.Drawing.Point(58, 242);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 72;
-            this.button11.Text = "Buscar";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button_buscarMensaje.Location = new System.Drawing.Point(58, 242);
+            this.button_buscarMensaje.Name = "button_buscarMensaje";
+            this.button_buscarMensaje.Size = new System.Drawing.Size(75, 23);
+            this.button_buscarMensaje.TabIndex = 72;
+            this.button_buscarMensaje.Text = "Buscar";
+            this.button_buscarMensaje.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // label_buscarMensajePorFecha
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarMensajePorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(4, 30);
-            this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label14.Size = new System.Drawing.Size(199, 20);
-            this.label14.TabIndex = 69;
-            this.label14.Text = "Buscar por fecha (dia / mes / año) : ";
+            this.label_buscarMensajePorFecha.AutoSize = true;
+            this.label_buscarMensajePorFecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarMensajePorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarMensajePorFecha.Location = new System.Drawing.Point(4, 30);
+            this.label_buscarMensajePorFecha.Name = "label_buscarMensajePorFecha";
+            this.label_buscarMensajePorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarMensajePorFecha.Size = new System.Drawing.Size(199, 20);
+            this.label_buscarMensajePorFecha.TabIndex = 69;
+            this.label_buscarMensajePorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
-            // label16
+            // label_mensajesDeUsuario
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_mensajesDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 3);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label16.Size = new System.Drawing.Size(149, 20);
-            this.label16.TabIndex = 46;
-            this.label16.Text = "Mensajes de usuario: ";
+            this.label_mensajesDeUsuario.AutoSize = true;
+            this.label_mensajesDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_mensajesDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_mensajesDeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_mensajesDeUsuario.Name = "label_mensajesDeUsuario";
+            this.label_mensajesDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_mensajesDeUsuario.Size = new System.Drawing.Size(149, 20);
+            this.label_mensajesDeUsuario.TabIndex = 46;
+            this.label_mensajesDeUsuario.Text = "Mensajes de usuario: ";
             // 
-            // tabPage5
+            // tabPage_peticiones
             // 
-            this.tabPage5.Controls.Add(this.button3);
-            this.tabPage5.Controls.Add(this.button14);
-            this.tabPage5.Controls.Add(this.textBox9);
-            this.tabPage5.Controls.Add(this.label11);
-            this.tabPage5.Controls.Add(this.button16);
-            this.tabPage5.Controls.Add(this.dateTimePicker5);
-            this.tabPage5.Controls.Add(this.label20);
-            this.tabPage5.Controls.Add(this.dataGridView4);
-            this.tabPage5.Controls.Add(this.label22);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(655, 279);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Peticiones";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabPage_peticiones.Controls.Add(this.button_borrarPeticion);
+            this.tabPage_peticiones.Controls.Add(this.button_editarPeticion);
+            this.tabPage_peticiones.Controls.Add(this.textBox_asuntoPeticion);
+            this.tabPage_peticiones.Controls.Add(this.label_buscarPeticionPorAsunto);
+            this.tabPage_peticiones.Controls.Add(this.button_buscarPeticion);
+            this.tabPage_peticiones.Controls.Add(this.dateTimePicker_fechaPeticion);
+            this.tabPage_peticiones.Controls.Add(this.label_buscarPeticionPorFecha);
+            this.tabPage_peticiones.Controls.Add(this.dataGridView_peticiones);
+            this.tabPage_peticiones.Controls.Add(this.label_peticionesDeUsuario);
+            this.tabPage_peticiones.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_peticiones.Name = "tabPage_peticiones";
+            this.tabPage_peticiones.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_peticiones.TabIndex = 4;
+            this.tabPage_peticiones.Text = "Peticiones";
+            this.tabPage_peticiones.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // button_borrarPeticion
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Image = global::cacatUA.Properties.Resources.close;
-            this.button3.Location = new System.Drawing.Point(605, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 35);
-            this.button3.TabIndex = 98;
-            this.button3.Tag = "Eliminar hilo seleccionado";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button_borrarPeticion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarPeticion.FlatAppearance.BorderSize = 0;
+            this.button_borrarPeticion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarPeticion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarPeticion.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarPeticion.Location = new System.Drawing.Point(605, 69);
+            this.button_borrarPeticion.Name = "button_borrarPeticion";
+            this.button_borrarPeticion.Size = new System.Drawing.Size(35, 35);
+            this.button_borrarPeticion.TabIndex = 98;
+            this.button_borrarPeticion.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarPeticion.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // button_editarPeticion
             // 
-            this.button14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button14.Image = global::cacatUA.Properties.Resources.tool;
-            this.button14.Location = new System.Drawing.Point(605, 28);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(35, 35);
-            this.button14.TabIndex = 97;
-            this.button14.Tag = "Modificar hilo seleccionado";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button_editarUsuarioPeticion_Click);
+            this.button_editarPeticion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarPeticion.FlatAppearance.BorderSize = 0;
+            this.button_editarPeticion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarPeticion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarPeticion.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarPeticion.Location = new System.Drawing.Point(605, 28);
+            this.button_editarPeticion.Name = "button_editarPeticion";
+            this.button_editarPeticion.Size = new System.Drawing.Size(35, 35);
+            this.button_editarPeticion.TabIndex = 97;
+            this.button_editarPeticion.Tag = "Modificar hilo seleccionado";
+            this.button_editarPeticion.UseVisualStyleBackColor = true;
+            this.button_editarPeticion.Click += new System.EventHandler(this.button_editarUsuarioPeticion_Click);
             // 
-            // textBox9
+            // textBox_asuntoPeticion
             // 
-            this.textBox9.Location = new System.Drawing.Point(6, 127);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(159, 20);
-            this.textBox9.TabIndex = 96;
-            this.textBox9.Text = "El toro y la luna";
+            this.textBox_asuntoPeticion.Location = new System.Drawing.Point(6, 127);
+            this.textBox_asuntoPeticion.Name = "textBox_asuntoPeticion";
+            this.textBox_asuntoPeticion.Size = new System.Drawing.Size(159, 20);
+            this.textBox_asuntoPeticion.TabIndex = 96;
+            this.textBox_asuntoPeticion.Text = "El toro y la luna";
             // 
-            // label11
+            // label_buscarPeticionPorAsunto
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarPeticionPorAsunto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 96);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label11.Size = new System.Drawing.Size(109, 20);
-            this.label11.TabIndex = 95;
-            this.label11.Text = "Buscar por asunto:";
+            this.label_buscarPeticionPorAsunto.AutoSize = true;
+            this.label_buscarPeticionPorAsunto.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarPeticionPorAsunto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarPeticionPorAsunto.Location = new System.Drawing.Point(3, 96);
+            this.label_buscarPeticionPorAsunto.Name = "label_buscarPeticionPorAsunto";
+            this.label_buscarPeticionPorAsunto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarPeticionPorAsunto.Size = new System.Drawing.Size(109, 20);
+            this.label_buscarPeticionPorAsunto.TabIndex = 95;
+            this.label_buscarPeticionPorAsunto.Text = "Buscar por asunto:";
             // 
-            // button16
+            // button_buscarPeticion
             // 
-            this.button16.Location = new System.Drawing.Point(58, 242);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 94;
-            this.button16.Text = "Buscar";
-            this.button16.UseVisualStyleBackColor = true;
+            this.button_buscarPeticion.Location = new System.Drawing.Point(58, 242);
+            this.button_buscarPeticion.Name = "button_buscarPeticion";
+            this.button_buscarPeticion.Size = new System.Drawing.Size(75, 23);
+            this.button_buscarPeticion.TabIndex = 94;
+            this.button_buscarPeticion.Text = "Buscar";
+            this.button_buscarPeticion.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker5
+            // dateTimePicker_fechaPeticion
             // 
-            this.dateTimePicker5.Location = new System.Drawing.Point(6, 66);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker5.TabIndex = 93;
+            this.dateTimePicker_fechaPeticion.Location = new System.Drawing.Point(6, 66);
+            this.dateTimePicker_fechaPeticion.Name = "dateTimePicker_fechaPeticion";
+            this.dateTimePicker_fechaPeticion.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaPeticion.TabIndex = 93;
             // 
-            // label20
+            // label_buscarPeticionPorFecha
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarPeticionPorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(3, 36);
-            this.label20.Name = "label20";
-            this.label20.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label20.Size = new System.Drawing.Size(199, 20);
-            this.label20.TabIndex = 92;
-            this.label20.Text = "Buscar por fecha (dia / mes / año) : ";
+            this.label_buscarPeticionPorFecha.AutoSize = true;
+            this.label_buscarPeticionPorFecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarPeticionPorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarPeticionPorFecha.Location = new System.Drawing.Point(3, 36);
+            this.label_buscarPeticionPorFecha.Name = "label_buscarPeticionPorFecha";
+            this.label_buscarPeticionPorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarPeticionPorFecha.Size = new System.Drawing.Size(199, 20);
+            this.label_buscarPeticionPorFecha.TabIndex = 92;
+            this.label_buscarPeticionPorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
-            // dataGridView4
+            // dataGridView_peticiones
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_peticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_peticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
-            this.dataGridView4.Location = new System.Drawing.Point(217, 12);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.Size = new System.Drawing.Size(383, 253);
-            this.dataGridView4.TabIndex = 88;
+            this.dataGridView_peticiones.Location = new System.Drawing.Point(217, 12);
+            this.dataGridView_peticiones.Name = "dataGridView_peticiones";
+            this.dataGridView_peticiones.RowHeadersVisible = false;
+            this.dataGridView_peticiones.Size = new System.Drawing.Size(383, 253);
+            this.dataGridView_peticiones.TabIndex = 88;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -869,74 +879,74 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 200;
             // 
-            // label22
+            // label_peticionesDeUsuario
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_peticionesDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 3);
-            this.label22.Name = "label22";
-            this.label22.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label22.Size = new System.Drawing.Size(154, 20);
-            this.label22.TabIndex = 46;
-            this.label22.Text = "Peticiones de usuario: ";
+            this.label_peticionesDeUsuario.AutoSize = true;
+            this.label_peticionesDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_peticionesDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_peticionesDeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_peticionesDeUsuario.Name = "label_peticionesDeUsuario";
+            this.label_peticionesDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_peticionesDeUsuario.Size = new System.Drawing.Size(154, 20);
+            this.label_peticionesDeUsuario.TabIndex = 46;
+            this.label_peticionesDeUsuario.Text = "Peticiones de usuario: ";
             // 
-            // tabPage6
+            // tabPage_encuestas
             // 
-            this.tabPage6.Controls.Add(this.textBox8);
-            this.tabPage6.Controls.Add(this.label18);
-            this.tabPage6.Controls.Add(this.dataGridView5);
-            this.tabPage6.Controls.Add(this.button18);
-            this.tabPage6.Controls.Add(this.dateTimePicker6);
-            this.tabPage6.Controls.Add(this.label15);
-            this.tabPage6.Controls.Add(this.label17);
-            this.tabPage6.Controls.Add(this.button15);
-            this.tabPage6.Controls.Add(this.button17);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(655, 279);
-            this.tabPage6.TabIndex = 6;
-            this.tabPage6.Text = "Encuestas";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPage_encuestas.Controls.Add(this.textBox_asuntoEncuesta);
+            this.tabPage_encuestas.Controls.Add(this.label_buscarEncuestaPorAsunto);
+            this.tabPage_encuestas.Controls.Add(this.dataGridView_encuestas);
+            this.tabPage_encuestas.Controls.Add(this.button_buscarEncuesta);
+            this.tabPage_encuestas.Controls.Add(this.dateTimePicker_fechaEncuesta);
+            this.tabPage_encuestas.Controls.Add(this.label_buscarEncuestaPorFecha);
+            this.tabPage_encuestas.Controls.Add(this.label_encuestasDeUsuario);
+            this.tabPage_encuestas.Controls.Add(this.button_borrarEncuesta);
+            this.tabPage_encuestas.Controls.Add(this.button_editarEncuesta);
+            this.tabPage_encuestas.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_encuestas.Name = "tabPage_encuestas";
+            this.tabPage_encuestas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_encuestas.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_encuestas.TabIndex = 6;
+            this.tabPage_encuestas.Text = "Encuestas";
+            this.tabPage_encuestas.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // textBox_asuntoEncuesta
             // 
-            this.textBox8.Location = new System.Drawing.Point(6, 125);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(159, 20);
-            this.textBox8.TabIndex = 91;
-            this.textBox8.Text = "El toro y la luna";
+            this.textBox_asuntoEncuesta.Location = new System.Drawing.Point(6, 125);
+            this.textBox_asuntoEncuesta.Name = "textBox_asuntoEncuesta";
+            this.textBox_asuntoEncuesta.Size = new System.Drawing.Size(159, 20);
+            this.textBox_asuntoEncuesta.TabIndex = 91;
+            this.textBox_asuntoEncuesta.Text = "El toro y la luna";
             // 
-            // label18
+            // label_buscarEncuestaPorAsunto
             // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarEncuestaPorAsunto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 94);
-            this.label18.Name = "label18";
-            this.label18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label18.Size = new System.Drawing.Size(109, 20);
-            this.label18.TabIndex = 90;
-            this.label18.Text = "Buscar por asunto:";
+            this.label_buscarEncuestaPorAsunto.AutoSize = true;
+            this.label_buscarEncuestaPorAsunto.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarEncuestaPorAsunto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarEncuestaPorAsunto.Location = new System.Drawing.Point(3, 94);
+            this.label_buscarEncuestaPorAsunto.Name = "label_buscarEncuestaPorAsunto";
+            this.label_buscarEncuestaPorAsunto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarEncuestaPorAsunto.Size = new System.Drawing.Size(109, 20);
+            this.label_buscarEncuestaPorAsunto.TabIndex = 90;
+            this.label_buscarEncuestaPorAsunto.Text = "Buscar por asunto:";
             // 
-            // dataGridView5
+            // dataGridView_encuestas
             // 
-            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_encuestas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_encuestas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn12});
-            this.dataGridView5.Location = new System.Drawing.Point(217, 12);
-            this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.RowHeadersVisible = false;
-            this.dataGridView5.Size = new System.Drawing.Size(383, 253);
-            this.dataGridView5.TabIndex = 87;
+            this.dataGridView_encuestas.Location = new System.Drawing.Point(217, 12);
+            this.dataGridView_encuestas.Name = "dataGridView_encuestas";
+            this.dataGridView_encuestas.RowHeadersVisible = false;
+            this.dataGridView_encuestas.Size = new System.Drawing.Size(383, 253);
+            this.dataGridView_encuestas.TabIndex = 87;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -950,151 +960,151 @@
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Width = 200;
             // 
-            // button18
+            // button_buscarEncuesta
             // 
-            this.button18.Location = new System.Drawing.Point(58, 242);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 86;
-            this.button18.Text = "Buscar";
-            this.button18.UseVisualStyleBackColor = true;
+            this.button_buscarEncuesta.Location = new System.Drawing.Point(58, 242);
+            this.button_buscarEncuesta.Name = "button_buscarEncuesta";
+            this.button_buscarEncuesta.Size = new System.Drawing.Size(75, 23);
+            this.button_buscarEncuesta.TabIndex = 86;
+            this.button_buscarEncuesta.Text = "Buscar";
+            this.button_buscarEncuesta.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker6
+            // dateTimePicker_fechaEncuesta
             // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(6, 64);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker6.TabIndex = 85;
+            this.dateTimePicker_fechaEncuesta.Location = new System.Drawing.Point(6, 64);
+            this.dateTimePicker_fechaEncuesta.Name = "dateTimePicker_fechaEncuesta";
+            this.dateTimePicker_fechaEncuesta.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaEncuesta.TabIndex = 85;
             // 
-            // label15
+            // label_buscarEncuestaPorFecha
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_buscarEncuestaPorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 34);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label15.Size = new System.Drawing.Size(199, 20);
-            this.label15.TabIndex = 84;
-            this.label15.Text = "Buscar por fecha (dia / mes / año) : ";
+            this.label_buscarEncuestaPorFecha.AutoSize = true;
+            this.label_buscarEncuestaPorFecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarEncuestaPorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarEncuestaPorFecha.Location = new System.Drawing.Point(3, 34);
+            this.label_buscarEncuestaPorFecha.Name = "label_buscarEncuestaPorFecha";
+            this.label_buscarEncuestaPorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarEncuestaPorFecha.Size = new System.Drawing.Size(199, 20);
+            this.label_buscarEncuestaPorFecha.TabIndex = 84;
+            this.label_buscarEncuestaPorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
-            // label17
+            // label_encuestasDeUsuario
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_encuestasDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 3);
-            this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label17.Size = new System.Drawing.Size(153, 20);
-            this.label17.TabIndex = 83;
-            this.label17.Text = "Encuestas de usuario: ";
+            this.label_encuestasDeUsuario.AutoSize = true;
+            this.label_encuestasDeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_encuestasDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_encuestasDeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_encuestasDeUsuario.Name = "label_encuestasDeUsuario";
+            this.label_encuestasDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_encuestasDeUsuario.Size = new System.Drawing.Size(153, 20);
+            this.label_encuestasDeUsuario.TabIndex = 83;
+            this.label_encuestasDeUsuario.Text = "Encuestas de usuario: ";
             // 
-            // button15
+            // button_borrarEncuesta
             // 
-            this.button15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button15.Image = global::cacatUA.Properties.Resources.close;
-            this.button15.Location = new System.Drawing.Point(605, 69);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(35, 35);
-            this.button15.TabIndex = 89;
-            this.button15.Tag = "Eliminar hilo seleccionado";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button_borrarEncuesta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarEncuesta.FlatAppearance.BorderSize = 0;
+            this.button_borrarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarEncuesta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarEncuesta.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarEncuesta.Location = new System.Drawing.Point(605, 69);
+            this.button_borrarEncuesta.Name = "button_borrarEncuesta";
+            this.button_borrarEncuesta.Size = new System.Drawing.Size(35, 35);
+            this.button_borrarEncuesta.TabIndex = 89;
+            this.button_borrarEncuesta.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarEncuesta.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // button_editarEncuesta
             // 
-            this.button17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button17.Image = global::cacatUA.Properties.Resources.tool;
-            this.button17.Location = new System.Drawing.Point(605, 28);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(35, 35);
-            this.button17.TabIndex = 88;
-            this.button17.Tag = "Modificar hilo seleccionado";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button_editarUsuarioEncuesta_Click);
+            this.button_editarEncuesta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarEncuesta.FlatAppearance.BorderSize = 0;
+            this.button_editarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarEncuesta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarEncuesta.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarEncuesta.Location = new System.Drawing.Point(605, 28);
+            this.button_editarEncuesta.Name = "button_editarEncuesta";
+            this.button_editarEncuesta.Size = new System.Drawing.Size(35, 35);
+            this.button_editarEncuesta.TabIndex = 88;
+            this.button_editarEncuesta.Tag = "Modificar hilo seleccionado";
+            this.button_editarEncuesta.UseVisualStyleBackColor = true;
+            this.button_editarEncuesta.Click += new System.EventHandler(this.button_editarUsuarioEncuesta_Click);
             // 
-            // tabPage7
+            // tabPage_enviarMensaje
             // 
-            this.tabPage7.Controls.Add(this.textBox6);
-            this.tabPage7.Controls.Add(this.radioButton2);
-            this.tabPage7.Controls.Add(this.radioButton1);
-            this.tabPage7.Controls.Add(this.button7);
-            this.tabPage7.Controls.Add(this.label4);
-            this.tabPage7.Controls.Add(this.button1);
-            this.tabPage7.Controls.Add(this.richTextBox1);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(655, 279);
-            this.tabPage7.TabIndex = 5;
-            this.tabPage7.Text = "Enviar mensaje";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tabPage_enviarMensaje.Controls.Add(this.textBox_enviarAlEmail);
+            this.tabPage_enviarMensaje.Controls.Add(this.radioButton_enviarAlEmail);
+            this.tabPage_enviarMensaje.Controls.Add(this.radioButton_enviarComoPrivado);
+            this.tabPage_enviarMensaje.Controls.Add(this.button_enviarMensaje);
+            this.tabPage_enviarMensaje.Controls.Add(this.label_enviarMensajeUsuario);
+            this.tabPage_enviarMensaje.Controls.Add(this.button1);
+            this.tabPage_enviarMensaje.Controls.Add(this.richTextBox_textoMensaje);
+            this.tabPage_enviarMensaje.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_enviarMensaje.Name = "tabPage_enviarMensaje";
+            this.tabPage_enviarMensaje.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_enviarMensaje.Size = new System.Drawing.Size(655, 279);
+            this.tabPage_enviarMensaje.TabIndex = 5;
+            this.tabPage_enviarMensaje.Text = "Enviar mensaje";
+            this.tabPage_enviarMensaje.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // textBox_enviarAlEmail
             // 
-            this.textBox6.Location = new System.Drawing.Point(324, 42);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(120, 20);
-            this.textBox6.TabIndex = 66;
-            this.textBox6.Text = "usuario@cacatua.org";
+            this.textBox_enviarAlEmail.Location = new System.Drawing.Point(324, 42);
+            this.textBox_enviarAlEmail.Name = "textBox_enviarAlEmail";
+            this.textBox_enviarAlEmail.Size = new System.Drawing.Size(120, 20);
+            this.textBox_enviarAlEmail.TabIndex = 66;
+            this.textBox_enviarAlEmail.Text = "usuario@cacatua.org";
             // 
-            // radioButton2
+            // radioButton_enviarAlEmail
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(223, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 17);
-            this.radioButton2.TabIndex = 65;
-            this.radioButton2.Text = "Envíar al email";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton_enviarAlEmail.AutoSize = true;
+            this.radioButton_enviarAlEmail.Location = new System.Drawing.Point(223, 44);
+            this.radioButton_enviarAlEmail.Name = "radioButton_enviarAlEmail";
+            this.radioButton_enviarAlEmail.Size = new System.Drawing.Size(95, 17);
+            this.radioButton_enviarAlEmail.TabIndex = 65;
+            this.radioButton_enviarAlEmail.Text = "Envíar al email";
+            this.radioButton_enviarAlEmail.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButton_enviarComoPrivado
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(38, 44);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(124, 17);
-            this.radioButton1.TabIndex = 64;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Envíar como privado";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton_enviarComoPrivado.AutoSize = true;
+            this.radioButton_enviarComoPrivado.Checked = true;
+            this.radioButton_enviarComoPrivado.Location = new System.Drawing.Point(38, 44);
+            this.radioButton_enviarComoPrivado.Name = "radioButton_enviarComoPrivado";
+            this.radioButton_enviarComoPrivado.Size = new System.Drawing.Size(124, 17);
+            this.radioButton_enviarComoPrivado.TabIndex = 64;
+            this.radioButton_enviarComoPrivado.TabStop = true;
+            this.radioButton_enviarComoPrivado.Text = "Envíar como privado";
+            this.radioButton_enviarComoPrivado.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // button_enviarMensaje
             // 
-            this.button7.Location = new System.Drawing.Point(292, 236);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 63;
-            this.button7.Text = "Enviar";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button_enviarMensaje.Location = new System.Drawing.Point(292, 236);
+            this.button_enviarMensaje.Name = "button_enviarMensaje";
+            this.button_enviarMensaje.Size = new System.Drawing.Size(75, 23);
+            this.button_enviarMensaje.TabIndex = 63;
+            this.button_enviarMensaje.Text = "Enviar";
+            this.button_enviarMensaje.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // label_enviarMensajeUsuario
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_enviarMensajeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 3);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label4.Size = new System.Drawing.Size(186, 20);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "Enviar mensaje al usuario : ";
+            this.label_enviarMensajeUsuario.AutoSize = true;
+            this.label_enviarMensajeUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.label_enviarMensajeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_enviarMensajeUsuario.Location = new System.Drawing.Point(3, 3);
+            this.label_enviarMensajeUsuario.Name = "label_enviarMensajeUsuario";
+            this.label_enviarMensajeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_enviarMensajeUsuario.Size = new System.Drawing.Size(186, 20);
+            this.label_enviarMensajeUsuario.TabIndex = 62;
+            this.label_enviarMensajeUsuario.Text = "Enviar mensaje al usuario : ";
             // 
             // button1
             // 
@@ -1105,22 +1115,22 @@
             this.button1.Text = "Enviar mensaje al usuario";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // richTextBox_textoMensaje
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 80);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(643, 150);
-            this.richTextBox1.TabIndex = 59;
-            this.richTextBox1.Text = "Por favor compórtate con tus mayores...";
+            this.richTextBox_textoMensaje.Location = new System.Drawing.Point(6, 80);
+            this.richTextBox_textoMensaje.Name = "richTextBox_textoMensaje";
+            this.richTextBox_textoMensaje.Size = new System.Drawing.Size(643, 150);
+            this.richTextBox_textoMensaje.TabIndex = 59;
+            this.richTextBox_textoMensaje.Text = "Por favor compórtate con tus mayores...";
             // 
-            // button5
+            // button_cancelar
             // 
-            this.button5.Location = new System.Drawing.Point(257, 314);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(66, 23);
-            this.button5.TabIndex = 56;
-            this.button5.Text = "Cancelar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button_cancelar.Location = new System.Drawing.Point(257, 314);
+            this.button_cancelar.Name = "button_cancelar";
+            this.button_cancelar.Size = new System.Drawing.Size(66, 23);
+            this.button_cancelar.TabIndex = 56;
+            this.button_cancelar.Text = "Cancelar";
+            this.button_cancelar.UseVisualStyleBackColor = true;
             // 
             // Edu
             // 
@@ -1138,59 +1148,49 @@
             this.textBox1.TabIndex = 32;
             this.textBox1.Text = "Edu";
             // 
-            // button2
+            // button_crear
             // 
-            this.button2.Location = new System.Drawing.Point(350, 314);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 23);
-            this.button2.TabIndex = 57;
-            this.button2.Text = "Crear";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(214, 39);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(102, 17);
-            this.checkBox1.TabIndex = 62;
-            this.checkBox1.Text = "es administrador";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button_crear.Location = new System.Drawing.Point(350, 314);
+            this.button_crear.Name = "button_crear";
+            this.button_crear.Size = new System.Drawing.Size(66, 23);
+            this.button_crear.TabIndex = 57;
+            this.button_crear.Text = "Crear";
+            this.button_crear.UseVisualStyleBackColor = true;
             // 
             // FormUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 349);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.button_crear);
+            this.Controls.Add(this.tabControl_usuario);
             this.Controls.Add(this.Edu);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button_cancelar);
             this.Controls.Add(this.textBox1);
             this.Name = "FormUsuario";
             this.Text = "FormUsuario";
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabControl_usuario.ResumeLayout(false);
+            this.tabPage_datos.ResumeLayout(false);
+            this.tabPage_datos.PerformLayout();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
-            this.tabPage7.ResumeLayout(false);
-            this.tabPage7.PerformLayout();
+            this.tabPage_firmas.ResumeLayout(false);
+            this.tabPage_firmas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_firmas)).EndInit();
+            this.tabPage_galeria.ResumeLayout(false);
+            this.tabPage_galeria.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_galeria)).EndInit();
+            this.tabPage_mensajes.ResumeLayout(false);
+            this.tabPage_mensajes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_mensajes)).EndInit();
+            this.tabPage_peticiones.ResumeLayout(false);
+            this.tabPage_peticiones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_peticiones)).EndInit();
+            this.tabPage_encuestas.ResumeLayout(false);
+            this.tabPage_encuestas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_encuestas)).EndInit();
+            this.tabPage_enviarMensaje.ResumeLayout(false);
+            this.tabPage_enviarMensaje.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1198,96 +1198,96 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabControl_usuario;
+        private System.Windows.Forms.TabPage tabPage_datos;
+        private System.Windows.Forms.Button button_cancelar;
+        private System.Windows.Forms.TextBox textBox_email;
+        private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox textBox_nombre;
+        private System.Windows.Forms.Label label_datosDeUsuario;
+        private System.Windows.Forms.Label label_nombre;
+        private System.Windows.Forms.TabPage tabPage_firmas;
+        private System.Windows.Forms.TabPage tabPage_galeria;
+        private System.Windows.Forms.Label label_fotosDeUsuario;
+        private System.Windows.Forms.TabPage tabPage_mensajes;
+        private System.Windows.Forms.Label label_mensajesDeUsuario;
+        private System.Windows.Forms.TabPage tabPage_peticiones;
+        private System.Windows.Forms.Label label_peticionesDeUsuario;
         private System.Windows.Forms.ListBox Edu;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Label label_fechaDeIngreso;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaDeIngreso;
+        private System.Windows.Forms.TabPage tabPage_enviarMensaje;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button butto_editarMaterial;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox richTextBox_textoMensaje;
+        private System.Windows.Forms.TabPage tabPage_encuestas;
+        private System.Windows.Forms.Label label_enviarMensajeUsuario;
+        private System.Windows.Forms.DataGridView dataGridView_firmas;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaFirma;
+        private System.Windows.Forms.Button button_buscarFirma;
+        private System.Windows.Forms.TextBox textBox_autorFirma;
+        private System.Windows.Forms.Label label_buscarFirmaPorAutor;
+        private System.Windows.Forms.Label label_buscarFirmaPorFecha;
+        private System.Windows.Forms.Label label_firmasDeUsuario;
+        private System.Windows.Forms.Button button_editarFirma;
+        private System.Windows.Forms.Button button_borrarFirma;
+        private System.Windows.Forms.Button button_crear;
+        private System.Windows.Forms.TextBox textBox_tituloGaleria;
+        private System.Windows.Forms.Label label_buscarGaleriaPorTitulo;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaGaleria;
+        private System.Windows.Forms.Button button_buscarGaleria;
+        private System.Windows.Forms.TextBox textBox_autorGaleria;
+        private System.Windows.Forms.Label label_buscarGaleriaPorAutor;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TextBox textBox_enviarAlEmail;
+        private System.Windows.Forms.RadioButton radioButton_enviarAlEmail;
+        private System.Windows.Forms.RadioButton radioButton_enviarComoPrivado;
+        private System.Windows.Forms.Button button_enviarMensaje;
         private System.Windows.Forms.DataGridViewTextBoxColumn autorFirma;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinatarioFirma;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaFirma;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button button_borrarGaleria;
+        private System.Windows.Forms.Button button_editarGaleria;
+        private System.Windows.Forms.DataGridView dataGridView_galeria;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox textBox_tituloMensaje;
+        private System.Windows.Forms.Label label_buscarMensajePorTitulo;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaMensaje;
+        private System.Windows.Forms.Button button_buscarMensaje;
+        private System.Windows.Forms.Label label_buscarMensajePorFecha;
+        private System.Windows.Forms.Button button_borrarMensaje;
+        private System.Windows.Forms.Button button_editarMensaje;
+        private System.Windows.Forms.DataGridView dataGridView_mensajes;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.RadioButton radioButton_recibidasPorUsuario;
+        private System.Windows.Forms.RadioButton radioButton_realizadasPorUsuario;
+        private System.Windows.Forms.TextBox textBox_asuntoEncuesta;
+        private System.Windows.Forms.Label label_buscarEncuestaPorAsunto;
+        private System.Windows.Forms.Button button_borrarEncuesta;
+        private System.Windows.Forms.Button button_editarEncuesta;
+        private System.Windows.Forms.DataGridView dataGridView_encuestas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Button button_buscarEncuesta;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaEncuesta;
+        private System.Windows.Forms.Label label_buscarEncuestaPorFecha;
+        private System.Windows.Forms.Label label_encuestasDeUsuario;
+        private System.Windows.Forms.DataGridView dataGridView_peticiones;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox_asuntoPeticion;
+        private System.Windows.Forms.Label label_buscarPeticionPorAsunto;
+        private System.Windows.Forms.Button button_buscarPeticion;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaPeticion;
+        private System.Windows.Forms.Label label_buscarPeticionPorFecha;
+        private System.Windows.Forms.Button button_borrarPeticion;
+        private System.Windows.Forms.Button button_editarPeticion;
+        private System.Windows.Forms.CheckBox checkBox_esAdmin;
     }
 }
