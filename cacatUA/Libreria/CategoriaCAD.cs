@@ -2,43 +2,202 @@
 using System.Collections;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 
 namespace Libreria
 {
     public class CategoriaCAD
     {
+        static string cadenaConexion = "Data Source=JCZ\\SQLEXPRESS;Initial Catalog=CacatUA;Integrated Security=True;Pooling=False";
+
         public static ENCategoriaCRUD obtenerCategoria(int id)
         {
-            //select * from CATEGORIAS where id = @id
-            return new ENCategoriaCRUD(id,"Informatica","Desc. inf.",0);
+            ENCategoriaCRUD categoria = new ENCategoriaCRUD();
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM CATEGORIAS where id = @idcat";
+                comando.Parameters.AddWithValue("@idcat", id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    categoria = obtenerDatos(reader);
+                }
+            }
+            return categoria;
+        }
+
+        public static ENCategoriaCRUD obtenerDatos(SqlDataReader reader)
+        {
+            ENCategoriaCRUD categoria = new ENCategoriaCRUD();
+            categoria.Id = int.Parse(reader["id"].ToString());
+            categoria.Nombre = reader["nombre"].ToString();
+            categoria.Descripcion = reader["descripcion"].ToString();
+            if (reader["padre"].ToString() != "")
+            {
+                categoria.Padre = int.Parse(reader["padre"].ToString());
+            }
+            else
+            {
+                categoria.Padre = 0;
+            }
+            return categoria;
+        }
+
+
+        public static bool crearCategoria(ENCategoriaCRUD categoria)
+        {
+            int resultado = 0;
+            bool creada = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                if (categoria.Padre == 0)
+                {
+                    comando.CommandText = "INSERT INTO " +
+                                          "CATEGORIAS (nombre,descripcion) " +
+                                          "VALUES (@nombre,@descripcion)";
+                    comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
+                }
+                else
+                {
+                    comando.CommandText = "INSERT INTO " +
+                                          "CATEGORIAS (nombre,descripcion,padre) " +
+                                          "VALUES (@nombre,@descripcion,@padre)";
+                    comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
+                    comando.Parameters.AddWithValue("@padre", categoria.Padre);
+                }
+
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    creada = true;
+            }
+            return creada;
+        }
+
+        public static bool actualizarCategoria(ENCategoriaCRUD categoria)
+        {
+            int resultado = 0;
+            bool actualizada = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "UPDATE CATEGORIAS " +
+                    "SET nombre = @nombre,descripcion = @descripcion " +
+                    "WHERE id = @id";
+                comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
+                comando.Parameters.AddWithValue("@id", categoria.Id);
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    actualizada = true;
+            }
+            return actualizada;
+        }
+
+        public static bool borrarCategoria(ENCategoriaCRUD categoria)
+        {
+            int resultado = 0;
+            bool borrada = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "DELETE FROM CATEGORIAS " +
+                    "WHERE id = @id";
+                comando.Parameters.AddWithValue("@id", categoria.Id);
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    borrada = true;
+            }
+            return borrada;
         }
 
         public static ArrayList obtenerCategoriasSuperiores()
         {
-            //select * from CATEGORIAS where padre = null
             ArrayList categorias = new ArrayList();
-            categorias.Add(new ENCategoriaCRUD(1,"Informatica","Desc. inf.",0));
-            categorias.Add(new ENCategoriaCRUD(2,"Biologia","Desc. bio.",0));
-            categorias.Add(new ENCategoriaCRUD(3,"Medicina","Desc. med.",0));
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                string cadenaComando = "SELECT * FROM CATEGORIAS where padre is NULL";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENCategoriaCRUD categoria = obtenerDatos(reader);
+                    categorias.Add(categoria);
+                }
+            }
             return categorias;
         }
 
         public static ArrayList obtenerHijosDe(ENCategoriaCRUD padre)
         {
-            //select * from CATEGORIAS where padre = padre.id
             ArrayList hijos = new ArrayList();
-            if (padre.Id == 1 || padre.Id == 2 || padre.Id == 3)
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
-                hijos.Add(new ENCategoriaCRUD(4, "Primero", "Primer curso", 1));
-                hijos.Add(new ENCategoriaCRUD(4, "Segundo", "Segundo curso", 1));
-                hijos.Add(new ENCategoriaCRUD(4, "Tercero", "Tercer curso", 1));
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM CATEGORIAS where padre = @idpadre";
+                comando.Parameters.AddWithValue("@idpadre", padre.Id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENCategoriaCRUD categoria = obtenerDatos(reader);
+                    hijos.Add(categoria);
+                }
             }
             return hijos;
         }
 
         public static ArrayList usuariosSuscritosA(ENCategoriaCRUD categoria)
         {
-            //select usuario from SUSCRITOACATEGORIA where categoria = categoria.id
+            /*ArrayList usuarios = new ArrayList();
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM SUSCRITOACATEGORIA where categoria = @idcat";
+                comando.Parameters.AddWithValue("@idcat", categoria.Id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENUsuarioCRUD usuario = ENUsuarioCRUD.obtenerDatos(reader);
+                    usuarios.Add(usuario);
+                }
+            }
+            return usuarios;*/
+
             ArrayList usuarios = new ArrayList();
             usuarios.Add("Jorge");
             usuarios.Add("Antonio");
@@ -48,14 +207,42 @@ namespace Libreria
 
         public static int NumHilosEn(ENCategoriaCRUD categoria)
         {
-            //select count(*) from HILOS where categoria = categoria.id
-            return 4;
+            int n = 0;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM HILOS where categoria = @idcat";
+                comando.Parameters.AddWithValue("@idcat", categoria.Id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    n = int.Parse(reader["numero"].ToString());
+                }
+            }
+            return n;
         }
 
         public static int NumMaterialesEn(ENCategoriaCRUD categoria)
         {
-            //select count(*) from MATERIALES where categoria = categoria.id
-            return 2;
+            int n = 0;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM MATERIALES where categoria = @idcat";
+                comando.Parameters.AddWithValue("@idcat", categoria.Id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    n = int.Parse(reader["numero"].ToString());
+                }
+            }
+            return n;
         }
     }
 }

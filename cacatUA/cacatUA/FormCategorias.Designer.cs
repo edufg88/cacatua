@@ -301,6 +301,7 @@
             this.button_borrarCategoria.TabIndex = 34;
             this.button_borrarCategoria.Tag = "Borrar categoria seleccionada";
             this.button_borrarCategoria.UseVisualStyleBackColor = true;
+            this.button_borrarCategoria.Click += new System.EventHandler(this.button_borrarCategoria_Click);
             // 
             // button8
             // 
