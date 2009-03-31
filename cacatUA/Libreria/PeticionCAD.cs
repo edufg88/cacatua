@@ -7,7 +7,7 @@ namespace Libreria
 {
     class PeticionCAD
     {
-        public static ArrayList getSinContestar()
+        /*public static ArrayList getSinContestar()
         {
             ArrayList a = new ArrayList();
 
@@ -17,6 +17,6 @@ namespace Libreria
             a.Add(p2);
 
             return a;
-        }
+        }*/
     }
 }
