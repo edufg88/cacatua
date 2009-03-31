@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPeticiones));
             this.panelTitulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.panelFondo = new System.Windows.Forms.Panel();
@@ -51,7 +52,10 @@
             this.label_resultadosPeticiones = new System.Windows.Forms.Label();
             this.dataGridViewRecientes = new System.Windows.Forms.DataGridView();
             this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mensaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.label_peticionSeleccionada = new System.Windows.Forms.Label();
             this.richTextBox_peticionSeleccionada = new System.Windows.Forms.RichTextBox();
@@ -77,7 +81,10 @@
             this.label_resultadosPeticionAnt = new System.Windows.Forms.Label();
             this.dataGridView_Anteriores = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asunto1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
             this.label_peticionSeleccionadaAnt = new System.Windows.Forms.Label();
             this.richTextBox12 = new System.Windows.Forms.RichTextBox();
@@ -429,7 +436,7 @@
             this.button_seccionBuscar.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
             this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button_seccionBuscar.Image = ((System.Drawing.Image)(resources.GetObject("button_seccionBuscar.Image")));
             this.button_seccionBuscar.Location = new System.Drawing.Point(503, 3);
             this.button_seccionBuscar.Name = "button_seccionBuscar";
             this.button_seccionBuscar.Size = new System.Drawing.Size(36, 24);
@@ -538,13 +545,17 @@
             this.dataGridViewRecientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRecientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Autor,
-            this.Mensaje});
+            this.Asunto,
+            this.Fecha,
+            this.Mensaje,
+            this.Id});
             this.dataGridViewRecientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRecientes.Location = new System.Drawing.Point(3, 23);
             this.dataGridViewRecientes.Name = "dataGridViewRecientes";
             this.dataGridViewRecientes.ReadOnly = true;
             this.dataGridViewRecientes.Size = new System.Drawing.Size(786, 98);
             this.dataGridViewRecientes.TabIndex = 1;
+            this.dataGridViewRecientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecientes_CellContentClick);
             // 
             // Autor
             // 
@@ -552,12 +563,31 @@
             this.Autor.Name = "Autor";
             this.Autor.ReadOnly = true;
             // 
+            // Asunto
+            // 
+            this.Asunto.HeaderText = "Asunto";
+            this.Asunto.Name = "Asunto";
+            this.Asunto.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
             // Mensaje
             // 
             this.Mensaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Mensaje.HeaderText = "Mensaje";
             this.Mensaje.Name = "Mensaje";
             this.Mensaje.ReadOnly = true;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // tableLayoutPanel23
             // 
@@ -627,6 +657,7 @@
             this.button_borrarPeticion.TabIndex = 1;
             this.button_borrarPeticion.Text = "Borrar";
             this.button_borrarPeticion.UseVisualStyleBackColor = true;
+            this.button_borrarPeticion.Click += new System.EventHandler(this.button_borrarPeticion_Click);
             // 
             // Antiguas
             // 
@@ -722,7 +753,7 @@
             this.button18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button18.FlatAppearance.BorderSize = 0;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
             this.button18.Location = new System.Drawing.Point(503, 3);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(36, 24);
@@ -830,7 +861,10 @@
             this.dataGridView_Anteriores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Anteriores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
+            this.Asunto1,
+            this.Fecha1,
+            this.dataGridViewTextBoxColumn12,
+            this.Id1});
             this.dataGridView_Anteriores.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Anteriores.Location = new System.Drawing.Point(3, 23);
             this.dataGridView_Anteriores.Name = "dataGridView_Anteriores";
@@ -844,12 +878,31 @@
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
+            // Asunto1
+            // 
+            this.Asunto1.HeaderText = "Asunto1";
+            this.Asunto1.Name = "Asunto1";
+            this.Asunto1.ReadOnly = true;
+            // 
+            // Fecha1
+            // 
+            this.Fecha1.HeaderText = "Fecha";
+            this.Fecha1.Name = "Fecha1";
+            this.Fecha1.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn12.HeaderText = "Mensaje";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // Id1
+            // 
+            this.Id1.HeaderText = "Id";
+            this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
+            this.Id1.Visible = false;
             // 
             // tableLayoutPanel36
             // 
@@ -908,6 +961,7 @@
             this.button_borrarPeticionAnt.TabIndex = 1;
             this.button_borrarPeticionAnt.Text = "Borrar";
             this.button_borrarPeticionAnt.UseVisualStyleBackColor = true;
+            this.button_borrarPeticionAnt.Click += new System.EventHandler(this.button_borrarPeticionAnt_Click);
             // 
             // tableLayoutPanel
             // 
@@ -988,7 +1042,7 @@
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(756, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(36, 24);
@@ -1240,7 +1294,7 @@
             // 
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
             this.button6.Location = new System.Drawing.Point(756, 4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(36, 24);
@@ -1711,7 +1765,7 @@
             this.button9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button9.FlatAppearance.BorderSize = 0;
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button9.Image = ((System.Drawing.Image)(resources.GetObject("button9.Image")));
             this.button9.Location = new System.Drawing.Point(503, 3);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(36, 24);
@@ -1967,7 +2021,7 @@
             this.button12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button12.Image = ((System.Drawing.Image)(resources.GetObject("button12.Image")));
             this.button12.Location = new System.Drawing.Point(503, 3);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(36, 24);
@@ -2225,7 +2279,7 @@
             this.button15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button15.FlatAppearance.BorderSize = 0;
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
             this.button15.Location = new System.Drawing.Point(503, 3);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(36, 24);
@@ -2594,8 +2648,6 @@
         private System.Windows.Forms.RichTextBox richTextBox3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dataGridViewRecientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mensaje;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label1;
@@ -2634,8 +2686,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel35;
         private System.Windows.Forms.Label label_resultadosPeticionAnt;
         private System.Windows.Forms.DataGridView dataGridView_Anteriores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel36;
         private System.Windows.Forms.Label label_peticionSeleccionadaAnt;
         private System.Windows.Forms.RichTextBox richTextBox12;
@@ -2714,6 +2764,16 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel33;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asunto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mensaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asunto1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id1;
 
     }
 }
