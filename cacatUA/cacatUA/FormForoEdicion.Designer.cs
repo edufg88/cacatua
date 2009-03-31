@@ -355,6 +355,7 @@
             this.button_guardarCambios.TabIndex = 0;
             this.button_guardarCambios.Text = "Guardar cambios";
             this.button_guardarCambios.UseVisualStyleBackColor = true;
+            this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
             // FormForoEdicion
             // 

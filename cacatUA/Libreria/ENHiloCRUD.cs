@@ -82,6 +82,11 @@ namespace Libreria
             return HiloCAD.Borrar(this);
         }
 
+        public static bool Borrar(int id)
+        {
+            return HiloCAD.Borrar(id);
+        }
+
         public bool Actualizar()
         {
             return HiloCAD.Actualizar(this);

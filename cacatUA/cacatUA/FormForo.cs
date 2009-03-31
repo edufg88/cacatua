@@ -30,12 +30,12 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[6].Height = 0;
 
 
-            formularioBusqueda();
+            CambiarFormularioBusqueda();
 
             anadirAlgunosHilos();
         }
 
-        private void formularioBusqueda()
+        public void CambiarFormularioBusqueda()
         {
             label_seccion1.Text = "Búsqueda";
             panel_contenedor.Controls.Clear();
@@ -43,17 +43,12 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
         }
 
-        private void formularioEdicion()
+        public void CambiarFormularioEdicion()
         {
             label_seccion1.Text = "Edición";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formEdicion);
             tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
-        }
-
-        public void Limpiar()
-        {
-
         }
 
         private void anadirAlgunosHilos()
@@ -104,12 +99,13 @@ namespace cacatUA
 
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
-            formularioBusqueda();
+            CambiarFormularioBusqueda();
         }
 
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
-            formularioEdicion();
+            CambiarFormularioEdicion();
+            formEdicion.CambiarNuevo();
         }
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -123,26 +119,34 @@ namespace cacatUA
             //dateTimePicker_fecha.Text = filaSeleccionada.Cells[4].Value.ToString();
             formEdicion.textBox_respuestas.Text = filaSeleccionada.Cells[5].Value.ToString();*/
 
-            formularioEdicion();
+            CambiarFormularioEdicion();
             formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
         private void button_borrarHilo_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
-            if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea borrar los hilos seleccionados?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+            if (dataGridView_resultados.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow i in filas)
+                DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
+                if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea borrar los hilos seleccionados?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
                 {
-                    // Borrarlo de la lista y borrarlo de la BD.
-                    dataGridView_resultados.Rows.Remove(i);
+                    foreach (DataGridViewRow i in filas)
+                    {
+                        // Se borra de la lista y de la base de datos.
+                        ENHiloCRUD.Borrar(int.Parse(i.Cells[0].Value.ToString()));
+                        dataGridView_resultados.Rows.Remove(i);
+                    }
                 }
             }
         }
 
         private void butto_editarHilo_Click(object sender, EventArgs e)
         {
-            formularioEdicion();
+            if (dataGridView_resultados.SelectedRows.Count > 0)
+            {
+                CambiarFormularioEdicion();
+                formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            }
         }
     }
 }
