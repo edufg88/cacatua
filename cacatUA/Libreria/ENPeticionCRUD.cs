@@ -87,5 +87,10 @@ namespace Libreria
         {
             return PeticionCAD.actualizarPeticion(p);
         }
+
+        public static void borrarPeticion(int id)
+        {
+            PeticionCAD.borrarPeticion(id);
+        }
     }
 }
