@@ -10,6 +10,7 @@ namespace Libreria
         private int id;
         private string asunto;
         private string texto;
+        private string respuesta;
         private int usuario;
         private DateTime fecha;
         private bool contestada;
@@ -46,6 +47,11 @@ namespace Libreria
             get { return texto; }
             set { texto = value; }
         }
+        public string Respuesta
+        {
+            get { return respuesta; }
+            set { respuesta = value; }
+        }
         public int Usuario
         {
             get { return usuario; }
@@ -62,14 +68,24 @@ namespace Libreria
             set { contestada = true; }
         }
 
-        public ArrayList getSinContestar()
+        public static ArrayList getSinContestar()
         {
             return PeticionCAD.getSinContestar();
         }
 
-        public ArrayList getContestadas()
+        public static ArrayList getContestadas()
         {
             return PeticionCAD.getContestadas();
+        }
+
+        public static ENPeticionCRUD getPeticion(int id)
+        {
+            return PeticionCAD.getPeticion(id);
+        }
+
+        public static bool actualizarPeticion(ENPeticionCRUD p)
+        {
+            return PeticionCAD.actualizarPeticion(p);
         }
     }
 }

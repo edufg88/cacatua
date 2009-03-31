@@ -31,20 +31,20 @@
             this.buttonSalir = new System.Windows.Forms.Button();
             this.buttonEnviar = new System.Windows.Forms.Button();
             this.tableLayoutPanelDesc = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_envPetRespuesta = new System.Windows.Forms.RichTextBox();
             this.panelDesc = new System.Windows.Forms.Panel();
             this.labelDesc = new System.Windows.Forms.Label();
-            this.richTextBoxDesc = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_envPetPeticion = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanelAsunto = new System.Windows.Forms.TableLayoutPanel();
             this.panelAsunto = new System.Windows.Forms.Panel();
             this.labelAsunto = new System.Windows.Forms.Label();
-            this.textBoxAsunto = new System.Windows.Forms.TextBox();
+            this.textBox_envPetAsunto = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelPara = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox_envPetUsuario = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelDesc.SuspendLayout();
             this.panelDesc.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,6 +63,7 @@
             this.buttonSalir.TabIndex = 121;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // buttonEnviar
             // 
@@ -73,6 +74,7 @@
             this.buttonEnviar.TabIndex = 120;
             this.buttonEnviar.Text = "Enviar";
             this.buttonEnviar.UseVisualStyleBackColor = true;
+            this.buttonEnviar.Click += new System.EventHandler(this.buttonEnviar_Click);
             // 
             // tableLayoutPanelDesc
             // 
@@ -80,9 +82,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelDesc.ColumnCount = 1;
             this.tableLayoutPanelDesc.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelDesc.Controls.Add(this.richTextBox1, 0, 3);
+            this.tableLayoutPanelDesc.Controls.Add(this.richTextBox_envPetRespuesta, 0, 3);
             this.tableLayoutPanelDesc.Controls.Add(this.panelDesc, 0, 0);
-            this.tableLayoutPanelDesc.Controls.Add(this.richTextBoxDesc, 0, 1);
+            this.tableLayoutPanelDesc.Controls.Add(this.richTextBox_envPetPeticion, 0, 1);
             this.tableLayoutPanelDesc.Controls.Add(this.panel1, 0, 2);
             this.tableLayoutPanelDesc.Location = new System.Drawing.Point(2, 73);
             this.tableLayoutPanelDesc.Name = "tableLayoutPanelDesc";
@@ -94,14 +96,14 @@
             this.tableLayoutPanelDesc.Size = new System.Drawing.Size(746, 239);
             this.tableLayoutPanelDesc.TabIndex = 119;
             // 
-            // richTextBox1
+            // richTextBox_envPetRespuesta
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 152);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(740, 84);
-            this.richTextBox1.TabIndex = 115;
-            this.richTextBox1.Text = "descripción detallada del mensaje";
+            this.richTextBox_envPetRespuesta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox_envPetRespuesta.Location = new System.Drawing.Point(3, 152);
+            this.richTextBox_envPetRespuesta.Name = "richTextBox_envPetRespuesta";
+            this.richTextBox_envPetRespuesta.Size = new System.Drawing.Size(740, 84);
+            this.richTextBox_envPetRespuesta.TabIndex = 115;
+            this.richTextBox_envPetRespuesta.Text = "descripción detallada del mensaje";
             // 
             // panelDesc
             // 
@@ -124,15 +126,15 @@
             this.labelDesc.TabIndex = 88;
             this.labelDesc.Text = "Petición";
             // 
-            // richTextBoxDesc
+            // richTextBox_envPetPeticion
             // 
-            this.richTextBoxDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBoxDesc.Location = new System.Drawing.Point(3, 33);
-            this.richTextBoxDesc.Name = "richTextBoxDesc";
-            this.richTextBoxDesc.ReadOnly = true;
-            this.richTextBoxDesc.Size = new System.Drawing.Size(740, 83);
-            this.richTextBoxDesc.TabIndex = 89;
-            this.richTextBoxDesc.Text = "peticion del usuario";
+            this.richTextBox_envPetPeticion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox_envPetPeticion.Location = new System.Drawing.Point(3, 33);
+            this.richTextBox_envPetPeticion.Name = "richTextBox_envPetPeticion";
+            this.richTextBox_envPetPeticion.ReadOnly = true;
+            this.richTextBox_envPetPeticion.Size = new System.Drawing.Size(740, 83);
+            this.richTextBox_envPetPeticion.TabIndex = 89;
+            this.richTextBox_envPetPeticion.Text = "peticion del usuario";
             // 
             // panel1
             // 
@@ -162,7 +164,7 @@
             this.tableLayoutPanelAsunto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.tableLayoutPanelAsunto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelAsunto.Controls.Add(this.panelAsunto, 0, 0);
-            this.tableLayoutPanelAsunto.Controls.Add(this.textBoxAsunto, 1, 0);
+            this.tableLayoutPanelAsunto.Controls.Add(this.textBox_envPetAsunto, 1, 0);
             this.tableLayoutPanelAsunto.Location = new System.Drawing.Point(2, 40);
             this.tableLayoutPanelAsunto.Name = "tableLayoutPanelAsunto";
             this.tableLayoutPanelAsunto.RowCount = 1;
@@ -193,14 +195,14 @@
             this.labelAsunto.TabIndex = 84;
             this.labelAsunto.Text = "Asunto";
             // 
-            // textBoxAsunto
+            // textBox_envPetAsunto
             // 
-            this.textBoxAsunto.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxAsunto.Location = new System.Drawing.Point(131, 3);
-            this.textBoxAsunto.Name = "textBoxAsunto";
-            this.textBoxAsunto.ReadOnly = true;
-            this.textBoxAsunto.Size = new System.Drawing.Size(612, 20);
-            this.textBoxAsunto.TabIndex = 85;
+            this.textBox_envPetAsunto.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_envPetAsunto.Location = new System.Drawing.Point(131, 3);
+            this.textBox_envPetAsunto.Name = "textBox_envPetAsunto";
+            this.textBox_envPetAsunto.ReadOnly = true;
+            this.textBox_envPetAsunto.Size = new System.Drawing.Size(612, 20);
+            this.textBox_envPetAsunto.TabIndex = 85;
             // 
             // tableLayoutPanelPara
             // 
@@ -210,7 +212,7 @@
             this.tableLayoutPanelPara.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanelPara.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelPara.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanelPara.Controls.Add(this.textBox8, 1, 0);
+            this.tableLayoutPanelPara.Controls.Add(this.textBox_envPetUsuario, 1, 0);
             this.tableLayoutPanelPara.Location = new System.Drawing.Point(2, 10);
             this.tableLayoutPanelPara.Name = "tableLayoutPanelPara";
             this.tableLayoutPanelPara.RowCount = 1;
@@ -241,14 +243,14 @@
             this.label9.TabIndex = 84;
             this.label9.Text = "Para";
             // 
-            // textBox8
+            // textBox_envPetUsuario
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(103, 3);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(640, 20);
-            this.textBox8.TabIndex = 85;
+            this.textBox_envPetUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_envPetUsuario.Location = new System.Drawing.Point(103, 3);
+            this.textBox_envPetUsuario.Name = "textBox_envPetUsuario";
+            this.textBox_envPetUsuario.ReadOnly = true;
+            this.textBox_envPetUsuario.Size = new System.Drawing.Size(640, 20);
+            this.textBox_envPetUsuario.TabIndex = 85;
             // 
             // FormContestarPeticion
             // 
@@ -284,19 +286,19 @@
         private System.Windows.Forms.Button buttonSalir;
         private System.Windows.Forms.Button buttonEnviar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDesc;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox richTextBox_envPetRespuesta;
         private System.Windows.Forms.Panel panelDesc;
         private System.Windows.Forms.Label labelDesc;
-        private System.Windows.Forms.RichTextBox richTextBoxDesc;
+        private System.Windows.Forms.RichTextBox richTextBox_envPetPeticion;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAsunto;
         private System.Windows.Forms.Panel panelAsunto;
         private System.Windows.Forms.Label labelAsunto;
-        private System.Windows.Forms.TextBox textBoxAsunto;
+        private System.Windows.Forms.TextBox textBox_envPetAsunto;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelPara;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox_envPetUsuario;
     }
 }

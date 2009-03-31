@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace cacatUA
 {
@@ -14,25 +15,51 @@ namespace cacatUA
         public FormPeticiones()
         {
             InitializeComponent();
-            anadirAlgunasPeticiones();
+            anadirPeticiones();
         }
 
-        private void anadirAlgunasPeticiones()
+        private void anadirPeticiones()
         {
-            DataGridViewRow fila = new DataGridViewRow();
-            fila.CreateCells(dataGridViewRecientes);
-            fila.Cells[0].Value = "Nueva categoria";
-            fila.Cells[1].Value = "Jose";
-            dataGridViewRecientes.Rows.Add(fila);
-            DataGridViewRow fila1 = new DataGridViewRow();
-            fila1.CreateCells(dataGridViewRecientes);
-            fila1.Cells[0].Value = "Error Descarga Material";
-            fila1.Cells[1].Value = "Andres";
-            dataGridViewRecientes.Rows.Add(fila1);
-           
+            ArrayList a = ENPeticionCRUD.getContestadas();
+
+            DataGridViewRow fila=null;
+            int i = 0;
+
+            foreach(ENPeticionCRUD p in a)
+            {
+                fila= new DataGridViewRow();
+                fila.CreateCells(dataGridView_Anteriores);
+                fila.Cells[0].Value = p.Usuario;
+                fila.Cells[1].Value = p.Asunto;
+                fila.Cells[2].Value = p.Fecha;
+                fila.Cells[3].Value = p.Texto;
+                fila.Cells[4].Value = p.Id;
+                dataGridView_Anteriores.Rows.Add(fila);
+                i++;
+
+            }
+
+            a = ENPeticionCRUD.getSinContestar();
+
+            i = 0;
+
+            foreach (ENPeticionCRUD p in a)
+            {
+                fila = new DataGridViewRow();
+                fila.CreateCells(dataGridViewRecientes);
+                fila.Cells[0].Value = p.Usuario;
+                fila.Cells[1].Value = p.Asunto;
+                fila.Cells[2].Value = p.Fecha;
+                fila.Cells[3].Value = p.Texto;
+                fila.Cells[4].Value = p.Id;
+                dataGridViewRecientes.Rows.Add(fila);
+                i++;
+
+            }
 
         }
 
+        
         private void buttonUsuario_Click(object sender, EventArgs e)
         {
             FormUsuario form = new FormUsuario();
@@ -97,8 +124,78 @@ namespace cacatUA
 
         private void button_contestarPeticion_Click(object sender, EventArgs e)
         {
-            FormContestarPeticion form = new FormContestarPeticion();
-            form.Show();
+            if (dataGridViewRecientes.SelectedRows != null)
+            {
+          
+                dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
+                
+                DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
+
+                DataGridViewRow fila = fila = filas[0];
+                dataGridViewRecientes.ClearSelection();
+                dataGridViewRecientes.Rows[fila.Index].Selected = true;
+                string id = fila.Cells["Autor"].Value.ToString();
+                FormContestarPeticion form = new FormContestarPeticion(id);
+                form.Show();
+            }
         }
+
+        private void dataGridViewRecientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewRecientes.SelectedRows != null)
+            {
+
+                dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
+
+                DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
+
+                DataGridViewRow fila = fila = filas[0];
+                dataGridViewRecientes.ClearSelection();
+                dataGridViewRecientes.Rows[fila.Index].Selected = true;
+                string id = fila.Cells["id"].Value.ToString();
+                FormContestarPeticion form = new FormContestarPeticion(id);
+                form.Show();
+            }
+        }
+
+        private void button_borrarPeticion_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewRecientes.SelectedCells.Count >0)
+            {
+                if (dataGridViewRecientes.SelectedRows != null)
+                {
+
+                    dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
+
+                    DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
+
+                    DataGridViewRow fila = fila = filas[0];
+                    dataGridViewRecientes.ClearSelection();
+                    dataGridViewRecientes.Rows[fila.Index].Selected = true;
+                    dataGridViewRecientes.Rows.Remove(dataGridViewRecientes.CurrentRow);
+                }
+            }
+        }
+
+        private void button_borrarPeticionAnt_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_Anteriores.SelectedCells.Count > 0)
+            {
+                if (dataGridView_Anteriores.SelectedRows != null)
+                {
+
+                    dataGridView_Anteriores.Rows[dataGridView_Anteriores.CurrentCell.RowIndex].Selected = true;
+
+                    DataGridViewSelectedRowCollection filas = dataGridView_Anteriores.SelectedRows;
+
+                    DataGridViewRow fila = fila = filas[0];
+                    dataGridView_Anteriores.ClearSelection();
+                    dataGridView_Anteriores.Rows[fila.Index].Selected = true;
+                    dataGridView_Anteriores.Rows.Remove(dataGridView_Anteriores.CurrentRow);
+                }
+            }
+        }
+
+        
     }
 }
