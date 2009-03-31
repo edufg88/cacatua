@@ -112,5 +112,19 @@ namespace Libreria
             }
             return actualizada;
         }
+
+        public static void borrarPeticion(int id)
+        {
+            ENPeticionCRUD peticion = new ENPeticionCRUD();
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "DELETE FROM peticiones where id=" + id;
+               
+                SqlDataReader reader = comando.ExecuteReader();
+            }
+        }
     }
 }
