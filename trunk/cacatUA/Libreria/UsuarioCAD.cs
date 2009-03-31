@@ -21,7 +21,7 @@ namespace Libreria
 
         // Extrae los datos de un objeto DataReader y los almacena en un 
         // ENUsuarioCRUD que devuelve
-        private static ENUsuarioCRUD ObtenerDatos(SqlDataReader dr)
+        public static ENUsuarioCRUD ObtenerDatos(SqlDataReader dr)
         {
             ENUsuarioCRUD usuario = new ENUsuarioCRUD();
 
@@ -33,10 +33,7 @@ namespace Libreria
             usuario.Correo = dr["correo"].ToString();
             usuario.Adicional = dr["adicional"].ToString();
 
-            /*
-            DateTime f = new DateTime();
-            usuario.Fechaingreso = dr["fecha"].ToString();
-            */
+            usuario.Fechaingreso = DateTime.Parse(dr["fecha"].ToString());
 
             if (int.Parse(dr["activo"].ToString()) == 0)
             {
@@ -72,6 +69,8 @@ namespace Libreria
                     // en un objeto ENUsuarioCRUD
                     usuario = ObtenerDatos(dr);
                 }
+
+                conexion.Close();
             }
             catch (SqlException sqlex)
             {
@@ -101,6 +100,8 @@ namespace Libreria
                     ENUsuarioCRUD usuario = ObtenerDatos(dr);
                     usuarios.Add(usuario);
                 }
+
+                conexion.Close();
             }
             catch (SqlException sqlex)
             {
@@ -129,6 +130,8 @@ namespace Libreria
                 {
                     borrado = true;
                 }
+
+                conexion.Close();
             }
             catch (SqlException sqlex)
             {
@@ -137,7 +140,6 @@ namespace Libreria
             }
 
             return (borrado);
-
         }
 
         public static void CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
@@ -148,10 +150,25 @@ namespace Libreria
             {
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
+                
+                // Calculamos la fecha de ingreso
+                DateTime fechaingreso = new DateTime();
+                fechaingreso = DateTime.Today;
+
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO" +
-                    "Usuarios ()" +
-                    "VALUES ()";
+                    "Usuarios (usuario, contrasena, nombre, dni, correo, adicional, fechaingreso, activo)" +
+                    "VALUES (@usuario, @contrasena, @nombre, @dni, @correo, @adicional, @fechaingreso, @activo)";
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@contrasena", contrasena);
+                comando.Parameters.AddWithValue("@nombre", nombre);
+                comando.Parameters.AddWithValue("@dni", dni);
+                comando.Parameters.AddWithValue("@correo", correo);
+                comando.Parameters.AddWithValue("@adicional", adicional);
+                comando.Parameters.AddWithValue("@fechaingreso", fechaingreso);
+                comando.Parameters.AddWithValue("@activo", activo);
+
+                conexion.Close();
             }
             catch (SqlException sqlex)
             {

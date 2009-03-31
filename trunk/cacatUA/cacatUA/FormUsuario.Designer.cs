@@ -428,7 +428,7 @@
             this.button_editarFirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_editarFirma.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_editarFirma.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarFirma.Location = new System.Drawing.Point(605, 28);
+            this.button_editarFirma.Location = new System.Drawing.Point(606, 28);
             this.button_editarFirma.Name = "button_editarFirma";
             this.button_editarFirma.Size = new System.Drawing.Size(35, 35);
             this.button_editarFirma.TabIndex = 64;
