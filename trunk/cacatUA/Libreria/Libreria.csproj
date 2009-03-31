@@ -49,12 +49,14 @@
     <Compile Include="ENCategoriaCRUD.cs" />
     <Compile Include="ENEncuestaCRUD.cs" />
     <Compile Include="ENFirmaCRUD.cs" />
+    <Compile Include="ENGruposCRUD.cs" />
     <Compile Include="ENHiloCRUD.cs" />
     <Compile Include="ENImagenCRUD.cs" />
     <Compile Include="ENMaterialCRUD.cs" />
     <Compile Include="ENPeticionCRUD.cs" />
     <Compile Include="ENRespuestaCRUD.cs" />
     <Compile Include="ENUsuarioCRUD.cs" />
+    <Compile Include="GruposCAD.cs" />
     <Compile Include="HiloCAD.cs" />
     <Compile Include="MaterialCAD.cs" />
     <Compile Include="PeticionCAD.cs" />
