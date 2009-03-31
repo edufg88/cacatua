@@ -98,12 +98,6 @@
     <Compile Include="FormForoEdicion.Designer.cs">
       <DependentUpon>FormForoEdicion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGrupo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormGrupo.Designer.cs">
-      <DependentUpon>FormGrupo.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormCategorias.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,6 +121,18 @@
     </Compile>
     <Compile Include="FormGrupos.Designer.cs">
       <DependentUpon>FormGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGruposEdicion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormGruposEdicion.Designer.cs">
+      <DependentUpon>FormGruposEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGruposBusqueda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormGruposBusqueda.Designer.cs">
+      <DependentUpon>FormGruposBusqueda.cs</DependentUpon>
     </Compile>
     <Compile Include="FormHilo.cs">
       <SubType>Form</SubType>
@@ -237,10 +243,6 @@
       <DependentUpon>FormForoEdicion.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGrupo.resx">
-      <DependentUpon>FormGrupo.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -255,6 +257,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrupos.resx">
       <DependentUpon>FormGrupos.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGruposEdicion.resx">
+      <DependentUpon>FormGruposEdicion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGruposBusqueda.resx">
+      <DependentUpon>FormGruposBusqueda.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHilo.resx">
