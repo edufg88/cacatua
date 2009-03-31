@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -38,6 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -362,6 +363,7 @@
     <None Include="datos\materiales.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="datos\add.jpg" />
     <Content Include="datos\add.png" />
     <None Include="datos\avanzar.png" />

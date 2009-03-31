@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Configuration;
 
 namespace Libreria
 {
@@ -13,7 +14,8 @@ namespace Libreria
     /// </summary>
     class HiloCAD
     {
-        private static String cadenaConexion = @"Data Source=COMPUTORO\SQLEXPRESS;Initial Catalog=cacatua;Integrated Security=True;Pooling=False";
+        //private static String cadenaConexion = @"Data Source=COMPUTORO\SQLEXPRESS;Initial Catalog=cacatua;Integrated Security=True;Pooling=False";
+        private static String cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
 
         private static ENHiloCRUD obtenerDatos(SqlDataReader dataReader)
         {
@@ -29,6 +31,7 @@ namespace Libreria
 
         public static ENHiloCRUD Obtener(int id)
         {
+            Console.WriteLine(cadenaConexion);
             ENHiloCRUD hilo = null;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
@@ -93,8 +96,18 @@ namespace Libreria
 
         public static bool Guardar(ENHiloCRUD hilo)
         {
-            // insert into hilos (...) values (...);
-            return false;
+            bool insertado = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                string cadenaComando = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, 1, '31/03/2009', 1)";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
+                comando.Parameters.AddWithValue("@texto", hilo.Texto);
+                if (comando.ExecuteNonQuery() == 1)
+                    insertado = true;
+            }
+            return insertado;
         }
 
         public static bool Borrar(ENHiloCRUD hilo)
@@ -104,8 +117,17 @@ namespace Libreria
 
         public static bool Borrar(int id)
         {
-            // delete from hilos where id = id;
-            return false;
+            bool borrado = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                string cadenaComando = "delete from hilos where id = @id";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                comando.Parameters.AddWithValue("@id", id);
+                if (comando.ExecuteNonQuery() == 1)
+                    borrado = true;
+            }
+            return borrado;
         }
 
         public static bool Actualizar(ENHiloCRUD hilo)
