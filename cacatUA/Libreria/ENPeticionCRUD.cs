@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
@@ -10,16 +10,25 @@ namespace Libreria
         private int id;
         private string asunto;
         private string texto;
-        private ENUsuarioCRUD usuario;
+        private int usuario;
         private DateTime fecha;
         private bool contestada;
 
-        ENPeticionCRUD()
+        public ENPeticionCRUD()
         {
             id = 0;
             asunto = "";
             texto = "";
             contestada = false;
+        }
+
+        public ENPeticionCRUD(int i,string a,string t,bool c,int u)
+        {
+            id = i;
+            asunto = a;
+            texto = t;
+            contestada = c;
+            usuario = u;
         }
 
         public int Id
@@ -37,7 +46,7 @@ namespace Libreria
             get { return texto; }
             set { texto = value; }
         }
-        public ENUsuarioCRUD Usuario
+        public int Usuario
         {
             get { return usuario; }
             set { usuario = value; }
@@ -51,6 +60,16 @@ namespace Libreria
         {
             get { return contestada; }
             set { contestada = true; }
+        }
+
+        public ArrayList getSinContestar()
+        {
+            return PeticionCAD.getSinContestar();
+        }
+
+        public ArrayList getContestadas()
+        {
+            return PeticionCAD.getContestadas();
         }
     }
 }
