@@ -6,13 +6,13 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Configuration;
 
 namespace Libreria
 {
     public class CategoriaCAD
     {
-        //static string cadenaConexion = "Data Source=JCZ\\SQLEXPRESS;Initial Catalog=CacatUA;Integrated Security=True;Pooling=False";
-        static string cadenaConexion = @"Data Source=PORTATIL-VISTA\SQLEXPRESS;Initial Catalog=CacatUA;Integrated Security=True;Pooling=False";
+        static string cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
 
         public static ENCategoriaCRUD obtenerCategoria(int id)
         {
