@@ -12,6 +12,8 @@ namespace Libreria
         private String descripcion;
         private int padre;
 
+        private CategoriaCAD cad;
+
         public ENCategoriaCRUD()
         {
         }
@@ -58,6 +60,13 @@ namespace Libreria
             return CategoriaCAD.NumHilosEn(this);
         }
 
+
+        //Metodos estaticos de categorias
+
+        public static int NumCategorias()
+        {
+            return CategoriaCAD.NumCategorias();
+        } 
 
         //Propiedades
 

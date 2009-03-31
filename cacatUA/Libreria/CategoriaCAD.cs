@@ -11,7 +11,8 @@ namespace Libreria
 {
     public class CategoriaCAD
     {
-        static string cadenaConexion = "Data Source=JCZ\\SQLEXPRESS;Initial Catalog=CacatUA;Integrated Security=True;Pooling=False";
+        //static string cadenaConexion = "Data Source=JCZ\\SQLEXPRESS;Initial Catalog=CacatUA;Integrated Security=True;Pooling=False";
+        static string cadenaConexion = @"Data Source=PORTATIL-VISTA\SQLEXPRESS;Initial Catalog=CacatUA;Integrated Security=True;Pooling=False";
 
         public static ENCategoriaCRUD obtenerCategoria(int id)
         {
@@ -179,29 +180,23 @@ namespace Libreria
 
         public static ArrayList usuariosSuscritosA(ENCategoriaCRUD categoria)
         {
-            /*ArrayList usuarios = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            ArrayList usuarios = new ArrayList();
+            /*using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
-                comando.CommandText = "SELECT * FROM SUSCRITOACATEGORIA where categoria = @idcat";
+                comando.CommandText = "SELECT * FROM USUARIO WHERE id IN (" +
+                                        "SELECT usuario FROM SUSCRITOACATEGORIA where categoria = @idcat)";
                 comando.Parameters.AddWithValue("@idcat", categoria.Id);
-
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
                 {
-                    ENUsuarioCRUD usuario = ENUsuarioCRUD.obtenerDatos(reader);
+                    ENUsuarioCRUD usuario = ENUsuarioCRUD.ObtenerDatos(reader);
                     usuarios.Add(usuario);
                 }
-            }
-            return usuarios;*/
-
-            ArrayList usuarios = new ArrayList();
-            usuarios.Add("Jorge");
-            usuarios.Add("Antonio");
-            usuarios.Add("Juan");
+            }*/
             return usuarios;
         }
 
@@ -238,6 +233,25 @@ namespace Libreria
 
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
+                {
+                    n = int.Parse(reader["numero"].ToString());
+                }
+            }
+            return n;
+        }
+
+        public static int NumCategorias()
+        {
+            int n = 0;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM CATEGORIAS";
+
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
                 {
                     n = int.Parse(reader["numero"].ToString());
                 }

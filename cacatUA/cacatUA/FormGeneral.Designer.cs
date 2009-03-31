@@ -30,28 +30,28 @@
         {
             this.tableLayoutPanelGrupos = new System.Windows.Forms.TableLayoutPanel();
             this.panelGrupos = new System.Windows.Forms.Panel();
-            this.panelTitulo = new System.Windows.Forms.Panel();
-            this.label_titulo = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label_condicionesBusqueda = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox_usuariosRegistrados = new System.Windows.Forms.TextBox();
-            this.textBox_fotosSubidas = new System.Windows.Forms.TextBox();
-            this.textBox_hilosCreados = new System.Windows.Forms.TextBox();
-            this.textBox_seccionesCreadas = new System.Windows.Forms.TextBox();
-            this.textBox_materialesDisponibles = new System.Windows.Forms.TextBox();
-            this.label_fotosSubidas = new System.Windows.Forms.Label();
-            this.label_hilosCreados = new System.Windows.Forms.Label();
-            this.label_seccionesCreadas = new System.Windows.Forms.Label();
-            this.label_materialesDisponibles = new System.Windows.Forms.Label();
             this.label_usuariosRegistrados = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_materialesDisponibles = new System.Windows.Forms.Label();
+            this.label_seccionesCreadas = new System.Windows.Forms.Label();
+            this.label_hilosCreados = new System.Windows.Forms.Label();
+            this.label_fotosSubidas = new System.Windows.Forms.Label();
+            this.textBox_materialesDisponibles = new System.Windows.Forms.TextBox();
+            this.textBox_categoriasCreadas = new System.Windows.Forms.TextBox();
+            this.textBox_hilosCreados = new System.Windows.Forms.TextBox();
+            this.textBox_fotosSubidas = new System.Windows.Forms.TextBox();
+            this.textBox_usuariosRegistrados = new System.Windows.Forms.TextBox();
+            this.panelTitulo = new System.Windows.Forms.Panel();
+            this.label_titulo = new System.Windows.Forms.Label();
             this.tableLayoutPanelGrupos.SuspendLayout();
             this.panelGrupos.SuspendLayout();
-            this.panelTitulo.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.panelTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelGrupos
@@ -98,31 +98,22 @@
             this.panelGrupos.Size = new System.Drawing.Size(689, 393);
             this.panelGrupos.TabIndex = 35;
             // 
-            // panelTitulo
+            // tableLayoutPanel2
             // 
-            this.panelTitulo.BackColor = System.Drawing.Color.Gray;
-            this.panelTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTitulo.Controls.Add(this.label_titulo);
-            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTitulo.Location = new System.Drawing.Point(3, 3);
-            this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(689, 25);
-            this.panelTitulo.TabIndex = 30;
-            // 
-            // label_titulo
-            // 
-            this.label_titulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_titulo.AutoSize = true;
-            this.label_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_titulo.ForeColor = System.Drawing.Color.White;
-            this.label_titulo.Location = new System.Drawing.Point(3, 0);
-            this.label_titulo.Name = "label_titulo";
-            this.label_titulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label_titulo.Size = new System.Drawing.Size(59, 19);
-            this.label_titulo.TabIndex = 7;
-            this.label_titulo.Text = "General";
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(687, 391);
+            this.tableLayoutPanel2.TabIndex = 17;
             // 
             // panel1
             // 
@@ -157,7 +148,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label_hilosCreados, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label_fotosSubidas, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox_materialesDisponibles, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_seccionesCreadas, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBox_categoriasCreadas, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox_hilosCreados, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBox_fotosSubidas, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox_usuariosRegistrados, 1, 0);
@@ -175,51 +166,41 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(541, 178);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox_usuariosRegistrados
+            // label_usuariosRegistrados
             // 
-            this.textBox_usuariosRegistrados.Location = new System.Drawing.Point(273, 3);
-            this.textBox_usuariosRegistrados.Name = "textBox_usuariosRegistrados";
-            this.textBox_usuariosRegistrados.ReadOnly = true;
-            this.textBox_usuariosRegistrados.Size = new System.Drawing.Size(100, 20);
-            this.textBox_usuariosRegistrados.TabIndex = 8;
-            this.textBox_usuariosRegistrados.Text = "650";
+            this.label_usuariosRegistrados.AutoSize = true;
+            this.label_usuariosRegistrados.Location = new System.Drawing.Point(3, 0);
+            this.label_usuariosRegistrados.Name = "label_usuariosRegistrados";
+            this.label_usuariosRegistrados.Size = new System.Drawing.Size(105, 13);
+            this.label_usuariosRegistrados.TabIndex = 0;
+            this.label_usuariosRegistrados.Text = "Usuarios registrados:";
             // 
-            // textBox_fotosSubidas
+            // label_materialesDisponibles
             // 
-            this.textBox_fotosSubidas.Location = new System.Drawing.Point(273, 127);
-            this.textBox_fotosSubidas.Name = "textBox_fotosSubidas";
-            this.textBox_fotosSubidas.ReadOnly = true;
-            this.textBox_fotosSubidas.Size = new System.Drawing.Size(100, 20);
-            this.textBox_fotosSubidas.TabIndex = 12;
-            this.textBox_fotosSubidas.Text = "853";
+            this.label_materialesDisponibles.AutoSize = true;
+            this.label_materialesDisponibles.Location = new System.Drawing.Point(3, 31);
+            this.label_materialesDisponibles.Name = "label_materialesDisponibles";
+            this.label_materialesDisponibles.Size = new System.Drawing.Size(113, 13);
+            this.label_materialesDisponibles.TabIndex = 1;
+            this.label_materialesDisponibles.Text = "Materiales disponibles:";
             // 
-            // textBox_hilosCreados
+            // label_seccionesCreadas
             // 
-            this.textBox_hilosCreados.Location = new System.Drawing.Point(273, 96);
-            this.textBox_hilosCreados.Name = "textBox_hilosCreados";
-            this.textBox_hilosCreados.ReadOnly = true;
-            this.textBox_hilosCreados.Size = new System.Drawing.Size(100, 20);
-            this.textBox_hilosCreados.TabIndex = 11;
-            this.textBox_hilosCreados.Text = "178";
+            this.label_seccionesCreadas.AutoSize = true;
+            this.label_seccionesCreadas.Location = new System.Drawing.Point(3, 62);
+            this.label_seccionesCreadas.Name = "label_seccionesCreadas";
+            this.label_seccionesCreadas.Size = new System.Drawing.Size(101, 13);
+            this.label_seccionesCreadas.TabIndex = 2;
+            this.label_seccionesCreadas.Text = "Categorias creadas:";
             // 
-            // textBox_seccionesCreadas
+            // label_hilosCreados
             // 
-            this.textBox_seccionesCreadas.Location = new System.Drawing.Point(273, 65);
-            this.textBox_seccionesCreadas.Name = "textBox_seccionesCreadas";
-            this.textBox_seccionesCreadas.ReadOnly = true;
-            this.textBox_seccionesCreadas.Size = new System.Drawing.Size(100, 20);
-            this.textBox_seccionesCreadas.TabIndex = 10;
-            this.textBox_seccionesCreadas.Text = "57";
-            // 
-            // textBox_materialesDisponibles
-            // 
-            this.textBox_materialesDisponibles.Location = new System.Drawing.Point(273, 34);
-            this.textBox_materialesDisponibles.Name = "textBox_materialesDisponibles";
-            this.textBox_materialesDisponibles.ReadOnly = true;
-            this.textBox_materialesDisponibles.Size = new System.Drawing.Size(100, 20);
-            this.textBox_materialesDisponibles.TabIndex = 9;
-            this.textBox_materialesDisponibles.Text = "347";
-            this.textBox_materialesDisponibles.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.label_hilosCreados.AutoSize = true;
+            this.label_hilosCreados.Location = new System.Drawing.Point(3, 93);
+            this.label_hilosCreados.Name = "label_hilosCreados";
+            this.label_hilosCreados.Size = new System.Drawing.Size(72, 13);
+            this.label_hilosCreados.TabIndex = 3;
+            this.label_hilosCreados.Text = "Hilos Creados";
             // 
             // label_fotosSubidas
             // 
@@ -231,58 +212,77 @@
             this.label_fotosSubidas.Text = "Fotos subidas";
             this.label_fotosSubidas.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label_hilosCreados
+            // textBox_materialesDisponibles
             // 
-            this.label_hilosCreados.AutoSize = true;
-            this.label_hilosCreados.Location = new System.Drawing.Point(3, 93);
-            this.label_hilosCreados.Name = "label_hilosCreados";
-            this.label_hilosCreados.Size = new System.Drawing.Size(72, 13);
-            this.label_hilosCreados.TabIndex = 3;
-            this.label_hilosCreados.Text = "Hilos Creados";
+            this.textBox_materialesDisponibles.Location = new System.Drawing.Point(273, 34);
+            this.textBox_materialesDisponibles.Name = "textBox_materialesDisponibles";
+            this.textBox_materialesDisponibles.ReadOnly = true;
+            this.textBox_materialesDisponibles.Size = new System.Drawing.Size(100, 20);
+            this.textBox_materialesDisponibles.TabIndex = 9;
+            this.textBox_materialesDisponibles.Text = "347";
+            this.textBox_materialesDisponibles.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // label_seccionesCreadas
+            // textBox_categoriasCreadas
             // 
-            this.label_seccionesCreadas.AutoSize = true;
-            this.label_seccionesCreadas.Location = new System.Drawing.Point(3, 62);
-            this.label_seccionesCreadas.Name = "label_seccionesCreadas";
-            this.label_seccionesCreadas.Size = new System.Drawing.Size(101, 13);
-            this.label_seccionesCreadas.TabIndex = 2;
-            this.label_seccionesCreadas.Text = "Secciones creadas:";
+            this.textBox_categoriasCreadas.Location = new System.Drawing.Point(273, 65);
+            this.textBox_categoriasCreadas.Name = "textBox_categoriasCreadas";
+            this.textBox_categoriasCreadas.ReadOnly = true;
+            this.textBox_categoriasCreadas.Size = new System.Drawing.Size(100, 20);
+            this.textBox_categoriasCreadas.TabIndex = 10;
+            this.textBox_categoriasCreadas.Text = "57";
             // 
-            // label_materialesDisponibles
+            // textBox_hilosCreados
             // 
-            this.label_materialesDisponibles.AutoSize = true;
-            this.label_materialesDisponibles.Location = new System.Drawing.Point(3, 31);
-            this.label_materialesDisponibles.Name = "label_materialesDisponibles";
-            this.label_materialesDisponibles.Size = new System.Drawing.Size(113, 13);
-            this.label_materialesDisponibles.TabIndex = 1;
-            this.label_materialesDisponibles.Text = "Materiales disponibles:";
+            this.textBox_hilosCreados.Location = new System.Drawing.Point(273, 96);
+            this.textBox_hilosCreados.Name = "textBox_hilosCreados";
+            this.textBox_hilosCreados.ReadOnly = true;
+            this.textBox_hilosCreados.Size = new System.Drawing.Size(100, 20);
+            this.textBox_hilosCreados.TabIndex = 11;
+            this.textBox_hilosCreados.Text = "178";
             // 
-            // label_usuariosRegistrados
+            // textBox_fotosSubidas
             // 
-            this.label_usuariosRegistrados.AutoSize = true;
-            this.label_usuariosRegistrados.Location = new System.Drawing.Point(3, 0);
-            this.label_usuariosRegistrados.Name = "label_usuariosRegistrados";
-            this.label_usuariosRegistrados.Size = new System.Drawing.Size(105, 13);
-            this.label_usuariosRegistrados.TabIndex = 0;
-            this.label_usuariosRegistrados.Text = "Usuarios registrados:";
+            this.textBox_fotosSubidas.Location = new System.Drawing.Point(273, 127);
+            this.textBox_fotosSubidas.Name = "textBox_fotosSubidas";
+            this.textBox_fotosSubidas.ReadOnly = true;
+            this.textBox_fotosSubidas.Size = new System.Drawing.Size(100, 20);
+            this.textBox_fotosSubidas.TabIndex = 12;
+            this.textBox_fotosSubidas.Text = "853";
             // 
-            // tableLayoutPanel2
+            // textBox_usuariosRegistrados
             // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 170F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(687, 391);
-            this.tableLayoutPanel2.TabIndex = 17;
+            this.textBox_usuariosRegistrados.Location = new System.Drawing.Point(273, 3);
+            this.textBox_usuariosRegistrados.Name = "textBox_usuariosRegistrados";
+            this.textBox_usuariosRegistrados.ReadOnly = true;
+            this.textBox_usuariosRegistrados.Size = new System.Drawing.Size(100, 20);
+            this.textBox_usuariosRegistrados.TabIndex = 8;
+            this.textBox_usuariosRegistrados.Text = "650";
+            // 
+            // panelTitulo
+            // 
+            this.panelTitulo.BackColor = System.Drawing.Color.Gray;
+            this.panelTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTitulo.Controls.Add(this.label_titulo);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTitulo.Location = new System.Drawing.Point(3, 3);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(689, 25);
+            this.panelTitulo.TabIndex = 30;
+            // 
+            // label_titulo
+            // 
+            this.label_titulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_titulo.AutoSize = true;
+            this.label_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_titulo.ForeColor = System.Drawing.Color.White;
+            this.label_titulo.Location = new System.Drawing.Point(3, 0);
+            this.label_titulo.Name = "label_titulo";
+            this.label_titulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.label_titulo.Size = new System.Drawing.Size(59, 19);
+            this.label_titulo.TabIndex = 7;
+            this.label_titulo.Text = "General";
             // 
             // FormGeneral
             // 
@@ -291,15 +291,16 @@
             this.Controls.Add(this.tableLayoutPanelGrupos);
             this.Name = "FormGeneral";
             this.Size = new System.Drawing.Size(695, 430);
+            this.Load += new System.EventHandler(this.FormGeneral_Load);
             this.tableLayoutPanelGrupos.ResumeLayout(false);
             this.panelGrupos.ResumeLayout(false);
-            this.panelTitulo.ResumeLayout(false);
-            this.panelTitulo.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panelTitulo.ResumeLayout(false);
+            this.panelTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -320,7 +321,7 @@
         private System.Windows.Forms.Label label_hilosCreados;
         private System.Windows.Forms.Label label_fotosSubidas;
         private System.Windows.Forms.TextBox textBox_materialesDisponibles;
-        private System.Windows.Forms.TextBox textBox_seccionesCreadas;
+        private System.Windows.Forms.TextBox textBox_categoriasCreadas;
         private System.Windows.Forms.TextBox textBox_hilosCreados;
         private System.Windows.Forms.TextBox textBox_fotosSubidas;
         private System.Windows.Forms.TextBox textBox_usuariosRegistrados;

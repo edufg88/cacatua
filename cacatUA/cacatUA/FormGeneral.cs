@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace cacatUA
 {
@@ -26,7 +27,9 @@ namespace cacatUA
 
         }
 
-      
-
+        private void FormGeneral_Load(object sender, EventArgs e)
+        {
+            //textBox_categoriasCreadas.Text = ENCategoriaCRUD.NumCategorias().ToString();
+        }
     }
 }
