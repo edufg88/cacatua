@@ -126,17 +126,20 @@ namespace cacatUA
         {
             if (dataGridViewRecientes.SelectedRows != null)
             {
-          
-                dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
-                
-                DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
+                if (dataGridViewRecientes.SelectedCells.Count > 0)
+                {
 
-                DataGridViewRow fila = fila = filas[0];
-                dataGridViewRecientes.ClearSelection();
-                dataGridViewRecientes.Rows[fila.Index].Selected = true;
-                string id = fila.Cells["Autor"].Value.ToString();
-                FormContestarPeticion form = new FormContestarPeticion(id);
-                form.Show();
+                    dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
+
+                    DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
+
+                    DataGridViewRow fila = fila = filas[0];
+                    dataGridViewRecientes.ClearSelection();
+                    dataGridViewRecientes.Rows[fila.Index].Selected = true;
+                    string id = fila.Cells["Autor"].Value.ToString();
+                    FormContestarPeticion form = new FormContestarPeticion(id);
+                    form.Show();
+                }
             }
         }
 
@@ -144,17 +147,19 @@ namespace cacatUA
         {
             if (dataGridViewRecientes.SelectedRows != null)
             {
+                if (dataGridViewRecientes.SelectedCells.Count > 0)
+                {
+                    dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
 
-                dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
+                    DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
 
-                DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
-
-                DataGridViewRow fila = fila = filas[0];
-                dataGridViewRecientes.ClearSelection();
-                dataGridViewRecientes.Rows[fila.Index].Selected = true;
-                string id = fila.Cells["id"].Value.ToString();
-                FormContestarPeticion form = new FormContestarPeticion(id);
-                form.Show();
+                    DataGridViewRow fila = fila = filas[0];
+                    dataGridViewRecientes.ClearSelection();
+                    dataGridViewRecientes.Rows[fila.Index].Selected = true;
+                    string id = fila.Cells["id"].Value.ToString();
+                    FormContestarPeticion form = new FormContestarPeticion(id);
+                    form.Show();
+                }
             }
         }
 
