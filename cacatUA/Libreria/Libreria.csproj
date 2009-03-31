@@ -57,6 +57,7 @@
     <Compile Include="ENUsuarioCRUD.cs" />
     <Compile Include="HiloCAD.cs" />
     <Compile Include="MaterialCAD.cs" />
+    <Compile Include="PeticionCAD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RespuestaCAD.cs" />
     <Compile Include="UsuarioCAD.cs" />
