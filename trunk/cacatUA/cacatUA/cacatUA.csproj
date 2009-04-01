@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -57,6 +57,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioEdicion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioEdicion.Designer.cs">
+      <DependentUpon>FormUsuarioEdicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioBusqueda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioBusqueda.Designer.cs">
+      <DependentUpon>FormUsuarioBusqueda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,15 +225,18 @@
     <Compile Include="FormUsuarioPeticion.Designer.cs">
       <DependentUpon>FormUsuarioPeticion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUsuarios.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FormUsuarios.Designer.cs">
-      <DependentUpon>FormUsuarios.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioEdicion.resx">
+      <DependentUpon>FormUsuarioEdicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioBusqueda.resx">
+      <DependentUpon>FormUsuarioBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -314,10 +335,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarioPeticion.resx">
       <DependentUpon>FormUsuarioPeticion.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUsuarios.resx">
-      <DependentUpon>FormUsuarios.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
