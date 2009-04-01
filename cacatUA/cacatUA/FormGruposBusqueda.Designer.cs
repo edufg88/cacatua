@@ -235,6 +235,7 @@
             // 
             // button_buscar
             // 
+            this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_buscar.Location = new System.Drawing.Point(656, 3);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 24);

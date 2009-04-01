@@ -32,12 +32,9 @@
             this.panel_Grupos = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.butto_editar = new System.Windows.Forms.Button();
+            this.button_editar = new System.Windows.Forms.Button();
             this.button_borrar = new System.Windows.Forms.Button();
-            this.dataGridView_grupos = new System.Windows.Forms.DataGridView();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
             this.label_seccion1 = new System.Windows.Forms.Label();
@@ -47,14 +44,18 @@
             this.panel_tituloResultado = new System.Windows.Forms.Panel();
             this.label_resultado = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button_volver = new System.Windows.Forms.Button();
             this.panel_Titulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.button_volver = new System.Windows.Forms.Button();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_Grupos.SuspendLayout();
             this.panel_Grupos.SuspendLayout();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_grupos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).BeginInit();
             this.panel_cabeceraSeccion1.SuspendLayout();
             this.panel_opciones.SuspendLayout();
             this.panel_tituloResultado.SuspendLayout();
@@ -116,9 +117,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.butto_editar);
+            this.panel1.Controls.Add(this.button_editar);
             this.panel1.Controls.Add(this.button_borrar);
-            this.panel1.Controls.Add(this.dataGridView_grupos);
+            this.panel1.Controls.Add(this.dataGridView_resultados);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 355);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -126,20 +127,21 @@
             this.panel1.Size = new System.Drawing.Size(852, 90);
             this.panel1.TabIndex = 103;
             // 
-            // butto_editar
+            // button_editar
             // 
-            this.butto_editar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butto_editar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editar.FlatAppearance.BorderSize = 0;
-            this.butto_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editar.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editar.Location = new System.Drawing.Point(813, 3);
-            this.butto_editar.Name = "butto_editar";
-            this.butto_editar.Size = new System.Drawing.Size(36, 36);
-            this.butto_editar.TabIndex = 11;
-            this.butto_editar.Tag = "Modificar hilo seleccionado";
-            this.butto_editar.UseVisualStyleBackColor = true;
+            this.button_editar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editar.FlatAppearance.BorderSize = 0;
+            this.button_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editar.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editar.Location = new System.Drawing.Point(813, 3);
+            this.button_editar.Name = "button_editar";
+            this.button_editar.Size = new System.Drawing.Size(36, 36);
+            this.button_editar.TabIndex = 11;
+            this.button_editar.Tag = "Modificar hilo seleccionado";
+            this.button_editar.UseVisualStyleBackColor = true;
+            this.button_editar.Click += new System.EventHandler(this.button_editar_Click);
             // 
             // button_borrar
             // 
@@ -156,48 +158,29 @@
             this.button_borrar.Tag = "Eliminar hilo seleccionado";
             this.button_borrar.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_grupos
+            // dataGridView_resultados
             // 
-            this.dataGridView_grupos.AllowUserToAddRows = false;
-            this.dataGridView_grupos.AllowUserToDeleteRows = false;
-            this.dataGridView_grupos.AllowUserToResizeRows = false;
-            this.dataGridView_grupos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dataGridView_resultados.AllowUserToAddRows = false;
+            this.dataGridView_resultados.AllowUserToDeleteRows = false;
+            this.dataGridView_resultados.AllowUserToResizeRows = false;
+            this.dataGridView_resultados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_grupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_grupos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_resultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
             this.ColumnNombre,
             this.ColumnNumUsuarios,
             this.ColumnFecha});
-            this.dataGridView_grupos.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView_grupos.MultiSelect = false;
-            this.dataGridView_grupos.Name = "dataGridView_grupos";
-            this.dataGridView_grupos.ReadOnly = true;
-            this.dataGridView_grupos.RowHeadersVisible = false;
-            this.dataGridView_grupos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_grupos.Size = new System.Drawing.Size(806, 84);
-            this.dataGridView_grupos.TabIndex = 94;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            // 
-            // ColumnNumUsuarios
-            // 
-            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
-            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
-            this.ColumnNumUsuarios.ReadOnly = true;
-            this.ColumnNumUsuarios.Width = 128;
-            // 
-            // ColumnFecha
-            // 
-            this.ColumnFecha.HeaderText = "Fecha de Creación";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.ReadOnly = true;
-            this.ColumnFecha.Width = 122;
+            this.dataGridView_resultados.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView_resultados.MultiSelect = false;
+            this.dataGridView_resultados.Name = "dataGridView_resultados";
+            this.dataGridView_resultados.ReadOnly = true;
+            this.dataGridView_resultados.RowHeadersVisible = false;
+            this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_resultados.Size = new System.Drawing.Size(806, 84);
+            this.dataGridView_resultados.TabIndex = 94;
+            this.dataGridView_resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_resultados_CellContentClick);
             // 
             // panel_contenedor
             // 
@@ -294,6 +277,17 @@
             this.panel2.Size = new System.Drawing.Size(852, 30);
             this.panel2.TabIndex = 101;
             // 
+            // button_volver
+            // 
+            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
+            this.button_volver.Location = new System.Drawing.Point(3, 4);
+            this.button_volver.Name = "button_volver";
+            this.button_volver.Size = new System.Drawing.Size(306, 23);
+            this.button_volver.TabIndex = 1;
+            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
+            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_volver.UseVisualStyleBackColor = true;
+            // 
             // panel_Titulo
             // 
             this.panel_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(182)))), ((int)(((byte)(56)))));
@@ -320,16 +314,33 @@
             this.labelTitulo.TabIndex = 7;
             this.labelTitulo.Text = "Grupos";
             // 
-            // button_volver
+            // ColumnID
             // 
-            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
-            this.button_volver.Location = new System.Drawing.Point(3, 4);
-            this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(306, 23);
-            this.button_volver.TabIndex = 1;
-            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
-            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_volver.UseVisualStyleBackColor = true;
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 50;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            // 
+            // ColumnNumUsuarios
+            // 
+            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
+            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
+            this.ColumnNumUsuarios.ReadOnly = true;
+            this.ColumnNumUsuarios.Width = 128;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha de Creación";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            this.ColumnFecha.Width = 122;
             // 
             // FormGrupos
             // 
@@ -342,7 +353,7 @@
             this.panel_Grupos.ResumeLayout(false);
             this.tableLayoutPanel_principal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_grupos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).EndInit();
             this.panel_cabeceraSeccion1.ResumeLayout(false);
             this.panel_cabeceraSeccion1.PerformLayout();
             this.panel_opciones.ResumeLayout(false);
@@ -364,21 +375,22 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_principal;
         private System.Windows.Forms.Panel panel_tituloResultado;
         private System.Windows.Forms.Label label_resultado;
-        private System.Windows.Forms.DataGridView dataGridView_grupos;
+        private System.Windows.Forms.DataGridView dataGridView_resultados;
         private System.Windows.Forms.Panel panel_opciones;
         private System.Windows.Forms.Button button_seccionCrear;
         private System.Windows.Forms.Button button_seccionBuscar;
         private System.Windows.Forms.Panel panel_cabeceraSeccion1;
         private System.Windows.Forms.Label label_seccion1;
         private System.Windows.Forms.Panel panel_contenedor;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button_editar;
+        private System.Windows.Forms.Button button_borrar;
+        private System.Windows.Forms.Button button_volver;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button butto_editar;
-        private System.Windows.Forms.Button button_borrar;
-        private System.Windows.Forms.Button button_volver;
 
     }
 }

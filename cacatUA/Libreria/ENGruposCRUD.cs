@@ -13,25 +13,59 @@ namespace Libreria
         private int id;
         private ArrayList usuarios;
         int numUsuarios;
-
+        GruposCAD grupos;
 
         public ENGruposCRUD()
         {
+            id = 0;
+            nombre = "";
+            descripcion = "";
+            fecha = new DateTime();
+            usuarios = new ArrayList();
+            numUsuarios = 0;
+            grupos = new GruposCAD();
         }
 
-        public ENGruposCRUD(int id, string nombre, string descripcion, DateTime fecha, ArrayList usuarios)
+        public ENGruposCRUD(int id)
         {
-            this.id = id;
+            grupos = new GruposCAD();
+            ENGruposCRUD grupo=grupos.obtenerGrupo(id);
+            this.id = grupo.id;
+            this.nombre = grupo.nombre;
+            this.descripcion = grupo.descripcion;
+            this.fecha = grupo.fecha;
+            this.usuarios = grupo.usuarios;
+            this.numUsuarios = grupo.numUsuarios;
+            
+        }
+
+        public ENGruposCRUD(ENGruposCRUD grupo)
+        {
+            this.id = grupo.id;
+            this.nombre = grupo.nombre;
+            this.descripcion = grupo.descripcion;
+            this.fecha = grupo.fecha;
+            this.usuarios = grupo.usuarios;
+            this.numUsuarios = grupo.numUsuarios;
+        }
+
+        public ENGruposCRUD(string nombre, string descripcion, DateTime fecha, ArrayList usuarios)
+        {
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.fecha = fecha;
-            this.usuarios = usuarios;
-            this.numUsuarios = 0;
+            if (usuarios.Count > 0)
+            {
+                this.usuarios = usuarios;
+            }
+            else this.usuarios=new ArrayList();
+            this.numUsuarios = usuarios.Count;
+            grupos=new GruposCAD();
         }
 
-        public void crearGrupo()
+        public bool crearGrupo()
         {
-
+            return grupos.crearGrupo(nombre, descripcion, fecha, usuarios);
         }
 
         public void actualizarGrupo()
@@ -39,19 +73,15 @@ namespace Libreria
 
         }
 
-        public void borrarGrupo()
+        public bool borrarGrupo()
         {
-
+            return grupos.borrarGrupo(id);
         }
 
-        public void obtenerGrupos()
+        public ArrayList obtenerGrupos()
         {
-
+            return grupos.obtenerGrupos();
         }
-
-        /*public int NumUsuarios()
-        {
-        }*/
 
 
         //Propiedades
