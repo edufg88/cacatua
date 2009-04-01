@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace cacatUA
 {
@@ -23,7 +25,7 @@ namespace cacatUA
             formBusqueda.Dock = DockStyle.Top;
 
             tableLayoutPanel_principal.RowStyles[5].Height = 0;
-
+            anadirGrupos();
             Busqueda();
 
         }
@@ -49,6 +51,27 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[2].Height = formEdicion.Height;
         }
 
+        /// <summary>
+        /// Añade los grupos que hay en la BD
+        /// </summary>
+        private void anadirGrupos()
+        {
+            ENGruposCRUD grupos = new ENGruposCRUD();
+            ArrayList lista = grupos.obtenerGrupos();
+            for (int i = 0; i < lista.Count; i++)
+            {
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dataGridView_resultados);
+
+                ENGruposCRUD auxiliar = (ENGruposCRUD)lista[i];
+                fila.Cells[0].Value = auxiliar.Id.ToString();
+                fila.Cells[1].Value = auxiliar.Nombre.ToString();
+                fila.Cells[2].Value = auxiliar.NumUsuarios.ToString();
+                fila.Cells[3].Value = auxiliar.Fecha.ToString();
+                dataGridView_resultados.Rows.Add(fila);
+            }
+        }
+
 
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
@@ -58,11 +81,12 @@ namespace cacatUA
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
             Edicion();
+            formEdicion.Nuevo();
         }
 
         private void button_eliminar_Click(object sender, EventArgs e)
         {
-            DataGridViewSelectedRowCollection filas = dataGridView_grupos.SelectedRows;
+            DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
             String mensaje;
             if (filas.Count > 0)
             {
@@ -83,15 +107,24 @@ namespace cacatUA
                         // Obtenemos la fila
                         DataGridViewRow fila = filas[i];
                         // Eliminamos la fila
-                        dataGridView_grupos.Rows.Remove(fila);
+                        dataGridView_resultados.Rows.Remove(fila);
                     }
                 }
             }
         }
 
-        private void butto_editarHilo_Click(object sender, EventArgs e)
+        private void button_editar_Click(object sender, EventArgs e)
         {
             Edicion();
+            formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
         }
+
+        private void dataGridView_resultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Edicion();
+            formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+        }
+
+
     }
 }

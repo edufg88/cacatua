@@ -30,7 +30,7 @@
         {
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel_nombre = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_id = new System.Windows.Forms.TextBox();
             this.label_id = new System.Windows.Forms.Label();
             this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.label_nombre = new System.Windows.Forms.Label();
@@ -41,7 +41,10 @@
             this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
             this.label_fecha = new System.Windows.Forms.Label();
             this.panel_usuarios = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_seccionCrear = new System.Windows.Forms.Button();
             this.linkLabel_usuario = new System.Windows.Forms.LinkLabel();
+            this.button_borrar = new System.Windows.Forms.Button();
             this.listBox_usuarios = new System.Windows.Forms.ListBox();
             this.label_usuarios = new System.Windows.Forms.Label();
             this.panel_numUsuarios = new System.Windows.Forms.Panel();
@@ -50,18 +53,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_eliminar = new System.Windows.Forms.Button();
             this.button_guardar = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_seccionCrear = new System.Windows.Forms.Button();
-            this.button_borrar = new System.Windows.Forms.Button();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_nombre.SuspendLayout();
             this.panel_descripcion.SuspendLayout();
             this.panel_fecha.SuspendLayout();
             this.panel_usuarios.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panel_numUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_secundario
@@ -90,7 +90,7 @@
             // 
             // panel_nombre
             // 
-            this.panel_nombre.Controls.Add(this.textBox1);
+            this.panel_nombre.Controls.Add(this.textBox_id);
             this.panel_nombre.Controls.Add(this.label_id);
             this.panel_nombre.Controls.Add(this.textBox_nombre);
             this.panel_nombre.Controls.Add(this.label_nombre);
@@ -101,14 +101,14 @@
             this.panel_nombre.Size = new System.Drawing.Size(899, 30);
             this.panel_nombre.TabIndex = 1;
             // 
-            // textBox1
+            // textBox_id
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(806, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(57, 20);
-            this.textBox1.TabIndex = 148;
+            this.textBox_id.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_id.Location = new System.Drawing.Point(806, 5);
+            this.textBox_id.Name = "textBox_id";
+            this.textBox_id.ReadOnly = true;
+            this.textBox_id.Size = new System.Drawing.Size(57, 20);
+            this.textBox_id.TabIndex = 148;
             // 
             // label_id
             // 
@@ -207,6 +207,36 @@
             this.panel_usuarios.Size = new System.Drawing.Size(899, 93);
             this.panel_usuarios.TabIndex = 9;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.button_seccionCrear, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.linkLabel_usuario, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button_borrar, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(451, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.18182F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(71, 87);
+            this.tableLayoutPanel1.TabIndex = 5;
+            // 
+            // button_seccionCrear
+            // 
+            this.button_seccionCrear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_seccionCrear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seccionCrear.FlatAppearance.BorderSize = 0;
+            this.button_seccionCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seccionCrear.Image = global::cacatUA.Properties.Resources.nuevo;
+            this.button_seccionCrear.Location = new System.Drawing.Point(3, 20);
+            this.button_seccionCrear.Name = "button_seccionCrear";
+            this.button_seccionCrear.Size = new System.Drawing.Size(65, 30);
+            this.button_seccionCrear.TabIndex = 13;
+            this.button_seccionCrear.UseVisualStyleBackColor = true;
+            // 
             // linkLabel_usuario
             // 
             this.linkLabel_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -221,16 +251,26 @@
             this.linkLabel_usuario.Text = "Ver usuario";
             this.linkLabel_usuario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_usuario_LinkClicked);
             // 
+            // button_borrar
+            // 
+            this.button_borrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_borrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrar.FlatAppearance.BorderSize = 0;
+            this.button_borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrar.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrar.Location = new System.Drawing.Point(3, 56);
+            this.button_borrar.Name = "button_borrar";
+            this.button_borrar.Size = new System.Drawing.Size(65, 28);
+            this.button_borrar.TabIndex = 14;
+            this.button_borrar.Tag = "Eliminar hilo seleccionado";
+            this.button_borrar.UseVisualStyleBackColor = true;
+            // 
             // listBox_usuarios
             // 
             this.listBox_usuarios.ColumnWidth = 50;
             this.listBox_usuarios.FormattingEnabled = true;
-            this.listBox_usuarios.Items.AddRange(new object[] {
-            "Jose",
-            "Juan",
-            "Andres",
-            "Pepe",
-            "Tomas"});
             this.listBox_usuarios.Location = new System.Drawing.Point(125, 10);
             this.listBox_usuarios.Name = "listBox_usuarios";
             this.listBox_usuarios.Size = new System.Drawing.Size(320, 82);
@@ -293,6 +333,7 @@
             this.button_eliminar.TabIndex = 2;
             this.button_eliminar.Text = "Descartar cambios";
             this.button_eliminar.UseVisualStyleBackColor = true;
+            this.button_eliminar.Click += new System.EventHandler(this.button_eliminar_Click);
             // 
             // button_guardar
             // 
@@ -303,52 +344,7 @@
             this.button_guardar.TabIndex = 3;
             this.button_guardar.Text = "Guardar cambios";
             this.button_guardar.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button_seccionCrear, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabel_usuario, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button_borrar, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(451, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.18182F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(71, 87);
-            this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // button_seccionCrear
-            // 
-            this.button_seccionCrear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_seccionCrear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seccionCrear.FlatAppearance.BorderSize = 0;
-            this.button_seccionCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionCrear.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_seccionCrear.Location = new System.Drawing.Point(3, 20);
-            this.button_seccionCrear.Name = "button_seccionCrear";
-            this.button_seccionCrear.Size = new System.Drawing.Size(65, 30);
-            this.button_seccionCrear.TabIndex = 13;
-            this.button_seccionCrear.UseVisualStyleBackColor = true;
-            // 
-            // button_borrar
-            // 
-            this.button_borrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_borrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrar.FlatAppearance.BorderSize = 0;
-            this.button_borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrar.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrar.Location = new System.Drawing.Point(3, 56);
-            this.button_borrar.Name = "button_borrar";
-            this.button_borrar.Size = new System.Drawing.Size(65, 28);
-            this.button_borrar.TabIndex = 14;
-            this.button_borrar.Tag = "Eliminar hilo seleccionado";
-            this.button_borrar.UseVisualStyleBackColor = true;
+            this.button_guardar.Click += new System.EventHandler(this.button_guardar_Click);
             // 
             // FormGruposEdicion
             // 
@@ -366,12 +362,12 @@
             this.panel_fecha.PerformLayout();
             this.panel_usuarios.ResumeLayout(false);
             this.panel_usuarios.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panel_numUsuarios.ResumeLayout(false);
             this.panel_numUsuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -398,7 +394,7 @@
         private System.Windows.Forms.Button button_eliminar;
         private System.Windows.Forms.Button button_guardar;
         private System.Windows.Forms.TextBox textBox_nombre;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button_seccionCrear;

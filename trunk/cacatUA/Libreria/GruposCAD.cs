@@ -7,31 +7,32 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Configuration;
 
 namespace Libreria
 {
     public class GruposCAD
     {
-        static string cadenaConexion = @"Data Source=Raul\SQLEXPRESS;Initial Catalog=cacatuaBD;Integrated Security=True;Pooling=False";
+        private static String cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
 
-        private static void obtenerUsuarios(SqlDataReader reader, ENGruposCRUD grupo)
+        private void obtenerUsuarios(SqlDataReader reader, ENGruposCRUD grupo)
         {
             grupo.Usuarios.Add(reader["usuario"].ToString());
             grupo.NumUsuarios++;
         }
 
 
-        private static ENGruposCRUD obtenerDatos(SqlDataReader reader)
+        private ENGruposCRUD obtenerDatos(SqlDataReader reader)
         {
             ENGruposCRUD grupo = new ENGruposCRUD();
             grupo.Id = int.Parse(reader["id"].ToString());
             grupo.Nombre = reader["nombre"].ToString();
             grupo.Descripcion = reader["descripcion"].ToString();
-            //grupos.Fecha = reader["fecha"].ToString();
+            grupo.Fecha = DateTime.Parse(reader["fecha"].ToString());
             return grupo;
         }
 
-        private static SqlDataReader buscarUsuarios(string nombre)
+        private SqlDataReader buscarUsuarios(string nombre)
         {
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
@@ -47,7 +48,7 @@ namespace Libreria
             }
         }
 
-        public static ArrayList obtenerGrupos()
+        public ArrayList obtenerGrupos()
         {
             ArrayList grupos = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -63,18 +64,18 @@ namespace Libreria
                 while (reader.Read())
                 {
                     ENGruposCRUD grupo = obtenerDatos(reader);
-                    SqlDataReader readerUsu = buscarUsuarios(grupo.Nombre);
+                    /*SqlDataReader readerUsu = buscarUsuarios(grupo.Nombre);
                     while (readerUsu.Read())
                     {
                         obtenerUsuarios(readerUsu, grupo);
-                    }
+                    }*/
                     grupos.Add(grupo);
                 }
             }
             return grupos;
         }
 
-        public static ENGruposCRUD obtenerGrupo(int id)
+        public ENGruposCRUD obtenerGrupo(int id)
         {
             ENGruposCRUD grupos = null;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -92,17 +93,17 @@ namespace Libreria
                 {
                     // Obtenemos la información
                     grupos = obtenerDatos(reader);
-                    SqlDataReader readerUsu = buscarUsuarios(grupos.Nombre);
+                    /*SqlDataReader readerUsu = buscarUsuarios(grupos.Nombre);
                     while (readerUsu.Read())
                     {
                         obtenerUsuarios(readerUsu, grupos);
-                    }
+                    }*/
                 }
             }
             return grupos;
         }
 
-        public static bool borrarGrupo(int id)
+        public bool borrarGrupo(int id)
         {
             int resultado = 0;
             bool borrado = false;
@@ -123,8 +124,11 @@ namespace Libreria
             return borrado;
         }
 
-        public static void crearGrupo(string nombre, string descripcion, DateTime fecha,ArrayList usuarios)
+        public bool crearGrupo(string nombre, string descripcion, DateTime fecha,ArrayList usuarios)
         {
+            int resultado = 0;
+            bool creacion = false;
+            bool usuario = true;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 // Abrimos la conexión
@@ -139,18 +143,29 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@nombre", nombre);
                 comando.Parameters.AddWithValue("@descripcion", descripcion);
                 comando.Parameters.AddWithValue("@fecha", fecha);
-                comando.ExecuteNonQuery();
-
-                foreach (Object obj in usuarios)
+                resultado=comando.ExecuteNonQuery();
+                if (usuarios.Count != 0)
                 {
-                    insertarUsuario(obj.ToString(), nombre);
+                    foreach (Object obj in usuarios)
+                    {
+                        if (!insertarUsuario(obj.ToString(), nombre))
+                        {
+                            usuario = false;
+                        }
+                    }
                 }
-
+                if (resultado == 1 && usuario == true)
+                {
+                    creacion = true;
+                }
             }
+            return creacion;
         }
 
-        public static void insertarUsuario(string usuario,string grupo)
+        public bool insertarUsuario(string usuario,string grupo)
         {
+            int resultado = 0;
+            bool insertado = false;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 // Abrimos la conexión
@@ -164,11 +179,16 @@ namespace Libreria
                     "VALUES (@usuario,@grupo)";
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@grupo", grupo);
-                comando.ExecuteNonQuery();
+                resultado=comando.ExecuteNonQuery();
+                if (resultado == 1)
+                {
+                    insertado = true;
+                }
             }
+            return insertado;
         }
 
-        public static bool borrarUsuario(string usuario,string grupo)
+        public bool borrarUsuario(string usuario,string grupo)
         {
             int resultado = 0;
             bool borrado = false;
