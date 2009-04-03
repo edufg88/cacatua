@@ -10,7 +10,7 @@ namespace Libreria
         private int id;
         private string titulo;
         private string descripcion;
-        private ENUsuarioCRUD usuario;
+        private ENUsuario usuario;
         private string archivo;
 
         ENImagenCRUD()
@@ -36,7 +36,7 @@ namespace Libreria
             get { return Descripcion; }
             set { descripcion = value; }
         }
-        public ENUsuarioCRUD Usuario
+        public ENUsuario Usuario
         {
             get { return usuario; }
             set { usuario = value; }

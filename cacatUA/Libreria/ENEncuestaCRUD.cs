@@ -9,7 +9,7 @@ namespace Libreria
     {
         private int id;
         private string pregunta;
-        private ENUsuarioCRUD usuario;
+        private ENUsuario usuario;
         private DateTime fecha;
         private bool activa;
 
@@ -30,7 +30,7 @@ namespace Libreria
             get { return pregunta; }
             set { pregunta = value; }
         }
-        public ENUsuarioCRUD Usuario
+        public ENUsuario Usuario
         {
             get { return usuario; }
             set { usuario = value; }
