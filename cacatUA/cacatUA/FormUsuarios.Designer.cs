@@ -33,26 +33,21 @@
             this.label_usuarios = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel_opciones = new System.Windows.Forms.Panel();
-            this.button_ocultar = new System.Windows.Forms.Button();
             this.button_seccionCrear = new System.Windows.Forms.Button();
             this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
+            this.button_ocultarP1 = new System.Windows.Forms.Button();
             this.label_seccion1 = new System.Windows.Forms.Label();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
+            this.button_ocultarP2 = new System.Windows.Forms.Button();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_DataGridViewUsuarios = new System.Windows.Forms.Panel();
             this.butto_editarHilo = new System.Windows.Forms.Button();
             this.button_borrarHilo = new System.Windows.Forms.Button();
             this.dataGridView_usuarios = new System.Windows.Forms.DataGridView();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialesPublicados = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fotosPublicadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.encuestasRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_volverUsuarios = new System.Windows.Forms.Panel();
             this.button_volver = new System.Windows.Forms.Button();
             this.tableLayoutPanel_principal.SuspendLayout();
@@ -130,7 +125,6 @@
             // 
             // panel_opciones
             // 
-            this.panel_opciones.Controls.Add(this.button_ocultar);
             this.panel_opciones.Controls.Add(this.button_seccionCrear);
             this.panel_opciones.Controls.Add(this.button_seccionBuscar);
             this.panel_opciones.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -139,16 +133,6 @@
             this.panel_opciones.Name = "panel_opciones";
             this.panel_opciones.Size = new System.Drawing.Size(832, 39);
             this.panel_opciones.TabIndex = 2;
-            // 
-            // button_ocultar
-            // 
-            this.button_ocultar.Location = new System.Drawing.Point(81, 9);
-            this.button_ocultar.Name = "button_ocultar";
-            this.button_ocultar.Size = new System.Drawing.Size(110, 23);
-            this.button_ocultar.TabIndex = 5;
-            this.button_ocultar.Text = "Ocultar";
-            this.button_ocultar.UseVisualStyleBackColor = true;
-            this.button_ocultar.Click += new System.EventHandler(this.button_ocultar_Click);
             // 
             // button_seccionCrear
             // 
@@ -188,12 +172,23 @@
             // panel_cabeceraSeccion1
             // 
             this.panel_cabeceraSeccion1.BackColor = System.Drawing.Color.LightGray;
+            this.panel_cabeceraSeccion1.Controls.Add(this.button_ocultarP1);
             this.panel_cabeceraSeccion1.Controls.Add(this.label_seccion1);
             this.panel_cabeceraSeccion1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_cabeceraSeccion1.Location = new System.Drawing.Point(0, 0);
             this.panel_cabeceraSeccion1.Name = "panel_cabeceraSeccion1";
             this.panel_cabeceraSeccion1.Size = new System.Drawing.Size(832, 29);
             this.panel_cabeceraSeccion1.TabIndex = 3;
+            // 
+            // button_ocultarP1
+            // 
+            this.button_ocultarP1.Location = new System.Drawing.Point(714, 3);
+            this.button_ocultarP1.Name = "button_ocultarP1";
+            this.button_ocultarP1.Size = new System.Drawing.Size(110, 23);
+            this.button_ocultarP1.TabIndex = 6;
+            this.button_ocultarP1.Text = "Ocultar";
+            this.button_ocultarP1.UseVisualStyleBackColor = true;
+            this.button_ocultarP1.Click += new System.EventHandler(this.button_ocultarP1_Click);
             // 
             // label_seccion1
             // 
@@ -225,12 +220,23 @@
             // panel_cabeceraSeccion2
             // 
             this.panel_cabeceraSeccion2.BackColor = System.Drawing.Color.LightGray;
+            this.panel_cabeceraSeccion2.Controls.Add(this.button_ocultarP2);
             this.panel_cabeceraSeccion2.Controls.Add(this.label_seccion2);
             this.panel_cabeceraSeccion2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_cabeceraSeccion2.Location = new System.Drawing.Point(0, 0);
             this.panel_cabeceraSeccion2.Name = "panel_cabeceraSeccion2";
             this.panel_cabeceraSeccion2.Size = new System.Drawing.Size(832, 29);
             this.panel_cabeceraSeccion2.TabIndex = 4;
+            // 
+            // button_ocultarP2
+            // 
+            this.button_ocultarP2.Location = new System.Drawing.Point(714, 3);
+            this.button_ocultarP2.Name = "button_ocultarP2";
+            this.button_ocultarP2.Size = new System.Drawing.Size(110, 23);
+            this.button_ocultarP2.TabIndex = 6;
+            this.button_ocultarP2.Text = "Ocultar";
+            this.button_ocultarP2.UseVisualStyleBackColor = true;
+            this.button_ocultarP2.Click += new System.EventHandler(this.button_ocultarP2_Click);
             // 
             // label_seccion2
             // 
@@ -287,15 +293,11 @@
             // 
             this.dataGridView_usuarios.AllowUserToAddRows = false;
             this.dataGridView_usuarios.AllowUserToDeleteRows = false;
+            this.dataGridView_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Usuario,
-            this.Email,
-            this.fechaIngreso,
-            this.materialesPublicados,
-            this.fotosPublicadas,
-            this.encuestasRealizadas});
             this.dataGridView_usuarios.Location = new System.Drawing.Point(3, 3);
             this.dataGridView_usuarios.Name = "dataGridView_usuarios";
             this.dataGridView_usuarios.ReadOnly = true;
@@ -303,42 +305,6 @@
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 321);
             this.dataGridView_usuarios.TabIndex = 2;
-            // 
-            // Usuario
-            // 
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.HeaderText = "Fecha de ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
-            // 
-            // materialesPublicados
-            // 
-            this.materialesPublicados.HeaderText = "Materiales publicados";
-            this.materialesPublicados.Name = "materialesPublicados";
-            this.materialesPublicados.ReadOnly = true;
-            // 
-            // fotosPublicadas
-            // 
-            this.fotosPublicadas.HeaderText = "Fotos publicadas";
-            this.fotosPublicadas.Name = "fotosPublicadas";
-            this.fotosPublicadas.ReadOnly = true;
-            // 
-            // encuestasRealizadas
-            // 
-            this.encuestasRealizadas.HeaderText = "Encuestas realizadas";
-            this.encuestasRealizadas.Name = "encuestasRealizadas";
-            this.encuestasRealizadas.ReadOnly = true;
             // 
             // panel_volverUsuarios
             // 
@@ -403,17 +369,12 @@
         private System.Windows.Forms.Panel panel_DataGridViewUsuarios;
         private System.Windows.Forms.Panel panel_volverUsuarios;
         private System.Windows.Forms.DataGridView dataGridView_usuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialesPublicados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fotosPublicadas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn encuestasRealizadas;
         private System.Windows.Forms.Button button_volver;
         private System.Windows.Forms.Panel panel_cabeceraSeccion2;
         private System.Windows.Forms.Label label_seccion2;
         private System.Windows.Forms.Button button_borrarHilo;
         private System.Windows.Forms.Button butto_editarHilo;
-        private System.Windows.Forms.Button button_ocultar;
+        private System.Windows.Forms.Button button_ocultarP1;
+        private System.Windows.Forms.Button button_ocultarP2;
     }
 }

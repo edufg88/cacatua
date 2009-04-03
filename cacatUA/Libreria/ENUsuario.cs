@@ -7,18 +7,16 @@ using System.Collections;
 
 namespace Libreria
 {
-    public class ENUsuarioCRUD
+    public class ENUsuario
     {
         const int maxTamUsuario = 15;
         const int minTamUsuario = 5;
-        //const int maxTamContrasena = 15;
         const int minTamContrasena = 5;
         const int maxTamNombre = 15;
         const int minTamNombre = 5;
-        //const int maxTamCorreo = 20;
-        //const int minTamCorreo =5;
         const int maxTamAdicional = 50;
-        //const int minTamAdicional = 5;
+
+        private UsuarioCAD usuarioCAD;
 
         private int id;
         private string usuario;
@@ -30,7 +28,7 @@ namespace Libreria
         private DateTime fechaingreso;
         private bool activo;
 
-        public ENUsuarioCRUD()
+        public ENUsuario()
         {
             id = 0;
             usuario = "";
@@ -40,6 +38,23 @@ namespace Libreria
             correo = "";
             adicional = "";
             activo = false;
+            fechaingreso = DateTime.Now;
+
+            usuarioCAD = new UsuarioCAD();
+        }
+
+        public ENUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
+        {
+            id = 0; // El id hay que generarlo
+            this.usuario = usuario;
+            this.contrasena = contrasena;
+            this.nombre = nombre;
+            this.dni = dni;
+            this.correo = correo;
+            this.activo = activo;
+            this.adicional = adicional;
+            this.fechaingreso = DateTime.Now;
+            usuarioCAD = new UsuarioCAD();
         }
 
         public string ValidarFormulario(string campo, string dato)
@@ -147,24 +162,29 @@ namespace Libreria
             return (error);
         }
 
-        public static ArrayList ObtenerUsuarios()
+        public ArrayList ObtenerUsuarios()
         {
-            return UsuarioCAD.ObtenerUsuarios();
+            return usuarioCAD.ObtenerUsuarios();
         }
 
         public void CrearUsuario()
         {
-            UsuarioCAD.CrearUsuario(usuario, contrasena, nombre, dni, correo, activo, adicional);
+            usuarioCAD.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
         }
 
         public bool BorrarUsuario()
         {
-            return UsuarioCAD.BorrarUsuario(id);
+            return usuarioCAD.BorrarUsuario(id);
         }
 
-        public static bool BorrarUsuario(int pid)
+        public bool BorrarUsuario(int pid)
         {
-            return UsuarioCAD.BorrarUsuario(pid);
+            return usuarioCAD.BorrarUsuario(pid);
+        }
+
+        public void BorrarUsuarios()
+        {
+            usuarioCAD.BorrarUsuarios();
         }
 
         public int Id

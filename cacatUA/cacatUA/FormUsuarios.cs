@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
+using System.Collections;
 
 namespace cacatUA
 {
@@ -13,7 +15,8 @@ namespace cacatUA
     {
         private FormUsuarioBusqueda formBusqueda;
         private FormUsuarioEdicion formEdicion;
-        private bool oculto;
+        private bool ocultoP1;
+        private bool ocultoP2;
         private int formulario; // 0 = formBusqueda, 1 = formEdicion;
 
         public FormUsuarios()
@@ -28,7 +31,9 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[6].Height = 0;
 
             formulario = 0;
-            oculto = false;
+            // Indican si los paneles están ocultos o no
+            ocultoP1 = false;
+            ocultoP2 = false;
         }
 
         public void CambiarFormularioBusqueda()
@@ -51,6 +56,31 @@ namespace cacatUA
             formulario = 1;
         }
 
+        private void InsertarUsuariosPrueba()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                ENUsuario usuario = new ENUsuario("edu" + i.ToString(), i.ToString(), "edu" + i.ToString(), "1111111" + i.ToString(), "edu@prueba.com" + i.ToString(), false, "hola");
+                usuario.CrearUsuario();
+                //CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
+            }
+        }
+
+        private void BorrarUsuariosPrueba()
+        {
+            ENUsuario usuario = new ENUsuario();
+            usuario.BorrarUsuarios();
+        }
+
+        private void CargarUsuarios()
+        {
+            ENUsuario usuario = new ENUsuario();
+            ArrayList al = new ArrayList();
+            al = usuario.ObtenerUsuarios();
+
+            dataGridView_usuarios.DataSource = al;
+        }
+
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
             // Cargamos el user control de busqueda
@@ -67,20 +97,23 @@ namespace cacatUA
         private void FormUsuarios_Load(object sender, EventArgs e)
         {
             CambiarFormularioBusqueda();
+            BorrarUsuariosPrueba();
+            InsertarUsuariosPrueba(); // Insertamos algunos usuarios
+            CargarUsuarios();// Los cargamos en el DataGridView
         }
 
-        private void button_ocultar_Click(object sender, EventArgs e)
+        private void button_ocultarP1_Click(object sender, EventArgs e)
         {
             label_seccion1.Text += " (Oculto)";
-            if (!oculto)
+            if (!ocultoP1)
             {
                 tableLayoutPanel_principal.RowStyles[3].Height = 0;
-                oculto = true;
+                ocultoP1 = true;
             }
             else
             {
                 switch (formulario)
-                { 
+                {
                     case 0:
                         label_seccion1.Text = "Búsqueda";
                         tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
@@ -91,10 +124,24 @@ namespace cacatUA
                         break;
                 }
 
-                oculto = false;
+                ocultoP1 = false;
             }
         }
 
-
+        private void button_ocultarP2_Click(object sender, EventArgs e)
+        {
+            label_seccion2.Text += " (Oculto)";
+            if (!ocultoP2)
+            {
+                tableLayoutPanel_principal.RowStyles[5].Height = 0;
+                ocultoP2 = true;
+            }
+            else
+            {
+                label_seccion2.Text = "Resultados de la búsqueda";
+                tableLayoutPanel_principal.RowStyles[5].Height = panel_DataGridViewUsuarios.Height;
+                ocultoP2 = false;
+            }
+        }
     }
 }
