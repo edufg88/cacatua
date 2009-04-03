@@ -8,10 +8,10 @@ namespace Libreria
     public class ENFirmaCRUD
     {
         private int id;
-        private ENUsuarioCRUD emisor;
+        private ENUsuario emisor;
         private string texto;
         private DateTime fecha;
-        private ENUsuarioCRUD receptor;
+        private ENUsuario receptor;
 
         ENFirmaCRUD()
         {
@@ -24,7 +24,7 @@ namespace Libreria
             get { return id; }
             set { id = value; }
         }
-        public ENUsuarioCRUD Emisor
+        public ENUsuario Emisor
         {
             get { return emisor; }
             set { emisor = value; }
@@ -39,7 +39,7 @@ namespace Libreria
             get { return fecha; }
             set { fecha = value; }
         }
-        public ENUsuarioCRUD Receptor
+        public ENUsuario Receptor
         {
             get { return receptor; }
             set { receptor = value; }
