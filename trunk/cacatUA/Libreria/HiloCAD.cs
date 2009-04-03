@@ -10,16 +10,40 @@ using System.Configuration;
 namespace Libreria
 {
     /// <summary>
-    /// 
+    /// Clase singleton que realiza el acceso a la base de datos 
     /// </summary>
     class HiloCAD
     {
-        //private static String cadenaConexion = @"Data Source=COMPUTORO\SQLEXPRESS;Initial Catalog=cacatua;Integrated Security=True;Pooling=False";
-        private static String cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+        private static HiloCAD instancia = null;
+        private String cadenaConexion;
 
-        private static ENHiloCRUD obtenerDatos(SqlDataReader dataReader)
+        /// <summary>
+        /// Obtiene la única instancia de la clase HiloCAD. Si es la primera vez
+        /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
+        /// al objeto que ya fue creado anteriormente.
+        /// </summary>
+        /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
+        public static HiloCAD GetInstancia()
         {
-            ENHiloCRUD hilo = new ENHiloCRUD();
+            if (instancia == null)
+            {
+                instancia = new HiloCAD();
+            }
+            return instancia;
+        }
+
+        /// <summary>
+        /// Constructor en el ámbito privado de la clase para no permitir más
+        /// de una instancia.
+        /// </summary>
+        private HiloCAD()
+        {
+            cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+        }
+
+        private ENHilo obtenerDatos(SqlDataReader dataReader)
+        {
+            ENHilo hilo = new ENHilo();
             hilo.Id = int.Parse(dataReader["id"].ToString());
             hilo.Texto = dataReader["texto"].ToString();
             hilo.Titulo = dataReader["titulo"].ToString();
@@ -29,10 +53,10 @@ namespace Libreria
             return hilo;
         }
 
-        public static ENHiloCRUD Obtener(int id)
+        public ENHilo Obtener(int id)
         {
             Console.WriteLine(cadenaConexion);
-            ENHiloCRUD hilo = null;
+            ENHilo hilo = null;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 // Abrimos la conexión.
@@ -56,7 +80,7 @@ namespace Libreria
             return hilo;
         }
 
-        public static ArrayList Obtener()
+        public ArrayList Obtener()
         {
             ArrayList materiales = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -68,20 +92,20 @@ namespace Libreria
                 // Insertamos todas las filas extraidas en el vector.
                 while (dataReader.Read())
                 {
-                    ENHiloCRUD material = obtenerDatos(dataReader);
+                    ENHilo material = obtenerDatos(dataReader);
                     materiales.Add(material);
                 }
             }
             return materiales;
         }
 
-        public static ArrayList Obtener(int pagina, int cantidad)
+        public ArrayList Obtener(int pagina, int cantidad)
         {
             // select * from hilos limit pagina*cantidad, cantidad;
             return null;
         }
 
-        public static ArrayList Obtener(int pagina, int cantidad, String titulo, String texto
+        public ArrayList Obtener(int pagina, int cantidad, String titulo, String texto
             /*, ENUsuarioCRUD autor*/, DateTime fechaInicio, DateTime fechaFin, ENCategoriaCRUD categoria)
         {
             // select *
@@ -94,7 +118,7 @@ namespace Libreria
             return null;
         }
 
-        public static bool Guardar(ENHiloCRUD hilo)
+        public bool Guardar(ENHilo hilo)
         {
             bool insertado = false;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -110,12 +134,12 @@ namespace Libreria
             return insertado;
         }
 
-        public static bool Borrar(ENHiloCRUD hilo)
+        public bool Borrar(ENHilo hilo)
         {
             return Borrar(hilo.Id);
         }
 
-        public static bool Borrar(int id)
+        public bool Borrar(int id)
         {
             bool borrado = false;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -130,7 +154,7 @@ namespace Libreria
             return borrado;
         }
 
-        public static bool Actualizar(ENHiloCRUD hilo)
+        public bool Actualizar(ENHilo hilo)
         {
             // update hilos set tal tal tal where id = hilo.id;
             return false;

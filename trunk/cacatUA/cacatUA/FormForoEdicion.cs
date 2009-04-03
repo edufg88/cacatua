@@ -12,7 +12,7 @@ namespace cacatUA
 {
     public partial class FormForoEdicion : UserControl
     {
-        ENHiloCRUD hilo;
+        ENHilo hilo;
         public FormForoEdicion()
         {
             InitializeComponent();
@@ -20,7 +20,7 @@ namespace cacatUA
 
         public void CambiarSeleccionado(int id)
         {
-            hilo = new ENHiloCRUD(id);
+            hilo = new ENHilo(id);
             textBox_id.Text = hilo.Id.ToString();
             textBox_texto.Text = hilo.Texto;
             textBox_titulo.Text = hilo.Titulo;
@@ -39,7 +39,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENHiloCRUD nuevo = new ENHiloCRUD();
+            ENHilo nuevo = new ENHilo();
             nuevo.Texto = textBox_texto.Text;
             nuevo.Titulo = textBox_titulo.Text;
             nuevo.Guardar();

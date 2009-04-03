@@ -53,13 +53,13 @@ namespace cacatUA
 
         private void anadirAlgunosHilos()
         {
-            ArrayList lista = ENHiloCRUD.Obtener();
+            ArrayList lista = ENHilo.Obtener();
             for (int i = 0; i < lista.Count; i++)
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dataGridView_resultados);
 
-                ENHiloCRUD auxiliar = (ENHiloCRUD) lista[i];
+                ENHilo auxiliar = (ENHilo) lista[i];
                 fila.Cells[0].Value = auxiliar.Id.ToString();
                 fila.Cells[1].Value = auxiliar.Titulo.ToString();
                 fila.Cells[2].Value = auxiliar.Texto.ToString();
@@ -133,7 +133,7 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENHiloCRUD.Borrar(int.Parse(i.Cells[0].Value.ToString()));
+                        ENHilo.Borrar(int.Parse(i.Cells[0].Value.ToString()));
                         dataGridView_resultados.Rows.Remove(i);
                     }
                 }
