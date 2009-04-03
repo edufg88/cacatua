@@ -10,7 +10,7 @@ using System.Configuration;
 namespace Libreria
 {
     /// <summary>
-    /// Clase singleton que realiza el acceso a la base de datos 
+    /// Clase singleton que realiza el acceso a la base de datos para manipular los hilos.
     /// </summary>
     class HiloCAD
     {

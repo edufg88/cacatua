@@ -5,14 +5,14 @@ using System.Text;
 
 namespace Libreria
 {
-    class ENRespuestaCRUD
+    class ENRespuesta
     {
         private int id;
         private String texto;
-        private ENUsuario autor;
+        private ENUsuarioCRUD autor;
         private DateTime fecha;
 
-        public ENRespuestaCRUD()
+        public ENRespuesta()
         {
             id = 0;
             texto = "";
@@ -31,7 +31,7 @@ namespace Libreria
             set { texto = value; }
         }
 
-        public ENUsuario Autor
+        public ENUsuarioCRUD Autor
         {
             get { return autor; }
             set { autor = value; }
