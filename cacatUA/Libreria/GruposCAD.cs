@@ -75,6 +75,28 @@ namespace Libreria
             return grupos;
         }
 
+        public bool buscarGrupo(string nombre)
+        {
+            bool encontrado = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM grupos where nombre = @nombre";
+                comando.Parameters.AddWithValue("@nombre", nombre);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    encontrado = true;
+                }
+            }
+            return encontrado;
+        }
+
         public ENGruposCRUD obtenerGrupo(int id)
         {
             ENGruposCRUD grupos = null;
@@ -124,11 +146,10 @@ namespace Libreria
             return borrado;
         }
 
-        public bool crearGrupo(string nombre, string descripcion, DateTime fecha,ArrayList usuarios)
+        public bool actualizarGrupo(int id,string nombre,string descripcion)
         {
             int resultado = 0;
-            bool creacion = false;
-            bool usuario = true;
+            bool actualizado = false;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 // Abrimos la conexión
@@ -137,26 +158,55 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
-                comando.CommandText = "INSERT INTO " +
-                    "grupos(nombre,descripcion,fecha) " +
-                    "VALUES (@nombre,@descripcion,@fecha)";
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                comando.Parameters.AddWithValue("@descripcion", descripcion);
-                comando.Parameters.AddWithValue("@fecha", fecha);
-                resultado=comando.ExecuteNonQuery();
-                if (usuarios.Count != 0)
+                comando.CommandText = "UPDATE grupos SET nombre = @nombre , descripcion = @descripcion "+ 
+                    "where id = @id";
+                comando.Parameters.AddWithValue("@id",id);
+                comando.Parameters.AddWithValue("@nombre",nombre);
+                comando.Parameters.AddWithValue("@descripcion",descripcion);
+                //Actualizar usuarios
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    actualizado = true;
+            }
+            return actualizado;
+        }
+
+        public bool crearGrupo(string nombre, string descripcion, DateTime fecha,ArrayList usuarios)
+        {
+            int resultado = 0;
+            bool creacion = false;
+            bool usuario = true;
+            if (!buscarGrupo(nombre))
+            {
+                using (SqlConnection conexion = new SqlConnection(cadenaConexion))
                 {
-                    foreach (Object obj in usuarios)
+                    // Abrimos la conexión
+                    conexion.Open();
+                    // Creamos el comando
+                    SqlCommand comando = new SqlCommand();
+                    // Le asignamos la conexión al comando
+                    comando.Connection = conexion;
+                    comando.CommandText = "INSERT INTO " +
+                        "grupos(nombre,descripcion,fecha) " +
+                        "VALUES (@nombre,@descripcion,@fecha)";
+                    comando.Parameters.AddWithValue("@nombre", nombre);
+                    comando.Parameters.AddWithValue("@descripcion", descripcion);
+                    comando.Parameters.AddWithValue("@fecha", fecha);
+                    resultado = comando.ExecuteNonQuery();
+                    if (usuarios.Count != 0)
                     {
-                        if (!insertarUsuario(obj.ToString(), nombre))
+                        foreach (Object obj in usuarios)
                         {
-                            usuario = false;
+                            if (!insertarUsuario(obj.ToString(), nombre))
+                            {
+                                usuario = false;
+                            }
                         }
                     }
-                }
-                if (resultado == 1 && usuario == true)
-                {
-                    creacion = true;
+                    if (resultado == 1 && usuario == true)
+                    {
+                        creacion = true;
+                    }
                 }
             }
             return creacion;

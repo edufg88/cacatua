@@ -68,9 +68,9 @@ namespace Libreria
             return grupos.crearGrupo(nombre, descripcion, fecha, usuarios);
         }
 
-        public void actualizarGrupo()
+        public bool actualizarGrupo()
         {
-
+            return grupos.actualizarGrupo(id,nombre,descripcion);
         }
 
         public bool borrarGrupo()

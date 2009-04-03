@@ -35,6 +35,10 @@
             this.button_editar = new System.Windows.Forms.Button();
             this.button_borrar = new System.Windows.Forms.Button();
             this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
             this.label_seccion1 = new System.Windows.Forms.Label();
@@ -47,10 +51,6 @@
             this.button_volver = new System.Windows.Forms.Button();
             this.panel_Titulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_Grupos.SuspendLayout();
             this.panel_Grupos.SuspendLayout();
             this.tableLayoutPanel_principal.SuspendLayout();
@@ -139,7 +139,7 @@
             this.button_editar.Name = "button_editar";
             this.button_editar.Size = new System.Drawing.Size(36, 36);
             this.button_editar.TabIndex = 11;
-            this.button_editar.Tag = "Modificar hilo seleccionado";
+            this.button_editar.Tag = "";
             this.button_editar.UseVisualStyleBackColor = true;
             this.button_editar.Click += new System.EventHandler(this.button_editar_Click);
             // 
@@ -155,8 +155,9 @@
             this.button_borrar.Name = "button_borrar";
             this.button_borrar.Size = new System.Drawing.Size(36, 36);
             this.button_borrar.TabIndex = 12;
-            this.button_borrar.Tag = "Eliminar hilo seleccionado";
+            this.button_borrar.Tag = "";
             this.button_borrar.UseVisualStyleBackColor = true;
+            this.button_borrar.Click += new System.EventHandler(this.button_borrar_Click);
             // 
             // dataGridView_resultados
             // 
@@ -173,7 +174,6 @@
             this.ColumnNumUsuarios,
             this.ColumnFecha});
             this.dataGridView_resultados.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView_resultados.MultiSelect = false;
             this.dataGridView_resultados.Name = "dataGridView_resultados";
             this.dataGridView_resultados.ReadOnly = true;
             this.dataGridView_resultados.RowHeadersVisible = false;
@@ -181,6 +181,34 @@
             this.dataGridView_resultados.Size = new System.Drawing.Size(806, 84);
             this.dataGridView_resultados.TabIndex = 94;
             this.dataGridView_resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_resultados_CellContentClick);
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.Width = 50;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            // 
+            // ColumnNumUsuarios
+            // 
+            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
+            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
+            this.ColumnNumUsuarios.ReadOnly = true;
+            this.ColumnNumUsuarios.Width = 128;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha de Creación";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            this.ColumnFecha.Width = 122;
             // 
             // panel_contenedor
             // 
@@ -313,34 +341,6 @@
             this.labelTitulo.Size = new System.Drawing.Size(55, 19);
             this.labelTitulo.TabIndex = 7;
             this.labelTitulo.Text = "Grupos";
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 50;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            // 
-            // ColumnNumUsuarios
-            // 
-            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
-            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
-            this.ColumnNumUsuarios.ReadOnly = true;
-            this.ColumnNumUsuarios.Width = 128;
-            // 
-            // ColumnFecha
-            // 
-            this.ColumnFecha.HeaderText = "Fecha de Creación";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.ReadOnly = true;
-            this.ColumnFecha.Width = 122;
             // 
             // FormGrupos
             // 

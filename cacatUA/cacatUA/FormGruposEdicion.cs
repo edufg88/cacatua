@@ -20,8 +20,6 @@ namespace cacatUA
 
         public void Nuevo()
         {
-            ENGruposCRUD grupo;
-            grupo = null;
             textBox_nombre.Text = "";
             textBox_id.Text = "";
             textBox_descripcion.Text = "";
@@ -64,14 +62,28 @@ namespace cacatUA
                 }
             }
             ENGruposCRUD grupo = new ENGruposCRUD(textBox_nombre.Text,textBox_descripcion.Text,dateTimePicker_fecha.Value,usuarios);
-            
-            if (grupo.crearGrupo())
+            if (textBox_id.Text == "")
             {
-                MessageBox.Show("Grupo creado correctamente");
+                if (grupo.crearGrupo())
+                {
+                    MessageBox.Show("Grupo creado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error al crear el grupo","Ventana de Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Error al crear elgrupo");
+                grupo.Id = int.Parse(textBox_id.Text);
+                if (grupo.actualizarGrupo())
+                {
+                    MessageBox.Show("Grupo editado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error al editar el grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -108,7 +108,7 @@
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.ReadOnly = true;
             this.textBox_id.Size = new System.Drawing.Size(57, 20);
-            this.textBox_id.TabIndex = 148;
+            this.textBox_id.TabIndex = 0;
             // 
             // label_id
             // 
@@ -127,7 +127,7 @@
             this.textBox_nombre.Location = new System.Drawing.Point(124, 5);
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(638, 20);
-            this.textBox_nombre.TabIndex = 146;
+            this.textBox_nombre.TabIndex = 1;
             // 
             // label_nombre
             // 
@@ -181,10 +181,11 @@
             // 
             // dateTimePicker_fecha
             // 
+            this.dateTimePicker_fecha.Enabled = false;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fecha.TabIndex = 1;
+            this.dateTimePicker_fecha.TabIndex = 3;
             // 
             // label_fecha
             // 
@@ -274,7 +275,7 @@
             this.listBox_usuarios.Location = new System.Drawing.Point(125, 10);
             this.listBox_usuarios.Name = "listBox_usuarios";
             this.listBox_usuarios.Size = new System.Drawing.Size(320, 82);
-            this.listBox_usuarios.TabIndex = 1;
+            this.listBox_usuarios.TabIndex = 4;
             // 
             // label_usuarios
             // 
@@ -302,7 +303,7 @@
             this.numericUpDown_numUsuarios1.Name = "numericUpDown_numUsuarios1";
             this.numericUpDown_numUsuarios1.ReadOnly = true;
             this.numericUpDown_numUsuarios1.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown_numUsuarios1.TabIndex = 1;
+            this.numericUpDown_numUsuarios1.TabIndex = 0;
             // 
             // label_numUsuarios
             // 

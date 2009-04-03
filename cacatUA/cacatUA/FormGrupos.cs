@@ -25,7 +25,6 @@ namespace cacatUA
             formBusqueda.Dock = DockStyle.Top;
 
             tableLayoutPanel_principal.RowStyles[5].Height = 0;
-            anadirGrupos();
             Busqueda();
 
         }
@@ -34,6 +33,7 @@ namespace cacatUA
         /// </summary>
         private void Busqueda()
         {
+            anadirGrupos();
             label_seccion1.Text = "Búsqueda";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formBusqueda);
@@ -56,6 +56,7 @@ namespace cacatUA
         /// </summary>
         private void anadirGrupos()
         {
+            dataGridView_resultados.Rows.Clear();
             ENGruposCRUD grupos = new ENGruposCRUD();
             ArrayList lista = grupos.obtenerGrupos();
             for (int i = 0; i < lista.Count; i++)
@@ -84,35 +85,6 @@ namespace cacatUA
             formEdicion.Nuevo();
         }
 
-        private void button_eliminar_Click(object sender, EventArgs e)
-        {
-            DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
-            String mensaje;
-            if (filas.Count > 0)
-            {
-                if (filas.Count > 1)
-                {
-                    mensaje = "¿Está seguro de que desea eliminar los grupos seleccionados?";
-                }
-                else
-                {
-                    mensaje = "¿Está seguro de que desea eliminar el grupo seleccionado?";
-                }
-
-                DialogResult resultado = MessageBox.Show(mensaje, "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resultado == DialogResult.Yes)
-                {
-                    for (int i = 0; i < filas.Count; i++)
-                    {
-                        // Obtenemos la fila
-                        DataGridViewRow fila = filas[i];
-                        // Eliminamos la fila
-                        dataGridView_resultados.Rows.Remove(fila);
-                    }
-                }
-            }
-        }
-
         private void button_editar_Click(object sender, EventArgs e)
         {
             Edicion();
@@ -123,6 +95,35 @@ namespace cacatUA
         {
             Edicion();
             formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+        }
+
+        private void button_borrar_Click(object sender, EventArgs e)
+        {
+            ENGruposCRUD grupos = new ENGruposCRUD();
+            DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
+            string mensaje = "";
+            if (filas.Count > 0)
+            {
+                if (filas.Count == 1)
+                {
+                    mensaje = "¿Está seguro de que desea borrar el grupo seleccionado?";
+                }
+                else
+                {
+                    mensaje = "¿Está seguro de que desea borrar los grupos seleccionados?"; 
+                }
+                
+                if (DialogResult.Yes == MessageBox.Show(mensaje, "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+                {
+                    foreach (DataGridViewRow i in filas)
+                    {
+                        // Se borra de la lista y de la base de datos.
+                        grupos.Id = int.Parse(i.Cells[0].Value.ToString());
+                        grupos.borrarGrupo(); 
+                        dataGridView_resultados.Rows.Remove(i);
+                    }
+                }
+            }
         }
 
 
