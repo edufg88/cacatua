@@ -56,7 +56,7 @@
     <Compile Include="ENMaterialCRUD.cs" />
     <Compile Include="ENPeticionCRUD.cs" />
     <Compile Include="ENRespuestaCRUD.cs" />
-    <Compile Include="ENUsuarioCRUD.cs" />
+    <Compile Include="ENUsuario.cs" />
     <Compile Include="GruposCAD.cs" />
     <Compile Include="HiloCAD.cs" />
     <Compile Include="MaterialCAD.cs" />

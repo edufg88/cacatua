@@ -59,21 +59,6 @@ namespace cacatUA
 
         }
 
-        
-        private void buttonUsuario_Click(object sender, EventArgs e)
-        {
-            FormUsuario form = new FormUsuario();
-            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Show();
-        }
-        private void buttonMensajes_Click(object sender, EventArgs e)
-        {
-            FormMensaje form = new FormMensaje();
-            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            form.Size = new Size(800, 400);
-            form.Show();
-        }
-
         private void buttonRealizada_Click(object sender, EventArgs e)
         {
             if (dataGridViewRecientes.SelectedRows != null)
