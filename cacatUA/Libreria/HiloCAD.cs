@@ -12,9 +12,9 @@ namespace Libreria
     /// <summary>
     /// Clase singleton que realiza el acceso a la base de datos para manipular los hilos.
     /// </summary>
-    class HiloCAD
+    sealed class HiloCAD
     {
-        private static HiloCAD instancia = null;
+        private static readonly HiloCAD instancia = new HiloCAD();
         private String cadenaConexion;
 
         /// <summary>
@@ -23,13 +23,9 @@ namespace Libreria
         /// al objeto que ya fue creado anteriormente.
         /// </summary>
         /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
-        public static HiloCAD GetInstancia()
+        public static HiloCAD Instancia
         {
-            if (instancia == null)
-            {
-                instancia = new HiloCAD();
-            }
-            return instancia;
+            get { return instancia; }
         }
 
         /// <summary>
@@ -55,10 +51,12 @@ namespace Libreria
 
         public ENHilo Obtener(int id)
         {
-            Console.WriteLine(cadenaConexion);
             ENHilo hilo = null;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+
+            SqlConnection conexion = null;
+            try
             {
+                conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión.
                 conexion.Open();
 
@@ -69,44 +67,72 @@ namespace Libreria
                 comando.Connection = conexion;
                 comando.CommandText = "select * from hilos where id = @id";
                 comando.Parameters.AddWithValue("@id", id);
-                SqlDataReader reader = comando.ExecuteReader();
+                SqlDataReader dataReader = comando.ExecuteReader();
 
                 // Si hay al menos una fila, extraemos los valores de la primera.
-                if (reader.Read())
+                if (dataReader.Read())
                 {
-                    hilo = obtenerDatos(reader);
+                    hilo = obtenerDatos(dataReader);
                 }
+
+                dataReader.Close();
             }
+            catch (SqlException)
+            {
+                Console.WriteLine("ENHilo Obtener (ind id)");
+            }
+            finally
+            {
+                if (conexion!=null)
+                    conexion.Close();
+            }
+
             return hilo;
         }
 
         public ArrayList Obtener()
         {
             ArrayList materiales = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+
+            SqlConnection conexion = null;
+            try
             {
+                new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string cadenaComando = "select * from hilos";
-                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                string sentencia = "select * from hilos";
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
                 SqlDataReader dataReader = comando.ExecuteReader();
+
                 // Insertamos todas las filas extraidas en el vector.
                 while (dataReader.Read())
                 {
                     ENHilo material = obtenerDatos(dataReader);
                     materiales.Add(material);
                 }
+
+                dataReader.Close();
             }
+            catch (Exception)
+            {
+                Console.WriteLine("ArrayList Obtener ()");
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
             return materiales;
         }
 
-        public ArrayList Obtener(int pagina, int cantidad)
+        public ArrayList Obtener(int pagina, int cantidad, int ultimoId)
         {
             // select * from hilos limit pagina*cantidad, cantidad;
             return null;
         }
 
-        public ArrayList Obtener(int pagina, int cantidad, String titulo, String texto
-            /*, ENUsuarioCRUD autor*/, DateTime fechaInicio, DateTime fechaFin, ENCategoriaCRUD categoria)
+        public ArrayList Obtener(int pagina, int cantidad, int ultimoId, String titulo, String texto
+            , ENUsuario autor, DateTime fechaInicio, DateTime fechaFin, ENCategoriaCRUD categoria)
         {
             // select *
             // from hilos

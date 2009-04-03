@@ -48,12 +48,12 @@ namespace Libreria
 
         public static ArrayList Obtener()
         {
-            return HiloCAD.GetInstancia().Obtener();
+            return HiloCAD.Instancia.Obtener();
         }
 
         public bool Obtener(int id)
         {
-            ENHilo auxiliar = HiloCAD.GetInstancia().Obtener(id);
+            ENHilo auxiliar = HiloCAD.Instancia.Obtener(id);
             if (auxiliar != null)
             {
                 this.id = auxiliar.id;
@@ -74,22 +74,22 @@ namespace Libreria
         /// </summary>
         public bool Guardar()
         {
-            return HiloCAD.GetInstancia().Guardar(this);
+            return HiloCAD.Instancia.Guardar(this);
         }
 
         public bool Borrar()
         {
-            return HiloCAD.GetInstancia().Borrar(this);
+            return HiloCAD.Instancia.Borrar(this);
         }
 
         public static bool Borrar(int id)
         {
-            return HiloCAD.GetInstancia().Borrar(id);
+            return HiloCAD.Instancia.Borrar(id);
         }
 
         public bool Actualizar()
         {
-            return HiloCAD.GetInstancia().Actualizar(this);
+            return HiloCAD.Instancia.Actualizar(this);
         }
 
         public int Id
