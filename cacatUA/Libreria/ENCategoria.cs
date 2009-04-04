@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Libreria
 {
-    public class ENCategoriaCRUD
+    public class ENCategoria
     {
         private int id;
         private String nombre;
@@ -14,11 +14,11 @@ namespace Libreria
 
         private CategoriaCAD cad;
 
-        public ENCategoriaCRUD()
+        public ENCategoria()
         {
         }
 
-        public ENCategoriaCRUD(int id, String nombre, String descripcion, int padre)
+        public ENCategoria(int id, String nombre, String descripcion, int padre)
         {
             this.id = id;
             this.nombre = nombre;
