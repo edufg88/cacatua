@@ -10,11 +10,23 @@ using System.Configuration;
 
 namespace Libreria
 {
-    public class CategoriaCAD
+    sealed class CategoriaCAD
     {
-        static string cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+        
+        private String cadenaConexion;        
+        private static readonly CategoriaCAD instancia = new CategoriaCAD();
+        
+        public static CategoriaCAD Instancia
+        {
+            get { return instancia; }
+        }
 
-        public static ENCategoria obtenerCategoria(int id)
+        private CategoriaCAD()
+        {
+            cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+        }
+
+        public ENCategoria obtenerCategoria(int id)
         {
             ENCategoria categoria = new ENCategoria();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -35,7 +47,7 @@ namespace Libreria
             return categoria;
         }
 
-        public static ENCategoria obtenerDatos(SqlDataReader reader)
+        private ENCategoria obtenerDatos(SqlDataReader reader)
         {
             ENCategoria categoria = new ENCategoria();
             categoria.Id = int.Parse(reader["id"].ToString());
@@ -53,7 +65,7 @@ namespace Libreria
         }
 
 
-        public static bool crearCategoria(ENCategoria categoria)
+        public bool crearCategoria(ENCategoria categoria)
         {
             int resultado = 0;
             bool creada = false;
@@ -90,7 +102,7 @@ namespace Libreria
             return creada;
         }
 
-        public static bool actualizarCategoria(ENCategoria categoria)
+        public bool actualizarCategoria(ENCategoria categoria)
         {
             int resultado = 0;
             bool actualizada = false;
@@ -115,7 +127,7 @@ namespace Libreria
             return actualizada;
         }
 
-        public static bool borrarCategoria(ENCategoria categoria)
+        public bool borrarCategoria(ENCategoria categoria)
         {
             int resultado = 0;
             bool borrada = false;
@@ -137,7 +149,7 @@ namespace Libreria
             return borrada;
         }
 
-        public static ArrayList obtenerCategoriasSuperiores()
+        public ArrayList obtenerCategoriasSuperiores()
         {
             ArrayList categorias = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -156,7 +168,7 @@ namespace Libreria
             return categorias;
         }
 
-        public static ArrayList obtenerHijosDe(ENCategoria padre)
+        public ArrayList obtenerHijosDe(ENCategoria padre)
         {
             ArrayList hijos = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -178,7 +190,7 @@ namespace Libreria
             return hijos;
         }
 
-        public static ArrayList usuariosSuscritosA(ENCategoria categoria)
+        public ArrayList usuariosSuscritosA(ENCategoria categoria)
         {
             ArrayList usuarios = new ArrayList();
             /*using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -200,7 +212,7 @@ namespace Libreria
             return usuarios;
         }
 
-        public static int NumHilosEn(ENCategoria categoria)
+        public int NumHilosEn(ENCategoria categoria)
         {
             int n = 0;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -220,7 +232,7 @@ namespace Libreria
             return n;
         }
 
-        public static int NumMaterialesEn(ENCategoria categoria)
+        public int NumMaterialesEn(ENCategoria categoria)
         {
             int n = 0;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -240,7 +252,7 @@ namespace Libreria
             return n;
         }
 
-        public static int NumCategorias()
+        public int NumCategorias()
         {
             int n = 0;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))

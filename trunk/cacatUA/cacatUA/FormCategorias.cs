@@ -36,7 +36,7 @@ namespace cacatUA
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
             //Obtenemos la instancia de la Categoria seleccionada
-            seleccionada = CategoriaCAD.obtenerCategoria(int.Parse(treeViewCategorias.SelectedNode.Name));
+            seleccionada = ENCategoria.ObtenerCategoria(int.Parse(treeViewCategorias.SelectedNode.Name));
 
             //Llevar datos a los controles
             textBox_Raiz.Text = treeViewCategorias.SelectedNode.FullPath;
@@ -68,7 +68,7 @@ namespace cacatUA
             treeViewCategorias.Nodes.Add(cacatua);
 
 
-            foreach (ENCategoria categoria in CategoriaCAD.obtenerCategoriasSuperiores())
+            foreach (ENCategoria categoria in ENCategoria.CategoriasSuperiores())
             {
                 MeterEnArbol(categoria, cacatua);
             }
