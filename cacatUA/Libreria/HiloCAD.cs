@@ -41,6 +41,7 @@ namespace Libreria
         {
             ENHilo hilo = new ENHilo();
             hilo.Id = int.Parse(dataReader["id"].ToString());
+            hilo.Autor = new ENUsuario();
             hilo.Texto = dataReader["texto"].ToString();
             hilo.Titulo = dataReader["titulo"].ToString();
             hilo.Respuestas = null;
@@ -77,9 +78,10 @@ namespace Libreria
 
                 dataReader.Close();
             }
-            catch (SqlException)
+            catch (Exception ex)
             {
-                Console.WriteLine("ENHilo Obtener (ind id)");
+                Console.WriteLine("ENHilo Obtener (ind id) " + ex.Message);
+                throw ex;
             }
             finally
             {
@@ -112,9 +114,10 @@ namespace Libreria
 
                 dataReader.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("ArrayList Obtener ()");
+                Console.WriteLine("ArrayList Obtener () " + ex.Message);
+                throw ex;
             }
             finally
             {
