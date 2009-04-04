@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace Libreria
 {
-    public class ENHilo
+    public class ENHilo : InterfazEN
     {
         private int id;
 	    private String titulo;
@@ -51,7 +51,7 @@ namespace Libreria
             return HiloCAD.Instancia.Obtener();
         }
 
-        public bool Obtener(int id)
+        override public bool Obtener(int id)
         {
             ENHilo auxiliar = HiloCAD.Instancia.Obtener(id);
             if (auxiliar != null)
@@ -72,12 +72,12 @@ namespace Libreria
         /// Este método sólo tiene sentido utilizarlo si 'id' es 0. En otro caso, tendría
         /// que utilizarse el método Actualizar.
         /// </summary>
-        public bool Guardar()
+        override public bool Guardar()
         {
             return HiloCAD.Instancia.Guardar(this);
         }
 
-        public bool Borrar()
+        override public bool Borrar()
         {
             return HiloCAD.Instancia.Borrar(this);
         }
@@ -87,7 +87,7 @@ namespace Libreria
             return HiloCAD.Instancia.Borrar(id);
         }
 
-        public bool Actualizar()
+        override public bool Actualizar()
         {
             return HiloCAD.Instancia.Actualizar(this);
         }
