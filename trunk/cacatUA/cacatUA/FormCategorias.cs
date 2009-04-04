@@ -14,23 +14,33 @@ namespace cacatUA
     public partial class FormCategorias : UserControl
     {
         private ENCategoria devolverCategoria;
-        private UserControl volver;
         private ENCategoria seleccionada;
+        private ENCategoria buscada;
         private bool editar;
+        private FormPanelAdministracion admin;
 
-        public FormCategorias()
+        public FormCategorias(FormPanelAdministracion admin)
         {
+            this.admin = admin;
             InitializeComponent();
         }
 
-        public FormCategorias(ENCategoria categoria, UserControl formVolver)
+        public FormCategorias(ENCategoria categoria, FormPanelAdministracion administracion)
         {
             InitializeComponent();
-            this.devolverCategoria = categoria;
-            volver = formVolver;
+
+            devolverCategoria = categoria;
+            admin = administracion;
 
             button_Seleccionar.Visible = true;
             button_Cancelar.Visible = true;
+        }
+
+        public void Vuelta()
+        {
+            MessageBox.Show("Has vuelto tras seleccionar la categoria: " + buscada.Id);
+            seleccionada.Padre = buscada.Id;
+            seleccionada.actualizar();
         }
 
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
@@ -51,7 +61,8 @@ namespace cacatUA
             }
 
             //Opcion de volver
-            devolverCategoria = seleccionada;
+            if(devolverCategoria != null)
+                devolverCategoria.Copiar(seleccionada);
             button_Seleccionar.Enabled = true;
         }
 
@@ -59,31 +70,23 @@ namespace cacatUA
         {
             //Resetear
             treeViewCategorias.Nodes.Clear();
-            seleccionada = null;
-
-            TreeNode cacatua = new TreeNode();
-            cacatua.Name = "0";
-            cacatua.Text = "CacatUA";
-            cacatua.Tag = "Categoria general.";
-            treeViewCategorias.Nodes.Add(cacatua);
-
 
             foreach (ENCategoria categoria in ENCategoria.CategoriasSuperiores())
             {
-                MeterEnArbol(categoria, cacatua);
+                MeterEnArbol(categoria, treeViewCategorias.Nodes);
             }
         }
         
-        private void MeterEnArbol(ENCategoria cat, TreeNode padre) {
+        private void MeterEnArbol(ENCategoria cat, TreeNodeCollection coleccion) {
             TreeNode nodo = new TreeNode();
             nodo.Name = cat.Id.ToString();
             nodo.Text = cat.Nombre;
             nodo.Tag = cat.Descripcion;
-            padre.Nodes.Add(nodo);
+            coleccion.Add(nodo);
             
             foreach (ENCategoria c in cat.obtenerHijos())
             {
-                MeterEnArbol(c, nodo);
+                MeterEnArbol(c, nodo.Nodes);
             }
         }
 
@@ -94,8 +97,9 @@ namespace cacatUA
             textBox_descripcion.Clear();
             textBox_Raiz.ReadOnly = false;
             textBox_Raiz.Clear();
-            button_Guardar.Enabled = true;
-            button_noGuardar.Enabled = true;
+            button_Guardar.Visible = true;
+            button_noGuardar.Visible = true;
+            checkBox_Superior.Visible = true;
             treeViewCategorias.Enabled = false;
 
             //Parametros
@@ -107,8 +111,10 @@ namespace cacatUA
             //Activar/Desactivar controles
             textBox_descripcion.ReadOnly = false;
             textBox_Raiz.ReadOnly = false;
-            button_Guardar.Enabled = true;
-            button_noGuardar.Enabled = true;
+            button_Guardar.Visible = true;
+            button_noGuardar.Visible = true;
+            checkBox_Superior.Visible = true;
+            button_Mover.Visible = true;
             treeViewCategorias.Enabled = false;
 
             //Quitar la ruta al nombre
@@ -140,8 +146,10 @@ namespace cacatUA
             //Activar/Desactivar controles
             textBox_descripcion.ReadOnly = true;
             textBox_Raiz.ReadOnly = true;
-            button_Guardar.Enabled = false;
-            button_noGuardar.Enabled = false;
+            button_Guardar.Visible = false;
+            button_noGuardar.Visible = false;
+            checkBox_Superior.Visible = false;
+            button_Mover.Visible = false;
             treeViewCategorias.Enabled = true;
 
             //Comprobar accion a realizar
@@ -165,7 +173,7 @@ namespace cacatUA
                 int padre = 0;
 
                 //Crear objeto y almacenarlo en la BBDD
-                if (seleccionada != null)
+                if (seleccionada != null && !checkBox_Superior.Checked)
                 {     
                     padre = seleccionada.Id;
                 }
@@ -190,8 +198,10 @@ namespace cacatUA
             //Activar/Desactivar controles
             textBox_descripcion.ReadOnly = true;
             textBox_Raiz.ReadOnly = true;
-            button_Guardar.Enabled = false;
-            button_noGuardar.Enabled = false;
+            button_Guardar.Visible = false;
+            button_noGuardar.Visible = false;
+            checkBox_Superior.Visible = false;
+            button_Mover.Visible = false;
             treeViewCategorias.Enabled = true;
 
             if (!editar)
@@ -215,5 +225,23 @@ namespace cacatUA
         private void button_Materiales_Click(object sender, EventArgs e)
         {
         }
+
+        private void button_Seleccionar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Vas a devolver la categoria: " + devolverCategoria.Id);
+            admin.volverCategoria();            
+        }
+
+        private void button_Mover_Click(object sender, EventArgs e)
+        {
+            buscada = new ENCategoria();
+            admin.buscarCategoria(buscada, this);
+        }
+
+        private void FormCategorias_Paint(object sender, PaintEventArgs e)
+        {
+            MessageBox.Show("HOLA!");
+        }
+
     }
 }

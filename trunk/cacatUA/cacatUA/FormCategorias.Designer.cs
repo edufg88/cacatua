@@ -34,6 +34,8 @@
             this.button_Cancelar = new System.Windows.Forms.Button();
             this.button_Seleccionar = new System.Windows.Forms.Button();
             this.groupBox_Categoria = new System.Windows.Forms.GroupBox();
+            this.button_Mover = new System.Windows.Forms.Button();
+            this.checkBox_Superior = new System.Windows.Forms.CheckBox();
             this.linkLabel_verMateriales = new System.Windows.Forms.LinkLabel();
             this.textBox_nMateriales = new System.Windows.Forms.TextBox();
             this.textBox_nHilos = new System.Windows.Forms.TextBox();
@@ -123,12 +125,15 @@
             this.button_Seleccionar.Text = "Seleccionar";
             this.button_Seleccionar.UseVisualStyleBackColor = true;
             this.button_Seleccionar.Visible = false;
+            this.button_Seleccionar.Click += new System.EventHandler(this.button_Seleccionar_Click);
             // 
             // groupBox_Categoria
             // 
             this.groupBox_Categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Categoria.Controls.Add(this.button_Mover);
+            this.groupBox_Categoria.Controls.Add(this.checkBox_Superior);
             this.groupBox_Categoria.Controls.Add(this.linkLabel_verMateriales);
             this.groupBox_Categoria.Controls.Add(this.textBox_nMateriales);
             this.groupBox_Categoria.Controls.Add(this.textBox_nHilos);
@@ -155,10 +160,33 @@
             this.groupBox_Categoria.TabStop = false;
             this.groupBox_Categoria.Text = "Categoria";
             // 
+            // button_Mover
+            // 
+            this.button_Mover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Mover.Location = new System.Drawing.Point(26, 127);
+            this.button_Mover.Name = "button_Mover";
+            this.button_Mover.Size = new System.Drawing.Size(90, 24);
+            this.button_Mover.TabIndex = 47;
+            this.button_Mover.Text = "Mover";
+            this.button_Mover.UseVisualStyleBackColor = true;
+            this.button_Mover.Visible = false;
+            this.button_Mover.Click += new System.EventHandler(this.button_Mover_Click);
+            // 
+            // checkBox_Superior
+            // 
+            this.checkBox_Superior.AutoSize = true;
+            this.checkBox_Superior.Location = new System.Drawing.Point(129, 132);
+            this.checkBox_Superior.Name = "checkBox_Superior";
+            this.checkBox_Superior.Size = new System.Drawing.Size(123, 17);
+            this.checkBox_Superior.TabIndex = 46;
+            this.checkBox_Superior.Text = "¿Categoria superior?";
+            this.checkBox_Superior.UseVisualStyleBackColor = true;
+            this.checkBox_Superior.Visible = false;
+            // 
             // linkLabel_verMateriales
             // 
             this.linkLabel_verMateriales.AutoSize = true;
-            this.linkLabel_verMateriales.Location = new System.Drawing.Point(255, 225);
+            this.linkLabel_verMateriales.Location = new System.Drawing.Point(258, 231);
             this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
             this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
             this.linkLabel_verMateriales.TabIndex = 45;
@@ -167,7 +195,7 @@
             // 
             // textBox_nMateriales
             // 
-            this.textBox_nMateriales.Location = new System.Drawing.Point(181, 222);
+            this.textBox_nMateriales.Location = new System.Drawing.Point(184, 228);
             this.textBox_nMateriales.Name = "textBox_nMateriales";
             this.textBox_nMateriales.ReadOnly = true;
             this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
@@ -175,7 +203,7 @@
             // 
             // textBox_nHilos
             // 
-            this.textBox_nHilos.Location = new System.Drawing.Point(181, 188);
+            this.textBox_nHilos.Location = new System.Drawing.Point(184, 194);
             this.textBox_nHilos.Name = "textBox_nHilos";
             this.textBox_nHilos.ReadOnly = true;
             this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
@@ -184,7 +212,7 @@
             // linkLabel_verHilos
             // 
             this.linkLabel_verHilos.AutoSize = true;
-            this.linkLabel_verHilos.Location = new System.Drawing.Point(255, 191);
+            this.linkLabel_verHilos.Location = new System.Drawing.Point(258, 197);
             this.linkLabel_verHilos.Name = "linkLabel_verHilos";
             this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
             this.linkLabel_verHilos.TabIndex = 42;
@@ -195,7 +223,7 @@
             // 
             this.label_nMateriales.AutoSize = true;
             this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nMateriales.Location = new System.Drawing.Point(20, 225);
+            this.label_nMateriales.Location = new System.Drawing.Point(23, 235);
             this.label_nMateriales.Name = "label_nMateriales";
             this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
             this.label_nMateriales.TabIndex = 41;
@@ -205,7 +233,7 @@
             // 
             this.label_nHilos.AutoSize = true;
             this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nHilos.Location = new System.Drawing.Point(20, 191);
+            this.label_nHilos.Location = new System.Drawing.Point(23, 197);
             this.label_nHilos.Name = "label_nHilos";
             this.label_nHilos.Size = new System.Drawing.Size(106, 13);
             this.label_nHilos.TabIndex = 40;
@@ -235,25 +263,25 @@
             // button_noGuardar
             // 
             this.button_noGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_noGuardar.Enabled = false;
             this.button_noGuardar.Location = new System.Drawing.Point(353, 127);
             this.button_noGuardar.Name = "button_noGuardar";
             this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
             this.button_noGuardar.TabIndex = 37;
             this.button_noGuardar.Text = "Cancelar";
             this.button_noGuardar.UseVisualStyleBackColor = true;
+            this.button_noGuardar.Visible = false;
             this.button_noGuardar.Click += new System.EventHandler(this.button_noGuardar_Click);
             // 
             // button_Guardar
             // 
             this.button_Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Guardar.Enabled = false;
-            this.button_Guardar.Location = new System.Drawing.Point(265, 127);
+            this.button_Guardar.Location = new System.Drawing.Point(258, 127);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(82, 24);
             this.button_Guardar.TabIndex = 36;
             this.button_Guardar.Text = "Guardar";
             this.button_Guardar.UseVisualStyleBackColor = true;
+            this.button_Guardar.Visible = false;
             this.button_Guardar.Click += new System.EventHandler(this.button_Guardar_Click);
             // 
             // button_crearSubcategoria
@@ -307,7 +335,7 @@
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(381, 350);
+            this.button8.Location = new System.Drawing.Point(381, 371);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 25);
             this.button8.TabIndex = 17;
@@ -318,7 +346,7 @@
             // 
             this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_quitarUsuario.Location = new System.Drawing.Point(381, 319);
+            this.button_quitarUsuario.Location = new System.Drawing.Point(381, 340);
             this.button_quitarUsuario.Name = "button_quitarUsuario";
             this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_quitarUsuario.TabIndex = 16;
@@ -329,7 +357,7 @@
             // 
             this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_verUsuario.Location = new System.Drawing.Point(381, 288);
+            this.button_verUsuario.Location = new System.Drawing.Point(381, 309);
             this.button_verUsuario.Name = "button_verUsuario";
             this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_verUsuario.TabIndex = 15;
@@ -342,7 +370,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(20, 259);
+            this.label3.Location = new System.Drawing.Point(23, 269);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 13);
             this.label3.TabIndex = 14;
@@ -354,9 +382,9 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox_usuarios.FormattingEnabled = true;
-            this.listBox_usuarios.Location = new System.Drawing.Point(23, 288);
+            this.listBox_usuarios.Location = new System.Drawing.Point(23, 301);
             this.listBox_usuarios.Name = "listBox_usuarios";
-            this.listBox_usuarios.Size = new System.Drawing.Size(344, 108);
+            this.listBox_usuarios.Size = new System.Drawing.Size(344, 95);
             this.listBox_usuarios.TabIndex = 13;
             // 
             // treeViewCategorias
@@ -411,6 +439,7 @@
             this.Name = "FormCategorias";
             this.Size = new System.Drawing.Size(814, 527);
             this.Load += new System.EventHandler(this.FormCategorias_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormCategorias_Paint);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -449,6 +478,8 @@
         private System.Windows.Forms.Label label_nMateriales;
         private System.Windows.Forms.Label label_nHilos;
         private System.Windows.Forms.LinkLabel linkLabel_verMateriales;
+        private System.Windows.Forms.CheckBox checkBox_Superior;
+        private System.Windows.Forms.Button button_Mover;
 
 
     }

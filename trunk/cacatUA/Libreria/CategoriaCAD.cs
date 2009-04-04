@@ -28,7 +28,7 @@ namespace Libreria
 
         public ENCategoria obtenerCategoria(int id)
         {
-            ENCategoria categoria = new ENCategoria();
+            ENCategoria categoria = null;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();
@@ -115,10 +115,11 @@ namespace Libreria
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
                 comando.CommandText = "UPDATE CATEGORIAS " +
-                    "SET nombre = @nombre,descripcion = @descripcion " +
+                    "SET nombre = @nombre,descripcion = @descripcion,padre = @padre " +
                     "WHERE id = @id";
                 comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
                 comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
+                comando.Parameters.AddWithValue("@padre", categoria.Padre);
                 comando.Parameters.AddWithValue("@id", categoria.Id);
                 resultado = comando.ExecuteNonQuery();
                 if (resultado == 1)
