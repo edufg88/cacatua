@@ -13,7 +13,7 @@ namespace Libreria
 	    private String texto;
 	    private ENUsuario autor;
 	    private DateTime fecha;
-        private ENCategoriaCRUD categoria;
+        private ENCategoria categoria;
         private ArrayList respuestas;
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Libreria
             Obtener(id);
         }
 
-        public ENHilo(String titulo, String texto, ENUsuario autor, DateTime fecha, ENCategoriaCRUD categoria)
+        public ENHilo(String titulo, String texto, ENUsuario autor, DateTime fecha, ENCategoria categoria)
         {
             id = 0;
             this.titulo = titulo;
@@ -122,7 +122,7 @@ namespace Libreria
             set { fecha = value; }
         }
 
-        public ENCategoriaCRUD Categoria
+        public ENCategoria Categoria
         {
             get { return categoria; }
             set { categoria = value; }

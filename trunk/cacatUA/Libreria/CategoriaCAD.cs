@@ -14,9 +14,9 @@ namespace Libreria
     {
         static string cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
 
-        public static ENCategoriaCRUD obtenerCategoria(int id)
+        public static ENCategoria obtenerCategoria(int id)
         {
-            ENCategoriaCRUD categoria = new ENCategoriaCRUD();
+            ENCategoria categoria = new ENCategoria();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();
@@ -35,9 +35,9 @@ namespace Libreria
             return categoria;
         }
 
-        public static ENCategoriaCRUD obtenerDatos(SqlDataReader reader)
+        public static ENCategoria obtenerDatos(SqlDataReader reader)
         {
-            ENCategoriaCRUD categoria = new ENCategoriaCRUD();
+            ENCategoria categoria = new ENCategoria();
             categoria.Id = int.Parse(reader["id"].ToString());
             categoria.Nombre = reader["nombre"].ToString();
             categoria.Descripcion = reader["descripcion"].ToString();
@@ -53,7 +53,7 @@ namespace Libreria
         }
 
 
-        public static bool crearCategoria(ENCategoriaCRUD categoria)
+        public static bool crearCategoria(ENCategoria categoria)
         {
             int resultado = 0;
             bool creada = false;
@@ -90,7 +90,7 @@ namespace Libreria
             return creada;
         }
 
-        public static bool actualizarCategoria(ENCategoriaCRUD categoria)
+        public static bool actualizarCategoria(ENCategoria categoria)
         {
             int resultado = 0;
             bool actualizada = false;
@@ -115,7 +115,7 @@ namespace Libreria
             return actualizada;
         }
 
-        public static bool borrarCategoria(ENCategoriaCRUD categoria)
+        public static bool borrarCategoria(ENCategoria categoria)
         {
             int resultado = 0;
             bool borrada = false;
@@ -149,14 +149,14 @@ namespace Libreria
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
                 {
-                    ENCategoriaCRUD categoria = obtenerDatos(reader);
+                    ENCategoria categoria = obtenerDatos(reader);
                     categorias.Add(categoria);
                 }
             }
             return categorias;
         }
 
-        public static ArrayList obtenerHijosDe(ENCategoriaCRUD padre)
+        public static ArrayList obtenerHijosDe(ENCategoria padre)
         {
             ArrayList hijos = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -171,14 +171,14 @@ namespace Libreria
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
                 {
-                    ENCategoriaCRUD categoria = obtenerDatos(reader);
+                    ENCategoria categoria = obtenerDatos(reader);
                     hijos.Add(categoria);
                 }
             }
             return hijos;
         }
 
-        public static ArrayList usuariosSuscritosA(ENCategoriaCRUD categoria)
+        public static ArrayList usuariosSuscritosA(ENCategoria categoria)
         {
             ArrayList usuarios = new ArrayList();
             /*using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -200,7 +200,7 @@ namespace Libreria
             return usuarios;
         }
 
-        public static int NumHilosEn(ENCategoriaCRUD categoria)
+        public static int NumHilosEn(ENCategoria categoria)
         {
             int n = 0;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -220,7 +220,7 @@ namespace Libreria
             return n;
         }
 
-        public static int NumMaterialesEn(ENCategoriaCRUD categoria)
+        public static int NumMaterialesEn(ENCategoria categoria)
         {
             int n = 0;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))

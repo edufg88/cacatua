@@ -13,9 +13,9 @@ namespace cacatUA
 
     public partial class FormCategorias : UserControl
     {
-        private ENCategoriaCRUD devolverCategoria;
+        private ENCategoria devolverCategoria;
         private UserControl volver;
-        private ENCategoriaCRUD seleccionada;
+        private ENCategoria seleccionada;
         private bool editar;
 
         public FormCategorias()
@@ -23,7 +23,7 @@ namespace cacatUA
             InitializeComponent();
         }
 
-        public FormCategorias(ENCategoriaCRUD categoria, UserControl formVolver)
+        public FormCategorias(ENCategoria categoria, UserControl formVolver)
         {
             InitializeComponent();
             this.devolverCategoria = categoria;
@@ -68,20 +68,20 @@ namespace cacatUA
             treeViewCategorias.Nodes.Add(cacatua);
 
 
-            foreach (ENCategoriaCRUD categoria in CategoriaCAD.obtenerCategoriasSuperiores())
+            foreach (ENCategoria categoria in CategoriaCAD.obtenerCategoriasSuperiores())
             {
                 MeterEnArbol(categoria, cacatua);
             }
         }
         
-        private void MeterEnArbol(ENCategoriaCRUD cat, TreeNode padre) {
+        private void MeterEnArbol(ENCategoria cat, TreeNode padre) {
             TreeNode nodo = new TreeNode();
             nodo.Name = cat.Id.ToString();
             nodo.Text = cat.Nombre;
             nodo.Tag = cat.Descripcion;
             padre.Nodes.Add(nodo);
             
-            foreach (ENCategoriaCRUD c in cat.obtenerHijos())
+            foreach (ENCategoria c in cat.obtenerHijos())
             {
                 MeterEnArbol(c, nodo);
             }
@@ -170,7 +170,7 @@ namespace cacatUA
                     padre = seleccionada.Id;
                 }
 
-                ENCategoriaCRUD nCategoria = new ENCategoriaCRUD(0, textBox_Raiz.Text, textBox_descripcion.Text, padre);
+                ENCategoria nCategoria = new ENCategoria(0, textBox_Raiz.Text, textBox_descripcion.Text, padre);
 
                 if (nCategoria.crear())
                 {

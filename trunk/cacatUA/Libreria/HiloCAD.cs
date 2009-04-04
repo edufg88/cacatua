@@ -132,7 +132,7 @@ namespace Libreria
         }
 
         public ArrayList Obtener(int pagina, int cantidad, int ultimoId, String titulo, String texto
-            , ENUsuario autor, DateTime fechaInicio, DateTime fechaFin, ENCategoriaCRUD categoria)
+            , ENUsuario autor, DateTime fechaInicio, DateTime fechaFin, ENCategoria categoria)
         {
             // select *
             // from hilos
