@@ -16,8 +16,6 @@ namespace Libreria
         const int minTamNombre = 5;
         const int maxTamAdicional = 50;
 
-        private UsuarioCAD usuarioCAD;
-
         private int id;
         private string usuario;
         private string contrasena;
@@ -28,9 +26,9 @@ namespace Libreria
         private DateTime fechaingreso;
         private bool activo;
 
+        // Constructor por defecto. Crea un usuario vacío
         public ENUsuario()
         {
-            id = 0;
             usuario = "";
             contrasena = "";
             nombre = "";
@@ -38,14 +36,27 @@ namespace Libreria
             correo = "";
             adicional = "";
             activo = false;
-            fechaingreso = DateTime.Now;
-
-            usuarioCAD = new UsuarioCAD();
+            fechaingreso = DateTime.Now; // La fecha de ingreso es siempre la actual
         }
 
+        // Constructor sobrecargado. Sólo con el id del usuario.
+        public ENUsuario(int id)
+        {
+            ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
+            this.id = aux.id;
+            this.usuario = aux.Usuario;
+            this.contrasena = aux.Contrasena;
+            this.nombre = aux.Nombre;
+            this.dni = aux.Dni;
+            this.correo = aux.Correo;
+            this.activo = aux.Activo;
+            this.adicional = aux.Adicional;
+            this.fechaingreso = aux.Fechaingreso;
+        }
+
+        // Constructor sobrecargado (recibe todos los datos menos el id del usuario y la fecha de ingreso)
         public ENUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
         {
-            id = 0; // El id hay que generarlo
             this.usuario = usuario;
             this.contrasena = contrasena;
             this.nombre = nombre;
@@ -54,9 +65,9 @@ namespace Libreria
             this.activo = activo;
             this.adicional = adicional;
             this.fechaingreso = DateTime.Now;
-            usuarioCAD = new UsuarioCAD();
         }
 
+        // Recibe un campo y en función de éste, valida si el dato es correcto
         public string ValidarFormulario(string campo, string dato)
         {
             string error = "";
@@ -164,27 +175,27 @@ namespace Libreria
 
         public ArrayList ObtenerUsuarios()
         {
-            return usuarioCAD.ObtenerUsuarios();
+            return UsuarioCAD.Instancia.ObtenerUsuarios();
         }
 
         public void CrearUsuario()
         {
-            usuarioCAD.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
+            UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
         }
 
         public bool BorrarUsuario()
         {
-            return usuarioCAD.BorrarUsuario(id);
+            return UsuarioCAD.Instancia.BorrarUsuario(id);
         }
 
         public bool BorrarUsuario(int pid)
         {
-            return usuarioCAD.BorrarUsuario(pid);
+            return UsuarioCAD.Instancia.BorrarUsuario(pid);
         }
 
         public void BorrarUsuarios()
         {
-            usuarioCAD.BorrarUsuarios();
+            UsuarioCAD.Instancia.BorrarUsuarios();
         }
 
         public int Id

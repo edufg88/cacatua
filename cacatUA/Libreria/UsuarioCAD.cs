@@ -11,13 +11,23 @@ using System.Configuration;
 
 namespace Libreria
 {
-    public class UsuarioCAD
+    // Clase singleton
+    // Componente de Acceso a Datos para relacionarse con la BD 'usuario'
+    sealed class UsuarioCAD
     {
-        //static string cadenaConexion = @"Data Source=DESKTOP\SQLEXPRESS;Initial Catalog=cacatuaBD;Integrated Security=True;Pooling=False";
-        private static String cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+        private static readonly UsuarioCAD instancia = new UsuarioCAD();
+        private String cadenaConexion;
         
-        public UsuarioCAD()
+        // Devuelve la instancia única de la clase
+        public static UsuarioCAD Instancia
         {
+            get { return(instancia); }
+        }
+
+        // El constructor privado crea la cadena de conexión
+        private UsuarioCAD()
+        {
+            cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
         // Extrae los datos de un objeto DataReader y los almacena en un 
