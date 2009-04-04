@@ -24,6 +24,14 @@ namespace Libreria
             this.descripcion = descripcion;
         }
 
+        public void Copiar(ENCategoria copia)
+        {
+            id = copia.Id;
+            nombre = copia.Nombre;
+            descripcion = copia.Descripcion;
+            padre = copia.Padre;
+        }
+
         public bool crear()
         {
             return CategoriaCAD.Instancia.crearCategoria(this);

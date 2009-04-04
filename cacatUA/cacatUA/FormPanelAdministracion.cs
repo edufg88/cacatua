@@ -6,11 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace cacatUA
 {
     public partial class FormPanelAdministracion : Form
     {
+        private FormCategorias dondeVolver;
+
         public FormPanelAdministracion()
         {
             InitializeComponent();
@@ -70,7 +73,7 @@ namespace cacatUA
 
         private void button_categorias_Click(object sender, EventArgs e)
         {
-            FormCategorias form = new FormCategorias();
+            FormCategorias form = new FormCategorias(this);
             panel1.Controls.Clear();
             panel1.Controls.Add(form);
             form.Dock = DockStyle.Fill;
@@ -84,6 +87,23 @@ namespace cacatUA
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void buscarCategoria(ENCategoria categoria, FormCategorias volver)
+        {
+            dondeVolver = volver;
+            FormCategorias form = new FormCategorias(categoria, this);
+            panel1.Controls.Clear();
+            panel1.Controls.Add(form);
+            form.Dock = DockStyle.Fill;            
+        }
+
+        public void volverCategoria()
+        {
+            panel1.Controls.Clear();
+            panel1.Controls.Add(dondeVolver);
+            dondeVolver.Dock = DockStyle.Fill;
+            dondeVolver.Vuelta();
         }
     }
 }
