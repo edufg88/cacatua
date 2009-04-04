@@ -168,6 +168,7 @@
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_fecha.TabIndex = 1;
+            this.dateTimePicker_fecha.Value = new System.DateTime(2006, 1, 1, 0, 0, 0, 0);
             // 
             // label_fecha
             // 
@@ -197,7 +198,7 @@
             this.label_y.Location = new System.Drawing.Point(263, 10);
             this.label_y.Name = "label_y";
             this.label_y.Size = new System.Drawing.Size(12, 13);
-            this.label_y.TabIndex = 1;
+            this.label_y.TabIndex = 0;
             this.label_y.Text = "y";
             // 
             // numericUpDown_numUsuarios2
@@ -205,7 +206,7 @@
             this.numericUpDown_numUsuarios2.Location = new System.Drawing.Point(309, 8);
             this.numericUpDown_numUsuarios2.Name = "numericUpDown_numUsuarios2";
             this.numericUpDown_numUsuarios2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown_numUsuarios2.TabIndex = 0;
+            this.numericUpDown_numUsuarios2.TabIndex = 2;
             // 
             // numericUpDown_numUsuarios1
             // 
@@ -242,6 +243,7 @@
             this.button_buscar.TabIndex = 4;
             this.button_buscar.Text = "Buscar";
             this.button_buscar.UseVisualStyleBackColor = true;
+            this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
             // 
             // FormGruposBusqueda
             // 

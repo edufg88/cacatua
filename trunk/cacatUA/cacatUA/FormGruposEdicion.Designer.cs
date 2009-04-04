@@ -267,6 +267,7 @@
             this.button_borrar.TabIndex = 14;
             this.button_borrar.Tag = "Eliminar hilo seleccionado";
             this.button_borrar.UseVisualStyleBackColor = true;
+            this.button_borrar.Click += new System.EventHandler(this.button_borrar_Click);
             // 
             // listBox_usuarios
             // 
@@ -334,7 +335,6 @@
             this.button_eliminar.TabIndex = 2;
             this.button_eliminar.Text = "Descartar cambios";
             this.button_eliminar.UseVisualStyleBackColor = true;
-            this.button_eliminar.Click += new System.EventHandler(this.button_eliminar_Click);
             // 
             // button_guardar
             // 

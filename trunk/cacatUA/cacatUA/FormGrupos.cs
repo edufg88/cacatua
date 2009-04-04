@@ -57,14 +57,14 @@ namespace cacatUA
         private void anadirGrupos()
         {
             dataGridView_resultados.Rows.Clear();
-            ENGruposCRUD grupos = new ENGruposCRUD();
-            ArrayList lista = grupos.obtenerGrupos();
+            ENGrupos grupos = new ENGrupos();
+            ArrayList lista = grupos.Obtener();
             for (int i = 0; i < lista.Count; i++)
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dataGridView_resultados);
 
-                ENGruposCRUD auxiliar = (ENGruposCRUD)lista[i];
+                ENGrupos auxiliar = (ENGrupos)lista[i];
                 fila.Cells[0].Value = auxiliar.Id.ToString();
                 fila.Cells[1].Value = auxiliar.Nombre.ToString();
                 fila.Cells[2].Value = auxiliar.NumUsuarios.ToString();
@@ -72,7 +72,23 @@ namespace cacatUA
                 dataGridView_resultados.Rows.Add(fila);
             }
         }
+        /*
+        public void Añadir(ArrayList grupos)
+        {
+            dataGridView_resultados.Rows.Clear();
+            foreach (ENGrupos auxiliar in grupos)
+            {
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dataGridView_resultados);
 
+                fila.Cells[0].Value = auxiliar.Id.ToString();
+                fila.Cells[1].Value = auxiliar.Nombre.ToString();
+                fila.Cells[2].Value = auxiliar.NumUsuarios.ToString();
+                fila.Cells[3].Value = auxiliar.Fecha.ToString();
+                dataGridView_resultados.Rows.Add(fila);
+
+            }
+        }*/
 
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
@@ -99,7 +115,7 @@ namespace cacatUA
 
         private void button_borrar_Click(object sender, EventArgs e)
         {
-            ENGruposCRUD grupos = new ENGruposCRUD();
+            ENGrupos grupos = new ENGrupos();
             DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
             string mensaje = "";
             if (filas.Count > 0)
@@ -119,7 +135,7 @@ namespace cacatUA
                     {
                         // Se borra de la lista y de la base de datos.
                         grupos.Id = int.Parse(i.Cells[0].Value.ToString());
-                        grupos.borrarGrupo(); 
+                        grupos.Borrar(); 
                         dataGridView_resultados.Rows.Remove(i);
                     }
                 }
