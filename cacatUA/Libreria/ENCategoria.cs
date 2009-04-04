@@ -12,8 +12,6 @@ namespace Libreria
         private String descripcion;
         private int padre;
 
-        private CategoriaCAD cad;
-
         public ENCategoria()
         {
         }
@@ -28,44 +26,54 @@ namespace Libreria
 
         public bool crear()
         {
-            return CategoriaCAD.crearCategoria(this);
+            return CategoriaCAD.Instancia.crearCategoria(this);
         }
 
         public bool actualizar()
         {
-            return CategoriaCAD.actualizarCategoria(this);
+            return CategoriaCAD.Instancia.actualizarCategoria(this);
         }
 
         public bool borrar() {
-            return CategoriaCAD.borrarCategoria(this);
+            return CategoriaCAD.Instancia.borrarCategoria(this);
         }
 
         public ArrayList obtenerHijos()
         {
-            return CategoriaCAD.obtenerHijosDe(this);
+            return CategoriaCAD.Instancia.obtenerHijosDe(this);
         }
 
         public ArrayList usuariosSuscritos()
         {
-            return CategoriaCAD.usuariosSuscritosA(this);
+            return CategoriaCAD.Instancia.usuariosSuscritosA(this);
         }
 
         public int NumMateriales()
         {
-            return CategoriaCAD.NumMaterialesEn(this);
+            return CategoriaCAD.Instancia.NumMaterialesEn(this);
         }
 
         public int NumHilos()
         {
-            return CategoriaCAD.NumHilosEn(this);
+            return CategoriaCAD.Instancia.NumHilosEn(this);
         }
 
 
         //Metodos estaticos de categorias
 
+        public static ENCategoria ObtenerCategoria(int id)
+        {
+            return CategoriaCAD.Instancia.obtenerCategoria(id);
+        }
+
+        public static ArrayList CategoriasSuperiores()
+        {
+            return CategoriaCAD.Instancia.obtenerCategoriasSuperiores();
+        }
+
         public static int NumCategorias()
         {
-            return CategoriaCAD.NumCategorias();
+            return CategoriaCAD.Instancia.NumCategorias();
         } 
 
         //Propiedades
