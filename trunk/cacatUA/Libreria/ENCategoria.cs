@@ -22,14 +22,14 @@ namespace Libreria
             ENCategoria aux = ObtenerCategoria(id);
             if (aux != null)
             {
-                id = aux.Id;
+                this.id = aux.Id;
                 nombre = aux.Nombre;
                 descripcion = aux.Descripcion;
                 padre = aux.Padre;
             }
             else
             {
-                id = 0;
+                this.id = 0;
             }
         }
 
