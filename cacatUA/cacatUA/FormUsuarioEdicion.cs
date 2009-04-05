@@ -11,9 +11,13 @@ namespace cacatUA
 {
     public partial class FormUsuarioEdicion : UserControl
     {
-        public FormUsuarioEdicion()
+        private FormUsuarios padre;
+
+        public FormUsuarioEdicion(FormUsuarios padre)
         {
             InitializeComponent();
+
+            this.padre = padre;
         }
 
         private void button_buscarFirma_Click(object sender, EventArgs e)

@@ -22,8 +22,8 @@ namespace cacatUA
         public FormUsuarios()
         {
             InitializeComponent();
-            formBusqueda = new FormUsuarioBusqueda();
-            formEdicion = new FormUsuarioEdicion();
+            formBusqueda = new FormUsuarioBusqueda(this);
+            formEdicion = new FormUsuarioEdicion(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
@@ -61,7 +61,7 @@ namespace cacatUA
             for (int i = 0; i < 10; i++)
             {
                 ENUsuario usuario = new ENUsuario("edu" + i.ToString(), i.ToString(), "edu" + i.ToString(), "1111111" + i.ToString(), "edu@prueba.com" + i.ToString(), false, "hola");
-                usuario.CrearUsuario();
+                usuario.Guardar();
                 //CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
             }
         }
@@ -74,13 +74,17 @@ namespace cacatUA
 
         private void CargarUsuarios()
         {
-            ENUsuario usuario = new ENUsuario();
             ArrayList al = new ArrayList();
-            al = usuario.ObtenerUsuarios();
+            al = ENUsuario.Obtener();
 
             dataGridView_usuarios.DataSource = al;
         }
 
+        // Este método carga los datos en el DataGridView
+        public void CargarDatos(ArrayList datos)
+        {
+            dataGridView_usuarios.DataSource = datos;   
+        }
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
             // Cargamos el user control de busqueda
@@ -133,11 +137,13 @@ namespace cacatUA
             label_seccion2.Text += " (Oculto)";
             if (!ocultoP2)
             {
+                dataGridView_usuarios.Hide();
                 tableLayoutPanel_principal.RowStyles[5].Height = 0;
                 ocultoP2 = true;
             }
             else
             {
+                dataGridView_usuarios.Show();
                 label_seccion2.Text = "Resultados de la búsqueda";
                 tableLayoutPanel_principal.RowStyles[5].Height = panel_DataGridViewUsuarios.Height;
                 ocultoP2 = false;
