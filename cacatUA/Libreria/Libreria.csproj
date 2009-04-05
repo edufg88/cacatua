@@ -53,7 +53,7 @@
     <Compile Include="ENGrupos.cs" />
     <Compile Include="ENHilo.cs" />
     <Compile Include="ENImagenCRUD.cs" />
-    <Compile Include="ENMaterialCRUD.cs" />
+    <Compile Include="ENMaterial.cs" />
     <Compile Include="ENPeticionCRUD.cs" />
     <Compile Include="ENRespuesta.cs" />
     <Compile Include="ENUsuario.cs" />
