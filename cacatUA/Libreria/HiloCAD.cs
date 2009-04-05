@@ -41,7 +41,7 @@ namespace Libreria
         {
             ENHilo hilo = new ENHilo();
             hilo.Id = int.Parse(dataReader["id"].ToString());
-            hilo.Autor = new ENUsuario();
+            hilo.Autor = new ENUsuario(int.Parse(dataReader["id"].ToString()));
             hilo.Texto = dataReader["texto"].ToString();
             hilo.Titulo = dataReader["titulo"].ToString();
             hilo.Respuestas = null;
