@@ -37,6 +37,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +46,9 @@
             this.textBox_usuario = new System.Windows.Forms.TextBox();
             this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.textBox_categoria = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -55,6 +59,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox_archivo = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -76,11 +81,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_referencia = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.textBox_nombre = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.textBox_categoria = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -90,6 +90,7 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,7 +105,6 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -219,6 +219,18 @@
             this.panel11.Size = new System.Drawing.Size(694, 21);
             this.panel11.TabIndex = 114;
             // 
+            // textBox_nombre
+            // 
+            this.textBox_nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_nombre.BackColor = System.Drawing.Color.White;
+            this.errorProvider.SetIconPadding(this.textBox_nombre, 2);
+            this.textBox_nombre.Location = new System.Drawing.Point(4, 0);
+            this.textBox_nombre.Name = "textBox_nombre";
+            this.textBox_nombre.Size = new System.Drawing.Size(660, 20);
+            this.textBox_nombre.TabIndex = 88;
+            this.textBox_nombre.Text = "material 2";
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -311,6 +323,39 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(800, 27);
             this.tableLayoutPanel4.TabIndex = 112;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.button9);
+            this.panel13.Controls.Add(this.textBox_categoria);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel13.Location = new System.Drawing.Point(103, 3);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(694, 21);
+            this.panel13.TabIndex = 114;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Image = global::cacatUA.Properties.Resources.lupa;
+            this.button9.Location = new System.Drawing.Point(642, 4);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(22, 16);
+            this.button9.TabIndex = 116;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // textBox_categoria
+            // 
+            this.textBox_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.errorProvider.SetIconPadding(this.textBox_categoria, 5);
+            this.textBox_categoria.Location = new System.Drawing.Point(3, 3);
+            this.textBox_categoria.Name = "textBox_categoria";
+            this.textBox_categoria.Size = new System.Drawing.Size(661, 20);
+            this.textBox_categoria.TabIndex = 1;
             // 
             // panel4
             // 
@@ -425,6 +470,19 @@
             this.textBox_archivo.Size = new System.Drawing.Size(664, 20);
             this.textBox_archivo.TabIndex = 85;
             this.textBox_archivo.Text = "material 2";
+            // 
+            // button4
+            // 
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::cacatUA.Properties.Resources.fileopen;
+            this.button4.Location = new System.Drawing.Point(773, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(24, 21);
+            this.button4.TabIndex = 107;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
             // 
             // tableLayoutPanel14
             // 
@@ -654,64 +712,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // textBox_nombre
-            // 
-            this.textBox_nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_nombre.BackColor = System.Drawing.Color.White;
-            this.errorProvider.SetIconPadding(this.textBox_nombre, 2);
-            this.textBox_nombre.Location = new System.Drawing.Point(4, 0);
-            this.textBox_nombre.Name = "textBox_nombre";
-            this.textBox_nombre.Size = new System.Drawing.Size(660, 20);
-            this.textBox_nombre.TabIndex = 88;
-            this.textBox_nombre.Text = "material 2";
-            // 
-            // button4
-            // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::cacatUA.Properties.Resources.fileopen;
-            this.button4.Location = new System.Drawing.Point(773, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(24, 21);
-            this.button4.TabIndex = 107;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.button9);
-            this.panel13.Controls.Add(this.textBox_categoria);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(103, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(694, 21);
-            this.panel13.TabIndex = 114;
-            // 
-            // button9
-            // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Image = global::cacatUA.Properties.Resources.lupa;
-            this.button9.Location = new System.Drawing.Point(642, 4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(22, 16);
-            this.button9.TabIndex = 116;
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // textBox_categoria
-            // 
-            this.textBox_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.errorProvider.SetIconPadding(this.textBox_categoria, 5);
-            this.textBox_categoria.Location = new System.Drawing.Point(3, 3);
-            this.textBox_categoria.Name = "textBox_categoria";
-            this.textBox_categoria.Size = new System.Drawing.Size(661, 20);
-            this.textBox_categoria.TabIndex = 1;
-            // 
             // FormEditarMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,6 +734,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -760,8 +762,6 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
             this.ResumeLayout(false);
 
         }

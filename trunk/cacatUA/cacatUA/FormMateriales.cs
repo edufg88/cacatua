@@ -60,11 +60,10 @@ namespace cacatUA
         private void crearMateriales()
         {
             // Obtenemos todos los materiales que hay en la base de datos
-            ArrayList materiales = ENMaterialCRUD.obtenerMateriales();
-            
+            ArrayList materiales = ENMaterial.obtener();
             for (int i = 0; i < materiales.Count; i++)
             {
-                ENMaterialCRUD material = (ENMaterialCRUD)materiales[i];
+                ENMaterial material = (ENMaterial)materiales[i];
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dataGridViewMateriales);
                 int posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_id"].Index;
@@ -76,7 +75,7 @@ namespace cacatUA
                 posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_fecha"].Index;
                 fila.Cells[posicion].Value = material.Fecha.ToUniversalTime();
                 posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_usuario"].Index;
-                fila.Cells[posicion].Value = material.Usuario;
+                fila.Cells[posicion].Value = material.Usuario.Nombre;
                 posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_categoria"].Index;
                 fila.Cells[posicion].Value = material.Categoria;
                 posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_tamaño"].Index;
@@ -86,7 +85,7 @@ namespace cacatUA
                 posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_idioma"].Index;
                 fila.Cells[posicion].Value = material.Idioma;
                 posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_valoracion"].Index;
-                fila.Cells[posicion].Value = material.Valoracion;                                        
+                fila.Cells[posicion].Value = material.Valoracion;                               
                 dataGridViewMateriales.Rows.Add(fila);
             }
         }
@@ -219,7 +218,7 @@ namespace cacatUA
                         DataGridViewRow fila = filas[i];
                         // Eliminamos el material de la base de datos
                         int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
-                        bool borrado = ENMaterialCRUD.borrarMaterial(id);
+                        bool borrado = ENMaterial.borrarMaterial(id);
                         if (borrado == false)
                         {
                             string mensaje = "ERROR: No se ha podido borrar el material " + id;

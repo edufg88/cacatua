@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace Libreria
+namespace Libreria 
 {
-    public class ENMaterialCRUD
+    public class ENMaterial : InterfazEN
     {
         const int maxTamNombre = 30;
         const int minTamNombre = 5;
@@ -23,7 +23,7 @@ namespace Libreria
         private string nombre;
         private string descripcion;
         private DateTime fecha;
-        private string usuario;
+        private ENUsuario usuario;
         private string categoria;
         private string archivo;
         private int tamaño;
@@ -33,13 +33,16 @@ namespace Libreria
         private int votos;
         private string referencia;
 
-        public ENMaterialCRUD()
+        /// <summary>
+        /// Constructor por defecto. Crea un material vacío.
+        /// </summary>
+        public ENMaterial()
         {
             // Inicializamos
             id = 0;
             nombre = "";
             descripcion = "";
-            usuario = "";
+            usuario = null;
             categoria = "";
             archivo = "";
             tamaño = 0;
@@ -48,7 +51,11 @@ namespace Libreria
             valoracion = 0;
             votos = 0;
             referencia = "";
-            //materialCAD = new MaterialCAD();
+        }
+
+        public ENMaterial(int id)
+        {
+            Obtener(id);
         }
 
         public string validarDato(string dato)
@@ -69,6 +76,7 @@ namespace Libreria
                     }
                 case "usuario":
                     {
+                        /*
                         if (usuario == "")
                             error = msj_blanco;
                         else
@@ -78,11 +86,14 @@ namespace Libreria
                             else
                             {
                                 // Comprobamos si el usuario existe en la base de datos
-                                bool existe = MaterialCAD.existeUsuario(usuario);
+
+                                bool existe = MaterialCAD.Instancia.existeUsuario(usuario);
                                 if(existe == false)
-                                    error = "El usuario " + usuario + " no está registrado";
+                                    
                             }
-                        }
+                        }*/
+                        if (usuario.Id == 0)
+                            error = "El usuario " + usuario + " no está registrado";
                         break;
                     }
                 case "categoria":
@@ -110,26 +121,75 @@ namespace Libreria
             }
             return error;
         }
-
-        public static ArrayList obtenerMateriales()
+        
+        override public bool Obtener(int id)
         {
-            // Obtenemos del CAD todos los materiales
-            return MaterialCAD.obtenerMateriales();
+            bool correcto = true;
+            ENMaterial aux = MaterialCAD.Instancia.obtener(id);
+            if (aux == null)
+            {
+                aux = new ENMaterial();
+                correcto = false;
+            }
+            else
+            {
+                this.id = aux.id;
+                this.nombre = aux.nombre;
+                this.descripcion = aux.descripcion;
+                this.usuario = aux.usuario;
+                this.categoria = aux.categoria;
+                this.archivo = aux.archivo;
+                this.tamaño = aux.tamaño;
+                this.descargas = aux.descargas;
+                this.idioma = aux.idioma;
+                this.valoracion = aux.valoracion;
+                this.votos = aux.votos;
+                this.referencia = aux.referencia;
+            }
+            return correcto;
         }
 
-        public void crearMaterial()
+        override public bool Guardar()
         {
-            MaterialCAD.crearMaterial(nombre,descripcion,usuario,categoria,archivo,tamaño,idioma,referencia);
+            return MaterialCAD.Instancia.Guardar(this);
+            // MaterialCAD.Instancia.crearMaterial(nombre,descripcion,usuario,categoria,archivo,tamaño,idioma,referencia);
+
+            //return HiloCAD.Instancia.Guardar(this);
+        }
+
+        override public bool Borrar()
+        {
+            return true;
+            //return HiloCAD.Instancia.Borrar(this);
+        }
+
+        public static bool Borrar(int id)
+        {
+            return true;
+            //return HiloCAD.Instancia.Borrar(id);
+        }
+
+        override public bool Actualizar()
+        {
+            return true;
+            //return HiloCAD.Instancia.Actualizar(this);
+        }
+
+
+        public static ArrayList obtener()
+        {
+            // Obtenemos del CAD todos los materiales
+            return MaterialCAD.Instancia.obtener();
         }
 
         public bool borrarMaterial()
         {
-            return MaterialCAD.borrarMaterial(id);
+            return MaterialCAD.Instancia.Borrar(id);
         }
 
         public static bool borrarMaterial(int id)
         {
-            return MaterialCAD.borrarMaterial(id);
+            return MaterialCAD.Instancia.Borrar(id);
         }
 
         public int Id
@@ -156,13 +216,10 @@ namespace Libreria
             set { fecha = value; }
         }
 
-        public string Usuario
+        public ENUsuario Usuario
         {
             get { return usuario; }
-            set
-            {
-                usuario = value;
-            }
+            set { usuario = value; }
         }
 
         public string Categoria

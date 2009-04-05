@@ -77,7 +77,7 @@ namespace cacatUA
             }
         }
 
-        private bool validarDatos(string[] nombreControles, ENMaterialCRUD material)
+        private bool validarDatos(string[] nombreControles, ENMaterial material)
         {
             errorProvider.Clear();
             bool correcto = true;
@@ -152,20 +152,28 @@ namespace cacatUA
                     {
                         prepararControles(controlesEditar);
                         // Obtenemos toda la información del material
-                        ENMaterialCRUD material = MaterialCAD.obtenerMaterial(int.Parse(id));
-                        controles["nombre"].Text = material.Nombre;
-                        controles["descripcion"].Text = material.Descripcion;
-                        // fecha
-                        controles["usuario"].Text = material.Usuario;
-                        controles["categoria"].Text = material.Categoria;
-                        controles["archivo"].Text = material.Archivo;
-                        controles["tamaño"].Text = material.Tamaño.ToString();
-                        controles["descargas"].Text = material.Descargas.ToString();
-                        // idioma
-                        controles["valoracion"].Text = material.Valoracion.ToString();
-                        controles["votos"].Text = material.Votos.ToString();
-                        controles["referencia"].Text = material.Referencia;
+                        ENMaterial material = new ENMaterial(int.Parse(id));
+                        if (material.Id != 0)
+                        {
+                            controles["nombre"].Text = material.Nombre;
+                            controles["descripcion"].Text = material.Descripcion;
+                            // fecha
 
+                            controles["usuario"].Text = material.Usuario.Nombre;
+                            controles["categoria"].Text = material.Categoria;
+                            controles["archivo"].Text = material.Archivo;
+                            controles["tamaño"].Text = material.Tamaño.ToString();
+                            controles["descargas"].Text = material.Descargas.ToString();
+                            // idioma
+                            controles["valoracion"].Text = material.Valoracion.ToString();
+                            controles["votos"].Text = material.Votos.ToString();
+                            controles["referencia"].Text = material.Referencia;
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Problema al obtener los datos del material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                         button_accion.Text = "Editar";
                         break;
                     }
@@ -184,10 +192,10 @@ namespace cacatUA
                 case modos.CREAR:
                     {
                         // Creamos el nuevo material
-                        ENMaterialCRUD material = new ENMaterialCRUD();
+                        ENMaterial material = new ENMaterial();
                         material.Nombre = textBox_nombre.Text.ToString();
                         material.Descripcion = richTextBox_descripcion.Text.ToString();
-                        material.Usuario = textBox_usuario.Text.ToString();
+                        material.Usuario = new ENUsuario(textBox_usuario.Text.ToString());
                         material.Categoria = textBox_categoria.Text.ToString();
                         material.Archivo = textBox_archivo.Text.ToString();
                         material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
@@ -196,8 +204,12 @@ namespace cacatUA
                         // Validamos los datos
                         if (validarDatos(controlesCrear,material) == true)
                         {
-                            // Añadimos el material a la base de datos
-                            material.crearMaterial();
+                            // Guardamos el material a la base de datos
+                            if (material.Guardar() == false)
+                            {
+                                // Se ha producido algún error, mostramos un mensaje
+                                MessageBox.Show("No se ha podido crear el material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         break;
                     }
