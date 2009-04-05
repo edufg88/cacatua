@@ -20,16 +20,24 @@ namespace cacatUA
 
         public void CambiarSeleccionado(int id)
         {
-            hilo = new ENHilo(id);
-            textBox_id.Text = hilo.Id.ToString();
-            textBox_texto.Text = hilo.Texto;
-            textBox_titulo.Text = hilo.Titulo;
-            textBox_autor.Text = hilo.Autor.Usuario.ToString();
-            textBox_categoria.Text = hilo.Categoria.Nombre.ToString();
-            dateTimePicker_fecha.Value = hilo.Fecha;
-            textBox_respuestas.Text = hilo.NumRespuestas.ToString();
-            errorProvider1.Clear();
-            desactivarBotones();
+            hilo = ENHilo.Obtener2(id);
+            if (hilo != null)
+            {
+                textBox_id.Text = hilo.Id.ToString();
+                textBox_texto.Text = hilo.Texto;
+                textBox_titulo.Text = hilo.Titulo;
+                textBox_autor.Text = hilo.Autor.Usuario.ToString();
+                textBox_categoria.Text = hilo.Categoria.Nombre.ToString();
+                dateTimePicker_fecha.Value = hilo.Fecha;
+                textBox_respuestas.Text = hilo.NumRespuestas.ToString();
+                linkLabel_respuestas.Enabled = true;
+                errorProvider1.Clear();
+                desactivarBotones();
+            }
+            else
+            {
+                MessageBox.Show("No se puede cambiar al hilo indicado: " + id);
+            }
         }
 
         public void CambiarNuevo()
@@ -41,6 +49,7 @@ namespace cacatUA
             textBox_autor.Text = "";
             textBox_categoria.Text = "";
             textBox_respuestas.Text = "";
+            linkLabel_respuestas.Enabled = false;
             errorProvider1.Clear();
             desactivarBotones();
         }
@@ -73,7 +82,7 @@ namespace cacatUA
 
             if (textBox_categoria.Text != "")
             {
-                ENCategoria categoria = new ENCategoria();// new ENCategoria(textBox_categoria.Text);
+                ENCategoria categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
                 if (categoria.Id == 0)
                 {
                     correcto = false;
@@ -82,6 +91,7 @@ namespace cacatUA
             }
             else
             {
+                correcto = false;
                 errorCategoria = "Debes introducir una categoría.";
             }
 
@@ -96,7 +106,8 @@ namespace cacatUA
             }
             else
             {
-                errorUsuario = "Debes introducir una autor.";
+                correcto = false;
+                errorUsuario = "Debes introducir un autor.";
             }
 
             errorProvider1.SetError(textBox_titulo, errorTitulo);
@@ -115,8 +126,25 @@ namespace cacatUA
                 nuevo.Texto = textBox_texto.Text;
                 nuevo.Titulo = textBox_titulo.Text;
                 nuevo.Autor = new ENUsuario(textBox_autor.Text);
-                //nuevo.Categoria = ENCategoria.ObtenerCategoria(textBox_categoria.Text);
-                nuevo.Guardar();
+                nuevo.Categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
+                nuevo.Fecha = dateTimePicker_fecha.Value;
+
+                if (textBox_id.Text == "")
+                {
+                    if (nuevo.Guardar())
+                    {
+                        //CambiarSeleccionado(nuevo.Id); Hasta que no se actualice 'nuevo' no se puede hacer.
+                        MessageBox.Show("Hilo guardado correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar el hilo");
+                    }
+                }
+                else
+                {
+                    nuevo.Actualizar();
+                }
             }
         }
 

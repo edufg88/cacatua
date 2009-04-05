@@ -248,7 +248,6 @@ namespace Libreria
                     conexion.Close();
             }
 
-            Console.WriteLine("Número de hilos encontrado " + hilos.Count);
             return hilos;
         }
 
@@ -257,38 +256,42 @@ namespace Libreria
         /// </summary>
         /// <param name="hilo">Hilo que se va a guardar en la base de datos.</param>
         /// <returns>Devuelve verdadero si se ha introducido correctamente.</returns>
-        public bool Guardar(ENHilo hilo)
+        public bool Guardar(ENHilo hilo, out int id)
         {
             bool insertado = false;
+            id = 0;
 
             if (hilo.Autor != null && hilo.Categoria != null)
             {
                 SqlConnection conexion = null;
-                // try
-                // {
-                conexion = new SqlConnection(cadenaConexion);
-                conexion.Open();
+                try
+                {
+                    conexion = new SqlConnection(cadenaConexion);
+                    conexion.Open();
 
-                string cadenaComando = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, @autor, @fechacreacion, @categoria)";
-                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
-                comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
-                comando.Parameters.AddWithValue("@texto", hilo.Texto);
-                comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
-                comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
-                comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
+                    string cadenaComando = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, @autor, @fechacreacion, @categoria)";
+                    SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                    comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
+                    comando.Parameters.AddWithValue("@texto", hilo.Texto);
+                    comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
+                    comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
+                    comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
 
-                if (comando.ExecuteNonQuery() == 1)
-                    insertado = true;
-                //  }
-                // catch (Exception ex)
-                //  {
-                //    Console.WriteLine("bool HiloCAD.Guardar(ENHilo) " + ex.Message);
-                //  }
-                //  finally
-                //  {
-                if (conexion != null)
-                    conexion.Close();
-                // }
+                    if (comando.ExecuteNonQuery() == 1)
+                    {
+                        insertado = true;
+                        id = 7; // falta obtener ese valor id. ver transacciones de sql.
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("bool HiloCAD.Guardar(ENHilo) " + ex.Message);
+                }
+                finally
+                {
+                    if (conexion != null)
+                        conexion.Close();
+                }
             }
 
             return insertado;
@@ -306,11 +309,13 @@ namespace Libreria
             SqlConnection conexion = null;
             try
             {
-                new SqlConnection(cadenaConexion);
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
+
                 string cadenaComando = "delete from hilos where id = @id";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 comando.Parameters.AddWithValue("@id", id);
+
                 if (comando.ExecuteNonQuery() == 1)
                     borrado = true;
             }

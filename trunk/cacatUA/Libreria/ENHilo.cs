@@ -130,6 +130,17 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene un hilo desde la base de datos. Si no se encuentra el hilo especificado,
+        /// devuelve un objeto nulo (null).
+        /// </summary>
+        /// <param name="id">Identificador del hilo que se quiere obtener.</param>
+        /// <returns>Devuelve un hilo si existe, o un valor nulo (null) si no existe.</returns>
+        public static ENHilo Obtener2(int id)
+        {
+            return HiloCAD.Instancia.Obtener(id);
+        }
+
+        /// <summary>
         /// Guarda el nuevo hilo en la base de datos.
         /// Este método sólo tiene sentido utilizarlo si 'id' es 0. En otro caso, tendría
         /// que utilizarse el método Actualizar.
@@ -137,7 +148,13 @@ namespace Libreria
         /// <returns>Devuelve verdadero si se ha guardado correctamente.</returns>
         override public bool Guardar()
         {
-            return HiloCAD.Instancia.Guardar(this);
+            int id = 0;
+            if (HiloCAD.Instancia.Guardar(this, out id))
+            {
+                this.id = id;
+                return true;
+            }
+            return false;
         }
 
         /// <summary>

@@ -216,6 +216,7 @@
             this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
             this.button_editarHilo.TabIndex = 9;
             this.button_editarHilo.Tag = "Modificar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_editarHilo, "Editar hilo seleccionado");
             this.button_editarHilo.UseVisualStyleBackColor = true;
             this.button_editarHilo.Click += new System.EventHandler(this.button_editarHilo_Click);
             // 
@@ -232,6 +233,7 @@
             this.button_borrarHilo.Size = new System.Drawing.Size(36, 36);
             this.button_borrarHilo.TabIndex = 10;
             this.button_borrarHilo.Tag = "Eliminar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_borrarHilo, "Eliminar hilos seleccionados");
             this.button_borrarHilo.UseVisualStyleBackColor = true;
             this.button_borrarHilo.Click += new System.EventHandler(this.button_borrarHilo_Click);
             // 
