@@ -120,10 +120,10 @@ namespace cacatUA
 
         private void button_buscarCategoria_Click(object sender, EventArgs e)
         {
-            FormCategoria form = new FormCategoria();
+            //FormCategoria form = new FormCategoria();
             //form.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             //form.Location = new Point(button_buscarCategoria.Location.X, button_buscarCategoria.Location.Y);
-            form.ShowDialog();
+            //form.ShowDialog();
         }
 
 
