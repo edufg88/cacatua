@@ -43,6 +43,11 @@ namespace Libreria
         public ENUsuario(int id)
         {
             ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
+
+            if (aux == null)
+            {
+                aux = new ENUsuario();
+            }
             this.id = aux.id;
             this.usuario = aux.Usuario;
             this.contrasena = aux.Contrasena;
@@ -58,6 +63,11 @@ namespace Libreria
         public ENUsuario(string usuario)
         {
             ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(usuario);
+
+            if (aux == null)
+            {
+                aux = new ENUsuario();
+            }
             this.id = aux.id;
             this.usuario = aux.Usuario;
             this.contrasena = aux.Contrasena;
