@@ -94,6 +94,7 @@
             this.dateTimePicker_fechaInicio.Name = "dateTimePicker_fechaInicio";
             this.dateTimePicker_fechaInicio.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_fechaInicio.TabIndex = 1;
+            this.dateTimePicker_fechaInicio.Value = new System.DateTime(2008, 9, 6, 0, 0, 0, 0);
             // 
             // label_mostrarDesde
             // 
@@ -128,6 +129,7 @@
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarCategoria.TabIndex = 143;
+            this.button_seleccionarCategoria.TabStop = false;
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
             // 
             // textBox_categoria
@@ -172,6 +174,7 @@
             this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarUsuario.TabIndex = 144;
+            this.button_seleccionarUsuario.TabStop = false;
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
             // 
             // textBox_autor

@@ -29,7 +29,7 @@ namespace cacatUA
 
             if (textBox_categoria.Text != "")
             {
-                ENCategoria categoria = new ENCategoria();// new ENCategoria(textBox_categoria.Text);
+                ENCategoria categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
                 if (categoria.Id == 0)
                 {
                     correcto = false;
@@ -68,12 +68,13 @@ namespace cacatUA
                 if (textBox_autor.Text != "")
                     usuario = new ENUsuario(textBox_autor.Text);
                 ENCategoria categoria = null;
-//                if (textBox_categoria.Text != "")
-//                    categoria = new ENCategoria(textBox_categoria.Text);
-                DateTime fecha = DateTime.Now;
+                if (textBox_categoria.Text != "")
+                    categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
+                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
+                DateTime fechaFin = dateTimePicker_fechaFin.Value;
 
                 formularioPadre.Resultados = ENHilo.Obtener(0, 0, 0, textBox_filtroBusqueda.Text,
-                    textBox_filtroBusqueda.Text, ref usuario, ref fecha, ref fecha, ref categoria);
+                    textBox_filtroBusqueda.Text, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
             }
         }
     }

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_respuestas = new System.Windows.Forms.LinkLabel();
             this.textBox_respuestas = new System.Windows.Forms.TextBox();
             this.label_respuestas = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -71,7 +71,7 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.linkLabel1);
+            this.panel6.Controls.Add(this.linkLabel_respuestas);
             this.panel6.Controls.Add(this.textBox_respuestas);
             this.panel6.Controls.Add(this.label_respuestas);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,15 +81,15 @@
             this.panel6.Size = new System.Drawing.Size(889, 30);
             this.panel6.TabIndex = 7;
             // 
-            // linkLabel1
+            // linkLabel_respuestas
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(192, 8);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(113, 13);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Ver respuestas del hilo";
+            this.linkLabel_respuestas.AutoSize = true;
+            this.linkLabel_respuestas.Location = new System.Drawing.Point(192, 8);
+            this.linkLabel_respuestas.Name = "linkLabel_respuestas";
+            this.linkLabel_respuestas.Size = new System.Drawing.Size(113, 13);
+            this.linkLabel_respuestas.TabIndex = 0;
+            this.linkLabel_respuestas.TabStop = true;
+            this.linkLabel_respuestas.Text = "Ver respuestas del hilo";
             // 
             // textBox_respuestas
             // 
@@ -125,8 +125,8 @@
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
-            this.dateTimePicker_fecha.TabIndex = 1;
-            this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.button_guardarCambios_Click);
+            this.dateTimePicker_fecha.TabIndex = 0;
+            this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_fechaCreacion
             // 
@@ -156,7 +156,7 @@
             this.textBox_texto.Multiline = true;
             this.textBox_texto.Name = "textBox_texto";
             this.textBox_texto.Size = new System.Drawing.Size(729, 49);
-            this.textBox_texto.TabIndex = 2;
+            this.textBox_texto.TabIndex = 0;
             this.textBox_texto.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_texto
@@ -192,6 +192,7 @@
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarCategoria.TabIndex = 143;
+            this.button_seleccionarCategoria.TabStop = false;
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
             // 
             // textBox_categoria
@@ -201,7 +202,7 @@
             this.textBox_categoria.Location = new System.Drawing.Point(125, 5);
             this.textBox_categoria.Name = "textBox_categoria";
             this.textBox_categoria.Size = new System.Drawing.Size(729, 20);
-            this.textBox_categoria.TabIndex = 2;
+            this.textBox_categoria.TabIndex = 0;
             this.textBox_categoria.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_categoria
@@ -237,6 +238,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 18);
             this.button1.TabIndex = 144;
+            this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // textBox_autor
@@ -246,7 +248,7 @@
             this.textBox_autor.Location = new System.Drawing.Point(125, 5);
             this.textBox_autor.Name = "textBox_autor";
             this.textBox_autor.Size = new System.Drawing.Size(729, 20);
-            this.textBox_autor.TabIndex = 2;
+            this.textBox_autor.TabIndex = 0;
             this.textBox_autor.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_autor
@@ -298,7 +300,7 @@
             this.textBox_titulo.Location = new System.Drawing.Point(125, 5);
             this.textBox_titulo.Name = "textBox_titulo";
             this.textBox_titulo.Size = new System.Drawing.Size(624, 20);
-            this.textBox_titulo.TabIndex = 2;
+            this.textBox_titulo.TabIndex = 0;
             this.textBox_titulo.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_titulo
@@ -402,7 +404,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel_respuestas;
         private System.Windows.Forms.TextBox textBox_respuestas;
         private System.Windows.Forms.Label label_respuestas;
         private System.Windows.Forms.Panel panel5;
