@@ -40,7 +40,7 @@
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.butto_editarHilo = new System.Windows.Forms.Button();
+            this.button_editarHilo = new System.Windows.Forms.Button();
             this.button_borrarHilo = new System.Windows.Forms.Button();
             this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,7 +193,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.butto_editarHilo);
+            this.panel1.Controls.Add(this.button_editarHilo);
             this.panel1.Controls.Add(this.button_borrarHilo);
             this.panel1.Controls.Add(this.dataGridView_resultados);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,21 +203,21 @@
             this.panel1.Size = new System.Drawing.Size(838, 85);
             this.panel1.TabIndex = 5;
             // 
-            // butto_editarHilo
+            // button_editarHilo
             // 
-            this.butto_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butto_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarHilo.FlatAppearance.BorderSize = 0;
-            this.butto_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarHilo.Location = new System.Drawing.Point(797, 5);
-            this.butto_editarHilo.Name = "butto_editarHilo";
-            this.butto_editarHilo.Size = new System.Drawing.Size(36, 36);
-            this.butto_editarHilo.TabIndex = 9;
-            this.butto_editarHilo.Tag = "Modificar hilo seleccionado";
-            this.butto_editarHilo.UseVisualStyleBackColor = true;
-            this.butto_editarHilo.Click += new System.EventHandler(this.butto_editarHilo_Click);
+            this.button_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarHilo.FlatAppearance.BorderSize = 0;
+            this.button_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarHilo.Location = new System.Drawing.Point(797, 5);
+            this.button_editarHilo.Name = "button_editarHilo";
+            this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
+            this.button_editarHilo.TabIndex = 9;
+            this.button_editarHilo.Tag = "Modificar hilo seleccionado";
+            this.button_editarHilo.UseVisualStyleBackColor = true;
+            this.button_editarHilo.Click += new System.EventHandler(this.button_editarHilo_Click);
             // 
             // button_borrarHilo
             // 
@@ -390,7 +390,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button butto_editarHilo;
+        private System.Windows.Forms.Button button_editarHilo;
         private System.Windows.Forms.Button button_borrarHilo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button_volver;

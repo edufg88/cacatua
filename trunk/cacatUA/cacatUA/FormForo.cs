@@ -22,7 +22,7 @@ namespace cacatUA
 
             // Se crean los formularios que se van a utilizar.
             formEdicion = new FormForoEdicion();
-            formBusqueda = new FormForoBusqueda();
+            formBusqueda = new FormForoBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
@@ -32,7 +32,7 @@ namespace cacatUA
 
             CambiarFormularioBusqueda();
 
-            anadirAlgunosHilos();
+            Resultados = ENHilo.Obtener();
         }
 
         public void CambiarFormularioBusqueda()
@@ -51,22 +51,26 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
         }
 
-        private void anadirAlgunosHilos()
+        public ArrayList Resultados
         {
-            ArrayList lista = ENHilo.Obtener();
-            for (int i = 0; i < lista.Count; i++)
+            set
             {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView_resultados);
+                dataGridView_resultados.Rows.Clear();
+                ArrayList lista = value;
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView_resultados);
 
-                ENHilo auxiliar = (ENHilo) lista[i];
-                fila.Cells[0].Value = auxiliar.Id.ToString();
-                fila.Cells[1].Value = auxiliar.Titulo.ToString();
-                fila.Cells[2].Value = auxiliar.Texto.ToString();
-                fila.Cells[3].Value = "Antonio";
-                fila.Cells[4].Value = auxiliar.Fecha.ToString();
-                fila.Cells[5].Value = 0;
-                dataGridView_resultados.Rows.Add(fila);
+                    ENHilo auxiliar = (ENHilo)lista[i];
+                    fila.Cells[0].Value = auxiliar.Id.ToString();
+                    fila.Cells[1].Value = auxiliar.Titulo.ToString();
+                    fila.Cells[2].Value = auxiliar.Texto.ToString();
+                    fila.Cells[3].Value = auxiliar.Autor.Usuario.ToString();
+                    fila.Cells[4].Value = auxiliar.Fecha.ToString();
+                    fila.Cells[5].Value = auxiliar.NumRespuestas;
+                    dataGridView_resultados.Rows.Add(fila);
+                }
             }
         }
 
@@ -119,8 +123,11 @@ namespace cacatUA
             //dateTimePicker_fecha.Text = filaSeleccionada.Cells[4].Value.ToString();
             formEdicion.textBox_respuestas.Text = filaSeleccionada.Cells[5].Value.ToString();*/
 
-            CambiarFormularioEdicion();
-            formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            if (dataGridView_resultados.SelectedRows.Count > 0)
+            {
+                CambiarFormularioEdicion();
+                formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            }
         }
 
         private void button_borrarHilo_Click(object sender, EventArgs e)
@@ -140,7 +147,7 @@ namespace cacatUA
             }
         }
 
-        private void butto_editarHilo_Click(object sender, EventArgs e)
+        private void button_editarHilo_Click(object sender, EventArgs e)
         {
             if (dataGridView_resultados.SelectedRows.Count > 0)
             {

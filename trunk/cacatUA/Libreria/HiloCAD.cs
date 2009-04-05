@@ -37,19 +37,28 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
+        /// <summary>
+        /// Obtiene una entidad de negocio Hilo desde una lectura de la base de datos.
+        /// </summary>
+        /// <param name="dataReader">Lectura de la base de datos desde la que se genera el ENHilo.</param>
+        /// <returns>Devuelve un ENHilo.</returns>
         private ENHilo obtenerDatos(SqlDataReader dataReader)
         {
             ENHilo hilo = new ENHilo();
             hilo.Id = int.Parse(dataReader["id"].ToString());
-            hilo.Autor = new ENUsuario(int.Parse(dataReader["id"].ToString()));
+            hilo.Autor = new ENUsuario(int.Parse(dataReader["autor"].ToString()));
             hilo.Texto = dataReader["texto"].ToString();
             hilo.Titulo = dataReader["titulo"].ToString();
-            hilo.Respuestas = null;
-            hilo.Categoria = null;
-            hilo.Fecha = DateTime.Now;
+            hilo.Categoria = new ENCategoria(int.Parse(dataReader["categoria"].ToString()));
+            hilo.Fecha = (DateTime) dataReader["fechacreacion"];
             return hilo;
         }
 
+        /// <summary>
+        /// Obtiene un hilo desde la base de datos según su identificador (id).
+        /// </summary>
+        /// <param name="id">Identificador (id) del hilo que se va a obtener.</param>
+        /// <returns>Devuelve un hilo extraído desde la base de datos.</returns>
         public ENHilo Obtener(int id)
         {
             ENHilo hilo = null;
@@ -57,8 +66,8 @@ namespace Libreria
             SqlConnection conexion = null;
             try
             {
+                // Creamos y abrimos la conexión.
                 conexion = new SqlConnection(cadenaConexion);
-                // Abrimos la conexión.
                 conexion.Open();
 
                 // Creamos el comando.
@@ -68,6 +77,8 @@ namespace Libreria
                 comando.Connection = conexion;
                 comando.CommandText = "select * from hilos where id = @id";
                 comando.Parameters.AddWithValue("@id", id);
+
+                // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();
 
                 // Si hay al menos una fila, extraemos los valores de la primera.
@@ -80,8 +91,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENHilo Obtener (ind id) " + ex.Message);
-                throw ex;
+                Console.WriteLine("ENHilo HiloCAD.Obtener(ind id) " + ex.Message);
             }
             finally
             {
@@ -92,32 +102,39 @@ namespace Libreria
             return hilo;
         }
 
+        /// <summary>
+        /// Obtiene todos los hilos del foro (lista de ENHilo).
+        /// </summary>
+        /// <returns>Devuelve una lista de ENHilo con todos los hilos del foro.</returns>
         public ArrayList Obtener()
         {
-            ArrayList materiales = new ArrayList();
+            ArrayList hilos = null;
 
             SqlConnection conexion = null;
             try
             {
-                new SqlConnection(cadenaConexion);
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
+
                 string sentencia = "select * from hilos";
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 SqlDataReader dataReader = comando.ExecuteReader();
 
+                hilos = new ArrayList();
+
                 // Insertamos todas las filas extraidas en el vector.
                 while (dataReader.Read())
                 {
-                    ENHilo material = obtenerDatos(dataReader);
-                    materiales.Add(material);
+                    ENHilo hilo = obtenerDatos(dataReader);
+                    hilos.Add(hilo);
                 }
 
                 dataReader.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ArrayList Obtener () " + ex.Message);
-                throw ex;
+                Console.WriteLine("ArrayList HiloCAD.Obtener() " + ex.Message);
             }
             finally
             {
@@ -125,54 +142,171 @@ namespace Libreria
                     conexion.Close();
             }
 
-            return materiales;
+            return hilos;
         }
 
+        /// <summary>
+        /// Obtiene una lista de hilos (ArrayList de ENHilo) indicando el número de página y la cantidad de
+        /// hilos por página. También es necesario especificar el identificador (id) del hilo desde el que se
+        /// va a empezar a contar.
+        /// </summary>
+        /// <param name="pagina">Número de página.</param>
+        /// <param name="cantidad">Cantidad de hilos en cada página.</param>
+        /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
         public ArrayList Obtener(int pagina, int cantidad, int ultimoId)
         {
-            // select * from hilos limit pagina*cantidad, cantidad;
-            return null;
+            ENUsuario usuario = null;
+            ENCategoria categoria = null;
+            DateTime fecha = DateTime.Now;
+            return Obtener(pagina, cantidad, ultimoId, "", "", ref usuario, ref fecha, ref fecha, ref categoria);
         }
 
+        /// <summary>
+        /// Obtiene una lista de hilos (ArrayList de ENHilo) según un filtro de búsqueda. Es necesario
+        /// indicar un número de página, la cantidad de elementos por página y un identificador desde el que se van a 
+        /// obtener los hilos.
+        /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
+        /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
+        /// </summary>
+        /// <param name="pagina">Número de página.</param>
+        /// <param name="cantidad">Cantidad de hilos en cada página.</param>
+        /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
+        /// <param name="titulo">Título para el filtro de búsqueda.</param>
+        /// <param name="texto">Texto para el filtro de búsqueda.</param>
+        /// <param name="autor">Autor para el filtro de búsqueda.</param>
+        /// <param name="fechaInicio">Fecha de inicio par el filtro de búsqueda.</param>
+        /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
+        /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
         public ArrayList Obtener(int pagina, int cantidad, int ultimoId, String titulo, String texto
-            , ENUsuario autor, DateTime fechaInicio, DateTime fechaFin, ENCategoria categoria)
+            , ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
-            // select *
-            // from hilos
-            // where titulo like '%titulo%'
-            // and texto like '%texti%'
-            // and fecha between fechaInicio at fechaFin
-            // and categoria = categoria.id
-            // and limit pagina*cantidad, cantidad
-            return null;
+            ArrayList hilos = null;
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                // Componemos la cadena de la sentencia.
+                string sentencia = "select * from hilos ";
+                if (titulo != "")
+                    sentencia += "where (titulo like '%"+@titulo+"%' ";
+                else
+                    sentencia += "where (titulo like '%' ";
+                if (texto != "")
+                    sentencia += "or texto like '%"+@texto+"%') ";
+                else
+                    sentencia += "or texto like '%') ";
+                if (autor != null)
+                    sentencia += "and autor = @autor ";
+                if (fechaInicio != fechaFin)
+                    sentencia += "and fechacreacion between @fechainicio and @fechafin ";
+                if (categoria != null)
+                    sentencia += "and categoria = @categoria ";
+
+                // Asignamos la cadena de sentencia y establecemos los parámetros.
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                if (titulo != "")
+                    comando.Parameters.AddWithValue("@titulo", titulo);
+                if (texto != "")
+                    comando.Parameters.AddWithValue("@texto", texto);
+                if (autor != null)
+                    comando.Parameters.AddWithValue("@autor", autor.Id);
+                if (fechaInicio <= fechaFin)
+                {
+                    comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
+                    comando.Parameters.AddWithValue("@fechafin", fechaFin);
+                }
+                if (categoria != null)
+                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Insertamos todas las filas extraidas en el vector.
+                hilos = new ArrayList();
+                while (dataReader.Read())
+                {
+                    ENHilo material = obtenerDatos(dataReader);
+                    hilos.Add(material);
+                }
+
+                // Cerramos la consulta.
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ArrayList HiloCAD.Obtener() " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            Console.WriteLine("Número de hilos encontrado " + hilos.Count);
+            return hilos;
         }
 
+        /// <summary>
+        /// Guarda el nuevo hilo recibido por los parámetros en la base de datos.
+        /// </summary>
+        /// <param name="hilo">Hilo que se va a guardar en la base de datos.</param>
+        /// <returns>Devuelve verdadero si se ha introducido correctamente.</returns>
         public bool Guardar(ENHilo hilo)
         {
             bool insertado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+
+            if (hilo.Autor != null && hilo.Categoria != null)
             {
+                SqlConnection conexion = null;
+                // try
+                // {
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string cadenaComando = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, 1, '31/03/2009', 1)";
+
+                string cadenaComando = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, @autor, @fechacreacion, @categoria)";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
                 comando.Parameters.AddWithValue("@texto", hilo.Texto);
+                comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
+                comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
+                comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
+
                 if (comando.ExecuteNonQuery() == 1)
                     insertado = true;
+                //  }
+                // catch (Exception ex)
+                //  {
+                //    Console.WriteLine("bool HiloCAD.Guardar(ENHilo) " + ex.Message);
+                //  }
+                //  finally
+                //  {
+                if (conexion != null)
+                    conexion.Close();
+                // }
             }
+
             return insertado;
         }
 
-        public bool Borrar(ENHilo hilo)
-        {
-            return Borrar(hilo.Id);
-        }
-
+        /// <summary>
+        /// Borra el hilo que se corresponda con el 'id' recibido en los parámetros.
+        /// </summary>
+        /// <param name="id">Identificador (id) del hilo que se va a borrar desde la base de datos.</param>
+        /// <returns>Devuelve verdadero si se ha borrado correctamente.</returns>
         public bool Borrar(int id)
         {
             bool borrado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+
+            SqlConnection conexion = null;
+            try
             {
+                new SqlConnection(cadenaConexion);
                 conexion.Open();
                 string cadenaComando = "delete from hilos where id = @id";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
@@ -180,9 +314,24 @@ namespace Libreria
                 if (comando.ExecuteNonQuery() == 1)
                     borrado = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("bool HiloCAD.Borrar(int) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
             return borrado;
         }
 
+        /// <summary>
+        /// Guarda los cambios del hilo recibido en los parámetros. El hilo ya debe existir.
+        /// </summary>
+        /// <param name="hilo">Hilo que se va a actualizar.</param>
+        /// <returns>Devuelve verdadero si se ha guardado correctamente.</returns>
         public bool Actualizar(ENHilo hilo)
         {
             // update hilos set tal tal tal where id = hilo.id;
