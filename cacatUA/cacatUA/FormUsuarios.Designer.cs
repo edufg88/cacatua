@@ -45,7 +45,7 @@
             this.button_ocultarP2 = new System.Windows.Forms.Button();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_DataGridViewUsuarios = new System.Windows.Forms.Panel();
-            this.butto_editarHilo = new System.Windows.Forms.Button();
+            this.button_editarHilo = new System.Windows.Forms.Button();
             this.button_borrarHilo = new System.Windows.Forms.Button();
             this.dataGridView_usuarios = new System.Windows.Forms.DataGridView();
             this.panel_volverUsuarios = new System.Windows.Forms.Panel();
@@ -250,7 +250,7 @@
             // 
             // panel_DataGridViewUsuarios
             // 
-            this.panel_DataGridViewUsuarios.Controls.Add(this.butto_editarHilo);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.button_editarHilo);
             this.panel_DataGridViewUsuarios.Controls.Add(this.button_borrarHilo);
             this.panel_DataGridViewUsuarios.Controls.Add(this.dataGridView_usuarios);
             this.panel_DataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -259,20 +259,21 @@
             this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 79);
             this.panel_DataGridViewUsuarios.TabIndex = 36;
             // 
-            // butto_editarHilo
+            // button_editarHilo
             // 
-            this.butto_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.butto_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarHilo.FlatAppearance.BorderSize = 0;
-            this.butto_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarHilo.Location = new System.Drawing.Point(788, 3);
-            this.butto_editarHilo.Name = "butto_editarHilo";
-            this.butto_editarHilo.Size = new System.Drawing.Size(36, 36);
-            this.butto_editarHilo.TabIndex = 12;
-            this.butto_editarHilo.Tag = "Modificar hilo seleccionado";
-            this.butto_editarHilo.UseVisualStyleBackColor = true;
+            this.button_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarHilo.FlatAppearance.BorderSize = 0;
+            this.button_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarHilo.Location = new System.Drawing.Point(788, 3);
+            this.button_editarHilo.Name = "button_editarHilo";
+            this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
+            this.button_editarHilo.TabIndex = 12;
+            this.button_editarHilo.Tag = "Modificar hilo seleccionado";
+            this.button_editarHilo.UseVisualStyleBackColor = true;
+            this.button_editarHilo.Click += new System.EventHandler(this.button_editarHilo_Click);
             // 
             // button_borrarHilo
             // 
@@ -288,6 +289,7 @@
             this.button_borrarHilo.TabIndex = 11;
             this.button_borrarHilo.Tag = "Eliminar hilo seleccionado";
             this.button_borrarHilo.UseVisualStyleBackColor = true;
+            this.button_borrarHilo.Click += new System.EventHandler(this.button_borrarHilo_Click);
             // 
             // dataGridView_usuarios
             // 
@@ -305,6 +307,7 @@
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 321);
             this.dataGridView_usuarios.TabIndex = 2;
+            this.dataGridView_usuarios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseDoubleClick);
             // 
             // panel_volverUsuarios
             // 
@@ -373,7 +376,7 @@
         private System.Windows.Forms.Panel panel_cabeceraSeccion2;
         private System.Windows.Forms.Label label_seccion2;
         private System.Windows.Forms.Button button_borrarHilo;
-        private System.Windows.Forms.Button butto_editarHilo;
+        private System.Windows.Forms.Button button_editarHilo;
         private System.Windows.Forms.Button button_ocultarP1;
         private System.Windows.Forms.Button button_ocultarP2;
     }

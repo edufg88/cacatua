@@ -136,7 +136,7 @@ namespace Libreria
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
-                comando.CommandText = "SELECT * FROM Usuarios";
+                comando.CommandText = "SELECT * FROM usuarios";
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader
                 while (dr.Read())
@@ -246,11 +246,12 @@ namespace Libreria
             return (creado);
         }
 
-        public ArrayList BuscarUsuario(string nombreUsuario, string correo, string fechaIngreso)
+        public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso)
         {
             bool usarUsuario = false;
             bool usarCorreo = false;
             bool usarFecha = false;
+            string cadenaFecha = "";
 
             if (nombreUsuario != "")
             {
@@ -259,10 +260,17 @@ namespace Libreria
             if (correo != "")
             {
                 usarCorreo = true;
-            }
-            if (fechaIngreso != DateTime.Now.ToString())
+            }            
+            if (fechaIngreso.Date != DateTime.Now.Date)
             {
                 usarFecha = true;
+
+                // Generamos una cadena a partir de la fecha
+                cadenaFecha += fechaIngreso.Day;
+                cadenaFecha += "/";
+                cadenaFecha += fechaIngreso.Month;
+                cadenaFecha += "/";
+                cadenaFecha += fechaIngreso.Year;
             }
 
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -289,19 +297,19 @@ namespace Libreria
                     }
                     comando.CommandText += "(correo = @correo) ";
                 }
-                /*
+                
                 if (usarFecha)
                 {
-                    if (usarUsuario || usarEmail)
+                    if (usarUsuario || usarCorreo)
                     {
                         comando.CommandText += "AND ";
                     }
-                    comando.CommandText += "(fechaingreso = @fechaingreso)";
-                }*/
+                    comando.CommandText += "(fechaingreso = @fechaingreso) ";
+                }
 
                 comando.Parameters.AddWithValue("@usuario", nombreUsuario);
                 comando.Parameters.AddWithValue("@correo", correo);
-                comando.Parameters.AddWithValue("@fechaingreso", fechaIngreso);
+                comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
 
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader
@@ -321,6 +329,37 @@ namespace Libreria
             }
 
             return usuarios;
+        }
+
+        public bool EsAdministrador(int id)
+        {
+            bool esAdmin = false;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM administradores where usuario = @id";
+                comando.Parameters.AddWithValue("@id", id);
+
+                if ((comando.ExecuteNonQuery()) == 1) // Comprobamos cuantas filas se borran
+                {
+                    esAdmin = true;
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
+                //MessageBox.Show();   
+                Console.Write("Excepcion EsAdmin");
+            }
+
+            return (esAdmin);
+        
         }
     }
 }

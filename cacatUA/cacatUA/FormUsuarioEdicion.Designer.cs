@@ -201,7 +201,6 @@
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(120, 20);
             this.textBox_email.TabIndex = 55;
-            this.textBox_email.Text = "usuario@cacatua.org";
             // 
             // textBox_nombre
             // 
@@ -209,7 +208,6 @@
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(120, 20);
             this.textBox_nombre.TabIndex = 34;
-            this.textBox_nombre.Text = "Edu";
             // 
             // label_email
             // 
@@ -381,7 +379,6 @@
             this.textBox_autorFirma.Name = "textBox_autorFirma";
             this.textBox_autorFirma.Size = new System.Drawing.Size(159, 20);
             this.textBox_autorFirma.TabIndex = 41;
-            this.textBox_autorFirma.Text = "Peter Mazinger Rufai";
             // 
             // label_buscarFirmaPorAutor
             // 
@@ -507,7 +504,6 @@
             this.textBox_tituloGaleria.Name = "textBox_tituloGaleria";
             this.textBox_tituloGaleria.Size = new System.Drawing.Size(159, 20);
             this.textBox_tituloGaleria.TabIndex = 68;
-            this.textBox_tituloGaleria.Text = "El toro y la luna";
             // 
             // textBox_autorGaleria
             // 
@@ -515,7 +511,6 @@
             this.textBox_autorGaleria.Name = "textBox_autorGaleria";
             this.textBox_autorGaleria.Size = new System.Drawing.Size(159, 20);
             this.textBox_autorGaleria.TabIndex = 64;
-            this.textBox_autorGaleria.Text = "Peter Mazinger Rufai";
             // 
             // label_buscarGaleriaPorTitulo
             // 
@@ -670,7 +665,6 @@
             this.textBox_tituloMensaje.Name = "textBox_tituloMensaje";
             this.textBox_tituloMensaje.Size = new System.Drawing.Size(159, 20);
             this.textBox_tituloMensaje.TabIndex = 75;
-            this.textBox_tituloMensaje.Text = "El toro y la luna";
             // 
             // label_buscarMensajePorTitulo
             // 
@@ -811,7 +805,6 @@
             this.textBox_asuntoEncuesta.Name = "textBox_asuntoEncuesta";
             this.textBox_asuntoEncuesta.Size = new System.Drawing.Size(159, 20);
             this.textBox_asuntoEncuesta.TabIndex = 91;
-            this.textBox_asuntoEncuesta.Text = "El toro y la luna";
             // 
             // label_buscarEncuestaPorAsunto
             // 
@@ -894,6 +887,7 @@
             this.button_descartarCambios.TabIndex = 3;
             this.button_descartarCambios.Text = "Descartar cambios";
             this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Click += new System.EventHandler(this.button_descartarCambios_Click);
             // 
             // button_guardarCambios
             // 
@@ -904,6 +898,7 @@
             this.button_guardarCambios.TabIndex = 2;
             this.button_guardarCambios.Text = "Guardar cambios";
             this.button_guardarCambios.UseVisualStyleBackColor = true;
+            this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
             // FormUsuarioEdicion
             // 
