@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel6 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.textBox_respuestas = new System.Windows.Forms.TextBox();
@@ -55,6 +56,8 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -63,6 +66,7 @@
             this.panel1.SuspendLayout();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -94,6 +98,7 @@
             this.textBox_respuestas.ReadOnly = true;
             this.textBox_respuestas.Size = new System.Drawing.Size(59, 20);
             this.textBox_respuestas.TabIndex = 3;
+            this.textBox_respuestas.TabStop = false;
             // 
             // label_respuestas
             // 
@@ -121,6 +126,7 @@
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
             this.dateTimePicker_fecha.TabIndex = 1;
+            this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.button_guardarCambios_Click);
             // 
             // label_fechaCreacion
             // 
@@ -151,6 +157,7 @@
             this.textBox_texto.Name = "textBox_texto";
             this.textBox_texto.Size = new System.Drawing.Size(729, 49);
             this.textBox_texto.TabIndex = 2;
+            this.textBox_texto.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_texto
             // 
@@ -195,6 +202,7 @@
             this.textBox_categoria.Name = "textBox_categoria";
             this.textBox_categoria.Size = new System.Drawing.Size(729, 20);
             this.textBox_categoria.TabIndex = 2;
+            this.textBox_categoria.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_categoria
             // 
@@ -239,6 +247,7 @@
             this.textBox_autor.Name = "textBox_autor";
             this.textBox_autor.Size = new System.Drawing.Size(729, 20);
             this.textBox_autor.TabIndex = 2;
+            this.textBox_autor.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_autor
             // 
@@ -270,6 +279,7 @@
             this.textBox_id.ReadOnly = true;
             this.textBox_id.Size = new System.Drawing.Size(49, 20);
             this.textBox_id.TabIndex = 4;
+            this.textBox_id.TabStop = false;
             // 
             // label_id
             // 
@@ -289,6 +299,7 @@
             this.textBox_titulo.Name = "textBox_titulo";
             this.textBox_titulo.Size = new System.Drawing.Size(624, 20);
             this.textBox_titulo.TabIndex = 2;
+            this.textBox_titulo.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_titulo
             // 
@@ -345,6 +356,7 @@
             this.button_descartarCambios.TabIndex = 1;
             this.button_descartarCambios.Text = "Descartar cambios";
             this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Click += new System.EventHandler(this.button_descartarCambios_Click);
             // 
             // button_guardarCambios
             // 
@@ -356,6 +368,10 @@
             this.button_guardarCambios.Text = "Guardar cambios";
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormForoEdicion
             // 
@@ -378,6 +394,7 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel_secundario.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,6 +428,8 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button_guardarCambios;
         private System.Windows.Forms.Button button_descartarCambios;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }
