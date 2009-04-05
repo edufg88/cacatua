@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Libreria
 {
-    public class ENUsuario
+    public class ENUsuario : InterfazEN
     {
         const int maxTamUsuario = 15;
         const int minTamUsuario = 5;
@@ -43,6 +43,21 @@ namespace Libreria
         public ENUsuario(int id)
         {
             ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
+            this.id = aux.id;
+            this.usuario = aux.Usuario;
+            this.contrasena = aux.Contrasena;
+            this.nombre = aux.Nombre;
+            this.dni = aux.Dni;
+            this.correo = aux.Correo;
+            this.activo = aux.Activo;
+            this.adicional = aux.Adicional;
+            this.fechaingreso = aux.Fechaingreso;
+        }
+
+        // Constructor sobrecargado. Sólo con el nombre de usuario.
+        public ENUsuario(string usuario)
+        {
+            ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(usuario);
             this.id = aux.id;
             this.usuario = aux.Usuario;
             this.contrasena = aux.Contrasena;
@@ -173,22 +188,77 @@ namespace Libreria
             return (error);
         }
 
-        public ArrayList ObtenerUsuarios()
+        public static ArrayList Obtener()
         {
             return UsuarioCAD.Instancia.ObtenerUsuarios();
         }
 
-        public void CrearUsuario()
+        override public bool Obtener(int id)
         {
-            UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
+            ENUsuario aux = null;
+            UsuarioCAD.Instancia.ObtenerUsuario(id);
+
+            this.id = aux.id;
+            this.usuario = aux.usuario;
+            this.contrasena = aux.contrasena;
+            this.nombre = aux.nombre;
+            this.dni = aux.dni;
+            this.correo = aux.correo;
+            this.adicional = aux.adicional;
+            this.fechaingreso = aux.fechaingreso;
+            this.activo = aux.activo;
+
+            if (aux == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-        public bool BorrarUsuario()
+        public bool Obtener(string nombre)
+        {
+            ENUsuario aux = null;
+            aux = UsuarioCAD.Instancia.ObtenerUsuario(nombre);
+
+            this.id = aux.id;
+            this.usuario = aux.usuario;
+            this.contrasena = aux.contrasena;
+            this.nombre = aux.nombre;
+            this.dni = aux.dni;
+            this.correo = aux.correo;
+            this.adicional = aux.adicional;
+            this.fechaingreso = aux.fechaingreso;
+            this.activo = aux.activo;
+
+            if (aux == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        override public bool Actualizar()
+        {
+            throw new NotImplementedException();
+        }
+
+        override public bool Guardar()
+        {
+            return UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
+        }
+
+        override public bool Borrar()
         {
             return UsuarioCAD.Instancia.BorrarUsuario(id);
         }
 
-        public bool BorrarUsuario(int pid)
+        public static bool Borrar(int pid)
         {
             return UsuarioCAD.Instancia.BorrarUsuario(pid);
         }
@@ -196,6 +266,11 @@ namespace Libreria
         public void BorrarUsuarios()
         {
             UsuarioCAD.Instancia.BorrarUsuarios();
+        }
+
+        public static ArrayList Buscar(string nombreUsuario, string email, string fechaIngreso)
+        {
+            return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso);
         }
 
         public int Id
