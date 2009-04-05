@@ -14,6 +14,23 @@ namespace Libreria
 
         public ENCategoria()
         {
+            id = 0;
+        }
+
+        public ENCategoria(int id)
+        {
+            ENCategoria aux = ObtenerCategoria(id);
+            if (aux != null)
+            {
+                id = aux.Id;
+                nombre = aux.Nombre;
+                descripcion = aux.Descripcion;
+                padre = aux.Padre;
+            }
+            else
+            {
+                id = 0;
+            }
         }
 
         public ENCategoria(int id, String nombre, String descripcion, int padre)
