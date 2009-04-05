@@ -93,7 +93,7 @@ namespace cacatUA
 
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
-            // Cargamso el user control de crear
+            // Cargamos el user control de crear
             CambiarFormularioEdicion();
             //formEdicion.formularioVacio();
         }
@@ -149,5 +149,40 @@ namespace cacatUA
                 ocultoP2 = false;
             }
         }
+
+        private void dataGridView_usuarios_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {   
+            CambiarFormularioEdicion();
+            // Cargamos los datos en el formulario
+            formEdicion.CambiarSeleccionado(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+        }
+
+        private void button_editarHilo_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_usuarios.SelectedRows.Count > 0)
+            {
+                CambiarFormularioEdicion();
+                formEdicion.CambiarSeleccionado(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+            }
+        }
+
+        private void button_borrarHilo_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_usuarios.SelectedRows.Count > 0)
+            {
+                DataGridViewSelectedRowCollection filas = dataGridView_usuarios.SelectedRows;
+                if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea borrar los usuarios seleccionados?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+                {
+                    foreach (DataGridViewRow i in filas)
+                    {
+                        // Se borra de la lista y de la base de datos.
+                        ENUsuario.Borrar(int.Parse(i.Cells[0].Value.ToString()));
+                        dataGridView_usuarios.Rows.Remove(i);
+                    }
+                }
+            }
+
+        }
+
     }
 }

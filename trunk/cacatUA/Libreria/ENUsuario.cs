@@ -29,6 +29,7 @@ namespace Libreria
         // Constructor por defecto. Crea un usuario vacío
         public ENUsuario()
         {
+            id = 0;
             usuario = "";
             contrasena = "";
             nombre = "";
@@ -205,26 +206,26 @@ namespace Libreria
 
         override public bool Obtener(int id)
         {
-            ENUsuario aux = null;
+            ENUsuario aux = new ENUsuario();
             UsuarioCAD.Instancia.ObtenerUsuario(id);
 
-            this.id = aux.id;
-            this.usuario = aux.usuario;
-            this.contrasena = aux.contrasena;
-            this.nombre = aux.nombre;
-            this.dni = aux.dni;
-            this.correo = aux.correo;
-            this.adicional = aux.adicional;
-            this.fechaingreso = aux.fechaingreso;
-            this.activo = aux.activo;
-
-            if (aux == null)
+            if (aux != null)
             {
-                return false;
+                this.id = aux.id;
+                this.usuario = aux.usuario;
+                this.contrasena = aux.contrasena;
+                this.nombre = aux.nombre;
+                this.dni = aux.dni;
+                this.correo = aux.correo;
+                this.adicional = aux.adicional;
+                this.fechaingreso = aux.fechaingreso;
+                this.activo = aux.activo;
+
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
@@ -278,9 +279,14 @@ namespace Libreria
             UsuarioCAD.Instancia.BorrarUsuarios();
         }
 
-        public static ArrayList Buscar(string nombreUsuario, string email, string fechaIngreso)
+        public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso)
         {
             return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso);
+        }
+
+        public bool EsAdministrador()
+        {
+            return UsuarioCAD.Instancia.EsAdministrador(this.id);
         }
 
         public int Id
