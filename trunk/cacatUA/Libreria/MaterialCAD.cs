@@ -30,6 +30,7 @@ namespace Libreria
             get { return instancia; }
         }
 
+
         /// <summary>
         /// Constructor en el ámbito privado de la clase para no permitir más
         /// de una instancia.
