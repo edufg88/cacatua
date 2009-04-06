@@ -89,13 +89,14 @@ namespace Libreria
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();
-               
+                string cadenaComando = "SELECT * FROM vistaMateriales";
+               /*
                 string cadenaComando = "select materiales.*,count(*) votos, avg(puntuacion)valoracion "
                     + "from materiales, materialesvotos where materiales.id = materialesvotos.material "
                     + "group by materiales.id, materiales.nombre,materiales.descripcion,materiales.fecha,materiales.usuario,"
                     + "materiales.categoria,materiales.archivo,materiales.tamaño,materiales.descargas,materiales.idioma,"
                     + "materiales.referencia";
-
+                */
                 //string cadenaComando = "select * from materiales";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -103,14 +104,71 @@ namespace Libreria
                 while (reader.Read())
                 {
                     ENMaterial material = obtenerDatos(reader);
-                    material.Valoracion = 5;
-                    material.Votos = 6;
                     materiales.Add(material);
                 }
             }
             return materiales;
         }
 
+        public ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, string categoria, DateTime fechaInicio, DateTime fechaFin)
+        {
+            ArrayList materiales = new ArrayList();
+            bool correcto = false;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                Console.WriteLine("nombre: " + filtroBusqueda);
+                string cadenaComando = "SELECT * FROM vistaMateriales WHERE "
+                    + "(nombre like @nombre or descripcion like @descripcion) ";
+                if (usuario.Nombre != "")
+                    cadenaComando += "and usuario = @usuario ";
+                if (categoria != "")
+                    cadenaComando += "and categoria = @categoria";
+                /*
+                if (fechaInicio <= fechaFin)
+                {
+                    comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
+                    comando.Parameters.AddWithValue("@fechafin", fechaFin);
+                }
+                */
+
+                comando.CommandText = cadenaComando;
+                comando.Parameters.AddWithValue("@nombre","%" + filtroBusqueda + "%");
+                comando.Parameters.AddWithValue("@descripcion","%" + filtroBusqueda + "%");
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                comando.Parameters.AddWithValue("@categoria", getIdCategoria(categoria));
+
+                Console.WriteLine(comando.CommandText);
+                
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENMaterial material = obtenerDatos(reader);
+                    materiales.Add(material);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENMaterial::Obtener(string filtroBusqueda, string usuario, string categoria, DateTime fechaInicio, DateTime fechaFin)) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return materiales;
+        }
 
         public bool existeUsuario(string nombre)
         {
@@ -192,8 +250,8 @@ namespace Libreria
             material.Tamaño = int.Parse(reader["tamaño"].ToString());
             material.Descargas = int.Parse(reader["descargas"].ToString());
             material.Idioma = reader["idioma"].ToString();
-           // material.Valoracion = int.Parse(reader["valoracion"].ToString());
-           // material.Votos = int.Parse(reader["votos"].ToString());
+            material.Puntuacion = int.Parse(reader["puntuacion"].ToString());
+            material.Votos = int.Parse(reader["votos"].ToString());
             material.Referencia = reader["referencia"].ToString();
             return material;
         }
@@ -213,22 +271,20 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
-
+                /*
                 string cadenaComando = "select materiales.*,count(*) votos, avg(puntuacion)valoracion "
                     + "from materiales, materialesvotos where materiales.id = materialesvotos.material and materiales.id = @id "
                     + "group by materiales.id, materiales.nombre,materiales.descripcion,materiales.fecha,materiales.usuario,"
                     + "materiales.categoria,materiales.archivo,materiales.tamaño,materiales.descargas,materiales.idioma,"
                     + "materiales.referencia";
+                 */
+                string cadenaComando = "SELECT * FROM vistaMateriales where id = @id";
                 comando.CommandText = cadenaComando;
                 comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list objetos del tipo ENMaterialCRUD
                 if (reader.Read())
-                {
                     material = obtenerDatos(reader);
-                    material.Valoracion = 5;
-                    material.Votos = 6;
-                }
             }
             return material;
         }

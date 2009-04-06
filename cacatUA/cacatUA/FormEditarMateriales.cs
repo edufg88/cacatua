@@ -16,7 +16,7 @@ namespace cacatUA
     public partial class FormEditarMateriales : UserControl
     {
         string[] controlesCrear = { "nombre","descripcion","usuario","categoria","archivo","idioma","referencia" };
-        string[] controlesEditar = { "nombre", "descripcion", "fecha","usuario", "categoria", "archivo", "descargas","idioma","valoracion","votos","referencia" };
+        string[] controlesEditar = { "nombre", "descripcion", "fecha","usuario", "categoria", "archivo", "descargas","idioma","puntuacion","votos","referencia" };
         
         public enum modos { EDITAR = 0, CREAR = 1, BORRAR = 2};
         private modos modo;
@@ -48,7 +48,7 @@ namespace cacatUA
             controles.Add("tamaño", textBox_tamaño);
             controles.Add("descargas", textBox_descargas);
             controles.Add("idioma", comboBox_idioma);
-            controles.Add("valoracion", textBox_valoracion);
+            controles.Add("puntuacion", textBox_puntuacion);
             controles.Add("votos", textBox_votos);
             controles.Add("referencia", textBox_referencia);
         }
@@ -128,7 +128,7 @@ namespace cacatUA
             textBox = (TextBox)controles["descargas"];
             textBox.Clear();
             //comboBox_idioma.Clear();
-            textBox = (TextBox)controles["valoracion"];
+            textBox = (TextBox)controles["puntuacion"];
             textBox.Clear();
             textBox = (TextBox)controles["votos"];
             textBox.Clear();
@@ -165,7 +165,7 @@ namespace cacatUA
                             controles["tamaño"].Text = material.Tamaño.ToString();
                             controles["descargas"].Text = material.Descargas.ToString();
                             // idioma
-                            controles["valoracion"].Text = material.Valoracion.ToString();
+                            controles["puntuacion"].Text = material.Puntuacion.ToString();
                             controles["votos"].Text = material.Votos.ToString();
                             controles["referencia"].Text = material.Referencia;
                             

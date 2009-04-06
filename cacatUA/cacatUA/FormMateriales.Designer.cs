@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,34 +50,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.comboBox_categoria = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_añadirMaterial = new System.Windows.Forms.Button();
-            this.button_seccionBuscar = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel_contenido = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_borrarMaterial = new System.Windows.Forms.Button();
-            this.butto_editarMaterial = new System.Windows.Forms.Button();
-            this.dataGridViewMateriales = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -161,22 +134,41 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.bEliminarHilo = new System.Windows.Forms.Button();
+            this.panel_cabecera = new System.Windows.Forms.Panel();
+            this.label_foro = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel_contenedor = new System.Windows.Forms.Panel();
+            this.panel_contenido = new System.Windows.Forms.Panel();
+            this.button_volver = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.butto_editarMaterial = new System.Windows.Forms.Button();
+            this.button_borrarMaterial = new System.Windows.Forms.Button();
+            this.button_añadirMaterial = new System.Windows.Forms.Button();
+            this.panel_opciones = new System.Windows.Forms.Panel();
+            this.button_seccionBuscar = new System.Windows.Forms.Button();
+            this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
+            this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
+            this.label_seccion = new System.Windows.Forms.Label();
+            this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
+            this.label_seccion2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dataGridView_materiales = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.tableLayoutPanel18.SuspendLayout();
-            this.tableLayoutPanel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMateriales)).BeginInit();
-            this.panel6.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
@@ -187,6 +179,16 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
+            this.panel_cabecera.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.panel_contenedor.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel_opciones.SuspendLayout();
+            this.tableLayoutPanel_principal.SuspendLayout();
+            this.panel_cabeceraSeccion1.SuspendLayout();
+            this.panel_cabeceraSeccion2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_materiales)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -401,350 +403,6 @@
             this.label13.Size = new System.Drawing.Size(57, 13);
             this.label13.TabIndex = 63;
             this.label13.Text = "Categoría:";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(885, 569);
-            this.tableLayoutPanel1.TabIndex = 32;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(115)))), ((int)(((byte)(175)))));
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(879, 25);
-            this.panel3.TabIndex = 30;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label2.Size = new System.Drawing.Size(73, 19);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Materiales";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.tableLayoutPanel9);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 34);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(879, 532);
-            this.panel4.TabIndex = 48;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel20, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.panel5, 0, 1);
-            this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 0, 2);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 3;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 350F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(877, 530);
-            this.tableLayoutPanel9.TabIndex = 88;
-            // 
-            // tableLayoutPanel20
-            // 
-            this.tableLayoutPanel20.ColumnCount = 4;
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.22222F));
-            this.tableLayoutPanel20.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel20.Controls.Add(this.button_añadirMaterial, 0, 0);
-            this.tableLayoutPanel20.Controls.Add(this.button_seccionBuscar, 0, 0);
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel20.Name = "tableLayoutPanel20";
-            this.tableLayoutPanel20.RowCount = 1;
-            this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(203, 29);
-            this.tableLayoutPanel20.TabIndex = 93;
-            // 
-            // button_añadirMaterial
-            // 
-            this.button_añadirMaterial.AccessibleName = "";
-            this.button_añadirMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_añadirMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_añadirMaterial.FlatAppearance.BorderSize = 0;
-            this.button_añadirMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_añadirMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_añadirMaterial.Image = global::cacatUA.Properties.Resources.add1;
-            this.button_añadirMaterial.Location = new System.Drawing.Point(48, 3);
-            this.button_añadirMaterial.Name = "button_añadirMaterial";
-            this.button_añadirMaterial.Size = new System.Drawing.Size(39, 23);
-            this.button_añadirMaterial.TabIndex = 5;
-            this.button_añadirMaterial.Tag = "";
-            this.button_añadirMaterial.UseVisualStyleBackColor = true;
-            this.button_añadirMaterial.Click += new System.EventHandler(this.añadirMaterial);
-            // 
-            // button_seccionBuscar
-            // 
-            this.button_seccionBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
-            this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
-            this.button_seccionBuscar.Location = new System.Drawing.Point(3, 3);
-            this.button_seccionBuscar.Name = "button_seccionBuscar";
-            this.button_seccionBuscar.Size = new System.Drawing.Size(39, 23);
-            this.button_seccionBuscar.TabIndex = 0;
-            this.button_seccionBuscar.UseVisualStyleBackColor = true;
-            this.button_seccionBuscar.Click += new System.EventHandler(this.buscarMateriales);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.panel_contenido);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 38);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(871, 344);
-            this.panel5.TabIndex = 91;
-            // 
-            // panel_contenido
-            // 
-            this.panel_contenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_contenido.Location = new System.Drawing.Point(0, 0);
-            this.panel_contenido.Name = "panel_contenido";
-            this.panel_contenido.Size = new System.Drawing.Size(871, 344);
-            this.panel_contenido.TabIndex = 0;
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 1;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel18, 0, 1);
-            this.tableLayoutPanel10.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 388);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 2;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(871, 139);
-            this.tableLayoutPanel10.TabIndex = 90;
-            // 
-            // tableLayoutPanel18
-            // 
-            this.tableLayoutPanel18.ColumnCount = 2;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel18.Controls.Add(this.tableLayoutPanel14, 1, 0);
-            this.tableLayoutPanel18.Controls.Add(this.dataGridViewMateriales, 0, 0);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 38);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 1;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(865, 98);
-            this.tableLayoutPanel18.TabIndex = 87;
-            // 
-            // tableLayoutPanel14
-            // 
-            this.tableLayoutPanel14.ColumnCount = 1;
-            this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Controls.Add(this.button_borrarMaterial, 0, 1);
-            this.tableLayoutPanel14.Controls.Add(this.butto_editarMaterial, 0, 0);
-            this.tableLayoutPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel14.Location = new System.Drawing.Point(828, 3);
-            this.tableLayoutPanel14.Name = "tableLayoutPanel14";
-            this.tableLayoutPanel14.RowCount = 3;
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(34, 92);
-            this.tableLayoutPanel14.TabIndex = 0;
-            // 
-            // button_borrarMaterial
-            // 
-            this.button_borrarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_borrarMaterial.FlatAppearance.BorderSize = 0;
-            this.button_borrarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarMaterial.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarMaterial.Location = new System.Drawing.Point(3, 38);
-            this.button_borrarMaterial.Name = "button_borrarMaterial";
-            this.button_borrarMaterial.Size = new System.Drawing.Size(28, 29);
-            this.button_borrarMaterial.TabIndex = 8;
-            this.button_borrarMaterial.Tag = "Eliminar hilo seleccionado";
-            this.button_borrarMaterial.UseVisualStyleBackColor = true;
-            this.button_borrarMaterial.Click += new System.EventHandler(this.borrarMaterial);
-            // 
-            // butto_editarMaterial
-            // 
-            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.butto_editarMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
-            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
-            this.butto_editarMaterial.Location = new System.Drawing.Point(3, 3);
-            this.butto_editarMaterial.Name = "butto_editarMaterial";
-            this.butto_editarMaterial.Size = new System.Drawing.Size(28, 29);
-            this.butto_editarMaterial.TabIndex = 7;
-            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
-            this.butto_editarMaterial.UseVisualStyleBackColor = true;
-            this.butto_editarMaterial.Click += new System.EventHandler(this.editarMaterial);
-            // 
-            // dataGridViewMateriales
-            // 
-            this.dataGridViewMateriales.AllowUserToAddRows = false;
-            this.dataGridViewMateriales.AllowUserToDeleteRows = false;
-            this.dataGridViewMateriales.AllowUserToResizeRows = false;
-            this.dataGridViewMateriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMateriales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn_id,
-            this.dataGridViewTextBoxColumn_nombre,
-            this.dataGridViewTextBoxColumn_descripcion,
-            this.dataGridViewTextBoxColumn_categoria,
-            this.dataGridViewTextBoxColumn_usuario,
-            this.dataGridViewTextBoxColumn_fecha,
-            this.dataGridViewTextBoxColumn_idioma,
-            this.dataGridViewTextBoxColumn_tamaño,
-            this.dataGridViewTextBoxColumn_descargas,
-            this.dataGridViewTextBoxColumn_valoracion});
-            this.dataGridViewMateriales.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewMateriales.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewMateriales.Name = "dataGridViewMateriales";
-            this.dataGridViewMateriales.ReadOnly = true;
-            this.dataGridViewMateriales.RowHeadersVisible = false;
-            this.dataGridViewMateriales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewMateriales.Size = new System.Drawing.Size(819, 92);
-            this.dataGridViewMateriales.TabIndex = 85;
-            this.dataGridViewMateriales.DoubleClick += new System.EventHandler(this.editarMaterial);
-            // 
-            // dataGridViewTextBoxColumn_id
-            // 
-            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn_id.MinimumWidth = 40;
-            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
-            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_id.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn_nombre
-            // 
-            this.dataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn_nombre.Name = "dataGridViewTextBoxColumn_nombre";
-            this.dataGridViewTextBoxColumn_nombre.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // dataGridViewTextBoxColumn_descripcion
-            // 
-            this.dataGridViewTextBoxColumn_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn_descripcion.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn_descripcion.Name = "dataGridViewTextBoxColumn_descripcion";
-            this.dataGridViewTextBoxColumn_descripcion.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_categoria
-            // 
-            this.dataGridViewTextBoxColumn_categoria.HeaderText = "Categoría";
-            this.dataGridViewTextBoxColumn_categoria.Name = "dataGridViewTextBoxColumn_categoria";
-            this.dataGridViewTextBoxColumn_categoria.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_usuario
-            // 
-            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Enviado por";
-            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
-            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_fecha
-            // 
-            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
-            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_idioma
-            // 
-            this.dataGridViewTextBoxColumn_idioma.HeaderText = "Idioma";
-            this.dataGridViewTextBoxColumn_idioma.Name = "dataGridViewTextBoxColumn_idioma";
-            this.dataGridViewTextBoxColumn_idioma.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_tamaño
-            // 
-            this.dataGridViewTextBoxColumn_tamaño.HeaderText = "Tamaño";
-            this.dataGridViewTextBoxColumn_tamaño.Name = "dataGridViewTextBoxColumn_tamaño";
-            this.dataGridViewTextBoxColumn_tamaño.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_tamaño.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn_descargas
-            // 
-            this.dataGridViewTextBoxColumn_descargas.HeaderText = "Descargas";
-            this.dataGridViewTextBoxColumn_descargas.Name = "dataGridViewTextBoxColumn_descargas";
-            this.dataGridViewTextBoxColumn_descargas.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_descargas.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn_valoracion
-            // 
-            this.dataGridViewTextBoxColumn_valoracion.HeaderText = "Valoración";
-            this.dataGridViewTextBoxColumn_valoracion.Name = "dataGridViewTextBoxColumn_valoracion";
-            this.dataGridViewTextBoxColumn_valoracion.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_valoracion.Width = 80;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.Controls.Add(this.label26);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(865, 29);
-            this.panel6.TabIndex = 86;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(3, 6);
-            this.label26.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(70, 13);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "Resultados";
             // 
             // tableLayoutPanel6
             // 
@@ -1584,11 +1242,320 @@
             this.bEliminarHilo.Tag = "Eliminar hilo seleccionado";
             this.bEliminarHilo.UseVisualStyleBackColor = true;
             // 
+            // panel_cabecera
+            // 
+            this.panel_cabecera.BackColor = System.Drawing.Color.Blue;
+            this.panel_cabecera.Controls.Add(this.label_foro);
+            this.panel_cabecera.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_cabecera.Location = new System.Drawing.Point(0, 0);
+            this.panel_cabecera.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_cabecera.Name = "panel_cabecera";
+            this.panel_cabecera.Size = new System.Drawing.Size(885, 30);
+            this.panel_cabecera.TabIndex = 0;
+            // 
+            // label_foro
+            // 
+            this.label_foro.AutoSize = true;
+            this.label_foro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_foro.ForeColor = System.Drawing.Color.White;
+            this.label_foro.Location = new System.Drawing.Point(11, 7);
+            this.label_foro.Name = "label_foro";
+            this.label_foro.Size = new System.Drawing.Size(73, 17);
+            this.label_foro.TabIndex = 0;
+            this.label_foro.Text = "Materiales";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // panel_contenedor
+            // 
+            this.panel_contenedor.Controls.Add(this.panel_contenido);
+            this.panel_contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_contenedor.Location = new System.Drawing.Point(0, 110);
+            this.panel_contenedor.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_contenedor.Name = "panel_contenedor";
+            this.panel_contenedor.Size = new System.Drawing.Size(885, 240);
+            this.panel_contenedor.TabIndex = 7;
+            // 
+            // panel_contenido
+            // 
+            this.panel_contenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_contenido.Location = new System.Drawing.Point(0, 0);
+            this.panel_contenido.Name = "panel_contenido";
+            this.panel_contenido.Size = new System.Drawing.Size(885, 240);
+            this.panel_contenido.TabIndex = 1;
+            // 
+            // button_volver
+            // 
+            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
+            this.button_volver.Location = new System.Drawing.Point(4, 3);
+            this.button_volver.Name = "button_volver";
+            this.button_volver.Size = new System.Drawing.Size(306, 23);
+            this.button_volver.TabIndex = 0;
+            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
+            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button_volver.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button_volver);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(0, 539);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(885, 30);
+            this.panel3.TabIndex = 6;
+            // 
+            // butto_editarMaterial
+            // 
+            this.butto_editarMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.butto_editarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.butto_editarMaterial.FlatAppearance.BorderSize = 0;
+            this.butto_editarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.butto_editarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.butto_editarMaterial.Image = global::cacatUA.Properties.Resources.tool;
+            this.butto_editarMaterial.Location = new System.Drawing.Point(844, 5);
+            this.butto_editarMaterial.Name = "butto_editarMaterial";
+            this.butto_editarMaterial.Size = new System.Drawing.Size(36, 36);
+            this.butto_editarMaterial.TabIndex = 9;
+            this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
+            this.butto_editarMaterial.UseVisualStyleBackColor = true;
+            this.butto_editarMaterial.Click += new System.EventHandler(this.editarMaterial);
+            // 
+            // button_borrarMaterial
+            // 
+            this.button_borrarMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_borrarMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarMaterial.FlatAppearance.BorderSize = 0;
+            this.button_borrarMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarMaterial.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarMaterial.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarMaterial.Location = new System.Drawing.Point(844, 41);
+            this.button_borrarMaterial.Name = "button_borrarMaterial";
+            this.button_borrarMaterial.Size = new System.Drawing.Size(36, 36);
+            this.button_borrarMaterial.TabIndex = 10;
+            this.button_borrarMaterial.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarMaterial.UseVisualStyleBackColor = true;
+            this.button_borrarMaterial.Click += new System.EventHandler(this.borrarMaterial);
+            // 
+            // button_añadirMaterial
+            // 
+            this.button_añadirMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_añadirMaterial.FlatAppearance.BorderSize = 0;
+            this.button_añadirMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_añadirMaterial.Image = global::cacatUA.Properties.Resources.nuevo;
+            this.button_añadirMaterial.Location = new System.Drawing.Point(39, 2);
+            this.button_añadirMaterial.Name = "button_añadirMaterial";
+            this.button_añadirMaterial.Size = new System.Drawing.Size(36, 36);
+            this.button_añadirMaterial.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_añadirMaterial, "Crear un nuevo hilo");
+            this.button_añadirMaterial.UseVisualStyleBackColor = true;
+            this.button_añadirMaterial.Click += new System.EventHandler(this.añadirMaterial);
+            // 
+            // panel_opciones
+            // 
+            this.panel_opciones.Controls.Add(this.button_añadirMaterial);
+            this.panel_opciones.Controls.Add(this.button_seccionBuscar);
+            this.panel_opciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_opciones.Location = new System.Drawing.Point(0, 30);
+            this.panel_opciones.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_opciones.Name = "panel_opciones";
+            this.panel_opciones.Size = new System.Drawing.Size(885, 45);
+            this.panel_opciones.TabIndex = 1;
+            // 
+            // button_seccionBuscar
+            // 
+            this.button_seccionBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
+            this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button_seccionBuscar.Location = new System.Drawing.Point(3, 2);
+            this.button_seccionBuscar.Name = "button_seccionBuscar";
+            this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
+            this.button_seccionBuscar.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Realizar nueva búsqueda");
+            this.button_seccionBuscar.UseVisualStyleBackColor = true;
+            this.button_seccionBuscar.Click += new System.EventHandler(this.buscarMateriales);
+            // 
+            // tableLayoutPanel_principal
+            // 
+            this.tableLayoutPanel_principal.ColumnCount = 1;
+            this.tableLayoutPanel_principal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_principal.Controls.Add(this.panel_cabecera, 0, 0);
+            this.tableLayoutPanel_principal.Controls.Add(this.panel_opciones, 0, 1);
+            this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion1, 0, 2);
+            this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion2, 0, 4);
+            this.tableLayoutPanel_principal.Controls.Add(this.panel4, 0, 5);
+            this.tableLayoutPanel_principal.Controls.Add(this.panel3, 0, 6);
+            this.tableLayoutPanel_principal.Controls.Add(this.panel_contenedor, 0, 3);
+            this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
+            this.tableLayoutPanel_principal.RowCount = 7;
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel_principal.Size = new System.Drawing.Size(885, 569);
+            this.tableLayoutPanel_principal.TabIndex = 1;
+            // 
+            // panel_cabeceraSeccion1
+            // 
+            this.panel_cabeceraSeccion1.BackColor = System.Drawing.Color.LightGray;
+            this.panel_cabeceraSeccion1.Controls.Add(this.label_seccion);
+            this.panel_cabeceraSeccion1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_cabeceraSeccion1.Location = new System.Drawing.Point(3, 78);
+            this.panel_cabeceraSeccion1.Name = "panel_cabeceraSeccion1";
+            this.panel_cabeceraSeccion1.Size = new System.Drawing.Size(879, 29);
+            this.panel_cabeceraSeccion1.TabIndex = 2;
+            // 
+            // label_seccion
+            // 
+            this.label_seccion.AutoSize = true;
+            this.label_seccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_seccion.Location = new System.Drawing.Point(13, 8);
+            this.label_seccion.Name = "label_seccion";
+            this.label_seccion.Size = new System.Drawing.Size(63, 13);
+            this.label_seccion.TabIndex = 0;
+            this.label_seccion.Text = "Búsqueda";
+            // 
+            // panel_cabeceraSeccion2
+            // 
+            this.panel_cabeceraSeccion2.BackColor = System.Drawing.Color.LightGray;
+            this.panel_cabeceraSeccion2.Controls.Add(this.label_seccion2);
+            this.panel_cabeceraSeccion2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_cabeceraSeccion2.Location = new System.Drawing.Point(3, 353);
+            this.panel_cabeceraSeccion2.Name = "panel_cabeceraSeccion2";
+            this.panel_cabeceraSeccion2.Size = new System.Drawing.Size(879, 29);
+            this.panel_cabeceraSeccion2.TabIndex = 3;
+            // 
+            // label_seccion2
+            // 
+            this.label_seccion2.AutoSize = true;
+            this.label_seccion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_seccion2.Location = new System.Drawing.Point(13, 8);
+            this.label_seccion2.Name = "label_seccion2";
+            this.label_seccion2.Size = new System.Drawing.Size(147, 13);
+            this.label_seccion2.TabIndex = 0;
+            this.label_seccion2.Text = "Resultados de búsqueda";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.dataGridView_materiales);
+            this.panel4.Controls.Add(this.butto_editarMaterial);
+            this.panel4.Controls.Add(this.button_borrarMaterial);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 385);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(885, 154);
+            this.panel4.TabIndex = 5;
+            // 
+            // dataGridView_materiales
+            // 
+            this.dataGridView_materiales.AllowUserToAddRows = false;
+            this.dataGridView_materiales.AllowUserToDeleteRows = false;
+            this.dataGridView_materiales.AllowUserToResizeRows = false;
+            this.dataGridView_materiales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_materiales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_materiales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn_id,
+            this.dataGridViewTextBoxColumn_nombre,
+            this.dataGridViewTextBoxColumn_descripcion,
+            this.dataGridViewTextBoxColumn_categoria,
+            this.dataGridViewTextBoxColumn_usuario,
+            this.dataGridViewTextBoxColumn_fecha,
+            this.dataGridViewTextBoxColumn_idioma,
+            this.dataGridViewTextBoxColumn_tamaño,
+            this.dataGridViewTextBoxColumn_descargas,
+            this.dataGridViewTextBoxColumn_valoracion});
+            this.dataGridView_materiales.Location = new System.Drawing.Point(3, 8);
+            this.dataGridView_materiales.Name = "dataGridView_materiales";
+            this.dataGridView_materiales.ReadOnly = true;
+            this.dataGridView_materiales.RowHeadersVisible = false;
+            this.dataGridView_materiales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_materiales.Size = new System.Drawing.Size(835, 143);
+            this.dataGridView_materiales.TabIndex = 86;
+            this.dataGridView_materiales.DoubleClick += new System.EventHandler(this.editarMaterial);
+            // 
+            // dataGridViewTextBoxColumn_id
+            // 
+            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn_id.MinimumWidth = 40;
+            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
+            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_id.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn_nombre
+            // 
+            this.dataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn_nombre.Name = "dataGridViewTextBoxColumn_nombre";
+            this.dataGridViewTextBoxColumn_nombre.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // dataGridViewTextBoxColumn_descripcion
+            // 
+            this.dataGridViewTextBoxColumn_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn_descripcion.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn_descripcion.Name = "dataGridViewTextBoxColumn_descripcion";
+            this.dataGridViewTextBoxColumn_descripcion.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_categoria
+            // 
+            this.dataGridViewTextBoxColumn_categoria.HeaderText = "Categoría";
+            this.dataGridViewTextBoxColumn_categoria.Name = "dataGridViewTextBoxColumn_categoria";
+            this.dataGridViewTextBoxColumn_categoria.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_usuario
+            // 
+            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Enviado por";
+            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
+            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_fecha
+            // 
+            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
+            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_idioma
+            // 
+            this.dataGridViewTextBoxColumn_idioma.HeaderText = "Idioma";
+            this.dataGridViewTextBoxColumn_idioma.Name = "dataGridViewTextBoxColumn_idioma";
+            this.dataGridViewTextBoxColumn_idioma.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn_tamaño
+            // 
+            this.dataGridViewTextBoxColumn_tamaño.HeaderText = "Tamaño";
+            this.dataGridViewTextBoxColumn_tamaño.Name = "dataGridViewTextBoxColumn_tamaño";
+            this.dataGridViewTextBoxColumn_tamaño.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_tamaño.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn_descargas
+            // 
+            this.dataGridViewTextBoxColumn_descargas.HeaderText = "Descargas";
+            this.dataGridViewTextBoxColumn_descargas.Name = "dataGridViewTextBoxColumn_descargas";
+            this.dataGridViewTextBoxColumn_descargas.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_descargas.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn_valoracion
+            // 
+            this.dataGridViewTextBoxColumn_valoracion.HeaderText = "Valoración";
+            this.dataGridViewTextBoxColumn_valoracion.Name = "dataGridViewTextBoxColumn_valoracion";
+            this.dataGridViewTextBoxColumn_valoracion.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_valoracion.Width = 80;
+            // 
             // FormMateriales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel_principal);
             this.Name = "FormMateriales";
             this.Size = new System.Drawing.Size(885, 569);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1599,19 +1566,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.tableLayoutPanel18.ResumeLayout(false);
-            this.tableLayoutPanel14.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMateriales)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -1627,6 +1581,19 @@
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
+            this.panel_cabecera.ResumeLayout(false);
+            this.panel_cabecera.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.panel_contenedor.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel_opciones.ResumeLayout(false);
+            this.tableLayoutPanel_principal.ResumeLayout(false);
+            this.panel_cabeceraSeccion1.ResumeLayout(false);
+            this.panel_cabeceraSeccion1.PerformLayout();
+            this.panel_cabeceraSeccion2.ResumeLayout(false);
+            this.panel_cabeceraSeccion2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_materiales)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1654,10 +1621,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox_categoria;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
@@ -1742,20 +1705,25 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button bCrearHilo;
         private System.Windows.Forms.Button bEliminarHilo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.DataGridView dataGridViewMateriales;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Panel panel_contenido;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
-        private System.Windows.Forms.Button button_seccionBuscar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
-        private System.Windows.Forms.Button button_borrarMaterial;
+        private System.Windows.Forms.Panel panel_cabecera;
+        private System.Windows.Forms.Label label_foro;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Panel panel_contenedor;
+        private System.Windows.Forms.Button button_volver;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button butto_editarMaterial;
+        private System.Windows.Forms.Button button_borrarMaterial;
         private System.Windows.Forms.Button button_añadirMaterial;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel_opciones;
+        private System.Windows.Forms.Button button_seccionBuscar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_principal;
+        private System.Windows.Forms.Panel panel_cabeceraSeccion1;
+        private System.Windows.Forms.Label label_seccion;
+        private System.Windows.Forms.Panel panel_cabeceraSeccion2;
+        private System.Windows.Forms.Label label_seccion2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dataGridView_materiales;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_descripcion;
@@ -1766,5 +1734,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_tamaño;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_descargas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_valoracion;
+        private System.Windows.Forms.Panel panel_contenido;
     }
 }
