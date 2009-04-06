@@ -38,7 +38,7 @@ namespace cacatUA
 
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario");
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true);
         }
 
         private void button_guardarCambios_Click(object sender, EventArgs e)

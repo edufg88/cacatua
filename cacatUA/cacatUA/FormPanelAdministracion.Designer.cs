@@ -210,7 +210,7 @@
             this.button_cancelar.Name = "button_cancelar";
             this.button_cancelar.Size = new System.Drawing.Size(24, 24);
             this.button_cancelar.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.button_cancelar, "Vuelve al panel anterior cancelando la operación sin seleccionar ninguno");
+            this.toolTip1.SetToolTip(this.button_cancelar, "Cancela la selección y vuelve al panel anterior");
             this.button_cancelar.UseVisualStyleBackColor = true;
             this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
             // 
@@ -224,7 +224,7 @@
             this.button_volver.Name = "button_volver";
             this.button_volver.Size = new System.Drawing.Size(24, 24);
             this.button_volver.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button_volver, "Vuelve al panel anterior seleccionando el elemento actual");
+            this.toolTip1.SetToolTip(this.button_volver, "Vuelve al panel anterior");
             this.button_volver.UseVisualStyleBackColor = true;
             this.button_volver.Click += new System.EventHandler(this.button_volver_Click);
             // 

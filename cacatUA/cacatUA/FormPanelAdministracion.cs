@@ -15,6 +15,8 @@ namespace cacatUA
     {
         private static readonly FormPanelAdministracion instancia = new FormPanelAdministracion();
         private Stack<UserControl> pilaFormularios;
+        private Stack<bool> pilaBotonVolver;
+        private Stack<bool> pilaBotonCancelar;
 
         /// <summary>
         /// Permite obtener la única instancia de esta clase.
@@ -31,10 +33,12 @@ namespace cacatUA
         {
             InitializeComponent();
             pilaFormularios = new Stack<UserControl>();
+            pilaBotonVolver = new Stack<bool>();
+            pilaBotonCancelar = new Stack<bool>(30);
 
             FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "General");
+            Apilar(form, "General", false, false);
         }
 
         private void FormPanelAdministracion_Load(object sender, EventArgs e)
@@ -46,49 +50,49 @@ namespace cacatUA
         {
             FormUsuarios form = new FormUsuarios();
             DesapilarTodos();
-            Apilar(form, "Usuarios");
+            Apilar(form, "Usuarios", false, false);
         }
 
         private void button_foro_Click(object sender, EventArgs e)
         {
             FormForo form = new FormForo();
             DesapilarTodos();
-            Apilar(form, "Foro");
+            Apilar(form, "Foro", false, false);
         }
 
         private void button_peticiones_Click(object sender, EventArgs e)
         {
             FormPeticiones form = new FormPeticiones();
             DesapilarTodos();
-            Apilar(form, "Peticiones");
+            Apilar(form, "Peticiones", false, false);
         }
 
         private void button_grupos_Click(object sender, EventArgs e)
         {
             FormGrupos form = new FormGrupos();
             DesapilarTodos();
-            Apilar(form, "Grupos");
+            Apilar(form, "Grupos", false, false);
         }
 
         private void button_materiales_Click(object sender, EventArgs e)
         {
             FormMateriales form = new FormMateriales();
             DesapilarTodos();
-            Apilar(form, "Materiales");
+            Apilar(form, "Materiales", false, false);
         }
 
         private void button_general_Click(object sender, EventArgs e)
         {
             FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "General");
+            Apilar(form, "General", false, false);
         }
 
         private void button_categorias_Click(object sender, EventArgs e)
         {
             FormCategorias form = new FormCategorias(this);
             DesapilarTodos();
-            Apilar(form, "Categorías");
+            Apilar(form, "Categorías", false, false);
         }
 
         private void button_salir_Click(object sender, EventArgs e)
@@ -109,7 +113,9 @@ namespace cacatUA
         /// </summary>
         /// <param name="formulario">Formulario que se va a mostrar.</param>
         /// <param name="descripcion">Texto descriptivo para el formulario.</param>
-        public void Apilar(UserControl formulario, string descripcion)
+        /// <param name="volver">Indica si el nuevo formulario permite el botón de volver.</param>
+        /// <param name="cancelar">Indica si el nuevo formulario permite el botón de cancelar.</param>
+        public void Apilar(UserControl formulario, string descripcion, bool volver, bool cancelar)
         {
             // Mostramos el texto en las 'migas de pan' de la navegación.
             Button button = new Button();
@@ -119,14 +125,9 @@ namespace cacatUA
             flowLayoutPanel_navegacion.Controls.Add(button);
 
             pilaFormularios.Push(formulario);
+            pilaBotonVolver.Push(volver);
+            pilaBotonCancelar.Push(cancelar);
             MostrarCima();
-
-            // Si ya había un formulario, actualizamos los botones para volver atrás.
-            if (pilaFormularios.Count > 1)
-            {
-                button_cancelar.Enabled = true;
-                button_volver.Enabled = true;
-            }
         }
 
         /// <summary>
@@ -143,6 +144,8 @@ namespace cacatUA
         public void Desapilar(bool obtener)
         {
             UserControl formulario = pilaFormularios.Pop();
+            pilaBotonVolver.Pop();
+            pilaBotonCancelar.Pop();
             MostrarCima();
             if (obtener == true)
             {
@@ -153,13 +156,6 @@ namespace cacatUA
             {
                 Control control = flowLayoutPanel_navegacion.Controls[flowLayoutPanel_navegacion.Controls.Count - 1];
                 flowLayoutPanel_navegacion.Controls.Remove(control);
-            }
-
-            // Si después de desapilar sólo queda un formulario (o ninguno), deshabilitamos los botones.
-            if (pilaFormularios.Count <= 1)
-            {
-                button_cancelar.Enabled = false;
-                button_volver.Enabled = false;
             }
         }
 
@@ -176,15 +172,23 @@ namespace cacatUA
         /// </summary>
         private void MostrarCima()
         {
+            button_volver.Enabled = pilaBotonVolver.Peek();
+            button_cancelar.Enabled = pilaBotonCancelar.Peek();
             UserControl form = pilaFormularios.Peek();
             panel.Controls.Clear();
             panel.Controls.Add(form);
             form.Dock = DockStyle.Fill;
         }
 
+        private void button_volver_Click(object sender, EventArgs e)
+        {
+            Desapilar(true);
+        }
 
-
-
+        private void button_cancelar_Click(object sender, EventArgs e)
+        {
+            Desapilar(false);
+        }
 
 
 
@@ -211,16 +215,6 @@ namespace cacatUA
             panel.Controls.Add(dondeVolver);
             dondeVolver.Dock = DockStyle.Fill;
             dondeVolver.Vuelta();
-        }
-
-        private void button_volver_Click(object sender, EventArgs e)
-        {
-            Desapilar(true);
-        }
-
-        private void button_cancelar_Click(object sender, EventArgs e)
-        {
-            Desapilar(false);
         }
     }
 }
