@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace cacatUA
 {
-    public partial class FormRespuestas : UserControl
+    public partial class FormForoRespuestas : UserControl
     {
-        public FormRespuestas()
+        public FormForoRespuestas()
         {
             InitializeComponent();
         }
