@@ -11,7 +11,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormGrupos : UserControl
+    public partial class FormGrupos : InterfazForm
     {
         private FormGruposEdicion formEdicion;
         private FormGruposBusqueda formBusqueda;
@@ -20,12 +20,12 @@ namespace cacatUA
         {
             InitializeComponent();
             formEdicion = new FormGruposEdicion();
-            formBusqueda = new FormGruposBusqueda();
+            formBusqueda = new FormGruposBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
-            tableLayoutPanel_principal.RowStyles[5].Height = 0;
             Busqueda();
+            
 
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace cacatUA
         /// </summary>
         private void Busqueda()
         {
-            anadirGrupos();
+            Resultado = ENGrupos.Obtener();
             label_seccion1.Text = "Búsqueda";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formBusqueda);
@@ -51,48 +51,32 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[2].Height = formEdicion.Height;
         }
 
-        /// <summary>
-        /// Añade los grupos que hay en la BD
-        /// </summary>
-        private void anadirGrupos()
+        public ArrayList Resultado
         {
-            dataGridView_resultados.Rows.Clear();
-            ENGrupos grupos = new ENGrupos();
-            ArrayList lista = grupos.Obtener();
-            for (int i = 0; i < lista.Count; i++)
+            set
             {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView_resultados);
+                dataGridView_resultados.Rows.Clear();
+                ArrayList lista = value;
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    DataGridViewRow fila = new DataGridViewRow();
+                    fila.CreateCells(dataGridView_resultados);
 
-                ENGrupos auxiliar = (ENGrupos)lista[i];
-                fila.Cells[0].Value = auxiliar.Id.ToString();
-                fila.Cells[1].Value = auxiliar.Nombre.ToString();
-                fila.Cells[2].Value = auxiliar.NumUsuarios.ToString();
-                fila.Cells[3].Value = auxiliar.Fecha.ToString();
-                dataGridView_resultados.Rows.Add(fila);
+                    ENGrupos auxiliar = (ENGrupos)lista[i];
+                    fila.Cells[0].Value = auxiliar.Id.ToString();
+                    fila.Cells[1].Value = auxiliar.Nombre.ToString();
+                    fila.Cells[2].Value = auxiliar.NumUsuarios.ToString();
+                    fila.Cells[3].Value = auxiliar.Fecha.ToString();
+                    dataGridView_resultados.Rows.Add(fila);
+                }
             }
         }
-        /*
-        public void Añadir(ArrayList grupos)
-        {
-            dataGridView_resultados.Rows.Clear();
-            foreach (ENGrupos auxiliar in grupos)
-            {
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView_resultados);
-
-                fila.Cells[0].Value = auxiliar.Id.ToString();
-                fila.Cells[1].Value = auxiliar.Nombre.ToString();
-                fila.Cells[2].Value = auxiliar.NumUsuarios.ToString();
-                fila.Cells[3].Value = auxiliar.Fecha.ToString();
-                dataGridView_resultados.Rows.Add(fila);
-
-            }
-        }*/
+        
 
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
             Busqueda();
+            formBusqueda.inicio();
         }
 
         private void button_seccionCrear_Click(object sender, EventArgs e)
@@ -142,6 +126,15 @@ namespace cacatUA
             }
         }
 
+        public override object Enviar()
+        {
+            return null;
+        }
+
+        public override void Recibir(object objeto)
+        {
+
+        }
 
     }
 }

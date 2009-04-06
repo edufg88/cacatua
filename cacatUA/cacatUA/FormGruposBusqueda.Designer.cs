@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel_filtroBusqueda = new System.Windows.Forms.Panel();
             this.textBox_filtroBusqueda = new System.Windows.Forms.TextBox();
@@ -37,6 +38,8 @@
             this.textBox_usuario = new System.Windows.Forms.TextBox();
             this.label_usuario = new System.Windows.Forms.Label();
             this.panel_fecha = new System.Windows.Forms.Panel();
+            this.dateTimePicker_hasta = new System.Windows.Forms.DateTimePicker();
+            this.label_hasta = new System.Windows.Forms.Label();
             this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
             this.label_fecha = new System.Windows.Forms.Label();
             this.panel_numUsuarios = new System.Windows.Forms.Panel();
@@ -46,6 +49,8 @@
             this.label_numUsuarios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_buscar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_filtroBusqueda.SuspendLayout();
             this.panel_autor.SuspendLayout();
@@ -54,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_secundario
@@ -132,6 +138,7 @@
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarUsuario.TabIndex = 145;
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Click += new System.EventHandler(this.button_seleccionarUsuario_Click);
             // 
             // textBox_usuario
             // 
@@ -141,6 +148,7 @@
             this.textBox_usuario.Name = "textBox_usuario";
             this.textBox_usuario.Size = new System.Drawing.Size(606, 20);
             this.textBox_usuario.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.textBox_usuario, "Haz clic para seleccionar un usuario de la lista");
             // 
             // label_usuario
             // 
@@ -153,6 +161,8 @@
             // 
             // panel_fecha
             // 
+            this.panel_fecha.Controls.Add(this.dateTimePicker_hasta);
+            this.panel_fecha.Controls.Add(this.label_hasta);
             this.panel_fecha.Controls.Add(this.dateTimePicker_fecha);
             this.panel_fecha.Controls.Add(this.label_fecha);
             this.panel_fecha.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -161,6 +171,22 @@
             this.panel_fecha.Name = "panel_fecha";
             this.panel_fecha.Size = new System.Drawing.Size(791, 30);
             this.panel_fecha.TabIndex = 5;
+            // 
+            // dateTimePicker_hasta
+            // 
+            this.dateTimePicker_hasta.Location = new System.Drawing.Point(391, 4);
+            this.dateTimePicker_hasta.Name = "dateTimePicker_hasta";
+            this.dateTimePicker_hasta.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_hasta.TabIndex = 3;
+            // 
+            // label_hasta
+            // 
+            this.label_hasta.AutoSize = true;
+            this.label_hasta.Location = new System.Drawing.Point(342, 8);
+            this.label_hasta.Name = "label_hasta";
+            this.label_hasta.Size = new System.Drawing.Size(33, 13);
+            this.label_hasta.TabIndex = 2;
+            this.label_hasta.Text = "hasta";
             // 
             // dateTimePicker_fecha
             // 
@@ -175,9 +201,9 @@
             this.label_fecha.AutoSize = true;
             this.label_fecha.Location = new System.Drawing.Point(16, 8);
             this.label_fecha.Name = "label_fecha";
-            this.label_fecha.Size = new System.Drawing.Size(99, 13);
+            this.label_fecha.Size = new System.Drawing.Size(74, 13);
             this.label_fecha.TabIndex = 0;
-            this.label_fecha.Text = "Fecha de creación:";
+            this.label_fecha.Text = "Mostrar desde";
             // 
             // panel_numUsuarios
             // 
@@ -245,6 +271,10 @@
             this.button_buscar.UseVisualStyleBackColor = true;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormGruposBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +294,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +319,9 @@
         private System.Windows.Forms.Button button_seleccionarUsuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_buscar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label_hasta;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_hasta;
     }
 }

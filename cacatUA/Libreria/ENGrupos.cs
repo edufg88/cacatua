@@ -52,22 +52,22 @@ namespace Libreria
 
         override public bool Guardar()
         {
-            return GruposCAD.GetInstancia().Guardar(this);
+            return GruposCAD.Instancia.Guardar(this);
         }
 
         override public bool Actualizar()
         {
-            return GruposCAD.GetInstancia().Actualizar(this);
+            return GruposCAD.Instancia.Actualizar(this);
         }
 
         override public bool Borrar()
         {
-            return GruposCAD.GetInstancia().Borrar(this);
+            return GruposCAD.Instancia.Borrar(this);
         }
 
         override public bool Obtener(int id)
         {
-            ENGrupos aux = GruposCAD.GetInstancia().Obtener(id);
+            ENGrupos aux = GruposCAD.Instancia.Obtener(id);
             if (aux != null)
             {
                 this.id = aux.id;
@@ -78,22 +78,26 @@ namespace Libreria
                 this.numUsuarios = aux.numUsuarios;
                 return true;
             }
+            else
+            {
+                this.id = 0;
+            }
             return false;
         }
 
-        public ArrayList Obtener()
+        public static ArrayList Obtener()
         {
-            return GruposCAD.GetInstancia().ObtenerTodos();
+            return GruposCAD.Instancia.ObtenerTodos();
         }
 
         public bool BorrarMiembro(int usuario)
         {
-            return GruposCAD.GetInstancia().BorrarUsuario(usuario,id);
+            return GruposCAD.Instancia.BorrarUsuario(usuario,id);
         }
 
-        public ArrayList Buscar(int min, int max)
+        public ArrayList Buscar(int min, int max,DateTime fechafin,ref ENUsuario usuario)
         {
-            return GruposCAD.GetInstancia().Buscar(min,max,this);
+            return GruposCAD.Instancia.Buscar(min,max,this,fechafin,ref usuario);
         }
 
         //Propiedades
