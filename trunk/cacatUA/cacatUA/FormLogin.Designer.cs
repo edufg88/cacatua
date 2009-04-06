@@ -95,7 +95,7 @@
             // label_mensaje
             // 
             this.label_mensaje.AutoSize = true;
-            this.label_mensaje.Location = new System.Drawing.Point(201, 314);
+            this.label_mensaje.Location = new System.Drawing.Point(183, 314);
             this.label_mensaje.Name = "label_mensaje";
             this.label_mensaje.Size = new System.Drawing.Size(64, 13);
             this.label_mensaje.TabIndex = 6;

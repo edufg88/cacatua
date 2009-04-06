@@ -16,6 +16,10 @@ namespace cacatUA
             InitializeComponent();
             // Limpiamos la etiqueta de mensajes
             label_mensaje.Text = "";
+
+            string mdf = Application.ExecutablePath;
+            mdf = mdf.Remove(mdf.LastIndexOf(@"\bin\"));
+            AppDomain.CurrentDomain.SetData("DataDirectory", @mdf);
         }
 
         private void button_conectar_Click(object sender, EventArgs e)
