@@ -48,8 +48,15 @@
             this.button_editarHilo = new System.Windows.Forms.Button();
             this.button_borrarHilo = new System.Windows.Forms.Button();
             this.dataGridView_usuarios = new System.Windows.Forms.DataGridView();
-            this.panel_volverUsuarios = new System.Windows.Forms.Panel();
-            this.button_volver = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contrasena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,7 +67,6 @@
             this.panel_cabeceraSeccion2.SuspendLayout();
             this.panel_DataGridViewUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_usuarios)).BeginInit();
-            this.panel_volverUsuarios.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_principal
@@ -73,18 +79,16 @@
             this.tableLayoutPanel_principal.Controls.Add(this.panel_contenedor, 0, 3);
             this.tableLayoutPanel_principal.Controls.Add(this.panel5, 0, 4);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_DataGridViewUsuarios, 0, 5);
-            this.tableLayoutPanel_principal.Controls.Add(this.panel_volverUsuarios, 0, 6);
             this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
-            this.tableLayoutPanel_principal.RowCount = 7;
+            this.tableLayoutPanel_principal.RowCount = 6;
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(838, 500);
             this.tableLayoutPanel_principal.TabIndex = 0;
             // 
@@ -256,7 +260,7 @@
             this.panel_DataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_DataGridViewUsuarios.Location = new System.Drawing.Point(3, 388);
             this.panel_DataGridViewUsuarios.Name = "panel_DataGridViewUsuarios";
-            this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 79);
+            this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 109);
             this.panel_DataGridViewUsuarios.TabIndex = 36;
             // 
             // button_editarHilo
@@ -294,40 +298,73 @@
             // dataGridView_usuarios
             // 
             this.dataGridView_usuarios.AllowUserToAddRows = false;
-            this.dataGridView_usuarios.AllowUserToDeleteRows = false;
             this.dataGridView_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.usuario,
+            this.contrasena,
+            this.nombre,
+            this.dni,
+            this.correo,
+            this.adicional,
+            this.fechaingreso,
+            this.activo});
             this.dataGridView_usuarios.Location = new System.Drawing.Point(3, 3);
             this.dataGridView_usuarios.Name = "dataGridView_usuarios";
-            this.dataGridView_usuarios.ReadOnly = true;
             this.dataGridView_usuarios.RowHeadersVisible = false;
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 321);
+            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 351);
             this.dataGridView_usuarios.TabIndex = 2;
             this.dataGridView_usuarios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseDoubleClick);
             // 
-            // panel_volverUsuarios
+            // id
             // 
-            this.panel_volverUsuarios.Controls.Add(this.button_volver);
-            this.panel_volverUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_volverUsuarios.Location = new System.Drawing.Point(3, 473);
-            this.panel_volverUsuarios.Name = "panel_volverUsuarios";
-            this.panel_volverUsuarios.Size = new System.Drawing.Size(832, 24);
-            this.panel_volverUsuarios.TabIndex = 37;
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
             // 
-            // button_volver
+            // usuario
             // 
-            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
-            this.button_volver.Location = new System.Drawing.Point(0, 0);
-            this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(306, 23);
-            this.button_volver.TabIndex = 1;
-            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
-            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_volver.UseVisualStyleBackColor = true;
+            this.usuario.HeaderText = "Usuario";
+            this.usuario.Name = "usuario";
+            // 
+            // contrasena
+            // 
+            this.contrasena.HeaderText = "Contraseña";
+            this.contrasena.Name = "contrasena";
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            // 
+            // dni
+            // 
+            this.dni.HeaderText = "DNI";
+            this.dni.Name = "dni";
+            // 
+            // correo
+            // 
+            this.correo.HeaderText = "Correo";
+            this.correo.Name = "correo";
+            // 
+            // adicional
+            // 
+            this.adicional.HeaderText = "Adicional";
+            this.adicional.Name = "adicional";
+            // 
+            // fechaingreso
+            // 
+            this.fechaingreso.HeaderText = "Fecha de ingreso";
+            this.fechaingreso.Name = "fechaingreso";
+            // 
+            // activo
+            // 
+            this.activo.HeaderText = "Activo";
+            this.activo.Name = "activo";
             // 
             // FormUsuarios
             // 
@@ -350,7 +387,6 @@
             this.panel_cabeceraSeccion2.PerformLayout();
             this.panel_DataGridViewUsuarios.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_usuarios)).EndInit();
-            this.panel_volverUsuarios.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -370,14 +406,21 @@
         private System.Windows.Forms.Panel panel_contenedor;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel_DataGridViewUsuarios;
-        private System.Windows.Forms.Panel panel_volverUsuarios;
         private System.Windows.Forms.DataGridView dataGridView_usuarios;
-        private System.Windows.Forms.Button button_volver;
         private System.Windows.Forms.Panel panel_cabeceraSeccion2;
         private System.Windows.Forms.Label label_seccion2;
         private System.Windows.Forms.Button button_borrarHilo;
         private System.Windows.Forms.Button button_editarHilo;
         private System.Windows.Forms.Button button_ocultarP1;
         private System.Windows.Forms.Button button_ocultarP2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contrasena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adicional;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaingreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn activo;
     }
 }

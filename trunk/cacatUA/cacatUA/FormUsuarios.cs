@@ -27,9 +27,6 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
-            // Se oculta la fila del TableLayoutEditor que contiene el botón "Volver".
-            tableLayoutPanel_principal.RowStyles[6].Height = 0;
-
             formulario = 0;
             // Indican si los paneles están ocultos o no
             ocultoP1 = false;
@@ -61,8 +58,7 @@ namespace cacatUA
             for (int i = 0; i < 10; i++)
             {
                 ENUsuario usuario = new ENUsuario("edu" + i.ToString(), i.ToString(), "edu" + i.ToString(), "1111111" + i.ToString(), "edu@prueba.com" + i.ToString(), false, "hola");
-                usuario.Guardar();
-                //CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
+                usuario.Guardar();                
             }
         }
 
@@ -77,13 +73,33 @@ namespace cacatUA
             ArrayList al = new ArrayList();
             al = ENUsuario.Obtener();
 
-            dataGridView_usuarios.DataSource = al;
+            CargarDatos(al);
         }
 
         // Este método carga los datos en el DataGridView
         public void CargarDatos(ArrayList datos)
         {
-            dataGridView_usuarios.DataSource = datos;   
+            // Borramos los elementos previos
+            dataGridView_usuarios.Rows.Clear();
+
+            // Obtenemos todos los materiales que hay en la base de datos
+            for (int i = 0; i < datos.Count; i++)
+            {
+                ENUsuario usuario = (ENUsuario)datos[i];
+                DataGridViewRow fila = new DataGridViewRow();
+                fila.CreateCells(dataGridView_usuarios);
+
+                fila.Cells[0].Value = usuario.Id.ToString();
+                fila.Cells[1].Value = usuario.Usuario.ToString();
+                fila.Cells[2].Value = usuario.Contrasena.ToString();
+                fila.Cells[3].Value = usuario.Nombre.ToString();
+                fila.Cells[4].Value = usuario.Dni.ToString();
+                fila.Cells[5].Value = usuario.Correo.ToString();
+                fila.Cells[6].Value = usuario.Adicional.ToString();
+                fila.Cells[7].Value = usuario.Fechaingreso.ToString();
+                fila.Cells[8].Value = usuario.Activo.ToString();
+                dataGridView_usuarios.Rows.Add(fila);
+            }
         }
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
