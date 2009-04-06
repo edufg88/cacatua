@@ -40,14 +40,13 @@ namespace cacatUA
         {
             controles = new Dictionary<string, Control>();
             controles.Add("nombre", textBox_nombre);
-            controles.Add("descripcion", richTextBox_descripcion);
+            controles.Add("descripcion", textBox_descripcion);
             controles.Add("fecha", dateTimePicker_fecha);
             controles.Add("usuario", textBox_usuario);
             controles.Add("categoria", textBox_categoria);
             controles.Add("archivo", textBox_archivo);
             controles.Add("tamaño", textBox_tamaño);
             controles.Add("descargas", textBox_descargas);
-            controles.Add("idioma", comboBox_idioma);
             controles.Add("puntuacion", textBox_puntuacion);
             controles.Add("votos", textBox_votos);
             controles.Add("referencia", textBox_referencia);
@@ -114,8 +113,8 @@ namespace cacatUA
             TextBox textBox;
             textBox = (TextBox)controles["nombre"];
             textBox.Clear();
-            RichTextBox richTextBox = (RichTextBox)controles["descripcion"];
-            richTextBox.Clear();
+            textBox = (TextBox)controles["descripcion"];
+            textBox.Clear();
             //dateTimePicker_fecha
             textBox = (TextBox)controles["usuario"];
             textBox.Clear();
@@ -138,8 +137,6 @@ namespace cacatUA
 
         public void actualizarFormulario(string id)
         {
-            comboBox_idioma.SelectedIndex = 0;
-
             switch (modo)
             {
                 case modos.CREAR:
@@ -194,12 +191,11 @@ namespace cacatUA
                         // Creamos el nuevo material
                         ENMaterial material = new ENMaterial();
                         material.Nombre = textBox_nombre.Text.ToString();
-                        material.Descripcion = richTextBox_descripcion.Text.ToString();
+                        material.Descripcion = textBox_descripcion.Text.ToString();
                         material.Usuario = new ENUsuario(textBox_usuario.Text.ToString());
                         material.Categoria = textBox_categoria.Text.ToString();
                         material.Archivo = textBox_archivo.Text.ToString();
                         material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
-                        material.Idioma = comboBox_idioma.SelectedItem.ToString();
                         material.Referencia = textBox_referencia.Text.ToString();
                         // Validamos los datos
                         if (validarDatos(controlesCrear,material) == true)
@@ -269,6 +265,9 @@ namespace cacatUA
             else
                 return 0;
         }
+
+
+
 
     }
 }
