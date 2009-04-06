@@ -16,131 +16,63 @@ namespace cacatUA
         private bool busqueda;
         FormEditarMateriales formEditarMateriales;
 
-       
-
         public FormMateriales()
         {
             InitializeComponent();
             // Por defecto se muestra el formulario de búsqueda
             busqueda = true;
             formEditarMateriales = null;
-            FormBusquedaMateriales form = new FormBusquedaMateriales();
+            FormBusquedaMateriales form = new FormBusquedaMateriales(this);
             panel_contenido.Controls.Clear();
             panel_contenido.Controls.Add(form);
             form.Dock = DockStyle.Fill;
-            /*
-            // Inicializamos las secciones
-            comboBox_seccion.Items.Add("Ingeniería Informática");
-            // Inicializamos las categorías
-            comboBox_categoria.Items.Add("Primer Curso");
-            comboBox_categoria.Items.Add("Segundo Curso");
-            comboBox_categoria.Items.Add("Tercer Curso");
-            comboBox_categoria.Items.Add("Cuarto Curso");
-            comboBox_categoria.Items.Add("Quinto Curso");
-            // Inicializamos las subcategorías
-            comboBox_subcategoria.Items.Add("Algebra");
-            comboBox_subcategoria.Items.Add("Informática Básica");
-            comboBox_subcategoria.Items.Add("Matemática discreta");
-            comboBox_subcategoria.Items.Add("Fundamentos de programación I");
-            comboBox_subcategoria.Items.Add("Fundamentos de programación II");
-             */
-            /*
-            comboBox_tipoBusqueda.SelectedIndex = 0;
-            comboBox_fecha.SelectedIndex = 0;    
-            comboBox_unidad.SelectedIndex = 1;
-            comboBox_idioma.SelectedIndex = 0;
-            comboBox_valoracion.SelectedIndex = 0;
-             */
-            // Añadimos unos cuantos materiales
-            crearMateriales();
+            ArrayList materiales = ENMaterial.Obtener();
+            mostrarMateriales(materiales);
+        }
+        
+        public DataGridView Materiales
+        {
+            get { return dataGridView_materiales; }
+            set { dataGridView_materiales = value; }
         }
 
-
-
-        private void crearMateriales()
+        public void mostrarMateriales(ArrayList materiales)
         {
+            dataGridView_materiales.Rows.Clear();
             // Obtenemos todos los materiales que hay en la base de datos
-            ArrayList materiales = ENMaterial.obtener();
             for (int i = 0; i < materiales.Count; i++)
             {
                 ENMaterial material = (ENMaterial)materiales[i];
                 DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridViewMateriales);
-                int posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_id"].Index;
+                fila.CreateCells(dataGridView_materiales);
+                int posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_id"].Index;
                 fila.Cells[posicion].Value = material.Id.ToString();
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_nombre"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_nombre"].Index;
                 fila.Cells[posicion].Value = material.Nombre;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_descripcion"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descripcion"].Index;
                 fila.Cells[posicion].Value = material.Descripcion;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_fecha"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_fecha"].Index;
                 fila.Cells[posicion].Value = material.Fecha.ToUniversalTime();
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_usuario"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_usuario"].Index;
                 fila.Cells[posicion].Value = material.Usuario.Nombre;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_categoria"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_categoria"].Index;
                 fila.Cells[posicion].Value = material.Categoria;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_tamaño"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_tamaño"].Index;
                 fila.Cells[posicion].Value = material.Tamaño;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_descargas"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargas"].Index;
                 fila.Cells[posicion].Value = material.Descargas;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_idioma"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_idioma"].Index;
                 fila.Cells[posicion].Value = material.Idioma;
-                posicion = dataGridViewMateriales.Columns["dataGridViewTextBoxColumn_valoracion"].Index;
-                fila.Cells[posicion].Value = material.Valoracion;                               
-                dataGridViewMateriales.Rows.Add(fila);
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_valoracion"].Index;
+                fila.Cells[posicion].Value = material.Puntuacion;                               
+                dataGridView_materiales.Rows.Add(fila);
             }
         }
-
-        private void button_añadirMaterial_Click(object sender, EventArgs e)
-        {
-            FormMaterial form = new FormMaterial();
-            form.setModo(FormMaterial.modos.NUEVO);
-            form.Show();
-        }
-
-
-
-        private void button_borrarMaterial_Click(object sender, EventArgs e)
-        {
-            /*
-            DialogResult resultado = MessageBox.Show("¿Estás seguro que deseas eliminar esos materiales?","Confirmación",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (resultado == DialogResult.Yes)
-            {
-                // Obtenemos todas las filas seleccionada
-                DataGridViewSelectedRowCollection filas = dataGridViewMateriales.SelectedRows;
-                for (int i = 0; i < filas.Count; i++)
-                {
-                    // Obtenemos la fila
-                    DataGridViewRow fila = filas[i];
-                    // Eliminamos la fila
-                    dataGridViewMateriales.Rows.Remove(fila);
-                }
-            }*/
-        }
-
-        private void button_buscarCategoria_Click(object sender, EventArgs e)
-        {
-            //FormCategoria form = new FormCategoria();
-            //form.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            //form.Location = new Point(button_buscarCategoria.Location.X, button_buscarCategoria.Location.Y);
-            //form.ShowDialog();
-        }
-
-
-
-        private void button_seccionBuscar_Click(object sender, EventArgs e)
-        {
-            // Mostramos el user control de busqueda
-            FormBusquedaMateriales form = new FormBusquedaMateriales();
-            panel_contenido.Controls.Clear();
-            panel_contenido.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
-        }
-
 
         private void editarMaterial(object sender, EventArgs e)
         {
             // Comprobamos si hay algún material seleccionado 
-            DataGridViewSelectedRowCollection filas = dataGridViewMateriales.SelectedRows;
+            DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
             if(filas.Count == 0)
             {
                 // No hay ningún material seleccionado, mostramos un aviso
@@ -153,8 +85,8 @@ namespace cacatUA
                 if (filas.Count > 1)
                 {
                     // Deseleccionamos el resto de elementos
-                    dataGridViewMateriales.ClearSelection();
-                    dataGridViewMateriales.Rows[fila.Index].Selected = true;
+                    dataGridView_materiales.ClearSelection();
+                    dataGridView_materiales.Rows[fila.Index].Selected = true;
                 }
 
                 // Obtenemos el id del material que vamos a editar
@@ -189,7 +121,7 @@ namespace cacatUA
         private void borrarMaterial(object sender, EventArgs e)
         {
             // Comprobamos que haya algún material seleccionado
-            DataGridViewSelectedRowCollection filas = dataGridViewMateriales.SelectedRows;
+            DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
             if (filas.Count == 0)
             {
                 // No hay ningún material seleccionado, mostramos un aviso
@@ -225,7 +157,7 @@ namespace cacatUA
                             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         // Eliminamos la fila
-                        dataGridViewMateriales.Rows.Remove(fila);
+                        dataGridView_materiales.Rows.Remove(fila);
                     }
                 }
             }
@@ -241,6 +173,7 @@ namespace cacatUA
                 panel_contenido.Controls.Clear();
                 panel_contenido.Controls.Add(formEditarMateriales);
                 formEditarMateriales.Dock = DockStyle.Fill;
+                //tableLayoutPanel_principal.RowStyles[3].Height = formEditarMateriales.Height;
             }
             else
             {
@@ -253,10 +186,11 @@ namespace cacatUA
         private void buscarMateriales(object sender, EventArgs e)
         {
             busqueda = true;
-            FormBusquedaMateriales form = new FormBusquedaMateriales();
+            FormBusquedaMateriales form = new FormBusquedaMateriales(this);
             panel_contenido.Controls.Clear();
             panel_contenido.Controls.Add(form);
             form.Dock = DockStyle.Fill;
+            //tableLayoutPanel_principal.RowStyles[3].Height = form.Height;
         }
     }
 }

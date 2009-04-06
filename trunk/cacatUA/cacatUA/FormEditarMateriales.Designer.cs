@@ -68,7 +68,7 @@
             this.textBox_tamaño = new System.Windows.Forms.TextBox();
             this.textBox_descargas = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox_valoracion = new System.Windows.Forms.TextBox();
+            this.textBox_puntuacion = new System.Windows.Forms.TextBox();
             this.comboBox_idioma = new System.Windows.Forms.ComboBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -573,7 +573,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 188F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 212F));
-            this.tableLayoutPanel6.Controls.Add(this.textBox_valoracion, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.textBox_puntuacion, 3, 0);
             this.tableLayoutPanel6.Controls.Add(this.comboBox_idioma, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.panel7, 2, 0);
@@ -587,14 +587,14 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(800, 27);
             this.tableLayoutPanel6.TabIndex = 122;
             // 
-            // textBox_valoracion
+            // textBox_puntuacion
             // 
-            this.textBox_valoracion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_valoracion.Location = new System.Drawing.Point(353, 3);
-            this.textBox_valoracion.Name = "textBox_valoracion";
-            this.textBox_valoracion.Size = new System.Drawing.Size(182, 20);
-            this.textBox_valoracion.TabIndex = 115;
-            this.textBox_valoracion.Text = "7";
+            this.textBox_puntuacion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_puntuacion.Location = new System.Drawing.Point(353, 3);
+            this.textBox_puntuacion.Name = "textBox_puntuacion";
+            this.textBox_puntuacion.Size = new System.Drawing.Size(182, 20);
+            this.textBox_puntuacion.TabIndex = 115;
+            this.textBox_puntuacion.Text = "7";
             // 
             // comboBox_idioma
             // 
@@ -644,9 +644,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(4, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.Size = new System.Drawing.Size(75, 13);
             this.label7.TabIndex = 90;
-            this.label7.Text = "Valoración";
+            this.label7.Text = "Puntuación:";
             // 
             // textBox_votos
             // 
@@ -802,7 +802,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox_tamaño;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.TextBox textBox_valoracion;
+        private System.Windows.Forms.TextBox textBox_puntuacion;
         private System.Windows.Forms.ComboBox comboBox_idioma;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label5;

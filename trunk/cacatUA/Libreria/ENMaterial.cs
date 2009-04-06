@@ -29,7 +29,7 @@ namespace Libreria
         private int tamaño;
         private int descargas;
         private string idioma;
-        private int valoracion;
+        private int puntuacion;
         private int votos;
         private string referencia;
 
@@ -48,7 +48,7 @@ namespace Libreria
             tamaño = 0;
             descargas = 0;
             idioma = "";
-            valoracion = 0;
+            puntuacion = 0;
             votos = 0;
             referencia = "";
         }
@@ -142,7 +142,7 @@ namespace Libreria
                 this.tamaño = aux.tamaño;
                 this.descargas = aux.descargas;
                 this.idioma = aux.idioma;
-                this.valoracion = aux.valoracion;
+                this.puntuacion = aux.puntuacion;
                 this.votos = aux.votos;
                 this.referencia = aux.referencia;
             }
@@ -176,10 +176,15 @@ namespace Libreria
         }
 
 
-        public static ArrayList obtener()
+        public static ArrayList Obtener()
         {
             // Obtenemos del CAD todos los materiales
             return MaterialCAD.Instancia.obtener();
+        }
+
+        public static ArrayList Obtener(string filtroBusqueda, ENUsuario usuario,string categoria, DateTime fechaInicio, DateTime fechaFin)
+        {
+            return MaterialCAD.Instancia.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
         }
 
         public bool borrarMaterial()
@@ -252,10 +257,10 @@ namespace Libreria
             set { idioma = value; }
         }
 
-        public int Valoracion
+        public int Puntuacion
         {
-            get { return valoracion; }
-            set { valoracion = value; }
+            get { return puntuacion; }
+            set { puntuacion = value; }
         }
 
         public int Votos
