@@ -11,32 +11,14 @@ using Libreria;
 namespace cacatUA
 {
 
-    public partial class FormCategorias : UserControl
+    public partial class FormCategorias : InterfazForm
     {
-        private ENCategoria seleccionada;
+        private ENCategoria seleccionada = new ENCategoria();
         private bool editar;
 
         public FormCategorias()
         {
             InitializeComponent();
-        }
-
-        private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            //Obtenemos la instancia de la Categoria seleccionada
-            seleccionada = ENCategoria.ObtenerCategoria(int.Parse(treeViewCategorias.SelectedNode.Name));
-
-            //Llevar datos a los controles
-            textBox_Raiz.Text = treeViewCategorias.SelectedNode.FullPath;
-            textBox_descripcion.Text = treeViewCategorias.SelectedNode.Tag.ToString();
-            textBox_nHilos.Text = seleccionada.NumHilos().ToString();
-            textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
-
-            listBox_usuarios.Items.Clear();
-            foreach (String u in seleccionada.usuariosSuscritos())
-            {
-                listBox_usuarios.Items.Add(u);
-            }
         }
 
         private void FormCategorias_Load(object sender, EventArgs e)
@@ -49,8 +31,8 @@ namespace cacatUA
                 MeterEnArbol(categoria, treeViewCategorias.Nodes);
             }
 
-            textBox_descripcion.Clear();
-            textBox_Raiz.Clear();
+            textBox_Descripcion.Clear();
+            textBox_Nombre.Clear();
 
         }
         
@@ -58,7 +40,6 @@ namespace cacatUA
             TreeNode nodo = new TreeNode();
             nodo.Name = cat.Id.ToString();
             nodo.Text = cat.Nombre;
-            nodo.Tag = cat.Descripcion;
             coleccion.Add(nodo);
             
             foreach (ENCategoria c in cat.obtenerHijos())
@@ -67,18 +48,29 @@ namespace cacatUA
             }
         }
 
+        private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            //Obtenemos la instancia de la Categoria seleccionada
+            seleccionada.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
+
+            //Llevar datos a los controles
+            textBox_Nombre.Text = seleccionada.Nombre;
+            textBox_Descripcion.Text = seleccionada.Descripcion;
+            textBox_Ruta.Text = seleccionada.Ruta();
+            textBox_nHilos.Text = seleccionada.NumHilos().ToString();
+            textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
+
+            listBox_usuarios.Items.Clear();
+            foreach (String u in seleccionada.usuariosSuscritos())
+            {
+                listBox_usuarios.Items.Add(u);
+            }
+        }
+
         private void button_crearCategoria_Click(object sender, EventArgs e)
         {
             //Activar/Desactivar controles
-            textBox_descripcion.ReadOnly = false;
-            textBox_descripcion.Clear();
-            textBox_Raiz.ReadOnly = false;
-            textBox_Raiz.Clear();
-            button_Guardar.Visible = true;
-            button_noGuardar.Visible = true;
-            checkBox_Superior.Visible = true;
-            checkBox_Superior.Checked = false;
-            treeViewCategorias.Enabled = false;
+            ActivarEdicion();
 
             //Parametros
             editar = false;
@@ -86,22 +78,17 @@ namespace cacatUA
 
         private void button_editarCategoria_Click(object sender, EventArgs e)
         {
-            if (seleccionada == null)
+            if (!seleccionada.Instanciada())
             {
                 MessageBox.Show("Debes seleccionar una categoria.", "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 //Activar/Desactivar controles
-                textBox_descripcion.ReadOnly = false;
-                textBox_Raiz.ReadOnly = false;
-                button_Guardar.Visible = true;
-                button_noGuardar.Visible = true;
-                button_Buscar.Visible = true;
-                treeViewCategorias.Enabled = false;
+                ActivarEdicion();
 
                 //Quitar la ruta al nombre
-                textBox_Raiz.Text = seleccionada.Nombre;
+                textBox_Nombre.Text = seleccionada.Nombre;
 
                 //Parametros
                 editar = true;
@@ -110,42 +97,38 @@ namespace cacatUA
 
         private void button_borrarCategoria_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Está seguro de borrar esta categoria? (Se borraran los materiales e hilos asociados y las subcategorias)", "Confirmación de borrado.", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+            if (!seleccionada.Instanciada())
             {
-                if (seleccionada.Borrar())
-                {
-                    MessageBox.Show("Categoria borrada correctamente.");
-                }
-                else
-                {
-                    MessageBox.Show("Error al borrar categoria.");
-                }
+                MessageBox.Show("Debes seleccionar una categoria.", "Error al borrar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            FormCategorias_Load(sender, e);
+            else
+            {
+                if (MessageBox.Show("¿Está seguro de borrar esta categoria? (Se borraran los materiales e hilos asociados y las subcategorias)", "Confirmación de borrado.", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.OK)
+                {
+                    if (seleccionada.Borrar())
+                    {
+                        MessageBox.Show("Categoria borrada correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al borrar categoria.");
+                    }
+                }
+                FormCategorias_Load(sender, e);
+            }           
         }
 
         private void button_Guardar_Click(object sender, EventArgs e)
         {
             //Activar/Desactivar controles
-            textBox_descripcion.ReadOnly = true;
-            textBox_Raiz.ReadOnly = true;
-            button_Guardar.Visible = false;
-            button_noGuardar.Visible = false;
-            checkBox_Superior.Visible = false;
-            button_Buscar.Visible = false;
-            treeViewCategorias.Enabled = true;
+            DesactivarEdicion();
 
             //Comprobar accion a realizar
             if (editar == true)
             {
                 //Actualizar
-                seleccionada.Nombre = textBox_Raiz.Text;
-                seleccionada.Descripcion = textBox_descripcion.Text;
-
-                if (checkBox_Superior.Checked)
-                {
-                    seleccionada.Padre = 0;
-                }
+                seleccionada.Nombre = textBox_Nombre.Text;
+                seleccionada.Descripcion = textBox_Descripcion.Text;
                 
                 if (seleccionada.Actualizar())
                 {
@@ -161,12 +144,12 @@ namespace cacatUA
                 int padre = 0;
 
                 //Crear objeto y almacenarlo en la BBDD
-                if (seleccionada != null && !checkBox_Superior.Checked)
+                if (!seleccionada.Instanciada())
                 {     
                     padre = seleccionada.Id;
                 }
 
-                ENCategoria nCategoria = new ENCategoria(0, textBox_Raiz.Text, textBox_descripcion.Text, padre);
+                ENCategoria nCategoria = new ENCategoria(0, textBox_Nombre.Text, textBox_Descripcion.Text, padre);
 
                 if (nCategoria.Guardar())
                 {
@@ -184,18 +167,12 @@ namespace cacatUA
         private void button_noGuardar_Click(object sender, EventArgs e)
         {
             //Activar/Desactivar controles
-            textBox_descripcion.ReadOnly = true;
-            textBox_Raiz.ReadOnly = true;
-            button_Guardar.Visible = false;
-            button_noGuardar.Visible = false;
-            checkBox_Superior.Visible = false;
-            button_Buscar.Visible = false;
-            treeViewCategorias.Enabled = true;
+            DesactivarEdicion();
 
             if (!editar)
             {
-                textBox_descripcion.Clear();
-                textBox_Raiz.Clear();
+                textBox_Descripcion.Clear();
+                textBox_Nombre.Clear();
             }
 
             //Pasar el foco al arbol
@@ -207,6 +184,42 @@ namespace cacatUA
         }
 
         private void button_Materiales_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void ActivarEdicion()
+        {
+            textBox_Descripcion.ReadOnly = false;
+            textBox_Nombre.ReadOnly = false;
+            textBox_Ruta.ReadOnly = false;
+            button_Guardar.Visible = true;
+            button_noGuardar.Visible = true;
+            button_seleccionarCategoria.Visible = true;
+            treeViewCategorias.Enabled = false;
+        }
+
+        private void DesactivarEdicion()
+        {
+            textBox_Descripcion.ReadOnly = true;
+            textBox_Nombre.ReadOnly = true;
+            textBox_Ruta.ReadOnly = true;
+            button_Guardar.Visible = false;
+            button_noGuardar.Visible = false;
+            button_seleccionarCategoria.Visible = false;
+            treeViewCategorias.Enabled = true;
+        }
+
+        //Heredado de InterfazForm
+
+        override public Object Enviar()
+        {
+            if (seleccionada.Instanciada())
+                return seleccionada;
+            else
+                return null;
+        }
+
+        public override void Recibir(Object objeto)
         {
         }
     }

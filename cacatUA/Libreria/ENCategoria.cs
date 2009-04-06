@@ -5,13 +5,15 @@ using System.Text;
 
 namespace Libreria
 {
-    public class ENCategoria
+    public class ENCategoria : InterfazEN
     {
         private int id;
         private String nombre;
         private String descripcion;
         private int padre;
 
+
+        //Constructores
         public ENCategoria()
         {
             id = 0;
@@ -49,18 +51,75 @@ namespace Libreria
             padre = copia.Padre;
         }
 
-        public bool Guardar()
+
+        //Metodos heredados de InterfazEN
+        public override bool Obtener(int id)
+        {
+            ENCategoria aux = ObtenerCategoria(id);
+            if (aux != null)
+            {
+                this.id = aux.Id;
+                nombre = aux.Nombre;
+                descripcion = aux.Descripcion;
+                padre = aux.Padre;
+                return true;
+            }
+            else
+            {
+                this.id = 0;
+                return false;
+            }
+
+        }
+
+        override public bool Guardar()
         {
             return CategoriaCAD.Instancia.crearCategoria(this);
         }
 
-        public bool Actualizar()
+        override public bool Actualizar()
         {
             return CategoriaCAD.Instancia.actualizarCategoria(this);
         }
 
-        public bool Borrar() {
+        override public bool Borrar() {
             return CategoriaCAD.Instancia.borrarCategoria(this);
+        }
+
+        //Metodos asociados
+        public bool Instanciada()
+        {
+            if (id != 0)
+                return true;
+            else
+                return false;
+        }
+
+        public String NombreCompleto()
+        {
+            if (Instanciada())
+            {
+                if (padre == 0)
+                {
+                    return nombre;
+                }
+                else
+                {
+                    return Ruta() + "/" + nombre;
+                }
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public String Ruta()
+        {
+            if (Instanciada())
+                return new ENCategoria(padre).NombreCompleto();
+            else
+                return "";
         }
 
         public ArrayList obtenerHijos()
