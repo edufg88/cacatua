@@ -48,12 +48,14 @@
   <ItemGroup>
     <Compile Include="CategoriaCAD.cs" />
     <Compile Include="ENCategoria.cs" />
-    <Compile Include="ENEncuestaCRUD.cs" />
+    <Compile Include="EncuestaCAD.cs" />
+    <Compile Include="ENEncuesta.cs" />
     <Compile Include="ENFirma.cs" />
     <Compile Include="ENGrupos.cs" />
     <Compile Include="ENHilo.cs" />
     <Compile Include="ENImagen.cs" />
     <Compile Include="ENMaterial.cs" />
+    <Compile Include="ENMensaje.cs" />
     <Compile Include="ENPeticion.cs" />
     <Compile Include="ENRespuesta.cs" />
     <Compile Include="ENUsuario.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="ImagenCAD.cs" />
     <Compile Include="InterfazEN.cs" />
     <Compile Include="MaterialCAD.cs" />
+    <Compile Include="MensajeCAD.cs" />
     <Compile Include="PeticionCAD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
