@@ -6,17 +6,28 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Configuration;
 
 namespace Libreria
 {
-    class PeticionCAD
+    sealed class PeticionCAD
     {
 
-        static string cadenaConexion = @"Data Source=DAMIAN\SQLEXPRESS;Initial Catalog=cacatua;Integrated Security=True;Pooling=False";
+        private static readonly PeticionCAD instancia = new PeticionCAD();
+        static string cadenaConexion;
+
+        public static PeticionCAD Instancia
+        {
+            get { return instancia; }
+        }
 
 
+        private PeticionCAD()
+        {
+            cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+        }
 
-        public static ArrayList getSinContestar()
+        public static ArrayList GetSinContestar()
         {
             ArrayList peticiones = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -36,9 +47,9 @@ namespace Libreria
             return peticiones;
         }
 
-        public static ENPeticionCRUD obtenerDatos(SqlDataReader reader)
+        private static ENPeticion obtenerDatos(SqlDataReader reader)
         {
-            ENPeticionCRUD peticion = new ENPeticionCRUD();
+            ENPeticion peticion = new ENPeticion();
             peticion.Id = int.Parse(reader["id"].ToString());
             peticion.Asunto = reader["asunto"].ToString();
             peticion.Texto = reader["texto"].ToString();
@@ -48,7 +59,7 @@ namespace Libreria
             return peticion;
         }
 
-        public static ArrayList getContestadas()
+        public static ArrayList GetContestadas()
         {
             ArrayList peticiones = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -68,9 +79,9 @@ namespace Libreria
             return peticiones;
         }
 
-        public static ENPeticionCRUD getPeticion(int id)
+        public static ENPeticion GetPeticion(int id)
         {
-            ENPeticionCRUD peticion = new ENPeticionCRUD();
+            ENPeticion peticion = new ENPeticion();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();
@@ -89,7 +100,7 @@ namespace Libreria
             return peticion;
         }
 
-        public static bool actualizarPeticion(ENPeticionCRUD peticion)
+        public static bool ActualizarPeticion(ENPeticion peticion)
         {
             int resultado = 0;
             bool actualizada = false;
@@ -113,9 +124,9 @@ namespace Libreria
             return actualizada;
         }
 
-        public static void borrarPeticion(int id)
+        public static void BorrarPeticion(int id)
         {
-            ENPeticionCRUD peticion = new ENPeticionCRUD();
+            ENPeticion peticion = new ENPeticion();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();

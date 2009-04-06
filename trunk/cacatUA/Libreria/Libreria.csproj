@@ -54,7 +54,7 @@
     <Compile Include="ENHilo.cs" />
     <Compile Include="ENImagenCRUD.cs" />
     <Compile Include="ENMaterial.cs" />
-    <Compile Include="ENPeticionCRUD.cs" />
+    <Compile Include="ENPeticion.cs" />
     <Compile Include="ENRespuesta.cs" />
     <Compile Include="ENUsuario.cs" />
     <Compile Include="FirmaCAD.cs" />
