@@ -34,7 +34,7 @@ namespace cacatUA
 
             FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "General");
         }
 
         private void FormPanelAdministracion_Load(object sender, EventArgs e)
@@ -46,49 +46,49 @@ namespace cacatUA
         {
             FormUsuarios form = new FormUsuarios();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "Usuarios");
         }
 
         private void button_foro_Click(object sender, EventArgs e)
         {
             FormForo form = new FormForo();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "Foro");
         }
 
         private void button_peticiones_Click(object sender, EventArgs e)
         {
             FormPeticiones form = new FormPeticiones();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "Peticiones");
         }
 
         private void button_grupos_Click(object sender, EventArgs e)
         {
             FormGrupos form = new FormGrupos();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "Grupos");
         }
 
         private void button_materiales_Click(object sender, EventArgs e)
         {
             FormMateriales form = new FormMateriales();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "Materiales");
         }
 
         private void button_general_Click(object sender, EventArgs e)
         {
             FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "General");
         }
 
         private void button_categorias_Click(object sender, EventArgs e)
         {
             FormCategorias form = new FormCategorias(this);
             DesapilarTodos();
-            Apilar(form, "");
+            Apilar(form, "Categorías");
         }
 
         private void button_salir_Click(object sender, EventArgs e)
@@ -111,22 +111,21 @@ namespace cacatUA
         /// <param name="descripcion">Texto descriptivo para el formulario.</param>
         public void Apilar(UserControl formulario, string descripcion)
         {
+            // Mostramos el texto en las 'migas de pan' de la navegación.
+            Button button = new Button();
+            button.AutoSize = true;
+            button.Enabled = false;
+            button.Text = descripcion;
+            flowLayoutPanel_navegacion.Controls.Add(button);
+
             pilaFormularios.Push(formulario);
             MostrarCima();
 
-            // Si ya había un formulario, actualizamos los botones para volver atrás
-            // y mostramos el texto descriptivo del formulario.
+            // Si ya había un formulario, actualizamos los botones para volver atrás.
             if (pilaFormularios.Count > 1)
             {
                 button_cancelar.Enabled = true;
                 button_volver.Enabled = true;
-
-                Button button = new Button();
-                button.AutoSize = true;
-                button.Enabled = false;
-                button.Text = descripcion;
-
-                flowLayoutPanel_navegacion.Controls.Add(button);
             }
         }
 
