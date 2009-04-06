@@ -193,7 +193,7 @@ namespace cacatUA
 
         private void button_seleccionarCategoria_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(FormPanelAdministracion.Instancia), "Seleccionando categoría", true, true);
+            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true);
         }
 
         private void linkLabel_respuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

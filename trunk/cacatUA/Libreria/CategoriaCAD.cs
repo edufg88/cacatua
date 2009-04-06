@@ -114,13 +114,24 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
-                comando.CommandText = "UPDATE CATEGORIAS " +
-                    "SET nombre = @nombre,descripcion = @descripcion,padre = @padre " +
-                    "WHERE id = @id";
-                comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
-                comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
-                comando.Parameters.AddWithValue("@padre", categoria.Padre);
-                comando.Parameters.AddWithValue("@id", categoria.Id);
+                if (categoria.Padre == 0) {
+                    comando.CommandText = "UPDATE CATEGORIAS " +
+                        "SET nombre = @nombre,descripcion = @descripcion,padre = NULL " +
+                        "WHERE id = @id";
+                    comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
+                    comando.Parameters.AddWithValue("@id", categoria.Id);
+                }
+                else
+                {
+                    comando.CommandText = "UPDATE CATEGORIAS " +
+                        "SET nombre = @nombre,descripcion = @descripcion,padre = @padre " +
+                        "WHERE id = @id";
+                    comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
+                    comando.Parameters.AddWithValue("@padre", categoria.Padre);
+                    comando.Parameters.AddWithValue("@id", categoria.Id);
+                }
                 resultado = comando.ExecuteNonQuery();
                 if (resultado == 1)
                     actualizada = true;

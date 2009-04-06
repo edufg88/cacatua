@@ -49,17 +49,17 @@ namespace Libreria
             padre = copia.Padre;
         }
 
-        public bool crear()
+        public bool Guardar()
         {
             return CategoriaCAD.Instancia.crearCategoria(this);
         }
 
-        public bool actualizar()
+        public bool Actualizar()
         {
             return CategoriaCAD.Instancia.actualizarCategoria(this);
         }
 
-        public bool borrar() {
+        public bool Borrar() {
             return CategoriaCAD.Instancia.borrarCategoria(this);
         }
 
