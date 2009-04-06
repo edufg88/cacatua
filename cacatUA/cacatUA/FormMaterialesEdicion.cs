@@ -13,7 +13,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormEditarMateriales : UserControl
+    public partial class FormMaterialesEdicion : UserControl
     {
         string[] controlesCrear = { "nombre","descripcion","usuario","categoria","archivo","idioma","referencia" };
         string[] controlesEditar = { "nombre", "descripcion", "fecha","usuario", "categoria", "archivo", "descargas","idioma","puntuacion","votos","referencia" };
@@ -26,7 +26,7 @@ namespace cacatUA
             set { modo = value; }
         }
 
-        public FormEditarMateriales(modos modo, string id)
+        public FormMaterialesEdicion(modos modo, string id)
         {
             InitializeComponent();
             this.modo = modo;

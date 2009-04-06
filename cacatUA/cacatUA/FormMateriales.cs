@@ -14,7 +14,7 @@ namespace cacatUA
     public partial class FormMateriales : UserControl
     {
         private bool busqueda;
-        FormEditarMateriales formEditarMateriales;
+        FormMaterialesEdicion formEditarMateriales;
 
         public FormMateriales()
         {
@@ -22,7 +22,7 @@ namespace cacatUA
             // Por defecto se muestra el formulario de búsqueda
             busqueda = true;
             formEditarMateriales = null;
-            FormBusquedaMateriales form = new FormBusquedaMateriales(this);
+            FormMaterialesBusqueda form = new FormMaterialesBusqueda(this);
             panel_contenido.Controls.Clear();
             panel_contenido.Controls.Add(form);
             //form.Dock = DockStyle.Fill;
@@ -97,7 +97,7 @@ namespace cacatUA
                 if (busqueda == true)
                 {
                     // Mostramos el formulario de editar material
-                    formEditarMateriales = new FormEditarMateriales(FormEditarMateriales.modos.EDITAR, id);
+                    formEditarMateriales = new FormMaterialesEdicion(FormMaterialesEdicion.modos.EDITAR, id);
                     panel_contenido.Controls.Clear();
                     panel_contenido.Controls.Add(formEditarMateriales);
                     //formEditarMateriales.Dock = DockStyle.Fill;
@@ -110,7 +110,7 @@ namespace cacatUA
                     if (formEditarMateriales != null)
                     {
                         // Cambiamos el formulario al modo editar
-                        formEditarMateriales.Modo = FormEditarMateriales.modos.EDITAR;
+                        formEditarMateriales.Modo = FormMaterialesEdicion.modos.EDITAR;
                         formEditarMateriales.actualizarFormulario(id);
 
                     }
@@ -172,7 +172,7 @@ namespace cacatUA
             if (busqueda == true || formEditarMateriales == null)
             {
                 // Añadimos un nuevo material
-                formEditarMateriales = new FormEditarMateriales(FormEditarMateriales.modos.CREAR, "");
+                formEditarMateriales = new FormMaterialesEdicion(FormMaterialesEdicion.modos.CREAR, "");
                 panel_contenido.Controls.Clear();
                 panel_contenido.Controls.Add(formEditarMateriales);
                 //formEditarMateriales.Dock = DockStyle.Fill;
@@ -181,7 +181,7 @@ namespace cacatUA
             }
             else
             {
-                formEditarMateriales.Modo = FormEditarMateriales.modos.CREAR;
+                formEditarMateriales.Modo = FormMaterialesEdicion.modos.CREAR;
                 formEditarMateriales.actualizarFormulario("");
             }
             busqueda = false;
@@ -190,7 +190,7 @@ namespace cacatUA
         private void buscarMateriales(object sender, EventArgs e)
         {
             busqueda = true;
-            FormBusquedaMateriales form = new FormBusquedaMateriales(this);
+            FormMaterialesBusqueda form = new FormMaterialesBusqueda(this);
             panel_contenido.Controls.Clear();
             panel_contenido.Controls.Add(form);
             //form.Dock = DockStyle.Fill;

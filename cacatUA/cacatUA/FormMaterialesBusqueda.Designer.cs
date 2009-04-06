@@ -1,6 +1,6 @@
 ﻿namespace cacatUA
 {
-    partial class FormBusquedaMateriales
+    partial class FormMaterialesBusqueda
     {
         /// <summary> 
         /// Required designer variable.
