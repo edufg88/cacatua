@@ -93,8 +93,24 @@ namespace Libreria
             this.fechaingreso = DateTime.Now;
         }
 
+        // Devuelve un usuario a partir de su nombre de usuario
+        public static ENUsuario ObtenerPorNombre(string usuario)
+        {
+            ENUsuario us = null;
+
+            // Validamos el usuario
+            string error = ValidarFormulario("usuario", usuario);
+
+            if (error == "")
+            {
+                us = UsuarioCAD.Instancia.ObtenerUsuario(usuario);
+            }
+
+            return us;
+        }
+
         // Recibe un campo y en función de éste, valida si el dato es correcto
-        public string ValidarFormulario(string campo, string dato)
+        public static string ValidarFormulario(string campo, string dato)
         {
             string error = "";
             const string campoEnBlanco1 = "El campo ";
