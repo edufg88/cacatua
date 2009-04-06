@@ -12,11 +12,11 @@ namespace cacatUA
 {
     public partial class FormContestarPeticion : Form
     {
-        private ENPeticionCRUD pet;
+        private ENPeticion pet;
         public FormContestarPeticion(string p)
         {
             InitializeComponent();
-            pet = ENPeticionCRUD.getPeticion(int.Parse(p));
+            pet = ENPeticion.GetPeticion(int.Parse(p));
             this.textBox_envPetUsuario.Text = "" + pet.Usuario;
             this.textBox_envPetAsunto.Text = pet.Asunto;
             this.richTextBox_envPetPeticion.Text = pet.Texto;
@@ -26,7 +26,7 @@ namespace cacatUA
         private void buttonEnviar_Click(object sender, EventArgs e)
         {
             pet.Respuesta = richTextBox_envPetRespuesta.Text;
-            ENPeticionCRUD.actualizarPeticion(pet);
+            ENPeticion.ActualizarPeticion(pet);
             Close();
         }
 
