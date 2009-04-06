@@ -20,12 +20,12 @@ namespace cacatUA
 
         private void anadirPeticiones()
         {
-            ArrayList a = ENPeticionCRUD.getContestadas();
+            ArrayList a = ENPeticion.GetContestadas();
 
             DataGridViewRow fila=null;
             int i = 0;
 
-            foreach(ENPeticionCRUD p in a)
+            foreach(ENPeticion p in a)
             {
                 fila= new DataGridViewRow();
                 fila.CreateCells(dataGridView_Anteriores);
@@ -39,11 +39,11 @@ namespace cacatUA
 
             }
 
-            a = ENPeticionCRUD.getSinContestar();
+            a = ENPeticion.GetSinContestar();
 
             i = 0;
 
-            foreach (ENPeticionCRUD p in a)
+            foreach (ENPeticion p in a)
             {
                 fila = new DataGridViewRow();
                 fila.CreateCells(dataGridViewRecientes);
