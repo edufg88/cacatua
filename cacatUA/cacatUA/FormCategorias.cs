@@ -14,7 +14,13 @@ namespace cacatUA
     public partial class FormCategorias : InterfazForm
     {
         private ENCategoria seleccionada = new ENCategoria();
-        private bool editar;
+        private ENCategoria enrutada = new ENCategoria();
+
+        //Indica en que estado se encuentra el formulario
+        // 0 => Normal, navegando
+        // 1 => Editando una categoria
+        // 2 => Creando una categoria
+        private int estado = 0;
 
         public FormCategorias()
         {
@@ -50,20 +56,30 @@ namespace cacatUA
 
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //Obtenemos la instancia de la Categoria seleccionada
-            seleccionada.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
-
-            //Llevar datos a los controles
-            textBox_Nombre.Text = seleccionada.Nombre;
-            textBox_Descripcion.Text = seleccionada.Descripcion;
-            textBox_Ruta.Text = seleccionada.Ruta();
-            textBox_nHilos.Text = seleccionada.NumHilos().ToString();
-            textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
-
-            dataGridView_Usuarios.Rows.Clear();
-            foreach (ENUsuario u in seleccionada.usuariosSuscritos())
+            Console.WriteLine(estado);
+            if (estado == 0)
             {
-                dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario);
+                //Obtenemos la instancia de la Categoria seleccionada
+                seleccionada.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
+
+                //Llevar datos a los controles
+                textBox_Nombre.Text = seleccionada.Nombre;
+                textBox_Descripcion.Text = seleccionada.Descripcion;
+                textBox_Ruta.Text = seleccionada.Ruta();
+                textBox_nHilos.Text = seleccionada.NumHilos().ToString();
+                textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
+
+                dataGridView_Usuarios.Rows.Clear();
+                foreach (ENUsuario u in seleccionada.usuariosSuscritos())
+                {
+                    dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario);
+                }
+            }
+            else
+            {
+                //Obtenemos la instancia de la Categoria seleccionada
+                enrutada.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
+                textBox_Ruta.Text = enrutada.NombreCompleto();
             }
         }
 
@@ -72,8 +88,13 @@ namespace cacatUA
             //Activar/Desactivar controles
             ActivarEdicion();
 
+            //Limpiar controles
+            textBox_Nombre.Clear();
+            textBox_Ruta.Clear();
+            textBox_Descripcion.Clear();
+
             //Parametros
-            editar = false;
+            estado = 2;
         }
 
         private void button_editarCategoria_Click(object sender, EventArgs e)
@@ -87,11 +108,8 @@ namespace cacatUA
                 //Activar/Desactivar controles
                 ActivarEdicion();
 
-                //Quitar la ruta al nombre
-                textBox_Nombre.Text = seleccionada.Nombre;
-
                 //Parametros
-                editar = true;
+                estado = 1;
             }
         }
 
@@ -124,11 +142,16 @@ namespace cacatUA
             DesactivarEdicion();
 
             //Comprobar accion a realizar
-            if (editar == true)
+            if (estado == 1)
             {
-                //Actualizar
+                //Actualizando
                 seleccionada.Nombre = textBox_Nombre.Text;
                 seleccionada.Descripcion = textBox_Descripcion.Text;
+
+                if (enrutada.Instanciada())
+                {
+                    seleccionada.Padre = enrutada.Id;
+                }
                 
                 if (seleccionada.Actualizar())
                 {
@@ -141,12 +164,13 @@ namespace cacatUA
             }
             else
             {
+                //Creando
                 int padre = 0;
 
                 //Crear objeto y almacenarlo en la BBDD
-                if (!seleccionada.Instanciada())
-                {     
-                    padre = seleccionada.Id;
+                if (enrutada.Instanciada())
+                {
+                    padre = enrutada.Id;
                 }
 
                 ENCategoria nCategoria = new ENCategoria(0, textBox_Nombre.Text, textBox_Descripcion.Text, padre);
@@ -161,6 +185,7 @@ namespace cacatUA
                 }
             }
 
+            enrutada = null;
             FormCategorias_Load(sender, e);
         }
 
@@ -169,14 +194,17 @@ namespace cacatUA
             //Activar/Desactivar controles
             DesactivarEdicion();
 
-            if (!editar)
+            if (estado != 1)
             {
                 textBox_Descripcion.Clear();
                 textBox_Nombre.Clear();
             }
 
+            enrutada = null;
+
             //Pasar el foco al arbol
             treeViewCategorias.Focus();
+
         }
 
         private void button_Hilos_Click(object sender, EventArgs e)
@@ -200,7 +228,6 @@ namespace cacatUA
             button_Guardar.Visible = true;
             button_noGuardar.Visible = true;
             button_seleccionarCategoria.Visible = true;
-            treeViewCategorias.Enabled = false;
         }
 
         private void DesactivarEdicion()
@@ -211,7 +238,6 @@ namespace cacatUA
             button_Guardar.Visible = false;
             button_noGuardar.Visible = false;
             button_seleccionarCategoria.Visible = false;
-            treeViewCategorias.Enabled = true;
         }
 
         //Heredado de InterfazForm

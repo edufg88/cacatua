@@ -349,7 +349,7 @@
             this.dataGridView_Usuarios.AllowUserToAddRows = false;
             this.dataGridView_Usuarios.AllowUserToDeleteRows = false;
             this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DataGridViewColumno_Id,
