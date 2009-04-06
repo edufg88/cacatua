@@ -70,33 +70,6 @@ namespace cacatUA
             }
         }
 
-        private void button_anadirHilo_Click(object sender, EventArgs e)
-        {
-            FormHilo form = new FormHilo();
-            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            form.Show();
-        }
-
-        private void button_modificarHilo_Click(object sender, EventArgs e)
-        {
-            FormHilo form = new FormHilo();
-            form.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            // En este punto hay que pasarle el objeto del tipo Hilo que contiene los datos.
-            form.Show();
-        }
-
-        private void button_seleccionarCategoria_Click(object sender, EventArgs e)
-        {
-            //FormCategoria form = new FormCategoria();
-            //form.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            //int posX = button_Seleccionar_categoria.Location.X;
-            //int posY = button_Seleccionar_categoria.Location.Y;
-            //posX += this.ParentForm.Location.X;
-            //posX += this.ParentForm.Location.Y;
-            //form.Location = new Point(posX, posY);
-            //form.ShowDialog();
-        }
-
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
             CambiarFormularioBusqueda();
@@ -110,15 +83,6 @@ namespace cacatUA
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            /* FALTA CREAR LA CLASE ENHiloNoseque Y AÑADIR UN MÉTODO A FormForoEdicion QUE RECIBA UN OBJETO DE ESE TIPO.
-             * DataGridViewRow filaSeleccionada = dataGridView_resultados.SelectedRows[0];
-            formEdicion.textBox_id.Text = filaSeleccionada.Cells[0].Value.ToString();
-            formEdicion.textBox_titulo.Text = filaSeleccionada.Cells[1].Value.ToString();
-            formEdicion.textBox_texto.Text = filaSeleccionada.Cells[2].Value.ToString();
-            formEdicion.textBox_autor.Text = filaSeleccionada.Cells[3].Value.ToString();
-            //dateTimePicker_fecha.Text = filaSeleccionada.Cells[4].Value.ToString();
-            formEdicion.textBox_respuestas.Text = filaSeleccionada.Cells[5].Value.ToString();*/
-
             if (dataGridView_resultados.SelectedRows.Count > 0)
             {
                 CambiarFormularioEdicion();

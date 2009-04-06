@@ -90,6 +90,7 @@
             this.linkLabel_respuestas.TabIndex = 0;
             this.linkLabel_respuestas.TabStop = true;
             this.linkLabel_respuestas.Text = "Ver respuestas del hilo";
+            this.linkLabel_respuestas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_respuestas_LinkClicked);
             // 
             // textBox_respuestas
             // 
