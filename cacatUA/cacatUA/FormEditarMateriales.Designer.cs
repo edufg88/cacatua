@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
             this.linkLabel_respuestas = new System.Windows.Forms.LinkLabel();
@@ -77,7 +76,6 @@
             this.textBox_descargas = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -95,10 +93,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // panel6
             // 
@@ -402,6 +396,7 @@
             this.button_accion.TabIndex = 0;
             this.button_accion.Text = "Guardar cambios";
             this.button_accion.UseVisualStyleBackColor = true;
+            this.button_accion.Click += new System.EventHandler(this.button_accion_Click);
             // 
             // panel15
             // 
@@ -575,7 +570,6 @@
             this.Size = new System.Drawing.Size(808, 365);
             this.Tag = "FormEditarMateriales";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -605,7 +599,6 @@
         #endregion
 
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_secundario;
         private System.Windows.Forms.Panel panel1;

@@ -139,8 +139,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel_contenido = new System.Windows.Forms.Panel();
-            this.button_volver = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.button_borrarMaterial = new System.Windows.Forms.Button();
             this.button_añadirMaterial = new System.Windows.Forms.Button();
@@ -182,7 +180,6 @@
             this.panel_cabecera.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel_contenedor.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel_opciones.SuspendLayout();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabeceraSeccion1.SuspendLayout();
@@ -1286,27 +1283,6 @@
             this.panel_contenido.Size = new System.Drawing.Size(885, 240);
             this.panel_contenido.TabIndex = 1;
             // 
-            // button_volver
-            // 
-            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
-            this.button_volver.Location = new System.Drawing.Point(4, 3);
-            this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(306, 23);
-            this.button_volver.TabIndex = 0;
-            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
-            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_volver.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.button_volver);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 539);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(885, 30);
-            this.panel3.TabIndex = 6;
-            // 
             // butto_editarMaterial
             // 
             this.butto_editarMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1387,19 +1363,17 @@
             this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion1, 0, 2);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion2, 0, 4);
             this.tableLayoutPanel_principal.Controls.Add(this.panel4, 0, 5);
-            this.tableLayoutPanel_principal.Controls.Add(this.panel3, 0, 6);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_contenedor, 0, 3);
             this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
-            this.tableLayoutPanel_principal.RowCount = 7;
+            this.tableLayoutPanel_principal.RowCount = 6;
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(885, 569);
             this.tableLayoutPanel_principal.TabIndex = 1;
             // 
@@ -1452,7 +1426,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 385);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(885, 154);
+            this.panel4.Size = new System.Drawing.Size(885, 184);
             this.panel4.TabIndex = 5;
             // 
             // dataGridView_materiales
@@ -1480,7 +1454,7 @@
             this.dataGridView_materiales.ReadOnly = true;
             this.dataGridView_materiales.RowHeadersVisible = false;
             this.dataGridView_materiales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_materiales.Size = new System.Drawing.Size(835, 143);
+            this.dataGridView_materiales.Size = new System.Drawing.Size(835, 173);
             this.dataGridView_materiales.TabIndex = 86;
             this.dataGridView_materiales.DoubleClick += new System.EventHandler(this.editarMaterial);
             // 
@@ -1585,7 +1559,6 @@
             this.panel_cabecera.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel_contenedor.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel_opciones.ResumeLayout(false);
             this.tableLayoutPanel_principal.ResumeLayout(false);
             this.panel_cabeceraSeccion1.ResumeLayout(false);
@@ -1709,8 +1682,6 @@
         private System.Windows.Forms.Label label_foro;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel panel_contenedor;
-        private System.Windows.Forms.Button button_volver;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button butto_editarMaterial;
         private System.Windows.Forms.Button button_borrarMaterial;
         private System.Windows.Forms.Button button_añadirMaterial;

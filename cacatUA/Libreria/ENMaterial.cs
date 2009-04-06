@@ -275,4 +275,9 @@ namespace Libreria
             set { referencia = value; }
         }
     }
+
+    public class ComentarioMaterial
+    {
+
+    }
 }
