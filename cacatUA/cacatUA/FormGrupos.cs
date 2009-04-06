@@ -91,12 +91,6 @@ namespace cacatUA
             formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
-        private void dataGridView_resultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Edicion();
-            formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
-        }
-
         private void button_borrar_Click(object sender, EventArgs e)
         {
             ENGrupos grupos = new ENGrupos();
@@ -134,6 +128,12 @@ namespace cacatUA
         public override void Recibir(object objeto)
         {
 
+        }
+
+        private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Edicion();
+            formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
     }

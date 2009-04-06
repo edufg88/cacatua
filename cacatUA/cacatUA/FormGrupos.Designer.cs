@@ -179,7 +179,7 @@
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_resultados.Size = new System.Drawing.Size(806, 114);
             this.dataGridView_resultados.TabIndex = 94;
-            this.dataGridView_resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_resultados_CellContentClick);
+            this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
             // 
             // ColumnID
             // 
