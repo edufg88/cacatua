@@ -216,6 +216,9 @@
     <Compile Include="FormUsuarioPeticion.Designer.cs">
       <DependentUpon>FormUsuarioPeticion.cs</DependentUpon>
     </Compile>
+    <Compile Include="InterfazForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,7 +11,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormForo : UserControl
+    public partial class FormForo : InterfazForm
     {
         private FormForoEdicion formEdicion;
         private FormForoBusqueda formBusqueda;
@@ -121,6 +121,16 @@ namespace cacatUA
                 CambiarFormularioEdicion();
                 formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
             }
+        }
+
+        public override object Enviar()
+        {
+            return null;
+        }
+
+        public override void Recibir(object objeto)
+        {
+            
         }
     }
 }
