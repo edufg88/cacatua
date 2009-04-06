@@ -133,7 +133,7 @@ namespace cacatUA
                 {
                     if (nuevo.Guardar())
                     {
-                        //CambiarSeleccionado(nuevo.Id); Hasta que no se actualice 'nuevo' no se puede hacer.
+                        CambiarSeleccionado(nuevo.Id);
                         MessageBox.Show("Hilo guardado correctamente.");
                     }
                     else
@@ -143,7 +143,16 @@ namespace cacatUA
                 }
                 else
                 {
-                    nuevo.Actualizar();
+                    nuevo.Id = int.Parse(textBox_id.Text);
+                    if (nuevo.Actualizar())
+                    {
+                        desactivarBotones();
+                        MessageBox.Show("Hilo actualizado correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar el hilo.");
+                    }
                 }
             }
         }
