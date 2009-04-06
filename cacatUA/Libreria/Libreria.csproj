@@ -52,7 +52,7 @@
     <Compile Include="ENFirma.cs" />
     <Compile Include="ENGrupos.cs" />
     <Compile Include="ENHilo.cs" />
-    <Compile Include="ENImagenCRUD.cs" />
+    <Compile Include="ENImagen.cs" />
     <Compile Include="ENMaterial.cs" />
     <Compile Include="ENPeticion.cs" />
     <Compile Include="ENRespuesta.cs" />
@@ -60,6 +60,7 @@
     <Compile Include="FirmaCAD.cs" />
     <Compile Include="GruposCAD.cs" />
     <Compile Include="HiloCAD.cs" />
+    <Compile Include="ImagenCAD.cs" />
     <Compile Include="InterfazEN.cs" />
     <Compile Include="MaterialCAD.cs" />
     <Compile Include="PeticionCAD.cs" />

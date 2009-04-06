@@ -93,6 +93,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receptor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_formEdicion.SuspendLayout();
             this.tabControl_usuario.SuspendLayout();
             this.tabPage_datos.SuspendLayout();
@@ -299,12 +304,21 @@
             // 
             // dataGridView_firmas
             // 
+            this.dataGridView_firmas.AllowUserToAddRows = false;
+            this.dataGridView_firmas.AllowUserToDeleteRows = false;
             this.dataGridView_firmas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_firmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_firmas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.emisor,
+            this.texto,
+            this.fecha,
+            this.receptor});
             this.dataGridView_firmas.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_firmas.Name = "dataGridView_firmas";
+            this.dataGridView_firmas.ReadOnly = true;
             this.dataGridView_firmas.Size = new System.Drawing.Size(463, 318);
             this.dataGridView_firmas.TabIndex = 0;
             // 
@@ -902,6 +916,36 @@
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // emisor
+            // 
+            this.emisor.HeaderText = "Emisor";
+            this.emisor.Name = "emisor";
+            this.emisor.ReadOnly = true;
+            // 
+            // texto
+            // 
+            this.texto.HeaderText = "Texto";
+            this.texto.Name = "texto";
+            this.texto.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // receptor
+            // 
+            this.receptor.HeaderText = "Receptor";
+            this.receptor.Name = "receptor";
+            this.receptor.ReadOnly = true;
+            // 
             // FormUsuarioEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -909,6 +953,7 @@
             this.Controls.Add(this.tableLayoutPanel_formEdicion);
             this.Name = "FormUsuarioEdicion";
             this.Size = new System.Drawing.Size(765, 398);
+            this.Load += new System.EventHandler(this.FormUsuarioEdicion_Load);
             this.tableLayoutPanel_formEdicion.ResumeLayout(false);
             this.tabControl_usuario.ResumeLayout(false);
             this.tabPage_datos.ResumeLayout(false);
@@ -1010,6 +1055,11 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechaEncuesta;
         private System.Windows.Forms.Label label_buscarEncuestaPorFecha;
         private System.Windows.Forms.Label label_encuestasDeUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emisor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn texto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receptor;
 
     }
 }

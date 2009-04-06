@@ -39,6 +39,19 @@ namespace Libreria
             this.receptor = aux.receptor;
         }
 
+        public ENFirma(string emisor, string texto, DateTime fecha, string receptor)
+        {
+            ENUsuario em = new ENUsuario(emisor);
+            ENUsuario rec = new ENUsuario(receptor);
+
+
+            this.id = 0;
+            this.emisor = em;
+            this.receptor = rec;
+            this.texto = texto;
+            this.Fecha = fecha;
+        }
+
         public static ArrayList Obtener()
         {
             return FirmaCAD.Instancia.ObtenerFirmas();
@@ -93,8 +106,7 @@ namespace Libreria
 
         override public bool Guardar()
         {
-            //return FirmaCAD.Instancia.GuardarFirma(emisor, texto, fecha, receptor);
-            return true;
+            return FirmaCAD.Instancia.GuardarFirma(emisor.Usuario, texto, fecha, receptor.Usuario);
         }
 
         override public bool Borrar()
@@ -107,7 +119,7 @@ namespace Libreria
             return FirmaCAD.Instancia.BorrarFirma(pid);
         }
 
-        public void BorrarUsuarios()
+        public void BorrarFirmas()
         {
             FirmaCAD.Instancia.BorrarFirmas();
         }

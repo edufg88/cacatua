@@ -201,7 +201,6 @@ namespace Libreria
         public bool GuardarFirma(string emisor, string texto, DateTime fecha, string receptor)
         {
             bool guardado = false;
-            string cadenaFecha = "";
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             
             // Obtenemos los usuarios por nombre para obtener su id
@@ -219,15 +218,7 @@ namespace Libreria
                     "VALUES (@emisor, @texto, @fecha, @receptor)";
                 comando.Parameters.AddWithValue("@emisor", em.Id);
                 comando.Parameters.AddWithValue("@texto", texto);
-
-                // Generamos una cadena a partir de la fecha
-                cadenaFecha += fecha.Day;
-                cadenaFecha += "/";
-                cadenaFecha += fecha.Month;
-                cadenaFecha += "/";
-                cadenaFecha += fecha.Year;
-
-                comando.Parameters.AddWithValue("@fecha", cadenaFecha);
+                comando.Parameters.AddWithValue("@fecha", fecha);
                 comando.Parameters.AddWithValue("@receptor", rec.Id);
                 
                 if (comando.ExecuteNonQuery() == 1)
