@@ -45,6 +45,11 @@
             this.tabPage_firmas = new System.Windows.Forms.TabPage();
             this.splitContainer_firmas = new System.Windows.Forms.SplitContainer();
             this.dataGridView_firmas = new System.Windows.Forms.DataGridView();
+            this.idfirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emisorfirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textofirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechafirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receptorfirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_borrarFirma = new System.Windows.Forms.Button();
             this.button_editarFirma = new System.Windows.Forms.Button();
             this.radioButton_recibidasPorUsuario = new System.Windows.Forms.RadioButton();
@@ -58,6 +63,12 @@
             this.tabPage_galeria = new System.Windows.Forms.TabPage();
             this.splitContainer_galeria = new System.Windows.Forms.SplitContainer();
             this.dataGridView_galeria = new System.Windows.Forms.DataGridView();
+            this.idimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tituloimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archivoimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_borrarGaleria = new System.Windows.Forms.Button();
             this.button_editarGaleria = new System.Windows.Forms.Button();
             this.textBox_tituloGaleria = new System.Windows.Forms.TextBox();
@@ -69,15 +80,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label_fotosDeUsuario = new System.Windows.Forms.Label();
             this.tabPage_mensajes = new System.Windows.Forms.TabPage();
+            this.radioButton_recibidosPorUsuario = new System.Windows.Forms.RadioButton();
+            this.radioButton_enviadosPorUsuario = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker_fechaMensaje = new System.Windows.Forms.DateTimePicker();
+            this.textBox_autorMensaje = new System.Windows.Forms.TextBox();
+            this.label_buscarAutorPorMensaje = new System.Windows.Forms.Label();
+            this.label_buscarMensajePorFecha = new System.Windows.Forms.Label();
             this.splitContainer_mensajes = new System.Windows.Forms.SplitContainer();
             this.dataGridView_mensajes = new System.Windows.Forms.DataGridView();
             this.button_borrarMensaje = new System.Windows.Forms.Button();
             this.button_editarMensaje = new System.Windows.Forms.Button();
-            this.textBox_tituloMensaje = new System.Windows.Forms.TextBox();
-            this.label_buscarMensajePorTitulo = new System.Windows.Forms.Label();
-            this.dateTimePicker_fechaMensaje = new System.Windows.Forms.DateTimePicker();
             this.button_buscarMensaje = new System.Windows.Forms.Button();
-            this.label_buscarMensajePorFecha = new System.Windows.Forms.Label();
             this.label_mensajesDeUsuario = new System.Windows.Forms.Label();
             this.tabPage_encuestas = new System.Windows.Forms.TabPage();
             this.splitContainer_encuestas = new System.Windows.Forms.SplitContainer();
@@ -93,11 +106,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receptor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_formEdicion.SuspendLayout();
             this.tabControl_usuario.SuspendLayout();
             this.tabPage_datos.SuspendLayout();
@@ -311,16 +319,46 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_firmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_firmas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.emisor,
-            this.texto,
-            this.fecha,
-            this.receptor});
+            this.idfirma,
+            this.emisorfirma,
+            this.textofirma,
+            this.fechafirma,
+            this.receptorfirma});
             this.dataGridView_firmas.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_firmas.Name = "dataGridView_firmas";
             this.dataGridView_firmas.ReadOnly = true;
             this.dataGridView_firmas.Size = new System.Drawing.Size(463, 318);
             this.dataGridView_firmas.TabIndex = 0;
+            // 
+            // idfirma
+            // 
+            this.idfirma.HeaderText = "Id";
+            this.idfirma.Name = "idfirma";
+            this.idfirma.ReadOnly = true;
+            // 
+            // emisorfirma
+            // 
+            this.emisorfirma.HeaderText = "Emisor";
+            this.emisorfirma.Name = "emisorfirma";
+            this.emisorfirma.ReadOnly = true;
+            // 
+            // textofirma
+            // 
+            this.textofirma.HeaderText = "Texto";
+            this.textofirma.Name = "textofirma";
+            this.textofirma.ReadOnly = true;
+            // 
+            // fechafirma
+            // 
+            this.fechafirma.HeaderText = "Fecha";
+            this.fechafirma.Name = "fechafirma";
+            this.fechafirma.ReadOnly = true;
+            // 
+            // receptorfirma
+            // 
+            this.receptorfirma.HeaderText = "Receptor";
+            this.receptorfirma.Name = "receptorfirma";
+            this.receptorfirma.ReadOnly = true;
             // 
             // button_borrarFirma
             // 
@@ -479,12 +517,58 @@
             // 
             // dataGridView_galeria
             // 
+            this.dataGridView_galeria.AllowUserToAddRows = false;
+            this.dataGridView_galeria.AllowUserToDeleteRows = false;
             this.dataGridView_galeria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_galeria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idimagen,
+            this.tituloimagen,
+            this.descripcion,
+            this.fecha,
+            this.usuarioimagen,
+            this.archivoimagen});
             this.dataGridView_galeria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_galeria.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_galeria.Name = "dataGridView_galeria";
+            this.dataGridView_galeria.ReadOnly = true;
             this.dataGridView_galeria.Size = new System.Drawing.Size(463, 318);
             this.dataGridView_galeria.TabIndex = 1;
+            // 
+            // idimagen
+            // 
+            this.idimagen.HeaderText = "Id";
+            this.idimagen.Name = "idimagen";
+            this.idimagen.ReadOnly = true;
+            // 
+            // tituloimagen
+            // 
+            this.tituloimagen.HeaderText = "Título";
+            this.tituloimagen.Name = "tituloimagen";
+            this.tituloimagen.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descipción";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // usuarioimagen
+            // 
+            this.usuarioimagen.HeaderText = "Usuario";
+            this.usuarioimagen.Name = "usuarioimagen";
+            this.usuarioimagen.ReadOnly = true;
+            // 
+            // archivoimagen
+            // 
+            this.archivoimagen.HeaderText = "Archivo";
+            this.archivoimagen.Name = "archivoimagen";
+            this.archivoimagen.ReadOnly = true;
             // 
             // button_borrarGaleria
             // 
@@ -607,12 +691,14 @@
             // 
             // tabPage_mensajes
             // 
-            this.tabPage_mensajes.Controls.Add(this.splitContainer_mensajes);
-            this.tabPage_mensajes.Controls.Add(this.textBox_tituloMensaje);
-            this.tabPage_mensajes.Controls.Add(this.label_buscarMensajePorTitulo);
+            this.tabPage_mensajes.Controls.Add(this.radioButton_recibidosPorUsuario);
+            this.tabPage_mensajes.Controls.Add(this.radioButton_enviadosPorUsuario);
             this.tabPage_mensajes.Controls.Add(this.dateTimePicker_fechaMensaje);
-            this.tabPage_mensajes.Controls.Add(this.button_buscarMensaje);
+            this.tabPage_mensajes.Controls.Add(this.textBox_autorMensaje);
+            this.tabPage_mensajes.Controls.Add(this.label_buscarAutorPorMensaje);
             this.tabPage_mensajes.Controls.Add(this.label_buscarMensajePorFecha);
+            this.tabPage_mensajes.Controls.Add(this.splitContainer_mensajes);
+            this.tabPage_mensajes.Controls.Add(this.button_buscarMensaje);
             this.tabPage_mensajes.Controls.Add(this.label_mensajesDeUsuario);
             this.tabPage_mensajes.Location = new System.Drawing.Point(4, 22);
             this.tabPage_mensajes.Name = "tabPage_mensajes";
@@ -620,6 +706,72 @@
             this.tabPage_mensajes.TabIndex = 3;
             this.tabPage_mensajes.Text = "Mensajes";
             this.tabPage_mensajes.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_recibidosPorUsuario
+            // 
+            this.radioButton_recibidosPorUsuario.AutoSize = true;
+            this.radioButton_recibidosPorUsuario.Location = new System.Drawing.Point(6, 62);
+            this.radioButton_recibidosPorUsuario.Name = "radioButton_recibidosPorUsuario";
+            this.radioButton_recibidosPorUsuario.Size = new System.Drawing.Size(127, 17);
+            this.radioButton_recibidosPorUsuario.TabIndex = 86;
+            this.radioButton_recibidosPorUsuario.Text = "Recibidos por usuario";
+            this.radioButton_recibidosPorUsuario.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_enviadosPorUsuario
+            // 
+            this.radioButton_enviadosPorUsuario.AutoSize = true;
+            this.radioButton_enviadosPorUsuario.Checked = true;
+            this.radioButton_enviadosPorUsuario.Location = new System.Drawing.Point(6, 35);
+            this.radioButton_enviadosPorUsuario.Name = "radioButton_enviadosPorUsuario";
+            this.radioButton_enviadosPorUsuario.Size = new System.Drawing.Size(124, 17);
+            this.radioButton_enviadosPorUsuario.TabIndex = 85;
+            this.radioButton_enviadosPorUsuario.TabStop = true;
+            this.radioButton_enviadosPorUsuario.Text = "Enviados por usuario";
+            this.radioButton_enviadosPorUsuario.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker_fechaMensaje
+            // 
+            this.dateTimePicker_fechaMensaje.Location = new System.Drawing.Point(6, 116);
+            this.dateTimePicker_fechaMensaje.Name = "dateTimePicker_fechaMensaje";
+            this.dateTimePicker_fechaMensaje.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaMensaje.TabIndex = 84;
+            // 
+            // textBox_autorMensaje
+            // 
+            this.textBox_autorMensaje.Location = new System.Drawing.Point(7, 171);
+            this.textBox_autorMensaje.Name = "textBox_autorMensaje";
+            this.textBox_autorMensaje.Size = new System.Drawing.Size(159, 20);
+            this.textBox_autorMensaje.TabIndex = 83;
+            // 
+            // label_buscarAutorPorMensaje
+            // 
+            this.label_buscarAutorPorMensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_buscarAutorPorMensaje.AutoSize = true;
+            this.label_buscarAutorPorMensaje.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarAutorPorMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarAutorPorMensaje.Location = new System.Drawing.Point(3, 142);
+            this.label_buscarAutorPorMensaje.Name = "label_buscarAutorPorMensaje";
+            this.label_buscarAutorPorMensaje.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarAutorPorMensaje.Size = new System.Drawing.Size(106, 20);
+            this.label_buscarAutorPorMensaje.TabIndex = 82;
+            this.label_buscarAutorPorMensaje.Text = "Buscar por autor : ";
+            // 
+            // label_buscarMensajePorFecha
+            // 
+            this.label_buscarMensajePorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_buscarMensajePorFecha.AutoSize = true;
+            this.label_buscarMensajePorFecha.BackColor = System.Drawing.Color.Transparent;
+            this.label_buscarMensajePorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_buscarMensajePorFecha.Location = new System.Drawing.Point(3, 86);
+            this.label_buscarMensajePorFecha.Name = "label_buscarMensajePorFecha";
+            this.label_buscarMensajePorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label_buscarMensajePorFecha.Size = new System.Drawing.Size(199, 20);
+            this.label_buscarMensajePorFecha.TabIndex = 81;
+            this.label_buscarMensajePorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
             // splitContainer_mensajes
             // 
@@ -675,35 +827,6 @@
             this.button_editarMensaje.Tag = "Modificar hilo seleccionado";
             this.button_editarMensaje.UseVisualStyleBackColor = true;
             // 
-            // textBox_tituloMensaje
-            // 
-            this.textBox_tituloMensaje.Location = new System.Drawing.Point(8, 114);
-            this.textBox_tituloMensaje.Name = "textBox_tituloMensaje";
-            this.textBox_tituloMensaje.Size = new System.Drawing.Size(159, 20);
-            this.textBox_tituloMensaje.TabIndex = 75;
-            // 
-            // label_buscarMensajePorTitulo
-            // 
-            this.label_buscarMensajePorTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarMensajePorTitulo.AutoSize = true;
-            this.label_buscarMensajePorTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarMensajePorTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarMensajePorTitulo.Location = new System.Drawing.Point(5, 83);
-            this.label_buscarMensajePorTitulo.Name = "label_buscarMensajePorTitulo";
-            this.label_buscarMensajePorTitulo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarMensajePorTitulo.Size = new System.Drawing.Size(98, 20);
-            this.label_buscarMensajePorTitulo.TabIndex = 74;
-            this.label_buscarMensajePorTitulo.Text = "Buscar por título:";
-            // 
-            // dateTimePicker_fechaMensaje
-            // 
-            this.dateTimePicker_fechaMensaje.Location = new System.Drawing.Point(7, 60);
-            this.dateTimePicker_fechaMensaje.Name = "dateTimePicker_fechaMensaje";
-            this.dateTimePicker_fechaMensaje.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaMensaje.TabIndex = 73;
-            // 
             // button_buscarMensaje
             // 
             this.button_buscarMensaje.Location = new System.Drawing.Point(66, 298);
@@ -713,21 +836,6 @@
             this.button_buscarMensaje.Text = "Buscar";
             this.button_buscarMensaje.UseVisualStyleBackColor = true;
             this.button_buscarMensaje.Click += new System.EventHandler(this.button_buscarMensaje_Click);
-            // 
-            // label_buscarMensajePorFecha
-            // 
-            this.label_buscarMensajePorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarMensajePorFecha.AutoSize = true;
-            this.label_buscarMensajePorFecha.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarMensajePorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarMensajePorFecha.Location = new System.Drawing.Point(4, 30);
-            this.label_buscarMensajePorFecha.Name = "label_buscarMensajePorFecha";
-            this.label_buscarMensajePorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarMensajePorFecha.Size = new System.Drawing.Size(199, 20);
-            this.label_buscarMensajePorFecha.TabIndex = 69;
-            this.label_buscarMensajePorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
             // 
             // label_mensajesDeUsuario
             // 
@@ -916,36 +1024,6 @@
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
-            // id
-            // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // emisor
-            // 
-            this.emisor.HeaderText = "Emisor";
-            this.emisor.Name = "emisor";
-            this.emisor.ReadOnly = true;
-            // 
-            // texto
-            // 
-            this.texto.HeaderText = "Texto";
-            this.texto.Name = "texto";
-            this.texto.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // receptor
-            // 
-            this.receptor.HeaderText = "Receptor";
-            this.receptor.Name = "receptor";
-            this.receptor.ReadOnly = true;
-            // 
             // FormUsuarioEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1038,11 +1116,7 @@
         private System.Windows.Forms.DataGridView dataGridView_mensajes;
         private System.Windows.Forms.Button button_borrarMensaje;
         private System.Windows.Forms.Button button_editarMensaje;
-        private System.Windows.Forms.TextBox textBox_tituloMensaje;
-        private System.Windows.Forms.Label label_buscarMensajePorTitulo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaMensaje;
         private System.Windows.Forms.Button button_buscarMensaje;
-        private System.Windows.Forms.Label label_buscarMensajePorFecha;
         private System.Windows.Forms.Label label_mensajesDeUsuario;
         private System.Windows.Forms.TabPage tabPage_encuestas;
         private System.Windows.Forms.SplitContainer splitContainer_encuestas;
@@ -1055,11 +1129,23 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechaEncuesta;
         private System.Windows.Forms.Label label_buscarEncuestaPorFecha;
         private System.Windows.Forms.Label label_encuestasDeUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emisor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn texto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idfirma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emisorfirma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn textofirma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechafirma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn receptorfirma;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idimagen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tituloimagen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receptor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioimagen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn archivoimagen;
+        private System.Windows.Forms.RadioButton radioButton_recibidosPorUsuario;
+        private System.Windows.Forms.RadioButton radioButton_enviadosPorUsuario;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaMensaje;
+        private System.Windows.Forms.TextBox textBox_autorMensaje;
+        private System.Windows.Forms.Label label_buscarAutorPorMensaje;
+        private System.Windows.Forms.Label label_buscarMensajePorFecha;
 
     }
 }

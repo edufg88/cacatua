@@ -105,8 +105,11 @@ namespace cacatUA
 
         private void button_buscarGaleria_Click(object sender, EventArgs e)
         {
-            // Código para buscar firmas
+            // Código para buscar imagenes
+            // Cogemos los datos de los formularios
+
             // Aquí cargamos el DataGridView
+            
         }
 
         private void button_buscarMensaje_Click(object sender, EventArgs e)
