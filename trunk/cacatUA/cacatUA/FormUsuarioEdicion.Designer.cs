@@ -299,8 +299,10 @@
             // 
             // dataGridView_firmas
             // 
+            this.dataGridView_firmas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_firmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_firmas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_firmas.Location = new System.Drawing.Point(0, 0);
             this.dataGridView_firmas.Name = "dataGridView_firmas";
             this.dataGridView_firmas.Size = new System.Drawing.Size(463, 318);

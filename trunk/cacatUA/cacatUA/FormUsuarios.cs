@@ -101,8 +101,6 @@ namespace cacatUA
         private void FormUsuarios_Load(object sender, EventArgs e)
         {
             CambiarFormularioBusqueda();
-            BorrarUsuariosPrueba();
-            InsertarUsuariosPrueba(); // Insertamos algunos usuarios
             CargarUsuarios();// Los cargamos en el DataGridView
         }
 
