@@ -11,11 +11,11 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormBusquedaMateriales : UserControl
+    public partial class FormMaterialesBusqueda : UserControl
     {
         private FormMateriales formularioPadre = null;
 
-        public FormBusquedaMateriales(FormMateriales formularioPadre)
+        public FormMaterialesBusqueda(FormMateriales formularioPadre)
         {
             InitializeComponent();
             this.formularioPadre = formularioPadre;
