@@ -185,5 +185,15 @@ namespace cacatUA
                 CambiarSeleccionado (int.Parse(textBox_id.Text));
             }
         }
+
+        private void button_seleccionarUsuario_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario");
+        }
+
+        private void button_seleccionarCategoria_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(FormPanelAdministracion.Instancia), "Seleccionando categoría");
+        }
     }
 }

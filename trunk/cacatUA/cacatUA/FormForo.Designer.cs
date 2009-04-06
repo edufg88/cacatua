@@ -33,15 +33,11 @@
             this.panel_cabecera = new System.Windows.Forms.Panel();
             this.label_foro = new System.Windows.Forms.Label();
             this.panel_opciones = new System.Windows.Forms.Panel();
-            this.button_seccionCrear = new System.Windows.Forms.Button();
-            this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
             this.label_seccion1 = new System.Windows.Forms.Label();
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button_editarHilo = new System.Windows.Forms.Button();
-            this.button_borrarHilo = new System.Windows.Forms.Button();
             this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,11 +45,13 @@
             this.autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechacreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numRespuestas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button_volver = new System.Windows.Forms.Button();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button_seccionCrear = new System.Windows.Forms.Button();
+            this.button_seccionBuscar = new System.Windows.Forms.Button();
+            this.button_editarHilo = new System.Windows.Forms.Button();
+            this.button_borrarHilo = new System.Windows.Forms.Button();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel_opciones.SuspendLayout();
@@ -61,7 +59,6 @@
             this.panel_cabeceraSeccion2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,19 +71,17 @@
             this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion1, 0, 2);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion2, 0, 4);
             this.tableLayoutPanel_principal.Controls.Add(this.panel1, 0, 5);
-            this.tableLayoutPanel_principal.Controls.Add(this.panel2, 0, 6);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_contenedor, 0, 3);
             this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
-            this.tableLayoutPanel_principal.RowCount = 7;
+            this.tableLayoutPanel_principal.RowCount = 6;
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(838, 500);
             this.tableLayoutPanel_principal.TabIndex = 0;
             // 
@@ -122,34 +117,6 @@
             this.panel_opciones.Name = "panel_opciones";
             this.panel_opciones.Size = new System.Drawing.Size(838, 45);
             this.panel_opciones.TabIndex = 1;
-            // 
-            // button_seccionCrear
-            // 
-            this.button_seccionCrear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seccionCrear.FlatAppearance.BorderSize = 0;
-            this.button_seccionCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionCrear.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_seccionCrear.Location = new System.Drawing.Point(39, 2);
-            this.button_seccionCrear.Name = "button_seccionCrear";
-            this.button_seccionCrear.Size = new System.Drawing.Size(36, 36);
-            this.button_seccionCrear.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_seccionCrear, "Crear un nuevo hilo");
-            this.button_seccionCrear.UseVisualStyleBackColor = true;
-            this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
-            // 
-            // button_seccionBuscar
-            // 
-            this.button_seccionBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
-            this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
-            this.button_seccionBuscar.Location = new System.Drawing.Point(3, 2);
-            this.button_seccionBuscar.Name = "button_seccionBuscar";
-            this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
-            this.button_seccionBuscar.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Realizar nueva búsqueda");
-            this.button_seccionBuscar.UseVisualStyleBackColor = true;
-            this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
             // 
             // panel_cabeceraSeccion1
             // 
@@ -200,42 +167,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 385);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(838, 85);
+            this.panel1.Size = new System.Drawing.Size(838, 115);
             this.panel1.TabIndex = 5;
-            // 
-            // button_editarHilo
-            // 
-            this.button_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarHilo.FlatAppearance.BorderSize = 0;
-            this.button_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarHilo.Location = new System.Drawing.Point(797, 5);
-            this.button_editarHilo.Name = "button_editarHilo";
-            this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
-            this.button_editarHilo.TabIndex = 9;
-            this.button_editarHilo.Tag = "Modificar hilo seleccionado";
-            this.toolTip1.SetToolTip(this.button_editarHilo, "Editar hilo seleccionado");
-            this.button_editarHilo.UseVisualStyleBackColor = true;
-            this.button_editarHilo.Click += new System.EventHandler(this.button_editarHilo_Click);
-            // 
-            // button_borrarHilo
-            // 
-            this.button_borrarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_borrarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarHilo.FlatAppearance.BorderSize = 0;
-            this.button_borrarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarHilo.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarHilo.Location = new System.Drawing.Point(797, 41);
-            this.button_borrarHilo.Name = "button_borrarHilo";
-            this.button_borrarHilo.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarHilo.TabIndex = 10;
-            this.button_borrarHilo.Tag = "Eliminar hilo seleccionado";
-            this.toolTip1.SetToolTip(this.button_borrarHilo, "Eliminar hilos seleccionados");
-            this.button_borrarHilo.UseVisualStyleBackColor = true;
-            this.button_borrarHilo.Click += new System.EventHandler(this.button_borrarHilo_Click);
             // 
             // dataGridView_resultados
             // 
@@ -259,7 +192,7 @@
             this.dataGridView_resultados.ReadOnly = true;
             this.dataGridView_resultados.RowHeadersVisible = false;
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_resultados.Size = new System.Drawing.Size(790, 79);
+            this.dataGridView_resultados.Size = new System.Drawing.Size(790, 109);
             this.dataGridView_resultados.TabIndex = 4;
             this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
             // 
@@ -313,27 +246,6 @@
             this.numRespuestas.ReadOnly = true;
             this.numRespuestas.Width = 124;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button_volver);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 470);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(838, 30);
-            this.panel2.TabIndex = 6;
-            // 
-            // button_volver
-            // 
-            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
-            this.button_volver.Location = new System.Drawing.Point(4, 3);
-            this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(306, 23);
-            this.button_volver.TabIndex = 0;
-            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
-            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_volver.UseVisualStyleBackColor = true;
-            // 
             // panel_contenedor
             // 
             this.panel_contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -346,6 +258,68 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // button_seccionCrear
+            // 
+            this.button_seccionCrear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seccionCrear.FlatAppearance.BorderSize = 0;
+            this.button_seccionCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seccionCrear.Image = global::cacatUA.Properties.Resources.nuevo;
+            this.button_seccionCrear.Location = new System.Drawing.Point(39, 2);
+            this.button_seccionCrear.Name = "button_seccionCrear";
+            this.button_seccionCrear.Size = new System.Drawing.Size(36, 36);
+            this.button_seccionCrear.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_seccionCrear, "Crear un nuevo hilo");
+            this.button_seccionCrear.UseVisualStyleBackColor = true;
+            this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
+            // 
+            // button_seccionBuscar
+            // 
+            this.button_seccionBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
+            this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button_seccionBuscar.Location = new System.Drawing.Point(3, 2);
+            this.button_seccionBuscar.Name = "button_seccionBuscar";
+            this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
+            this.button_seccionBuscar.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Realizar nueva búsqueda");
+            this.button_seccionBuscar.UseVisualStyleBackColor = true;
+            this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
+            // 
+            // button_editarHilo
+            // 
+            this.button_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarHilo.FlatAppearance.BorderSize = 0;
+            this.button_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarHilo.Location = new System.Drawing.Point(797, 5);
+            this.button_editarHilo.Name = "button_editarHilo";
+            this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
+            this.button_editarHilo.TabIndex = 9;
+            this.button_editarHilo.Tag = "Modificar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_editarHilo, "Editar hilo seleccionado");
+            this.button_editarHilo.UseVisualStyleBackColor = true;
+            this.button_editarHilo.Click += new System.EventHandler(this.button_editarHilo_Click);
+            // 
+            // button_borrarHilo
+            // 
+            this.button_borrarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_borrarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarHilo.FlatAppearance.BorderSize = 0;
+            this.button_borrarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarHilo.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarHilo.Location = new System.Drawing.Point(797, 41);
+            this.button_borrarHilo.Name = "button_borrarHilo";
+            this.button_borrarHilo.Size = new System.Drawing.Size(36, 36);
+            this.button_borrarHilo.TabIndex = 10;
+            this.button_borrarHilo.Tag = "Eliminar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_borrarHilo, "Eliminar hilos seleccionados");
+            this.button_borrarHilo.UseVisualStyleBackColor = true;
+            this.button_borrarHilo.Click += new System.EventHandler(this.button_borrarHilo_Click);
             // 
             // FormForo
             // 
@@ -364,7 +338,6 @@
             this.panel_cabeceraSeccion2.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).EndInit();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -394,8 +367,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_editarHilo;
         private System.Windows.Forms.Button button_borrarHilo;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button_volver;
         private System.Windows.Forms.Panel panel_contenedor;
 
     }

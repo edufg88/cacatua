@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -361,6 +361,7 @@
     <None Include="datos\buscar.gif" />
     <Content Include="datos\buscar.png" />
     <Content Include="datos\CacatUA EER.JPG" />
+    <None Include="datos\cancelar.png" />
     <Content Include="datos\categorias.png" />
     <Content Include="datos\close.png" />
     <Content Include="datos\eliminar.png" />
@@ -377,6 +378,7 @@
     <Content Include="datos\salir.png" />
     <Content Include="datos\seleccionar.png" />
     <Content Include="datos\tool.png" />
+    <None Include="datos\volver.png" />
     <None Include="datos\flecha.png" />
   </ItemGroup>
   <ItemGroup>
