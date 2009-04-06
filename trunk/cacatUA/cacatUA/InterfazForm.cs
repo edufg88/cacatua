@@ -6,9 +6,16 @@ using System.Windows.Forms;
 
 namespace cacatUA
 {
-    abstract public partial class InterfazForm : UserControl
+    public partial class InterfazForm : UserControl
     {
-        abstract public Object Enviar();
-        abstract public void Recibir(Object objeto);
+        virtual public Object Enviar()
+        {
+            return null;
+        }
+
+        virtual public void Recibir(Object objeto)
+        {
+
+        }
     }
 }
