@@ -12,7 +12,7 @@ using System.Configuration;
 namespace Libreria
 {
     // Clase singleton
-    // Componente de Acceso a Datos para relacionarse con la BD 'usuario'
+    // Componente de Acceso a Datos para relacionarse con la BD 'usuarios'
     sealed class UsuarioCAD
     {
         private static readonly UsuarioCAD instancia = new UsuarioCAD();
@@ -31,7 +31,7 @@ namespace Libreria
         }
 
         // Extrae los datos de un objeto DataReader y los almacena en un 
-        // ENUsuarioCRUD que devuelve
+        // ENUsuario que devuelve
         public ENUsuario ObtenerDatos(SqlDataReader dr)
         {
             ENUsuario usuario = new ENUsuario();
@@ -77,7 +77,7 @@ namespace Libreria
                 if (dr.Read())
                 {
                     // Extraemos la información del DataReader y la almacenamos
-                    // en un objeto ENUsuarioCRUD
+                    // en un objeto ENUsuario
                     usuario = ObtenerDatos(dr);
                 }
 
