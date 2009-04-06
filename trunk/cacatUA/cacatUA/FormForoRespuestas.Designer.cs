@@ -1,6 +1,6 @@
 ﻿namespace cacatUA
 {
-    partial class FormRespuestas
+    partial class FormForoRespuestas
     {
         /// <summary> 
         /// Variable del diseñador requerida.

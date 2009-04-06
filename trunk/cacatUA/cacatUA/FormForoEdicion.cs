@@ -198,7 +198,7 @@ namespace cacatUA
 
         private void linkLabel_respuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormRespuestas(), "Respuestas del hilo nº "+textBox_id.Text, true, false);
+            FormPanelAdministracion.Instancia.Apilar(new FormForoRespuestas(), "Respuestas del hilo nº "+textBox_id.Text, true, false);
         }
     }
 }

@@ -72,11 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormRespuestas.cs">
+    <Compile Include="FormForoRespuestas.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormRespuestas.Designer.cs">
-      <DependentUpon>FormRespuestas.cs</DependentUpon>
+    <Compile Include="FormForoRespuestas.Designer.cs">
+      <DependentUpon>FormForoRespuestas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>UserControl</SubType>
@@ -95,12 +95,6 @@
     </Compile>
     <Compile Include="FormUsuarioBusqueda.Designer.cs">
       <DependentUpon>FormUsuarioBusqueda.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMaterialesBusqueda.cs">
       <SubType>UserControl</SubType>
@@ -225,8 +219,8 @@
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormRespuestas.resx">
-      <DependentUpon>FormRespuestas.cs</DependentUpon>
+    <EmbeddedResource Include="FormForoRespuestas.resx">
+      <DependentUpon>FormForoRespuestas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
@@ -238,10 +232,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarioBusqueda.resx">
       <DependentUpon>FormUsuarioBusqueda.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMaterialesBusqueda.resx">
