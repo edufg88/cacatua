@@ -11,7 +11,7 @@ using System.Collections;
 
 namespace cacatUA
 {
-    public partial class FormUsuarios : UserControl
+    public partial class FormUsuarios : InterfazForm
     {
         private FormUsuarioBusqueda formBusqueda;
         private FormUsuarioEdicion formEdicion;

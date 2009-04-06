@@ -11,7 +11,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormMateriales : UserControl
+    public partial class FormMateriales : InterfazForm
     {
         private bool busqueda;
         FormMaterialesEdicion formEditarMateriales;
