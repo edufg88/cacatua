@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace cacatUA
 {
-    public partial class FormForoRespuestas : UserControl
+    public partial class FormForoRespuestas : InterfazForm
     {
         public FormForoRespuestas()
         {
