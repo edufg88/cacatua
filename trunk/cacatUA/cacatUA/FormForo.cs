@@ -53,19 +53,26 @@ namespace cacatUA
             {
                 dataGridView_resultados.Rows.Clear();
                 ArrayList lista = value;
-                for (int i = 0; i < lista.Count; i++)
+                if (lista != null)
                 {
-                    DataGridViewRow fila = new DataGridViewRow();
-                    fila.CreateCells(dataGridView_resultados);
+                    for (int i = 0; i < lista.Count; i++)
+                    {
+                        DataGridViewRow fila = new DataGridViewRow();
+                        fila.CreateCells(dataGridView_resultados);
 
-                    ENHilo auxiliar = (ENHilo)lista[i];
-                    fila.Cells[0].Value = auxiliar.Id.ToString();
-                    fila.Cells[1].Value = auxiliar.Titulo.ToString();
-                    fila.Cells[2].Value = auxiliar.Texto.ToString();
-                    fila.Cells[3].Value = auxiliar.Autor.Usuario.ToString();
-                    fila.Cells[4].Value = auxiliar.Fecha.ToString();
-                    fila.Cells[5].Value = auxiliar.NumRespuestas;
-                    dataGridView_resultados.Rows.Add(fila);
+                        ENHilo auxiliar = (ENHilo)lista[i];
+                        fila.Cells[0].Value = auxiliar.Id.ToString();
+                        fila.Cells[1].Value = auxiliar.Titulo.ToString();
+                        fila.Cells[2].Value = auxiliar.Texto.ToString();
+                        fila.Cells[3].Value = auxiliar.Autor.Usuario.ToString();
+                        fila.Cells[4].Value = auxiliar.Fecha.ToString();
+                        fila.Cells[5].Value = auxiliar.NumRespuestas;
+                        dataGridView_resultados.Rows.Add(fila);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error con la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
