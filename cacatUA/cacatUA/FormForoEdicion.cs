@@ -195,5 +195,10 @@ namespace cacatUA
         {
             FormPanelAdministracion.Instancia.Apilar(new FormCategorias(FormPanelAdministracion.Instancia), "Seleccionando categoría");
         }
+
+        private void linkLabel_respuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormRespuestas(), "Respuestas del hilo nº "+textBox_id.Text);
+        }
     }
 }

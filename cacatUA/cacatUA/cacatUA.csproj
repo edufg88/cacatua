@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormRespuestas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormRespuestas.Designer.cs">
+      <DependentUpon>FormRespuestas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,12 +153,6 @@
     <Compile Include="FormGruposBusqueda.Designer.cs">
       <DependentUpon>FormGruposBusqueda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHilo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormHilo.Designer.cs">
-      <DependentUpon>FormHilo.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +210,9 @@
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormRespuestas.resx">
+      <DependentUpon>FormRespuestas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -268,10 +271,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGruposBusqueda.resx">
       <DependentUpon>FormGruposBusqueda.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHilo.resx">
-      <DependentUpon>FormHilo.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
