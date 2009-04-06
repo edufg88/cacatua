@@ -122,7 +122,7 @@ namespace cacatUA
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
                     string id = fila.Cells["Autor"].Value.ToString();
-                    FormContestarPeticion form = new FormContestarPeticion(id);
+                    FormPeticionContestar form = new FormPeticionContestar(id);
                     form.Show();
                 }
             }
@@ -142,7 +142,7 @@ namespace cacatUA
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
                     string id = fila.Cells["id"].Value.ToString();
-                    FormContestarPeticion form = new FormContestarPeticion(id);
+                    FormPeticionContestar form = new FormPeticionContestar(id);
                     form.Show();
                 }
             }
