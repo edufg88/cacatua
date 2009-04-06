@@ -58,7 +58,7 @@ namespace Libreria
         /// Obtiene un hilo desde la base de datos según su identificador (id).
         /// </summary>
         /// <param name="id">Identificador (id) del hilo que se va a obtener.</param>
-        /// <returns>Devuelve un hilo extraído desde la base de datos.</returns>
+        /// <returns>Devuelve un hilo extraído desde la base de datos. Si falla, devuelve null.</returns>
         public ENHilo Obtener(int id)
         {
             ENHilo hilo = null;
@@ -105,7 +105,7 @@ namespace Libreria
         /// <summary>
         /// Obtiene todos los hilos del foro (lista de ENHilo).
         /// </summary>
-        /// <returns>Devuelve una lista de ENHilo con todos los hilos del foro.</returns>
+        /// <returns>Devuelve una lista de ENHilo con todos los hilos del foro. Si falla, devuelve null.</returns>
         public ArrayList Obtener()
         {
             ArrayList hilos = null;
@@ -153,7 +153,7 @@ namespace Libreria
         /// <param name="pagina">Número de página.</param>
         /// <param name="cantidad">Cantidad de hilos en cada página.</param>
         /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
-        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
         public ArrayList Obtener(int pagina, int cantidad, int ultimoId)
         {
             ENUsuario usuario = null;
@@ -178,7 +178,7 @@ namespace Libreria
         /// <param name="fechaInicio">Fecha de inicio par el filtro de búsqueda.</param>
         /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
         /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
-        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
         public ArrayList Obtener(int pagina, int cantidad, int ultimoId, String titulo, String texto
             , ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
@@ -255,6 +255,7 @@ namespace Libreria
         /// Guarda el nuevo hilo recibido por los parámetros en la base de datos.
         /// </summary>
         /// <param name="hilo">Hilo que se va a guardar en la base de datos.</param>
+        /// <param name="id">Identificador que se le asigna al hilo después de insertarse.</param>
         /// <returns>Devuelve verdadero si se ha introducido correctamente.</returns>
         public bool Guardar(ENHilo hilo, out int id)
         {
@@ -269,19 +270,29 @@ namespace Libreria
                     conexion = new SqlConnection(cadenaConexion);
                     conexion.Open();
 
-                    string cadenaComando = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, @autor, @fechacreacion, @categoria)";
-                    SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                    string cadena0 = "BEGIN TRAN";
+                    string cadena1 = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, @autor, @fechacreacion, @categoria);";
+                    string cadena2 = "select max(id) as id from hilos;";
+                    string cadena3 = "COMMIT TRAN";
+
+                    string sentencia = cadena0 + " " + cadena1 + " " + cadena2 + " " + cadena3;
+
+                    SqlCommand comando = new SqlCommand(sentencia, conexion);
                     comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
                     comando.Parameters.AddWithValue("@texto", hilo.Texto);
                     comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
                     comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
                     comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
 
-                    if (comando.ExecuteNonQuery() == 1)
+                    SqlDataReader dataReader = comando.ExecuteReader();
+
+                    if (dataReader.Read())
                     {
                         insertado = true;
-                        id = 7; // falta obtener ese valor id. ver transacciones de sql.
+                        id = int.Parse(dataReader["id"].ToString());
                     }
+
+                    dataReader.Close();
                 }
                 catch (Exception ex)
                 {
@@ -339,8 +350,43 @@ namespace Libreria
         /// <returns>Devuelve verdadero si se ha guardado correctamente.</returns>
         public bool Actualizar(ENHilo hilo)
         {
-            // update hilos set tal tal tal where id = hilo.id;
-            return false;
+            bool actualizado = false;
+
+            if (hilo.Autor != null && hilo.Categoria != null)
+            {
+                SqlConnection conexion = null;
+                try
+                {
+                    conexion = new SqlConnection(cadenaConexion);
+                    conexion.Open();
+
+                    string sentencia = "update hilos set titulo = @titulo, texto = @texto, autor = @autor, fechacreacion = @fechacreacion, categoria = @categoria where id = @id";
+
+                    SqlCommand comando = new SqlCommand(sentencia, conexion);
+                    comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
+                    comando.Parameters.AddWithValue("@texto", hilo.Texto);
+                    comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
+                    comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
+                    comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
+                    comando.Parameters.AddWithValue("@id", hilo.Id);
+
+                    if (comando.ExecuteNonQuery() == 1)
+                    {
+                        actualizado = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("bool HiloCAD.Guardar(ENHilo) " + ex.Message);
+                }
+                finally
+                {
+                    if (conexion != null)
+                        conexion.Close();
+                }
+            }
+
+            return actualizado;
         }
     }
 }
