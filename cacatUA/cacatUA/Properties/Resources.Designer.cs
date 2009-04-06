@@ -109,6 +109,13 @@ namespace cacatUA.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap cancelar {
+            get {
+                object obj = ResourceManager.GetObject("cancelar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap categorias {
             get {
                 object obj = ResourceManager.GetObject("categorias", resourceCulture);
@@ -238,6 +245,13 @@ namespace cacatUA.Properties {
         internal static System.Drawing.Bitmap usuarios {
             get {
                 object obj = ResourceManager.GetObject("usuarios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap volver {
+            get {
+                object obj = ResourceManager.GetObject("volver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

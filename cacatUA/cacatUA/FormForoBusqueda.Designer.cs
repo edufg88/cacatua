@@ -130,7 +130,9 @@
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarCategoria.TabIndex = 143;
             this.button_seleccionarCategoria.TabStop = false;
+            this.toolTip1.SetToolTip(this.button_seleccionarCategoria, "Haz clic para seleccionar una categoría de la lista");
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
+            this.button_seleccionarCategoria.Click += new System.EventHandler(this.button_seleccionarCategoria_Click);
             // 
             // textBox_categoria
             // 
@@ -175,7 +177,9 @@
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarUsuario.TabIndex = 144;
             this.button_seleccionarUsuario.TabStop = false;
+            this.toolTip1.SetToolTip(this.button_seleccionarUsuario, "Haz clic para seleccionar un usuario de la lista");
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Click += new System.EventHandler(this.button_seleccionarUsuario_Click);
             // 
             // textBox_autor
             // 

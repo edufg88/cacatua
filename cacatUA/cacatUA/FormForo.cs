@@ -26,10 +26,6 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
-            // Se oculta la fila del TableLayoutEditor que contiene el botón "Volver".
-            tableLayoutPanel_principal.RowStyles[6].Height = 0;
-
-
             CambiarFormularioBusqueda();
 
             Resultados = ENHilo.Obtener();

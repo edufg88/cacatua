@@ -44,7 +44,7 @@
             this.textBox_categoria = new System.Windows.Forms.TextBox();
             this.label_categoria = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_seleccionarUsuario = new System.Windows.Forms.Button();
             this.textBox_autor = new System.Windows.Forms.TextBox();
             this.label_autor = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -193,7 +193,9 @@
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarCategoria.TabIndex = 143;
             this.button_seleccionarCategoria.TabStop = false;
+            this.toolTip1.SetToolTip(this.button_seleccionarCategoria, "Haz clic para seleccionar una categoría de la lista");
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
+            this.button_seleccionarCategoria.Click += new System.EventHandler(this.button_seleccionarCategoria_Click);
             // 
             // textBox_categoria
             // 
@@ -216,7 +218,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.button_seleccionarUsuario);
             this.panel2.Controls.Add(this.textBox_autor);
             this.panel2.Controls.Add(this.label_autor);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -226,20 +228,22 @@
             this.panel2.Size = new System.Drawing.Size(889, 30);
             this.panel2.TabIndex = 2;
             // 
-            // button1
+            // button_seleccionarUsuario
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button1.Location = new System.Drawing.Point(833, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 18);
-            this.button1.TabIndex = 144;
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_seleccionarUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.button_seleccionarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seleccionarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_seleccionarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seleccionarUsuario.Image = global::cacatUA.Properties.Resources.seleccionar1;
+            this.button_seleccionarUsuario.Location = new System.Drawing.Point(833, 6);
+            this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
+            this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
+            this.button_seleccionarUsuario.TabIndex = 144;
+            this.button_seleccionarUsuario.TabStop = false;
+            this.toolTip1.SetToolTip(this.button_seleccionarUsuario, "Haz clic para seleccionar un usuario de la lista");
+            this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Click += new System.EventHandler(this.button_seleccionarUsuario_Click);
             // 
             // textBox_autor
             // 
@@ -418,7 +422,7 @@
         private System.Windows.Forms.TextBox textBox_categoria;
         private System.Windows.Forms.Label label_categoria;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_seleccionarUsuario;
         private System.Windows.Forms.TextBox textBox_autor;
         private System.Windows.Forms.Label label_autor;
         private System.Windows.Forms.Panel panel1;
