@@ -10,10 +10,10 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormContestarPeticion : Form
+    public partial class FormPeticionContestar : Form
     {
         private ENPeticion pet;
-        public FormContestarPeticion(string p)
+        public FormPeticionContestar(string p)
         {
             InitializeComponent();
             pet = ENPeticion.GetPeticion(int.Parse(p));
