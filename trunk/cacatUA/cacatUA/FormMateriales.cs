@@ -25,7 +25,9 @@ namespace cacatUA
             FormBusquedaMateriales form = new FormBusquedaMateriales(this);
             panel_contenido.Controls.Clear();
             panel_contenido.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
+            //form.Dock = DockStyle.Fill;
+            form.Dock = DockStyle.Top;
+            tableLayoutPanel_principal.RowStyles[3].Height = form.Height;
             ArrayList materiales = ENMaterial.Obtener();
             mostrarMateriales(materiales);
         }
@@ -98,8 +100,9 @@ namespace cacatUA
                     formEditarMateriales = new FormEditarMateriales(FormEditarMateriales.modos.EDITAR, id);
                     panel_contenido.Controls.Clear();
                     panel_contenido.Controls.Add(formEditarMateriales);
-                    formEditarMateriales.Dock = DockStyle.Fill;
-
+                    //formEditarMateriales.Dock = DockStyle.Fill;
+                    formEditarMateriales.Dock = DockStyle.Top;
+                    tableLayoutPanel_principal.RowStyles[3].Height = formEditarMateriales.Height;
                 }
                 else
                 {
@@ -172,8 +175,9 @@ namespace cacatUA
                 formEditarMateriales = new FormEditarMateriales(FormEditarMateriales.modos.CREAR, "");
                 panel_contenido.Controls.Clear();
                 panel_contenido.Controls.Add(formEditarMateriales);
-                formEditarMateriales.Dock = DockStyle.Fill;
-                //tableLayoutPanel_principal.RowStyles[3].Height = formEditarMateriales.Height;
+                //formEditarMateriales.Dock = DockStyle.Fill;
+                formEditarMateriales.Dock = DockStyle.Top;
+                tableLayoutPanel_principal.RowStyles[3].Height = formEditarMateriales.Height;
             }
             else
             {
@@ -189,8 +193,9 @@ namespace cacatUA
             FormBusquedaMateriales form = new FormBusquedaMateriales(this);
             panel_contenido.Controls.Clear();
             panel_contenido.Controls.Add(form);
-            form.Dock = DockStyle.Fill;
-            //tableLayoutPanel_principal.RowStyles[3].Height = form.Height;
+            //form.Dock = DockStyle.Fill;
+            form.Dock = DockStyle.Top;
+            tableLayoutPanel_principal.RowStyles[3].Height = form.Height;
         }
     }
 }
