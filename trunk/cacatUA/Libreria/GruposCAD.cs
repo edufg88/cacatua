@@ -11,18 +11,14 @@ using System.Configuration;
 
 namespace Libreria
 {
-    public class GruposCAD
+    sealed class GruposCAD
     {
-        private static GruposCAD instancia = null;
+        private static readonly GruposCAD instancia = new GruposCAD();
         private String cadenaConexion;
 
-        public static GruposCAD GetInstancia()
+        public static GruposCAD Instancia
         {
-            if (instancia == null)
-            {
-                instancia = new GruposCAD();
-            }
-            return instancia;
+            get { return instancia; }
         }
 
         private GruposCAD()
@@ -65,8 +61,11 @@ namespace Libreria
         private ArrayList buscarUsuarios(int grupo)
         {
             ArrayList usuarios = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -80,6 +79,15 @@ namespace Libreria
                     usuarios.Add(readerUsu["usuario"].ToString());
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.buscarUsuarios():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return usuarios;
         }
 
@@ -91,8 +99,11 @@ namespace Libreria
         {
             ArrayList grupos = new ArrayList();
             ArrayList usuarios = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -112,6 +123,15 @@ namespace Libreria
                     grupos.Add(grupo);
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.ObtenerTodos():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return grupos;
         }
 
@@ -123,9 +143,11 @@ namespace Libreria
         public bool Existe(string nombre)
         {
             bool encontrado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -139,6 +161,15 @@ namespace Libreria
                     encontrado = true;
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.Existe():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return encontrado;
         }
 
@@ -151,9 +182,11 @@ namespace Libreria
         {
             ENGrupos grupos = null;
             ArrayList usuarios = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -173,6 +206,15 @@ namespace Libreria
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.Obtener():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return grupos;
         }
 
@@ -185,9 +227,11 @@ namespace Libreria
         {
             int resultado = 0;
             bool borrado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -198,6 +242,15 @@ namespace Libreria
                 resultado = comando.ExecuteNonQuery();
                 if (resultado == 1)
                     borrado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.Borrar():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
             }
             return borrado;
         }
@@ -211,9 +264,11 @@ namespace Libreria
         {
             int resultado = 0;
             bool actualizado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -229,6 +284,15 @@ namespace Libreria
                 if (resultado == 1)
                     actualizado = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.Actualizar():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return actualizado;
         }
 
@@ -242,46 +306,51 @@ namespace Libreria
             int resultado = 0;
             bool guardado = false;
             bool usuario = true;
-            try
+            SqlConnection conexion = null;
+            if (!Existe(grupo.Nombre))
             {
-                if (!Existe(grupo.Nombre))
+                try
                 {
-                    using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+                    // Creamos y abrimos la conexión.
+                    conexion = new SqlConnection(cadenaConexion);
+                    conexion.Open();
+                    // Creamos el comando
+                    SqlCommand comando = new SqlCommand();
+                    // Le asignamos la conexión al comando
+                    comando.Connection = conexion;
+                    comando.CommandText = "INSERT INTO " +
+                        "grupos(nombre,descripcion,fecha) " +
+                        "VALUES (@nombre,@descripcion,@fecha)";
+                    comando.Parameters.AddWithValue("@nombre", grupo.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", grupo.Descripcion);
+                    comando.Parameters.AddWithValue("@fecha", grupo.Fecha);
+                    resultado = comando.ExecuteNonQuery();
+                    if (grupo.NumUsuarios != 0)
                     {
-                        // Abrimos la conexión
-                        conexion.Open();
-                        // Creamos el comando
-                        SqlCommand comando = new SqlCommand();
-                        // Le asignamos la conexión al comando
-                        comando.Connection = conexion;
-                        comando.CommandText = "INSERT INTO " +
-                            "grupos(nombre,descripcion,fecha) " +
-                            "VALUES (@nombre,@descripcion,@fecha)";
-                        comando.Parameters.AddWithValue("@nombre", grupo.Nombre);
-                        comando.Parameters.AddWithValue("@descripcion", grupo.Descripcion);
-                        comando.Parameters.AddWithValue("@fecha", grupo.Fecha);
-                        resultado = comando.ExecuteNonQuery();
-                        if (grupo.NumUsuarios != 0)
+                        foreach (Object obj in grupo.Usuarios)
                         {
-                            foreach (Object obj in grupo.Usuarios)
+                            if (!InsertarUsuario(obj.ToString(), grupo.Id))
                             {
-                                if (!InsertarUsuario(obj.ToString(), grupo.Id))
-                                {
-                                    usuario = false;
-                                }
+                                usuario = false;
                             }
                         }
-                        if (resultado == 1 && usuario == true)
-                        {
-                            guardado = true;
-                        }
+                    }
+                    if (resultado == 1 && usuario == true)
+                    {
+                        guardado = true;
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error en ENGrupos.Guardar():" + ex.Message);
+                }
+                finally
+                {
+                    if (conexion != null)
+                        conexion.Close();
+                }
             }
-            catch (Exception ex)
-            {
-                Console.Write("Error en Guardar:" + ex.Message);
-            }
+            
             return guardado;
         }
 
@@ -295,8 +364,12 @@ namespace Libreria
         {
             int resultado = 0;
             bool insertado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
                 // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
@@ -314,6 +387,15 @@ namespace Libreria
                     insertado = true;
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.Insertarusuario():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return insertado;
         }
 
@@ -327,9 +409,11 @@ namespace Libreria
         {
             int resultado = 0;
             bool borrado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
                 // Abrimos la conexión
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -342,6 +426,15 @@ namespace Libreria
                 if (resultado == 1)
                     borrado = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.BorrarUsuario(): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return borrado;
         }
 
@@ -351,43 +444,73 @@ namespace Libreria
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        public ArrayList Buscar(int min, int max,ENGrupos grupo)
+        public ArrayList Buscar(int min, int max,ENGrupos grupo,DateTime fechafin, ref ENUsuario usuario)
         {
             ArrayList grupos = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
-                SqlCommand comando = new SqlCommand();
-                // Le asignamos la conexión al comando
-                comando.Connection = conexion;
-                string fecha=grupo.Fecha.ToShortDateString();
-                string comand="SELECT * FROM grupos WHERE fecha>="+fecha;
+                /*string fechadesde=grupo.Fecha.ToShortDateString();
+                string fechahasta = fechafin.ToShortDateString();*/
+                string comand="SELECT id,nombre,descripcion,fecha FROM grupos,miembros WHERE id=grupo and fecha between @fechainicio and @fechafin";
                 if (grupo.Nombre != "")
                 {
-                    comand+=" AND nombre like'%"+grupo.Nombre+"%'";
+                    comand+=" AND nombre like'%"+@grupo.Nombre+"%'";
                 }
-                /*if (grupo.Descripcion == "")
+                if (usuario != null)
                 {
-                    comand+=" AND descripcion like '%"+grupo.Descripcion+"%'";
-                }*/
+                    comand+=" AND usuario=@usuario";
+                }
                 if (max!=0 && min == max )
                 {
-                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE GROUP BY grupo) = " + min;
+                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE GROUP BY grupo) = @min";
                 }
                 else if(max!=0)
                 {
-                    comand+=" AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) BETWEEN "+min+" AND "+max;
+                    comand+=" AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) BETWEEN @min AND @max";
                 }
-                Console.Write(comand + "\n");
-                comando.CommandText = comand;
+                SqlCommand comando = new SqlCommand(comand, conexion);
+                comando.Parameters.AddWithValue("@fechainicio", grupo.Fecha);
+                comando.Parameters.AddWithValue("@fechafin", fechafin);
+                if (grupo.Nombre != "")
+                {
+                    comando.Parameters.AddWithValue("@nombre", grupo.Nombre);
+                }
+                if (usuario != null)
+                {
+                    comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                }
+                if (max != 0 && min == max)
+                {
+                    comando.Parameters.AddWithValue("@min", min);
+                }
+                else if (max != 0)
+                {
+                    comando.Parameters.AddWithValue("@min", min);
+                    comando.Parameters.AddWithValue("@max", max);
+                }
+                /*if (autor != null)
+                    comando.Parameters.AddWithValue("@autor", autor.Id);*/
+
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
-                    ENGrupos aux = obtenerDatos(reader);
+                    ENGrupos aux = Obtener(int.Parse(reader["id"].ToString()));
                     grupos.Add(aux);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ArrayList ENGrupos.Buscar():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
             }
             return grupos;
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel_nombre = new System.Windows.Forms.Panel();
             this.textBox_id = new System.Windows.Forms.TextBox();
@@ -51,8 +52,10 @@
             this.numericUpDown_numUsuarios1 = new System.Windows.Forms.NumericUpDown();
             this.label_numUsuarios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button_eliminar = new System.Windows.Forms.Button();
+            this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_nombre.SuspendLayout();
             this.panel_descripcion.SuspendLayout();
@@ -62,6 +65,7 @@
             this.panel_numUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_secundario
@@ -128,6 +132,7 @@
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(638, 20);
             this.textBox_nombre.TabIndex = 1;
+            this.textBox_nombre.TextChanged += new System.EventHandler(this.textBox_Modificado);
             // 
             // label_nombre
             // 
@@ -158,6 +163,7 @@
             this.textBox_descripcion.Name = "textBox_descripcion";
             this.textBox_descripcion.Size = new System.Drawing.Size(738, 84);
             this.textBox_descripcion.TabIndex = 2;
+            this.textBox_descripcion.TextChanged += new System.EventHandler(this.textBox_Modificado);
             // 
             // label_descripcion
             // 
@@ -186,6 +192,7 @@
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_fecha.TabIndex = 3;
+            this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.textBox_Modificado);
             // 
             // label_fecha
             // 
@@ -236,7 +243,9 @@
             this.button_seccionCrear.Name = "button_seccionCrear";
             this.button_seccionCrear.Size = new System.Drawing.Size(65, 30);
             this.button_seccionCrear.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.button_seccionCrear, "Añadir un miembro al grupo");
             this.button_seccionCrear.UseVisualStyleBackColor = true;
+            this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
             // 
             // linkLabel_usuario
             // 
@@ -265,7 +274,8 @@
             this.button_borrar.Name = "button_borrar";
             this.button_borrar.Size = new System.Drawing.Size(65, 28);
             this.button_borrar.TabIndex = 14;
-            this.button_borrar.Tag = "Eliminar hilo seleccionado";
+            this.button_borrar.Tag = "";
+            this.toolTip1.SetToolTip(this.button_borrar, "Borrar miembro del grupo");
             this.button_borrar.UseVisualStyleBackColor = true;
             this.button_borrar.Click += new System.EventHandler(this.button_borrar_Click);
             // 
@@ -305,6 +315,7 @@
             this.numericUpDown_numUsuarios1.ReadOnly = true;
             this.numericUpDown_numUsuarios1.Size = new System.Drawing.Size(113, 20);
             this.numericUpDown_numUsuarios1.TabIndex = 0;
+            this.numericUpDown_numUsuarios1.ValueChanged += new System.EventHandler(this.textBox_Modificado);
             // 
             // label_numUsuarios
             // 
@@ -317,7 +328,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button_eliminar);
+            this.panel1.Controls.Add(this.button_descartarCambios);
             this.panel1.Controls.Add(this.button_guardar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 276);
@@ -326,15 +337,16 @@
             this.panel1.Size = new System.Drawing.Size(899, 33);
             this.panel1.TabIndex = 11;
             // 
-            // button_eliminar
+            // button_descartarCambios
             // 
-            this.button_eliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_eliminar.Location = new System.Drawing.Point(753, 6);
-            this.button_eliminar.Name = "button_eliminar";
-            this.button_eliminar.Size = new System.Drawing.Size(110, 23);
-            this.button_eliminar.TabIndex = 2;
-            this.button_eliminar.Text = "Descartar cambios";
-            this.button_eliminar.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_descartarCambios.Location = new System.Drawing.Point(753, 6);
+            this.button_descartarCambios.Name = "button_descartarCambios";
+            this.button_descartarCambios.Size = new System.Drawing.Size(110, 23);
+            this.button_descartarCambios.TabIndex = 2;
+            this.button_descartarCambios.Text = "Descartar cambios";
+            this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Click += new System.EventHandler(this.button_descartarCambios_Click);
             // 
             // button_guardar
             // 
@@ -346,6 +358,10 @@
             this.button_guardar.Text = "Guardar cambios";
             this.button_guardar.UseVisualStyleBackColor = true;
             this.button_guardar.Click += new System.EventHandler(this.button_guardar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormGruposEdicion
             // 
@@ -369,6 +385,7 @@
             this.panel_numUsuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,7 +409,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown_numUsuarios1;
         private System.Windows.Forms.Label label_numUsuarios;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button_eliminar;
+        private System.Windows.Forms.Button button_descartarCambios;
         private System.Windows.Forms.Button button_guardar;
         private System.Windows.Forms.TextBox textBox_nombre;
         private System.Windows.Forms.TextBox textBox_id;
@@ -400,5 +417,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button_seccionCrear;
         private System.Windows.Forms.Button button_borrar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

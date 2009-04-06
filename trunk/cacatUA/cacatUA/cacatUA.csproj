@@ -225,6 +225,7 @@
     <EmbeddedResource Include="FormForoRespuestas.resx">
       <DependentUpon>FormForoRespuestas.cs</DependentUpon>
       <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>

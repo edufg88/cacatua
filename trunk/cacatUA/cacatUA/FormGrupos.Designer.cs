@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_Grupos = new System.Windows.Forms.TableLayoutPanel();
             this.panel_Grupos = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
@@ -47,10 +48,9 @@
             this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.panel_tituloResultado = new System.Windows.Forms.Panel();
             this.label_resultado = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button_volver = new System.Windows.Forms.Button();
             this.panel_Titulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_Grupos.SuspendLayout();
             this.panel_Grupos.SuspendLayout();
             this.tableLayoutPanel_principal.SuspendLayout();
@@ -59,7 +59,6 @@
             this.panel_cabeceraSeccion1.SuspendLayout();
             this.panel_opciones.SuspendLayout();
             this.panel_tituloResultado.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel_Titulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,17 +98,15 @@
             this.tableLayoutPanel_principal.Controls.Add(this.panel_cabeceraSeccion1, 0, 1);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_opciones, 0, 0);
             this.tableLayoutPanel_principal.Controls.Add(this.panel_tituloResultado, 0, 3);
-            this.tableLayoutPanel_principal.Controls.Add(this.panel2, 0, 5);
             this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
-            this.tableLayoutPanel_principal.RowCount = 6;
+            this.tableLayoutPanel_principal.RowCount = 5;
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(852, 475);
@@ -124,7 +121,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 355);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(852, 90);
+            this.panel1.Size = new System.Drawing.Size(852, 120);
             this.panel1.TabIndex = 103;
             // 
             // button_editar
@@ -140,6 +137,7 @@
             this.button_editar.Size = new System.Drawing.Size(36, 36);
             this.button_editar.TabIndex = 11;
             this.button_editar.Tag = "";
+            this.toolTip1.SetToolTip(this.button_editar, "Editar grupo seleccionado");
             this.button_editar.UseVisualStyleBackColor = true;
             this.button_editar.Click += new System.EventHandler(this.button_editar_Click);
             // 
@@ -156,6 +154,7 @@
             this.button_borrar.Size = new System.Drawing.Size(36, 36);
             this.button_borrar.TabIndex = 12;
             this.button_borrar.Tag = "";
+            this.toolTip1.SetToolTip(this.button_borrar, "Borrar grupo seleccionado");
             this.button_borrar.UseVisualStyleBackColor = true;
             this.button_borrar.Click += new System.EventHandler(this.button_borrar_Click);
             // 
@@ -178,7 +177,7 @@
             this.dataGridView_resultados.ReadOnly = true;
             this.dataGridView_resultados.RowHeadersVisible = false;
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_resultados.Size = new System.Drawing.Size(806, 84);
+            this.dataGridView_resultados.Size = new System.Drawing.Size(806, 114);
             this.dataGridView_resultados.TabIndex = 94;
             this.dataGridView_resultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_resultados_CellContentClick);
             // 
@@ -259,6 +258,7 @@
             this.button_seccionCrear.Name = "button_seccionCrear";
             this.button_seccionCrear.Size = new System.Drawing.Size(36, 36);
             this.button_seccionCrear.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_seccionCrear, "Crear un nuevo grupo");
             this.button_seccionCrear.UseVisualStyleBackColor = true;
             this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
             // 
@@ -271,6 +271,7 @@
             this.button_seccionBuscar.Name = "button_seccionBuscar";
             this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
             this.button_seccionBuscar.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Realizar nueva búsqueda");
             this.button_seccionBuscar.UseVisualStyleBackColor = true;
             this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
             // 
@@ -294,27 +295,6 @@
             this.label_resultado.Size = new System.Drawing.Size(162, 13);
             this.label_resultado.TabIndex = 2;
             this.label_resultado.Text = "Resultados de la Búsqueda";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button_volver);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 445);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(852, 30);
-            this.panel2.TabIndex = 101;
-            // 
-            // button_volver
-            // 
-            this.button_volver.Image = global::cacatUA.Properties.Resources.retroceder;
-            this.button_volver.Location = new System.Drawing.Point(3, 4);
-            this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(306, 23);
-            this.button_volver.TabIndex = 1;
-            this.button_volver.Text = "Volver a [MENÚ DESDE EL QUE HAYA LLEGADO]";
-            this.button_volver.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button_volver.UseVisualStyleBackColor = true;
             // 
             // panel_Titulo
             // 
@@ -359,7 +339,6 @@
             this.panel_opciones.ResumeLayout(false);
             this.panel_tituloResultado.ResumeLayout(false);
             this.panel_tituloResultado.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.panel_Titulo.ResumeLayout(false);
             this.panel_Titulo.PerformLayout();
             this.ResumeLayout(false);
@@ -382,15 +361,14 @@
         private System.Windows.Forms.Panel panel_cabeceraSeccion1;
         private System.Windows.Forms.Label label_seccion1;
         private System.Windows.Forms.Panel panel_contenedor;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_editar;
         private System.Windows.Forms.Button button_borrar;
-        private System.Windows.Forms.Button button_volver;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }
