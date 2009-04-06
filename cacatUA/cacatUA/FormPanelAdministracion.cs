@@ -90,7 +90,7 @@ namespace cacatUA
 
         private void button_categorias_Click(object sender, EventArgs e)
         {
-            FormCategorias form = new FormCategorias(this);
+            FormCategorias form = new FormCategorias();
             DesapilarTodos();
             Apilar(form, "Categorías", false, false);
         }
@@ -188,33 +188,6 @@ namespace cacatUA
         private void button_cancelar_Click(object sender, EventArgs e)
         {
             Desapilar(false);
-        }
-
-
-
-
-
-
-
-
-
-        private FormCategorias dondeVolver;
-
-        public void buscarCategoria(ENCategoria categoria, FormCategorias volver)
-        {
-            dondeVolver = volver;
-            FormCategorias form = new FormCategorias(categoria, this);
-            panel.Controls.Clear();
-            panel.Controls.Add(form);
-            form.Dock = DockStyle.Fill;            
-        }
-
-        public void volverCategoria()
-        {
-            panel.Controls.Clear();
-            panel.Controls.Add(dondeVolver);
-            dondeVolver.Dock = DockStyle.Fill;
-            dondeVolver.Vuelta();
         }
     }
 }
