@@ -49,7 +49,7 @@
     <Compile Include="CategoriaCAD.cs" />
     <Compile Include="ENCategoria.cs" />
     <Compile Include="ENEncuestaCRUD.cs" />
-    <Compile Include="ENFirmaCRUD.cs" />
+    <Compile Include="ENFirma.cs" />
     <Compile Include="ENGrupos.cs" />
     <Compile Include="ENHilo.cs" />
     <Compile Include="ENImagenCRUD.cs" />
@@ -57,6 +57,7 @@
     <Compile Include="ENPeticionCRUD.cs" />
     <Compile Include="ENRespuesta.cs" />
     <Compile Include="ENUsuario.cs" />
+    <Compile Include="FirmaCAD.cs" />
     <Compile Include="GruposCAD.cs" />
     <Compile Include="HiloCAD.cs" />
     <Compile Include="InterfazEN.cs" />
