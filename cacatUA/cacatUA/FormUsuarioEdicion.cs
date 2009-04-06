@@ -68,6 +68,10 @@ namespace cacatUA
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
             // Código para almacenar los cambios
+
+            // Comprobamos si existe el usuario
+                // Si existe actualizamos
+                // Si no existe creamos
         }
 
         private void button_descartarCambios_Click(object sender, EventArgs e)
