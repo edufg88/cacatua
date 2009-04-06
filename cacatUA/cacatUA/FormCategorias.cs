@@ -60,10 +60,10 @@ namespace cacatUA
             textBox_nHilos.Text = seleccionada.NumHilos().ToString();
             textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
 
-            listBox_usuarios.Items.Clear();
-            foreach (String u in seleccionada.usuariosSuscritos())
+            dataGridView_Usuarios.Rows.Clear();
+            foreach (ENUsuario u in seleccionada.usuariosSuscritos())
             {
-                listBox_usuarios.Items.Add(u);
+                dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario);
             }
         }
 
@@ -187,6 +187,11 @@ namespace cacatUA
         {
         }
 
+        private void button_verUsuario_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario.", true, true);
+        }
+
         private void ActivarEdicion()
         {
             textBox_Descripcion.ReadOnly = false;
@@ -221,6 +226,24 @@ namespace cacatUA
 
         public override void Recibir(Object objeto)
         {
+        }
+
+        private void button_quitarUsuario_Click(object sender, EventArgs e)
+        {
+            if (dataGridView_Usuarios.SelectedRows.Count > 0)
+            {
+                DataGridViewSelectedRowCollection filas = dataGridView_Usuarios.SelectedRows;
+                if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea dessuscribir estos usuarios?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+                {
+                    foreach (DataGridViewRow i in filas)
+                    {
+                        // Se borra de la lista y de la base de datos.
+                        ENUsuario usuario = new ENUsuario(int.Parse(i.Cells[0].Value.ToString()));
+                        seleccionada.DessuscribirUsuario(usuario);
+                        dataGridView_Usuarios.Rows.Remove(i);
+                    }
+                }
+            }
         }
     }
 }

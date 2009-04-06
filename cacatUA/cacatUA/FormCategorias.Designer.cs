@@ -31,17 +31,11 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox_Categoria = new System.Windows.Forms.GroupBox();
+            this.groupBox_Administracion = new System.Windows.Forms.GroupBox();
             this.button_seleccionarCategoria = new System.Windows.Forms.Button();
             this.label_Ruta = new System.Windows.Forms.Label();
             this.textBox_Ruta = new System.Windows.Forms.TextBox();
             this.label_Nombre = new System.Windows.Forms.Label();
-            this.linkLabel_verMateriales = new System.Windows.Forms.LinkLabel();
-            this.textBox_nMateriales = new System.Windows.Forms.TextBox();
-            this.textBox_nHilos = new System.Windows.Forms.TextBox();
-            this.linkLabel_verHilos = new System.Windows.Forms.LinkLabel();
-            this.label_nMateriales = new System.Windows.Forms.Label();
-            this.label_nHilos = new System.Windows.Forms.Label();
             this.textBox_Nombre = new System.Windows.Forms.TextBox();
             this.textBox_Descripcion = new System.Windows.Forms.TextBox();
             this.button_noGuardar = new System.Windows.Forms.Button();
@@ -49,17 +43,30 @@
             this.button_crearCategoria = new System.Windows.Forms.Button();
             this.button_editarCategoria = new System.Windows.Forms.Button();
             this.button_borrarCategoria = new System.Windows.Forms.Button();
+            this.treeViewCategorias = new System.Windows.Forms.TreeView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label_Descripcion = new System.Windows.Forms.Label();
+            this.groupBox_Informacion = new System.Windows.Forms.GroupBox();
+            this.dataGridView_Usuarios = new System.Windows.Forms.DataGridView();
+            this.DataGridViewColumno_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewColumno_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewColumno_Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.linkLabel_verMateriales = new System.Windows.Forms.LinkLabel();
+            this.textBox_nMateriales = new System.Windows.Forms.TextBox();
+            this.textBox_nHilos = new System.Windows.Forms.TextBox();
+            this.linkLabel_verHilos = new System.Windows.Forms.LinkLabel();
+            this.label_nMateriales = new System.Windows.Forms.Label();
+            this.label_nHilos = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.button_quitarUsuario = new System.Windows.Forms.Button();
             this.button_verUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.listBox_usuarios = new System.Windows.Forms.ListBox();
-            this.treeViewCategorias = new System.Windows.Forms.TreeView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox_Categoria.SuspendLayout();
+            this.groupBox_Administracion.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox_Informacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -92,7 +99,8 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.groupBox_Categoria);
+            this.panel1.Controls.Add(this.groupBox_Informacion);
+            this.panel1.Controls.Add(this.groupBox_Administracion);
             this.panel1.Controls.Add(this.treeViewCategorias);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -101,40 +109,29 @@
             this.panel1.Size = new System.Drawing.Size(808, 490);
             this.panel1.TabIndex = 31;
             // 
-            // groupBox_Categoria
+            // groupBox_Administracion
             // 
-            this.groupBox_Categoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox_Administracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox_Categoria.Controls.Add(this.button_seleccionarCategoria);
-            this.groupBox_Categoria.Controls.Add(this.label_Ruta);
-            this.groupBox_Categoria.Controls.Add(this.textBox_Ruta);
-            this.groupBox_Categoria.Controls.Add(this.label_Nombre);
-            this.groupBox_Categoria.Controls.Add(this.linkLabel_verMateriales);
-            this.groupBox_Categoria.Controls.Add(this.textBox_nMateriales);
-            this.groupBox_Categoria.Controls.Add(this.textBox_nHilos);
-            this.groupBox_Categoria.Controls.Add(this.linkLabel_verHilos);
-            this.groupBox_Categoria.Controls.Add(this.label_nMateriales);
-            this.groupBox_Categoria.Controls.Add(this.label_nHilos);
-            this.groupBox_Categoria.Controls.Add(this.textBox_Nombre);
-            this.groupBox_Categoria.Controls.Add(this.textBox_Descripcion);
-            this.groupBox_Categoria.Controls.Add(this.button_noGuardar);
-            this.groupBox_Categoria.Controls.Add(this.button_Guardar);
-            this.groupBox_Categoria.Controls.Add(this.button_crearCategoria);
-            this.groupBox_Categoria.Controls.Add(this.button_editarCategoria);
-            this.groupBox_Categoria.Controls.Add(this.button_borrarCategoria);
-            this.groupBox_Categoria.Controls.Add(this.button8);
-            this.groupBox_Categoria.Controls.Add(this.button_quitarUsuario);
-            this.groupBox_Categoria.Controls.Add(this.button_verUsuario);
-            this.groupBox_Categoria.Controls.Add(this.label3);
-            this.groupBox_Categoria.Controls.Add(this.listBox_usuarios);
-            this.groupBox_Categoria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox_Categoria.Location = new System.Drawing.Point(284, 24);
-            this.groupBox_Categoria.Name = "groupBox_Categoria";
-            this.groupBox_Categoria.Size = new System.Drawing.Size(507, 447);
-            this.groupBox_Categoria.TabIndex = 3;
-            this.groupBox_Categoria.TabStop = false;
-            this.groupBox_Categoria.Text = "Información";
+            this.groupBox_Administracion.Controls.Add(this.label_Descripcion);
+            this.groupBox_Administracion.Controls.Add(this.button_seleccionarCategoria);
+            this.groupBox_Administracion.Controls.Add(this.label_Ruta);
+            this.groupBox_Administracion.Controls.Add(this.textBox_Ruta);
+            this.groupBox_Administracion.Controls.Add(this.label_Nombre);
+            this.groupBox_Administracion.Controls.Add(this.textBox_Nombre);
+            this.groupBox_Administracion.Controls.Add(this.textBox_Descripcion);
+            this.groupBox_Administracion.Controls.Add(this.button_noGuardar);
+            this.groupBox_Administracion.Controls.Add(this.button_Guardar);
+            this.groupBox_Administracion.Controls.Add(this.button_crearCategoria);
+            this.groupBox_Administracion.Controls.Add(this.button_editarCategoria);
+            this.groupBox_Administracion.Controls.Add(this.button_borrarCategoria);
+            this.groupBox_Administracion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.groupBox_Administracion.Location = new System.Drawing.Point(284, 24);
+            this.groupBox_Administracion.Name = "groupBox_Administracion";
+            this.groupBox_Administracion.Size = new System.Drawing.Size(507, 212);
+            this.groupBox_Administracion.TabIndex = 3;
+            this.groupBox_Administracion.TabStop = false;
+            this.groupBox_Administracion.Text = "Administración";
             // 
             // button_seleccionarCategoria
             // 
@@ -143,7 +140,7 @@
             this.button_seleccionarCategoria.FlatAppearance.BorderSize = 0;
             this.button_seleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_seleccionarCategoria.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarCategoria.Location = new System.Drawing.Point(320, 58);
+            this.button_seleccionarCategoria.Location = new System.Drawing.Point(373, 56);
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarCategoria.TabIndex = 145;
@@ -154,7 +151,7 @@
             // label_Ruta
             // 
             this.label_Ruta.AutoSize = true;
-            this.label_Ruta.Location = new System.Drawing.Point(23, 59);
+            this.label_Ruta.Location = new System.Drawing.Point(20, 59);
             this.label_Ruta.Name = "label_Ruta";
             this.label_Ruta.Size = new System.Drawing.Size(36, 13);
             this.label_Ruta.TabIndex = 54;
@@ -167,73 +164,17 @@
             this.textBox_Ruta.Location = new System.Drawing.Point(100, 56);
             this.textBox_Ruta.Name = "textBox_Ruta";
             this.textBox_Ruta.ReadOnly = true;
-            this.textBox_Ruta.Size = new System.Drawing.Size(228, 20);
+            this.textBox_Ruta.Size = new System.Drawing.Size(267, 20);
             this.textBox_Ruta.TabIndex = 53;
             // 
             // label_Nombre
             // 
             this.label_Nombre.AutoSize = true;
-            this.label_Nombre.Location = new System.Drawing.Point(23, 33);
+            this.label_Nombre.Location = new System.Drawing.Point(20, 33);
             this.label_Nombre.Name = "label_Nombre";
             this.label_Nombre.Size = new System.Drawing.Size(55, 13);
             this.label_Nombre.TabIndex = 48;
             this.label_Nombre.Text = "Categoria:";
-            // 
-            // linkLabel_verMateriales
-            // 
-            this.linkLabel_verMateriales.AutoSize = true;
-            this.linkLabel_verMateriales.Location = new System.Drawing.Point(255, 266);
-            this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
-            this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
-            this.linkLabel_verMateriales.TabIndex = 45;
-            this.linkLabel_verMateriales.TabStop = true;
-            this.linkLabel_verMateriales.Text = "Ver materiales";
-            // 
-            // textBox_nMateriales
-            // 
-            this.textBox_nMateriales.Location = new System.Drawing.Point(181, 263);
-            this.textBox_nMateriales.Name = "textBox_nMateriales";
-            this.textBox_nMateriales.ReadOnly = true;
-            this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
-            this.textBox_nMateriales.TabIndex = 44;
-            // 
-            // textBox_nHilos
-            // 
-            this.textBox_nHilos.Location = new System.Drawing.Point(181, 229);
-            this.textBox_nHilos.Name = "textBox_nHilos";
-            this.textBox_nHilos.ReadOnly = true;
-            this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
-            this.textBox_nHilos.TabIndex = 43;
-            // 
-            // linkLabel_verHilos
-            // 
-            this.linkLabel_verHilos.AutoSize = true;
-            this.linkLabel_verHilos.Location = new System.Drawing.Point(255, 232);
-            this.linkLabel_verHilos.Name = "linkLabel_verHilos";
-            this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
-            this.linkLabel_verHilos.TabIndex = 42;
-            this.linkLabel_verHilos.TabStop = true;
-            this.linkLabel_verHilos.Text = "Ver hilos";
-            // 
-            // label_nMateriales
-            // 
-            this.label_nMateriales.AutoSize = true;
-            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nMateriales.Location = new System.Drawing.Point(20, 266);
-            this.label_nMateriales.Name = "label_nMateriales";
-            this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
-            this.label_nMateriales.TabIndex = 41;
-            this.label_nMateriales.Text = "Número de materiales: ";
-            // 
-            // label_nHilos
-            // 
-            this.label_nHilos.AutoSize = true;
-            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nHilos.Location = new System.Drawing.Point(20, 232);
-            this.label_nHilos.Name = "label_nHilos";
-            this.label_nHilos.Size = new System.Drawing.Size(106, 13);
-            this.label_nHilos.TabIndex = 40;
-            this.label_nHilos.Text = "Número de hilos: ";
             // 
             // textBox_Nombre
             // 
@@ -242,14 +183,14 @@
             this.textBox_Nombre.Location = new System.Drawing.Point(100, 30);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
-            this.textBox_Nombre.Size = new System.Drawing.Size(228, 20);
+            this.textBox_Nombre.Size = new System.Drawing.Size(267, 20);
             this.textBox_Nombre.TabIndex = 0;
             // 
             // textBox_Descripcion
             // 
             this.textBox_Descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Descripcion.Location = new System.Drawing.Point(23, 85);
+            this.textBox_Descripcion.Location = new System.Drawing.Point(23, 107);
             this.textBox_Descripcion.Multiline = true;
             this.textBox_Descripcion.Name = "textBox_Descripcion";
             this.textBox_Descripcion.ReadOnly = true;
@@ -259,7 +200,7 @@
             // button_noGuardar
             // 
             this.button_noGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_noGuardar.Location = new System.Drawing.Point(350, 153);
+            this.button_noGuardar.Location = new System.Drawing.Point(350, 175);
             this.button_noGuardar.Name = "button_noGuardar";
             this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
             this.button_noGuardar.TabIndex = 3;
@@ -271,7 +212,7 @@
             // button_Guardar
             // 
             this.button_Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Guardar.Location = new System.Drawing.Point(258, 153);
+            this.button_Guardar.Location = new System.Drawing.Point(258, 175);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(82, 24);
             this.button_Guardar.TabIndex = 2;
@@ -327,61 +268,6 @@
             this.button_borrarCategoria.UseVisualStyleBackColor = true;
             this.button_borrarCategoria.Click += new System.EventHandler(this.button_borrarCategoria_Click);
             // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(373, 389);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 25);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "Añadir usuario";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button_quitarUsuario
-            // 
-            this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_quitarUsuario.Location = new System.Drawing.Point(373, 358);
-            this.button_quitarUsuario.Name = "button_quitarUsuario";
-            this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_quitarUsuario.TabIndex = 5;
-            this.button_quitarUsuario.Text = "Quitar usuario";
-            this.button_quitarUsuario.UseVisualStyleBackColor = true;
-            // 
-            // button_verUsuario
-            // 
-            this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_verUsuario.Location = new System.Drawing.Point(373, 327);
-            this.button_verUsuario.Name = "button_verUsuario";
-            this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_verUsuario.TabIndex = 4;
-            this.button_verUsuario.Text = "Ver usuario";
-            this.button_verUsuario.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(20, 299);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Usuarios suscritos:";
-            // 
-            // listBox_usuarios
-            // 
-            this.listBox_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBox_usuarios.FormattingEnabled = true;
-            this.listBox_usuarios.Location = new System.Drawing.Point(23, 327);
-            this.listBox_usuarios.Name = "listBox_usuarios";
-            this.listBox_usuarios.Size = new System.Drawing.Size(344, 95);
-            this.listBox_usuarios.TabIndex = 13;
-            // 
             // treeViewCategorias
             // 
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -426,6 +312,182 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 527);
             this.tableLayoutPanel1.TabIndex = 35;
             // 
+            // label_Descripcion
+            // 
+            this.label_Descripcion.AutoSize = true;
+            this.label_Descripcion.Location = new System.Drawing.Point(20, 85);
+            this.label_Descripcion.Name = "label_Descripcion";
+            this.label_Descripcion.Size = new System.Drawing.Size(66, 13);
+            this.label_Descripcion.TabIndex = 147;
+            this.label_Descripcion.Text = "Descripcion:";
+            // 
+            // groupBox_Informacion
+            // 
+            this.groupBox_Informacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Informacion.Controls.Add(this.dataGridView_Usuarios);
+            this.groupBox_Informacion.Controls.Add(this.linkLabel_verMateriales);
+            this.groupBox_Informacion.Controls.Add(this.textBox_nMateriales);
+            this.groupBox_Informacion.Controls.Add(this.textBox_nHilos);
+            this.groupBox_Informacion.Controls.Add(this.linkLabel_verHilos);
+            this.groupBox_Informacion.Controls.Add(this.label_nMateriales);
+            this.groupBox_Informacion.Controls.Add(this.label_nHilos);
+            this.groupBox_Informacion.Controls.Add(this.button8);
+            this.groupBox_Informacion.Controls.Add(this.button_quitarUsuario);
+            this.groupBox_Informacion.Controls.Add(this.button_verUsuario);
+            this.groupBox_Informacion.Controls.Add(this.label3);
+            this.groupBox_Informacion.Location = new System.Drawing.Point(284, 253);
+            this.groupBox_Informacion.Name = "groupBox_Informacion";
+            this.groupBox_Informacion.Size = new System.Drawing.Size(507, 218);
+            this.groupBox_Informacion.TabIndex = 14;
+            this.groupBox_Informacion.TabStop = false;
+            this.groupBox_Informacion.Text = "Otra información";
+            // 
+            // dataGridView_Usuarios
+            // 
+            this.dataGridView_Usuarios.AllowUserToAddRows = false;
+            this.dataGridView_Usuarios.AllowUserToDeleteRows = false;
+            this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewColumno_Id,
+            this.DataGridViewColumno_Usuario,
+            this.DataGridViewColumno_Nombre});
+            this.dataGridView_Usuarios.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dataGridView_Usuarios.Location = new System.Drawing.Point(30, 131);
+            this.dataGridView_Usuarios.Name = "dataGridView_Usuarios";
+            this.dataGridView_Usuarios.ReadOnly = true;
+            this.dataGridView_Usuarios.RowHeadersVisible = false;
+            this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_Usuarios.Size = new System.Drawing.Size(332, 76);
+            this.dataGridView_Usuarios.TabIndex = 157;
+            // 
+            // DataGridViewColumno_Id
+            // 
+            this.DataGridViewColumno_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewColumno_Id.FillWeight = 15F;
+            this.DataGridViewColumno_Id.HeaderText = "ID";
+            this.DataGridViewColumno_Id.Name = "DataGridViewColumno_Id";
+            this.DataGridViewColumno_Id.ReadOnly = true;
+            // 
+            // DataGridViewColumno_Usuario
+            // 
+            this.DataGridViewColumno_Usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewColumno_Usuario.FillWeight = 35F;
+            this.DataGridViewColumno_Usuario.HeaderText = "Usuario";
+            this.DataGridViewColumno_Usuario.Name = "DataGridViewColumno_Usuario";
+            this.DataGridViewColumno_Usuario.ReadOnly = true;
+            // 
+            // DataGridViewColumno_Nombre
+            // 
+            this.DataGridViewColumno_Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewColumno_Nombre.FillWeight = 50F;
+            this.DataGridViewColumno_Nombre.HeaderText = "Nombre";
+            this.DataGridViewColumno_Nombre.Name = "DataGridViewColumno_Nombre";
+            this.DataGridViewColumno_Nombre.ReadOnly = true;
+            // 
+            // linkLabel_verMateriales
+            // 
+            this.linkLabel_verMateriales.AutoSize = true;
+            this.linkLabel_verMateriales.Location = new System.Drawing.Point(262, 69);
+            this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
+            this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
+            this.linkLabel_verMateriales.TabIndex = 156;
+            this.linkLabel_verMateriales.TabStop = true;
+            this.linkLabel_verMateriales.Text = "Ver materiales";
+            // 
+            // textBox_nMateriales
+            // 
+            this.textBox_nMateriales.Location = new System.Drawing.Point(188, 66);
+            this.textBox_nMateriales.Name = "textBox_nMateriales";
+            this.textBox_nMateriales.ReadOnly = true;
+            this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
+            this.textBox_nMateriales.TabIndex = 155;
+            // 
+            // textBox_nHilos
+            // 
+            this.textBox_nHilos.Location = new System.Drawing.Point(188, 32);
+            this.textBox_nHilos.Name = "textBox_nHilos";
+            this.textBox_nHilos.ReadOnly = true;
+            this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
+            this.textBox_nHilos.TabIndex = 154;
+            // 
+            // linkLabel_verHilos
+            // 
+            this.linkLabel_verHilos.AutoSize = true;
+            this.linkLabel_verHilos.Location = new System.Drawing.Point(262, 35);
+            this.linkLabel_verHilos.Name = "linkLabel_verHilos";
+            this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
+            this.linkLabel_verHilos.TabIndex = 153;
+            this.linkLabel_verHilos.TabStop = true;
+            this.linkLabel_verHilos.Text = "Ver hilos";
+            // 
+            // label_nMateriales
+            // 
+            this.label_nMateriales.AutoSize = true;
+            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nMateriales.Location = new System.Drawing.Point(27, 69);
+            this.label_nMateriales.Name = "label_nMateriales";
+            this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
+            this.label_nMateriales.TabIndex = 152;
+            this.label_nMateriales.Text = "Número de materiales: ";
+            // 
+            // label_nHilos
+            // 
+            this.label_nHilos.AutoSize = true;
+            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nHilos.Location = new System.Drawing.Point(27, 35);
+            this.label_nHilos.Name = "label_nHilos";
+            this.label_nHilos.Size = new System.Drawing.Size(106, 13);
+            this.label_nHilos.TabIndex = 151;
+            this.label_nHilos.Text = "Número de hilos: ";
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button8.Location = new System.Drawing.Point(380, 162);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(100, 25);
+            this.button8.TabIndex = 149;
+            this.button8.Text = "Añadir usuario";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button_quitarUsuario
+            // 
+            this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_quitarUsuario.Location = new System.Drawing.Point(380, 193);
+            this.button_quitarUsuario.Name = "button_quitarUsuario";
+            this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_quitarUsuario.TabIndex = 148;
+            this.button_quitarUsuario.Text = "Quitar usuario";
+            this.button_quitarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // button_verUsuario
+            // 
+            this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_verUsuario.Location = new System.Drawing.Point(380, 131);
+            this.button_verUsuario.Name = "button_verUsuario";
+            this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_verUsuario.TabIndex = 147;
+            this.button_verUsuario.Text = "Ver usuario";
+            this.button_verUsuario.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(27, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.TabIndex = 150;
+            this.label3.Text = "Usuarios suscritos:";
+            // 
             // FormCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,9 +499,12 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox_Categoria.ResumeLayout(false);
-            this.groupBox_Categoria.PerformLayout();
+            this.groupBox_Administracion.ResumeLayout(false);
+            this.groupBox_Administracion.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.groupBox_Informacion.ResumeLayout(false);
+            this.groupBox_Informacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,12 +514,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox_Categoria;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button_quitarUsuario;
-        private System.Windows.Forms.Button button_verUsuario;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ListBox listBox_usuarios;
+        private System.Windows.Forms.GroupBox groupBox_Administracion;
         private System.Windows.Forms.TreeView treeViewCategorias;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button_editarCategoria;
@@ -464,16 +524,26 @@
         private System.Windows.Forms.Button button_Guardar;
         private System.Windows.Forms.TextBox textBox_Descripcion;
         private System.Windows.Forms.TextBox textBox_Nombre;
+        private System.Windows.Forms.Label label_Nombre;
+        private System.Windows.Forms.Label label_Ruta;
+        private System.Windows.Forms.TextBox textBox_Ruta;
+        private System.Windows.Forms.Button button_seleccionarCategoria;
+        private System.Windows.Forms.Label label_Descripcion;
+        private System.Windows.Forms.GroupBox groupBox_Informacion;
+        private System.Windows.Forms.DataGridView dataGridView_Usuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewColumno_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewColumno_Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewColumno_Nombre;
+        private System.Windows.Forms.LinkLabel linkLabel_verMateriales;
         private System.Windows.Forms.TextBox textBox_nMateriales;
         private System.Windows.Forms.TextBox textBox_nHilos;
         private System.Windows.Forms.LinkLabel linkLabel_verHilos;
         private System.Windows.Forms.Label label_nMateriales;
         private System.Windows.Forms.Label label_nHilos;
-        private System.Windows.Forms.LinkLabel linkLabel_verMateriales;
-        private System.Windows.Forms.Label label_Nombre;
-        private System.Windows.Forms.Label label_Ruta;
-        private System.Windows.Forms.TextBox textBox_Ruta;
-        private System.Windows.Forms.Button button_seleccionarCategoria;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button_quitarUsuario;
+        private System.Windows.Forms.Button button_verUsuario;
+        private System.Windows.Forms.Label label3;
 
 
     }

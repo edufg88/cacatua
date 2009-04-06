@@ -142,6 +142,18 @@ namespace Libreria
             return CategoriaCAD.Instancia.NumHilosEn(this);
         }
 
+        //Metodos relacionados con la tabla suscripcion
+
+        public bool SuscribirUsuario(ENUsuario usuario)
+        {
+            return CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario);
+        }
+
+        public bool DessuscribirUsuario(ENUsuario usuario)
+        {
+            return CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
+        }
+
 
         //Metodos estaticos de categorias
 
