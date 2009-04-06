@@ -205,22 +205,21 @@ namespace Libreria
         public ArrayList usuariosSuscritosA(ENCategoria categoria)
         {
             ArrayList usuarios = new ArrayList();
-            /*using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
             {
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
-                comando.CommandText = "SELECT * FROM USUARIO WHERE id IN (" +
-                                        "SELECT usuario FROM SUSCRITOACATEGORIA where categoria = @idcat)";
+                comando.CommandText = "SELECT usuario FROM SUSCRIPCIONES where categoria = @idcat";
                 comando.Parameters.AddWithValue("@idcat", categoria.Id);
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
                 {
-                    ENUsuarioCRUD usuario = ENUsuarioCRUD.ObtenerDatos(reader);
+                    ENUsuario usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
                     usuarios.Add(usuario);
                 }
-            }*/
+            }
             return usuarios;
         }
 
@@ -281,6 +280,55 @@ namespace Libreria
                 }
             }
             return n;
+        }
+
+        public bool AñadirSuscripcion(ENCategoria categoria, ENUsuario usuario)
+        {
+            int resultado = 0;
+            bool añadido = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "INSERT INTO " +
+                                          "SUSCRIPCIONES (categoria,usuario) " +
+                                          "VALUES (@categoria,@usuario)";
+                comando.Parameters.AddWithValue("@categoria", categoria.Id);
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+ 
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    añadido = true;
+            }
+            return añadido;
+        }
+
+        public bool QuitarSuscripcion(ENCategoria categoria, ENUsuario usuario)
+        {
+            int resultado = 0;
+            bool quitado = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "DELETE FROM SUSCRIPCIONES " +
+                                      "WHERE usuario = @usuario and categoria = @categoria";
+                comando.Parameters.AddWithValue("@categoria", categoria.Id);
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    quitado = true;
+            }
+            return quitado;
         }
     }
 }
