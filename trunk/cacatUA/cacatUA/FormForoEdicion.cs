@@ -188,17 +188,17 @@ namespace cacatUA
 
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true);
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
         }
 
         private void button_seleccionarCategoria_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true);
+            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true, "Volver al panel anterior seleccionando la categoría actual", "Cancelar la selección y volver al panel anterior");
         }
 
         private void linkLabel_respuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormForoRespuestas(), "Respuestas del hilo nº "+textBox_id.Text, true, false);
+            FormPanelAdministracion.Instancia.Apilar(new FormForoRespuestas(), "Respuestas del hilo nº "+textBox_id.Text, true, false, "Volver al hilo", "");
         }
     }
 }

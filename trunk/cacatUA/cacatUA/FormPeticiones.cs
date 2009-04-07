@@ -10,7 +10,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormPeticiones : UserControl
+    public partial class FormPeticiones : InterfazForm
     {
         public FormPeticiones()
         {

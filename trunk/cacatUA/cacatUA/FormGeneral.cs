@@ -10,7 +10,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormGeneral : UserControl
+    public partial class FormGeneral : InterfazForm
     {
         public FormGeneral()
         {

@@ -14,8 +14,10 @@ namespace cacatUA
     sealed public partial class FormPanelAdministracion : Form
     {
         private static readonly FormPanelAdministracion instancia = new FormPanelAdministracion();
-        private Stack<UserControl> pilaFormularios;
+        private Stack<InterfazForm> pilaFormularios;
+        private Stack<string> pilaBotonVolverStr;
         private Stack<bool> pilaBotonVolver;
+        private Stack<string> pilaBotonCancelarStr;
         private Stack<bool> pilaBotonCancelar;
 
         /// <summary>
@@ -32,13 +34,15 @@ namespace cacatUA
         private FormPanelAdministracion()
         {
             InitializeComponent();
-            pilaFormularios = new Stack<UserControl>();
+            pilaFormularios = new Stack<InterfazForm>();
+            pilaBotonVolverStr = new Stack<string>();
             pilaBotonVolver = new Stack<bool>();
-            pilaBotonCancelar = new Stack<bool>(30);
+            pilaBotonCancelarStr = new Stack<string>();
+            pilaBotonCancelar = new Stack<bool>();
 
             FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "General", false, false);
+            Apilar(form, "General", false, false, "", "");
         }
 
         private void FormPanelAdministracion_Load(object sender, EventArgs e)
@@ -50,49 +54,49 @@ namespace cacatUA
         {
             FormUsuarios form = new FormUsuarios();
             DesapilarTodos();
-            Apilar(form, "Usuarios", false, false);
+            Apilar(form, "Usuarios", false, false, "", "");
         }
 
         private void button_foro_Click(object sender, EventArgs e)
         {
             FormForo form = new FormForo();
             DesapilarTodos();
-            Apilar(form, "Foro", false, false);
+            Apilar(form, "Foro", false, false, "", "");
         }
 
         private void button_peticiones_Click(object sender, EventArgs e)
         {
             FormPeticiones form = new FormPeticiones();
             DesapilarTodos();
-            Apilar(form, "Peticiones", false, false);
+            Apilar(form, "Peticiones", false, false, "", "");
         }
 
         private void button_grupos_Click(object sender, EventArgs e)
         {
             FormGrupos form = new FormGrupos();
             DesapilarTodos();
-            Apilar(form, "Grupos", false, false);
+            Apilar(form, "Grupos", false, false, "", "");
         }
 
         private void button_materiales_Click(object sender, EventArgs e)
         {
             FormMateriales form = new FormMateriales();
             DesapilarTodos();
-            Apilar(form, "Materiales", false, false);
+            Apilar(form, "Materiales", false, false, "", "");
         }
 
         private void button_general_Click(object sender, EventArgs e)
         {
             FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "General", false, false);
+            Apilar(form, "General", false, false, "", "");
         }
 
         private void button_categorias_Click(object sender, EventArgs e)
         {
             FormCategorias form = new FormCategorias();
             DesapilarTodos();
-            Apilar(form, "Categorías", false, false);
+            Apilar(form, "Categorías", false, false, "", "");
         }
 
         private void button_salir_Click(object sender, EventArgs e)
@@ -115,7 +119,9 @@ namespace cacatUA
         /// <param name="descripcion">Texto descriptivo para el formulario.</param>
         /// <param name="volver">Indica si el nuevo formulario permite el botón de volver.</param>
         /// <param name="cancelar">Indica si el nuevo formulario permite el botón de cancelar.</param>
-        public void Apilar(UserControl formulario, string descripcion, bool volver, bool cancelar)
+        /// <param name="volverStr">Mensaje que aparece en el tooltip para el botón volver.</param>
+        /// <param name="cancelarStr">Mensaje que aparece en el tooltip para el botón cancelar.</param>
+        public void Apilar(InterfazForm formulario, string descripcion, bool volver, bool cancelar, string volverStr, string cancelarStr)
         {
             // Mostramos el texto en las 'migas de pan' de la navegación.
             Button button = new Button();
@@ -126,7 +132,9 @@ namespace cacatUA
 
             pilaFormularios.Push(formulario);
             pilaBotonVolver.Push(volver);
+            pilaBotonVolverStr.Push(volverStr);
             pilaBotonCancelar.Push(cancelar);
+            pilaBotonCancelarStr.Push(cancelarStr);
             MostrarCima();
         }
 
@@ -143,9 +151,11 @@ namespace cacatUA
         /// </param>
         public void Desapilar(bool obtener)
         {
-            UserControl formulario = pilaFormularios.Pop();
+            InterfazForm formulario = pilaFormularios.Pop();
             pilaBotonVolver.Pop();
+            pilaBotonVolverStr.Pop();
             pilaBotonCancelar.Pop();
+            pilaBotonCancelarStr.Pop();
             MostrarCima();
             if (obtener == true)
             {
@@ -162,6 +172,10 @@ namespace cacatUA
         public void DesapilarTodos()
         {
             pilaFormularios.Clear();
+            pilaBotonVolver.Clear();
+            pilaBotonVolverStr.Clear();
+            pilaBotonCancelar.Clear();
+            pilaBotonCancelarStr.Clear();
             button_cancelar.Enabled = false;
             button_volver.Enabled = false;
             flowLayoutPanel_navegacion.Controls.Clear();
@@ -174,7 +188,10 @@ namespace cacatUA
         {
             button_volver.Enabled = pilaBotonVolver.Peek();
             button_cancelar.Enabled = pilaBotonCancelar.Peek();
-            UserControl form = pilaFormularios.Peek();
+            toolTip1.SetToolTip(button_volver, pilaBotonVolverStr.Peek());
+            toolTip1.SetToolTip(button_cancelar, pilaBotonCancelarStr.Peek());
+
+            InterfazForm form = pilaFormularios.Peek();
             panel.Controls.Clear();
             panel.Controls.Add(form);
             form.Dock = DockStyle.Fill;

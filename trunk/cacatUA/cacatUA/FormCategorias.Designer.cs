@@ -31,21 +31,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox_Administracion = new System.Windows.Forms.GroupBox();
-            this.button_seleccionarCategoria = new System.Windows.Forms.Button();
-            this.label_Ruta = new System.Windows.Forms.Label();
-            this.textBox_Ruta = new System.Windows.Forms.TextBox();
-            this.label_Nombre = new System.Windows.Forms.Label();
-            this.textBox_Nombre = new System.Windows.Forms.TextBox();
-            this.textBox_Descripcion = new System.Windows.Forms.TextBox();
-            this.button_noGuardar = new System.Windows.Forms.Button();
-            this.button_Guardar = new System.Windows.Forms.Button();
-            this.button_crearCategoria = new System.Windows.Forms.Button();
-            this.button_editarCategoria = new System.Windows.Forms.Button();
-            this.button_borrarCategoria = new System.Windows.Forms.Button();
-            this.treeViewCategorias = new System.Windows.Forms.TreeView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label_Descripcion = new System.Windows.Forms.Label();
             this.groupBox_Informacion = new System.Windows.Forms.GroupBox();
             this.dataGridView_Usuarios = new System.Windows.Forms.DataGridView();
             this.DataGridViewColumno_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,12 +46,27 @@
             this.button_quitarUsuario = new System.Windows.Forms.Button();
             this.button_verUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox_Administracion = new System.Windows.Forms.GroupBox();
+            this.label_Descripcion = new System.Windows.Forms.Label();
+            this.button_seleccionarCategoria = new System.Windows.Forms.Button();
+            this.label_Ruta = new System.Windows.Forms.Label();
+            this.textBox_Ruta = new System.Windows.Forms.TextBox();
+            this.label_Nombre = new System.Windows.Forms.Label();
+            this.textBox_Nombre = new System.Windows.Forms.TextBox();
+            this.textBox_Descripcion = new System.Windows.Forms.TextBox();
+            this.button_noGuardar = new System.Windows.Forms.Button();
+            this.button_Guardar = new System.Windows.Forms.Button();
+            this.button_crearCategoria = new System.Windows.Forms.Button();
+            this.button_editarCategoria = new System.Windows.Forms.Button();
+            this.button_borrarCategoria = new System.Windows.Forms.Button();
+            this.treeViewCategorias = new System.Windows.Forms.TreeView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox_Administracion.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.groupBox_Informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).BeginInit();
+            this.groupBox_Administracion.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel6
@@ -109,6 +109,174 @@
             this.panel1.Size = new System.Drawing.Size(808, 490);
             this.panel1.TabIndex = 31;
             // 
+            // groupBox_Informacion
+            // 
+            this.groupBox_Informacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Informacion.Controls.Add(this.dataGridView_Usuarios);
+            this.groupBox_Informacion.Controls.Add(this.linkLabel_verMateriales);
+            this.groupBox_Informacion.Controls.Add(this.textBox_nMateriales);
+            this.groupBox_Informacion.Controls.Add(this.textBox_nHilos);
+            this.groupBox_Informacion.Controls.Add(this.linkLabel_verHilos);
+            this.groupBox_Informacion.Controls.Add(this.label_nMateriales);
+            this.groupBox_Informacion.Controls.Add(this.label_nHilos);
+            this.groupBox_Informacion.Controls.Add(this.button8);
+            this.groupBox_Informacion.Controls.Add(this.button_quitarUsuario);
+            this.groupBox_Informacion.Controls.Add(this.button_verUsuario);
+            this.groupBox_Informacion.Controls.Add(this.label3);
+            this.groupBox_Informacion.Location = new System.Drawing.Point(284, 253);
+            this.groupBox_Informacion.Name = "groupBox_Informacion";
+            this.groupBox_Informacion.Size = new System.Drawing.Size(507, 218);
+            this.groupBox_Informacion.TabIndex = 14;
+            this.groupBox_Informacion.TabStop = false;
+            this.groupBox_Informacion.Text = "Otra información";
+            // 
+            // dataGridView_Usuarios
+            // 
+            this.dataGridView_Usuarios.AllowUserToAddRows = false;
+            this.dataGridView_Usuarios.AllowUserToDeleteRows = false;
+            this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DataGridViewColumno_Id,
+            this.DataGridViewColumno_Usuario,
+            this.DataGridViewColumno_Nombre});
+            this.dataGridView_Usuarios.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dataGridView_Usuarios.Location = new System.Drawing.Point(30, 131);
+            this.dataGridView_Usuarios.Name = "dataGridView_Usuarios";
+            this.dataGridView_Usuarios.ReadOnly = true;
+            this.dataGridView_Usuarios.RowHeadersVisible = false;
+            this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_Usuarios.Size = new System.Drawing.Size(332, 76);
+            this.dataGridView_Usuarios.TabIndex = 157;
+            // 
+            // DataGridViewColumno_Id
+            // 
+            this.DataGridViewColumno_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewColumno_Id.FillWeight = 15F;
+            this.DataGridViewColumno_Id.HeaderText = "ID";
+            this.DataGridViewColumno_Id.Name = "DataGridViewColumno_Id";
+            this.DataGridViewColumno_Id.ReadOnly = true;
+            // 
+            // DataGridViewColumno_Usuario
+            // 
+            this.DataGridViewColumno_Usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewColumno_Usuario.FillWeight = 35F;
+            this.DataGridViewColumno_Usuario.HeaderText = "Usuario";
+            this.DataGridViewColumno_Usuario.Name = "DataGridViewColumno_Usuario";
+            this.DataGridViewColumno_Usuario.ReadOnly = true;
+            // 
+            // DataGridViewColumno_Nombre
+            // 
+            this.DataGridViewColumno_Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewColumno_Nombre.FillWeight = 50F;
+            this.DataGridViewColumno_Nombre.HeaderText = "Nombre";
+            this.DataGridViewColumno_Nombre.Name = "DataGridViewColumno_Nombre";
+            this.DataGridViewColumno_Nombre.ReadOnly = true;
+            // 
+            // linkLabel_verMateriales
+            // 
+            this.linkLabel_verMateriales.AutoSize = true;
+            this.linkLabel_verMateriales.Location = new System.Drawing.Point(262, 69);
+            this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
+            this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
+            this.linkLabel_verMateriales.TabIndex = 156;
+            this.linkLabel_verMateriales.TabStop = true;
+            this.linkLabel_verMateriales.Text = "Ver materiales";
+            // 
+            // textBox_nMateriales
+            // 
+            this.textBox_nMateriales.Location = new System.Drawing.Point(188, 66);
+            this.textBox_nMateriales.Name = "textBox_nMateriales";
+            this.textBox_nMateriales.ReadOnly = true;
+            this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
+            this.textBox_nMateriales.TabIndex = 155;
+            // 
+            // textBox_nHilos
+            // 
+            this.textBox_nHilos.Location = new System.Drawing.Point(188, 32);
+            this.textBox_nHilos.Name = "textBox_nHilos";
+            this.textBox_nHilos.ReadOnly = true;
+            this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
+            this.textBox_nHilos.TabIndex = 154;
+            // 
+            // linkLabel_verHilos
+            // 
+            this.linkLabel_verHilos.AutoSize = true;
+            this.linkLabel_verHilos.Location = new System.Drawing.Point(262, 35);
+            this.linkLabel_verHilos.Name = "linkLabel_verHilos";
+            this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
+            this.linkLabel_verHilos.TabIndex = 153;
+            this.linkLabel_verHilos.TabStop = true;
+            this.linkLabel_verHilos.Text = "Ver hilos";
+            // 
+            // label_nMateriales
+            // 
+            this.label_nMateriales.AutoSize = true;
+            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nMateriales.Location = new System.Drawing.Point(27, 69);
+            this.label_nMateriales.Name = "label_nMateriales";
+            this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
+            this.label_nMateriales.TabIndex = 152;
+            this.label_nMateriales.Text = "Número de materiales: ";
+            // 
+            // label_nHilos
+            // 
+            this.label_nHilos.AutoSize = true;
+            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nHilos.Location = new System.Drawing.Point(27, 35);
+            this.label_nHilos.Name = "label_nHilos";
+            this.label_nHilos.Size = new System.Drawing.Size(106, 13);
+            this.label_nHilos.TabIndex = 151;
+            this.label_nHilos.Text = "Número de hilos: ";
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button8.Location = new System.Drawing.Point(380, 162);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(100, 25);
+            this.button8.TabIndex = 149;
+            this.button8.Text = "Añadir usuario";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button_quitarUsuario
+            // 
+            this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_quitarUsuario.Location = new System.Drawing.Point(380, 193);
+            this.button_quitarUsuario.Name = "button_quitarUsuario";
+            this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_quitarUsuario.TabIndex = 148;
+            this.button_quitarUsuario.Text = "Quitar usuario";
+            this.button_quitarUsuario.UseVisualStyleBackColor = true;
+            // 
+            // button_verUsuario
+            // 
+            this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_verUsuario.Location = new System.Drawing.Point(380, 131);
+            this.button_verUsuario.Name = "button_verUsuario";
+            this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_verUsuario.TabIndex = 147;
+            this.button_verUsuario.Text = "Ver usuario";
+            this.button_verUsuario.UseVisualStyleBackColor = true;
+            this.button_verUsuario.Click += new System.EventHandler(this.button_verUsuario_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(27, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.TabIndex = 150;
+            this.label3.Text = "Usuarios suscritos:";
+            // 
             // groupBox_Administracion
             // 
             this.groupBox_Administracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -132,6 +300,15 @@
             this.groupBox_Administracion.TabIndex = 3;
             this.groupBox_Administracion.TabStop = false;
             this.groupBox_Administracion.Text = "Administración";
+            // 
+            // label_Descripcion
+            // 
+            this.label_Descripcion.AutoSize = true;
+            this.label_Descripcion.Location = new System.Drawing.Point(20, 85);
+            this.label_Descripcion.Name = "label_Descripcion";
+            this.label_Descripcion.Size = new System.Drawing.Size(66, 13);
+            this.label_Descripcion.TabIndex = 147;
+            this.label_Descripcion.Text = "Descripcion:";
             // 
             // button_seleccionarCategoria
             // 
@@ -312,182 +489,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 527);
             this.tableLayoutPanel1.TabIndex = 35;
             // 
-            // label_Descripcion
-            // 
-            this.label_Descripcion.AutoSize = true;
-            this.label_Descripcion.Location = new System.Drawing.Point(20, 85);
-            this.label_Descripcion.Name = "label_Descripcion";
-            this.label_Descripcion.Size = new System.Drawing.Size(66, 13);
-            this.label_Descripcion.TabIndex = 147;
-            this.label_Descripcion.Text = "Descripcion:";
-            // 
-            // groupBox_Informacion
-            // 
-            this.groupBox_Informacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox_Informacion.Controls.Add(this.dataGridView_Usuarios);
-            this.groupBox_Informacion.Controls.Add(this.linkLabel_verMateriales);
-            this.groupBox_Informacion.Controls.Add(this.textBox_nMateriales);
-            this.groupBox_Informacion.Controls.Add(this.textBox_nHilos);
-            this.groupBox_Informacion.Controls.Add(this.linkLabel_verHilos);
-            this.groupBox_Informacion.Controls.Add(this.label_nMateriales);
-            this.groupBox_Informacion.Controls.Add(this.label_nHilos);
-            this.groupBox_Informacion.Controls.Add(this.button8);
-            this.groupBox_Informacion.Controls.Add(this.button_quitarUsuario);
-            this.groupBox_Informacion.Controls.Add(this.button_verUsuario);
-            this.groupBox_Informacion.Controls.Add(this.label3);
-            this.groupBox_Informacion.Location = new System.Drawing.Point(284, 253);
-            this.groupBox_Informacion.Name = "groupBox_Informacion";
-            this.groupBox_Informacion.Size = new System.Drawing.Size(507, 218);
-            this.groupBox_Informacion.TabIndex = 14;
-            this.groupBox_Informacion.TabStop = false;
-            this.groupBox_Informacion.Text = "Otra información";
-            // 
-            // dataGridView_Usuarios
-            // 
-            this.dataGridView_Usuarios.AllowUserToAddRows = false;
-            this.dataGridView_Usuarios.AllowUserToDeleteRows = false;
-            this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DataGridViewColumno_Id,
-            this.DataGridViewColumno_Usuario,
-            this.DataGridViewColumno_Nombre});
-            this.dataGridView_Usuarios.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.dataGridView_Usuarios.Location = new System.Drawing.Point(30, 131);
-            this.dataGridView_Usuarios.Name = "dataGridView_Usuarios";
-            this.dataGridView_Usuarios.ReadOnly = true;
-            this.dataGridView_Usuarios.RowHeadersVisible = false;
-            this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Usuarios.Size = new System.Drawing.Size(332, 76);
-            this.dataGridView_Usuarios.TabIndex = 157;
-            // 
-            // DataGridViewColumno_Id
-            // 
-            this.DataGridViewColumno_Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataGridViewColumno_Id.FillWeight = 15F;
-            this.DataGridViewColumno_Id.HeaderText = "ID";
-            this.DataGridViewColumno_Id.Name = "DataGridViewColumno_Id";
-            this.DataGridViewColumno_Id.ReadOnly = true;
-            // 
-            // DataGridViewColumno_Usuario
-            // 
-            this.DataGridViewColumno_Usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataGridViewColumno_Usuario.FillWeight = 35F;
-            this.DataGridViewColumno_Usuario.HeaderText = "Usuario";
-            this.DataGridViewColumno_Usuario.Name = "DataGridViewColumno_Usuario";
-            this.DataGridViewColumno_Usuario.ReadOnly = true;
-            // 
-            // DataGridViewColumno_Nombre
-            // 
-            this.DataGridViewColumno_Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DataGridViewColumno_Nombre.FillWeight = 50F;
-            this.DataGridViewColumno_Nombre.HeaderText = "Nombre";
-            this.DataGridViewColumno_Nombre.Name = "DataGridViewColumno_Nombre";
-            this.DataGridViewColumno_Nombre.ReadOnly = true;
-            // 
-            // linkLabel_verMateriales
-            // 
-            this.linkLabel_verMateriales.AutoSize = true;
-            this.linkLabel_verMateriales.Location = new System.Drawing.Point(262, 69);
-            this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
-            this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
-            this.linkLabel_verMateriales.TabIndex = 156;
-            this.linkLabel_verMateriales.TabStop = true;
-            this.linkLabel_verMateriales.Text = "Ver materiales";
-            // 
-            // textBox_nMateriales
-            // 
-            this.textBox_nMateriales.Location = new System.Drawing.Point(188, 66);
-            this.textBox_nMateriales.Name = "textBox_nMateriales";
-            this.textBox_nMateriales.ReadOnly = true;
-            this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
-            this.textBox_nMateriales.TabIndex = 155;
-            // 
-            // textBox_nHilos
-            // 
-            this.textBox_nHilos.Location = new System.Drawing.Point(188, 32);
-            this.textBox_nHilos.Name = "textBox_nHilos";
-            this.textBox_nHilos.ReadOnly = true;
-            this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
-            this.textBox_nHilos.TabIndex = 154;
-            // 
-            // linkLabel_verHilos
-            // 
-            this.linkLabel_verHilos.AutoSize = true;
-            this.linkLabel_verHilos.Location = new System.Drawing.Point(262, 35);
-            this.linkLabel_verHilos.Name = "linkLabel_verHilos";
-            this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
-            this.linkLabel_verHilos.TabIndex = 153;
-            this.linkLabel_verHilos.TabStop = true;
-            this.linkLabel_verHilos.Text = "Ver hilos";
-            // 
-            // label_nMateriales
-            // 
-            this.label_nMateriales.AutoSize = true;
-            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nMateriales.Location = new System.Drawing.Point(27, 69);
-            this.label_nMateriales.Name = "label_nMateriales";
-            this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
-            this.label_nMateriales.TabIndex = 152;
-            this.label_nMateriales.Text = "Número de materiales: ";
-            // 
-            // label_nHilos
-            // 
-            this.label_nHilos.AutoSize = true;
-            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nHilos.Location = new System.Drawing.Point(27, 35);
-            this.label_nHilos.Name = "label_nHilos";
-            this.label_nHilos.Size = new System.Drawing.Size(106, 13);
-            this.label_nHilos.TabIndex = 151;
-            this.label_nHilos.Text = "Número de hilos: ";
-            // 
-            // button8
-            // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(380, 162);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 25);
-            this.button8.TabIndex = 149;
-            this.button8.Text = "Añadir usuario";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button_quitarUsuario
-            // 
-            this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_quitarUsuario.Location = new System.Drawing.Point(380, 193);
-            this.button_quitarUsuario.Name = "button_quitarUsuario";
-            this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_quitarUsuario.TabIndex = 148;
-            this.button_quitarUsuario.Text = "Quitar usuario";
-            this.button_quitarUsuario.UseVisualStyleBackColor = true;
-            // 
-            // button_verUsuario
-            // 
-            this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_verUsuario.Location = new System.Drawing.Point(380, 131);
-            this.button_verUsuario.Name = "button_verUsuario";
-            this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_verUsuario.TabIndex = 147;
-            this.button_verUsuario.Text = "Ver usuario";
-            this.button_verUsuario.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(27, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
-            this.label3.TabIndex = 150;
-            this.label3.Text = "Usuarios suscritos:";
-            // 
             // FormCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,12 +500,12 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox_Administracion.ResumeLayout(false);
-            this.groupBox_Administracion.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox_Informacion.ResumeLayout(false);
             this.groupBox_Informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).EndInit();
+            this.groupBox_Administracion.ResumeLayout(false);
+            this.groupBox_Administracion.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
