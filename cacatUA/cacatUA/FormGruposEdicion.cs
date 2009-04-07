@@ -182,7 +182,7 @@ namespace cacatUA
 
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true);
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
         }
     }
 }

@@ -217,7 +217,7 @@ namespace cacatUA
 
         private void button_verUsuario_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario.", true, true);
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a las categorías", "");
         }
 
         private void ActivarEdicion()
