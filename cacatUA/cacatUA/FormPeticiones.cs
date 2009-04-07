@@ -59,6 +59,32 @@ namespace cacatUA
 
         }
 
+        public void ContestarPeticion(int id)
+        {
+            DataGridViewRow fila = new DataGridViewRow();
+            DataGridViewRow origen;
+            string stringid = "" + id;
+            for (int i = 0; i < dataGridViewRecientes.Rows.Count; i++)
+            {
+                origen = dataGridViewRecientes.Rows[i];
+                if (origen.Cells[4].Value.ToString() == stringid)
+                {
+                    fila.CreateCells(dataGridView_Anteriores);
+                    fila.Cells[0].Value = origen.Cells[0].Value;
+                    fila.Cells[1].Value = origen.Cells[1].Value;
+                    fila.Cells[2].Value = origen.Cells[2].Value;
+                    fila.Cells[3].Value = origen.Cells[3].Value;
+                    dataGridView_Anteriores.Rows.Add(fila);
+                    dataGridViewRecientes.Rows.Remove(dataGridViewRecientes.Rows[i]);
+                    break;
+                }
+            }
+
+            
+
+           
+        }
+
         private void buttonRealizada_Click(object sender, EventArgs e)
         {
             if (dataGridViewRecientes.SelectedRows != null)
@@ -122,7 +148,7 @@ namespace cacatUA
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
                     string id = fila.Cells["Autor"].Value.ToString();
-                    FormPeticionContestar form = new FormPeticionContestar(id);
+                    FormPeticionContestar form = new FormPeticionContestar(id,this);
                     form.Show();
                 }
             }
@@ -142,7 +168,7 @@ namespace cacatUA
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
                     string id = fila.Cells["id"].Value.ToString();
-                    FormPeticionContestar form = new FormPeticionContestar(id);
+                    FormPeticionContestar form = new FormPeticionContestar(id,this);
                     form.Show();
                 }
             }
@@ -155,6 +181,7 @@ namespace cacatUA
                 if (dataGridViewRecientes.SelectedRows != null)
                 {
 
+
                     dataGridViewRecientes.Rows[dataGridViewRecientes.CurrentCell.RowIndex].Selected = true;
 
                     DataGridViewSelectedRowCollection filas = dataGridViewRecientes.SelectedRows;
@@ -162,7 +189,10 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
+                    ENPeticion.BorrarPeticion(int.Parse(dataGridViewRecientes.Rows[fila.Index].Cells[4].Value.ToString()));
                     dataGridViewRecientes.Rows.Remove(dataGridViewRecientes.CurrentRow);
+
+                    
                 }
             }
         }
@@ -181,6 +211,7 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridView_Anteriores.ClearSelection();
                     dataGridView_Anteriores.Rows[fila.Index].Selected = true;
+                    ENPeticion.BorrarPeticion(int.Parse(dataGridView_Anteriores.Rows[fila.Index].Cells[4].Value.ToString()));
                     dataGridView_Anteriores.Rows.Remove(dataGridView_Anteriores.CurrentRow);
                 }
             }

@@ -252,7 +252,7 @@
             this.textBox_envPetUsuario.Size = new System.Drawing.Size(640, 20);
             this.textBox_envPetUsuario.TabIndex = 85;
             // 
-            // FormContestarPeticion
+            // FormPeticionContestar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,7 +262,7 @@
             this.Controls.Add(this.tableLayoutPanelDesc);
             this.Controls.Add(this.tableLayoutPanelAsunto);
             this.Controls.Add(this.tableLayoutPanelPara);
-            this.Name = "FormContestarPeticion";
+            this.Name = "FormPeticionContestar";
             this.Text = "FormContestarPeticion";
             this.tableLayoutPanelDesc.ResumeLayout(false);
             this.panelDesc.ResumeLayout(false);
