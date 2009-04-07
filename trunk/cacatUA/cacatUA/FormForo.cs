@@ -15,7 +15,7 @@ namespace cacatUA
     {
         private FormForoEdicion formEdicion;
         private FormForoBusqueda formBusqueda;
-        private enum FormularioActivo { BUSQUEDA = 0, EDICION = 1 };
+        private enum FormularioActivo { NINGUNO = 0, BUSQUEDA = 1, EDICION = 2 };
         FormularioActivo formularioActivo;
 
         public FormForo()
@@ -27,7 +27,7 @@ namespace cacatUA
             formBusqueda = new FormForoBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
-            //formularioActivo = new FormularioActivo();
+            formularioActivo = FormularioActivo.NINGUNO;
 
             CambiarFormularioBusqueda();
 
@@ -36,20 +36,26 @@ namespace cacatUA
 
         public void CambiarFormularioBusqueda()
         {
-            formularioActivo = FormularioActivo.BUSQUEDA;
-            label_seccion1.Text = "Búsqueda";
-            panel_contenedor.Controls.Clear();
-            panel_contenedor.Controls.Add(formBusqueda);
-            tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
+            if (formularioActivo != FormularioActivo.BUSQUEDA)
+            {
+                formularioActivo = FormularioActivo.BUSQUEDA;
+                label_seccion1.Text = "Búsqueda";
+                panel_contenedor.Controls.Clear();
+                panel_contenedor.Controls.Add(formBusqueda);
+                tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
+            }
         }
 
         public void CambiarFormularioEdicion()
         {
-            formularioActivo = FormularioActivo.BUSQUEDA;
-            label_seccion1.Text = "Edición";
-            panel_contenedor.Controls.Clear();
-            panel_contenedor.Controls.Add(formEdicion);
-            tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
+            if (formularioActivo != FormularioActivo.EDICION)
+            {
+                formularioActivo = FormularioActivo.EDICION;
+                label_seccion1.Text = "Edición";
+                panel_contenedor.Controls.Clear();
+                panel_contenedor.Controls.Add(formEdicion);
+                tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
+            }
         }
 
         public ArrayList Resultados

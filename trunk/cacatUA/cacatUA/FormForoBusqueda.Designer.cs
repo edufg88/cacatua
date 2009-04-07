@@ -50,6 +50,7 @@
             this.button_buscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button_limpiar = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,7 +95,7 @@
             this.dateTimePicker_fechaInicio.Name = "dateTimePicker_fechaInicio";
             this.dateTimePicker_fechaInicio.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_fechaInicio.TabIndex = 1;
-            this.dateTimePicker_fechaInicio.Value = new System.DateTime(2008, 9, 6, 0, 0, 0, 0);
+            this.dateTimePicker_fechaInicio.Value = new System.DateTime(2008, 9, 1, 0, 0, 0, 0);
             // 
             // label_mostrarDesde
             // 
@@ -140,6 +141,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_categoria.Location = new System.Drawing.Point(125, 5);
             this.textBox_categoria.Name = "textBox_categoria";
+            this.textBox_categoria.ReadOnly = true;
             this.textBox_categoria.Size = new System.Drawing.Size(605, 20);
             this.textBox_categoria.TabIndex = 2;
             // 
@@ -252,6 +254,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.button_limpiar);
             this.panel5.Controls.Add(this.button_buscar);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 120);
@@ -274,6 +277,16 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // button_limpiar
+            // 
+            this.button_limpiar.Location = new System.Drawing.Point(574, 3);
+            this.button_limpiar.Name = "button_limpiar";
+            this.button_limpiar.Size = new System.Drawing.Size(75, 23);
+            this.button_limpiar.TabIndex = 1;
+            this.button_limpiar.Text = "Limpiar";
+            this.button_limpiar.UseVisualStyleBackColor = true;
+            this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
             // 
             // FormForoBusqueda
             // 
@@ -320,6 +333,7 @@
         private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button_limpiar;
 
     }
 }

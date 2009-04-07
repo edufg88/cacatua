@@ -221,9 +221,9 @@
             this.label_seccion1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_seccion1.Location = new System.Drawing.Point(13, 8);
             this.label_seccion1.Name = "label_seccion1";
-            this.label_seccion1.Size = new System.Drawing.Size(118, 13);
+            this.label_seccion1.Size = new System.Drawing.Size(160, 13);
             this.label_seccion1.TabIndex = 0;
-            this.label_seccion1.Text = "Crear un nuevo hilo";
+            this.label_seccion1.Text = "Crear una nueva respuesta";
             // 
             // panel_cabeceraSeccion2
             // 
@@ -241,9 +241,9 @@
             this.label_seccion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_seccion2.Location = new System.Drawing.Point(13, 8);
             this.label_seccion2.Name = "label_seccion2";
-            this.label_seccion2.Size = new System.Drawing.Size(147, 13);
+            this.label_seccion2.Size = new System.Drawing.Size(118, 13);
             this.label_seccion2.TabIndex = 0;
-            this.label_seccion2.Text = "Resultados de búsqueda";
+            this.label_seccion2.Text = "Respuestas del hilo";
             // 
             // panel1
             // 
@@ -489,12 +489,12 @@
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
-            // FormRespuestas
+            // FormForoRespuestas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel_principal);
-            this.Name = "FormRespuestas";
+            this.Name = "FormForoRespuestas";
             this.Size = new System.Drawing.Size(839, 522);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tableLayoutPanel_principal.ResumeLayout(false);

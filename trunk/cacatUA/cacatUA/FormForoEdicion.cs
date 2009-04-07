@@ -12,7 +12,10 @@ namespace cacatUA
 {
     public partial class FormForoEdicion : InterfazForm
     {
-        ENHilo hilo;
+        private ENHilo hilo;
+        private ENCategoria categoria;
+        private ENUsuario usuario;
+
         public FormForoEdicion()
         {
             InitializeComponent();
@@ -33,6 +36,9 @@ namespace cacatUA
                 linkLabel_respuestas.Enabled = true;
                 errorProvider1.Clear();
                 desactivarBotones();
+
+                categoria = hilo.Categoria;
+                usuario = hilo.Autor;
             }
             else
             {
@@ -43,12 +49,15 @@ namespace cacatUA
         public void CambiarNuevo()
         {
             hilo = null;
+            categoria = null;
+            usuario = null;
             textBox_id.Text = "";
             textBox_texto.Text = "";
             textBox_titulo.Text = "";
             textBox_autor.Text = "";
             textBox_categoria.Text = "";
             textBox_respuestas.Text = "";
+            dateTimePicker_fecha.Value = DateTime.Now;
             linkLabel_respuestas.Enabled = false;
             errorProvider1.Clear();
             desactivarBotones();
@@ -82,12 +91,7 @@ namespace cacatUA
 
             if (textBox_categoria.Text != "")
             {
-                ENCategoria categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
-                if (categoria.Id == 0)
-                {
-                    correcto = false;
-                    errorCategoria = "Esta categoría no existe.";
-                }
+
             }
             else
             {
@@ -126,7 +130,7 @@ namespace cacatUA
                 nuevo.Texto = textBox_texto.Text;
                 nuevo.Titulo = textBox_titulo.Text;
                 nuevo.Autor = new ENUsuario(textBox_autor.Text);
-                nuevo.Categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
+                nuevo.Categoria = categoria;
                 nuevo.Fecha = dateTimePicker_fecha.Value;
 
                 if (textBox_id.Text == "")
@@ -198,7 +202,27 @@ namespace cacatUA
 
         private void linkLabel_respuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormForoRespuestas(), "Respuestas del hilo nº "+textBox_id.Text, true, false, "Volver al hilo", "");
+            FormPanelAdministracion.Instancia.Apilar(new FormForoRespuestas(hilo), "Respuestas del hilo nº "+textBox_id.Text, true, false, "Volver al hilo", "");
+        }
+
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENCategoria)
+                {
+                    categoria = (ENCategoria)objeto;
+                    textBox_categoria.Text = categoria.Nombre;
+                }
+                else
+                {
+                    if (objeto is ENUsuario)
+                    {
+                        usuario = (ENUsuario)objeto;
+                        textBox_autor.Text = usuario.Usuario;
+                    }
+                }
+            }
         }
     }
 }
