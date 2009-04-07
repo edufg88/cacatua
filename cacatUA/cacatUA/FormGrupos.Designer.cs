@@ -147,7 +147,7 @@
             this.dataGridView_resultados.ReadOnly = true;
             this.dataGridView_resultados.RowHeadersVisible = false;
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_resultados.Size = new System.Drawing.Size(814, 289);
+            this.dataGridView_resultados.Size = new System.Drawing.Size(814, 131);
             this.dataGridView_resultados.TabIndex = 94;
             this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
             // 
@@ -181,7 +181,7 @@
             // 
             // panel_tituloResultado
             // 
-            this.panel_tituloResultado.BackColor = System.Drawing.Color.Silver;
+            this.panel_tituloResultado.BackColor = System.Drawing.Color.LightGray;
             this.panel_tituloResultado.Controls.Add(this.label_resultado);
             this.panel_tituloResultado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_tituloResultado.Location = new System.Drawing.Point(3, 353);
@@ -193,22 +193,21 @@
             // 
             this.label_resultado.AutoSize = true;
             this.label_resultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_resultado.Location = new System.Drawing.Point(3, 6);
-            this.label_resultado.Margin = new System.Windows.Forms.Padding(3, 6, 3, 0);
+            this.label_resultado.Location = new System.Drawing.Point(13, 8);
             this.label_resultado.Name = "label_resultado";
-            this.label_resultado.Size = new System.Drawing.Size(162, 13);
+            this.label_resultado.Size = new System.Drawing.Size(161, 13);
             this.label_resultado.TabIndex = 2;
-            this.label_resultado.Text = "Resultados de la Búsqueda";
+            this.label_resultado.Text = "Resultados de la búsqueda";
             // 
             // panel_Titulo
             // 
             this.panel_Titulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(182)))), ((int)(((byte)(56)))));
-            this.panel_Titulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Titulo.Controls.Add(this.labelTitulo);
             this.panel_Titulo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Titulo.Location = new System.Drawing.Point(3, 3);
+            this.panel_Titulo.Location = new System.Drawing.Point(0, 0);
+            this.panel_Titulo.Margin = new System.Windows.Forms.Padding(0);
             this.panel_Titulo.Name = "panel_Titulo";
-            this.panel_Titulo.Size = new System.Drawing.Size(854, 24);
+            this.panel_Titulo.Size = new System.Drawing.Size(860, 30);
             this.panel_Titulo.TabIndex = 30;
             // 
             // labelTitulo
@@ -219,10 +218,9 @@
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitulo.ForeColor = System.Drawing.Color.White;
-            this.labelTitulo.Location = new System.Drawing.Point(3, 0);
+            this.labelTitulo.Location = new System.Drawing.Point(11, 7);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.labelTitulo.Size = new System.Drawing.Size(55, 19);
+            this.labelTitulo.Size = new System.Drawing.Size(55, 17);
             this.labelTitulo.TabIndex = 7;
             this.labelTitulo.Text = "Grupos";
             // 
