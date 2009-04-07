@@ -204,6 +204,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_categoria.Location = new System.Drawing.Point(125, 5);
             this.textBox_categoria.Name = "textBox_categoria";
+            this.textBox_categoria.ReadOnly = true;
             this.textBox_categoria.Size = new System.Drawing.Size(729, 20);
             this.textBox_categoria.TabIndex = 0;
             this.textBox_categoria.TextChanged += new System.EventHandler(this.formulario_Modificado);

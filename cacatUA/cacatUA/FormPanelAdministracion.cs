@@ -159,7 +159,7 @@ namespace cacatUA
             MostrarCima();
             if (obtener == true)
             {
-                //Object ultimo_usuario_o_categoria = formulario.ObjetoSeleccionado;
+                pilaFormularios.Peek().Recibir(formulario.Enviar());
             }
 
             if (flowLayoutPanel_navegacion.Controls.Count > 0)

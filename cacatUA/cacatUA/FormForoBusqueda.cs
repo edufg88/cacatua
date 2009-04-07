@@ -14,32 +14,36 @@ namespace cacatUA
     public partial class FormForoBusqueda : InterfazForm
     {
         private FormForo formularioPadre = null;
+        private ENCategoria categoria = null;
+        private ENUsuario usuario = null;
+
         public FormForoBusqueda(FormForo formularioPadre)
         {
             this.formularioPadre = formularioPadre;
             InitializeComponent();
         }
 
+        public void Limpiar()
+        {
+            categoria = null;
+            usuario = null;
+            textBox_filtroBusqueda.Text = "";
+            textBox_autor.Text = "";
+            textBox_categoria.Text = "";
+            dateTimePicker_fechaInicio.Value = new DateTime(2008, 9, 1);
+            dateTimePicker_fechaFin.Value = DateTime.Now;
+            errorProvider1.Clear();
+        }
+
         public bool ValidarFormulario()
         {
             bool correcto = true;
-            string errorCategoria = "";
             string errorUsuario = "";
             string errorFecha = "";
 
-            if (textBox_categoria.Text != "")
-            {
-                ENCategoria categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
-                if (categoria.Id == 0)
-                {
-                    correcto = false;
-                    errorCategoria = "Esta categoría no existe.";
-                }
-            }
-
             if (textBox_autor.Text != "")
             {
-                ENUsuario usuario = new ENUsuario(textBox_autor.Text);
+                usuario = new ENUsuario(textBox_autor.Text);
                 if (usuario.Id == 0)
                 {
                     correcto = false;
@@ -53,7 +57,6 @@ namespace cacatUA
                 errorFecha = "La fecha de inicio es posterior a la fecha de fin.";
             }
 
-            errorProvider1.SetError(textBox_categoria, errorCategoria);
             errorProvider1.SetError(textBox_autor, errorUsuario);
             errorProvider1.SetError(dateTimePicker_fechaFin, errorFecha);
 
@@ -64,12 +67,9 @@ namespace cacatUA
         {
             if (ValidarFormulario())
             {
-                ENUsuario usuario = null;
+                usuario = null;
                 if (textBox_autor.Text != "")
                     usuario = new ENUsuario(textBox_autor.Text);
-                ENCategoria categoria = null;
-                if (textBox_categoria.Text != "")
-                    categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
                 DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
                 DateTime fechaFin = dateTimePicker_fechaFin.Value;
 
@@ -88,22 +88,29 @@ namespace cacatUA
             FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true, "Volver al panel anterior seleccionando la categoría actual", "Cancelar la selección y volver al panel anterior");
         }
 
-        /*public override void Recibir(object objeto)
+        public override void Recibir(object objeto)
         {
             if (objeto != null)
             {
-                if (objeto.GetType() == ENCategoria)
+                if (objeto is ENCategoria)
                 {
-
+                    categoria = (ENCategoria)objeto;
+                    textBox_categoria.Text = categoria.Nombre;
                 }
                 else
                 {
-                    if (objeto.GetType() == ENUsuario)
+                    if (objeto is ENUsuario)
                     {
-
+                        usuario = (ENUsuario)objeto;
+                        textBox_autor.Text = usuario.Usuario;
                     }
                 }
             }
-        }*/
+        }
+
+        private void button_limpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }
