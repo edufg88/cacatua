@@ -15,6 +15,8 @@ namespace cacatUA
     {
         private FormForoEdicion formEdicion;
         private FormForoBusqueda formBusqueda;
+        private enum FormularioActivo { BUSQUEDA = 0, EDICION = 1 };
+        FormularioActivo formularioActivo;
 
         public FormForo()
         {
@@ -25,6 +27,7 @@ namespace cacatUA
             formBusqueda = new FormForoBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
+            //formularioActivo = new FormularioActivo();
 
             CambiarFormularioBusqueda();
 
@@ -33,6 +36,7 @@ namespace cacatUA
 
         public void CambiarFormularioBusqueda()
         {
+            formularioActivo = FormularioActivo.BUSQUEDA;
             label_seccion1.Text = "Búsqueda";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formBusqueda);
@@ -41,6 +45,7 @@ namespace cacatUA
 
         public void CambiarFormularioEdicion()
         {
+            formularioActivo = FormularioActivo.BUSQUEDA;
             label_seccion1.Text = "Edición";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formEdicion);
@@ -123,14 +128,19 @@ namespace cacatUA
             }
         }
 
-        public override object Enviar()
-        {
-            return null;
-        }
-
         public override void Recibir(object objeto)
         {
-            
+            if (objeto != null)
+            {
+                if (formularioActivo == FormularioActivo.BUSQUEDA)
+                {
+                    formBusqueda.Recibir(objeto);
+                }
+                else
+                {
+                    formEdicion.Recibir(objeto);
+                }
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormForoBusqueda : UserControl
+    public partial class FormForoBusqueda : InterfazForm
     {
         private FormForo formularioPadre = null;
         public FormForoBusqueda(FormForo formularioPadre)
@@ -87,5 +87,23 @@ namespace cacatUA
         {
             FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true, "Volver al panel anterior seleccionando la categoría actual", "Cancelar la selección y volver al panel anterior");
         }
+
+        /*public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto.GetType() == ENCategoria)
+                {
+
+                }
+                else
+                {
+                    if (objeto.GetType() == ENUsuario)
+                    {
+
+                    }
+                }
+            }
+        }*/
     }
 }

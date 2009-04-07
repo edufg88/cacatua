@@ -10,7 +10,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormForoEdicion : UserControl
+    public partial class FormForoEdicion : InterfazForm
     {
         ENHilo hilo;
         public FormForoEdicion()
