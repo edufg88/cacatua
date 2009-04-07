@@ -89,8 +89,15 @@ namespace cacatUA
 
         private void button_editar_Click(object sender, EventArgs e)
         {
-            Edicion();
-            formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            if (dataGridView_resultados.SelectedRows.Count > 0)
+            {
+                Edicion();
+                formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un grupo para editar", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button_borrar_Click(object sender, EventArgs e)

@@ -87,17 +87,16 @@ namespace cacatUA
         {
             if (listBox_usuarios.SelectedItem != null)
             {
-
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver al panel anterior", "");
             }
             else
             {
-                MessageBox.Show("Seleccione un usuario para ver", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Seleccione un usuario para mostrar", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void button_guardar_Click(object sender, EventArgs e)
         {
-            bool error=false;
             if (ValidarFormulario())
             {
                 ArrayList usuarios = new ArrayList();
@@ -114,22 +113,10 @@ namespace cacatUA
                 {
                     if (grupo.Guardar())
                     {
-                        if (insertados.Count != 0)
+                       if (borrarUsuarios() && insertarUsuarios())
                         {
-                            foreach (ENUsuario ob in insertados)
-                            {
-                                if (!grupo.InsertarMiembro(ob.Id))
-                                {
-                                    MessageBox.Show("Error al borrar algun miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    error = true;
-                                    break;
-                                }
-                            }
-                            if (!error)
-                            {
-                                MessageBox.Show("Grupo creado correctamente", "Ventana de Información");
-                                formularioPadre.Actualizar();
-                            }
+                            MessageBox.Show("Grupo creado correctamente", "Ventana de Información");
+                            formularioPadre.Actualizar();
                         }
                     }
                     else
@@ -142,22 +129,10 @@ namespace cacatUA
                     grupo.Id = int.Parse(textBox_id.Text);
                     if (grupo.Actualizar())
                     {
-                        if (borrados.Count != 0)
+                        if (borrarUsuarios() && insertarUsuarios())
                         {
-                            foreach (ENUsuario ob in borrados)
-                            {
-                                if(!grupo.BorrarMiembro(ob.Id))
-                                {
-                                    MessageBox.Show("Error al borrar algun miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    error=true;
-                                    break;
-                                }
-                            }
-                            if (!error)
-                            {
-                                MessageBox.Show("Grupo editado correctamente", "Ventana de Información");
-                                formularioPadre.Actualizar();
-                            }
+                            MessageBox.Show("Grupo editado correctamente", "Ventana de Información");
+                            formularioPadre.Actualizar();
                         }
                     }
                     else
@@ -166,6 +141,38 @@ namespace cacatUA
                     }
                 }
             }
+        }
+
+        private bool insertarUsuarios()
+        {
+            if (insertados.Count > 0)
+            {
+                foreach (ENUsuario ob in insertados)
+                {
+                    if (!grupo.InsertarMiembro(ob.Id))
+                    {
+                        MessageBox.Show("Error al borrar algun miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private bool borrarUsuarios()
+        {
+            if (borrados.Count > 0)
+            {
+                foreach (ENUsuario ob in borrados)
+                {
+                    if (!grupo.BorrarMiembro(ob.Id))
+                    {
+                        MessageBox.Show("Error al borrar algun miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private void button_borrar_Click(object sender, EventArgs e)
