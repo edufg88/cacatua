@@ -29,16 +29,6 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Crea un hilo obteniéndolo desde la base de datos según el identificador indicado
-        /// en los parámetros.
-        /// </summary>
-        /// <param name="id">Identificador (id) del hilo que se va a crear.</param>
-        public ENHilo(int id)
-        {
-            Obtener(id);
-        }
-
-        /// <summary>
         /// Constructor sobrecargado que crea un hilo con los parámetros indicados. Hasta que no se guarde
         /// el hilo, su identificador es 0.
         /// </summary>
@@ -104,38 +94,12 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Extrae el hilo que se corresponde al identificador desde la base de datos
-        /// y lo asigna al ENHilo que invocó el método.
-        /// </summary>
-        /// <param name="id">Identificador del hilo que se va a extraer desde la base de datos.</param>
-        /// <returns>Devuelve verdadero si se ha obtenido correctamente.</returns>
-        public bool Obtener(int id)
-        {
-            ENHilo auxiliar = HiloCAD.Instancia.Obtener(id);
-            if (auxiliar != null)
-            {
-                this.id = auxiliar.id;
-                titulo = auxiliar.titulo;
-                texto = auxiliar.texto;
-                autor = auxiliar.autor;
-                fecha = auxiliar.fecha;
-                categoria = auxiliar.categoria;
-                return true;
-            }
-            else
-            {
-                this.id = 0;
-            }
-            return false;
-        }
-
-        /// <summary>
         /// Obtiene un hilo desde la base de datos. Si no se encuentra el hilo especificado,
         /// devuelve un objeto nulo (null).
         /// </summary>
         /// <param name="id">Identificador del hilo que se quiere obtener.</param>
         /// <returns>Devuelve un hilo si existe, o un valor nulo (null) si no existe.</returns>
-        public static ENHilo Obtener2(int id)
+        public static ENHilo Obtener(int id)
         {
             return HiloCAD.Instancia.Obtener(id);
         }
