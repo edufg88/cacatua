@@ -11,7 +11,7 @@ namespace Libreria
         private string asunto;
         private string texto;
         private string respuesta;
-        private int usuario;
+        private ENUsuario usuario;
         private DateTime fecha;
         private bool contestada;
 
@@ -23,7 +23,7 @@ namespace Libreria
             contestada = false;
         }
 
-        public ENPeticion(int i,string a,string t,bool c,int u)
+        public ENPeticion(int i,string a,string t,bool c,ENUsuario u)
         {
             id = i;
             asunto = a;
@@ -52,7 +52,7 @@ namespace Libreria
             get { return respuesta; }
             set { respuesta = value; }
         }
-        public int Usuario
+        public ENUsuario Usuario
         {
             get { return usuario; }
             set { usuario = value; }
