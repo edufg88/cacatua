@@ -20,7 +20,7 @@ namespace cacatUA
 
         public void CambiarSeleccionado(int id)
         {
-            hilo = ENHilo.Obtener2(id);
+            hilo = ENHilo.Obtener(id);
             if (hilo != null)
             {
                 textBox_id.Text = hilo.Id.ToString();
