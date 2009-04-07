@@ -74,6 +74,7 @@ namespace cacatUA
                     fila.Cells[1].Value = origen.Cells[1].Value;
                     fila.Cells[2].Value = origen.Cells[2].Value;
                     fila.Cells[3].Value = origen.Cells[3].Value;
+                    fila.Cells[4].Value = origen.Cells[4].Value;
                     dataGridView_Anteriores.Rows.Add(fila);
                     dataGridViewRecientes.Rows.Remove(dataGridViewRecientes.Rows[i]);
                     break;
