@@ -87,7 +87,7 @@
             this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
             this.label_peticionSeleccionadaAnt = new System.Windows.Forms.Label();
-            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox_peticionSeleccionadaAnt = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
             this.button_borrarPeticionAnt = new System.Windows.Forms.Button();
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -443,6 +443,7 @@
             this.button_seccionBuscar.TabIndex = 4;
             this.button_seccionBuscar.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.button_seccionBuscar.UseVisualStyleBackColor = true;
+            this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
             // 
             // label_buscarPetTexto
             // 
@@ -556,6 +557,7 @@
             this.dataGridViewRecientes.Size = new System.Drawing.Size(786, 98);
             this.dataGridViewRecientes.TabIndex = 1;
             this.dataGridViewRecientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecientes_CellContentClick);
+            this.dataGridViewRecientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRecientes_CellContentClick_1);
             // 
             // Autor
             // 
@@ -760,6 +762,7 @@
             this.button18.TabIndex = 4;
             this.button18.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // label_buscarPetTextoAnt
             // 
@@ -871,6 +874,7 @@
             this.dataGridView_Anteriores.ReadOnly = true;
             this.dataGridView_Anteriores.Size = new System.Drawing.Size(786, 98);
             this.dataGridView_Anteriores.TabIndex = 1;
+            this.dataGridView_Anteriores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Anteriores_CellContentClick);
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -909,7 +913,7 @@
             this.tableLayoutPanel36.ColumnCount = 1;
             this.tableLayoutPanel36.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel36.Controls.Add(this.label_peticionSeleccionadaAnt, 0, 0);
-            this.tableLayoutPanel36.Controls.Add(this.richTextBox12, 0, 1);
+            this.tableLayoutPanel36.Controls.Add(this.richTextBox_peticionSeleccionadaAnt, 0, 1);
             this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 285);
             this.tableLayoutPanel36.Name = "tableLayoutPanel36";
@@ -928,14 +932,14 @@
             this.label_peticionSeleccionadaAnt.TabIndex = 0;
             this.label_peticionSeleccionadaAnt.Text = "Peticion:";
             // 
-            // richTextBox12
+            // richTextBox_peticionSeleccionadaAnt
             // 
-            this.richTextBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox12.Location = new System.Drawing.Point(3, 23);
-            this.richTextBox12.Name = "richTextBox12";
-            this.richTextBox12.Size = new System.Drawing.Size(786, 96);
-            this.richTextBox12.TabIndex = 1;
-            this.richTextBox12.Text = "";
+            this.richTextBox_peticionSeleccionadaAnt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox_peticionSeleccionadaAnt.Location = new System.Drawing.Point(3, 23);
+            this.richTextBox_peticionSeleccionadaAnt.Name = "richTextBox_peticionSeleccionadaAnt";
+            this.richTextBox_peticionSeleccionadaAnt.Size = new System.Drawing.Size(786, 96);
+            this.richTextBox_peticionSeleccionadaAnt.TabIndex = 1;
+            this.richTextBox_peticionSeleccionadaAnt.Text = "";
             // 
             // tableLayoutPanel37
             // 
@@ -2687,7 +2691,7 @@
         private System.Windows.Forms.DataGridView dataGridView_Anteriores;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel36;
         private System.Windows.Forms.Label label_peticionSeleccionadaAnt;
-        private System.Windows.Forms.RichTextBox richTextBox12;
+        private System.Windows.Forms.RichTextBox richTextBox_peticionSeleccionadaAnt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel37;
         private System.Windows.Forms.Button button_borrarPeticionAnt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
