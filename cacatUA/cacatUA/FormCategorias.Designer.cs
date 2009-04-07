@@ -48,7 +48,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox_Administracion = new System.Windows.Forms.GroupBox();
             this.label_Descripcion = new System.Windows.Forms.Label();
-            this.button_seleccionarCategoria = new System.Windows.Forms.Button();
             this.label_Ruta = new System.Windows.Forms.Label();
             this.textBox_Ruta = new System.Windows.Forms.TextBox();
             this.label_Nombre = new System.Windows.Forms.Label();
@@ -136,7 +135,8 @@
             // 
             this.dataGridView_Usuarios.AllowUserToAddRows = false;
             this.dataGridView_Usuarios.AllowUserToDeleteRows = false;
-            this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_Usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -211,6 +211,7 @@
             this.linkLabel_verHilos.TabIndex = 153;
             this.linkLabel_verHilos.TabStop = true;
             this.linkLabel_verHilos.Text = "Ver hilos";
+            this.linkLabel_verHilos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verHilos_LinkClicked);
             // 
             // label_nMateriales
             // 
@@ -282,7 +283,6 @@
             this.groupBox_Administracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox_Administracion.Controls.Add(this.label_Descripcion);
-            this.groupBox_Administracion.Controls.Add(this.button_seleccionarCategoria);
             this.groupBox_Administracion.Controls.Add(this.label_Ruta);
             this.groupBox_Administracion.Controls.Add(this.textBox_Ruta);
             this.groupBox_Administracion.Controls.Add(this.label_Nombre);
@@ -310,21 +310,6 @@
             this.label_Descripcion.TabIndex = 147;
             this.label_Descripcion.Text = "Descripcion:";
             // 
-            // button_seleccionarCategoria
-            // 
-            this.button_seleccionarCategoria.BackColor = System.Drawing.SystemColors.Window;
-            this.button_seleccionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seleccionarCategoria.FlatAppearance.BorderSize = 0;
-            this.button_seleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seleccionarCategoria.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarCategoria.Location = new System.Drawing.Point(373, 56);
-            this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
-            this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarCategoria.TabIndex = 145;
-            this.button_seleccionarCategoria.TabStop = false;
-            this.button_seleccionarCategoria.UseVisualStyleBackColor = true;
-            this.button_seleccionarCategoria.Visible = false;
-            // 
             // label_Ruta
             // 
             this.label_Ruta.AutoSize = true;
@@ -349,9 +334,9 @@
             this.label_Nombre.AutoSize = true;
             this.label_Nombre.Location = new System.Drawing.Point(20, 33);
             this.label_Nombre.Name = "label_Nombre";
-            this.label_Nombre.Size = new System.Drawing.Size(55, 13);
+            this.label_Nombre.Size = new System.Drawing.Size(47, 13);
             this.label_Nombre.TabIndex = 48;
-            this.label_Nombre.Text = "Categoria:";
+            this.label_Nombre.Text = "Nombre:";
             // 
             // textBox_Nombre
             // 
@@ -447,6 +432,7 @@
             // 
             // treeViewCategorias
             // 
+            this.treeViewCategorias.AllowDrop = true;
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.treeViewCategorias.Location = new System.Drawing.Point(6, 24);
@@ -528,7 +514,6 @@
         private System.Windows.Forms.Label label_Nombre;
         private System.Windows.Forms.Label label_Ruta;
         private System.Windows.Forms.TextBox textBox_Ruta;
-        private System.Windows.Forms.Button button_seleccionarCategoria;
         private System.Windows.Forms.Label label_Descripcion;
         private System.Windows.Forms.GroupBox groupBox_Informacion;
         private System.Windows.Forms.DataGridView dataGridView_Usuarios;

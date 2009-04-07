@@ -35,9 +35,8 @@ namespace Libreria
             }
         }
 
-        public ENCategoria(int id, String nombre, String descripcion, int padre)
+        public ENCategoria(String nombre, String descripcion, int padre)
         {
-            this.id = id;
             this.nombre = nombre;
             this.padre = padre;
             this.descripcion = descripcion;
