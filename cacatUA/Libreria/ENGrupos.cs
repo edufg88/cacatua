@@ -65,7 +65,7 @@ namespace Libreria
             return GruposCAD.Instancia.Borrar(this);
         }
 
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENGrupos aux = GruposCAD.Instancia.Obtener(id);
             if (aux != null)

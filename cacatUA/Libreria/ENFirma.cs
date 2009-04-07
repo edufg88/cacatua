@@ -57,7 +57,7 @@ namespace Libreria
             return FirmaCAD.Instancia.ObtenerFirmas();
         }
 
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENFirma aux = new ENFirma();
             FirmaCAD.Instancia.ObtenerFirma(id);

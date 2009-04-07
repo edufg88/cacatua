@@ -220,7 +220,7 @@ namespace Libreria
             return UsuarioCAD.Instancia.ObtenerUsuarios();
         }
 
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENUsuario aux = new ENUsuario();
             UsuarioCAD.Instancia.ObtenerUsuario(id);

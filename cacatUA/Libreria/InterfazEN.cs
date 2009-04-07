@@ -10,6 +10,5 @@ namespace Libreria
         abstract public bool Guardar();
         abstract public bool Borrar();
         abstract public bool Actualizar();
-        abstract public bool Obtener(int id);
     }
 }

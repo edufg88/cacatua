@@ -109,7 +109,7 @@ namespace Libreria
         /// </summary>
         /// <param name="id">Identificador del hilo que se va a extraer desde la base de datos.</param>
         /// <returns>Devuelve verdadero si se ha obtenido correctamente.</returns>
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENHilo auxiliar = HiloCAD.Instancia.Obtener(id);
             if (auxiliar != null)
