@@ -156,7 +156,7 @@ namespace cacatUA
                             controles["descripcion"].Text = material.Descripcion;
                             // fecha
 
-                            controles["usuario"].Text = material.Usuario.Nombre;
+                            controles["usuario"].Text = material.Usuario.Usuario;
                             controles["categoria"].Text = material.Categoria;
                             controles["archivo"].Text = material.Archivo;
                             controles["tamaño"].Text = material.Tamaño.ToString();
