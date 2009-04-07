@@ -191,7 +191,7 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
-                    ENPeticion.BorrarPeticion(int.Parse(dataGridViewRecientes.Rows[fila.Index].Cells[4].Value.ToString()));
+                    ENPeticion.Obtener(int.Parse(dataGridViewRecientes.Rows[fila.Index].Cells[4].Value.ToString())).Borrar();
                     richTextBox_peticionSeleccionada.Text = "";
                     dataGridViewRecientes.Rows.Remove(dataGridViewRecientes.CurrentRow);
 
@@ -214,7 +214,7 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridView_Anteriores.ClearSelection();
                     dataGridView_Anteriores.Rows[fila.Index].Selected = true;
-                    ENPeticion.BorrarPeticion(int.Parse(dataGridView_Anteriores.Rows[fila.Index].Cells[4].Value.ToString()));
+                    ENPeticion.Obtener(int.Parse(dataGridView_Anteriores.Rows[fila.Index].Cells[4].Value.ToString())).Borrar();
                     richTextBox_peticionSeleccionadaAnt.Text = "";
                     dataGridView_Anteriores.Rows.Remove(dataGridView_Anteriores.CurrentRow);
                 }
@@ -235,9 +235,9 @@ namespace cacatUA
                     dataGridViewRecientes.ClearSelection();
                     dataGridViewRecientes.Rows[fila.Index].Selected = true;
 
-                    ENPeticion pet = ENPeticion.GetPeticion(int.Parse(dataGridViewRecientes.Rows[fila.Index].Cells[4].Value.ToString()));
+                    ENPeticion pet = ENPeticion.Obtener(int.Parse(dataGridViewRecientes.Rows[fila.Index].Cells[4].Value.ToString()));
 
-                    richTextBox_peticionSeleccionada.Text = "Usuario: " + pet.Usuario +
+                    richTextBox_peticionSeleccionada.Text = "Usuario: " + pet.Usuario.Usuario +
                         "\nFecha: " + pet.Fecha + "\nAsunto: " + pet.Asunto +
                         "\nMensaje: " + pet.Texto;
                 }
@@ -258,9 +258,9 @@ namespace cacatUA
                     dataGridView_Anteriores.ClearSelection();
                     dataGridView_Anteriores.Rows[fila.Index].Selected = true;
 
-                    ENPeticion pet = ENPeticion.GetPeticion(int.Parse(dataGridView_Anteriores.Rows[fila.Index].Cells[4].Value.ToString()));
+                    ENPeticion pet = ENPeticion.Obtener(int.Parse(dataGridView_Anteriores.Rows[fila.Index].Cells[4].Value.ToString()));
 
-                    richTextBox_peticionSeleccionadaAnt.Text = "Usuario: " + pet.Usuario +
+                    richTextBox_peticionSeleccionadaAnt.Text = "Usuario: " + pet.Usuario.Usuario +
                         "\nFecha: " + pet.Fecha + "\nAsunto: " + pet.Asunto +
                         "\nMensaje: " + pet.Texto + "\nRespuesta: " + pet.Respuesta;
                 }
@@ -291,7 +291,7 @@ namespace cacatUA
             {
                 fila = new DataGridViewRow();
                 fila.CreateCells(dataGridViewRecientes);
-                fila.Cells[0].Value = p.Usuario;
+                fila.Cells[0].Value = p.Usuario.Usuario;
                 fila.Cells[1].Value = p.Asunto;
                 fila.Cells[2].Value = p.Fecha;
                 fila.Cells[3].Value = p.Texto;

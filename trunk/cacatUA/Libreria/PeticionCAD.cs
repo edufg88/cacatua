@@ -57,6 +57,7 @@ namespace Libreria
             peticion.Usuario = us;
             Console.WriteLine(us.Usuario);
             peticion.Respuesta = reader["respuesta"].ToString();
+            peticion.Fecha = DateTime.Parse(reader["fecha"].ToString());
             
             return peticion;
         }
@@ -126,7 +127,7 @@ namespace Libreria
             return actualizada;
         }
 
-        public void BorrarPeticion(int id)
+        public bool BorrarPeticion(int id)
         {
             ENPeticion peticion = new ENPeticion();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -138,6 +139,7 @@ namespace Libreria
                
                 SqlDataReader reader = comando.ExecuteReader();
             }
+            return true;
         }
 
         public ArrayList Obtener(string asunto,string texto,int usuario)
