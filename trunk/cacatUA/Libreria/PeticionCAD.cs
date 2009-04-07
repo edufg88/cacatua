@@ -53,7 +53,9 @@ namespace Libreria
             peticion.Id = int.Parse(reader["id"].ToString());
             peticion.Asunto = reader["asunto"].ToString();
             peticion.Texto = reader["texto"].ToString();
-            peticion.Usuario = int.Parse(reader["usuario"].ToString());
+            ENUsuario us = new ENUsuario(int.Parse(reader["usuario"].ToString()));
+            peticion.Usuario = us;
+            Console.WriteLine(us.Usuario);
             peticion.Respuesta = reader["respuesta"].ToString();
             
             return peticion;
@@ -152,7 +154,7 @@ namespace Libreria
 
                 // Componemos la cadena de la sentencia.
                 string sentencia = "select * from peticiones";
-                string condiciones = "";
+                string condiciones = " where respuesta is NULL";
 
                 if (asunto != "")
                 {
