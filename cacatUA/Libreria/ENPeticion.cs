@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Libreria
 {
-    public class ENPeticion
+    public class ENPeticion : InterfazEN
     {
         private int id;
         private string asunto;
@@ -78,19 +78,24 @@ namespace Libreria
             return PeticionCAD.Instancia.GetContestadas();
         }
 
-        public static ENPeticion GetPeticion(int id)
+        public static ENPeticion Obtener(int id)
         {
             return PeticionCAD.Instancia.GetPeticion(id);
         }
 
-        public static bool ActualizarPeticion(ENPeticion p)
+        override public bool Actualizar()
         {
-            return PeticionCAD.Instancia.ActualizarPeticion(p);
+            return PeticionCAD.Instancia.ActualizarPeticion(this);
         }
 
-        public static void BorrarPeticion(int id)
+        override public bool Guardar()
         {
-            PeticionCAD.Instancia.BorrarPeticion(id);
+            return false;
+        }
+
+        override public bool Borrar()
+        {
+            return PeticionCAD.Instancia.BorrarPeticion(this.id);
         }
 
         public static ArrayList Obtener(string asunto, string texto, int usuario)

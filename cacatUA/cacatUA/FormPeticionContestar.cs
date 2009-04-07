@@ -17,7 +17,7 @@ namespace cacatUA
         public FormPeticionContestar(string p, FormPeticiones fp)
         {
             InitializeComponent();
-            pet = ENPeticion.GetPeticion(int.Parse(p));
+            pet = ENPeticion.Obtener(int.Parse(p));
             peticiones=fp;
             this.textBox_envPetUsuario.Text =pet.Usuario.Usuario;
             this.textBox_envPetAsunto.Text = pet.Asunto;
@@ -30,7 +30,7 @@ namespace cacatUA
             peticiones.ContestarPeticion(pet.Id);
             
             pet.Respuesta = richTextBox_envPetRespuesta.Text;
-            ENPeticion.ActualizarPeticion(pet);
+            pet.Actualizar();
             Close();
         }
 
