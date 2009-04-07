@@ -120,7 +120,7 @@ namespace Libreria
             return error;
         }
         
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             bool correcto = true;
             ENMaterial aux = MaterialCAD.Instancia.obtener(id);

@@ -53,7 +53,7 @@ namespace Libreria
 
 
         //Metodos heredados de InterfazEN
-        public override bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENCategoria aux = ObtenerCategoria(id);
             if (aux != null)

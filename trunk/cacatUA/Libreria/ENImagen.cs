@@ -54,7 +54,7 @@ namespace Libreria
             return ImagenCAD.Instancia.ObtenerImagenes();
         }
 
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENImagen aux = new ENImagen();
             ImagenCAD.Instancia.ObtenerImagen(id);

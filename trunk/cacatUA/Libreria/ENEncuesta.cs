@@ -52,7 +52,7 @@ namespace Libreria
             return EncuestaCAD.Instancia.ObtenerEncuestas();
         }
 
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENEncuesta aux = new ENEncuesta();
             EncuestaCAD.Instancia.ObtenerEncuesta(id);

@@ -56,7 +56,7 @@ namespace Libreria
             return MensajeCAD.Instancia.ObtenerMensajes();
         }
 
-        override public bool Obtener(int id)
+        public bool Obtener(int id)
         {
             ENMensaje aux = new ENMensaje();
             MensajeCAD.Instancia.ObtenerMensaje(id);
