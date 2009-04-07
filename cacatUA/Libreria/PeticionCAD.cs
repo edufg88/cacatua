@@ -137,5 +137,96 @@ namespace Libreria
                 SqlDataReader reader = comando.ExecuteReader();
             }
         }
+
+        public static ArrayList Obtener(string asunto,string texto,int usuario)
+        {
+            ArrayList peticiones = null;
+
+            
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                // Componemos la cadena de la sentencia.
+                string sentencia = "select * from peticiones";
+                string condiciones = "";
+
+                if (asunto != "")
+                {
+                    if (condiciones == "")
+                    {
+                        condiciones += " where asunto like '%" + @asunto + "%'";
+                    }
+                    else
+                    {
+                        condiciones += " and asunto like '%" + @asunto + "%'";
+                    }
+                }
+                if (texto != "")
+                {
+                    if (condiciones == "")
+                    {
+                        condiciones += " where texto like '%" + @texto + "%'";
+                    }
+                    else
+                    {
+                        condiciones += " and texto like '%" + @texto + "%'";
+                    }
+                }
+                if (usuario != 0)
+                {
+                    if (condiciones == "")
+                    {
+                        condiciones += " where usuario="+@usuario;
+                    }
+                    else
+                    {
+                        condiciones += " and usuario="+@usuario;
+                    }
+                }
+
+                sentencia = sentencia + condiciones;
+                Console.WriteLine(sentencia);
+                // Asignamos la cadena de sentencia y establecemos los parámetros.
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+
+                if (asunto != "")
+                    comando.Parameters.AddWithValue("@asunto", asunto);
+
+                if (asunto != "")
+                    comando.Parameters.AddWithValue("@texto", texto);
+
+                if (asunto != "")
+                    comando.Parameters.AddWithValue("@usuario", usuario);
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Insertamos todas las filas extraidas en el vector.
+                peticiones = new ArrayList();
+                while (dataReader.Read())
+                {
+                    ENPeticion peticion = obtenerDatos(dataReader);
+                    peticiones.Add(peticion);
+                }
+
+                // Cerramos la consulta.
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ArrayList Peticion.Obtener() " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return peticiones;
+        }
     }
 }

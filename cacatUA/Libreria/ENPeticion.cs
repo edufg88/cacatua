@@ -92,5 +92,10 @@ namespace Libreria
         {
             PeticionCAD.BorrarPeticion(id);
         }
+
+        public static ArrayList Obtener(string asunto, string texto, int usuario)
+        {
+            return PeticionCAD.Obtener(asunto, texto, usuario);
+        }
     }
 }
