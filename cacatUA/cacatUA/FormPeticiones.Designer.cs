@@ -80,6 +80,11 @@
             this.tableLayoutPanel35 = new System.Windows.Forms.TableLayoutPanel();
             this.label_resultadosPeticionAnt = new System.Windows.Forms.Label();
             this.dataGridView_Anteriores = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asunto1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
             this.label_peticionSeleccionadaAnt = new System.Windows.Forms.Label();
             this.richTextBox12 = new System.Windows.Forms.RichTextBox();
@@ -223,11 +228,6 @@
             this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asunto1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTitulo.SuspendLayout();
             this.panelFondo.SuspendLayout();
             this.tabControl_peticiones.SuspendLayout();
@@ -871,6 +871,38 @@
             this.dataGridView_Anteriores.ReadOnly = true;
             this.dataGridView_Anteriores.Size = new System.Drawing.Size(786, 98);
             this.dataGridView_Anteriores.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // Asunto1
+            // 
+            this.Asunto1.HeaderText = "Asunto";
+            this.Asunto1.Name = "Asunto1";
+            this.Asunto1.ReadOnly = true;
+            // 
+            // Fecha1
+            // 
+            this.Fecha1.HeaderText = "Fecha";
+            this.Fecha1.Name = "Fecha1";
+            this.Fecha1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn12.HeaderText = "Mensaje";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // Id1
+            // 
+            this.Id1.HeaderText = "Id";
+            this.Id1.Name = "Id1";
+            this.Id1.ReadOnly = true;
+            this.Id1.Visible = false;
             // 
             // tableLayoutPanel36
             // 
@@ -2443,38 +2475,6 @@
             this.button17.TabIndex = 1;
             this.button17.Text = "Borrar";
             this.button17.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // Asunto1
-            // 
-            this.Asunto1.HeaderText = "Asunto";
-            this.Asunto1.Name = "Asunto1";
-            this.Asunto1.ReadOnly = true;
-            // 
-            // Fecha1
-            // 
-            this.Fecha1.HeaderText = "Fecha";
-            this.Fecha1.Name = "Fecha1";
-            this.Fecha1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Mensaje";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // Id1
-            // 
-            this.Id1.HeaderText = "Id";
-            this.Id1.Name = "Id1";
-            this.Id1.ReadOnly = true;
-            this.Id1.Visible = false;
             // 
             // FormPeticiones
             // 
