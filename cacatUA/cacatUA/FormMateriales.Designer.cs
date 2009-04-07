@@ -157,7 +157,6 @@
             this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_idioma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1445,7 +1444,6 @@
             this.dataGridViewTextBoxColumn_categoria,
             this.dataGridViewTextBoxColumn_usuario,
             this.dataGridViewTextBoxColumn_fecha,
-            this.dataGridViewTextBoxColumn_idioma,
             this.dataGridViewTextBoxColumn_tamaño,
             this.dataGridViewTextBoxColumn_descargas,
             this.dataGridViewTextBoxColumn_valoracion});
@@ -1497,12 +1495,6 @@
             this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
             this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn_idioma
-            // 
-            this.dataGridViewTextBoxColumn_idioma.HeaderText = "Idioma";
-            this.dataGridViewTextBoxColumn_idioma.Name = "dataGridViewTextBoxColumn_idioma";
-            this.dataGridViewTextBoxColumn_idioma.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn_tamaño
             // 
@@ -1695,16 +1687,15 @@
         private System.Windows.Forms.Label label_seccion2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataGridView_materiales;
+        private System.Windows.Forms.Panel panel_contenido;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_idioma;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_tamaño;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_descargas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_valoracion;
-        private System.Windows.Forms.Panel panel_contenido;
     }
 }

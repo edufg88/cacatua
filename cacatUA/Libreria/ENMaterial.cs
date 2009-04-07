@@ -28,7 +28,6 @@ namespace Libreria
         private string archivo;
         private int tamaño;
         private int descargas;
-        private string idioma;
         private int puntuacion;
         private int votos;
         private string referencia;
@@ -47,7 +46,6 @@ namespace Libreria
             archivo = "";
             tamaño = 0;
             descargas = 0;
-            idioma = "";
             puntuacion = 0;
             votos = 0;
             referencia = "";
@@ -141,7 +139,6 @@ namespace Libreria
                 this.archivo = aux.archivo;
                 this.tamaño = aux.tamaño;
                 this.descargas = aux.descargas;
-                this.idioma = aux.idioma;
                 this.puntuacion = aux.puntuacion;
                 this.votos = aux.votos;
                 this.referencia = aux.referencia;
@@ -249,12 +246,6 @@ namespace Libreria
         {
             get { return descargas; }
             set { descargas = value; }
-        }
-
-        public string Idioma
-        {
-            get { return idioma; }
-            set { idioma = value; }
         }
 
         public int Puntuacion
