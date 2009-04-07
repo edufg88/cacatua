@@ -132,14 +132,16 @@ namespace cacatUA
                         MessageBox.Show("Error al borrar categoria.");
                     }
                 }
+                textBox_Descripcion.Clear();
+                textBox_Nombre.Clear();
+                textBox_Ruta.Clear();
+
                 FormCategorias_Load(sender, e);
             }           
         }
 
         private void button_Guardar_Click(object sender, EventArgs e)
         {
-            //Activar/Desactivar controles
-            DesactivarEdicion();
 
             //Comprobar accion a realizar
             if (estado == 1)
@@ -173,10 +175,12 @@ namespace cacatUA
                     padre = enrutada.Id;
                 }
 
-                ENCategoria nCategoria = new ENCategoria(0, textBox_Nombre.Text, textBox_Descripcion.Text, padre);
+
+                ENCategoria nCategoria = new ENCategoria(textBox_Nombre.Text, textBox_Descripcion.Text, padre);
 
                 if (nCategoria.Guardar())
                 {
+                    
                     MessageBox.Show("Categoria creada correctamente.");
                 }
                 else
@@ -185,7 +189,11 @@ namespace cacatUA
                 }
             }
 
-            enrutada = null;
+            //Activar/Desactivar controles
+            DesactivarEdicion();
+
+            enrutada = new ENCategoria();
+            estado = 0;
             FormCategorias_Load(sender, e);
         }
 
@@ -194,50 +202,33 @@ namespace cacatUA
             //Activar/Desactivar controles
             DesactivarEdicion();
 
-            if (estado != 1)
-            {
-                textBox_Descripcion.Clear();
-                textBox_Nombre.Clear();
-            }
-
-            enrutada = null;
+            enrutada = new ENCategoria();
+            estado = 0;
 
             //Pasar el foco al arbol
-            treeViewCategorias.Focus();
+            textBox_Descripcion.Text = seleccionada.Descripcion;
+            textBox_Nombre.Text = seleccionada.Nombre;
+            textBox_Ruta.Text = seleccionada.Ruta();
 
-        }
-
-        private void button_Hilos_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button_Materiales_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button_verUsuario_Click(object sender, EventArgs e)
-        {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a las categorías", "");
         }
 
         private void ActivarEdicion()
         {
             textBox_Descripcion.ReadOnly = false;
             textBox_Nombre.ReadOnly = false;
-            textBox_Ruta.ReadOnly = false;
+            textBox_Ruta.BackColor = SystemColors.Window;
             button_Guardar.Visible = true;
             button_noGuardar.Visible = true;
-            button_seleccionarCategoria.Visible = true;
         }
-
+        
         private void DesactivarEdicion()
         {
             textBox_Descripcion.ReadOnly = true;
             textBox_Nombre.ReadOnly = true;
             textBox_Ruta.ReadOnly = true;
+            textBox_Ruta.BackColor = SystemColors.Control;
             button_Guardar.Visible = false;
             button_noGuardar.Visible = false;
-            button_seleccionarCategoria.Visible = false;
         }
 
         //Heredado de InterfazForm
@@ -270,6 +261,16 @@ namespace cacatUA
                     }
                 }
             }
+        }
+
+        private void linkLabel_verHilos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormForo(), "Viendo hilos", true, false, "Volver a las categorías", "");
+        }
+
+        private void button_verUsuario_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a las categorías", "");
         }
     }
 }
