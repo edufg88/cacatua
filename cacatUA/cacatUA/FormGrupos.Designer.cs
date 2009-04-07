@@ -126,7 +126,7 @@
             this.button_borrar.Tag = "";
             this.toolTip1.SetToolTip(this.button_borrar, "Borrar grupo seleccionado");
             this.button_borrar.UseVisualStyleBackColor = true;
-            this.button_borrar.ClientSizeChanged += new System.EventHandler(this.button_borrar_Click);
+            this.button_borrar.Click += new System.EventHandler(this.button_borrar_Click);
             // 
             // dataGridView_resultados
             // 
@@ -231,7 +231,7 @@
             this.panel_contenedor.Margin = new System.Windows.Forms.Padding(0);
             this.panel_contenedor.Name = "panel_contenedor";
             this.panel_contenedor.Size = new System.Drawing.Size(860, 240);
-            this.panel_contenedor.TabIndex = 105;
+            this.panel_contenedor.TabIndex = 1;
             // 
             // panel_cabeceraSeccion1
             // 
