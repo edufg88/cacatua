@@ -95,7 +95,7 @@ namespace cacatUA
                 if (objeto is ENCategoria)
                 {
                     categoria = (ENCategoria)objeto;
-                    textBox_categoria.Text = categoria.Nombre;
+                    textBox_categoria.Text = categoria.NombreCompleto();
                 }
                 else
                 {

@@ -30,7 +30,7 @@ namespace cacatUA
                 textBox_texto.Text = hilo.Texto;
                 textBox_titulo.Text = hilo.Titulo;
                 textBox_autor.Text = hilo.Autor.Usuario.ToString();
-                textBox_categoria.Text = hilo.Categoria.Nombre.ToString();
+                textBox_categoria.Text = hilo.Categoria.NombreCompleto().ToString();
                 dateTimePicker_fecha.Value = hilo.Fecha;
                 textBox_respuestas.Text = hilo.NumRespuestas.ToString();
                 linkLabel_respuestas.Enabled = true;
@@ -212,7 +212,7 @@ namespace cacatUA
                 if (objeto is ENCategoria)
                 {
                     categoria = (ENCategoria)objeto;
-                    textBox_categoria.Text = categoria.Nombre;
+                    textBox_categoria.Text = categoria.NombreCompleto();
                 }
                 else
                 {
