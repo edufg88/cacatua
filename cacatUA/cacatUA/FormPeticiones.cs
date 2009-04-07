@@ -29,7 +29,7 @@ namespace cacatUA
             {
                 fila= new DataGridViewRow();
                 fila.CreateCells(dataGridView_Anteriores);
-                fila.Cells[0].Value = p.Usuario;
+                fila.Cells[0].Value = p.Usuario.Usuario;
                 fila.Cells[1].Value = p.Asunto;
                 fila.Cells[2].Value = p.Fecha;
                 fila.Cells[3].Value = p.Texto;
@@ -47,7 +47,7 @@ namespace cacatUA
             {
                 fila = new DataGridViewRow();
                 fila.CreateCells(dataGridViewRecientes);
-                fila.Cells[0].Value = p.Usuario;
+                fila.Cells[0].Value = p.Usuario.Usuario;
                 fila.Cells[1].Value = p.Asunto;
                 fila.Cells[2].Value = p.Fecha;
                 fila.Cells[3].Value = p.Texto;
