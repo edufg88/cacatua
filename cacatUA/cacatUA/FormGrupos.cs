@@ -19,25 +19,23 @@ namespace cacatUA
         public FormGrupos()
         {
             InitializeComponent();
-            formEdicion = new FormGruposEdicion();
+            formEdicion = new FormGruposEdicion(this);
             formBusqueda = new FormGruposBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
             Busqueda();
-            
-
         }
         /// <summary>
         /// Función para ver solo las opciones de búsqueda
         /// </summary>
         private void Busqueda()
         {
-            Resultado = ENGrupos.Obtener();
+            Actualizar();
             label_seccion1.Text = "Búsqueda";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formBusqueda);
-            tableLayoutPanel_principal.RowStyles[2].Height = formBusqueda.Height;
+            tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
         }
 
         /// <summary>
@@ -48,7 +46,7 @@ namespace cacatUA
             label_seccion1.Text = "Edición";
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formEdicion);
-            tableLayoutPanel_principal.RowStyles[2].Height = formEdicion.Height;
+            tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
         }
 
         public ArrayList Resultado
@@ -71,7 +69,11 @@ namespace cacatUA
                 }
             }
         }
-        
+
+        public void Actualizar()
+        {
+            Resultado = ENGrupos.Obtener();
+        }
 
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {

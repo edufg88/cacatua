@@ -13,13 +13,23 @@ namespace cacatUA
 {
     public partial class FormGruposEdicion : UserControl
     {
-        public FormGruposEdicion()
+        ENGrupos grupo;
+        private ArrayList borrados = null;
+        private ArrayList insertados = null;
+        private FormGrupos formularioPadre = null;
+
+        public FormGruposEdicion(FormGrupos formularioPadre)
         {
+            this.formularioPadre = formularioPadre;
             InitializeComponent();
+            borrados = new ArrayList();
+            insertados = new ArrayList();
         }
 
         public void Nuevo()
         {
+            borrados.Clear();
+            insertados.Clear();
             textBox_nombre.Text = "";
             textBox_id.Text = "";
             textBox_descripcion.Text = "";
@@ -31,8 +41,10 @@ namespace cacatUA
 
         public void Editar(int id)
         {
+            borrados.Clear();
+            insertados.Clear();
             listBox_usuarios.Items.Clear();
-            ENGrupos grupo = new ENGrupos(id);
+            grupo = ENGrupos.Obtener(id);
             textBox_nombre.Text = grupo.Nombre;
             textBox_id.Text = grupo.Id.ToString();
             textBox_descripcion.Text = grupo.Descripcion;
@@ -85,6 +97,7 @@ namespace cacatUA
 
         private void button_guardar_Click(object sender, EventArgs e)
         {
+            bool error=false;
             if (ValidarFormulario())
             {
                 ArrayList usuarios = new ArrayList();
@@ -101,7 +114,23 @@ namespace cacatUA
                 {
                     if (grupo.Guardar())
                     {
-                        MessageBox.Show("Grupo creado correctamente", "Ventana de Información");
+                        if (insertados.Count != 0)
+                        {
+                            foreach (ENUsuario ob in insertados)
+                            {
+                                if (!grupo.InsertarMiembro(ob.Id))
+                                {
+                                    MessageBox.Show("Error al borrar algun miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    error = true;
+                                    break;
+                                }
+                            }
+                            if (!error)
+                            {
+                                MessageBox.Show("Grupo creado correctamente", "Ventana de Información");
+                                formularioPadre.Actualizar();
+                            }
+                        }
                     }
                     else
                     {
@@ -113,7 +142,23 @@ namespace cacatUA
                     grupo.Id = int.Parse(textBox_id.Text);
                     if (grupo.Actualizar())
                     {
-                        MessageBox.Show("Grupo editado correctamente", "Ventana de Información");
+                        if (borrados.Count != 0)
+                        {
+                            foreach (ENUsuario ob in borrados)
+                            {
+                                if(!grupo.BorrarMiembro(ob.Id))
+                                {
+                                    MessageBox.Show("Error al borrar algun miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    error=true;
+                                    break;
+                                }
+                            }
+                            if (!error)
+                            {
+                                MessageBox.Show("Grupo editado correctamente", "Ventana de Información");
+                                formularioPadre.Actualizar();
+                            }
+                        }
                     }
                     else
                     {
@@ -127,21 +172,15 @@ namespace cacatUA
         {
             if (listBox_usuarios.SelectedItem != null)
             {
-                ENGrupos grupo = new ENGrupos(int.Parse(textBox_id.Text));
+                string usuario = listBox_usuarios.SelectedItem.ToString();
+                grupo = ENGrupos.Obtener(int.Parse(textBox_id.Text));
                 foreach (ENUsuario ob in grupo.Usuarios)
                 {
-                    if (ob.Usuario == listBox_usuarios.SelectedItem.ToString())
+                    if (ob.Usuario == usuario)
                     {
-                        if (grupo.BorrarMiembro(ob.Id))
-                        {
-                            MessageBox.Show("Miembro del grupo borrado correctamente", "Ventana de Información");
-                            break;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error al borrar el miembro del grupo", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
-                        }
+                        borrados.Add(ob);
+                        listBox_usuarios.Items.Remove(ob.Usuario);
+                        activarBotones();
                     }
                 }
             }
@@ -183,6 +222,8 @@ namespace cacatUA
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
+            //insertados.Add(usuario);
+            //listBox_usuarios.Items.Add();
         }
     }
 }

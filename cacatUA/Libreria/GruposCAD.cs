@@ -456,7 +456,7 @@ namespace Libreria
                 // Creamos el comando
                 /*string fechadesde=grupo.Fecha.ToShortDateString();
                 string fechahasta = fechafin.ToShortDateString();*/
-                string comand="SELECT id,nombre,descripcion,fecha FROM grupos,miembros WHERE id=grupo and fecha between @fechainicio and @fechafin";
+                string comand="SELECT id,nombre,descripcion,fecha FROM grupos LEFT OUTER JOIN miembros ON id=grupo WHERE fecha between @fechainicio and @fechafin";
                 if (grupo.Nombre != "")
                 {
                     comand+=" AND nombre like'%"+@grupo.Nombre+"%'";
@@ -467,12 +467,13 @@ namespace Libreria
                 }
                 if (max!=0 && min == max )
                 {
-                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE GROUP BY grupo) = @min";
+                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) = @min";
                 }
                 else if(max!=0)
                 {
-                    comand+=" AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) BETWEEN @min AND @max";
+                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) BETWEEN @min AND @max";
                 }
+                comand += " GROUP BY id,nombre,descripcion,fecha";
                 SqlCommand comando = new SqlCommand(comand, conexion);
                 comando.Parameters.AddWithValue("@fechainicio", grupo.Fecha);
                 comando.Parameters.AddWithValue("@fechafin", fechafin);
