@@ -70,32 +70,32 @@ namespace Libreria
 
         public static ArrayList GetSinContestar()
         {
-            return PeticionCAD.GetSinContestar();
+            return PeticionCAD.Instancia.GetSinContestar();
         }
 
         public static ArrayList GetContestadas()
         {
-            return PeticionCAD.GetContestadas();
+            return PeticionCAD.Instancia.GetContestadas();
         }
 
         public static ENPeticion GetPeticion(int id)
         {
-            return PeticionCAD.GetPeticion(id);
+            return PeticionCAD.Instancia.GetPeticion(id);
         }
 
         public static bool ActualizarPeticion(ENPeticion p)
         {
-            return PeticionCAD.ActualizarPeticion(p);
+            return PeticionCAD.Instancia.ActualizarPeticion(p);
         }
 
         public static void BorrarPeticion(int id)
         {
-            PeticionCAD.BorrarPeticion(id);
+            PeticionCAD.Instancia.BorrarPeticion(id);
         }
 
         public static ArrayList Obtener(string asunto, string texto, int usuario)
         {
-            return PeticionCAD.Obtener(asunto, texto, usuario);
+            return PeticionCAD.Instancia.Obtener(asunto, texto, usuario);
         }
     }
 }
