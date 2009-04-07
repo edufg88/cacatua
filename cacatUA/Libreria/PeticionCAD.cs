@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace Libreria
 {
-    sealed class PeticionCAD
+    sealed class PeticionCAD 
     {
 
         private static readonly PeticionCAD instancia = new PeticionCAD();
@@ -27,7 +27,7 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
-        public static ArrayList GetSinContestar()
+        public ArrayList GetSinContestar()
         {
             ArrayList peticiones = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -47,7 +47,7 @@ namespace Libreria
             return peticiones;
         }
 
-        private static ENPeticion obtenerDatos(SqlDataReader reader)
+        private ENPeticion obtenerDatos(SqlDataReader reader)
         {
             ENPeticion peticion = new ENPeticion();
             peticion.Id = int.Parse(reader["id"].ToString());
@@ -61,7 +61,7 @@ namespace Libreria
             return peticion;
         }
 
-        public static ArrayList GetContestadas()
+        public ArrayList GetContestadas()
         {
             ArrayList peticiones = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -81,7 +81,7 @@ namespace Libreria
             return peticiones;
         }
 
-        public static ENPeticion GetPeticion(int id)
+        public ENPeticion GetPeticion(int id)
         {
             ENPeticion peticion = new ENPeticion();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -102,7 +102,7 @@ namespace Libreria
             return peticion;
         }
 
-        public static bool ActualizarPeticion(ENPeticion peticion)
+        public bool ActualizarPeticion(ENPeticion peticion)
         {
             int resultado = 0;
             bool actualizada = false;
@@ -126,7 +126,7 @@ namespace Libreria
             return actualizada;
         }
 
-        public static void BorrarPeticion(int id)
+        public void BorrarPeticion(int id)
         {
             ENPeticion peticion = new ENPeticion();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -140,7 +140,7 @@ namespace Libreria
             }
         }
 
-        public static ArrayList Obtener(string asunto,string texto,int usuario)
+        public ArrayList Obtener(string asunto,string texto,int usuario)
         {
             ArrayList peticiones = null;
 
