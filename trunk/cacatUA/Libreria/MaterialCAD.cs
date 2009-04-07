@@ -56,16 +56,14 @@ namespace Libreria
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "Materiales(nombre,descripcion,usuario,categoria,archivo,tamaño,idioma,referencia) " +
-                    "VALUES (@nombre,@descripcion,@usuario,@categoria,@archivo,@tamaño,@idioma,@referencia)";
+                    "Materiales(nombre,descripcion,usuario,categoria,archivo,tamaño,referencia) " +
+                    "VALUES (@nombre,@descripcion,@usuario,@categoria,@archivo,@tamaño,@referencia)";
                 comando.Parameters.AddWithValue("@nombre", material.Nombre);
                 comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
                 comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
-                //comando.Parameters.AddWithValue("@usuario", getIdUsuario(material.Usuario));
                 comando.Parameters.AddWithValue("@categoria", getIdCategoria(material.Categoria));
                 comando.Parameters.AddWithValue("@archivo", material.Archivo);
                 comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
-                comando.Parameters.AddWithValue("@idioma", material.Idioma);
                 comando.Parameters.AddWithValue("@referencia", material.Referencia);
                 if (comando.ExecuteNonQuery() == 1)
                     correcto = true;
@@ -90,14 +88,6 @@ namespace Libreria
             {
                 conexion.Open();
                 string cadenaComando = "SELECT * FROM vistaMateriales";
-               /*
-                string cadenaComando = "select materiales.*,count(*) votos, avg(puntuacion)valoracion "
-                    + "from materiales, materialesvotos where materiales.id = materialesvotos.material "
-                    + "group by materiales.id, materiales.nombre,materiales.descripcion,materiales.fecha,materiales.usuario,"
-                    + "materiales.categoria,materiales.archivo,materiales.tamaño,materiales.descargas,materiales.idioma,"
-                    + "materiales.referencia";
-                */
-                //string cadenaComando = "select * from materiales";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list objetos del tipo ENMaterialCRUD
@@ -130,7 +120,7 @@ namespace Libreria
                 Console.WriteLine("nombre: " + filtroBusqueda);
                 string cadenaComando = "SELECT * FROM vistaMateriales WHERE "
                     + "(nombre like @nombre or descripcion like @descripcion) ";
-                if (usuario.Nombre != "")
+                if (usuario != null && usuario.Nombre != "")
                     cadenaComando += "and usuario = @usuario ";
                 if (categoria != "")
                     cadenaComando += "and categoria = @categoria";
@@ -145,7 +135,8 @@ namespace Libreria
                 comando.CommandText = cadenaComando;
                 comando.Parameters.AddWithValue("@nombre","%" + filtroBusqueda + "%");
                 comando.Parameters.AddWithValue("@descripcion","%" + filtroBusqueda + "%");
-                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                if(usuario != null)
+                    comando.Parameters.AddWithValue("@usuario", usuario.Id);
                 comando.Parameters.AddWithValue("@categoria", getIdCategoria(categoria));
 
                 Console.WriteLine(comando.CommandText);
@@ -244,20 +235,15 @@ namespace Libreria
             material.Descripcion = reader["descripcion"].ToString();
             //material.Fecha = reader["fecha"].ToString();
             material.Usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
-            //material.Usuario = reader["usuario"].ToString();
             material.Categoria = reader["categoria"].ToString();
             material.Archivo = reader["archivo"].ToString();
             material.Tamaño = int.Parse(reader["tamaño"].ToString());
             material.Descargas = int.Parse(reader["descargas"].ToString());
-            material.Idioma = reader["idioma"].ToString();
             material.Puntuacion = int.Parse(reader["puntuacion"].ToString());
             material.Votos = int.Parse(reader["votos"].ToString());
             material.Referencia = reader["referencia"].ToString();
             return material;
         }
-
-
-
 
         public ENMaterial obtener(int id)
         {

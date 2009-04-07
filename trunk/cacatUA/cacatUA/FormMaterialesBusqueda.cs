@@ -25,16 +25,16 @@ namespace cacatUA
         {
             bool error = false;
             errorProvider1.Clear();
+            ENUsuario usuario = null;
             // Obtenemos los datos introducidos por el usuario
             try
             {
-                /*
                 string str_usuario = textBox_usuario.Text;
                 if (str_usuario != "")
                 {
                     // Comprobamos si el usuario es válido
-                    ENUsuario usuario = new ENUsuario();
-                    if (usuario.Id == 0)
+                    usuario = ENUsuario.ObtenerPorNombre(str_usuario);
+                    if(usuario == null)
                     {
                         error = true;
                         errorProvider1.SetError(textBox_usuario, "Usuario no válido");
@@ -49,7 +49,6 @@ namespace cacatUA
                     ArrayList materiales = ENMaterial.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
                     formularioPadre.mostrarMateriales(materiales);
                 }
-                 */
             }
             catch (Exception ex)
             {

@@ -56,15 +56,13 @@ namespace cacatUA
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_fecha"].Index;
                 fila.Cells[posicion].Value = material.Fecha.ToUniversalTime();
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_usuario"].Index;
-                fila.Cells[posicion].Value = material.Usuario.Nombre;
+                fila.Cells[posicion].Value = material.Usuario.Usuario;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_categoria"].Index;
                 fila.Cells[posicion].Value = material.Categoria;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_tamaño"].Index;
                 fila.Cells[posicion].Value = material.Tamaño;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargas"].Index;
                 fila.Cells[posicion].Value = material.Descargas;
-                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_idioma"].Index;
-                fila.Cells[posicion].Value = material.Idioma;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_valoracion"].Index;
                 fila.Cells[posicion].Value = material.Puntuacion;                               
                 dataGridView_materiales.Rows.Add(fila);
