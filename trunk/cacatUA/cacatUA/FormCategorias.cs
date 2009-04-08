@@ -125,6 +125,7 @@ namespace cacatUA
                 {
                     if (seleccionada.Borrar())
                     {
+                        treeViewCategorias.Nodes.Remove(treeViewCategorias.SelectedNode);
                         MessageBox.Show("Categoria borrada correctamente.");
                     }
                     else
@@ -135,8 +136,6 @@ namespace cacatUA
                 textBox_Descripcion.Clear();
                 textBox_Nombre.Clear();
                 textBox_Ruta.Clear();
-
-                FormCategorias_Load(sender, e);
             }           
         }
 
