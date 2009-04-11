@@ -28,978 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuarioEdicion));
             this.tableLayoutPanel_formEdicion = new System.Windows.Forms.TableLayoutPanel();
-            this.tabControl_usuario = new System.Windows.Forms.TabControl();
-            this.tabPage_datos = new System.Windows.Forms.TabPage();
-            this.checkBox_esAdmin = new System.Windows.Forms.CheckBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button_descartarCambios = new System.Windows.Forms.Button();
+            this.button_guardarCambios = new System.Windows.Forms.Button();
+            this.panel_usuarioEdicion = new System.Windows.Forms.Panel();
+            this.textBox_id = new System.Windows.Forms.TextBox();
+            this.label_id = new System.Windows.Forms.Label();
+            this.linkLabel_verEncuestas = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_verMensajes = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_verImagenes = new System.Windows.Forms.LinkLabel();
+            this.linkLabel_verFirmas = new System.Windows.Forms.LinkLabel();
+            this.textBox_numEncuestas = new System.Windows.Forms.TextBox();
+            this.textBox_numMensajes = new System.Windows.Forms.TextBox();
+            this.textBox_numImagenes = new System.Windows.Forms.TextBox();
+            this.textBox_numFirmas = new System.Windows.Forms.TextBox();
+            this.label_numEncuestas = new System.Windows.Forms.Label();
+            this.label_numMensajes = new System.Windows.Forms.Label();
+            this.label_numImagenes = new System.Windows.Forms.Label();
+            this.label_numFirmas = new System.Windows.Forms.Label();
+            this.textBox_adicional = new System.Windows.Forms.TextBox();
+            this.label_adicional = new System.Windows.Forms.Label();
+            this.textBox_contrasena = new System.Windows.Forms.TextBox();
+            this.label_contrasena = new System.Windows.Forms.Label();
+            this.textBox_dni = new System.Windows.Forms.TextBox();
+            this.label_dni = new System.Windows.Forms.Label();
+            this.checkBox_activo = new System.Windows.Forms.CheckBox();
+            this.textBox_usuario = new System.Windows.Forms.TextBox();
+            this.label_usuario = new System.Windows.Forms.Label();
+            this.checkBox_administrador = new System.Windows.Forms.CheckBox();
             this.dateTimePicker_fechaDeIngreso = new System.Windows.Forms.DateTimePicker();
             this.label_fechaDeIngreso = new System.Windows.Forms.Label();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.label_email = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label_datosDeUsuario = new System.Windows.Forms.Label();
             this.label_nombre = new System.Windows.Forms.Label();
-            this.tabPage_firmas = new System.Windows.Forms.TabPage();
-            this.splitContainer_firmas = new System.Windows.Forms.SplitContainer();
-            this.dataGridView_firmas = new System.Windows.Forms.DataGridView();
-            this.idfirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emisorfirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textofirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechafirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receptorfirma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_borrarFirma = new System.Windows.Forms.Button();
-            this.button_editarFirma = new System.Windows.Forms.Button();
-            this.radioButton_recibidasPorUsuario = new System.Windows.Forms.RadioButton();
-            this.radioButton_realizadasPorUsuario = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker_fechaFirma = new System.Windows.Forms.DateTimePicker();
-            this.button_buscarFirma = new System.Windows.Forms.Button();
-            this.textBox_autorFirma = new System.Windows.Forms.TextBox();
-            this.label_buscarFirmaPorAutor = new System.Windows.Forms.Label();
-            this.label_buscarFirmaPorFecha = new System.Windows.Forms.Label();
-            this.label_firmasDeUsuario = new System.Windows.Forms.Label();
-            this.tabPage_galeria = new System.Windows.Forms.TabPage();
-            this.splitContainer_galeria = new System.Windows.Forms.SplitContainer();
-            this.dataGridView_galeria = new System.Windows.Forms.DataGridView();
-            this.idimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tituloimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuarioimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.archivoimagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button_borrarGaleria = new System.Windows.Forms.Button();
-            this.button_editarGaleria = new System.Windows.Forms.Button();
-            this.textBox_tituloGaleria = new System.Windows.Forms.TextBox();
-            this.textBox_autorGaleria = new System.Windows.Forms.TextBox();
-            this.label_buscarGaleriaPorTitulo = new System.Windows.Forms.Label();
-            this.dateTimePicker_fechaGaleria = new System.Windows.Forms.DateTimePicker();
-            this.button_buscarGaleria = new System.Windows.Forms.Button();
-            this.label_buscarGaleriaPorAutor = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label_fotosDeUsuario = new System.Windows.Forms.Label();
-            this.tabPage_mensajes = new System.Windows.Forms.TabPage();
-            this.radioButton_recibidosPorUsuario = new System.Windows.Forms.RadioButton();
-            this.radioButton_enviadosPorUsuario = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker_fechaMensaje = new System.Windows.Forms.DateTimePicker();
-            this.textBox_autorMensaje = new System.Windows.Forms.TextBox();
-            this.label_buscarAutorPorMensaje = new System.Windows.Forms.Label();
-            this.label_buscarMensajePorFecha = new System.Windows.Forms.Label();
-            this.splitContainer_mensajes = new System.Windows.Forms.SplitContainer();
-            this.dataGridView_mensajes = new System.Windows.Forms.DataGridView();
-            this.button_borrarMensaje = new System.Windows.Forms.Button();
-            this.button_editarMensaje = new System.Windows.Forms.Button();
-            this.button_buscarMensaje = new System.Windows.Forms.Button();
-            this.label_mensajesDeUsuario = new System.Windows.Forms.Label();
-            this.tabPage_encuestas = new System.Windows.Forms.TabPage();
-            this.splitContainer_encuestas = new System.Windows.Forms.SplitContainer();
-            this.dataGridView_encuestas = new System.Windows.Forms.DataGridView();
-            this.button_editarEncuesta = new System.Windows.Forms.Button();
-            this.button_borrarEncuesta = new System.Windows.Forms.Button();
-            this.textBox_asuntoEncuesta = new System.Windows.Forms.TextBox();
-            this.label_buscarEncuestaPorAsunto = new System.Windows.Forms.Label();
-            this.button_buscarEncuesta = new System.Windows.Forms.Button();
-            this.dateTimePicker_fechaEncuesta = new System.Windows.Forms.DateTimePicker();
-            this.label_buscarEncuestaPorFecha = new System.Windows.Forms.Label();
-            this.label_encuestasDeUsuario = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button_descartarCambios = new System.Windows.Forms.Button();
-            this.button_guardarCambios = new System.Windows.Forms.Button();
             this.tableLayoutPanel_formEdicion.SuspendLayout();
-            this.tabControl_usuario.SuspendLayout();
-            this.tabPage_datos.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabPage_firmas.SuspendLayout();
-            this.splitContainer_firmas.Panel1.SuspendLayout();
-            this.splitContainer_firmas.Panel2.SuspendLayout();
-            this.splitContainer_firmas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_firmas)).BeginInit();
-            this.tabPage_galeria.SuspendLayout();
-            this.splitContainer_galeria.Panel1.SuspendLayout();
-            this.splitContainer_galeria.Panel2.SuspendLayout();
-            this.splitContainer_galeria.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_galeria)).BeginInit();
-            this.tabPage_mensajes.SuspendLayout();
-            this.splitContainer_mensajes.Panel1.SuspendLayout();
-            this.splitContainer_mensajes.Panel2.SuspendLayout();
-            this.splitContainer_mensajes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_mensajes)).BeginInit();
-            this.tabPage_encuestas.SuspendLayout();
-            this.splitContainer_encuestas.Panel1.SuspendLayout();
-            this.splitContainer_encuestas.Panel2.SuspendLayout();
-            this.splitContainer_encuestas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_encuestas)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel_usuarioEdicion.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_formEdicion
             // 
             this.tableLayoutPanel_formEdicion.ColumnCount = 1;
             this.tableLayoutPanel_formEdicion.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel_formEdicion.Controls.Add(this.tabControl_usuario, 0, 0);
             this.tableLayoutPanel_formEdicion.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel_formEdicion.Controls.Add(this.panel_usuarioEdicion, 0, 0);
             this.tableLayoutPanel_formEdicion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_formEdicion.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_formEdicion.Name = "tableLayoutPanel_formEdicion";
             this.tableLayoutPanel_formEdicion.RowCount = 2;
             this.tableLayoutPanel_formEdicion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.42065F));
-            this.tableLayoutPanel_formEdicion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel_formEdicion.Size = new System.Drawing.Size(765, 398);
+            this.tableLayoutPanel_formEdicion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.tableLayoutPanel_formEdicion.Size = new System.Drawing.Size(765, 325);
             this.tableLayoutPanel_formEdicion.TabIndex = 0;
-            // 
-            // tabControl_usuario
-            // 
-            this.tabControl_usuario.Controls.Add(this.tabPage_datos);
-            this.tabControl_usuario.Controls.Add(this.tabPage_firmas);
-            this.tabControl_usuario.Controls.Add(this.tabPage_galeria);
-            this.tabControl_usuario.Controls.Add(this.tabPage_mensajes);
-            this.tabControl_usuario.Controls.Add(this.tabPage_encuestas);
-            this.tabControl_usuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl_usuario.Location = new System.Drawing.Point(3, 3);
-            this.tabControl_usuario.Name = "tabControl_usuario";
-            this.tabControl_usuario.SelectedIndex = 0;
-            this.tabControl_usuario.Size = new System.Drawing.Size(759, 357);
-            this.tabControl_usuario.TabIndex = 35;
-            // 
-            // tabPage_datos
-            // 
-            this.tabPage_datos.Controls.Add(this.checkBox_esAdmin);
-            this.tabPage_datos.Controls.Add(this.dateTimePicker_fechaDeIngreso);
-            this.tabPage_datos.Controls.Add(this.label_fechaDeIngreso);
-            this.tabPage_datos.Controls.Add(this.textBox_email);
-            this.tabPage_datos.Controls.Add(this.textBox_nombre);
-            this.tabPage_datos.Controls.Add(this.label_email);
-            this.tabPage_datos.Controls.Add(this.panel4);
-            this.tabPage_datos.Controls.Add(this.label_datosDeUsuario);
-            this.tabPage_datos.Controls.Add(this.label_nombre);
-            this.tabPage_datos.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_datos.Name = "tabPage_datos";
-            this.tabPage_datos.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_datos.Size = new System.Drawing.Size(751, 331);
-            this.tabPage_datos.TabIndex = 0;
-            this.tabPage_datos.Text = "Datos";
-            this.tabPage_datos.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_esAdmin
-            // 
-            this.checkBox_esAdmin.AutoSize = true;
-            this.checkBox_esAdmin.Location = new System.Drawing.Point(214, 39);
-            this.checkBox_esAdmin.Name = "checkBox_esAdmin";
-            this.checkBox_esAdmin.Size = new System.Drawing.Size(102, 17);
-            this.checkBox_esAdmin.TabIndex = 62;
-            this.checkBox_esAdmin.Text = "es administrador";
-            this.checkBox_esAdmin.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker_fechaDeIngreso
-            // 
-            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(104, 107);
-            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
-            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaDeIngreso.TabIndex = 60;
-            // 
-            // label_fechaDeIngreso
-            // 
-            this.label_fechaDeIngreso.AutoSize = true;
-            this.label_fechaDeIngreso.Location = new System.Drawing.Point(4, 111);
-            this.label_fechaDeIngreso.Name = "label_fechaDeIngreso";
-            this.label_fechaDeIngreso.Size = new System.Drawing.Size(95, 13);
-            this.label_fechaDeIngreso.TabIndex = 59;
-            this.label_fechaDeIngreso.Text = "Fecha de ingreso: ";
-            // 
-            // textBox_email
-            // 
-            this.textBox_email.Location = new System.Drawing.Point(64, 71);
-            this.textBox_email.Name = "textBox_email";
-            this.textBox_email.Size = new System.Drawing.Size(120, 20);
-            this.textBox_email.TabIndex = 55;
-            // 
-            // textBox_nombre
-            // 
-            this.textBox_nombre.Location = new System.Drawing.Point(64, 37);
-            this.textBox_nombre.Name = "textBox_nombre";
-            this.textBox_nombre.Size = new System.Drawing.Size(120, 20);
-            this.textBox_nombre.TabIndex = 34;
-            // 
-            // label_email
-            // 
-            this.label_email.AutoSize = true;
-            this.label_email.Location = new System.Drawing.Point(5, 74);
-            this.label_email.Name = "label_email";
-            this.label_email.Size = new System.Drawing.Size(38, 13);
-            this.label_email.TabIndex = 54;
-            this.label_email.Text = "Email: ";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel4.Controls.Add(this.pictureBox2);
-            this.panel4.Location = new System.Drawing.Point(501, 20);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(116, 104);
-            this.panel4.TabIndex = 53;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(8, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(105, 92);
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label_datosDeUsuario
-            // 
-            this.label_datosDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_datosDeUsuario.AutoSize = true;
-            this.label_datosDeUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.label_datosDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_datosDeUsuario.Location = new System.Drawing.Point(3, 3);
-            this.label_datosDeUsuario.Name = "label_datosDeUsuario";
-            this.label_datosDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_datosDeUsuario.Size = new System.Drawing.Size(124, 20);
-            this.label_datosDeUsuario.TabIndex = 33;
-            this.label_datosDeUsuario.Text = "Datos de usuario: ";
-            // 
-            // label_nombre
-            // 
-            this.label_nombre.AutoSize = true;
-            this.label_nombre.Location = new System.Drawing.Point(5, 40);
-            this.label_nombre.Name = "label_nombre";
-            this.label_nombre.Size = new System.Drawing.Size(50, 13);
-            this.label_nombre.TabIndex = 32;
-            this.label_nombre.Text = "Nombre: ";
-            // 
-            // tabPage_firmas
-            // 
-            this.tabPage_firmas.Controls.Add(this.splitContainer_firmas);
-            this.tabPage_firmas.Controls.Add(this.radioButton_recibidasPorUsuario);
-            this.tabPage_firmas.Controls.Add(this.radioButton_realizadasPorUsuario);
-            this.tabPage_firmas.Controls.Add(this.dateTimePicker_fechaFirma);
-            this.tabPage_firmas.Controls.Add(this.button_buscarFirma);
-            this.tabPage_firmas.Controls.Add(this.textBox_autorFirma);
-            this.tabPage_firmas.Controls.Add(this.label_buscarFirmaPorAutor);
-            this.tabPage_firmas.Controls.Add(this.label_buscarFirmaPorFecha);
-            this.tabPage_firmas.Controls.Add(this.label_firmasDeUsuario);
-            this.tabPage_firmas.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_firmas.Name = "tabPage_firmas";
-            this.tabPage_firmas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_firmas.Size = new System.Drawing.Size(751, 331);
-            this.tabPage_firmas.TabIndex = 1;
-            this.tabPage_firmas.Text = "Firmas";
-            this.tabPage_firmas.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer_firmas
-            // 
-            this.splitContainer_firmas.Location = new System.Drawing.Point(232, 3);
-            this.splitContainer_firmas.Name = "splitContainer_firmas";
-            // 
-            // splitContainer_firmas.Panel1
-            // 
-            this.splitContainer_firmas.Panel1.Controls.Add(this.dataGridView_firmas);
-            // 
-            // splitContainer_firmas.Panel2
-            // 
-            this.splitContainer_firmas.Panel2.Controls.Add(this.button_borrarFirma);
-            this.splitContainer_firmas.Panel2.Controls.Add(this.button_editarFirma);
-            this.splitContainer_firmas.Size = new System.Drawing.Size(516, 318);
-            this.splitContainer_firmas.SplitterDistance = 463;
-            this.splitContainer_firmas.TabIndex = 68;
-            // 
-            // dataGridView_firmas
-            // 
-            this.dataGridView_firmas.AllowUserToAddRows = false;
-            this.dataGridView_firmas.AllowUserToDeleteRows = false;
-            this.dataGridView_firmas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_firmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_firmas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idfirma,
-            this.emisorfirma,
-            this.textofirma,
-            this.fechafirma,
-            this.receptorfirma});
-            this.dataGridView_firmas.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_firmas.Name = "dataGridView_firmas";
-            this.dataGridView_firmas.ReadOnly = true;
-            this.dataGridView_firmas.Size = new System.Drawing.Size(463, 318);
-            this.dataGridView_firmas.TabIndex = 0;
-            // 
-            // idfirma
-            // 
-            this.idfirma.HeaderText = "Id";
-            this.idfirma.Name = "idfirma";
-            this.idfirma.ReadOnly = true;
-            // 
-            // emisorfirma
-            // 
-            this.emisorfirma.HeaderText = "Emisor";
-            this.emisorfirma.Name = "emisorfirma";
-            this.emisorfirma.ReadOnly = true;
-            // 
-            // textofirma
-            // 
-            this.textofirma.HeaderText = "Texto";
-            this.textofirma.Name = "textofirma";
-            this.textofirma.ReadOnly = true;
-            // 
-            // fechafirma
-            // 
-            this.fechafirma.HeaderText = "Fecha";
-            this.fechafirma.Name = "fechafirma";
-            this.fechafirma.ReadOnly = true;
-            // 
-            // receptorfirma
-            // 
-            this.receptorfirma.HeaderText = "Receptor";
-            this.receptorfirma.Name = "receptorfirma";
-            this.receptorfirma.ReadOnly = true;
-            // 
-            // button_borrarFirma
-            // 
-            this.button_borrarFirma.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarFirma.FlatAppearance.BorderSize = 0;
-            this.button_borrarFirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarFirma.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarFirma.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarFirma.Location = new System.Drawing.Point(6, 66);
-            this.button_borrarFirma.Name = "button_borrarFirma";
-            this.button_borrarFirma.Size = new System.Drawing.Size(35, 35);
-            this.button_borrarFirma.TabIndex = 65;
-            this.button_borrarFirma.Tag = "Eliminar hilo seleccionado";
-            this.button_borrarFirma.UseVisualStyleBackColor = true;
-            // 
-            // button_editarFirma
-            // 
-            this.button_editarFirma.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarFirma.FlatAppearance.BorderSize = 0;
-            this.button_editarFirma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarFirma.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarFirma.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarFirma.Location = new System.Drawing.Point(6, 6);
-            this.button_editarFirma.Name = "button_editarFirma";
-            this.button_editarFirma.Size = new System.Drawing.Size(35, 35);
-            this.button_editarFirma.TabIndex = 64;
-            this.button_editarFirma.Tag = "Modificar hilo seleccionado";
-            this.button_editarFirma.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_recibidasPorUsuario
-            // 
-            this.radioButton_recibidasPorUsuario.AutoSize = true;
-            this.radioButton_recibidasPorUsuario.Location = new System.Drawing.Point(6, 60);
-            this.radioButton_recibidasPorUsuario.Name = "radioButton_recibidasPorUsuario";
-            this.radioButton_recibidasPorUsuario.Size = new System.Drawing.Size(127, 17);
-            this.radioButton_recibidasPorUsuario.TabIndex = 67;
-            this.radioButton_recibidasPorUsuario.Text = "Recibidas por usuario";
-            this.radioButton_recibidasPorUsuario.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_realizadasPorUsuario
-            // 
-            this.radioButton_realizadasPorUsuario.AutoSize = true;
-            this.radioButton_realizadasPorUsuario.Checked = true;
-            this.radioButton_realizadasPorUsuario.Location = new System.Drawing.Point(6, 33);
-            this.radioButton_realizadasPorUsuario.Name = "radioButton_realizadasPorUsuario";
-            this.radioButton_realizadasPorUsuario.Size = new System.Drawing.Size(132, 17);
-            this.radioButton_realizadasPorUsuario.TabIndex = 66;
-            this.radioButton_realizadasPorUsuario.TabStop = true;
-            this.radioButton_realizadasPorUsuario.Text = "Realizadas por usuario";
-            this.radioButton_realizadasPorUsuario.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker_fechaFirma
-            // 
-            this.dateTimePicker_fechaFirma.Location = new System.Drawing.Point(6, 114);
-            this.dateTimePicker_fechaFirma.Name = "dateTimePicker_fechaFirma";
-            this.dateTimePicker_fechaFirma.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaFirma.TabIndex = 61;
-            // 
-            // button_buscarFirma
-            // 
-            this.button_buscarFirma.Location = new System.Drawing.Point(66, 298);
-            this.button_buscarFirma.Name = "button_buscarFirma";
-            this.button_buscarFirma.Size = new System.Drawing.Size(75, 23);
-            this.button_buscarFirma.TabIndex = 42;
-            this.button_buscarFirma.Text = "Buscar";
-            this.button_buscarFirma.UseVisualStyleBackColor = true;
-            this.button_buscarFirma.Click += new System.EventHandler(this.button_buscarFirma_Click);
-            // 
-            // textBox_autorFirma
-            // 
-            this.textBox_autorFirma.Location = new System.Drawing.Point(7, 169);
-            this.textBox_autorFirma.Name = "textBox_autorFirma";
-            this.textBox_autorFirma.Size = new System.Drawing.Size(159, 20);
-            this.textBox_autorFirma.TabIndex = 41;
-            // 
-            // label_buscarFirmaPorAutor
-            // 
-            this.label_buscarFirmaPorAutor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarFirmaPorAutor.AutoSize = true;
-            this.label_buscarFirmaPorAutor.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarFirmaPorAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarFirmaPorAutor.Location = new System.Drawing.Point(3, 140);
-            this.label_buscarFirmaPorAutor.Name = "label_buscarFirmaPorAutor";
-            this.label_buscarFirmaPorAutor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarFirmaPorAutor.Size = new System.Drawing.Size(106, 20);
-            this.label_buscarFirmaPorAutor.TabIndex = 40;
-            this.label_buscarFirmaPorAutor.Text = "Buscar por autor : ";
-            // 
-            // label_buscarFirmaPorFecha
-            // 
-            this.label_buscarFirmaPorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarFirmaPorFecha.AutoSize = true;
-            this.label_buscarFirmaPorFecha.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarFirmaPorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarFirmaPorFecha.Location = new System.Drawing.Point(3, 84);
-            this.label_buscarFirmaPorFecha.Name = "label_buscarFirmaPorFecha";
-            this.label_buscarFirmaPorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarFirmaPorFecha.Size = new System.Drawing.Size(199, 20);
-            this.label_buscarFirmaPorFecha.TabIndex = 35;
-            this.label_buscarFirmaPorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // label_firmasDeUsuario
-            // 
-            this.label_firmasDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_firmasDeUsuario.AutoSize = true;
-            this.label_firmasDeUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.label_firmasDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_firmasDeUsuario.Location = new System.Drawing.Point(3, 3);
-            this.label_firmasDeUsuario.Name = "label_firmasDeUsuario";
-            this.label_firmasDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_firmasDeUsuario.Size = new System.Drawing.Size(131, 20);
-            this.label_firmasDeUsuario.TabIndex = 34;
-            this.label_firmasDeUsuario.Text = "Firmas de usuario: ";
-            // 
-            // tabPage_galeria
-            // 
-            this.tabPage_galeria.Controls.Add(this.splitContainer_galeria);
-            this.tabPage_galeria.Controls.Add(this.textBox_tituloGaleria);
-            this.tabPage_galeria.Controls.Add(this.textBox_autorGaleria);
-            this.tabPage_galeria.Controls.Add(this.label_buscarGaleriaPorTitulo);
-            this.tabPage_galeria.Controls.Add(this.dateTimePicker_fechaGaleria);
-            this.tabPage_galeria.Controls.Add(this.button_buscarGaleria);
-            this.tabPage_galeria.Controls.Add(this.label_buscarGaleriaPorAutor);
-            this.tabPage_galeria.Controls.Add(this.label6);
-            this.tabPage_galeria.Controls.Add(this.label_fotosDeUsuario);
-            this.tabPage_galeria.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_galeria.Name = "tabPage_galeria";
-            this.tabPage_galeria.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_galeria.Size = new System.Drawing.Size(751, 331);
-            this.tabPage_galeria.TabIndex = 2;
-            this.tabPage_galeria.Text = "Galería";
-            this.tabPage_galeria.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer_galeria
-            // 
-            this.splitContainer_galeria.Location = new System.Drawing.Point(232, 3);
-            this.splitContainer_galeria.Name = "splitContainer_galeria";
-            // 
-            // splitContainer_galeria.Panel1
-            // 
-            this.splitContainer_galeria.Panel1.Controls.Add(this.dataGridView_galeria);
-            // 
-            // splitContainer_galeria.Panel2
-            // 
-            this.splitContainer_galeria.Panel2.Controls.Add(this.button_borrarGaleria);
-            this.splitContainer_galeria.Panel2.Controls.Add(this.button_editarGaleria);
-            this.splitContainer_galeria.Size = new System.Drawing.Size(516, 318);
-            this.splitContainer_galeria.SplitterDistance = 463;
-            this.splitContainer_galeria.TabIndex = 73;
-            // 
-            // dataGridView_galeria
-            // 
-            this.dataGridView_galeria.AllowUserToAddRows = false;
-            this.dataGridView_galeria.AllowUserToDeleteRows = false;
-            this.dataGridView_galeria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_galeria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idimagen,
-            this.tituloimagen,
-            this.descripcion,
-            this.fecha,
-            this.usuarioimagen,
-            this.archivoimagen});
-            this.dataGridView_galeria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_galeria.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_galeria.Name = "dataGridView_galeria";
-            this.dataGridView_galeria.ReadOnly = true;
-            this.dataGridView_galeria.Size = new System.Drawing.Size(463, 318);
-            this.dataGridView_galeria.TabIndex = 1;
-            // 
-            // idimagen
-            // 
-            this.idimagen.HeaderText = "Id";
-            this.idimagen.Name = "idimagen";
-            this.idimagen.ReadOnly = true;
-            // 
-            // tituloimagen
-            // 
-            this.tituloimagen.HeaderText = "Título";
-            this.tituloimagen.Name = "tituloimagen";
-            this.tituloimagen.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descipción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // usuarioimagen
-            // 
-            this.usuarioimagen.HeaderText = "Usuario";
-            this.usuarioimagen.Name = "usuarioimagen";
-            this.usuarioimagen.ReadOnly = true;
-            // 
-            // archivoimagen
-            // 
-            this.archivoimagen.HeaderText = "Archivo";
-            this.archivoimagen.Name = "archivoimagen";
-            this.archivoimagen.ReadOnly = true;
-            // 
-            // button_borrarGaleria
-            // 
-            this.button_borrarGaleria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarGaleria.FlatAppearance.BorderSize = 0;
-            this.button_borrarGaleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarGaleria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarGaleria.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarGaleria.Location = new System.Drawing.Point(6, 66);
-            this.button_borrarGaleria.Name = "button_borrarGaleria";
-            this.button_borrarGaleria.Size = new System.Drawing.Size(35, 35);
-            this.button_borrarGaleria.TabIndex = 72;
-            this.button_borrarGaleria.Tag = "Eliminar hilo seleccionado";
-            this.button_borrarGaleria.UseVisualStyleBackColor = true;
-            // 
-            // button_editarGaleria
-            // 
-            this.button_editarGaleria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarGaleria.FlatAppearance.BorderSize = 0;
-            this.button_editarGaleria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarGaleria.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarGaleria.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarGaleria.Location = new System.Drawing.Point(6, 6);
-            this.button_editarGaleria.Name = "button_editarGaleria";
-            this.button_editarGaleria.Size = new System.Drawing.Size(35, 35);
-            this.button_editarGaleria.TabIndex = 71;
-            this.button_editarGaleria.Tag = "Modificar hilo seleccionado";
-            this.button_editarGaleria.UseVisualStyleBackColor = true;
-            // 
-            // textBox_tituloGaleria
-            // 
-            this.textBox_tituloGaleria.Location = new System.Drawing.Point(8, 170);
-            this.textBox_tituloGaleria.Name = "textBox_tituloGaleria";
-            this.textBox_tituloGaleria.Size = new System.Drawing.Size(159, 20);
-            this.textBox_tituloGaleria.TabIndex = 68;
-            // 
-            // textBox_autorGaleria
-            // 
-            this.textBox_autorGaleria.Location = new System.Drawing.Point(8, 112);
-            this.textBox_autorGaleria.Name = "textBox_autorGaleria";
-            this.textBox_autorGaleria.Size = new System.Drawing.Size(159, 20);
-            this.textBox_autorGaleria.TabIndex = 64;
-            // 
-            // label_buscarGaleriaPorTitulo
-            // 
-            this.label_buscarGaleriaPorTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarGaleriaPorTitulo.AutoSize = true;
-            this.label_buscarGaleriaPorTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarGaleriaPorTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarGaleriaPorTitulo.Location = new System.Drawing.Point(5, 139);
-            this.label_buscarGaleriaPorTitulo.Name = "label_buscarGaleriaPorTitulo";
-            this.label_buscarGaleriaPorTitulo.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarGaleriaPorTitulo.Size = new System.Drawing.Size(98, 20);
-            this.label_buscarGaleriaPorTitulo.TabIndex = 67;
-            this.label_buscarGaleriaPorTitulo.Text = "Buscar por título:";
-            // 
-            // dateTimePicker_fechaGaleria
-            // 
-            this.dateTimePicker_fechaGaleria.Location = new System.Drawing.Point(7, 57);
-            this.dateTimePicker_fechaGaleria.Name = "dateTimePicker_fechaGaleria";
-            this.dateTimePicker_fechaGaleria.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaGaleria.TabIndex = 66;
-            // 
-            // button_buscarGaleria
-            // 
-            this.button_buscarGaleria.Location = new System.Drawing.Point(66, 298);
-            this.button_buscarGaleria.Name = "button_buscarGaleria";
-            this.button_buscarGaleria.Size = new System.Drawing.Size(75, 23);
-            this.button_buscarGaleria.TabIndex = 65;
-            this.button_buscarGaleria.Text = "Buscar";
-            this.button_buscarGaleria.UseVisualStyleBackColor = true;
-            this.button_buscarGaleria.Click += new System.EventHandler(this.button_buscarGaleria_Click);
-            // 
-            // label_buscarGaleriaPorAutor
-            // 
-            this.label_buscarGaleriaPorAutor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarGaleriaPorAutor.AutoSize = true;
-            this.label_buscarGaleriaPorAutor.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarGaleriaPorAutor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarGaleriaPorAutor.Location = new System.Drawing.Point(4, 83);
-            this.label_buscarGaleriaPorAutor.Name = "label_buscarGaleriaPorAutor";
-            this.label_buscarGaleriaPorAutor.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarGaleriaPorAutor.Size = new System.Drawing.Size(106, 20);
-            this.label_buscarGaleriaPorAutor.TabIndex = 63;
-            this.label_buscarGaleriaPorAutor.Text = "Buscar por autor : ";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(4, 27);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label6.Size = new System.Drawing.Size(199, 20);
-            this.label6.TabIndex = 62;
-            this.label6.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // label_fotosDeUsuario
-            // 
-            this.label_fotosDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_fotosDeUsuario.AutoSize = true;
-            this.label_fotosDeUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.label_fotosDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fotosDeUsuario.Location = new System.Drawing.Point(3, 3);
-            this.label_fotosDeUsuario.Name = "label_fotosDeUsuario";
-            this.label_fotosDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_fotosDeUsuario.Size = new System.Drawing.Size(122, 20);
-            this.label_fotosDeUsuario.TabIndex = 46;
-            this.label_fotosDeUsuario.Text = "Fotos de usuario: ";
-            // 
-            // tabPage_mensajes
-            // 
-            this.tabPage_mensajes.Controls.Add(this.radioButton_recibidosPorUsuario);
-            this.tabPage_mensajes.Controls.Add(this.radioButton_enviadosPorUsuario);
-            this.tabPage_mensajes.Controls.Add(this.dateTimePicker_fechaMensaje);
-            this.tabPage_mensajes.Controls.Add(this.textBox_autorMensaje);
-            this.tabPage_mensajes.Controls.Add(this.label_buscarAutorPorMensaje);
-            this.tabPage_mensajes.Controls.Add(this.label_buscarMensajePorFecha);
-            this.tabPage_mensajes.Controls.Add(this.splitContainer_mensajes);
-            this.tabPage_mensajes.Controls.Add(this.button_buscarMensaje);
-            this.tabPage_mensajes.Controls.Add(this.label_mensajesDeUsuario);
-            this.tabPage_mensajes.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_mensajes.Name = "tabPage_mensajes";
-            this.tabPage_mensajes.Size = new System.Drawing.Size(751, 331);
-            this.tabPage_mensajes.TabIndex = 3;
-            this.tabPage_mensajes.Text = "Mensajes";
-            this.tabPage_mensajes.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_recibidosPorUsuario
-            // 
-            this.radioButton_recibidosPorUsuario.AutoSize = true;
-            this.radioButton_recibidosPorUsuario.Location = new System.Drawing.Point(6, 62);
-            this.radioButton_recibidosPorUsuario.Name = "radioButton_recibidosPorUsuario";
-            this.radioButton_recibidosPorUsuario.Size = new System.Drawing.Size(127, 17);
-            this.radioButton_recibidosPorUsuario.TabIndex = 86;
-            this.radioButton_recibidosPorUsuario.Text = "Recibidos por usuario";
-            this.radioButton_recibidosPorUsuario.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_enviadosPorUsuario
-            // 
-            this.radioButton_enviadosPorUsuario.AutoSize = true;
-            this.radioButton_enviadosPorUsuario.Checked = true;
-            this.radioButton_enviadosPorUsuario.Location = new System.Drawing.Point(6, 35);
-            this.radioButton_enviadosPorUsuario.Name = "radioButton_enviadosPorUsuario";
-            this.radioButton_enviadosPorUsuario.Size = new System.Drawing.Size(124, 17);
-            this.radioButton_enviadosPorUsuario.TabIndex = 85;
-            this.radioButton_enviadosPorUsuario.TabStop = true;
-            this.radioButton_enviadosPorUsuario.Text = "Enviados por usuario";
-            this.radioButton_enviadosPorUsuario.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker_fechaMensaje
-            // 
-            this.dateTimePicker_fechaMensaje.Location = new System.Drawing.Point(6, 116);
-            this.dateTimePicker_fechaMensaje.Name = "dateTimePicker_fechaMensaje";
-            this.dateTimePicker_fechaMensaje.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaMensaje.TabIndex = 84;
-            // 
-            // textBox_autorMensaje
-            // 
-            this.textBox_autorMensaje.Location = new System.Drawing.Point(7, 171);
-            this.textBox_autorMensaje.Name = "textBox_autorMensaje";
-            this.textBox_autorMensaje.Size = new System.Drawing.Size(159, 20);
-            this.textBox_autorMensaje.TabIndex = 83;
-            // 
-            // label_buscarAutorPorMensaje
-            // 
-            this.label_buscarAutorPorMensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarAutorPorMensaje.AutoSize = true;
-            this.label_buscarAutorPorMensaje.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarAutorPorMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarAutorPorMensaje.Location = new System.Drawing.Point(3, 142);
-            this.label_buscarAutorPorMensaje.Name = "label_buscarAutorPorMensaje";
-            this.label_buscarAutorPorMensaje.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarAutorPorMensaje.Size = new System.Drawing.Size(106, 20);
-            this.label_buscarAutorPorMensaje.TabIndex = 82;
-            this.label_buscarAutorPorMensaje.Text = "Buscar por autor : ";
-            // 
-            // label_buscarMensajePorFecha
-            // 
-            this.label_buscarMensajePorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarMensajePorFecha.AutoSize = true;
-            this.label_buscarMensajePorFecha.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarMensajePorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarMensajePorFecha.Location = new System.Drawing.Point(3, 86);
-            this.label_buscarMensajePorFecha.Name = "label_buscarMensajePorFecha";
-            this.label_buscarMensajePorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarMensajePorFecha.Size = new System.Drawing.Size(199, 20);
-            this.label_buscarMensajePorFecha.TabIndex = 81;
-            this.label_buscarMensajePorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // splitContainer_mensajes
-            // 
-            this.splitContainer_mensajes.Location = new System.Drawing.Point(232, 3);
-            this.splitContainer_mensajes.Name = "splitContainer_mensajes";
-            // 
-            // splitContainer_mensajes.Panel1
-            // 
-            this.splitContainer_mensajes.Panel1.Controls.Add(this.dataGridView_mensajes);
-            // 
-            // splitContainer_mensajes.Panel2
-            // 
-            this.splitContainer_mensajes.Panel2.Controls.Add(this.button_borrarMensaje);
-            this.splitContainer_mensajes.Panel2.Controls.Add(this.button_editarMensaje);
-            this.splitContainer_mensajes.Size = new System.Drawing.Size(516, 318);
-            this.splitContainer_mensajes.SplitterDistance = 463;
-            this.splitContainer_mensajes.TabIndex = 80;
-            // 
-            // dataGridView_mensajes
-            // 
-            this.dataGridView_mensajes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_mensajes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_mensajes.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_mensajes.Name = "dataGridView_mensajes";
-            this.dataGridView_mensajes.Size = new System.Drawing.Size(463, 318);
-            this.dataGridView_mensajes.TabIndex = 1;
-            // 
-            // button_borrarMensaje
-            // 
-            this.button_borrarMensaje.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarMensaje.FlatAppearance.BorderSize = 0;
-            this.button_borrarMensaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarMensaje.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarMensaje.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarMensaje.Location = new System.Drawing.Point(6, 66);
-            this.button_borrarMensaje.Name = "button_borrarMensaje";
-            this.button_borrarMensaje.Size = new System.Drawing.Size(35, 35);
-            this.button_borrarMensaje.TabIndex = 79;
-            this.button_borrarMensaje.Tag = "Eliminar hilo seleccionado";
-            this.button_borrarMensaje.UseVisualStyleBackColor = true;
-            // 
-            // button_editarMensaje
-            // 
-            this.button_editarMensaje.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarMensaje.FlatAppearance.BorderSize = 0;
-            this.button_editarMensaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarMensaje.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarMensaje.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarMensaje.Location = new System.Drawing.Point(6, 6);
-            this.button_editarMensaje.Name = "button_editarMensaje";
-            this.button_editarMensaje.Size = new System.Drawing.Size(35, 35);
-            this.button_editarMensaje.TabIndex = 78;
-            this.button_editarMensaje.Tag = "Modificar hilo seleccionado";
-            this.button_editarMensaje.UseVisualStyleBackColor = true;
-            // 
-            // button_buscarMensaje
-            // 
-            this.button_buscarMensaje.Location = new System.Drawing.Point(66, 298);
-            this.button_buscarMensaje.Name = "button_buscarMensaje";
-            this.button_buscarMensaje.Size = new System.Drawing.Size(75, 23);
-            this.button_buscarMensaje.TabIndex = 72;
-            this.button_buscarMensaje.Text = "Buscar";
-            this.button_buscarMensaje.UseVisualStyleBackColor = true;
-            this.button_buscarMensaje.Click += new System.EventHandler(this.button_buscarMensaje_Click);
-            // 
-            // label_mensajesDeUsuario
-            // 
-            this.label_mensajesDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_mensajesDeUsuario.AutoSize = true;
-            this.label_mensajesDeUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.label_mensajesDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_mensajesDeUsuario.Location = new System.Drawing.Point(3, 3);
-            this.label_mensajesDeUsuario.Name = "label_mensajesDeUsuario";
-            this.label_mensajesDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_mensajesDeUsuario.Size = new System.Drawing.Size(149, 20);
-            this.label_mensajesDeUsuario.TabIndex = 46;
-            this.label_mensajesDeUsuario.Text = "Mensajes de usuario: ";
-            // 
-            // tabPage_encuestas
-            // 
-            this.tabPage_encuestas.Controls.Add(this.splitContainer_encuestas);
-            this.tabPage_encuestas.Controls.Add(this.textBox_asuntoEncuesta);
-            this.tabPage_encuestas.Controls.Add(this.label_buscarEncuestaPorAsunto);
-            this.tabPage_encuestas.Controls.Add(this.button_buscarEncuesta);
-            this.tabPage_encuestas.Controls.Add(this.dateTimePicker_fechaEncuesta);
-            this.tabPage_encuestas.Controls.Add(this.label_buscarEncuestaPorFecha);
-            this.tabPage_encuestas.Controls.Add(this.label_encuestasDeUsuario);
-            this.tabPage_encuestas.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_encuestas.Name = "tabPage_encuestas";
-            this.tabPage_encuestas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_encuestas.Size = new System.Drawing.Size(751, 331);
-            this.tabPage_encuestas.TabIndex = 6;
-            this.tabPage_encuestas.Text = "Encuestas";
-            this.tabPage_encuestas.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer_encuestas
-            // 
-            this.splitContainer_encuestas.Location = new System.Drawing.Point(232, 3);
-            this.splitContainer_encuestas.Name = "splitContainer_encuestas";
-            // 
-            // splitContainer_encuestas.Panel1
-            // 
-            this.splitContainer_encuestas.Panel1.Controls.Add(this.dataGridView_encuestas);
-            // 
-            // splitContainer_encuestas.Panel2
-            // 
-            this.splitContainer_encuestas.Panel2.Controls.Add(this.button_editarEncuesta);
-            this.splitContainer_encuestas.Panel2.Controls.Add(this.button_borrarEncuesta);
-            this.splitContainer_encuestas.Size = new System.Drawing.Size(516, 318);
-            this.splitContainer_encuestas.SplitterDistance = 463;
-            this.splitContainer_encuestas.TabIndex = 100;
-            // 
-            // dataGridView_encuestas
-            // 
-            this.dataGridView_encuestas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_encuestas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView_encuestas.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView_encuestas.Name = "dataGridView_encuestas";
-            this.dataGridView_encuestas.Size = new System.Drawing.Size(463, 318);
-            this.dataGridView_encuestas.TabIndex = 1;
-            // 
-            // button_editarEncuesta
-            // 
-            this.button_editarEncuesta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarEncuesta.FlatAppearance.BorderSize = 0;
-            this.button_editarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarEncuesta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarEncuesta.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarEncuesta.Location = new System.Drawing.Point(6, 6);
-            this.button_editarEncuesta.Name = "button_editarEncuesta";
-            this.button_editarEncuesta.Size = new System.Drawing.Size(35, 35);
-            this.button_editarEncuesta.TabIndex = 88;
-            this.button_editarEncuesta.Tag = "Modificar hilo seleccionado";
-            this.button_editarEncuesta.UseVisualStyleBackColor = true;
-            // 
-            // button_borrarEncuesta
-            // 
-            this.button_borrarEncuesta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarEncuesta.FlatAppearance.BorderSize = 0;
-            this.button_borrarEncuesta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarEncuesta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarEncuesta.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarEncuesta.Location = new System.Drawing.Point(6, 66);
-            this.button_borrarEncuesta.Name = "button_borrarEncuesta";
-            this.button_borrarEncuesta.Size = new System.Drawing.Size(35, 35);
-            this.button_borrarEncuesta.TabIndex = 89;
-            this.button_borrarEncuesta.Tag = "Eliminar hilo seleccionado";
-            this.button_borrarEncuesta.UseVisualStyleBackColor = true;
-            // 
-            // textBox_asuntoEncuesta
-            // 
-            this.textBox_asuntoEncuesta.Location = new System.Drawing.Point(6, 125);
-            this.textBox_asuntoEncuesta.Name = "textBox_asuntoEncuesta";
-            this.textBox_asuntoEncuesta.Size = new System.Drawing.Size(159, 20);
-            this.textBox_asuntoEncuesta.TabIndex = 91;
-            // 
-            // label_buscarEncuestaPorAsunto
-            // 
-            this.label_buscarEncuestaPorAsunto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarEncuestaPorAsunto.AutoSize = true;
-            this.label_buscarEncuestaPorAsunto.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarEncuestaPorAsunto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarEncuestaPorAsunto.Location = new System.Drawing.Point(3, 94);
-            this.label_buscarEncuestaPorAsunto.Name = "label_buscarEncuestaPorAsunto";
-            this.label_buscarEncuestaPorAsunto.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarEncuestaPorAsunto.Size = new System.Drawing.Size(109, 20);
-            this.label_buscarEncuestaPorAsunto.TabIndex = 90;
-            this.label_buscarEncuestaPorAsunto.Text = "Buscar por asunto:";
-            // 
-            // button_buscarEncuesta
-            // 
-            this.button_buscarEncuesta.Location = new System.Drawing.Point(66, 298);
-            this.button_buscarEncuesta.Name = "button_buscarEncuesta";
-            this.button_buscarEncuesta.Size = new System.Drawing.Size(75, 23);
-            this.button_buscarEncuesta.TabIndex = 86;
-            this.button_buscarEncuesta.Text = "Buscar";
-            this.button_buscarEncuesta.UseVisualStyleBackColor = true;
-            this.button_buscarEncuesta.Click += new System.EventHandler(this.button_buscarEncuesta_Click);
-            // 
-            // dateTimePicker_fechaEncuesta
-            // 
-            this.dateTimePicker_fechaEncuesta.Location = new System.Drawing.Point(6, 64);
-            this.dateTimePicker_fechaEncuesta.Name = "dateTimePicker_fechaEncuesta";
-            this.dateTimePicker_fechaEncuesta.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaEncuesta.TabIndex = 85;
-            // 
-            // label_buscarEncuestaPorFecha
-            // 
-            this.label_buscarEncuestaPorFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_buscarEncuestaPorFecha.AutoSize = true;
-            this.label_buscarEncuestaPorFecha.BackColor = System.Drawing.Color.Transparent;
-            this.label_buscarEncuestaPorFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_buscarEncuestaPorFecha.Location = new System.Drawing.Point(3, 34);
-            this.label_buscarEncuestaPorFecha.Name = "label_buscarEncuestaPorFecha";
-            this.label_buscarEncuestaPorFecha.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_buscarEncuestaPorFecha.Size = new System.Drawing.Size(199, 20);
-            this.label_buscarEncuestaPorFecha.TabIndex = 84;
-            this.label_buscarEncuestaPorFecha.Text = "Buscar por fecha (dia / mes / año) : ";
-            // 
-            // label_encuestasDeUsuario
-            // 
-            this.label_encuestasDeUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_encuestasDeUsuario.AutoSize = true;
-            this.label_encuestasDeUsuario.BackColor = System.Drawing.Color.Transparent;
-            this.label_encuestasDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_encuestasDeUsuario.Location = new System.Drawing.Point(3, 3);
-            this.label_encuestasDeUsuario.Name = "label_encuestasDeUsuario";
-            this.label_encuestasDeUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_encuestasDeUsuario.Size = new System.Drawing.Size(153, 20);
-            this.label_encuestasDeUsuario.TabIndex = 83;
-            this.label_encuestasDeUsuario.Text = "Encuestas de usuario: ";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button_descartarCambios);
             this.panel2.Controls.Add(this.button_guardarCambios);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 366);
+            this.panel2.Location = new System.Drawing.Point(3, 294);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(759, 29);
+            this.panel2.Size = new System.Drawing.Size(759, 28);
             this.panel2.TabIndex = 36;
             // 
             // button_descartarCambios
@@ -1024,45 +115,318 @@
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
+            // panel_usuarioEdicion
+            // 
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_id);
+            this.panel_usuarioEdicion.Controls.Add(this.label_id);
+            this.panel_usuarioEdicion.Controls.Add(this.linkLabel_verEncuestas);
+            this.panel_usuarioEdicion.Controls.Add(this.linkLabel_verMensajes);
+            this.panel_usuarioEdicion.Controls.Add(this.linkLabel_verImagenes);
+            this.panel_usuarioEdicion.Controls.Add(this.linkLabel_verFirmas);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_numEncuestas);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_numMensajes);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_numImagenes);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_numFirmas);
+            this.panel_usuarioEdicion.Controls.Add(this.label_numEncuestas);
+            this.panel_usuarioEdicion.Controls.Add(this.label_numMensajes);
+            this.panel_usuarioEdicion.Controls.Add(this.label_numImagenes);
+            this.panel_usuarioEdicion.Controls.Add(this.label_numFirmas);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_adicional);
+            this.panel_usuarioEdicion.Controls.Add(this.label_adicional);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_contrasena);
+            this.panel_usuarioEdicion.Controls.Add(this.label_contrasena);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_dni);
+            this.panel_usuarioEdicion.Controls.Add(this.label_dni);
+            this.panel_usuarioEdicion.Controls.Add(this.checkBox_activo);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_usuario);
+            this.panel_usuarioEdicion.Controls.Add(this.label_usuario);
+            this.panel_usuarioEdicion.Controls.Add(this.checkBox_administrador);
+            this.panel_usuarioEdicion.Controls.Add(this.dateTimePicker_fechaDeIngreso);
+            this.panel_usuarioEdicion.Controls.Add(this.label_fechaDeIngreso);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_email);
+            this.panel_usuarioEdicion.Controls.Add(this.textBox_nombre);
+            this.panel_usuarioEdicion.Controls.Add(this.label_email);
+            this.panel_usuarioEdicion.Controls.Add(this.label_nombre);
+            this.panel_usuarioEdicion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_usuarioEdicion.Location = new System.Drawing.Point(3, 3);
+            this.panel_usuarioEdicion.Name = "panel_usuarioEdicion";
+            this.panel_usuarioEdicion.Size = new System.Drawing.Size(759, 285);
+            this.panel_usuarioEdicion.TabIndex = 37;
+            // 
+            // textBox_id
+            // 
+            this.textBox_id.Location = new System.Drawing.Point(241, 11);
+            this.textBox_id.Name = "textBox_id";
+            this.textBox_id.ReadOnly = true;
+            this.textBox_id.Size = new System.Drawing.Size(49, 20);
+            this.textBox_id.TabIndex = 93;
+            this.textBox_id.TabStop = false;
+            // 
+            // label_id
+            // 
+            this.label_id.AutoSize = true;
+            this.label_id.Location = new System.Drawing.Point(214, 14);
+            this.label_id.Name = "label_id";
+            this.label_id.Size = new System.Drawing.Size(21, 13);
+            this.label_id.TabIndex = 92;
+            this.label_id.Text = "ID:";
+            // 
+            // linkLabel_verEncuestas
+            // 
+            this.linkLabel_verEncuestas.AutoSize = true;
+            this.linkLabel_verEncuestas.Location = new System.Drawing.Point(558, 142);
+            this.linkLabel_verEncuestas.Name = "linkLabel_verEncuestas";
+            this.linkLabel_verEncuestas.Size = new System.Drawing.Size(74, 13);
+            this.linkLabel_verEncuestas.TabIndex = 91;
+            this.linkLabel_verEncuestas.TabStop = true;
+            this.linkLabel_verEncuestas.Text = "ver encuestas";
+            this.linkLabel_verEncuestas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verEncuestas_LinkClicked);
+            // 
+            // linkLabel_verMensajes
+            // 
+            this.linkLabel_verMensajes.AutoSize = true;
+            this.linkLabel_verMensajes.Location = new System.Drawing.Point(558, 112);
+            this.linkLabel_verMensajes.Name = "linkLabel_verMensajes";
+            this.linkLabel_verMensajes.Size = new System.Drawing.Size(69, 13);
+            this.linkLabel_verMensajes.TabIndex = 90;
+            this.linkLabel_verMensajes.TabStop = true;
+            this.linkLabel_verMensajes.Text = "ver mensajes";
+            this.linkLabel_verMensajes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verMensajes_LinkClicked);
+            // 
+            // linkLabel_verImagenes
+            // 
+            this.linkLabel_verImagenes.AutoSize = true;
+            this.linkLabel_verImagenes.Location = new System.Drawing.Point(558, 80);
+            this.linkLabel_verImagenes.Name = "linkLabel_verImagenes";
+            this.linkLabel_verImagenes.Size = new System.Drawing.Size(70, 13);
+            this.linkLabel_verImagenes.TabIndex = 89;
+            this.linkLabel_verImagenes.TabStop = true;
+            this.linkLabel_verImagenes.Text = "ver imágenes";
+            this.linkLabel_verImagenes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verImagenes_LinkClicked);
+            // 
+            // linkLabel_verFirmas
+            // 
+            this.linkLabel_verFirmas.AutoSize = true;
+            this.linkLabel_verFirmas.Location = new System.Drawing.Point(558, 49);
+            this.linkLabel_verFirmas.Name = "linkLabel_verFirmas";
+            this.linkLabel_verFirmas.Size = new System.Drawing.Size(52, 13);
+            this.linkLabel_verFirmas.TabIndex = 88;
+            this.linkLabel_verFirmas.TabStop = true;
+            this.linkLabel_verFirmas.Text = "ver firmas";
+            this.linkLabel_verFirmas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verFirmas_LinkClicked);
+            // 
+            // textBox_numEncuestas
+            // 
+            this.textBox_numEncuestas.Location = new System.Drawing.Point(502, 139);
+            this.textBox_numEncuestas.Name = "textBox_numEncuestas";
+            this.textBox_numEncuestas.ReadOnly = true;
+            this.textBox_numEncuestas.Size = new System.Drawing.Size(38, 20);
+            this.textBox_numEncuestas.TabIndex = 87;
+            // 
+            // textBox_numMensajes
+            // 
+            this.textBox_numMensajes.Location = new System.Drawing.Point(502, 108);
+            this.textBox_numMensajes.Name = "textBox_numMensajes";
+            this.textBox_numMensajes.ReadOnly = true;
+            this.textBox_numMensajes.Size = new System.Drawing.Size(38, 20);
+            this.textBox_numMensajes.TabIndex = 86;
+            // 
+            // textBox_numImagenes
+            // 
+            this.textBox_numImagenes.Location = new System.Drawing.Point(502, 77);
+            this.textBox_numImagenes.Name = "textBox_numImagenes";
+            this.textBox_numImagenes.ReadOnly = true;
+            this.textBox_numImagenes.Size = new System.Drawing.Size(38, 20);
+            this.textBox_numImagenes.TabIndex = 85;
+            // 
+            // textBox_numFirmas
+            // 
+            this.textBox_numFirmas.Location = new System.Drawing.Point(502, 46);
+            this.textBox_numFirmas.Name = "textBox_numFirmas";
+            this.textBox_numFirmas.ReadOnly = true;
+            this.textBox_numFirmas.Size = new System.Drawing.Size(38, 20);
+            this.textBox_numFirmas.TabIndex = 84;
+            // 
+            // label_numEncuestas
+            // 
+            this.label_numEncuestas.AutoSize = true;
+            this.label_numEncuestas.Location = new System.Drawing.Point(402, 141);
+            this.label_numEncuestas.Name = "label_numEncuestas";
+            this.label_numEncuestas.Size = new System.Drawing.Size(92, 13);
+            this.label_numEncuestas.TabIndex = 83;
+            this.label_numEncuestas.Text = "Nº de encuestas: ";
+            // 
+            // label_numMensajes
+            // 
+            this.label_numMensajes.AutoSize = true;
+            this.label_numMensajes.Location = new System.Drawing.Point(402, 112);
+            this.label_numMensajes.Name = "label_numMensajes";
+            this.label_numMensajes.Size = new System.Drawing.Size(87, 13);
+            this.label_numMensajes.TabIndex = 82;
+            this.label_numMensajes.Text = "Nº de mensajes: ";
+            // 
+            // label_numImagenes
+            // 
+            this.label_numImagenes.AutoSize = true;
+            this.label_numImagenes.Location = new System.Drawing.Point(402, 82);
+            this.label_numImagenes.Name = "label_numImagenes";
+            this.label_numImagenes.Size = new System.Drawing.Size(88, 13);
+            this.label_numImagenes.TabIndex = 81;
+            this.label_numImagenes.Text = "Nº de imágenes: ";
+            // 
+            // label_numFirmas
+            // 
+            this.label_numFirmas.AutoSize = true;
+            this.label_numFirmas.Location = new System.Drawing.Point(402, 52);
+            this.label_numFirmas.Name = "label_numFirmas";
+            this.label_numFirmas.Size = new System.Drawing.Size(70, 13);
+            this.label_numFirmas.TabIndex = 80;
+            this.label_numFirmas.Text = "Nº de firmas: ";
+            // 
+            // textBox_adicional
+            // 
+            this.textBox_adicional.Location = new System.Drawing.Point(80, 158);
+            this.textBox_adicional.Multiline = true;
+            this.textBox_adicional.Name = "textBox_adicional";
+            this.textBox_adicional.Size = new System.Drawing.Size(238, 116);
+            this.textBox_adicional.TabIndex = 79;
+            // 
+            // label_adicional
+            // 
+            this.label_adicional.AutoSize = true;
+            this.label_adicional.Location = new System.Drawing.Point(7, 165);
+            this.label_adicional.Name = "label_adicional";
+            this.label_adicional.Size = new System.Drawing.Size(56, 13);
+            this.label_adicional.TabIndex = 78;
+            this.label_adicional.Text = "Adicional: ";
+            // 
+            // textBox_contrasena
+            // 
+            this.textBox_contrasena.Location = new System.Drawing.Point(80, 41);
+            this.textBox_contrasena.Name = "textBox_contrasena";
+            this.textBox_contrasena.Size = new System.Drawing.Size(120, 20);
+            this.textBox_contrasena.TabIndex = 77;
+            // 
+            // label_contrasena
+            // 
+            this.label_contrasena.AutoSize = true;
+            this.label_contrasena.Location = new System.Drawing.Point(7, 44);
+            this.label_contrasena.Name = "label_contrasena";
+            this.label_contrasena.Size = new System.Drawing.Size(67, 13);
+            this.label_contrasena.TabIndex = 76;
+            this.label_contrasena.Text = "Contraseña: ";
+            // 
+            // textBox_dni
+            // 
+            this.textBox_dni.Location = new System.Drawing.Point(80, 128);
+            this.textBox_dni.Name = "textBox_dni";
+            this.textBox_dni.Size = new System.Drawing.Size(120, 20);
+            this.textBox_dni.TabIndex = 75;
+            // 
+            // label_dni
+            // 
+            this.label_dni.AutoSize = true;
+            this.label_dni.Location = new System.Drawing.Point(7, 131);
+            this.label_dni.Name = "label_dni";
+            this.label_dni.Size = new System.Drawing.Size(32, 13);
+            this.label_dni.TabIndex = 74;
+            this.label_dni.Text = "DNI: ";
+            // 
+            // checkBox_activo
+            // 
+            this.checkBox_activo.AutoSize = true;
+            this.checkBox_activo.Location = new System.Drawing.Point(405, 182);
+            this.checkBox_activo.Name = "checkBox_activo";
+            this.checkBox_activo.Size = new System.Drawing.Size(56, 17);
+            this.checkBox_activo.TabIndex = 73;
+            this.checkBox_activo.Text = "Activo";
+            this.checkBox_activo.UseVisualStyleBackColor = true;
+            // 
+            // textBox_usuario
+            // 
+            this.textBox_usuario.Location = new System.Drawing.Point(80, 11);
+            this.textBox_usuario.Name = "textBox_usuario";
+            this.textBox_usuario.Size = new System.Drawing.Size(120, 20);
+            this.textBox_usuario.TabIndex = 72;
+            // 
+            // label_usuario
+            // 
+            this.label_usuario.AutoSize = true;
+            this.label_usuario.Location = new System.Drawing.Point(7, 14);
+            this.label_usuario.Name = "label_usuario";
+            this.label_usuario.Size = new System.Drawing.Size(49, 13);
+            this.label_usuario.TabIndex = 71;
+            this.label_usuario.Text = "Usuario: ";
+            // 
+            // checkBox_administrador
+            // 
+            this.checkBox_administrador.AutoSize = true;
+            this.checkBox_administrador.Location = new System.Drawing.Point(405, 218);
+            this.checkBox_administrador.Name = "checkBox_administrador";
+            this.checkBox_administrador.Size = new System.Drawing.Size(89, 17);
+            this.checkBox_administrador.TabIndex = 70;
+            this.checkBox_administrador.Text = "Administrador";
+            this.checkBox_administrador.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker_fechaDeIngreso
+            // 
+            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 10);
+            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
+            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaDeIngreso.TabIndex = 69;
+            // 
+            // label_fechaDeIngreso
+            // 
+            this.label_fechaDeIngreso.AutoSize = true;
+            this.label_fechaDeIngreso.Location = new System.Drawing.Point(402, 14);
+            this.label_fechaDeIngreso.Name = "label_fechaDeIngreso";
+            this.label_fechaDeIngreso.Size = new System.Drawing.Size(95, 13);
+            this.label_fechaDeIngreso.TabIndex = 68;
+            this.label_fechaDeIngreso.Text = "Fecha de ingreso: ";
+            // 
+            // textBox_email
+            // 
+            this.textBox_email.Location = new System.Drawing.Point(80, 99);
+            this.textBox_email.Name = "textBox_email";
+            this.textBox_email.Size = new System.Drawing.Size(120, 20);
+            this.textBox_email.TabIndex = 67;
+            // 
+            // textBox_nombre
+            // 
+            this.textBox_nombre.Location = new System.Drawing.Point(80, 70);
+            this.textBox_nombre.Name = "textBox_nombre";
+            this.textBox_nombre.Size = new System.Drawing.Size(120, 20);
+            this.textBox_nombre.TabIndex = 65;
+            // 
+            // label_email
+            // 
+            this.label_email.AutoSize = true;
+            this.label_email.Location = new System.Drawing.Point(7, 102);
+            this.label_email.Name = "label_email";
+            this.label_email.Size = new System.Drawing.Size(38, 13);
+            this.label_email.TabIndex = 66;
+            this.label_email.Text = "Email: ";
+            // 
+            // label_nombre
+            // 
+            this.label_nombre.AutoSize = true;
+            this.label_nombre.Location = new System.Drawing.Point(7, 73);
+            this.label_nombre.Name = "label_nombre";
+            this.label_nombre.Size = new System.Drawing.Size(50, 13);
+            this.label_nombre.TabIndex = 63;
+            this.label_nombre.Text = "Nombre: ";
+            // 
             // FormUsuarioEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel_formEdicion);
             this.Name = "FormUsuarioEdicion";
-            this.Size = new System.Drawing.Size(765, 398);
-            this.Load += new System.EventHandler(this.FormUsuarioEdicion_Load);
+            this.Size = new System.Drawing.Size(765, 325);
             this.tableLayoutPanel_formEdicion.ResumeLayout(false);
-            this.tabControl_usuario.ResumeLayout(false);
-            this.tabPage_datos.ResumeLayout(false);
-            this.tabPage_datos.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabPage_firmas.ResumeLayout(false);
-            this.tabPage_firmas.PerformLayout();
-            this.splitContainer_firmas.Panel1.ResumeLayout(false);
-            this.splitContainer_firmas.Panel2.ResumeLayout(false);
-            this.splitContainer_firmas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_firmas)).EndInit();
-            this.tabPage_galeria.ResumeLayout(false);
-            this.tabPage_galeria.PerformLayout();
-            this.splitContainer_galeria.Panel1.ResumeLayout(false);
-            this.splitContainer_galeria.Panel2.ResumeLayout(false);
-            this.splitContainer_galeria.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_galeria)).EndInit();
-            this.tabPage_mensajes.ResumeLayout(false);
-            this.tabPage_mensajes.PerformLayout();
-            this.splitContainer_mensajes.Panel1.ResumeLayout(false);
-            this.splitContainer_mensajes.Panel2.ResumeLayout(false);
-            this.splitContainer_mensajes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_mensajes)).EndInit();
-            this.tabPage_encuestas.ResumeLayout(false);
-            this.tabPage_encuestas.PerformLayout();
-            this.splitContainer_encuestas.Panel1.ResumeLayout(false);
-            this.splitContainer_encuestas.Panel2.ResumeLayout(false);
-            this.splitContainer_encuestas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_encuestas)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel_usuarioEdicion.ResumeLayout(false);
+            this.panel_usuarioEdicion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1073,79 +437,37 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button_descartarCambios;
         private System.Windows.Forms.Button button_guardarCambios;
-        private System.Windows.Forms.TabControl tabControl_usuario;
-        private System.Windows.Forms.TabPage tabPage_datos;
-        private System.Windows.Forms.CheckBox checkBox_esAdmin;
+        private System.Windows.Forms.Panel panel_usuarioEdicion;
+        private System.Windows.Forms.TextBox textBox_usuario;
+        private System.Windows.Forms.Label label_usuario;
+        private System.Windows.Forms.CheckBox checkBox_administrador;
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechaDeIngreso;
         private System.Windows.Forms.Label label_fechaDeIngreso;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.TextBox textBox_nombre;
         private System.Windows.Forms.Label label_email;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label_datosDeUsuario;
         private System.Windows.Forms.Label label_nombre;
-        private System.Windows.Forms.TabPage tabPage_firmas;
-        private System.Windows.Forms.SplitContainer splitContainer_firmas;
-        private System.Windows.Forms.DataGridView dataGridView_firmas;
-        private System.Windows.Forms.Button button_borrarFirma;
-        private System.Windows.Forms.Button button_editarFirma;
-        private System.Windows.Forms.RadioButton radioButton_recibidasPorUsuario;
-        private System.Windows.Forms.RadioButton radioButton_realizadasPorUsuario;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaFirma;
-        private System.Windows.Forms.Button button_buscarFirma;
-        private System.Windows.Forms.TextBox textBox_autorFirma;
-        private System.Windows.Forms.Label label_buscarFirmaPorAutor;
-        private System.Windows.Forms.Label label_buscarFirmaPorFecha;
-        private System.Windows.Forms.Label label_firmasDeUsuario;
-        private System.Windows.Forms.TabPage tabPage_galeria;
-        private System.Windows.Forms.SplitContainer splitContainer_galeria;
-        private System.Windows.Forms.DataGridView dataGridView_galeria;
-        private System.Windows.Forms.Button button_borrarGaleria;
-        private System.Windows.Forms.Button button_editarGaleria;
-        private System.Windows.Forms.TextBox textBox_tituloGaleria;
-        private System.Windows.Forms.TextBox textBox_autorGaleria;
-        private System.Windows.Forms.Label label_buscarGaleriaPorTitulo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaGaleria;
-        private System.Windows.Forms.Button button_buscarGaleria;
-        private System.Windows.Forms.Label label_buscarGaleriaPorAutor;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label_fotosDeUsuario;
-        private System.Windows.Forms.TabPage tabPage_mensajes;
-        private System.Windows.Forms.SplitContainer splitContainer_mensajes;
-        private System.Windows.Forms.DataGridView dataGridView_mensajes;
-        private System.Windows.Forms.Button button_borrarMensaje;
-        private System.Windows.Forms.Button button_editarMensaje;
-        private System.Windows.Forms.Button button_buscarMensaje;
-        private System.Windows.Forms.Label label_mensajesDeUsuario;
-        private System.Windows.Forms.TabPage tabPage_encuestas;
-        private System.Windows.Forms.SplitContainer splitContainer_encuestas;
-        private System.Windows.Forms.DataGridView dataGridView_encuestas;
-        private System.Windows.Forms.Button button_editarEncuesta;
-        private System.Windows.Forms.Button button_borrarEncuesta;
-        private System.Windows.Forms.TextBox textBox_asuntoEncuesta;
-        private System.Windows.Forms.Label label_buscarEncuestaPorAsunto;
-        private System.Windows.Forms.Button button_buscarEncuesta;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaEncuesta;
-        private System.Windows.Forms.Label label_buscarEncuestaPorFecha;
-        private System.Windows.Forms.Label label_encuestasDeUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idfirma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emisorfirma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn textofirma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechafirma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receptorfirma;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idimagen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tituloimagen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioimagen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn archivoimagen;
-        private System.Windows.Forms.RadioButton radioButton_recibidosPorUsuario;
-        private System.Windows.Forms.RadioButton radioButton_enviadosPorUsuario;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaMensaje;
-        private System.Windows.Forms.TextBox textBox_autorMensaje;
-        private System.Windows.Forms.Label label_buscarAutorPorMensaje;
-        private System.Windows.Forms.Label label_buscarMensajePorFecha;
+        private System.Windows.Forms.CheckBox checkBox_activo;
+        private System.Windows.Forms.TextBox textBox_dni;
+        private System.Windows.Forms.Label label_dni;
+        private System.Windows.Forms.TextBox textBox_contrasena;
+        private System.Windows.Forms.Label label_contrasena;
+        private System.Windows.Forms.TextBox textBox_adicional;
+        private System.Windows.Forms.Label label_adicional;
+        private System.Windows.Forms.Label label_numMensajes;
+        private System.Windows.Forms.Label label_numImagenes;
+        private System.Windows.Forms.Label label_numFirmas;
+        private System.Windows.Forms.TextBox textBox_numFirmas;
+        private System.Windows.Forms.Label label_numEncuestas;
+        private System.Windows.Forms.TextBox textBox_numEncuestas;
+        private System.Windows.Forms.TextBox textBox_numMensajes;
+        private System.Windows.Forms.TextBox textBox_numImagenes;
+        private System.Windows.Forms.LinkLabel linkLabel_verEncuestas;
+        private System.Windows.Forms.LinkLabel linkLabel_verMensajes;
+        private System.Windows.Forms.LinkLabel linkLabel_verImagenes;
+        private System.Windows.Forms.LinkLabel linkLabel_verFirmas;
+        private System.Windows.Forms.TextBox textBox_id;
+        private System.Windows.Forms.Label label_id;
 
     }
 }

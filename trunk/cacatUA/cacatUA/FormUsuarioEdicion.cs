@@ -11,11 +11,10 @@ using System.Collections;
 
 namespace cacatUA
 {
-    public partial class FormUsuarioEdicion : UserControl
+    public partial class FormUsuarioEdicion : InterfazForm
     {
         // Puntero al formulario padre
         private FormUsuarios padre;
-
 
         public FormUsuarioEdicion(FormUsuarios padre)
         {
@@ -29,42 +28,24 @@ namespace cacatUA
             // Cargamos los datos del usuario con esa id en los campos
             ENUsuario usuario = new ENUsuario(id);
 
-            textBox_nombre.Text = usuario.Usuario;
+            textBox_usuario.Text = usuario.Usuario;
+            textBox_contrasena.Text = usuario.Contrasena;
+            textBox_nombre.Text = usuario.Nombre;
+            textBox_dni.Text = usuario.Dni;
             textBox_email.Text = usuario.Correo;
+            textBox_adicional.Text = usuario.Adicional;
             dateTimePicker_fechaDeIngreso.Value = usuario.Fechaingreso;
-            checkBox_esAdmin.Checked = usuario.EsAdministrador();
+            
+            checkBox_administrador.Checked = usuario.EsAdministrador();
+            checkBox_activo.Checked = usuario.Activo;
         }
 
         private void CargarFirmas()
         {
             ArrayList al = new ArrayList();
             al = ENFirma.Obtener();
-
-            CargarDatosFirmas(al);
         }
-
-        // Este método carga los datos en el DataGridView
-        public void CargarDatosFirmas(ArrayList datos)
-        {
-            // Borramos los elementos previos
-            dataGridView_firmas.Rows.Clear();
-
-            // Obtenemos todos los materiales que hay en la base de datos
-            for (int i = 0; i < datos.Count; i++)
-            {
-                ENFirma firma = (ENFirma)datos[i];
-                DataGridViewRow fila = new DataGridViewRow();
-                fila.CreateCells(dataGridView_firmas);
-
-                fila.Cells[0].Value = firma.Id.ToString();
-                fila.Cells[1].Value = firma.Emisor.Usuario.ToString();
-                fila.Cells[2].Value = firma.Texto.ToString();
-                fila.Cells[3].Value = firma.Fecha.ToString();
-                fila.Cells[4].Value = firma.Receptor.Usuario.ToString();
-
-                dataGridView_firmas.Rows.Add(fila);
-            }
-        }
+        
 
         ////////////////////////////////////
         // MÉTODOS DE INSERCIÓN DE PRUEBA //
@@ -81,27 +62,6 @@ namespace cacatUA
 
         // ---------------------------------
 
-
-        private void button_buscarFirma_Click(object sender, EventArgs e)
-        {
-            // Cogemos los datos de los formularios
-            bool realizada = radioButton_realizadasPorUsuario.Checked;
-            DateTime fechaFirma = dateTimePicker_fechaFirma.Value;
-            string autor = textBox_autorFirma.Text;
-            ArrayList resultado = new ArrayList();
-
-            if (realizada)
-            {
-                resultado = ENFirma.Buscar(autor, "", fechaFirma);
-            }
-            else 
-            {
-                resultado = ENFirma.Buscar("", autor, fechaFirma);
-            }
-
-            // Aquí cargamos el DataGridView
-            CargarDatosFirmas(resultado);
-        }
 
         private void button_buscarGaleria_Click(object sender, EventArgs e)
         {
@@ -144,10 +104,24 @@ namespace cacatUA
             // Código para descartar los cambios
         }
 
-        private void FormUsuarioEdicion_Load(object sender, EventArgs e)
+        private void linkLabel_verFirmas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Al cargar cargamos en la base de datos algunas firmas
-            CargarFirmas();
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(), "Respuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+        }
+
+        private void linkLabel_verImagenes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+        }
+
+        private void linkLabel_verMensajes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+        }
+
+        private void linkLabel_verEncuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
         }
     }
 }
