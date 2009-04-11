@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -77,6 +77,30 @@
     </Compile>
     <Compile Include="FormForoRespuestas.Designer.cs">
       <DependentUpon>FormForoRespuestas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioEncuestas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioEncuestas.Designer.cs">
+      <DependentUpon>FormUsuarioEncuestas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioFirmas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioFirmas.Designer.cs">
+      <DependentUpon>FormUsuarioFirmas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioImagenes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioImagenes.Designer.cs">
+      <DependentUpon>FormUsuarioImagenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarioMensajes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormUsuarioMensajes.Designer.cs">
+      <DependentUpon>FormUsuarioMensajes.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsuarios.cs">
       <SubType>UserControl</SubType>
@@ -190,6 +214,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Login.cs" />
+    <Compile Include="probando.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="probando.Designer.cs">
+      <DependentUpon>probando.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormForoRespuestas.resx">
@@ -197,6 +227,19 @@
       <SubType>Designer</SubType>
       <SubType>Designer</SubType>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioEncuestas.resx">
+      <DependentUpon>FormUsuarioEncuestas.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioFirmas.resx">
+      <DependentUpon>FormUsuarioFirmas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioImagenes.resx">
+      <DependentUpon>FormUsuarioImagenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarioMensajes.resx">
+      <DependentUpon>FormUsuarioMensajes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>
@@ -268,6 +311,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPeticiones.resx">
       <DependentUpon>FormPeticiones.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazForm.resx">
+      <DependentUpon>InterfazForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="probando.resx">
+      <DependentUpon>probando.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

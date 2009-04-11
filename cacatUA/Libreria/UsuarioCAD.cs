@@ -102,8 +102,8 @@ namespace Libreria
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
-                comando.CommandText = "SELECT * FROM usuarios where usuario = @usuario"; // Asignamos la sentencia SQL
-                comando.Parameters.AddWithValue("@usuario", nombre);
+                comando.CommandText = "SELECT * FROM usuarios where usuario LIKE @usuario"; // Asignamos la sentencia SQL
+                comando.Parameters.AddWithValue("@usuario", "%" + nombre + "%");
 
                 // Creamo un objeto DataReader
                 SqlDataReader dr = comando.ExecuteReader();
@@ -287,7 +287,7 @@ namespace Libreria
                 
                 if (usarUsuario)
                 {
-                    comando.CommandText += "(usuario = @usuario) ";    
+                    comando.CommandText += "(usuario LIKE @usuario) ";    
                 }
                 if (usarCorreo)
                 { 
@@ -295,7 +295,7 @@ namespace Libreria
                     {
                         comando.CommandText += "AND ";
                     }
-                    comando.CommandText += "(correo = @correo) ";
+                    comando.CommandText += "(correo LIKE @correo) ";
                 }
                 
                 if (usarFecha)
@@ -307,8 +307,8 @@ namespace Libreria
                     comando.CommandText += "(fechaingreso = @fechaingreso) ";
                 }
 
-                comando.Parameters.AddWithValue("@usuario", nombreUsuario);
-                comando.Parameters.AddWithValue("@correo", correo);
+                comando.Parameters.AddWithValue("@usuario", "%" + nombreUsuario + "%");
+                comando.Parameters.AddWithValue("@correo", "%" + correo + "%");
                 comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
 
                 SqlDataReader dr = comando.ExecuteReader();
