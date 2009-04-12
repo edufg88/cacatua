@@ -62,10 +62,10 @@ namespace Libreria
         public ENUsuario ObtenerUsuario(int id)
         {
             ENUsuario usuario = null;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
 
             try
             {
-                SqlConnection conexion = new SqlConnection(cadenaConexion);
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
@@ -83,10 +83,16 @@ namespace Libreria
 
                 conexion.Close();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                Console.Write("Excepcion obtener usuario");
+                Console.Write("Excepcion obtener usuario " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
 
             return usuario;
@@ -95,10 +101,10 @@ namespace Libreria
         public ENUsuario ObtenerUsuario(string nombre)
         {
             ENUsuario usuario = null;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
 
             try
             {
-                SqlConnection conexion = new SqlConnection(cadenaConexion);
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
@@ -113,13 +119,18 @@ namespace Libreria
                     // en un objeto ENUsuarioCRUD
                     usuario = ObtenerDatos(dr);
                 }
-
-                conexion.Close();
             }
             catch (SqlException)
             {
                 // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
                 Console.Write("Excepcion obtener usuario por nombre");
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
 
             return usuario;
@@ -130,7 +141,7 @@ namespace Libreria
         {
             ArrayList usuarios = new ArrayList();
             SqlConnection conexion = new SqlConnection(cadenaConexion);
-            
+
             try
             {
                 conexion.Open();
@@ -144,14 +155,17 @@ namespace Libreria
                     ENUsuario usuario = ObtenerDatos(dr);
                     usuarios.Add(usuario);
                 }
-
-                conexion.Close();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                //MessageBox.Show("error", "error");
-                Console.Write("Excepción obtener usuarios");
+                Console.Write("Excepción obtener usuarios " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
         
             return usuarios;
@@ -173,6 +187,13 @@ namespace Libreria
             {
                 Console.Write("Excepción borrando todos los usuarios");
             }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
         }
 
         // Borra un usuario determinado dado un id
@@ -192,9 +213,7 @@ namespace Libreria
                 if ((comando.ExecuteNonQuery()) == 1) // Comprobamos cuantas filas se borran
                 {
                     borrado = true;
-                }
-
-                conexion.Close();
+                }                
             }
             catch (SqlException)
             {
@@ -202,10 +221,124 @@ namespace Libreria
                 //MessageBox.Show();   
                 Console.Write("Excepcion borrar");
             }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
 
             return (borrado);
         }
 
+        public bool Actualizar(ENUsuario usuario)
+        {
+            bool actualizado = false;
+
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "update usuarios set usuario = @usuario, contrasena = @contrasena, nombre = @nombre, correo = @correo, dni = @dni, adicional = @adicional, fechaingreso = @fechaingreso, activo = @activo where id = @id";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@usuario", usuario.Usuario);
+                comando.Parameters.AddWithValue("@contrasena", usuario.Contrasena);
+                comando.Parameters.AddWithValue("@nombre", usuario.Nombre);
+                comando.Parameters.AddWithValue("@dni", usuario.Dni);
+                comando.Parameters.AddWithValue("@correo", usuario.Correo);
+                comando.Parameters.AddWithValue("@fechaingreso", usuario.Fechaingreso);
+                comando.Parameters.AddWithValue("@adicional", usuario.Adicional);
+                comando.Parameters.AddWithValue("@activo", usuario.Activo);
+                comando.Parameters.AddWithValue("@id", usuario.Id);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    actualizado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar un usuario" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return actualizado;
+        }
+
+        public bool CrearAdmin(int usuario)
+        {
+            bool creado = false;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            SqlCommand comando = new SqlCommand();
+
+            try
+            {
+                conexion.Open();
+                comando.Connection = conexion;
+                comando.CommandText = "INSERT INTO administradores (usuario) VALUES (@usuario)";
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    creado = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.Write("Error al insertar en administradores " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();        
+                }
+            }
+
+            return (creado);
+        }
+
+        public bool BorrarAdmin(int usuario)
+        {
+            bool borrado = false;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            SqlCommand comando = new SqlCommand();
+
+            try
+            {
+                conexion.Open();
+                comando.Connection = conexion;
+                comando.CommandText = "DELETE FROM administradores WHERE usuario = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    borrado = true;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.Write("Error al borrar en administradores " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return (borrado);
+        }
+            
         public bool CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, DateTime fechaingreso, bool activo, string adicional)
         {
             bool creado = false;
@@ -233,14 +366,17 @@ namespace Libreria
                 {
                     creado = true;
                 }
-
-                conexion.Close();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                //MessageBox.Show(); 
-                Console.Write("Excepcion insertar");
+                Console.Write("Excepcion insertar " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
 
             return (creado);
@@ -284,20 +420,20 @@ namespace Libreria
                 comando.Connection = conexion;
 
                 comando.CommandText = "SELECT * FROM usuarios WHERE ";
-                
+
                 if (usarUsuario)
                 {
-                    comando.CommandText += "(usuario LIKE @usuario) ";    
+                    comando.CommandText += "(usuario LIKE @usuario) ";
                 }
                 if (usarCorreo)
-                { 
+                {
                     if (usarUsuario)
                     {
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(correo LIKE @correo) ";
                 }
-                
+
                 if (usarFecha)
                 {
                     if (usarUsuario || usarCorreo)
@@ -318,14 +454,17 @@ namespace Libreria
                     ENUsuario usuario = ObtenerDatos(dr);
                     usuarios.Add(usuario);
                 }
-
-                conexion.Close();
             }
             catch (SqlException sqlex)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                //MessageBox.Show(); 
                 Console.Write("Excepcion buscar" + sqlex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
 
             return usuarios;
@@ -341,25 +480,28 @@ namespace Libreria
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
-                comando.CommandText = "SELECT * FROM administradores where usuario = @id";
+                comando.CommandText = "SELECT count(*) FROM administradores where usuario = @id";
                 comando.Parameters.AddWithValue("@id", id);
-
-                if ((comando.ExecuteNonQuery()) == 1) // Comprobamos cuantas filas se borran
+                int cantidad = int.Parse(comando.ExecuteScalar().ToString());
+                // Comprobamos si hemos obtenido algun resultado
+                if (cantidad == 1)
                 {
                     esAdmin = true;
                 }
-
-                conexion.Close();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                //MessageBox.Show();   
-                Console.Write("Excepcion EsAdmin");
+                Console.Write("Excepcion EsAdmin " + ex.Message);
+            }
+            finally 
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
             }
 
             return (esAdmin);
-        
         }
     }
 }
