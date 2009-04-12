@@ -111,7 +111,7 @@ namespace cacatUA
         {
             // Cargamos el user control de crear
             CambiarFormularioEdicion();
-            //formEdicion.formularioVacio();
+            formEdicion.CambiarNuevo();
         }
 
         private void FormUsuarios_Load(object sender, EventArgs e)
@@ -196,6 +196,7 @@ namespace cacatUA
                 }
             }
 
+            formEdicion.CambiarNuevo();
         }
 
     }

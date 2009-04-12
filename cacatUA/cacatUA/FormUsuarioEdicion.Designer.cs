@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_formEdicion = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
@@ -63,9 +64,11 @@
             this.textBox_nombre = new System.Windows.Forms.TextBox();
             this.label_email = new System.Windows.Forms.Label();
             this.label_nombre = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel_formEdicion.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_usuarioEdicion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_formEdicion
@@ -289,7 +292,7 @@
             this.textBox_adicional.Multiline = true;
             this.textBox_adicional.Name = "textBox_adicional";
             this.textBox_adicional.Size = new System.Drawing.Size(238, 116);
-            this.textBox_adicional.TabIndex = 79;
+            this.textBox_adicional.TabIndex = 77;
             // 
             // label_adicional
             // 
@@ -305,7 +308,7 @@
             this.textBox_contrasena.Location = new System.Drawing.Point(80, 41);
             this.textBox_contrasena.Name = "textBox_contrasena";
             this.textBox_contrasena.Size = new System.Drawing.Size(120, 20);
-            this.textBox_contrasena.TabIndex = 77;
+            this.textBox_contrasena.TabIndex = 73;
             // 
             // label_contrasena
             // 
@@ -321,7 +324,7 @@
             this.textBox_dni.Location = new System.Drawing.Point(80, 128);
             this.textBox_dni.Name = "textBox_dni";
             this.textBox_dni.Size = new System.Drawing.Size(120, 20);
-            this.textBox_dni.TabIndex = 75;
+            this.textBox_dni.TabIndex = 76;
             // 
             // label_dni
             // 
@@ -338,7 +341,7 @@
             this.checkBox_activo.Location = new System.Drawing.Point(405, 182);
             this.checkBox_activo.Name = "checkBox_activo";
             this.checkBox_activo.Size = new System.Drawing.Size(56, 17);
-            this.checkBox_activo.TabIndex = 73;
+            this.checkBox_activo.TabIndex = 79;
             this.checkBox_activo.Text = "Activo";
             this.checkBox_activo.UseVisualStyleBackColor = true;
             // 
@@ -364,7 +367,7 @@
             this.checkBox_administrador.Location = new System.Drawing.Point(405, 218);
             this.checkBox_administrador.Name = "checkBox_administrador";
             this.checkBox_administrador.Size = new System.Drawing.Size(89, 17);
-            this.checkBox_administrador.TabIndex = 70;
+            this.checkBox_administrador.TabIndex = 80;
             this.checkBox_administrador.Text = "Administrador";
             this.checkBox_administrador.UseVisualStyleBackColor = true;
             // 
@@ -373,7 +376,7 @@
             this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 10);
             this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
             this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaDeIngreso.TabIndex = 69;
+            this.dateTimePicker_fechaDeIngreso.TabIndex = 78;
             // 
             // label_fechaDeIngreso
             // 
@@ -389,14 +392,14 @@
             this.textBox_email.Location = new System.Drawing.Point(80, 99);
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(120, 20);
-            this.textBox_email.TabIndex = 67;
+            this.textBox_email.TabIndex = 75;
             // 
             // textBox_nombre
             // 
             this.textBox_nombre.Location = new System.Drawing.Point(80, 70);
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(120, 20);
-            this.textBox_nombre.TabIndex = 65;
+            this.textBox_nombre.TabIndex = 74;
             // 
             // label_email
             // 
@@ -416,6 +419,10 @@
             this.label_nombre.TabIndex = 63;
             this.label_nombre.Text = "Nombre: ";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormUsuarioEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,6 +434,7 @@
             this.panel2.ResumeLayout(false);
             this.panel_usuarioEdicion.ResumeLayout(false);
             this.panel_usuarioEdicion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,6 +476,7 @@
         private System.Windows.Forms.LinkLabel linkLabel_verFirmas;
         private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label_id;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
     }
 }

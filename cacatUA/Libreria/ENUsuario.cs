@@ -272,7 +272,7 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            throw new NotImplementedException();
+            return UsuarioCAD.Instancia.Actualizar(this);
         }
 
         override public bool Guardar()
@@ -280,9 +280,19 @@ namespace Libreria
             return UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
         }
 
+        public bool GuardarAdmin()
+        {
+            return UsuarioCAD.Instancia.CrearAdmin(id);
+        }
+
         override public bool Borrar()
         {
             return UsuarioCAD.Instancia.BorrarUsuario(id);
+        }
+
+        public bool BorrarAdmin()
+        {
+            return UsuarioCAD.Instancia.BorrarAdmin(id);
         }
 
         public static bool Borrar(int pid)
