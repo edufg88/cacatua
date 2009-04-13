@@ -172,6 +172,7 @@ namespace cacatUA
                             {
                                 CambiarSeleccionado(nuevo.Id);
                                 MessageBox.Show("Usuario guardado correctamente.");
+                                padre.CargarUsuarios();
                             }
                             else
                             {
@@ -208,6 +209,7 @@ namespace cacatUA
                             }
                         }
                         MessageBox.Show("Usuario actualizado correctamente.");
+                        padre.CargarUsuarios();
                     }
                     else
                     {
@@ -231,22 +233,22 @@ namespace cacatUA
 
         private void linkLabel_verFirmas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(), "Respuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(new ENUsuario(int.Parse(textBox_id.Text))), "Firmas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
         }
 
         private void linkLabel_verImagenes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            //FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(new ENUsuario(int.Parse(textBox_id.Text))), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
         }
 
         private void linkLabel_verMensajes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            //FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(new ENUsuario(int.Parse(textBox_id.Text))), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
         }
 
         private void linkLabel_verEncuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            //FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(new ENUsuario(int.Parse(textBox_id.Text))), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
         }
     }
 }

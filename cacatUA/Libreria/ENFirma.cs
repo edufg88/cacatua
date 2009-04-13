@@ -60,7 +60,7 @@ namespace Libreria
         public bool Obtener(int id)
         {
             ENFirma aux = new ENFirma();
-            FirmaCAD.Instancia.ObtenerFirma(id);
+            aux = FirmaCAD.Instancia.ObtenerFirma(id);
 
             if (aux != null)
             {
@@ -101,7 +101,7 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            throw new NotImplementedException();
+            return FirmaCAD.Instancia.Actualizar(this);
         }
 
         override public bool Guardar()
@@ -124,7 +124,7 @@ namespace Libreria
             FirmaCAD.Instancia.BorrarFirmas();
         }
 
-        public static ArrayList Buscar(string emisor, string receptor, DateTime fecha)
+        public ArrayList Buscar(string emisor, string receptor, DateTime fecha)
         {
             return FirmaCAD.Instancia.BuscarFirma(emisor, receptor, fecha);
         }
