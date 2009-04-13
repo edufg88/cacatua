@@ -340,5 +340,23 @@ namespace cacatUA
                 }
             }
         }
+
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENUsuario)
+                {
+                    textBox_usuario.Text = ((ENUsuario)objeto).Usuario;
+                }
+            }
+        }
+
+        private void seleccionarUsuario(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true,
+                "Volver al panel anterior seleccionando el usuario actual",
+                "Cancelar la selección y volver al panel anterior");
+        }
     }
 }
