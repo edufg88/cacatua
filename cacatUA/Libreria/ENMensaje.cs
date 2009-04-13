@@ -59,7 +59,7 @@ namespace Libreria
         public bool Obtener(int id)
         {
             ENMensaje aux = new ENMensaje();
-            MensajeCAD.Instancia.ObtenerMensaje(id);
+            aux = MensajeCAD.Instancia.ObtenerMensaje(id);
 
             if (aux != null)
             {
@@ -100,7 +100,7 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            throw new NotImplementedException();
+            return MensajeCAD.Instancia.Actualizar(this);
         }
 
         override public bool Guardar()
@@ -123,7 +123,7 @@ namespace Libreria
             MensajeCAD.Instancia.BorrarMensajes();
         }
 
-        public static ArrayList Buscar(string emisor, string receptor, DateTime fecha)
+        public ArrayList Buscar(string emisor, string receptor, DateTime fecha)
         {
             return MensajeCAD.Instancia.BuscarMensaje(emisor, receptor, fecha);
         }

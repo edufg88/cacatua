@@ -32,12 +32,13 @@ namespace Libreria
         public ENImagen ObtenerDatos(SqlDataReader dr)
         {
             ENImagen imagen = new ENImagen();
-
+          
             imagen.Id = int.Parse(dr["id"].ToString());
             imagen.Titulo = dr["titulo"].ToString();
             imagen.Descripcion = dr["descripcion"].ToString();
-            imagen.Usuario = UsuarioCAD.Instancia.ObtenerUsuario(int.Parse(dr["usuario"].ToString()));
+            imagen.Usuario = new ENUsuario(int.Parse(dr["usuario"].ToString()));
             imagen.Archivo = dr["archivo"].ToString();
+            imagen.Fecha = DateTime.Parse(dr["fecha"].ToString());
 
             return (imagen);
         }
@@ -185,7 +186,7 @@ namespace Libreria
             return (borrado);
         }
 
-        public bool GuardarImagen(string titulo, string descripcion, string usuario, string archivo)
+        public bool GuardarImagen(string titulo, string descripcion, string usuario, string archivo, DateTime fecha)
         {
             bool guardado = false;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -200,12 +201,13 @@ namespace Libreria
 
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "imagenes (titulo, descripcion, usuario, archivo) " +
-                    "VALUES (@titulo, @descripcion, @usuario, @archivo)";
+                    "imagenes (titulo, descripcion, usuario, archivo, fecha) " +
+                    "VALUES (@titulo, @descripcion, @usuario, @archivo, @fecha)";
                 comando.Parameters.AddWithValue("@titulo", titulo);
                 comando.Parameters.AddWithValue("@descripcion", descripcion);
                 comando.Parameters.AddWithValue("@usuario", autor.Id);
                 comando.Parameters.AddWithValue("@archivo", archivo);
+                comando.Parameters.AddWithValue("@fecha", fecha);
 
                 if (comando.ExecuteNonQuery() == 1)
                 {
@@ -283,6 +285,79 @@ namespace Libreria
             }
 
             return imagenes;
+        }
+
+        public ArrayList BuscarImagen(int usuario)
+        {
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            ArrayList imagenes = new ArrayList();
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM imagenes WHERE usuario = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                SqlDataReader dr = comando.ExecuteReader();
+                // Generamos el ArrayList a partir del DataReader
+                while (dr.Read())
+                {
+                    ENImagen imagen = ObtenerDatos(dr);
+                    imagenes.Add(imagen);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.Write("Error al buscar imagen por usuario " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return (imagenes);
+        }
+
+        public bool Actualizar(ENImagen imagen)
+        {
+            bool actualizado = false;
+
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "update imagenes set titulo = @titulo, descripcion = @descripcion, fecha = @fecha, usuario = @usuario, archivo = @archivo where id = @id";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@titulo", imagen.Titulo);
+                comando.Parameters.AddWithValue("@descripcion", imagen.Descripcion);
+                comando.Parameters.AddWithValue("@fecha", imagen.Fecha);
+                comando.Parameters.AddWithValue("@usuario", imagen.Usuario.Id);
+                comando.Parameters.AddWithValue("@archivo", imagen.Archivo);
+                comando.Parameters.AddWithValue("@id", imagen.Id);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    actualizado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar una imagen" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return actualizado;
         }
     }
 }

@@ -205,6 +205,7 @@
             this.button_editarImagen.TabIndex = 9;
             this.button_editarImagen.Tag = "";
             this.button_editarImagen.UseVisualStyleBackColor = true;
+            this.button_editarImagen.Click += new System.EventHandler(this.button_editarImagen_Click);
             // 
             // button_borrarImagen
             // 
@@ -220,6 +221,7 @@
             this.button_borrarImagen.TabIndex = 10;
             this.button_borrarImagen.Tag = "";
             this.button_borrarImagen.UseVisualStyleBackColor = true;
+            this.button_borrarImagen.Click += new System.EventHandler(this.button_borrarImagen_Click);
             // 
             // dataGridView_encuestas
             // 
@@ -244,6 +246,7 @@
             this.dataGridView_encuestas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_encuestas.Size = new System.Drawing.Size(684, 148);
             this.dataGridView_encuestas.TabIndex = 4;
+            this.dataGridView_encuestas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_encuestas_CellMouseDoubleClick);
             // 
             // id
             // 
@@ -415,6 +418,7 @@
             this.button_descartarCambios.TabIndex = 1;
             this.button_descartarCambios.Text = "Descartar cambios";
             this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Click += new System.EventHandler(this.button_descartarCambios_Click);
             // 
             // button_guardarCambios
             // 
@@ -434,6 +438,7 @@
             this.Controls.Add(this.tableLayoutPanel_principal);
             this.Name = "FormUsuarioEncuestas";
             this.Size = new System.Drawing.Size(739, 361);
+            this.Load += new System.EventHandler(this.FormUsuarioEncuestas_Load);
             this.tableLayoutPanel_principal.ResumeLayout(false);
             this.panel_cabecera.ResumeLayout(false);
             this.panel_cabecera.PerformLayout();

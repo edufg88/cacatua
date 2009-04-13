@@ -13,6 +13,7 @@ namespace Libreria
         private string descripcion;
         private ENUsuario usuario;
         private string archivo;
+        private DateTime fecha;
 
         public ENImagen()
         {
@@ -20,6 +21,7 @@ namespace Libreria
             titulo = "";
             descripcion = "";
             archivo = "";
+            fecha = DateTime.Now;
         }
 
         public ENImagen(int id)
@@ -36,9 +38,10 @@ namespace Libreria
             this.descripcion = aux.descripcion;
             this.usuario = aux.usuario;
             this.archivo = aux.archivo;
+            this.fecha = aux.fecha;
         }
 
-        public ENImagen(string titulo, string descripcion, string usuario, string archivo)
+        public ENImagen(string titulo, string descripcion, string usuario, string archivo, DateTime fecha)
         {
             ENUsuario autor = new ENUsuario(usuario);
 
@@ -47,6 +50,7 @@ namespace Libreria
             this.descripcion = descripcion;
             this.usuario = autor;
             this.archivo = archivo;
+            this.fecha = fecha;
         }
 
         public static ArrayList Obtener()
@@ -57,7 +61,7 @@ namespace Libreria
         public bool Obtener(int id)
         {
             ENImagen aux = new ENImagen();
-            ImagenCAD.Instancia.ObtenerImagen(id);
+            aux = ImagenCAD.Instancia.ObtenerImagen(id);
 
             if (aux != null)
             {
@@ -66,6 +70,7 @@ namespace Libreria
                 this.descripcion = aux.descripcion;
                 this.usuario = aux.usuario;
                 this.archivo = aux.archivo;
+                this.fecha = aux.fecha;
 
                 return true;
             }
@@ -85,6 +90,7 @@ namespace Libreria
             this.descripcion = aux.descripcion;
             this.usuario = aux.usuario;
             this.archivo = aux.archivo;
+            this.fecha = aux.fecha;
 
             if (aux == null)
             {
@@ -98,12 +104,12 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            throw new NotImplementedException();
+            return ImagenCAD.Instancia.Actualizar(this);
         }
 
         override public bool Guardar()
         {
-            return ImagenCAD.Instancia.GuardarImagen(titulo, descripcion, usuario.Usuario, archivo);
+            return ImagenCAD.Instancia.GuardarImagen(titulo, descripcion, usuario.Usuario, archivo, fecha);
         }
 
         override public bool Borrar()
@@ -121,9 +127,14 @@ namespace Libreria
             ImagenCAD.Instancia.BorrarImagenes();
         }
 
-        public static ArrayList Buscar(string titulo, string usuario)
+        public ArrayList Buscar(string titulo, string usuario)
         {
             return ImagenCAD.Instancia.BuscarImagen(titulo, usuario);
+        }
+
+        public ArrayList Buscar(int usuario)
+        {
+            return ImagenCAD.Instancia.BuscarImagen(usuario);
         }
 
         public int Id
@@ -133,12 +144,12 @@ namespace Libreria
         }
         public string Titulo
         {
-            get { return Titulo; }
+            get { return titulo; }
             set { titulo = value; }
         }
         public string Descripcion
         {
-            get { return Descripcion; }
+            get { return descripcion; }
             set { descripcion = value; }
         }
         public ENUsuario Usuario
@@ -150,6 +161,11 @@ namespace Libreria
         {
             get { return archivo; }
             set { archivo = value; }
+        }
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
         }
     }
 }

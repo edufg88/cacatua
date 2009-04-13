@@ -77,7 +77,6 @@ namespace Libreria
             }
             catch (SqlException)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
                 Console.Write("Excepcion obtener encuesta");
             }
 
@@ -199,6 +198,41 @@ namespace Libreria
             return (guardado);
         }
 
+        public ArrayList BuscarEncuesta(int usuario)
+        {
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            ArrayList encuestas = new ArrayList();
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM encuestas WHERE usuario = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                SqlDataReader dr = comando.ExecuteReader();
+                // Generamos el ArrayList a partir del DataReader
+                while (dr.Read())
+                {
+                    ENEncuesta encuesta = ObtenerDatos(dr);
+                    encuestas.Add(encuesta);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.Write("Error al buscar encuesta por usuario " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return (encuestas);
+        }
+
         public ArrayList BuscarEncuesta(string asunto, DateTime fecha)
         {
             bool usarAsunto = false;
@@ -266,6 +300,43 @@ namespace Libreria
             }
 
             return encuestas;
+        }
+
+        public bool Actualizar(ENEncuesta encuesta)
+        {
+            bool actualizado = false;
+
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "update encuestas set pregunta = @pregunta, usuario = @usuario, fecha = @fecha, activa = @activa where id = @id";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@pregunta", encuesta.Pregunta);
+                comando.Parameters.AddWithValue("@usuario", encuesta.Usuario.Id);
+                comando.Parameters.AddWithValue("@fecha", encuesta.Fecha);
+                comando.Parameters.AddWithValue("@activa", encuesta.Activa);
+                comando.Parameters.AddWithValue("@id", encuesta.Id);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    actualizado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar una encuesta" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return actualizado;
         }
     }
 }

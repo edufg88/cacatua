@@ -47,7 +47,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_editarImagen = new System.Windows.Forms.Button();
             this.button_borrarImagen = new System.Windows.Forms.Button();
-            this.dataGridView_firmas = new System.Windows.Forms.DataGridView();
+            this.dataGridView_imagenes = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +70,7 @@
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_firmas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_imagenes)).BeginInit();
             this.panel_cabeceraSeccion2.SuspendLayout();
             this.panel_cabeceraSeccion1.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
@@ -232,6 +232,7 @@
             this.button_descartarCambios.TabIndex = 1;
             this.button_descartarCambios.Text = "Descartar cambios";
             this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Click += new System.EventHandler(this.button_descartarCambios_Click);
             // 
             // button_guardarCambios
             // 
@@ -242,12 +243,13 @@
             this.button_guardarCambios.TabIndex = 0;
             this.button_guardarCambios.Text = "Guardar cambios";
             this.button_guardarCambios.UseVisualStyleBackColor = true;
+            this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button_editarImagen);
             this.panel1.Controls.Add(this.button_borrarImagen);
-            this.panel1.Controls.Add(this.dataGridView_firmas);
+            this.panel1.Controls.Add(this.dataGridView_imagenes);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 233);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -285,31 +287,33 @@
             this.button_borrarImagen.TabIndex = 10;
             this.button_borrarImagen.Tag = "";
             this.button_borrarImagen.UseVisualStyleBackColor = true;
+            this.button_borrarImagen.Click += new System.EventHandler(this.button_borrarImagen_Click);
             // 
-            // dataGridView_firmas
+            // dataGridView_imagenes
             // 
-            this.dataGridView_firmas.AllowUserToAddRows = false;
-            this.dataGridView_firmas.AllowUserToDeleteRows = false;
-            this.dataGridView_firmas.AllowUserToResizeRows = false;
-            this.dataGridView_firmas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dataGridView_imagenes.AllowUserToAddRows = false;
+            this.dataGridView_imagenes.AllowUserToDeleteRows = false;
+            this.dataGridView_imagenes.AllowUserToResizeRows = false;
+            this.dataGridView_imagenes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_firmas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_firmas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_firmas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView_imagenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_imagenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_imagenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.usuario,
             this.titulo,
             this.descripcion,
             this.fecha,
             this.archivo});
-            this.dataGridView_firmas.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView_firmas.Name = "dataGridView_firmas";
-            this.dataGridView_firmas.ReadOnly = true;
-            this.dataGridView_firmas.RowHeadersVisible = false;
-            this.dataGridView_firmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_firmas.Size = new System.Drawing.Size(684, 150);
-            this.dataGridView_firmas.TabIndex = 4;
+            this.dataGridView_imagenes.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView_imagenes.Name = "dataGridView_imagenes";
+            this.dataGridView_imagenes.ReadOnly = true;
+            this.dataGridView_imagenes.RowHeadersVisible = false;
+            this.dataGridView_imagenes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_imagenes.Size = new System.Drawing.Size(684, 150);
+            this.dataGridView_imagenes.TabIndex = 4;
+            this.dataGridView_imagenes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_imagenes_CellMouseDoubleClick);
             // 
             // id
             // 
@@ -462,6 +466,7 @@
             this.Controls.Add(this.tableLayoutPanel_principal);
             this.Name = "FormUsuarioImagenes";
             this.Size = new System.Drawing.Size(732, 355);
+            this.Load += new System.EventHandler(this.FormUsuarioImagenes_Load);
             this.panel_contenedor.ResumeLayout(false);
             this.tableLayoutPanel_secundario.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -472,7 +477,7 @@
             this.panel6.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_firmas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_imagenes)).EndInit();
             this.panel_cabeceraSeccion2.ResumeLayout(false);
             this.panel_cabeceraSeccion2.PerformLayout();
             this.panel_cabeceraSeccion1.ResumeLayout(false);
@@ -505,7 +510,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_editarImagen;
         private System.Windows.Forms.Button button_borrarImagen;
-        private System.Windows.Forms.DataGridView dataGridView_firmas;
+        private System.Windows.Forms.DataGridView dataGridView_imagenes;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
