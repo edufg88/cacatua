@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_FuncionArbol = new System.Windows.Forms.Label();
             this.groupBox_Informacion = new System.Windows.Forms.GroupBox();
             this.dataGridView_Usuarios = new System.Windows.Forms.DataGridView();
             this.DataGridViewColumno_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,11 +44,12 @@
             this.linkLabel_verHilos = new System.Windows.Forms.LinkLabel();
             this.label_nMateriales = new System.Windows.Forms.Label();
             this.label_nHilos = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
+            this.button_AñadirUsuario = new System.Windows.Forms.Button();
             this.button_quitarUsuario = new System.Windows.Forms.Button();
             this.button_verUsuario = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox_Administracion = new System.Windows.Forms.GroupBox();
+            this.button_LimpiarRuta = new System.Windows.Forms.Button();
             this.label_Descripcion = new System.Windows.Forms.Label();
             this.label_Ruta = new System.Windows.Forms.Label();
             this.textBox_Ruta = new System.Windows.Forms.TextBox();
@@ -60,12 +63,15 @@
             this.button_borrarCategoria = new System.Windows.Forms.Button();
             this.treeViewCategorias = new System.Windows.Forms.TreeView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.errorProvider_Categorias = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip_Categorias = new System.Windows.Forms.ToolTip(this.components);
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox_Informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).BeginInit();
             this.groupBox_Administracion.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Categorias)).BeginInit();
             this.SuspendLayout();
             // 
             // panel6
@@ -98,6 +104,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label_FuncionArbol);
             this.panel1.Controls.Add(this.groupBox_Informacion);
             this.panel1.Controls.Add(this.groupBox_Administracion);
             this.panel1.Controls.Add(this.treeViewCategorias);
@@ -107,6 +114,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(808, 490);
             this.panel1.TabIndex = 31;
+            // 
+            // label_FuncionArbol
+            // 
+            this.label_FuncionArbol.AutoSize = true;
+            this.label_FuncionArbol.Location = new System.Drawing.Point(12, 24);
+            this.label_FuncionArbol.Name = "label_FuncionArbol";
+            this.label_FuncionArbol.Size = new System.Drawing.Size(234, 13);
+            this.label_FuncionArbol.TabIndex = 15;
+            this.label_FuncionArbol.Text = "Seleccione una categoria para más informacion:";
             // 
             // groupBox_Informacion
             // 
@@ -120,10 +136,11 @@
             this.groupBox_Informacion.Controls.Add(this.linkLabel_verHilos);
             this.groupBox_Informacion.Controls.Add(this.label_nMateriales);
             this.groupBox_Informacion.Controls.Add(this.label_nHilos);
-            this.groupBox_Informacion.Controls.Add(this.button8);
+            this.groupBox_Informacion.Controls.Add(this.button_AñadirUsuario);
             this.groupBox_Informacion.Controls.Add(this.button_quitarUsuario);
             this.groupBox_Informacion.Controls.Add(this.button_verUsuario);
             this.groupBox_Informacion.Controls.Add(this.label3);
+            this.groupBox_Informacion.Enabled = false;
             this.groupBox_Informacion.Location = new System.Drawing.Point(284, 253);
             this.groupBox_Informacion.Name = "groupBox_Informacion";
             this.groupBox_Informacion.Size = new System.Drawing.Size(507, 218);
@@ -185,6 +202,7 @@
             this.linkLabel_verMateriales.TabIndex = 156;
             this.linkLabel_verMateriales.TabStop = true;
             this.linkLabel_verMateriales.Text = "Ver materiales";
+            this.toolTip_Categorias.SetToolTip(this.linkLabel_verMateriales, "Ver los materiales asociados a esta categoria.");
             // 
             // textBox_nMateriales
             // 
@@ -211,6 +229,7 @@
             this.linkLabel_verHilos.TabIndex = 153;
             this.linkLabel_verHilos.TabStop = true;
             this.linkLabel_verHilos.Text = "Ver hilos";
+            this.toolTip_Categorias.SetToolTip(this.linkLabel_verHilos, "Ver los hilos asociados a esta categoria.");
             this.linkLabel_verHilos.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verHilos_LinkClicked);
             // 
             // label_nMateriales
@@ -233,16 +252,18 @@
             this.label_nHilos.TabIndex = 151;
             this.label_nHilos.Text = "Número de hilos: ";
             // 
-            // button8
+            // button_AñadirUsuario
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(380, 162);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 25);
-            this.button8.TabIndex = 149;
-            this.button8.Text = "Añadir usuario";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button_AñadirUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_AñadirUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_AñadirUsuario.Location = new System.Drawing.Point(380, 162);
+            this.button_AñadirUsuario.Name = "button_AñadirUsuario";
+            this.button_AñadirUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_AñadirUsuario.TabIndex = 149;
+            this.button_AñadirUsuario.Text = "Añadir usuario";
+            this.toolTip_Categorias.SetToolTip(this.button_AñadirUsuario, "Suscribir un usuario a esta categoria.");
+            this.button_AñadirUsuario.UseVisualStyleBackColor = true;
+            this.button_AñadirUsuario.Click += new System.EventHandler(this.button_AñadirUsuario_Click);
             // 
             // button_quitarUsuario
             // 
@@ -253,7 +274,9 @@
             this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_quitarUsuario.TabIndex = 148;
             this.button_quitarUsuario.Text = "Quitar usuario";
+            this.toolTip_Categorias.SetToolTip(this.button_quitarUsuario, "Borrar la suscripción del usuario en esta categoria.");
             this.button_quitarUsuario.UseVisualStyleBackColor = true;
+            this.button_quitarUsuario.Click += new System.EventHandler(this.button_quitarUsuario_Click);
             // 
             // button_verUsuario
             // 
@@ -264,6 +287,7 @@
             this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_verUsuario.TabIndex = 147;
             this.button_verUsuario.Text = "Ver usuario";
+            this.toolTip_Categorias.SetToolTip(this.button_verUsuario, "Ver el usuario seleccionado.");
             this.button_verUsuario.UseVisualStyleBackColor = true;
             this.button_verUsuario.Click += new System.EventHandler(this.button_verUsuario_Click);
             // 
@@ -282,6 +306,7 @@
             // 
             this.groupBox_Administracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Administracion.Controls.Add(this.button_LimpiarRuta);
             this.groupBox_Administracion.Controls.Add(this.label_Descripcion);
             this.groupBox_Administracion.Controls.Add(this.label_Ruta);
             this.groupBox_Administracion.Controls.Add(this.textBox_Ruta);
@@ -300,6 +325,19 @@
             this.groupBox_Administracion.TabIndex = 3;
             this.groupBox_Administracion.TabStop = false;
             this.groupBox_Administracion.Text = "Administración";
+            // 
+            // button_LimpiarRuta
+            // 
+            this.button_LimpiarRuta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_LimpiarRuta.Location = new System.Drawing.Point(380, 54);
+            this.button_LimpiarRuta.Name = "button_LimpiarRuta";
+            this.button_LimpiarRuta.Size = new System.Drawing.Size(52, 23);
+            this.button_LimpiarRuta.TabIndex = 149;
+            this.button_LimpiarRuta.Text = "Limpiar";
+            this.button_LimpiarRuta.UseVisualStyleBackColor = true;
+            this.button_LimpiarRuta.Visible = false;
+            this.button_LimpiarRuta.Click += new System.EventHandler(this.button_LimpiarRuta_Click);
             // 
             // label_Descripcion
             // 
@@ -395,6 +433,7 @@
             this.button_crearCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_crearCategoria.TabIndex = 7;
             this.button_crearCategoria.Tag = "Crear categoria";
+            this.toolTip_Categorias.SetToolTip(this.button_crearCategoria, "Crear una nueva categoria.");
             this.button_crearCategoria.UseVisualStyleBackColor = true;
             this.button_crearCategoria.Click += new System.EventHandler(this.button_crearCategoria_Click);
             // 
@@ -411,6 +450,7 @@
             this.button_editarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_editarCategoria.TabIndex = 8;
             this.button_editarCategoria.Tag = "Modificar categoria seleccionada";
+            this.toolTip_Categorias.SetToolTip(this.button_editarCategoria, "Modificar la categoria seleccionada.");
             this.button_editarCategoria.UseVisualStyleBackColor = true;
             this.button_editarCategoria.Click += new System.EventHandler(this.button_editarCategoria_Click);
             // 
@@ -427,6 +467,7 @@
             this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_borrarCategoria.TabIndex = 9;
             this.button_borrarCategoria.Tag = "Borrar categoria seleccionada";
+            this.toolTip_Categorias.SetToolTip(this.button_borrarCategoria, "Borrar la categoria seleccionada.");
             this.button_borrarCategoria.UseVisualStyleBackColor = true;
             this.button_borrarCategoria.Click += new System.EventHandler(this.button_borrarCategoria_Click);
             // 
@@ -435,10 +476,10 @@
             this.treeViewCategorias.AllowDrop = true;
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeViewCategorias.Location = new System.Drawing.Point(6, 24);
+            this.treeViewCategorias.Location = new System.Drawing.Point(6, 54);
             this.treeViewCategorias.Name = "treeViewCategorias";
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(261, 447);
+            this.treeViewCategorias.Size = new System.Drawing.Size(261, 417);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
@@ -475,6 +516,10 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 527);
             this.tableLayoutPanel1.TabIndex = 35;
             // 
+            // errorProvider_Categorias
+            // 
+            this.errorProvider_Categorias.ContainerControl = this;
+            // 
             // FormCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,12 +531,14 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox_Informacion.ResumeLayout(false);
             this.groupBox_Informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).EndInit();
             this.groupBox_Administracion.ResumeLayout(false);
             this.groupBox_Administracion.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Categorias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -526,10 +573,14 @@
         private System.Windows.Forms.LinkLabel linkLabel_verHilos;
         private System.Windows.Forms.Label label_nMateriales;
         private System.Windows.Forms.Label label_nHilos;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button_AñadirUsuario;
         private System.Windows.Forms.Button button_quitarUsuario;
         private System.Windows.Forms.Button button_verUsuario;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ErrorProvider errorProvider_Categorias;
+        private System.Windows.Forms.ToolTip toolTip_Categorias;
+        private System.Windows.Forms.Label label_FuncionArbol;
+        private System.Windows.Forms.Button button_LimpiarRuta;
 
 
     }
