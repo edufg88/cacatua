@@ -13,7 +13,7 @@ namespace Libreria
         const int minTamUsuario = 5;
         const int minTamContrasena = 5;
         const int maxTamNombre = 15;
-        const int minTamNombre = 5;
+        const int minTamNombre = 3;
         const int maxTamAdicional = 50;
 
         private int id;
