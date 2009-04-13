@@ -115,6 +115,7 @@
             this.linkLabel_respuestas.TabIndex = 0;
             this.linkLabel_respuestas.TabStop = true;
             this.linkLabel_respuestas.Text = "Ver comentarios";
+            this.linkLabel_respuestas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.mostrarComentarios);
             // 
             // textBox_respuestas
             // 
@@ -561,12 +562,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Descargas:";
             // 
-            // FormEditarMateriales
+            // FormMaterialesEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel_secundario);
-            this.Name = "FormEditarMateriales";
+            this.Name = "FormMaterialesEdicion";
             this.Size = new System.Drawing.Size(808, 365);
             this.Tag = "FormEditarMateriales";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
