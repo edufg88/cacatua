@@ -37,7 +37,6 @@ namespace cacatUA
             // Borramos los elementos previos
             dataGridView_firmas.Rows.Clear();
 
-            // Obtenemos todos los materiales que hay en la base de datos
             for (int i = 0; i < datos.Count; i++)
             {
                 ENFirma firma = (ENFirma)datos[i];
@@ -99,8 +98,6 @@ namespace cacatUA
         {
             // Cargamos en el DataGridView las firmas del usuario
             CargarFirmas();
-
-            //InsertarFirmas();
         }
 
         private void button_editarFirma_Click(object sender, EventArgs e)

@@ -55,7 +55,7 @@ namespace Libreria
         public bool Obtener(int id)
         {
             ENEncuesta aux = new ENEncuesta();
-            EncuestaCAD.Instancia.ObtenerEncuesta(id);
+            aux = EncuestaCAD.Instancia.ObtenerEncuesta(id);
 
             if (aux != null)
             {
@@ -75,7 +75,7 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            throw new NotImplementedException();
+            return EncuestaCAD.Instancia.Actualizar(this);
         }
 
         override public bool Guardar()
@@ -98,9 +98,14 @@ namespace Libreria
             EncuestaCAD.Instancia.BorrarEncuestas();
         }
 
-        public static ArrayList Buscar(string asunto, DateTime fecha)
+        public ArrayList Buscar(string asunto, DateTime fecha)
         {
             return EncuestaCAD.Instancia.BuscarEncuesta(asunto, fecha);
+        }
+
+        public ArrayList Buscar(int usuario)
+        {
+            return EncuestaCAD.Instancia.BuscarEncuesta(usuario);
         }
 
         public int Id

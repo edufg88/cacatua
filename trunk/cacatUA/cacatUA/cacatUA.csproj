@@ -238,12 +238,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarioFirmas.resx">
       <DependentUpon>FormUsuarioFirmas.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarioImagenes.resx">
       <DependentUpon>FormUsuarioImagenes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarioMensajes.resx">
       <DependentUpon>FormUsuarioMensajes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarios.resx">
       <DependentUpon>FormUsuarios.cs</DependentUpon>

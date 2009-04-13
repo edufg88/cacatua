@@ -69,7 +69,6 @@ namespace Libreria
             }
             catch (SqlException)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
                 Console.Write("Excepcion obtener firma");
             }
 

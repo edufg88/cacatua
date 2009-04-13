@@ -322,5 +322,42 @@ namespace Libreria
 
             return mensajes;
         }
+
+        public bool Actualizar(ENMensaje mensaje)
+        {
+            bool actualizado = false;
+
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "update mensajes set emisor = @emisor, receptor = @receptor, texto = @texto, fecha = @fecha  where id = @id";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@emisor", mensaje.Emisor.Id);
+                comando.Parameters.AddWithValue("@receptor", mensaje.Receptor.Id);
+                comando.Parameters.AddWithValue("@texto", mensaje.Texto);
+                comando.Parameters.AddWithValue("@fecha", mensaje.Fecha);
+                comando.Parameters.AddWithValue("@id", mensaje.Id);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    actualizado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar un mensaje" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return actualizado;
+        }
     }
 }
