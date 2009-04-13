@@ -21,7 +21,7 @@ namespace Libreria
 
         public ENCategoria(int id)
         {
-            ENCategoria aux = ObtenerCategoria(id);
+            ENCategoria aux = Obtener(id);
             if (aux != null)
             {
                 this.id = aux.Id;
@@ -52,25 +52,6 @@ namespace Libreria
 
 
         //Metodos heredados de InterfazEN
-        public bool Obtener(int id)
-        {
-            ENCategoria aux = ObtenerCategoria(id);
-            if (aux != null)
-            {
-                this.id = aux.Id;
-                nombre = aux.Nombre;
-                descripcion = aux.Descripcion;
-                padre = aux.Padre;
-                return true;
-            }
-            else
-            {
-                this.id = 0;
-                return false;
-            }
-
-        }
-
         override public bool Guardar()
         {
             return CategoriaCAD.Instancia.crearCategoria(this);
@@ -86,17 +67,9 @@ namespace Libreria
         }
 
         //Metodos asociados
-        public bool Instanciada()
-        {
-            if (id != 0)
-                return true;
-            else
-                return false;
-        }
-
         public String NombreCompleto()
         {
-            if (Instanciada())
+            if (id != 0)
             {
                 if (padre == 0)
                 {
@@ -115,7 +88,7 @@ namespace Libreria
 
         public String Ruta()
         {
-            if (Instanciada())
+            if (id != 0)
                 return new ENCategoria(padre).NombreCompleto();
             else
                 return "";
@@ -184,7 +157,7 @@ namespace Libreria
 
         //Metodos estaticos de categorias
 
-        public static ENCategoria ObtenerCategoria(int id)
+        public static ENCategoria Obtener(int id)
         {
             return CategoriaCAD.Instancia.obtenerCategoria(id);
         }
