@@ -10,7 +10,7 @@ namespace Libreria
     public class ENUsuario : InterfazEN
     {
         const int maxTamUsuario = 15;
-        const int minTamUsuario = 5;
+        const int minTamUsuario = 3;
         const int minTamContrasena = 5;
         const int maxTamNombre = 15;
         const int minTamNombre = 3;
