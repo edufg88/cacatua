@@ -17,7 +17,7 @@ namespace cacatUA
     {
         string[] controlesCrear = { "nombre","descripcion","usuario","categoria","archivo","idioma","referencia" };
         string[] controlesEditar = { "nombre", "descripcion", "fecha","usuario", "categoria", "archivo", "descargas","idioma","puntuacion","votos","referencia" };
-        
+
         public enum modos { EDITAR = 0, CREAR = 1, BORRAR = 2};
         private modos modo;
         public modos Modo
@@ -39,7 +39,8 @@ namespace cacatUA
         private void inicializarControles()
         {
             controles = new Dictionary<string, Control>();
-            controles.Add("nombre", textBox_nombre);
+            controles.Add("id", textBox_id);
+            controles.Add("nombre", textBox_nombre);         
             controles.Add("descripcion", textBox_descripcion);
             controles.Add("fecha", dateTimePicker_fecha);
             controles.Add("usuario", textBox_usuario);
@@ -111,6 +112,8 @@ namespace cacatUA
         public void limpiarFormulario()
         {
             TextBox textBox;
+            textBox = (TextBox)controles["id"];
+            textBox.Clear();
             textBox = (TextBox)controles["nombre"];
             textBox.Clear();
             textBox = (TextBox)controles["descripcion"];
@@ -133,6 +136,7 @@ namespace cacatUA
             textBox.Clear();
             textBox = (TextBox)controles["referencia"];
             textBox.Clear();
+
         }
 
         public void actualizarFormulario(string id)
@@ -149,9 +153,10 @@ namespace cacatUA
                     {
                         prepararControles(controlesEditar);
                         // Obtenemos toda la información del material
-                        ENMaterial material = new ENMaterial(int.Parse(id));
-                        if (material.Id != 0)
+                        ENMaterial material = ENMaterial.Obtener(int.Parse(id));
+                        if (material != null)
                         {
+                            controles["id"].Text = material.Id.ToString();
                             controles["nombre"].Text = material.Nombre;
                             controles["descripcion"].Text = material.Descripcion;
                             // fecha
@@ -264,6 +269,21 @@ namespace cacatUA
             }
             else
                 return 0;
+        }
+
+        private void mostrarComentarios(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Obtenemos el material seleccionado
+            try
+            {
+                ENMaterial material = ENMaterial.Obtener(int.Parse(controles["id"].Text));
+                if(material != null)
+                    FormPanelAdministracion.Instancia.Apilar(new FormMaterialesComentarios(material), "Comentarios del material nº " + material.Id, true, false, "Volver al material", "");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("<FormMaterialesEdicion::mostrarComentarios> ERROR");
+            }
         }
 
 

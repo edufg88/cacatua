@@ -50,7 +50,7 @@ namespace cacatUA
                     formularioPadre.mostrarMateriales(materiales);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("error", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

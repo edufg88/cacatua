@@ -31,6 +31,7 @@ namespace Libreria
         private int puntuacion;
         private int votos;
         private string referencia;
+        private ArrayList comentarios;
 
         /// <summary>
         /// Constructor por defecto. Crea un material vacío.
@@ -50,12 +51,12 @@ namespace Libreria
             votos = 0;
             referencia = "";
         }
-
+        /*
         public ENMaterial(int id)
         {
             Obtener(id);
         }
-
+        */
         public string validarDato(string dato)
         {
             string error = "OK";
@@ -119,7 +120,7 @@ namespace Libreria
             }
             return error;
         }
-        
+        /*
         public bool Obtener(int id)
         {
             bool correcto = true;
@@ -144,6 +145,12 @@ namespace Libreria
                 this.referencia = aux.referencia;
             }
             return correcto;
+        }
+        */
+
+        public static ENMaterial Obtener(int id)
+        {
+            return MaterialCAD.Instancia.obtener(id);
         }
 
         override public bool Guardar()
@@ -172,16 +179,41 @@ namespace Libreria
             //return HiloCAD.Instancia.Actualizar(this);
         }
 
-
         public static ArrayList Obtener()
         {
             // Obtenemos del CAD todos los materiales
             return MaterialCAD.Instancia.obtener();
         }
 
+        public ArrayList ObtenerComentarios()
+        {
+            // Obtenemos del CAD todos los comentarios del material
+            return MaterialCAD.Instancia.ObtenerComentarios(this);
+        }
+
+        public static ComentarioMaterial ObtenerComentario(int id)
+        {
+            return MaterialCAD.Instancia.ObtenerComentario(id);
+        }
+
         public static ArrayList Obtener(string filtroBusqueda, ENUsuario usuario,string categoria, DateTime fechaInicio, DateTime fechaFin)
         {
             return MaterialCAD.Instancia.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
+        }
+
+        public bool GuardarComentario(ComentarioMaterial comentario)
+        {
+            return MaterialCAD.Instancia.GuardarComentario(comentario);
+        }
+
+        public bool ActualizarComentario(ComentarioMaterial comentario)
+        {
+            return MaterialCAD.Instancia.ActualizarComentario(comentario);
+        }
+
+        public static bool BorrarComentario(ComentarioMaterial comentario)
+        {
+            return MaterialCAD.Instancia.BorrarComentario(comentario);
         }
 
         public bool borrarMaterial()
@@ -269,6 +301,70 @@ namespace Libreria
 
     public class ComentarioMaterial
     {
+        private int id;
+        private string texto;
+        private DateTime fecha;
+        private ENUsuario usuario;
+        private ENMaterial material;
 
+        static int minTamTexto = 1;
+        static int maxTamTexto = 1000;
+
+        public int Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string Texto
+        {
+            get { return texto; }
+            set { texto = value; }
+        }
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+
+        public ENUsuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
+        public ENMaterial Material
+        {
+            get { return material; }
+            set { material = value; }
+        }
+
+        public static string Validar(ComentarioMaterial comentario, string propiedad)
+        {
+            string error = "OK";
+            switch (propiedad)
+            {
+                case "texto":
+                    {
+                        if (comentario.Texto.Length < minTamTexto || comentario.Texto.Length > maxTamTexto)
+                            error = "El texto debe tener una longitud entre " + minTamTexto + " y " + maxTamTexto;
+                        break;
+                    }
+                case "usuario":
+                    {
+                        if (comentario.Usuario == null)
+                            error = "Usuario no válido";
+                        break;
+                    }
+                case "material":
+                    {
+                        if (comentario.Material == null)
+                            error = "Material no válido";
+                        break;
+                    }
+            }
+            return error;
+        }
     }
 }

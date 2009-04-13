@@ -103,7 +103,6 @@ namespace Libreria
         public ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, string categoria, DateTime fechaInicio, DateTime fechaFin)
         {
             ArrayList materiales = new ArrayList();
-            bool correcto = false;
             SqlConnection conexion = null;
             try
             {
@@ -245,6 +244,17 @@ namespace Libreria
             return material;
         }
 
+        private ComentarioMaterial ObtenerDatosComentario(SqlDataReader reader)
+        {
+            ComentarioMaterial comentario = new ComentarioMaterial();
+            comentario.Id = int.Parse(reader["id"].ToString());
+            comentario.Texto = reader["texto"].ToString();
+            comentario.Fecha = (DateTime)reader["fecha"];
+            comentario.Usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
+            comentario.Material = ENMaterial.Obtener(int.Parse(reader["material"].ToString()));
+            return comentario;
+        }
+
         public ENMaterial obtener(int id)
         {
             ENMaterial material = null;
@@ -296,7 +306,191 @@ namespace Libreria
             return borrado;
         }
 
+        public ArrayList ObtenerComentarios(ENMaterial material)
+        {
+            ArrayList comentarios = new ArrayList();
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
 
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                string cadenaComando = "SELECT * FROM materialescomentarios WHERE material = @material";
+                comando.CommandText = cadenaComando;
+                comando.Parameters.AddWithValue("@material", material.Id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ComentarioMaterial comentario = ObtenerDatosComentario(reader);
+                    comentarios.Add(comentario);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::ObtenerComentarios> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return comentarios;
+        }
+
+        public ComentarioMaterial ObtenerComentario(int id)
+        {
+            ComentarioMaterial comentario = null;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                string cadenaComando = "SELECT * FROM materialescomentarios WHERE id = @id";
+                comando.CommandText = cadenaComando;
+                comando.Parameters.AddWithValue("@id", id);        
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                if (reader.Read())
+                    comentario = ObtenerDatosComentario(reader);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::ObtenerComentarios> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return comentario;
+        }
+
+        public bool GuardarComentario(ComentarioMaterial comentario)
+        {
+            bool correcto = false;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+                comando.CommandText = "INSERT INTO " +
+                    "materialescomentarios(texto,fecha,usuario,material) " +
+                    "VALUES (@texto,@fecha,@usuario,@material)";
+                comando.Parameters.AddWithValue("@texto", comentario.Texto);
+                comando.Parameters.AddWithValue("@fecha", comentario.Fecha);
+                comando.Parameters.AddWithValue("@usuario", comentario.Usuario.Id);
+                comando.Parameters.AddWithValue("@material", comentario.Material.Id);
+                if (comando.ExecuteNonQuery() == 1)
+                    correcto = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
+                //throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return correcto;
+        }
+
+        public bool BorrarComentario(ComentarioMaterial comentario)
+        {
+            bool borrado = false;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+                comando.CommandText = "DELETE FROM materialescomentarios WHERE id = @id";
+                comando.Parameters.AddWithValue("@id", comentario.Id);
+                if (comando.ExecuteNonQuery() == 1)
+                    borrado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
+                //throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return borrado;
+        }
+
+        public bool ActualizarComentario(ComentarioMaterial comentario)
+        {
+            bool correcto = false;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+                comando.CommandText = "UPDATE materialescomentarios SET texto = @texto, fecha = @fecha, " +
+                    "usuario = @usuario, material = @material WHERE id = @id";
+                comando.Parameters.AddWithValue("@texto", comentario.Texto);
+                comando.Parameters.AddWithValue("@fecha", comentario.Fecha);
+                comando.Parameters.AddWithValue("@usuario", comentario.Usuario.Id);
+                comando.Parameters.AddWithValue("@material", comentario.Material.Id);
+                comando.Parameters.AddWithValue("@id", comentario.Id);
+                if (comando.ExecuteNonQuery() == 1)
+                    correcto = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
+                //throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return correcto;
+        }
     }
 }
 /*
