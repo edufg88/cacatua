@@ -133,24 +133,52 @@ namespace Libreria
 
         public int NumMateriales()
         {
-            return CategoriaCAD.Instancia.NumMaterialesEn(this);
+            int n = 0;
+
+            n += CategoriaCAD.Instancia.NumMaterialesEn(this);
+
+            foreach (ENCategoria c in obtenerHijos())
+            {
+                n += c.NumMateriales();
+            }
+
+            return n;
         }
 
         public int NumHilos()
         {
-            return CategoriaCAD.Instancia.NumHilosEn(this);
+            int n = 0;
+
+            n += CategoriaCAD.Instancia.NumHilosEn(this);
+
+            foreach (ENCategoria c in obtenerHijos())
+            {
+                n += c.NumHilos();
+            }
+
+            return n;
         }
 
         //Metodos relacionados con la tabla suscripcion
 
-        public bool SuscribirUsuario(ENUsuario usuario)
+        public void SuscribirUsuario(ENUsuario usuario)
         {
-            return CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario);
+            CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario);
+
+            foreach (ENCategoria c in obtenerHijos())
+            {
+                c.SuscribirUsuario(usuario);
+            }
         }
 
-        public bool DessuscribirUsuario(ENUsuario usuario)
+        public void DessuscribirUsuario(ENUsuario usuario)
         {
-            return CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
+            CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
+
+            foreach (ENCategoria c in obtenerHijos())
+            {
+                c.DessuscribirUsuario(usuario);
+            }
         }
 
 

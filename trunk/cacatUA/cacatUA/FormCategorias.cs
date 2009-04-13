@@ -15,6 +15,7 @@ namespace cacatUA
     {
         private ENCategoria seleccionada = new ENCategoria();
         private ENCategoria enrutada = new ENCategoria();
+        private TreeNode sel;
 
         //Indica en que estado se encuentra el formulario
         // 0 => Normal, navegando
@@ -39,7 +40,6 @@ namespace cacatUA
 
             textBox_Descripcion.Clear();
             textBox_Nombre.Clear();
-
         }
         
         private void MeterEnArbol(ENCategoria cat, TreeNodeCollection coleccion) {
@@ -56,7 +56,7 @@ namespace cacatUA
 
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Console.WriteLine(estado);
+            groupBox_Informacion.Enabled = true;
             if (estado == 0)
             {
                 //Obtenemos la instancia de la Categoria seleccionada
@@ -74,6 +74,8 @@ namespace cacatUA
                 {
                     dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario);
                 }
+
+                sel = treeViewCategorias.SelectedNode;
             }
             else
             {
@@ -142,58 +144,66 @@ namespace cacatUA
         private void button_Guardar_Click(object sender, EventArgs e)
         {
 
-            //Comprobar accion a realizar
-            if (estado == 1)
-            {
-                //Actualizando
-                seleccionada.Nombre = textBox_Nombre.Text;
-                seleccionada.Descripcion = textBox_Descripcion.Text;
-
-                if (enrutada.Instanciada())
-                {
-                    seleccionada.Padre = enrutada.Id;
-                }
-                
-                if (seleccionada.Actualizar())
-                {
-                    MessageBox.Show("Categoria actualizada correctamente.");
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar categoria.");
-                }
+            //Sea cual sea lo que estemos haciendo, el nombre no se puede dejar vacio
+            if(textBox_Nombre.Text == "") {
+                errorProvider_Categorias.SetError(textBox_Nombre, "Debes indicar un nombre");
             }
-            else
-            {
-                //Creando
-                int padre = 0;
-
-                //Crear objeto y almacenarlo en la BBDD
-                if (enrutada.Instanciada())
+            else {
+                //Comprobar accion a realizar
+                if (estado == 1)
                 {
-                    padre = enrutada.Id;
-                }
+                    //Actualizando
+                    seleccionada.Nombre = textBox_Nombre.Text;
+                    seleccionada.Descripcion = textBox_Descripcion.Text;
 
-
-                ENCategoria nCategoria = new ENCategoria(textBox_Nombre.Text, textBox_Descripcion.Text, padre);
-
-                if (nCategoria.Guardar())
-                {
+                    if (enrutada.Instanciada())
+                    {
+                        seleccionada.Padre = enrutada.Id;
+                    }
                     
-                    MessageBox.Show("Categoria creada correctamente.");
+                    if (seleccionada.Actualizar())
+                    {
+                        MessageBox.Show("Categoria actualizada correctamente.");
+
+                        sel.Text = seleccionada.Nombre;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar categoria.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al crear categoria.");
+                    //Creando
+                    int padre = 0;
+
+                    //Crear objeto y almacenarlo en la BBDD
+                    if (enrutada.Instanciada())
+                    {
+                        padre = enrutada.Id;
+                    }
+
+
+                    ENCategoria nCategoria = new ENCategoria(textBox_Nombre.Text, textBox_Descripcion.Text, padre);
+
+                    if (nCategoria.Guardar())
+                    {
+                        MessageBox.Show("Categoria creada correctamente.");
+                        
+                        //Recargamos el arbol para que aparezca la nueva categoria
+                        FormCategorias_Load(null,null);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al crear categoria.");
+                    }
                 }
+                //Activar/Desactivar controles
+                DesactivarEdicion();
+
+                enrutada = new ENCategoria();
+                estado = 0;
             }
-
-            //Activar/Desactivar controles
-            DesactivarEdicion();
-
-            enrutada = new ENCategoria();
-            estado = 0;
-            FormCategorias_Load(sender, e);
         }
 
         private void button_noGuardar_Click(object sender, EventArgs e)
@@ -204,15 +214,16 @@ namespace cacatUA
             enrutada = new ENCategoria();
             estado = 0;
 
-            //Pasar el foco al arbol
             textBox_Descripcion.Text = seleccionada.Descripcion;
             textBox_Nombre.Text = seleccionada.Nombre;
             textBox_Ruta.Text = seleccionada.Ruta();
-
         }
 
         private void ActivarEdicion()
         {
+            label_FuncionArbol.Text = "Seleccione una categoria para formar la ruta:";
+            button_LimpiarRuta.Visible = true;
+
             textBox_Descripcion.ReadOnly = false;
             textBox_Nombre.ReadOnly = false;
             textBox_Ruta.BackColor = SystemColors.Window;
@@ -222,6 +233,10 @@ namespace cacatUA
         
         private void DesactivarEdicion()
         {
+            label_FuncionArbol.Text = "Seleccione una categoria para más informacion:";
+            button_LimpiarRuta.Visible = false;
+            errorProvider_Categorias.Clear();
+
             textBox_Descripcion.ReadOnly = true;
             textBox_Nombre.ReadOnly = true;
             textBox_Ruta.ReadOnly = true;
@@ -242,6 +257,16 @@ namespace cacatUA
 
         public override void Recibir(Object objeto)
         {
+            if (objeto != null)
+            {
+                if (objeto is ENUsuario)
+                {
+                    if (seleccionada != null)
+                    {
+                        seleccionada.SuscribirUsuario((ENUsuario)objeto);
+                    }
+                }
+            }
         }
 
         private void button_quitarUsuario_Click(object sender, EventArgs e)
@@ -270,6 +295,17 @@ namespace cacatUA
         private void button_verUsuario_Click(object sender, EventArgs e)
         {
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a las categorías", "");
+        }
+
+        private void button_AñadirUsuario_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, false, "Seleccionar usuario", "");
+        }
+
+        private void button_LimpiarRuta_Click(object sender, EventArgs e)
+        {
+            textBox_Ruta.Text = "";
+            enrutada = new ENCategoria();
         }
     }
 }
