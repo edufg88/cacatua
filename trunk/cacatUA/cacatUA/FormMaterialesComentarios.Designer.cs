@@ -144,6 +144,7 @@
             this.button_seleccionarUsuario.TabStop = false;
             this.toolTip.SetToolTip(this.button_seleccionarUsuario, "Haz clic para seleccionar un usuario de la lista");
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Click += new System.EventHandler(this.seleccionarUsuario);
             // 
             // label_autor
             // 
@@ -292,7 +293,7 @@
             this.button_editar.Size = new System.Drawing.Size(36, 36);
             this.button_editar.TabIndex = 9;
             this.button_editar.Tag = "";
-            this.toolTip.SetToolTip(this.button_editar, "Editar respuesta seleccionada");
+            this.toolTip.SetToolTip(this.button_editar, "Editar comentario seleccionado");
             this.button_editar.UseVisualStyleBackColor = true;
             this.button_editar.Click += new System.EventHandler(this.editarComentario);
             // 
@@ -361,7 +362,7 @@
             this.button_crear.Name = "button_crear";
             this.button_crear.Size = new System.Drawing.Size(36, 36);
             this.button_crear.TabIndex = 1;
-            this.toolTip.SetToolTip(this.button_crear, "Crear un nuevo hilo");
+            this.toolTip.SetToolTip(this.button_crear, "Crear un nuevo comentario");
             this.button_crear.UseVisualStyleBackColor = true;
             this.button_crear.Click += new System.EventHandler(this.crearComentario);
             // 
@@ -430,7 +431,7 @@
             this.button_borrar.Size = new System.Drawing.Size(36, 36);
             this.button_borrar.TabIndex = 10;
             this.button_borrar.Tag = "";
-            this.toolTip.SetToolTip(this.button_borrar, "Eliminar respuestas seleccionadas");
+            this.toolTip.SetToolTip(this.button_borrar, "Eliminar comentarios seleccionados");
             this.button_borrar.UseVisualStyleBackColor = true;
             this.button_borrar.Click += new System.EventHandler(this.borrarComentario);
             // 
