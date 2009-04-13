@@ -49,10 +49,8 @@
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label_receptor = new System.Windows.Forms.Label();
             this.textBox_receptor = new System.Windows.Forms.TextBox();
-            this.button_seleccionarUsuario = new System.Windows.Forms.Button();
             this.textBox_emisor = new System.Windows.Forms.TextBox();
             this.label_emisor = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -225,6 +223,7 @@
             this.button_borrarFirma.TabIndex = 10;
             this.button_borrarFirma.Tag = "";
             this.button_borrarFirma.UseVisualStyleBackColor = true;
+            this.button_borrarFirma.Click += new System.EventHandler(this.button_borrarFirma_Click);
             // 
             // dataGridView_firmas
             // 
@@ -249,6 +248,7 @@
             this.dataGridView_firmas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_firmas.Size = new System.Drawing.Size(703, 117);
             this.dataGridView_firmas.TabIndex = 4;
+            this.dataGridView_firmas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_firmas_CellMouseDoubleClick);
             // 
             // id
             // 
@@ -321,10 +321,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label_receptor);
             this.panel2.Controls.Add(this.textBox_receptor);
-            this.panel2.Controls.Add(this.button_seleccionarUsuario);
             this.panel2.Controls.Add(this.textBox_emisor);
             this.panel2.Controls.Add(this.label_emisor);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -333,20 +331,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(751, 30);
             this.panel2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button1.Location = new System.Drawing.Point(692, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 18);
-            this.button1.TabIndex = 147;
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // label_receptor
             // 
@@ -361,27 +345,15 @@
             // 
             this.textBox_receptor.Location = new System.Drawing.Point(553, 5);
             this.textBox_receptor.Name = "textBox_receptor";
+            this.textBox_receptor.ReadOnly = true;
             this.textBox_receptor.Size = new System.Drawing.Size(163, 20);
             this.textBox_receptor.TabIndex = 145;
-            // 
-            // button_seleccionarUsuario
-            // 
-            this.button_seleccionarUsuario.BackColor = System.Drawing.SystemColors.Window;
-            this.button_seleccionarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seleccionarUsuario.FlatAppearance.BorderSize = 0;
-            this.button_seleccionarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seleccionarUsuario.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarUsuario.Location = new System.Drawing.Point(263, 6);
-            this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
-            this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarUsuario.TabIndex = 144;
-            this.button_seleccionarUsuario.TabStop = false;
-            this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
             // 
             // textBox_emisor
             // 
             this.textBox_emisor.Location = new System.Drawing.Point(125, 5);
             this.textBox_emisor.Name = "textBox_emisor";
+            this.textBox_emisor.ReadOnly = true;
             this.textBox_emisor.Size = new System.Drawing.Size(163, 20);
             this.textBox_emisor.TabIndex = 0;
             // 
@@ -471,6 +443,7 @@
             this.button_descartarCambios.TabIndex = 1;
             this.button_descartarCambios.Text = "Descartar cambios";
             this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_descartarCambios.Click += new System.EventHandler(this.button_descartarCambios_Click);
             // 
             // button_guardarCambios
             // 
@@ -481,6 +454,7 @@
             this.button_guardarCambios.TabIndex = 0;
             this.button_guardarCambios.Text = "Guardar cambios";
             this.button_guardarCambios.UseVisualStyleBackColor = true;
+            this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
             // FormUsuarioFirmas
             // 
@@ -489,6 +463,7 @@
             this.Controls.Add(this.tableLayoutPanel_principal);
             this.Name = "FormUsuarioFirmas";
             this.Size = new System.Drawing.Size(751, 373);
+            this.Load += new System.EventHandler(this.FormUsuarioFirmas_Load);
             this.tableLayoutPanel_principal.ResumeLayout(false);
             this.panel_cabecera.ResumeLayout(false);
             this.panel_cabecera.PerformLayout();
@@ -527,7 +502,6 @@
         private System.Windows.Forms.Panel panel_contenedor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_secundario;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button_seleccionarUsuario;
         private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.TextBox textBox_emisor;
@@ -542,7 +516,6 @@
         private System.Windows.Forms.Button button_descartarCambios;
         private System.Windows.Forms.Button button_guardarCambios;
         private System.Windows.Forms.TextBox textBox_receptor;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label_receptor;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;

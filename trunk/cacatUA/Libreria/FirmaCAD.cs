@@ -322,5 +322,42 @@ namespace Libreria
 
             return firmas;
         }
+
+        public bool Actualizar(ENFirma firma)
+        {
+            bool actualizado = false;
+
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "update firmas set emisor = @emisor, receptor = @receptor, texto = @texto, fecha = @fecha  where id = @id";
+                
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@emisor", firma.Emisor.Id);
+                comando.Parameters.AddWithValue("@receptor", firma.Receptor.Id);
+                comando.Parameters.AddWithValue("@texto", firma.Texto);
+                comando.Parameters.AddWithValue("@fecha", firma.Fecha);
+                comando.Parameters.AddWithValue("@id", firma.Id);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    actualizado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar una firma" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return actualizado;
+        }
     }
 }

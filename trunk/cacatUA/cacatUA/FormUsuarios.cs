@@ -68,7 +68,7 @@ namespace cacatUA
             usuario.BorrarUsuarios();
         }
 
-        private void CargarUsuarios()
+        public void CargarUsuarios()
         {
             ArrayList al = new ArrayList();
             al = ENUsuario.Obtener();
