@@ -311,7 +311,7 @@ namespace cacatUA
 
         private void linkLabel_verHilos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormForo(), "Viendo hilos", true, false, "Volver a categorías", "");
+            FormPanelAdministracion.Instancia.Apilar(new FormForo(seleccionada), "Viendo hilos", true, false, "Volver a categorías", "");
         }
 
 

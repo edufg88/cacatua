@@ -271,7 +271,7 @@ namespace Libreria
                     conexion.Open();
 
                     string cadena0 = "BEGIN TRAN";
-                    string cadena1 = "insert into hilos (titulo, texto, autor, fechacreacion, categoria) values (@titulo, @texto, @autor, @fechacreacion, @categoria);";
+                    string cadena1 = "insert into hilos (titulo, texto, autor, categoria) values (@titulo, @texto, @autor, @categoria);";
                     string cadena2 = "select max(id) as id from hilos;";
                     string cadena3 = "COMMIT TRAN";
 
@@ -281,7 +281,6 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
                     comando.Parameters.AddWithValue("@texto", hilo.Texto);
                     comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
-                    comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
                     comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
 
                     SqlDataReader dataReader = comando.ExecuteReader();
@@ -360,13 +359,12 @@ namespace Libreria
                     conexion = new SqlConnection(cadenaConexion);
                     conexion.Open();
 
-                    string sentencia = "update hilos set titulo = @titulo, texto = @texto, autor = @autor, fechacreacion = @fechacreacion, categoria = @categoria where id = @id";
+                    string sentencia = "update hilos set titulo = @titulo, texto = @texto, autor = @autor, categoria = @categoria where id = @id";
 
                     SqlCommand comando = new SqlCommand(sentencia, conexion);
                     comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
                     comando.Parameters.AddWithValue("@texto", hilo.Texto);
                     comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
-                    comando.Parameters.AddWithValue("@fechacreacion", hilo.Fecha);
                     comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
                     comando.Parameters.AddWithValue("@id", hilo.Id);
 

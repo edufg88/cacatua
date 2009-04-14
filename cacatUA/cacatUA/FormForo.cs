@@ -126,13 +126,31 @@ namespace cacatUA
                 DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
                 if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea borrar los hilos seleccionados?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
                 {
+                    if (dataGridView_resultados.SelectedRows.Count>1)
+                        FormPanelAdministracion.Instancia.MensajeEstado("Hilos eliminados correctamente.");
+                    else
+                        FormPanelAdministracion.Instancia.MensajeEstado("Hilo eliminado correctamente.");
+
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
                         ENHilo.Borrar(int.Parse(i.Cells[0].Value.ToString()));
                         dataGridView_resultados.Rows.Remove(i);
+
+                        // Comprobamos si éste era el hilo seleccionado en el formulario de edición.
+                        if (formEdicion.Seleccionado != null)
+                        {
+                            if (formEdicion.Seleccionado.Id == int.Parse(i.Cells[0].Value.ToString()))
+                            {
+                                formEdicion.CambiarNuevo();
+                            }
+                        }
                     }
                 }
+            }
+            else
+            {
+                FormPanelAdministracion.Instancia.MensajeEstado("No hay hilos seleccionados.");
             }
         }
 
