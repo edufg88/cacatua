@@ -27,6 +27,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="BorrarFichero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreFichero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BorrarFicheroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BorrarFicheroResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="subirArchivoSoapIn">
@@ -41,6 +55,12 @@
   <wsdl:message name="HolaSoapOut">
     <wsdl:part name="parameters" element="tns:HolaResponse" />
   </wsdl:message>
+  <wsdl:message name="BorrarFicheroSoapIn">
+    <wsdl:part name="parameters" element="tns:BorrarFichero" />
+  </wsdl:message>
+  <wsdl:message name="BorrarFicheroSoapOut">
+    <wsdl:part name="parameters" element="tns:BorrarFicheroResponse" />
+  </wsdl:message>
   <wsdl:portType name="FileUploaderSoap">
     <wsdl:operation name="subirArchivo">
       <wsdl:input message="tns:subirArchivoSoapIn" />
@@ -49,6 +69,10 @@
     <wsdl:operation name="Hola">
       <wsdl:input message="tns:HolaSoapIn" />
       <wsdl:output message="tns:HolaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BorrarFichero">
+      <wsdl:input message="tns:BorrarFicheroSoapIn" />
+      <wsdl:output message="tns:BorrarFicheroSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="FileUploaderSoap" type="tns:FileUploaderSoap">
@@ -71,6 +95,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="BorrarFichero">
+      <soap:operation soapAction="http://84.120.44.73/BorrarFichero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="FileUploaderSoap12" type="tns:FileUploaderSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -85,6 +118,15 @@
     </wsdl:operation>
     <wsdl:operation name="Hola">
       <soap12:operation soapAction="http://84.120.44.73/Hola" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BorrarFichero">
+      <soap12:operation soapAction="http://84.120.44.73/BorrarFichero" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

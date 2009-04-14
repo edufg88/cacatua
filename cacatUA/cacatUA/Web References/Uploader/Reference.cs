@@ -33,6 +33,8 @@ namespace cacatUA.Uploader {
         
         private System.Threading.SendOrPostCallback HolaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback BorrarFicheroOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +78,9 @@ namespace cacatUA.Uploader {
         
         /// <remarks/>
         public event HolaCompletedEventHandler HolaCompleted;
+        
+        /// <remarks/>
+        public event BorrarFicheroCompletedEventHandler BorrarFicheroCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/subirArchivo", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -132,6 +137,35 @@ namespace cacatUA.Uploader {
             if ((this.HolaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.HolaCompleted(this, new HolaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/BorrarFichero", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool BorrarFichero(string nombreFichero) {
+            object[] results = this.Invoke("BorrarFichero", new object[] {
+                        nombreFichero});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void BorrarFicheroAsync(string nombreFichero) {
+            this.BorrarFicheroAsync(nombreFichero, null);
+        }
+        
+        /// <remarks/>
+        public void BorrarFicheroAsync(string nombreFichero, object userState) {
+            if ((this.BorrarFicheroOperationCompleted == null)) {
+                this.BorrarFicheroOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBorrarFicheroOperationCompleted);
+            }
+            this.InvokeAsync("BorrarFichero", new object[] {
+                        nombreFichero}, this.BorrarFicheroOperationCompleted, userState);
+        }
+        
+        private void OnBorrarFicheroOperationCompleted(object arg) {
+            if ((this.BorrarFicheroCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.BorrarFicheroCompleted(this, new BorrarFicheroCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -202,6 +236,32 @@ namespace cacatUA.Uploader {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
+    public delegate void BorrarFicheroCompletedEventHandler(object sender, BorrarFicheroCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class BorrarFicheroCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal BorrarFicheroCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
             }
         }
     }
