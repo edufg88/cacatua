@@ -169,6 +169,9 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Elimina el historial de navegación.
+        /// </summary>
         public void DesapilarTodos()
         {
             pilaFormularios.Clear();
@@ -188,7 +191,7 @@ namespace cacatUA
         {
             button_volver.Enabled = pilaBotonVolver.Peek();
             button_cancelar.Enabled = pilaBotonCancelar.Peek();
-            toolTip1.SetToolTip(button_volver, pilaBotonVolverStr.Peek());
+            toolTip_avanzado.SetToolTip(button_volver, pilaBotonVolverStr.Peek());
             toolTip1.SetToolTip(button_cancelar, pilaBotonCancelarStr.Peek());
 
             InterfazForm form = pilaFormularios.Peek();

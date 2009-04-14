@@ -65,6 +65,12 @@ namespace cacatUA
             desactivarBotones();
         }
 
+        public ENHilo Seleccionado
+        {
+            get { return hilo; }
+            set { CambiarSeleccionado(value.Id); }
+        }
+
         public bool ValidarFormulario()
         {
             bool correcto = true;
@@ -133,7 +139,7 @@ namespace cacatUA
                 nuevo.Titulo = textBox_titulo.Text;
                 nuevo.Autor = new ENUsuario(textBox_autor.Text);
                 nuevo.Categoria = categoria;
-                nuevo.Fecha = dateTimePicker_fecha.Value;
+                //nuevo.Fecha = dateTimePicker_fecha.Value;
 
                 if (textBox_id.Text == "")
                 {
