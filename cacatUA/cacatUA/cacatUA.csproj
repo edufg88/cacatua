@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -58,7 +58,9 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -349,6 +351,11 @@
     <Compile Include="FormMateriales.Designer.cs">
       <DependentUpon>FormMateriales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Uploader\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="datos\cacatuap.jpg" />
@@ -394,8 +401,14 @@
     <Content Include="datos\salir.png" />
     <Content Include="datos\seleccionar.png" />
     <Content Include="datos\tool.png" />
+    <None Include="Web References\Uploader\FileUploader.disco" />
     <None Include="datos\volver.png" />
     <None Include="datos\flecha.png" />
+    <None Include="Web References\Uploader\FileUploader.wsdl" />
+    <None Include="Web References\Uploader\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Libreria\Libreria.csproj">
@@ -439,6 +452,25 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://84.120.44.73/FileUploader.asmx%3fop=subirArchivo">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Uploader\</RelPath>
+      <UpdateFromURL>http://84.120.44.73/FileUploader.asmx%3fop=subirArchivo</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>cacatUA_Uploader_FileUploader</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
