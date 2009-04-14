@@ -38,12 +38,13 @@ namespace cacatUA
 
         private void subirArchivo()
         {
+            String strFile = System.IO.Path.GetFileName(material.Archivo);
+            Uploader.FileUploader fileUploader = new Uploader.FileUploader();
             try
-            {
-                String strFile = System.IO.Path.GetFileName(material.Archivo);
+            {               
                 //strFile.Insert(0, material.Id.ToString() + "_" + material.Usuario.Usuario + "_");
                 // Creamos una instacia del servicio web
-                Uploader.FileUploader fileUploader = new Uploader.FileUploader();
+                
 
                 // Obtenemos información del fichero
                 FileInfo fileInfo = new FileInfo(material.Archivo);
@@ -96,9 +97,6 @@ namespace cacatUA
                     br.Close();
                     fStream.Close();
                     fStream.Dispose();
-                    error = sTmp;
-                    this.Close();
-
                     if (cancelar == true)
                     {
                         // Cancelamos la transacción
@@ -123,7 +121,15 @@ namespace cacatUA
                 // display an error message to the user
                 error = "ERROR";
                 MessageBox.Show(ex.Message.ToString(), "Upload Errorr");
-            }          
+            } 
+            finally
+            {
+                this.Close();
+                if (error != "")
+                {
+                    material.CancelarGuardar();
+                }
+            }
         }
     }
 }
