@@ -161,6 +161,16 @@ namespace Libreria
             //return HiloCAD.Instancia.Guardar(this);
         }
 
+        public bool CompletarGuardar()
+        {
+            return MaterialCAD.Instancia.completarGuardar();
+        }
+
+        public bool CancelarGuardar()
+        {
+            return MaterialCAD.Instancia.CancelarGuardar();
+        }
+
         override public bool Borrar()
         {
             return true;

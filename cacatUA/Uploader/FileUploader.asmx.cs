@@ -30,8 +30,8 @@ namespace Uploader
                 MemoryStream ms = new MemoryStream(datos);
                 FileStream fs = new FileStream
                     (System.Web.Hosting.HostingEnvironment.MapPath("~/ficheros/") +
-                    fileName, FileMode.Create);
-                
+                    fileName, FileMode.Append);
+  
                 ms.WriteTo(fs);
                 ms.Close();
                 fs.Close();
@@ -48,6 +48,27 @@ namespace Uploader
         public string Hola()
         {
             return "hola";
+        }
+
+        [WebMethod]
+        public bool BorrarFichero(string nombreFichero)
+        {
+            bool borrado = false;
+            // Localizamos el fichero en el servidor
+            try
+            {
+                FileInfo info = new FileInfo(System.Web.Hosting.HostingEnvironment.MapPath("~/ficheros/") + nombreFichero);
+                if (info.Exists)
+                {
+                    info.Delete();
+                    borrado = true;
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+            return borrado;
         }
     }
 }
