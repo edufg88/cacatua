@@ -18,7 +18,7 @@ namespace Libreria
     {
         private static readonly MaterialCAD instancia = new MaterialCAD();
         private String cadenaConexion;
-
+        private SqlTransaction transaccion = null;
         /// <summary>
         /// Obtiene la única instancia de la clase HiloCAD. Si es la primera vez
         /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
@@ -50,14 +50,14 @@ namespace Libreria
                 // Abrimos la conexión.
                 conexion.Open();
 
-                // Creamos el comando.
-                SqlCommand comando = new SqlCommand();
+                transaccion = conexion.BeginTransaction();
 
-                // Le asignamos la conexión al comando.
-                comando.Connection = conexion;
-                comando.CommandText = "INSERT INTO " +
+                // Creamos el comando.
+                string cadenaComando = "INSERT INTO " +
                     "Materiales(nombre,descripcion,usuario,categoria,archivo,tamaño,referencia) " +
-                    "VALUES (@nombre,@descripcion,@usuario,@categoria,@archivo,@tamaño,@referencia)";
+                    "VALUES (@nombre,@descripcion,@usuario,@categoria,@archivo,@tamaño,@referencia);";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion, transaccion);
+
                 comando.Parameters.AddWithValue("@nombre", material.Nombre);
                 comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
                 comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
@@ -65,6 +65,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@archivo", material.Archivo);
                 comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
                 comando.Parameters.AddWithValue("@referencia", material.Referencia);
+
                 if (comando.ExecuteNonQuery() == 1)
                     correcto = true;
             }
@@ -75,8 +76,51 @@ namespace Libreria
             }
             finally
             {
-                if (conexion != null)
-                    conexion.Close();
+                //if (conexion != null)
+                //    conexion.Close();
+            }
+            return correcto;
+        }
+
+        public bool CancelarGuardar()
+        {
+            bool correcto = false;
+            try
+            {
+                if (transaccion != null)
+                {
+                    transaccion.Rollback();
+                    if (transaccion.Connection != null)
+                        transaccion.Connection.Close();
+                    correcto = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::CancelarGuardar> " + ex.Message);
+            }
+            return correcto;
+        }
+
+        public bool completarGuardar()
+        {
+            bool correcto = false;
+            try
+            {
+                transaccion.Commit();
+                if(transaccion.Connection != null)
+                    transaccion.Connection.Close();
+                correcto = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::completarGuardar> " + ex.Message);
+                //throw ex;
+            }
+            finally
+            {
+                if (transaccion.Connection!= null)
+                    transaccion.Connection.Close();
             }
             return correcto;
         }
