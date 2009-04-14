@@ -10,7 +10,6 @@ using System.Text;
 using System.Windows.Forms;
 using Libreria;
 
-
 namespace cacatUA
 {
     public partial class FormMaterialesEdicion : UserControl
@@ -202,6 +201,12 @@ namespace cacatUA
                         material.Archivo = textBox_archivo.Text.ToString();
                         material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
                         material.Referencia = textBox_referencia.Text.ToString();
+                        Uploader.FileUploader file = new Uploader.FileUploader();
+                        MessageBox.Show(file.Hola());
+                        // Subimos el archivo
+                        MessageBox.Show(subirArchivo(material));
+                        //subirArchivo(material);
+                        /*
                         // Validamos los datos
                         if (validarDatos(controlesCrear,material) == true)
                         {
@@ -211,7 +216,7 @@ namespace cacatUA
                                 // Se ha producido algún error, mostramos un mensaje
                                 MessageBox.Show("No se ha podido crear el material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
-                        }
+                        }*/
                         break;
                     }
                 case modos.EDITAR:
@@ -286,8 +291,50 @@ namespace cacatUA
             }
         }
 
+        private string subirArchivo(ENMaterial material)
+        {
+            string error = "";
+            try
+            {
+                String strFile = System.IO.Path.GetFileName(material.Archivo);
+                // Creamos una instacia del servicio web
+                Uploader.FileUploader fileUploader = new Uploader.FileUploader();
 
+                // Obtenemos información del fichero
+                FileInfo fileInfo = new FileInfo(material.Archivo);
 
+                // Obtenemos el tamaño del fichero
+                long numBytes = fileInfo.Length;
+                double dLen = Convert.ToDouble(fileInfo.Length / 1000000);
+                MessageBox.Show(numBytes.ToString());
+                MessageBox.Show(dLen.ToString());
+                if (dLen < 16)
+                {
+                    FileStream fStream = new FileStream(material.Archivo, FileMode.Open, FileAccess.Read);
+                    BinaryReader br = new BinaryReader(fStream);
 
+                    // Convertimos el fichero en un array de bytes
+                    byte[] data = br.ReadBytes((int)numBytes);
+                    br.Close();
+
+                    // Pasamos el array de bytes y el nombre del fichero al servicio web
+                    string sTmp = fileUploader.subirArchivo(data, strFile);
+                    fStream.Close();
+                    fStream.Dispose();
+                    error = sTmp;
+                }
+                else
+                {
+                    error = "Fichero demasiado grande";
+                }
+            }
+            catch (Exception ex)
+            {
+                // display an error message to the user
+                error = "ERROR";
+                MessageBox.Show(ex.Message.ToString(), "Upload Errorr");
+            }
+            return error;
+        }
     }
 }
