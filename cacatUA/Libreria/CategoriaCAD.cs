@@ -26,7 +26,24 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
-        public ENCategoria obtenerCategoria(int id)
+        private ENCategoria obtenerDatos(SqlDataReader reader)
+        {
+            ENCategoria categoria = new ENCategoria();
+            categoria.Id = int.Parse(reader["id"].ToString());
+            categoria.Nombre = reader["nombre"].ToString();
+            categoria.Descripcion = reader["descripcion"].ToString();
+            if (reader["padre"].ToString() != "")
+            {
+                categoria.Padre = int.Parse(reader["padre"].ToString());
+            }
+            else
+            {
+                categoria.Padre = 0;
+            }
+            return categoria;
+        }
+
+        public ENCategoria Obtener(int id)
         {
             ENCategoria categoria = null;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -47,25 +64,7 @@ namespace Libreria
             return categoria;
         }
 
-        private ENCategoria obtenerDatos(SqlDataReader reader)
-        {
-            ENCategoria categoria = new ENCategoria();
-            categoria.Id = int.Parse(reader["id"].ToString());
-            categoria.Nombre = reader["nombre"].ToString();
-            categoria.Descripcion = reader["descripcion"].ToString();
-            if (reader["padre"].ToString() != "")
-            {
-                categoria.Padre = int.Parse(reader["padre"].ToString());
-            }
-            else
-            {
-                categoria.Padre = 0;
-            }
-            return categoria;
-        }
-
-
-        public bool crearCategoria(ENCategoria categoria)
+        public bool Crear(ENCategoria categoria)
         {
             int resultado = 0;
             bool creada = false;
@@ -102,7 +101,7 @@ namespace Libreria
             return creada;
         }
 
-        public bool actualizarCategoria(ENCategoria categoria)
+        public bool Actualizar(ENCategoria categoria)
         {
             int resultado = 0;
             bool actualizada = false;
@@ -139,7 +138,7 @@ namespace Libreria
             return actualizada;
         }
 
-        public bool borrarCategoria(ENCategoria categoria)
+        public bool Borrar(ENCategoria categoria)
         {
             int resultado = 0;
             bool borrada = false;
@@ -161,7 +160,7 @@ namespace Libreria
             return borrada;
         }
 
-        public ArrayList obtenerCategoriasSuperiores()
+        public ArrayList ObtenerSuperiores()
         {
             ArrayList categorias = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -180,7 +179,7 @@ namespace Libreria
             return categorias;
         }
 
-        public ArrayList obtenerHijosDe(ENCategoria padre)
+        public ArrayList HijosDe(ENCategoria padre)
         {
             ArrayList hijos = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -202,7 +201,7 @@ namespace Libreria
             return hijos;
         }
 
-        public ArrayList usuariosSuscritosA(ENCategoria categoria)
+        public ArrayList UsuariosSuscritosA(ENCategoria categoria)
         {
             ArrayList usuarios = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
