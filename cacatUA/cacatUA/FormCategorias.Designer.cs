@@ -203,6 +203,7 @@
             this.linkLabel_verMateriales.TabStop = true;
             this.linkLabel_verMateriales.Text = "Ver materiales";
             this.toolTip_Categorias.SetToolTip(this.linkLabel_verMateriales, "Ver los materiales asociados a esta categoria.");
+            this.linkLabel_verMateriales.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verMateriales_LinkClicked);
             // 
             // textBox_nMateriales
             // 

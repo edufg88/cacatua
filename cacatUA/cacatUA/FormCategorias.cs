@@ -311,12 +311,18 @@ namespace cacatUA
 
         private void linkLabel_verHilos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormForo(), "Viendo hilos", true, false, "Volver a las categorías", "");
+            FormPanelAdministracion.Instancia.Apilar(new FormForo(), "Viendo hilos", true, false, "Volver a categorías", "");
+        }
+
+
+        private void linkLabel_verMateriales_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormMateriales(), "Viendo materiales", true, false, "Volver a categorías", "");
         }
 
         private void button_verUsuario_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a las categorías", "");
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a categorías", "");
         }
 
         private void button_AñadirUsuario_Click(object sender, EventArgs e)
