@@ -65,17 +65,7 @@ namespace cacatUA
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
-            if (ValidarFormulario())
-            {
-                usuario = null;
-                if (textBox_autor.Text != "")
-                    usuario = new ENUsuario(textBox_autor.Text);
-                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
-                DateTime fechaFin = dateTimePicker_fechaFin.Value;
-
-                formularioPadre.Resultados = ENHilo.Obtener(0, 0, 0, textBox_filtroBusqueda.Text,
-                    textBox_filtroBusqueda.Text, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
-            }
+            Buscar();
         }
 
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
@@ -111,6 +101,21 @@ namespace cacatUA
         private void button_limpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        public void Buscar()
+        {
+            if (ValidarFormulario())
+            {
+                usuario = null;
+                if (textBox_autor.Text != "")
+                    usuario = new ENUsuario(textBox_autor.Text);
+                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
+                DateTime fechaFin = dateTimePicker_fechaFin.Value;
+
+                formularioPadre.Resultados = ENHilo.Obtener(0, 0, 0, textBox_filtroBusqueda.Text,
+                    textBox_filtroBusqueda.Text, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
+            }
         }
     }
 }

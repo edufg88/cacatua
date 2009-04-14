@@ -206,5 +206,10 @@ namespace cacatUA
         {
             Desapilar(false);
         }
+
+        public void MensajeEstado(string mensaje)
+        {
+            toolStripStatusLabel1.Text = mensaje;
+        }
     }
 }
