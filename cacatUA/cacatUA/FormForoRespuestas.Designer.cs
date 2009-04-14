@@ -442,9 +442,12 @@
             // 
             // dateTimePicker_fecha
             // 
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fecha.TabIndex = 0;
             // 
             // label_fechaCreacion

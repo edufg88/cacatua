@@ -46,12 +46,12 @@ namespace cacatUA
             }
         }
 
-        public void CambiarFormularioEdicion()
+        public void CambiarFormularioEdicion(string label)
         {
             if (formularioActivo != FormularioActivo.EDICION)
             {
                 formularioActivo = FormularioActivo.EDICION;
-                label_seccion1.Text = "Edición";
+                label_seccion1.Text = label;
                 panel_contenedor.Controls.Clear();
                 panel_contenedor.Controls.Add(formEdicion);
                 tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
@@ -95,7 +95,7 @@ namespace cacatUA
 
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
-            CambiarFormularioEdicion();
+            CambiarFormularioEdicion("Crear nuevo hilo");
             formEdicion.CambiarNuevo();
         }
 
@@ -103,7 +103,7 @@ namespace cacatUA
         {
             if (dataGridView_resultados.SelectedRows.Count > 0)
             {
-                CambiarFormularioEdicion();
+                CambiarFormularioEdicion("Editando hilo");
                 formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
             }
         }
@@ -129,7 +129,7 @@ namespace cacatUA
         {
             if (dataGridView_resultados.SelectedRows.Count > 0)
             {
-                CambiarFormularioEdicion();
+                CambiarFormularioEdicion("Editando hilo");
                 formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
             }
         }
