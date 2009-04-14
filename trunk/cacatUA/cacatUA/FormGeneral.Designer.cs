@@ -210,7 +210,6 @@
             this.label_fotosSubidas.Size = new System.Drawing.Size(72, 13);
             this.label_fotosSubidas.TabIndex = 4;
             this.label_fotosSubidas.Text = "Fotos subidas";
-            this.label_fotosSubidas.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox_materialesDisponibles
             // 
@@ -220,7 +219,6 @@
             this.textBox_materialesDisponibles.Size = new System.Drawing.Size(100, 20);
             this.textBox_materialesDisponibles.TabIndex = 9;
             this.textBox_materialesDisponibles.Text = "347";
-            this.textBox_materialesDisponibles.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox_categoriasCreadas
             // 
