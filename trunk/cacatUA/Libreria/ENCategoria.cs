@@ -14,6 +14,7 @@ namespace Libreria
 
 
         //Constructores
+
         public ENCategoria()
         {
             id = 0;
@@ -52,21 +53,23 @@ namespace Libreria
 
 
         //Metodos heredados de InterfazEN
+
         override public bool Guardar()
         {
-            return CategoriaCAD.Instancia.crearCategoria(this);
+            return CategoriaCAD.Instancia.Crear(this);
         }
 
         override public bool Actualizar()
         {
-            return CategoriaCAD.Instancia.actualizarCategoria(this);
+            return CategoriaCAD.Instancia.Actualizar(this);
         }
 
         override public bool Borrar() {
-            return CategoriaCAD.Instancia.borrarCategoria(this);
+            return CategoriaCAD.Instancia.Borrar(this);
         }
 
-        //Metodos asociados
+        //Metodos asociados a las categorias
+
         public String NombreCompleto()
         {
             if (id != 0)
@@ -94,14 +97,14 @@ namespace Libreria
                 return "";
         }
 
-        public ArrayList obtenerHijos()
+        public ArrayList ObtenerHijos()
         {
-            return CategoriaCAD.Instancia.obtenerHijosDe(this);
+            return CategoriaCAD.Instancia.HijosDe(this);
         }
 
-        public ArrayList usuariosSuscritos()
+        public ArrayList UsuariosSuscritos()
         {
-            return CategoriaCAD.Instancia.usuariosSuscritosA(this);
+            return CategoriaCAD.Instancia.UsuariosSuscritosA(this);
         }
 
         public int NumMateriales()
@@ -110,7 +113,7 @@ namespace Libreria
 
             n += CategoriaCAD.Instancia.NumMaterialesEn(this);
 
-            foreach (ENCategoria c in obtenerHijos())
+            foreach (ENCategoria c in ObtenerHijos())
             {
                 n += c.NumMateriales();
             }
@@ -124,12 +127,17 @@ namespace Libreria
 
             n += CategoriaCAD.Instancia.NumHilosEn(this);
 
-            foreach (ENCategoria c in obtenerHijos())
+            foreach (ENCategoria c in ObtenerHijos())
             {
                 n += c.NumHilos();
             }
 
             return n;
+        }
+
+        public bool EsDescendienteDe(ENCategoria cat)
+        {
+            return false;
         }
 
         //Metodos relacionados con la tabla suscripcion
@@ -138,7 +146,7 @@ namespace Libreria
         {
             CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario);
 
-            foreach (ENCategoria c in obtenerHijos())
+            foreach (ENCategoria c in ObtenerHijos())
             {
                 c.SuscribirUsuario(usuario);
             }
@@ -148,23 +156,22 @@ namespace Libreria
         {
             CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
 
-            foreach (ENCategoria c in obtenerHijos())
+            foreach (ENCategoria c in ObtenerHijos())
             {
                 c.DessuscribirUsuario(usuario);
             }
-        }
-
+        }        
 
         //Metodos estaticos de categorias
 
         public static ENCategoria Obtener(int id)
         {
-            return CategoriaCAD.Instancia.obtenerCategoria(id);
+            return CategoriaCAD.Instancia.Obtener(id);
         }
 
         public static ArrayList CategoriasSuperiores()
         {
-            return CategoriaCAD.Instancia.obtenerCategoriasSuperiores();
+            return CategoriaCAD.Instancia.ObtenerSuperiores();
         }
 
         public static int NumCategorias()

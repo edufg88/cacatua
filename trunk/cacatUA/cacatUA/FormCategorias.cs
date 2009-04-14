@@ -49,7 +49,7 @@ namespace cacatUA
             nodo.Text = cat.Nombre;
             coleccion.Add(nodo);
             
-            foreach (ENCategoria c in cat.obtenerHijos())
+            foreach (ENCategoria c in cat.ObtenerHijos())
             {
                 MeterEnArbol(c, nodo.Nodes);
             }
@@ -71,7 +71,7 @@ namespace cacatUA
                 textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
 
                 dataGridView_Usuarios.Rows.Clear();
-                foreach (ENUsuario u in seleccionada.usuariosSuscritos())
+                foreach (ENUsuario u in seleccionada.UsuariosSuscritos())
                 {
                     dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
                 }
@@ -94,9 +94,12 @@ namespace cacatUA
 
             //Limpiar controles
             textBox_Nombre.Clear();
-            textBox_Ruta.Clear();
             textBox_Descripcion.Clear();
 
+            //Controles activados
+            enrutada = seleccionada;
+            textBox_Ruta.Text = enrutada.NombreCompleto().ToString();
+            
             //Parametros
             estado = 2;
         }
@@ -159,21 +162,35 @@ namespace cacatUA
                 //Comprobar accion a realizar
                 if (estado == 1)
                 {
+                    bool validado = true;
+
                     //Actualizando
                     seleccionada.Nombre = textBox_Nombre.Text;
                     seleccionada.Descripcion = textBox_Descripcion.Text;
 
-                    seleccionada.Padre = enrutada.Id;
-                    
-                    if (seleccionada.Actualizar())
+                    if (enrutada != null)
                     {
-                        MessageBox.Show("Categoria actualizada correctamente.");
+                        seleccionada.Padre = enrutada.Id;
 
-                        sel.Text = seleccionada.Nombre;
+                        if (enrutada.EsDescendienteDe(seleccionada) || enrutada.Id == seleccionada.Id)
+                        {
+                            MessageBox.Show("Error, go to bucle");
+                            validado = false;
+                        }
                     }
-                    else
+
+                    if (validado)
                     {
-                        MessageBox.Show("Error al actualizar categoria.");
+                        if (seleccionada.Actualizar())
+                        {
+                            MessageBox.Show("Categoria actualizada correctamente.");
+
+                            sel.Text = seleccionada.Nombre;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al actualizar categoria.");
+                        }
                     }
                 }
                 else
