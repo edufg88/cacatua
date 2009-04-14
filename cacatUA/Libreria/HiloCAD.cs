@@ -377,7 +377,7 @@ namespace Libreria
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("bool HiloCAD.Guardar(ENHilo) " + ex.Message);
+                    Console.WriteLine("bool HiloCAD.Actualizar(ENHilo) " + ex.Message);
                 }
                 finally
                 {
@@ -387,6 +387,123 @@ namespace Libreria
             }
 
             return actualizado;
+        }
+
+        /// <summary>
+        /// Realiza una consulta a la base de datos para obtener la cantidad de hilos totales
+        /// que hay en el foro.
+        /// </summary>
+        /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
+        public int Cantidad()
+        {
+            ENUsuario usuario = null;
+            ENCategoria categoria = null;
+            return Cantidad(usuario, categoria);
+        }
+
+        /// <summary>
+        /// Realiza una consulta a la base de datos para obtener la cantidad de hilos totales
+        /// que hay en el foro y que pertenecen a un usuario y/o categoría concreta. Si el usuario
+        /// o la categoría indicada en los parámetros es una referencia nula (null), no se considera
+        /// esa reestricción. Es decir, si quiero conocer la cantidad de hilos de un usuario en
+        /// cualquier categoría, el segundo parámetro debería ser nulo.
+        /// </summary>
+        /// <param name="usuario">
+        /// Usuario del que se obtendrá su número de hilos. Si el valor es nulo, se obtiene el número
+        /// de hilos de cualquier usuario.
+        /// </param>
+        /// <param name="categoria">
+        /// Categoría de la que se obtendrá su número de hilos. Si el valor es nulo, se obtienen los
+        /// hilos de todas las categorías.
+        /// </param>
+        /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
+        public int Cantidad(ENUsuario usuario, ENCategoria categoria)
+        {
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "select count(*) as cantidad from hilos where 1=1";
+                if (usuario != null)
+                    sentencia += " and autor = @autor";
+                if (categoria != null)
+                    sentencia += " and categoria = @categoria";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                if (usuario != null)
+                    comando.Parameters.AddWithValue("@autor", usuario.Id);
+                if (categoria != null)
+                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
+
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("int HiloCAD.Cantidad(ENUsuario, ENCategoria) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
+        /// <summary>
+        /// Obtiene el último hilo desde la base de datos.
+        /// </summary>
+        /// <returns>Devuelve el último hilo insertado en la base de datos. Si falla, devuelve null.</returns>
+        public ENHilo Ultimo()
+        {
+            ENHilo hilo = null;
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+                comando.CommandText = "select * from hilos where id in (select max(id) from hilos)";
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Si hay al menos una fila, extraemos los valores de la primera.
+                if (dataReader.Read())
+                {
+                    hilo = obtenerDatos(dataReader);
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENHilo HiloCAD.Ultimo) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return hilo;
         }
     }
 }

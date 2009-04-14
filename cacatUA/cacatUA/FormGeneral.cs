@@ -6,20 +6,171 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 using Libreria;
 
 namespace cacatUA
 {
     public partial class FormGeneral : InterfazForm
     {
+        private ResumenSistema resumenSistema;
         public FormGeneral()
         {
             InitializeComponent();
+            CargarDatos();
         }
 
-        private void FormGeneral_Load(object sender, EventArgs e)
+        public void CargarDatos()
         {
-            textBox_categoriasCreadas.Text = ENCategoria.NumCategorias().ToString();
+            resumenSistema = new ResumenSistema();
+            propertyGrid_resumenSistema.SelectedObject = resumenSistema;
+        }
+
+        private void button_seccionRefrescar_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+    }
+
+    [DefaultPropertyAttribute("Asdfasgasdasd")]
+    class ResumenSistema
+    {
+        private int numHilos;
+        private string ultimoHilo;
+        private string ultimaRespuesta;
+
+        private int numUsuarios;
+        private string ultimoUsuario;
+
+        private int numCategorias;
+
+        private int numMateriales;
+        private string ultimoMaterial;
+
+        private int numGrupos;
+        private string ultimoGrupo;
+
+        private int numPeticiones;
+        private int numPeticionesSinContestar;
+        private string ultimaPeticion;
+
+        public ResumenSistema()
+        {
+            numHilos = ENHilo.Cantidad();
+            ultimoHilo = ENHilo.Ultimo().Titulo;
+            ultimaRespuesta = "aqui estamos";
+
+            numUsuarios = 512;
+            ultimoUsuario = "Antonio";
+
+            numCategorias = ENCategoria.NumCategorias();
+
+            numMateriales = 16;
+            ultimoMaterial = "Fotos del kiko";
+
+            numGrupos = 17;
+            ultimoGrupo = "Los rockeros";
+
+            numPeticiones = 178;
+            numPeticionesSinContestar = 4;
+            ultimaPeticion = "¿Podéis crear una categoría de mierda?";
+        }
+
+        [CategoryAttribute("Foro"),
+        DescriptionAttribute("Cantidad de hilos abiertos en el foro.")]
+        public int NumHilos
+        {
+            get { return numHilos; }
+        }
+
+        [CategoryAttribute("Foro"),
+        DescriptionAttribute("Título del último hilo abierto en el foro.")]
+        public string UltimoHilo
+        {
+            get { return ultimoHilo; }
+        }
+
+        [CategoryAttribute("Foro"),
+        DescriptionAttribute("Última respuesta añadida en el foro.")]
+        public string UltimaRespuesta
+        {
+            get { return ultimaRespuesta; }
+        }
+
+        [CategoryAttribute("Usuarios"),
+        DescriptionAttribute("Cantidad de usuarios registrados.")]
+        public int NumUsuarios
+        {
+            get { return numUsuarios; }
+        }
+
+        [CategoryAttribute("Usuarios"),
+        DescriptionAttribute("Último usuario registrado.")]
+        public string UltimoUsuario
+        {
+            get { return ultimoUsuario; }
+        }
+
+        [CategoryAttribute("Categorías"),
+        DescriptionAttribute("Cantidad de categorías.")]
+        public int NumCategorias
+        {
+            get { return numCategorias; }
+        }
+
+        [CategoryAttribute("Grupos"),
+        DescriptionAttribute("Cantidad de grupos abiertos.")]
+        public int NumGrupos
+        {
+            get { return numGrupos; }
+        }
+
+        [CategoryAttribute("Grupos"),
+        DescriptionAttribute("Nombre del último que se creó.")]
+        public string UltimoGrupo
+        {
+            get { return ultimoGrupo; }
+        }
+
+        [CategoryAttribute("Peticiones"),
+        DescriptionAttribute("Cantidad de peticiones sin contestar.")]
+        public int NumPeticiones
+        {
+            get { return numPeticiones; }
+        }
+
+        [CategoryAttribute("Peticiones"),
+        DescriptionAttribute("Cantidad de peticiones contestadas.")]
+        public int NumPeticionesSinContestar
+        {
+            get { return numPeticionesSinContestar; }
+        }
+
+        [CategoryAttribute("Peticiones"),
+        DescriptionAttribute("Última petición recibida.")]
+        public string UltimaPeticion
+        {
+            get { return ultimaPeticion; }
+        }
+
+        [CategoryAttribute("Materiales"),
+        DescriptionAttribute("Cantidad de materiales subidos.")]
+        public int NumMateriales
+        {
+            get { return numMateriales; }
+        }
+
+        [CategoryAttribute("Materiales"),
+        DescriptionAttribute("Nombre del último material subido.")]
+        public string UltimoMaterial
+        {
+            get { return ultimoMaterial; }
+        }
+
+        [BrowsableAttribute(false)]
+        public string Asdfasgasdasd // Sólo sirve para evitar que salga alguna fila seleccionada.
+        {
+            get { return ""; }
         }
     }
 }
