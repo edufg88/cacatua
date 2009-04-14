@@ -13,11 +13,13 @@ namespace cacatUA
     public partial class FormForoEdicion : InterfazForm
     {
         private ENHilo hilo;
-        private ENCategoria categoria;
-        private ENUsuario usuario;
+        private ENCategoria categoria = null;
+        private ENUsuario usuario = null;
+        private FormForo formularioPadre = null;
 
-        public FormForoEdicion()
+        public FormForoEdicion(FormForo formularioPadre)
         {
+            this.formularioPadre = formularioPadre;
             InitializeComponent();
         }
 
@@ -42,7 +44,7 @@ namespace cacatUA
             }
             else
             {
-                MessageBox.Show("No se puede cambiar al hilo indicado: " + id);
+                MessageBox.Show("No se puede cambiar al hilo nº " + id, "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -138,11 +140,12 @@ namespace cacatUA
                     if (nuevo.Guardar())
                     {
                         CambiarSeleccionado(nuevo.Id);
-                        MessageBox.Show("Hilo guardado correctamente.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Hilo guardado correctamente.");
+                        
                     }
                     else
                     {
-                        MessageBox.Show("Error al guardar el hilo");
+                        MessageBox.Show("No se puede guardar el hilo.", "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -151,11 +154,11 @@ namespace cacatUA
                     if (nuevo.Actualizar())
                     {
                         desactivarBotones();
-                        MessageBox.Show("Hilo actualizado correctamente.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Hilo actualizado correctamente.");
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar el hilo.");
+                        MessageBox.Show("No se puede actualizar el hilo.", "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

@@ -18,20 +18,31 @@ namespace cacatUA
         private enum FormularioActivo { NINGUNO = 0, BUSQUEDA = 1, EDICION = 2 };
         FormularioActivo formularioActivo;
 
-        public FormForo()
+        private void inicializar()
         {
             InitializeComponent();
 
             // Se crean los formularios que se van a utilizar.
-            formEdicion = new FormForoEdicion();
+            formEdicion = new FormForoEdicion(this);
             formBusqueda = new FormForoBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
             formularioActivo = FormularioActivo.NINGUNO;
+        }
 
+        public FormForo()
+        {
+            inicializar();
             CambiarFormularioBusqueda();
+            formBusqueda.Buscar();
+        }
 
-            Resultados = ENHilo.Obtener();
+        public FormForo(ENCategoria categoria)
+        {
+            inicializar();
+            CambiarFormularioBusqueda();
+            formBusqueda.Recibir(categoria);
+            formBusqueda.Buscar();
         }
 
         public void CambiarFormularioBusqueda()
@@ -48,10 +59,10 @@ namespace cacatUA
 
         public void CambiarFormularioEdicion(string label)
         {
+            label_seccion1.Text = label;
             if (formularioActivo != FormularioActivo.EDICION)
             {
                 formularioActivo = FormularioActivo.EDICION;
-                label_seccion1.Text = label;
                 panel_contenedor.Controls.Clear();
                 panel_contenedor.Controls.Add(formEdicion);
                 tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;

@@ -43,11 +43,16 @@
             this.button_cancelar = new System.Windows.Forms.Button();
             this.button_volver = new System.Windows.Forms.Button();
             this.flowLayoutPanel_navegacion = new System.Windows.Forms.FlowLayoutPanel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel_botones.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_botones
             // 
+            this.tableLayoutPanel_botones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.tableLayoutPanel_botones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.tableLayoutPanel_botones.ColumnCount = 1;
             this.tableLayoutPanel_botones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -59,7 +64,6 @@
             this.tableLayoutPanel_botones.Controls.Add(this.button_foro, 0, 3);
             this.tableLayoutPanel_botones.Controls.Add(this.button_peticiones, 0, 4);
             this.tableLayoutPanel_botones.Controls.Add(this.button_salir, 0, 7);
-            this.tableLayoutPanel_botones.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel_botones.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_botones.Name = "tableLayoutPanel_botones";
             this.tableLayoutPanel_botones.RowCount = 8;
@@ -71,7 +75,8 @@
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 548);
+            this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 528);
             this.tableLayoutPanel_botones.TabIndex = 1;
             // 
             // button_categorias
@@ -197,7 +202,7 @@
             this.panel.BackColor = System.Drawing.SystemColors.Control;
             this.panel.Location = new System.Drawing.Point(197, 27);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(784, 521);
+            this.panel.Size = new System.Drawing.Size(784, 501);
             this.panel.TabIndex = 0;
             // 
             // button_cancelar
@@ -238,11 +243,27 @@
             this.flowLayoutPanel_navegacion.Size = new System.Drawing.Size(737, 27);
             this.flowLayoutPanel_navegacion.TabIndex = 4;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(981, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
             // FormPanelAdministracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 548);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.flowLayoutPanel_navegacion);
             this.Controls.Add(this.button_cancelar);
             this.Controls.Add(this.button_volver);
@@ -253,7 +274,10 @@
             this.Text = "Panel de administración";
             this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
             this.tableLayoutPanel_botones.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -273,6 +297,8 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button button_cancelar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_navegacion;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
 
 
     }
