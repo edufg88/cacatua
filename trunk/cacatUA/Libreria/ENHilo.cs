@@ -160,6 +160,46 @@ namespace Libreria
             return HiloCAD.Instancia.Actualizar(this);
         }
 
+        /// <summary>
+        /// Realiza una consulta a la base de datos para obtener la cantidad de hilos totales
+        /// que hay en el foro.
+        /// </summary>
+        /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
+        public static int Cantidad()
+        {
+            return HiloCAD.Instancia.Cantidad();
+        }
+
+        /// <summary>
+        /// Realiza una consulta a la base de datos para obtener la cantidad de hilos totales
+        /// que hay en el foro y que pertenecen a un usuario y/o categoría concreta. Si el usuario
+        /// o la categoría indicada en los parámetros es una referencia nula (null), no se considera
+        /// esa reestricción. Es decir, si quiero conocer la cantidad de hilos de un usuario en
+        /// cualquier categoría, el segundo parámetro debería ser nulo.
+        /// </summary>
+        /// <param name="usuario">
+        /// Usuario del que se obtendrá su número de hilos. Si el valor es nulo, se obtiene el número
+        /// de hilos de cualquier usuario.
+        /// </param>
+        /// <param name="categoria">
+        /// Categoría de la que se obtendrá su número de hilos. Si el valor es nulo, se obtienen los
+        /// hilos de todas las categorías.
+        /// </param>
+        /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
+        public static int Cantidad(ENUsuario usuario, ENCategoria categoria)
+        {
+            return HiloCAD.Instancia.Cantidad(usuario, categoria);
+        }
+
+        /// <summary>
+        /// Obtiene el último hilo desde la base de datos.
+        /// </summary>
+        /// <returns>Devuelve el último hilo insertado en la base de datos. Si falla, devuelve null.</returns>
+        public static ENHilo Ultimo()
+        {
+            return HiloCAD.Instancia.Ultimo();
+        }
+
         public int Id
         {
             get { return id; }
