@@ -192,7 +192,7 @@ namespace Libreria
             SqlConnection conexion = new SqlConnection(cadenaConexion);
 
             // Obtenemos los usuarios por nombre para obtener su id
-            ENUsuario autor = new ENUsuario(usuario);
+            ENUsuario autor = ENUsuario.Obtener(usuario);
 
             try
             {
@@ -230,7 +230,7 @@ namespace Libreria
             bool usarUsuario = false;
 
             // Obtenemos los usuarios por nombre para obtener su id
-            ENUsuario autor = new ENUsuario(usuario);
+            ENUsuario autor = ENUsuario.Obtener(usuario);
             
             if (titulo != "")
             {

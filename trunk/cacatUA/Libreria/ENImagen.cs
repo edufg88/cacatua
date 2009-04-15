@@ -43,7 +43,7 @@ namespace Libreria
 
         public ENImagen(string titulo, string descripcion, string usuario, string archivo, DateTime fecha)
         {
-            ENUsuario autor = new ENUsuario(usuario);
+            ENUsuario autor = ENUsuario.Obtener(usuario);
 
             this.id = 0;
             this.titulo = titulo;

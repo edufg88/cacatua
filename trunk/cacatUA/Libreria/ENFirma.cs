@@ -41,8 +41,8 @@ namespace Libreria
 
         public ENFirma(string emisor, string texto, DateTime fecha, string receptor)
         {
-            ENUsuario em = new ENUsuario(emisor);
-            ENUsuario rec = new ENUsuario(receptor);
+            ENUsuario em = ENUsuario.Obtener(emisor);
+            ENUsuario rec = ENUsuario.Obtener(receptor);
 
 
             this.id = 0;

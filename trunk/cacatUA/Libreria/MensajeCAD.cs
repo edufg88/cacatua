@@ -81,7 +81,7 @@ namespace Libreria
             ENMensaje mensaje = null;
 
             // Obtenemos el usuario por nombre para obtener su id
-            ENUsuario usuario = new ENUsuario(nombre);
+            ENUsuario usuario = ENUsuario.Obtener(nombre);
 
             try
             {
@@ -204,8 +204,8 @@ namespace Libreria
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             
             // Obtenemos los usuarios por nombre para obtener su id
-            ENUsuario em = new ENUsuario(emisor);
-            ENUsuario rec = new ENUsuario(receptor);
+            ENUsuario em = ENUsuario.Obtener(emisor);
+            ENUsuario rec = ENUsuario.Obtener(receptor);
 
             try
             {
@@ -244,8 +244,8 @@ namespace Libreria
             string cadenaFecha = "";
            
             // Obtenemos los usuarios por nombre para obtener su id
-            ENUsuario em = new ENUsuario(emisor);
-            ENUsuario rec = new ENUsuario(receptor);
+            ENUsuario em = ENUsuario.Obtener(emisor);
+            ENUsuario rec = ENUsuario.Obtener(receptor);
 
             if (emisor != "")
             {

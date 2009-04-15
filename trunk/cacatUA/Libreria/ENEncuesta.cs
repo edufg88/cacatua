@@ -40,7 +40,7 @@ namespace Libreria
         public ENEncuesta(string pregunta, string usuario, DateTime fecha, bool activa)
         {
             this.id = 0;
-            ENUsuario us = new ENUsuario(usuario);
+            ENUsuario us = ENUsuario.Obtener(usuario);
             this.usuario = us;
             this.pregunta = pregunta;
             this.fecha = fecha;
