@@ -204,6 +204,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@descripcion","%" + filtroBusqueda + "%");
                 if(usuario != null)
                     comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                if(categoria != null)
                 comando.Parameters.AddWithValue("@categoria", categoria.Id);
 
                 Console.WriteLine(comando.CommandText);

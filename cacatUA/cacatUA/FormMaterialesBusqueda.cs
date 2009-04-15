@@ -148,6 +148,7 @@ namespace cacatUA
 
         private void limpiarFormulario()
         {
+            categoria = null;
             textBox_categoria.Clear();
             textBox_filtroBusqueda.Clear();
             textBox_usuario.Clear();
