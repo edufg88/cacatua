@@ -120,24 +120,26 @@ namespace cacatUA.Uploader {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/ComprimirArchivo", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string ComprimirArchivo(string nombreFichero) {
+        public string ComprimirArchivo(string nombreFichero, int id) {
             object[] results = this.Invoke("ComprimirArchivo", new object[] {
-                        nombreFichero});
+                        nombreFichero,
+                        id});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void ComprimirArchivoAsync(string nombreFichero) {
-            this.ComprimirArchivoAsync(nombreFichero, null);
+        public void ComprimirArchivoAsync(string nombreFichero, int id) {
+            this.ComprimirArchivoAsync(nombreFichero, id, null);
         }
         
         /// <remarks/>
-        public void ComprimirArchivoAsync(string nombreFichero, object userState) {
+        public void ComprimirArchivoAsync(string nombreFichero, int id, object userState) {
             if ((this.ComprimirArchivoOperationCompleted == null)) {
                 this.ComprimirArchivoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnComprimirArchivoOperationCompleted);
             }
             this.InvokeAsync("ComprimirArchivo", new object[] {
-                        nombreFichero}, this.ComprimirArchivoOperationCompleted, userState);
+                        nombreFichero,
+                        id}, this.ComprimirArchivoOperationCompleted, userState);
         }
         
         private void OnComprimirArchivoOperationCompleted(object arg) {
