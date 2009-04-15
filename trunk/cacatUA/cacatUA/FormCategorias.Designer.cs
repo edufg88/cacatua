@@ -146,7 +146,7 @@
             this.groupBox_Informacion.Size = new System.Drawing.Size(507, 218);
             this.groupBox_Informacion.TabIndex = 14;
             this.groupBox_Informacion.TabStop = false;
-            this.groupBox_Informacion.Text = "Otra información";
+            this.groupBox_Informacion.Text = "Más información";
             // 
             // dataGridView_Usuarios
             // 
@@ -329,13 +329,17 @@
             // 
             // button_LimpiarRuta
             // 
-            this.button_LimpiarRuta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_LimpiarRuta.Location = new System.Drawing.Point(380, 54);
+            this.button_LimpiarRuta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_LimpiarRuta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_LimpiarRuta.FlatAppearance.BorderSize = 0;
+            this.button_LimpiarRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_LimpiarRuta.Image = global::cacatUA.Properties.Resources.limpiarruta;
+            this.button_LimpiarRuta.Location = new System.Drawing.Point(373, 56);
             this.button_LimpiarRuta.Name = "button_LimpiarRuta";
-            this.button_LimpiarRuta.Size = new System.Drawing.Size(52, 23);
-            this.button_LimpiarRuta.TabIndex = 149;
-            this.button_LimpiarRuta.Text = "Limpiar";
+            this.button_LimpiarRuta.Size = new System.Drawing.Size(27, 20);
+            this.button_LimpiarRuta.TabIndex = 148;
+            this.button_LimpiarRuta.Tag = "Borrar ruta";
+            this.toolTip_Categorias.SetToolTip(this.button_LimpiarRuta, "Establecer como categoria superior.");
             this.button_LimpiarRuta.UseVisualStyleBackColor = true;
             this.button_LimpiarRuta.Visible = false;
             this.button_LimpiarRuta.Click += new System.EventHandler(this.button_LimpiarRuta_Click);
@@ -360,8 +364,7 @@
             // 
             // textBox_Ruta
             // 
-            this.textBox_Ruta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Ruta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Ruta.Location = new System.Drawing.Point(100, 56);
             this.textBox_Ruta.Name = "textBox_Ruta";
             this.textBox_Ruta.ReadOnly = true;
@@ -379,8 +382,7 @@
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Nombre.Location = new System.Drawing.Point(100, 30);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;

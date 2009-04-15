@@ -100,7 +100,8 @@ namespace cacatUA
 
             //Controles activados
             enrutada = seleccionada;
-            textBox_Ruta.Text = enrutada.NombreCompleto().ToString();
+            if(enrutada != null)
+                textBox_Ruta.Text = enrutada.NombreCompleto().ToString();
             
             //Parametros
             estado = EstadoFormulario.CREACION;
@@ -155,41 +156,36 @@ namespace cacatUA
 
         private void button_Guardar_Click(object sender, EventArgs e)
         {
-
+            //Booleano que nos sirve para controlar si hay errores que impiden guardar
+            bool validado = true; 
+ 
             //Sea cual sea lo que estemos haciendo, el nombre no se puede dejar vacio
             if(textBox_Nombre.Text == "") {
+                validado = false;
                 errorProvider_Categorias.SetError(textBox_Nombre, "Debes indicar un nombre");
             }
             else {
                 //Comprobar accion a realizar
                 if (estado == EstadoFormulario.EDICION)
                 {
-                    bool validado = true;
-
                     //Actualizando
+                  
                     seleccionada.Nombre = textBox_Nombre.Text;
                     seleccionada.Descripcion = textBox_Descripcion.Text;
 
                     if (enrutada != null)
-                    {
-                        seleccionada.Padre = enrutada.Id;
-
+                    {               
                         if (enrutada.EsDescendienteDe(seleccionada) || enrutada.Id == seleccionada.Id)
                         {
-                            MessageBox.Show("Error, go to bucle");
+                            errorProvider_Categorias.SetError(button_LimpiarRuta, "Una categoria no puede ser hija de sí misma o de un descendiente.");
                             validado = false;
                         }
+                        seleccionada.Padre = enrutada.Id;
                     }
 
                     if (validado)
                     {
-                        if (seleccionada.Actualizar())
-                        {
-                            MessageBox.Show("Categoria actualizada correctamente.");
-
-                            sel.Text = seleccionada.Nombre;
-                        }
-                        else
+                        if (!seleccionada.Actualizar())
                         {
                             MessageBox.Show("Error al actualizar categoria.");
                         }
@@ -209,21 +205,22 @@ namespace cacatUA
 
                     ENCategoria nCategoria = new ENCategoria(textBox_Nombre.Text, textBox_Descripcion.Text, padre);
 
-                    if (nCategoria.Guardar())
-                    {
-                        MessageBox.Show("Categoria creada correctamente.");
-                        
-                        //Recargamos el arbol para que aparezca la nueva categoria
-                        FormCategorias_Load(null,null);
-                    }
-                    else
+                    if (!nCategoria.Guardar())
                     {
                         MessageBox.Show("Error al crear categoria.");
                     }
                 }
-                //Activar/Desactivar controles
-                DesactivarEdicion();
+            }
 
+            if (validado)
+            {
+               //Activar/Desactivar controles
+               DesactivarEdicion();
+
+                //Recargamos el arbol para que aparezcan los cambios
+                FormCategorias_Load(null, null);
+
+                //Volvemos al estado inicial
                 enrutada = null;
                 estado = EstadoFormulario.NINGUNO;
             }
@@ -233,13 +230,21 @@ namespace cacatUA
         {
             //Activar/Desactivar controles
             DesactivarEdicion();
+            if (seleccionada != null)
+            {
+                textBox_Descripcion.Text = seleccionada.Descripcion;
+                textBox_Nombre.Text = seleccionada.Nombre;
+                textBox_Ruta.Text = seleccionada.Ruta();
+            }
+            else
+            {
+                textBox_Descripcion.Clear();
+                textBox_Nombre.Clear();
+                textBox_Ruta.Clear();
+            }
 
             enrutada = null;
             estado = EstadoFormulario.NINGUNO;
-
-            textBox_Descripcion.Text = seleccionada.Descripcion;
-            textBox_Nombre.Text = seleccionada.Nombre;
-            textBox_Ruta.Text = seleccionada.Ruta();
         }
 
         private void ActivarEdicion()

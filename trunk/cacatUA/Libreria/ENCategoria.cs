@@ -119,7 +119,17 @@ namespace Libreria
 
         public bool EsDescendienteDe(ENCategoria cat)
         {
-            return false;
+            if(Ruta() == cat.NombreCompleto()) {
+                return true;
+            }
+            else {
+                ENCategoria aux = Obtener(padre);
+                if(aux != null)
+                    return aux.EsDescendienteDe(cat);
+                else
+                    return false;
+            }
+                
         }
 
         //Metodos relacionados con la tabla suscripcion
