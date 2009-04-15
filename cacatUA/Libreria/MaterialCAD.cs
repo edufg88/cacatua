@@ -228,50 +228,6 @@ namespace Libreria
             return materiales;
         }
 
-        public bool existeUsuario(string nombre)
-        {
-            bool existe = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-            {
-                // Abrimos la conexión
-                conexion.Open();
-                // Creamos el comando
-                SqlCommand comando = new SqlCommand();
-                // Le asignamos la conexión al comando
-                comando.Connection = conexion;
-                comando.CommandText = "SELECT * FROM usuarios where nombre = @nombre";
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                SqlDataReader reader = comando.ExecuteReader();
-                if (reader.Read())
-                {
-                    existe = true;
-                }
-            }
-            return existe;
-        }
-
-        private int getIdUsuario(string nombre)
-        {
-            int idUsuario = -1;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-            {
-                // Abrimos la conexión
-                conexion.Open();
-                // Creamos el comando
-                SqlCommand comando = new SqlCommand();
-                // Le asignamos la conexión al comando
-                comando.Connection = conexion;
-                comando.CommandText = "SELECT id FROM usuarios where nombre = @nombre";
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                SqlDataReader reader = comando.ExecuteReader();
-                if (reader.Read())
-                {
-                    idUsuario = int.Parse(reader["id"].ToString());
-                }
-            }
-            return idUsuario;
-        }
-
         private ENMaterial obtenerDatos(SqlDataReader reader)
         {
             ENMaterial material = new ENMaterial();
@@ -314,13 +270,7 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
-                /*
-                string cadenaComando = "select materiales.*,count(*) votos, avg(puntuacion)valoracion "
-                    + "from materiales, materialesvotos where materiales.id = materialesvotos.material and materiales.id = @id "
-                    + "group by materiales.id, materiales.nombre,materiales.descripcion,materiales.fecha,materiales.usuario,"
-                    + "materiales.categoria,materiales.archivo,materiales.tamaño,materiales.descargas,materiales.idioma,"
-                    + "materiales.referencia";
-                 */
+
                 string cadenaComando = "SELECT * FROM vistaMateriales where id = @id";
                 comando.CommandText = cadenaComando;
                 comando.Parameters.AddWithValue("@id", id);

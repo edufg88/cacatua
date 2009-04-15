@@ -19,6 +19,7 @@ namespace cacatUA
         {
             InitializeComponent();
             this.formularioPadre = formularioPadre;
+            limpiarFormulario();
         }
 
         public override void Recibir(object objeto)
@@ -138,6 +139,20 @@ namespace cacatUA
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true,
                 "Volver al panel anterior seleccionando el usuario actual",
                 "Cancelar la selección y volver al panel anterior");
+        }
+
+        private void limpiarFormulario(object sender, EventArgs e)
+        {
+            limpiarFormulario();
+        }
+
+        private void limpiarFormulario()
+        {
+            textBox_categoria.Clear();
+            textBox_filtroBusqueda.Clear();
+            textBox_usuario.Clear();
+            dateTimePicker_fechaInicio.Value = new DateTime(2008, 9, 1);
+            dateTimePicker_fechaFin.Value = DateTime.Now;
         }
     }
 }
