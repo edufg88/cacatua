@@ -23,6 +23,7 @@ namespace Libreria
             texto = "";
         }
 
+        /*
         public ENFirma(int id)
         {
             ENFirma aux = FirmaCAD.Instancia.ObtenerFirma(id);
@@ -37,7 +38,7 @@ namespace Libreria
             this.texto = aux.texto;
             this.fecha = aux.fecha;
             this.receptor = aux.receptor;
-        }
+        }*/
 
         public ENFirma(string emisor, string texto, DateTime fecha, string receptor)
         {
@@ -52,11 +53,27 @@ namespace Libreria
             this.Fecha = fecha;
         }
 
+        public static ENFirma Obtener(int id)
+        {
+            ENFirma aux = null;
+            aux = FirmaCAD.Instancia.ObtenerFirma(id);
+
+            return aux;
+        }
+
+        public static ENFirma Obtener(string usuario, bool emisor)
+        {
+            ENFirma aux = null;
+            aux = FirmaCAD.Instancia.ObtenerFirma(usuario, emisor);
+
+            return aux;
+        }
+
         public static ArrayList Obtener()
         {
             return FirmaCAD.Instancia.ObtenerFirmas();
         }
-
+        /*
         public bool Obtener(int id)
         {
             ENFirma aux = new ENFirma();
@@ -76,8 +93,9 @@ namespace Libreria
             {
                 return false;
             }
-        }
+        }*/
 
+        /*
         public bool Obtener(string nombre, bool emisor)
         {
             ENFirma aux = null;
@@ -97,7 +115,7 @@ namespace Libreria
             {
                 return true;
             }
-        }
+        }*/
 
         override public bool Actualizar()
         {

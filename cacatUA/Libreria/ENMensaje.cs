@@ -23,6 +23,7 @@ namespace Libreria
             texto = "";
         }
 
+        /*
         public ENMensaje(int id)
         {
             ENMensaje aux = MensajeCAD.Instancia.ObtenerMensaje(id);
@@ -38,6 +39,7 @@ namespace Libreria
             this.fecha = aux.fecha;
             this.receptor = aux.receptor;
         }
+        */
 
         public ENMensaje(string emisor, string texto, DateTime fecha, string receptor)
         {
@@ -51,11 +53,28 @@ namespace Libreria
             this.Fecha = fecha;
         }
 
+        public static ENMensaje Obtener(int id)
+        {
+            ENMensaje aux = null;
+            aux = MensajeCAD.Instancia.ObtenerMensaje(id);
+
+            return aux;
+        }
+
+        public static ENMensaje Obtener(string usuario, bool emisor)
+        {
+            ENMensaje aux = null;
+            aux = MensajeCAD.Instancia.ObtenerMensaje(usuario, emisor);
+
+            return aux;
+        }
+
         public static ArrayList Obtener()
         {
             return MensajeCAD.Instancia.ObtenerMensajes();
         }
 
+        /*
         public bool Obtener(int id)
         {
             ENMensaje aux = new ENMensaje();
@@ -75,8 +94,8 @@ namespace Libreria
             {
                 return false;
             }
-        }
-
+        }*/
+        /*
         public bool Obtener(string nombre, bool emisor)
         {
             ENMensaje aux = null;
@@ -96,7 +115,7 @@ namespace Libreria
             {
                 return true;
             }
-        }
+        }*/
 
         override public bool Actualizar()
         {

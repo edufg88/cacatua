@@ -24,6 +24,7 @@ namespace Libreria
             fecha = DateTime.Now;
         }
 
+        /*
         public ENImagen(int id)
         {
             ENImagen aux = ImagenCAD.Instancia.ObtenerImagen(id);
@@ -39,7 +40,7 @@ namespace Libreria
             this.usuario = aux.usuario;
             this.archivo = aux.archivo;
             this.fecha = aux.fecha;
-        }
+        }*/
 
         public ENImagen(string titulo, string descripcion, string usuario, string archivo, DateTime fecha)
         {
@@ -53,11 +54,28 @@ namespace Libreria
             this.fecha = fecha;
         }
 
+        public static ENImagen Obtener(int id)
+        {
+            ENImagen aux = null;
+            aux = ImagenCAD.Instancia.ObtenerImagen(id);
+
+            return aux;
+        }
+
+        public static ENImagen Obtener(string titulo)
+        {
+            ENImagen aux = null;
+            aux = ImagenCAD.Instancia.ObtenerImagen(titulo);
+            
+            return aux;
+        }
+
         public static ArrayList Obtener()
         {
             return ImagenCAD.Instancia.ObtenerImagenes();
         }
 
+        /*
         public bool Obtener(int id)
         {
             ENImagen aux = new ENImagen();
@@ -78,8 +96,9 @@ namespace Libreria
             {
                 return false;
             }
-        }
+        }*/
 
+        /*
         public bool Obtener(string titulo)
         {
             ENImagen aux = null;
@@ -100,7 +119,7 @@ namespace Libreria
             {
                 return true;
             }
-        }
+        }*/
 
         override public bool Actualizar()
         {
