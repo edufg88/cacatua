@@ -122,7 +122,7 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
-                comando.CommandText = "select * from respuesta where id = @id";
+                comando.CommandText = "select * from respuestas where id = @id";
                 comando.Parameters.AddWithValue("@id", id);
 
                 // Realizamos la consulta.
@@ -138,7 +138,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENRespuesta RespuestaCAD.Obtener(ind id) " + ex.Message);
+                Console.WriteLine("ENRespuesta RespuestaCAD.Obtener(int id) " + ex.Message);
             }
             finally
             {

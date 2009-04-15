@@ -389,6 +389,7 @@
             this.textBox_autor.Name = "textBox_autor";
             this.textBox_autor.Size = new System.Drawing.Size(574, 20);
             this.textBox_autor.TabIndex = 0;
+            this.textBox_autor.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_autor
             // 
@@ -419,6 +420,7 @@
             this.textBox_texto.Name = "textBox_texto";
             this.textBox_texto.Size = new System.Drawing.Size(679, 49);
             this.textBox_texto.TabIndex = 0;
+            this.textBox_texto.TextChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_texto
             // 
@@ -450,6 +452,7 @@
             this.dateTimePicker_fecha.ShowUpDown = true;
             this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fecha.TabIndex = 0;
+            this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.formulario_Modificado);
             // 
             // label_fechaCreacion
             // 
