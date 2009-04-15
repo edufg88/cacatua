@@ -40,7 +40,29 @@ namespace Libreria
             fechaingreso = DateTime.Now; // La fecha de ingreso es siempre la actual
         }
 
+        public static ArrayList Obtener()
+        {
+            return UsuarioCAD.Instancia.ObtenerUsuarios();
+        }
+
+        public static ENUsuario Obtener(int id)
+        {
+            ENUsuario aux = null;
+            aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
+
+            return aux;
+        }
+
+        public static ENUsuario Obtener(string us)
+        {
+            ENUsuario aux = null;
+            aux = UsuarioCAD.Instancia.ObtenerUsuario(us);
+
+            return aux;
+        }
+
         // Constructor sobrecargado. Sólo con el id del usuario.
+        /*
         public ENUsuario(int id)
         {
             ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
@@ -58,8 +80,8 @@ namespace Libreria
             this.activo = aux.Activo;
             this.adicional = aux.Adicional;
             this.fechaingreso = aux.Fechaingreso;
-        }
-
+        }*/
+        /*
         // Constructor sobrecargado. Sólo con el nombre de usuario.
         public ENUsuario(string usuario)
         {
@@ -78,7 +100,7 @@ namespace Libreria
             this.activo = aux.Activo;
             this.adicional = aux.Adicional;
             this.fechaingreso = aux.Fechaingreso;
-        }
+        }*/
 
         // Constructor sobrecargado (recibe todos los datos menos el id del usuario y la fecha de ingreso)
         public ENUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
@@ -91,22 +113,6 @@ namespace Libreria
             this.activo = activo;
             this.adicional = adicional;
             this.fechaingreso = DateTime.Now;
-        }
-
-        // Devuelve un usuario a partir de su nombre de usuario
-        public static ENUsuario ObtenerPorNombre(string usuario)
-        {
-            ENUsuario us = null;
-
-            // Validamos el usuario
-            string error = ValidarFormulario("usuario", usuario);
-
-            if (error == "")
-            {
-                us = UsuarioCAD.Instancia.ObtenerUsuario(usuario);
-            }
-
-            return us;
         }
 
         // Recibe un campo y en función de éste, valida si el dato es correcto
@@ -215,11 +221,7 @@ namespace Libreria
             return (error);
         }
 
-        public static ArrayList Obtener()
-        {
-            return UsuarioCAD.Instancia.ObtenerUsuarios();
-        }
-
+        /*
         public bool Obtener(int id)
         {
             ENUsuario aux = new ENUsuario();
@@ -243,8 +245,9 @@ namespace Libreria
             {
                 return false;
             }
-        }
+        }*/
 
+        /*
         public bool Obtener(string nombre)
         {
             ENUsuario aux = null;
@@ -268,7 +271,7 @@ namespace Libreria
             {
                 return true;
             }
-        }
+        }*/
 
         override public bool Actualizar()
         {

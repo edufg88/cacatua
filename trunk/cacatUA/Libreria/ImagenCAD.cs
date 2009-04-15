@@ -36,7 +36,7 @@ namespace Libreria
             imagen.Id = int.Parse(dr["id"].ToString());
             imagen.Titulo = dr["titulo"].ToString();
             imagen.Descripcion = dr["descripcion"].ToString();
-            imagen.Usuario = new ENUsuario(int.Parse(dr["usuario"].ToString()));
+            imagen.Usuario = ENUsuario.Obtener(int.Parse(dr["usuario"].ToString()));
             imagen.Archivo = dr["archivo"].ToString();
             imagen.Fecha = DateTime.Parse(dr["fecha"].ToString());
 

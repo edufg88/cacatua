@@ -98,7 +98,7 @@ namespace Libreria
             return usuario;
         }
 
-        public ENUsuario ObtenerUsuario(string nombre)
+        public ENUsuario ObtenerUsuario(string us)
         {
             ENUsuario usuario = null;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -109,7 +109,7 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
                 comando.CommandText = "SELECT * FROM usuarios where usuario LIKE @usuario"; // Asignamos la sentencia SQL
-                comando.Parameters.AddWithValue("@usuario", "%" + nombre + "%");
+                comando.Parameters.AddWithValue("@usuario", "%" + us + "%");
 
                 // Creamo un objeto DataReader
                 SqlDataReader dr = comando.ExecuteReader();
@@ -123,7 +123,7 @@ namespace Libreria
             catch (SqlException)
             {
                 // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                Console.Write("Excepcion obtener usuario por nombre");
+                Console.Write("Excepcion obtener usuario por nombre de usuario");
             }
             finally
             {
