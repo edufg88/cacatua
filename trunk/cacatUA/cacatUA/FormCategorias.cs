@@ -43,6 +43,9 @@ namespace cacatUA
             textBox_Descripcion.Clear();
             textBox_Nombre.Clear();
             textBox_Ruta.Clear();
+
+            //Bloquear la parte de informacion
+            groupBox_Informacion.Enabled = false;
         }
         
         private void MeterEnArbol(ENCategoria cat, TreeNodeCollection coleccion) {
@@ -59,7 +62,9 @@ namespace cacatUA
 
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            //Activar la parte de informacion
             groupBox_Informacion.Enabled = true;
+
             if (estado == EstadoFormulario.NINGUNO)
             {
                 //Obtenemos la instancia de la Categoria seleccionada

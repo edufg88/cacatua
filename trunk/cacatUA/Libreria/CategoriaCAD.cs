@@ -68,8 +68,11 @@ namespace Libreria
         {
             int resultado = 0;
             bool creada = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
@@ -98,6 +101,16 @@ namespace Libreria
                 if (resultado == 1)
                     creada = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Crear(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
             return creada;
         }
 
@@ -105,8 +118,12 @@ namespace Libreria
         {
             int resultado = 0;
             bool actualizada = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
@@ -135,6 +152,16 @@ namespace Libreria
                 if (resultado == 1)
                     actualizada = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Actualizar(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
             return actualizada;
         }
 
@@ -142,8 +169,12 @@ namespace Libreria
         {
             int resultado = 0;
             bool borrada = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
@@ -157,6 +188,16 @@ namespace Libreria
                 if (resultado == 1)
                     borrada = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Actualizar(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
             return borrada;
         }
 
