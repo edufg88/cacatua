@@ -31,7 +31,33 @@ namespace cacatUA
             ArrayList materiales = ENMaterial.Obtener();
             mostrarMateriales(materiales);
         }
-        
+
+        public FormMateriales(ENCategoria categoria)
+        {
+            InitializeComponent();
+            // Por defecto se muestra el formulario de búsqueda
+            busqueda = true;
+            formEditarMateriales = null;
+            FormMaterialesBusqueda form = new FormMaterialesBusqueda(this);
+            panel_contenido.Controls.Clear();
+            panel_contenido.Controls.Add(form);
+            //form.Dock = DockStyle.Fill;
+            form.Dock = DockStyle.Top;
+            tableLayoutPanel_principal.RowStyles[3].Height = form.Height;
+            ArrayList materiales = ENMaterial.Obtener();
+            // Mostramos los materiales que correspondan con esa categoria
+            form.Recibir(categoria);
+            form.Buscar();
+            /*
+            inicializar();
+            CambiarFormularioBusqueda();
+            formBusqueda.Recibir(categoria);
+            formBusqueda.Buscar();
+             */
+            //form.
+            //mostrarMateriales(materiales);
+        }
+
         public DataGridView Materiales
         {
             get { return dataGridView_materiales; }
