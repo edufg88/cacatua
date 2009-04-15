@@ -102,15 +102,31 @@ namespace Libreria
             return correcto;
         }
 
-        public bool completarGuardar()
+        public int completarGuardar()
         {
-            bool correcto = false;
+            int id = -1;
             try
             {
+                // Obtenemos el id del material creado
+                string cadenaComando = "SELECT MAX(id) as id FROM materiales";
+                SqlCommand comando = new SqlCommand(cadenaComando, transaccion.Connection, transaccion);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list objetos del tipo ENMaterialCRUD
+                if (reader.Read())
+                {
+                    id = int.Parse(reader["id"].ToString());
+                    //ENMaterial material = obtenerDatos(reader);
+                    //materiales.Add(material);
+                }
+                else
+                {
+                    Console.WriteLine("malllll");
+                }
+                reader.Close();
+
                 transaccion.Commit();
                 if(transaccion.Connection != null)
                     transaccion.Connection.Close();
-                correcto = true;
             }
             catch (Exception ex)
             {
@@ -122,7 +138,7 @@ namespace Libreria
                 if (transaccion.Connection!= null)
                     transaccion.Connection.Close();
             }
-            return correcto;
+            return id;
         }
 
         public ArrayList obtener()
