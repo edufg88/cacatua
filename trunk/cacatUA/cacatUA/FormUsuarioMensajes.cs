@@ -30,8 +30,8 @@ namespace cacatUA
             for (int i = 0; i < 10; i++)
             {
                 ENMensaje m = new ENMensaje();
-                m.Emisor = new ENUsuario(3);
-                m.Receptor = new ENUsuario(12);
+                m.Emisor = ENUsuario.Obtener(3);
+                m.Receptor = ENUsuario.Obtener(12);
                 m.Texto = "mensaje " + i.ToString();
                 m.Fecha = DateTime.Now;
                 m.Guardar();
@@ -136,8 +136,8 @@ namespace cacatUA
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
             ENMensaje nuevo = new ENMensaje(int.Parse(textBox_id.Text));
-            nuevo.Emisor = new ENUsuario(textBox_emisor.Text);
-            nuevo.Receptor = new ENUsuario(textBox_receptor.Text);
+            nuevo.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
+            nuevo.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
             nuevo.Texto = textBox_texto.Text;
             nuevo.Fecha = dateTimePicker_fecha.Value;
 

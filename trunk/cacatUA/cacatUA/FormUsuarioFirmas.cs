@@ -20,7 +20,7 @@ namespace cacatUA
         {
             InitializeComponent();
 
-            usuario = new ENUsuario(us.Id);
+            usuario = ENUsuario.Obtener(us.Id);
             firma = new ENFirma();
         }
 
@@ -86,8 +86,8 @@ namespace cacatUA
             for (int i = 0; i < 10; i++)
             {
                 ENFirma f = new ENFirma();
-                f.Emisor = new ENUsuario(13);
-                f.Receptor = new ENUsuario(12);
+                f.Emisor = ENUsuario.Obtener(13);
+                f.Receptor = ENUsuario.Obtener(12);
                 f.Texto = "hola" + i.ToString();
                 f.Fecha = DateTime.Now;
                 f.Guardar();
@@ -135,8 +135,8 @@ namespace cacatUA
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
             ENFirma nueva = new ENFirma(int.Parse(textBox_id.Text));
-            nueva.Emisor = new ENUsuario(textBox_emisor.Text);
-            nueva.Receptor = new ENUsuario(textBox_receptor.Text);
+            nueva.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
+            nueva.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
             nueva.Texto = textBox_texto.Text;
             nueva.Fecha = dateTimePicker_fecha.Value;
 

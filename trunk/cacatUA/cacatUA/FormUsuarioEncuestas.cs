@@ -19,7 +19,7 @@ namespace cacatUA
         public FormUsuarioEncuestas(ENUsuario us)
         {
             InitializeComponent();
-            this.us = new ENUsuario(us.Id);
+            this.us = ENUsuario.Obtener(us.Id);
             this.encuesta = new ENEncuesta();
         }
 
@@ -83,7 +83,7 @@ namespace cacatUA
             {
                 ENEncuesta e = new ENEncuesta();
                 e.Pregunta = "encuesta " + i.ToString();
-                e.Usuario = new ENUsuario(3);
+                e.Usuario = ENUsuario.Obtener(3);
                 e.Fecha = DateTime.Now;
                 e.Activa = false;
 
@@ -95,7 +95,7 @@ namespace cacatUA
         {
             ENEncuesta nueva = new ENEncuesta(int.Parse(textBox_id.Text));
             nueva.Pregunta = textBox_pregunta.Text;
-            nueva.Usuario = new ENUsuario(this.us.Id);
+            nueva.Usuario = ENUsuario.Obtener(this.us.Id);
             nueva.Fecha = dateTimePicker_fecha.Value;
             nueva.Activa = checkBox_activa.Checked;
 

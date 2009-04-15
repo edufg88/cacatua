@@ -313,7 +313,7 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENUsuario usuario = new ENUsuario(int.Parse(i.Cells[0].Value.ToString()));
+                        ENUsuario usuario = ENUsuario.Obtener(int.Parse(i.Cells[0].Value.ToString()));
                         seleccionada.DessuscribirUsuario(usuario);
                         dataGridView_Usuarios.Rows.Remove(i);
                     }

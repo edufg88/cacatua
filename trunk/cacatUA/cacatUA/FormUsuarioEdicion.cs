@@ -41,7 +41,7 @@ namespace cacatUA
         public void CambiarSeleccionado(int id)
         { 
             // Cargamos los datos del usuario con esa id en los campos
-            ENUsuario usuario = new ENUsuario(id);
+            ENUsuario usuario = ENUsuario.Obtener(id);
 
             textBox_id.Text = usuario.Id.ToString();
             textBox_usuario.Text = usuario.Usuario;
@@ -151,7 +151,7 @@ namespace cacatUA
                         // Comprobamos si el usuario tiene privilegios de administrador
                         if (checkBox_administrador.Checked == true)
                         {
-                            ENUsuario aux = new ENUsuario(nuevo.Usuario);
+                            ENUsuario aux = ENUsuario.Obtener(nuevo.Usuario);
                             if (aux.GuardarAdmin())
                             {
                                 CambiarSeleccionado(nuevo.Id);
@@ -178,8 +178,8 @@ namespace cacatUA
                         {
                             // Si no era administrador lo creamos
                             if (nuevo.EsAdministrador() == false)
-                            { 
-                                ENUsuario aux = new ENUsuario(nuevo.Usuario);
+                            {
+                                ENUsuario aux = ENUsuario.Obtener(nuevo.Usuario);
                                 aux.GuardarAdmin();
                             }
                         }
@@ -188,7 +188,7 @@ namespace cacatUA
                             // Si era y hemos desmarcado la casilla, lo borramos
                             if (nuevo.EsAdministrador() == true)
                             {
-                                ENUsuario aux = new ENUsuario(nuevo.Usuario);
+                                ENUsuario aux = ENUsuario.Obtener(nuevo.Usuario);
                                 aux.BorrarAdmin();
                             }
                         }
@@ -219,7 +219,7 @@ namespace cacatUA
         {
             if (textBox_id.Text != "")
             {
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(new ENUsuario(int.Parse(textBox_id.Text))), "Firmas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(ENUsuario.Obtener(int.Parse(textBox_id.Text))), "Firmas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
             }
         }
 
@@ -227,7 +227,7 @@ namespace cacatUA
         {
             if (textBox_id.Text != "")
             {
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(new ENUsuario(int.Parse(textBox_id.Text))), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(ENUsuario.Obtener(int.Parse(textBox_id.Text))), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
             }
         }
 
@@ -235,7 +235,7 @@ namespace cacatUA
         {
             if (textBox_id.Text != "")
             {
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(new ENUsuario(int.Parse(textBox_id.Text))), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(ENUsuario.Obtener(int.Parse(textBox_id.Text))), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
             }
         }
 
@@ -243,7 +243,7 @@ namespace cacatUA
         {
             if (textBox_id.Text != "")
             {
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(new ENUsuario(int.Parse(textBox_id.Text))), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(ENUsuario.Obtener(int.Parse(textBox_id.Text))), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
             }
         }
     }

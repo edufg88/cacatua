@@ -178,7 +178,7 @@ namespace cacatUA
             CambiarFormularioEdicion();
             // Cargamos los datos en el formulario
             formEdicion.CambiarSeleccionado(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
-            usuarioSeleccionado.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+            usuarioSeleccionado = ENUsuario.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
         private void button_editarUsuario_Click(object sender, EventArgs e)
@@ -187,7 +187,7 @@ namespace cacatUA
             {
                 CambiarFormularioEdicion();
                 formEdicion.CambiarSeleccionado(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
-                usuarioSeleccionado.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+                usuarioSeleccionado = ENUsuario.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
             }
         }
 

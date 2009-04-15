@@ -33,7 +33,7 @@ namespace Libreria
         /// <param name="grupo">El grupos que deseamos saber sus usuarios</param>
         private void obtenerUsuario(string user, ENGrupos grupo)
         {
-            ENUsuario usuario = new ENUsuario(int.Parse(user));
+            ENUsuario usuario = ENUsuario.Obtener(int.Parse(user));
             grupo.Usuarios.Add(usuario);
             grupo.NumUsuarios++;
         }

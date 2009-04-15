@@ -28,6 +28,9 @@ namespace cacatUA
             CambiarCrearNuevo();
         }
 
+        /// <summary>
+        /// Se asiga una lista con las respuestas que hay que mostrar en el DataGridView.
+        /// </summary>
         public ArrayList Resultados
         {
             set
@@ -56,14 +59,33 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Establece el formulario de "Crear nueva respuesta".
+        /// </summary>
         public void CambiarCrearNuevo()
         {
 
         }
 
+        /// <summary>
+        /// Establece el formulario de "Editar respuesta".
+        /// </summary>
+        /// <param name="id">Identificador de la respuesta que se va a editar.</param>
         public void CambiarEdicion(int id)
         {
 
+        }
+
+        private void ActivarBotones()
+        {
+            button_guardarCambios.Enabled = false;
+            button_descartarCambios.Enabled = false;
+        }
+
+        private void DesactivarBotones()
+        {
+            button_guardarCambios.Enabled = false;
+            button_descartarCambios.Enabled = false;
         }
 
         private void button_seccionCrear_Click(object sender, EventArgs e)

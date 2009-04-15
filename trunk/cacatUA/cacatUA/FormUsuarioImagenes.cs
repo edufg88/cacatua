@@ -20,7 +20,7 @@ namespace cacatUA
         {
             InitializeComponent();
 
-            us = new ENUsuario(usuario.Id);
+            us = ENUsuario.Obtener(usuario.Id);
             imagen = new ENImagen();
         }
 
@@ -89,7 +89,7 @@ namespace cacatUA
                 im.Titulo = "titulo " + i.ToString();
                 im.Descripcion = "descripcion " + i.ToString();
                 im.Fecha = DateTime.Now;
-                im.Usuario = new ENUsuario(3);
+                im.Usuario = ENUsuario.Obtener(3);
                 im.Archivo = "fichero " + i.ToString();
                 im.Guardar();
             }
