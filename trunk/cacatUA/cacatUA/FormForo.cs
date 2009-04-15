@@ -216,6 +216,7 @@ namespace cacatUA
                 {
                     formEdicion.Recibir(objeto);
                 }
+                Console.WriteLine("RECIBO ALGO");
             }
         }
     }
