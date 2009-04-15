@@ -17,5 +17,17 @@ namespace cacatUA
         {
 
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // InterfazForm
+            // 
+            this.Name = "InterfazForm";
+            this.Load += new System.EventHandler(this.InterfazForm_Load);
+            this.ResumeLayout(false);
+
+        }
     }
 }
