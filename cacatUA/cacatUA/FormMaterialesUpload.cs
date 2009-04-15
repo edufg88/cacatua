@@ -114,6 +114,9 @@ namespace cacatUA
                         {
                             // Comprimimos el archivo
                             MessageBox.Show(fileUploader.ComprimirArchivo(strFile, id));
+                            // Borramos el fichero
+                            if (fileUploader.BorrarFichero(strFile) == false)
+                                MessageBox.Show("ERROR: No se ha podido borrar el archivo");
                         }
                         else
                         {

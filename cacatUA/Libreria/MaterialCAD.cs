@@ -124,6 +124,14 @@ namespace Libreria
                 }
                 reader.Close();
 
+                // Actualizamos el nombre del archivo a la id
+                cadenaComando = "UPDATE materiales SET archivo = @archivo WHERE id = @id";
+                comando = new SqlCommand(cadenaComando, transaccion.Connection, transaccion);
+                comando.Parameters.AddWithValue("@archivo", id.ToString() + ".zip");
+                comando.Parameters.AddWithValue("@id", id);
+                if (comando.ExecuteNonQuery() != 1)
+                    Console.WriteLine("error al hacer update");
+
                 transaccion.Commit();
                 if(transaccion.Connection != null)
                     transaccion.Connection.Close();
