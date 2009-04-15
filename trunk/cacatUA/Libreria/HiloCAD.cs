@@ -51,6 +51,7 @@ namespace Libreria
             hilo.Titulo = dataReader["titulo"].ToString();
             hilo.Categoria = new ENCategoria(int.Parse(dataReader["categoria"].ToString()));
             hilo.Fecha = (DateTime) dataReader["fechacreacion"];
+            hilo.NumRespuestas = int.Parse(dataReader["respuestas"].ToString());
             return hilo;
         }
 
@@ -75,7 +76,7 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
-                comando.CommandText = "select * from hilos where id = @id";
+                comando.CommandText = "select * from vistaHilos where id = @id";
                 comando.Parameters.AddWithValue("@id", id);
 
                 // Realizamos la consulta.
@@ -117,7 +118,7 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "select * from hilos";
+                string sentencia = "select * from vistaHilos";
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 SqlDataReader dataReader = comando.ExecuteReader();
 
@@ -192,7 +193,7 @@ namespace Libreria
                 conexion.Open();
 
                 // Componemos la cadena de la sentencia.
-                string sentencia = "select * from hilos ";
+                string sentencia = "select * from vistaHilos ";
                 if (titulo != "")
                     sentencia += "where (titulo like '%"+@titulo+"%' ";
                 else
@@ -240,7 +241,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ArrayList HiloCAD.Obtener() " + ex.Message);
+                Console.WriteLine("ArrayList HiloCAD.Obtener(monton de gente) " + ex.Message);
             }
             finally
             {
@@ -295,7 +296,7 @@ namespace Libreria
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("bool HiloCAD.Guardar(ENHilo) " + ex.Message);
+                    Console.WriteLine("bool HiloCAD.Guardar(ENHilo, out int) " + ex.Message);
                 }
                 finally
                 {
@@ -478,7 +479,7 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
-                comando.CommandText = "select * from hilos where id in (select max(id) from hilos)";
+                comando.CommandText = "select * from vistaHilos where id in (select max(id) from vistaHilos)";
 
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();
@@ -493,7 +494,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENHilo HiloCAD.Ultimo) " + ex.Message);
+                Console.WriteLine("ENHilo HiloCAD.Ultimo() " + ex.Message);
             }
             finally
             {
