@@ -41,11 +41,6 @@
             this.button_editarImagen = new System.Windows.Forms.Button();
             this.button_borrarImagen = new System.Windows.Forms.Button();
             this.dataGridView_encuestas = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,6 +55,11 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pregunta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel_cabeceraSeccion1.SuspendLayout();
@@ -248,39 +248,6 @@
             this.dataGridView_encuestas.TabIndex = 4;
             this.dataGridView_encuestas.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_encuestas_CellMouseDoubleClick);
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.FillWeight = 152.2843F;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 43;
-            // 
-            // usuario
-            // 
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.Name = "usuario";
-            this.usuario.ReadOnly = true;
-            // 
-            // pregunta
-            // 
-            this.pregunta.HeaderText = "Pregunta";
-            this.pregunta.Name = "pregunta";
-            this.pregunta.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // activa
-            // 
-            this.activa.HeaderText = "Activa";
-            this.activa.Name = "activa";
-            this.activa.ReadOnly = true;
-            // 
             // panel_contenedor
             // 
             this.panel_contenedor.Controls.Add(this.tableLayoutPanel_secundario);
@@ -430,6 +397,39 @@
             this.button_guardarCambios.Text = "Guardar cambios";
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.FillWeight = 152.2843F;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 43;
+            // 
+            // usuario
+            // 
+            this.usuario.HeaderText = "Usuario";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            // 
+            // pregunta
+            // 
+            this.pregunta.HeaderText = "Pregunta";
+            this.pregunta.Name = "pregunta";
+            this.pregunta.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // activa
+            // 
+            this.activa.HeaderText = "Activa";
+            this.activa.Name = "activa";
+            this.activa.ReadOnly = true;
             // 
             // FormUsuarioEncuestas
             // 

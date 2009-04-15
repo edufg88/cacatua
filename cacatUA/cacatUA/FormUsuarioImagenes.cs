@@ -174,8 +174,6 @@ namespace cacatUA
         {
             // Cargamos en el DataGridView las imágenes del usuario
             CargarImagenes();
-
-            Console.Write("erntr");
         }
 
         private void dataGridView_imagenes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

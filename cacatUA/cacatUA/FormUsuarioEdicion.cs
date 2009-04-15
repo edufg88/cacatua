@@ -130,22 +130,6 @@ namespace cacatUA
 
             return correcto;        
         }
-        
-
-        ////////////////////////////////////
-        // MÉTODOS DE INSERCIÓN DE PRUEBA //
-        ////////////////////////////////////
-
-        private void insertarFirmasPrueba()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ENFirma firma = new ENFirma("edu8", "que tal tio" + i.ToString(), DateTime.Now, "edu" + i.ToString());
-                firma.Guardar();
-            }
-        }
-
-        // ---------------------------------
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
@@ -233,22 +217,34 @@ namespace cacatUA
 
         private void linkLabel_verFirmas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(new ENUsuario(int.Parse(textBox_id.Text))), "Firmas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            if (textBox_id.Text != "")
+            {
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioFirmas(new ENUsuario(int.Parse(textBox_id.Text))), "Firmas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            }
         }
 
         private void linkLabel_verImagenes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(new ENUsuario(int.Parse(textBox_id.Text))), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            if (textBox_id.Text != "")
+            {
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioImagenes(new ENUsuario(int.Parse(textBox_id.Text))), "Imágenes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            }
         }
 
         private void linkLabel_verMensajes_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(new ENUsuario(int.Parse(textBox_id.Text))), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            if (textBox_id.Text != "")
+            {
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioMensajes(new ENUsuario(int.Parse(textBox_id.Text))), "Mensajes del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            }
         }
 
         private void linkLabel_verEncuestas_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(new ENUsuario(int.Parse(textBox_id.Text))), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            if (textBox_id.Text != "")
+            {
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarioEncuestas(new ENUsuario(int.Parse(textBox_id.Text))), "Encuestas del usuario nº " + textBox_id.Text, true, false, "Volver al usuario", "");
+            }
         }
     }
 }
