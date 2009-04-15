@@ -278,30 +278,43 @@ namespace cacatUA
             button_noGuardar.Visible = false;
         }
 
-        //Heredado de InterfazForm
-
-        override public Object Enviar()
+        private void linkLabel_verHilos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            return seleccionada;
+            FormPanelAdministracion.Instancia.Apilar(new FormForo(seleccionada), "Viendo hilos", true, false, "Volver a categorías", "");
         }
 
-        public override void Recibir(Object objeto)
-        {
-            if (objeto != null)
-            {
-                if (objeto is ENUsuario)
-                {
-                    if (seleccionada != null)
-                    {
-                        ENUsuario u = (ENUsuario)objeto;
 
-                        seleccionada.SuscribirUsuario(u);
-                        dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
-                        
-                    }
-                }
+        private void linkLabel_verMateriales_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormMateriales(seleccionada), "Viendo materiales", true, false, "Volver a categorías", "");
+        }
+
+        private void button_verUsuario_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection filas = dataGridView_Usuarios.SelectedRows;
+            if (filas.Count > 0)
+            {
+                int usuario = int.Parse(filas[0].Cells[0].Value.ToString());
+                //FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(ENUsuario.Obtener(usuario)), "Viendo usuario", true, false, "Volver a categorías", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a categorías", "");
+            }
+            else
+            {
+                MessageBox.Show("Debes seleccionar una usuario.", "Error de navegación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button_AñadirUsuario_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, false, "Seleccionar usuario", "");
+        }
+
+        private void button_LimpiarRuta_Click(object sender, EventArgs e)
+        {
+            textBox_Ruta.Text = "";
+            enrutada = new ENCategoria();
+        }
+
 
         private void button_quitarUsuario_Click(object sender, EventArgs e)
         {
@@ -321,31 +334,29 @@ namespace cacatUA
             }
         }
 
-        private void linkLabel_verHilos_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //Heredado de InterfazForm
+
+        override public Object Enviar()
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormForo(seleccionada), "Viendo hilos", true, false, "Volver a categorías", "");
+            return seleccionada;
         }
 
-
-        private void linkLabel_verMateriales_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        public override void Recibir(Object objeto)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormMateriales(seleccionada), "Viendo materiales", true, false, "Volver a categorías", "");
-        }
+            if (objeto != null)
+            {
+                if (objeto is ENUsuario)
+                {
+                    if (seleccionada != null)
+                    {
+                        ENUsuario u = (ENUsuario)objeto;
 
-        private void button_verUsuario_Click(object sender, EventArgs e)
-        {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a categorías", "");
-        }
+                        seleccionada.SuscribirUsuario(u);
+                        dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
 
-        private void button_AñadirUsuario_Click(object sender, EventArgs e)
-        {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, false, "Seleccionar usuario", "");
-        }
-
-        private void button_LimpiarRuta_Click(object sender, EventArgs e)
-        {
-            textBox_Ruta.Text = "";
-            enrutada = new ENCategoria();
+                    }
+                }
+            }
         }
     }
 }
