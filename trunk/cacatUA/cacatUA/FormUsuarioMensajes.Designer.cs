@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.panel_cabecera = new System.Windows.Forms.Panel();
             this.label_mensajes = new System.Windows.Forms.Label();
@@ -41,6 +42,11 @@
             this.button_editarMensaje = new System.Windows.Forms.Button();
             this.button_borrarMensaje = new System.Windows.Forms.Button();
             this.dataGridView_mensajes = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receptor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechacreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -57,11 +63,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emisor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receptor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechacreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel_cabeceraSeccion1.SuspendLayout();
@@ -74,6 +76,7 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel_principal
@@ -250,6 +253,43 @@
             this.dataGridView_mensajes.TabIndex = 4;
             this.dataGridView_mensajes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_mensajes_CellMouseDoubleClick);
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.FillWeight = 152.2843F;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 43;
+            // 
+            // descripcion
+            // 
+            this.descripcion.FillWeight = 89.54314F;
+            this.descripcion.HeaderText = "Texto";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // emisor
+            // 
+            this.emisor.HeaderText = "Emisor";
+            this.emisor.Name = "emisor";
+            this.emisor.ReadOnly = true;
+            // 
+            // receptor
+            // 
+            this.receptor.HeaderText = "Receptor";
+            this.receptor.Name = "receptor";
+            this.receptor.ReadOnly = true;
+            // 
+            // fechacreacion
+            // 
+            this.fechacreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.fechacreacion.FillWeight = 89.54314F;
+            this.fechacreacion.HeaderText = "Fecha de creación";
+            this.fechacreacion.Name = "fechacreacion";
+            this.fechacreacion.ReadOnly = true;
+            this.fechacreacion.Width = 111;
+            // 
             // panel_contenedor
             // 
             this.panel_contenedor.Controls.Add(this.tableLayoutPanel_secundario);
@@ -419,42 +459,9 @@
             this.button_guardarCambios.UseVisualStyleBackColor = true;
             this.button_guardarCambios.Click += new System.EventHandler(this.button_guardarCambios_Click);
             // 
-            // id
+            // errorProvider1
             // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.FillWeight = 152.2843F;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 43;
-            // 
-            // descripcion
-            // 
-            this.descripcion.FillWeight = 89.54314F;
-            this.descripcion.HeaderText = "Texto";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // emisor
-            // 
-            this.emisor.HeaderText = "Emisor";
-            this.emisor.Name = "emisor";
-            this.emisor.ReadOnly = true;
-            // 
-            // receptor
-            // 
-            this.receptor.HeaderText = "Receptor";
-            this.receptor.Name = "receptor";
-            this.receptor.ReadOnly = true;
-            // 
-            // fechacreacion
-            // 
-            this.fechacreacion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.fechacreacion.FillWeight = 89.54314F;
-            this.fechacreacion.HeaderText = "Fecha de creación";
-            this.fechacreacion.Name = "fechacreacion";
-            this.fechacreacion.ReadOnly = true;
-            this.fechacreacion.Width = 111;
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormUsuarioMensajes
             // 
@@ -482,6 +489,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -522,6 +530,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn emisor;
         private System.Windows.Forms.DataGridViewTextBoxColumn receptor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechacreacion;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
     }
 }

@@ -63,6 +63,7 @@ namespace cacatUA
             }
             else
             {
+                errorProvider1.Clear();
                 textBox_id.Text = firma.Id.ToString();
                 textBox_emisor.Text = firma.Emisor.Usuario;
                 textBox_receptor.Text = firma.Receptor.Usuario;
@@ -73,6 +74,7 @@ namespace cacatUA
 
         private void cambiarNuevo()
         {
+            errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_emisor.Text = "";
             textBox_receptor.Text = "";
@@ -91,6 +93,22 @@ namespace cacatUA
                 f.Fecha = DateTime.Now;
                 f.Guardar();
             }
+        }
+
+        private bool validarFormulario()
+        {
+            // Validamos uno a uno todos los campos
+            bool correcto = true;
+            string error = "";
+            // El campo de texto
+            error = ENUsuario.ValidarFormulario("textoFirma", textBox_texto.Text);
+            if (error != "")
+            {
+                errorProvider1.SetError(textBox_texto, error);
+                error = "";
+                correcto = false;
+            }
+            return correcto;
         }
 
         private void FormUsuarioFirmas_Load(object sender, EventArgs e)
@@ -133,36 +151,39 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENFirma nueva = ENFirma.Obtener(int.Parse(textBox_id.Text));
-            nueva.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
-            nueva.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
-            nueva.Texto = textBox_texto.Text;
-            nueva.Fecha = dateTimePicker_fecha.Value;
+            if (validarFormulario() && textBox_id.Text != "")
+            {
+                ENFirma nueva = ENFirma.Obtener(int.Parse(textBox_id.Text));
+                nueva.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
+                nueva.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
+                nueva.Texto = textBox_texto.Text;
+                nueva.Fecha = dateTimePicker_fecha.Value;
 
-            if (textBox_id.Text == "")
-            {
-                if (nueva.Guardar())
+                if (textBox_id.Text == "")
                 {
-                    cambiarSeleccionado(nueva.Id);
-                    MessageBox.Show("Firma guardada correctamente.");
-                    CargarFirmas();
+                    if (nueva.Guardar())
+                    {
+                        cambiarSeleccionado(nueva.Id);
+                        MessageBox.Show("Firma guardada correctamente.");
+                        CargarFirmas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar la firma");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar la firma");
-                }
-            }
-            else
-            {
-                nueva.Id = int.Parse(textBox_id.Text);
-                if (nueva.Actualizar())
-                {
-                    MessageBox.Show("Firma actualizada correctamente.");
-                    CargarFirmas();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar la firma.");
+                    nueva.Id = int.Parse(textBox_id.Text);
+                    if (nueva.Actualizar())
+                    {
+                        MessageBox.Show("Firma actualizada correctamente.");
+                        CargarFirmas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar la firma.");
+                    }
                 }
             }
         }

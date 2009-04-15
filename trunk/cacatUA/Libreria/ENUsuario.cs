@@ -15,6 +15,12 @@ namespace Libreria
         const int maxTamNombre = 15;
         const int minTamNombre = 3;
         const int maxTamAdicional = 50;
+        const int minTamPregunta = 3;
+        const int maxTamPregunta = 50;
+        const int maxTamTextoFirma = 100;
+        const int minTamTituloImagen = 3;
+        const int maxTamTituloImagen = 15;
+        const int maxTamDescripcionImagen = 30;
 
         private int id;
         private string usuario;
@@ -216,6 +222,43 @@ namespace Libreria
                         error = "El campo adicional puede tener " + maxTamAdicional.ToString() + " caracteres como máximo";
                     }
                     break;
+
+                case "pregunta":
+                    if (dato.Length > maxTamAdicional)
+                    {
+                        error = "El campo pregunta puede tener " + maxTamPregunta.ToString() + " caracteres como máximo";
+                    }
+                    else if (dato.Length < minTamPregunta)
+                    {
+                        error = "El campo pregunta debe tener " + minTamPregunta.ToString() + " caracteres como mínimo";
+                    }
+                    break;
+
+                case "textoFirma":
+                    if (dato.Length > maxTamTextoFirma)
+                    {
+                        error = "El campo texto puede tener " + maxTamTextoFirma.ToString() + " caracteres como máximo";
+                    }
+                    break;
+
+                case "tituloImagen":
+                    if (dato.Length > maxTamTituloImagen)
+                    {
+                        error = "El campo título puede tener " + maxTamTituloImagen.ToString() + " caracteres como máximo";                    
+                    }
+                    else if (dato.Length < minTamTituloImagen)
+                    {
+                        error = "El campo título debe tener " + minTamTituloImagen.ToString() + " caracteres como mínimo";                    
+                    }
+                    break;
+
+                case "descripcionImagen":
+                    if (dato.Length > maxTamDescripcionImagen)
+                    {
+                        error = "El campo descripción puede tener " + maxTamDescripcionImagen.ToString() + " caracteres como máximo";                    
+                    }
+                    break;
+
             }
 
             return (error);

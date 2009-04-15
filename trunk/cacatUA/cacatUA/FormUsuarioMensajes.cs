@@ -70,13 +70,14 @@ namespace cacatUA
         private void cambiarSeleccionado(int id)
         {
             ENMensaje mensaje = ENMensaje.Obtener(id);
-
+            
             if (mensaje == null)
             {
                 MessageBox.Show("Error al cargar el mensaje", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                errorProvider1.Clear();
                 textBox_id.Text = mensaje.Id.ToString();
                 textBox_emisor.Text = mensaje.Emisor.Usuario;
                 textBox_receptor.Text = mensaje.Receptor.Usuario;
@@ -87,11 +88,28 @@ namespace cacatUA
 
         private void cambiarNuevo()
         {
+            errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_emisor.Text = "";
             textBox_receptor.Text = "";
             textBox_texto.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
+        }
+
+        private bool validarFormulario()
+        {
+            // Validamos uno a uno todos los campos
+            bool correcto = true;
+            string error = "";
+            // El campo de texto
+            error = ENUsuario.ValidarFormulario("textoFirma", textBox_texto.Text);
+            if (error != "")
+            {
+                errorProvider1.SetError(textBox_texto, error);
+                error = "";
+                correcto = false;
+            }
+            return correcto;
         }
 
         private void button_editarMensaje_Click(object sender, EventArgs e)
@@ -134,36 +152,39 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENMensaje nuevo = ENMensaje.Obtener(int.Parse(textBox_id.Text));
-            nuevo.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
-            nuevo.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
-            nuevo.Texto = textBox_texto.Text;
-            nuevo.Fecha = dateTimePicker_fecha.Value;
+            if (validarFormulario() && textBox_id.Text != "")
+            {
+                ENMensaje nuevo = ENMensaje.Obtener(int.Parse(textBox_id.Text));
+                nuevo.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
+                nuevo.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
+                nuevo.Texto = textBox_texto.Text;
+                nuevo.Fecha = dateTimePicker_fecha.Value;
 
-            if (textBox_id.Text == "")
-            {
-                if (nuevo.Guardar())
+                if (textBox_id.Text == "")
                 {
-                    cambiarSeleccionado(nuevo.Id);
-                    MessageBox.Show("Mensaje guardado correctamente.");
-                    CargarMensajes();
+                    if (nuevo.Guardar())
+                    {
+                        cambiarSeleccionado(nuevo.Id);
+                        MessageBox.Show("Mensaje guardado correctamente.");
+                        CargarMensajes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar el mensaje");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar el mensaje");
-                }
-            }
-            else
-            {
-                nuevo.Id = int.Parse(textBox_id.Text);
-                if (nuevo.Actualizar())
-                {
-                    MessageBox.Show("Mensaje actualizado correctamente.");
-                    CargarMensajes();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar la firma.");
+                    nuevo.Id = int.Parse(textBox_id.Text);
+                    if (nuevo.Actualizar())
+                    {
+                        MessageBox.Show("Mensaje actualizado correctamente.");
+                        CargarMensajes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar la firma.");
+                    }
                 }
             }
         }
