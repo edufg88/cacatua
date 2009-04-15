@@ -11,7 +11,7 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormMaterialesBusqueda : UserControl
+    public partial class FormMaterialesBusqueda : InterfazForm
     {
         private FormMateriales formularioPadre = null;
 
@@ -19,6 +19,61 @@ namespace cacatUA
         {
             InitializeComponent();
             this.formularioPadre = formularioPadre;
+        }
+
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENCategoria)
+                {
+                    ENCategoria categoria = (ENCategoria)objeto;
+                    textBox_categoria.Text = categoria.NombreCompleto();
+                }
+                else
+                {
+                    if (objeto is ENUsuario)
+                    {
+                        //usuario = (ENUsuario)objeto;
+                        //textBox_autor.Text = usuario.Usuario;
+                    }
+                }
+            }
+        }
+
+        public void Buscar()
+        {
+            bool error = false;
+            errorProvider1.Clear();
+            ENUsuario usuario = null;
+            // Obtenemos los datos introducidos por el usuario
+            try
+            {
+                string str_usuario = textBox_usuario.Text;
+                if (str_usuario != "")
+                {
+                    // Comprobamos si el usuario es válido
+                    usuario = ENUsuario.ObtenerPorNombre(str_usuario);
+                    if (usuario == null)
+                    {
+                        error = true;
+                        errorProvider1.SetError(textBox_usuario, "Usuario no válido");
+                    }
+                }
+                string categoria = textBox_categoria.Text;
+                string filtroBusqueda = textBox_filtroBusqueda.Text;
+                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
+                DateTime fechaFin = dateTimePicker_fechaFin.Value;
+                if (error == false)
+                {
+                    ArrayList materiales = ENMaterial.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
+                    formularioPadre.mostrarMateriales(materiales);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("error", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buscarMaterial(object sender, EventArgs e)
