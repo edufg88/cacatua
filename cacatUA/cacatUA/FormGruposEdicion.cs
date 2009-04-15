@@ -11,9 +11,10 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormGruposEdicion : UserControl
+    public partial class FormGruposEdicion : InterfazForm
     {
-        ENGrupos grupo;
+        private ENGrupos grupo = null;
+        private ENUsuario usuario = null;
         private ArrayList borrados = null;
         private ArrayList insertados = null;
         private FormGrupos formularioPadre = null;
@@ -91,7 +92,7 @@ namespace cacatUA
             }
             else
             {
-                MessageBox.Show("Seleccione un usuario para mostrar", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -116,7 +117,7 @@ namespace cacatUA
                        if (borrarUsuarios() && insertarUsuarios())
                         {
                             MessageBox.Show("Grupo creado correctamente", "Ventana de Información");
-                            formularioPadre.Actualizar();
+                            formularioPadre.Busqueda();
                         }
                     }
                     else
@@ -132,7 +133,7 @@ namespace cacatUA
                         if (borrarUsuarios() && insertarUsuarios())
                         {
                             MessageBox.Show("Grupo editado correctamente", "Ventana de Información");
-                            formularioPadre.Actualizar();
+                            formularioPadre.Busqueda();
                         }
                     }
                     else
@@ -193,7 +194,7 @@ namespace cacatUA
             }
             else
             {
-                MessageBox.Show("Seleccione un usuario para borrar", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -226,11 +227,22 @@ namespace cacatUA
             activarBotones();
         }
 
-        private void button_seccionCrear_Click(object sender, EventArgs e)
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENUsuario)
+                {
+                    usuario = (ENUsuario)objeto;
+                    listBox_usuarios.Items.Add(usuario.Usuario);
+                    insertados.Add(usuario);
+                }
+            }
+        }
+
+        private void button_addUsuario_Click(object sender, EventArgs e)
         {
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
-            //insertados.Add(usuario);
-            //listBox_usuarios.Items.Add();
         }
     }
 }
