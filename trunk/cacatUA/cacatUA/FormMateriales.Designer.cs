@@ -153,13 +153,13 @@
             this.dataGridView_materiales = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_tamaño = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_comentarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1295,6 +1295,7 @@
             this.butto_editarMaterial.Size = new System.Drawing.Size(36, 36);
             this.butto_editarMaterial.TabIndex = 9;
             this.butto_editarMaterial.Tag = "Modificar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.butto_editarMaterial, "Editar material seleccionado");
             this.butto_editarMaterial.UseVisualStyleBackColor = true;
             this.butto_editarMaterial.Click += new System.EventHandler(this.editarMaterial);
             // 
@@ -1311,6 +1312,7 @@
             this.button_borrarMaterial.Size = new System.Drawing.Size(36, 36);
             this.button_borrarMaterial.TabIndex = 10;
             this.button_borrarMaterial.Tag = "Eliminar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_borrarMaterial, "Eliminar materiales seleccionados");
             this.button_borrarMaterial.UseVisualStyleBackColor = true;
             this.button_borrarMaterial.Click += new System.EventHandler(this.borrarMaterial);
             // 
@@ -1324,7 +1326,7 @@
             this.button_añadirMaterial.Name = "button_añadirMaterial";
             this.button_añadirMaterial.Size = new System.Drawing.Size(36, 36);
             this.button_añadirMaterial.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_añadirMaterial, "Crear un nuevo hilo");
+            this.toolTip1.SetToolTip(this.button_añadirMaterial, "Crear un nuevo material");
             this.button_añadirMaterial.UseVisualStyleBackColor = true;
             this.button_añadirMaterial.Click += new System.EventHandler(this.añadirMaterial);
             // 
@@ -1392,9 +1394,9 @@
             this.label_seccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_seccion.Location = new System.Drawing.Point(13, 8);
             this.label_seccion.Name = "label_seccion";
-            this.label_seccion.Size = new System.Drawing.Size(63, 13);
+            this.label_seccion.Size = new System.Drawing.Size(37, 13);
             this.label_seccion.TabIndex = 0;
-            this.label_seccion.Text = "Búsqueda";
+            this.label_seccion.Text = "título";
             // 
             // panel_cabeceraSeccion2
             // 
@@ -1440,13 +1442,13 @@
             this.dataGridView_materiales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn_id,
             this.dataGridViewTextBoxColumn_nombre,
-            this.dataGridViewTextBoxColumn_descripcion,
             this.dataGridViewTextBoxColumn_categoria,
             this.dataGridViewTextBoxColumn_usuario,
             this.dataGridViewTextBoxColumn_fecha,
             this.dataGridViewTextBoxColumn_tamaño,
             this.dataGridViewTextBoxColumn_descargas,
-            this.dataGridViewTextBoxColumn_valoracion});
+            this.dataGridViewTextBoxColumn_valoracion,
+            this.dataGridViewTextBoxColumn_comentarios});
             this.dataGridView_materiales.Location = new System.Drawing.Point(3, 8);
             this.dataGridView_materiales.Name = "dataGridView_materiales";
             this.dataGridView_materiales.ReadOnly = true;
@@ -1471,15 +1473,9 @@
             this.dataGridViewTextBoxColumn_nombre.ReadOnly = true;
             this.dataGridViewTextBoxColumn_nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // dataGridViewTextBoxColumn_descripcion
-            // 
-            this.dataGridViewTextBoxColumn_descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn_descripcion.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn_descripcion.Name = "dataGridViewTextBoxColumn_descripcion";
-            this.dataGridViewTextBoxColumn_descripcion.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn_categoria
             // 
+            this.dataGridViewTextBoxColumn_categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn_categoria.HeaderText = "Categoría";
             this.dataGridViewTextBoxColumn_categoria.Name = "dataGridViewTextBoxColumn_categoria";
             this.dataGridViewTextBoxColumn_categoria.ReadOnly = true;
@@ -1492,9 +1488,11 @@
             // 
             // dataGridViewTextBoxColumn_fecha
             // 
+            this.dataGridViewTextBoxColumn_fecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
             this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_fecha.Width = 62;
             // 
             // dataGridViewTextBoxColumn_tamaño
             // 
@@ -1516,6 +1514,14 @@
             this.dataGridViewTextBoxColumn_valoracion.Name = "dataGridViewTextBoxColumn_valoracion";
             this.dataGridViewTextBoxColumn_valoracion.ReadOnly = true;
             this.dataGridViewTextBoxColumn_valoracion.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn_comentarios
+            // 
+            this.dataGridViewTextBoxColumn_comentarios.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn_comentarios.HeaderText = "Comentarios";
+            this.dataGridViewTextBoxColumn_comentarios.Name = "dataGridViewTextBoxColumn_comentarios";
+            this.dataGridViewTextBoxColumn_comentarios.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_comentarios.Width = 90;
             // 
             // FormMateriales
             // 
@@ -1690,12 +1696,12 @@
         private System.Windows.Forms.Panel panel_contenido;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_categoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_tamaño;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_descargas;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_valoracion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_comentarios;
     }
 }
