@@ -109,30 +109,12 @@ namespace Libreria
 
         public int NumMateriales()
         {
-            int n = 0;
-
-            n += CategoriaCAD.Instancia.NumMaterialesEn(this);
-
-            foreach (ENCategoria c in ObtenerHijos())
-            {
-                n += c.NumMateriales();
-            }
-
-            return n;
+            return CategoriaCAD.Instancia.NumMaterialesEn(this);
         }
 
         public int NumHilos()
         {
-            int n = 0;
-
-            n += CategoriaCAD.Instancia.NumHilosEn(this);
-
-            foreach (ENCategoria c in ObtenerHijos())
-            {
-                n += c.NumHilos();
-            }
-
-            return n;
+            return CategoriaCAD.Instancia.NumHilosEn(this);
         }
 
         public bool EsDescendienteDe(ENCategoria cat)
