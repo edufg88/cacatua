@@ -49,6 +49,7 @@
             this.dateTimePicker_fechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label_mostrarDesde = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button_limpiar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel_secundario.SuspendLayout();
@@ -104,7 +105,7 @@
             // button_buscar
             // 
             this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_buscar.Location = new System.Drawing.Point(655, 3);
+            this.button_buscar.Location = new System.Drawing.Point(573, 4);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 23);
             this.button_buscar.TabIndex = 0;
@@ -265,6 +266,7 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.button_limpiar);
             this.panel5.Controls.Add(this.button_buscar);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 120);
@@ -272,6 +274,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(765, 30);
             this.panel5.TabIndex = 7;
+            // 
+            // button_limpiar
+            // 
+            this.button_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_limpiar.Location = new System.Drawing.Point(654, 4);
+            this.button_limpiar.Name = "button_limpiar";
+            this.button_limpiar.Size = new System.Drawing.Size(75, 23);
+            this.button_limpiar.TabIndex = 8;
+            this.button_limpiar.Text = "Limpiar";
+            this.button_limpiar.UseVisualStyleBackColor = true;
+            this.button_limpiar.Click += new System.EventHandler(this.limpiarFormulario);
             // 
             // errorProvider1
             // 
@@ -322,6 +335,7 @@
         private System.Windows.Forms.Label label_mostrarDesde;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button_limpiar;
 
     }
 }

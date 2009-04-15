@@ -17,7 +17,7 @@ namespace cacatUA
     public partial class FormMaterialesEdicion : InterfazForm
     {
         string[] controlesCrear = { "nombre","descripcion","usuario","archivo","referencia" };
-        string[] controlesEditar = { "nombre", "descripcion","usuario", "archivo", "descargas","puntuacion","votos","referencia","comentarios" };
+        string[] controlesEditar = { "nombre", "descripcion","usuario", "archivo", "descargas","referencia","comentarios" };
         private FormMateriales formularioPadre = null;
         private ENCategoria categoria = null;
         public enum modos { EDITAR = 0, CREAR = 1, BORRAR = 2};
