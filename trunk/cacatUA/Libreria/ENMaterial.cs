@@ -160,7 +160,7 @@ namespace Libreria
             //return HiloCAD.Instancia.Guardar(this);
         }
 
-        public bool CompletarGuardar()
+        public int CompletarGuardar()
         {
             return MaterialCAD.Instancia.completarGuardar();
         }

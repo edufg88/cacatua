@@ -46,13 +46,13 @@ namespace Uploader
         }
 
         [WebMethod]
-        public string ComprimirArchivo(string nombreFichero)
+        public string ComprimirArchivo(string nombreFichero, int id)
         {
             string error = "OK";
             ZipOutputStream zipOutputStream = null;
             try
             {
-                string nombreZip = System.Web.Hosting.HostingEnvironment.MapPath("~/ficheros/") + nombreFichero + ".zip";
+                string nombreZip = System.Web.Hosting.HostingEnvironment.MapPath("~/ficheros/") + id.ToString() + ".zip";
                 zipOutputStream = new ZipOutputStream(File.Create(nombreZip));
                 zipOutputStream.SetLevel(6);
 
@@ -61,7 +61,7 @@ namespace Uploader
                 fs.Read(buffer, 0, buffer.Length);
                 fs.Close();
 
-                ZipEntry theEntry = new ZipEntry("hola");
+                ZipEntry theEntry = new ZipEntry(nombreFichero);
                 zipOutputStream.PutNextEntry(theEntry);
                 zipOutputStream.Write(buffer, 0, buffer.Length);
                 // se guarda con el path completo

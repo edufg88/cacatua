@@ -108,10 +108,17 @@ namespace cacatUA
                     }
                     else
                     {
-                        // Comprimimos el archivo
-                        MessageBox.Show(fileUploader.ComprimirArchivo(strFile));
                         // Completamos la transacción
-                        material.CompletarGuardar();
+                        int id = material.CompletarGuardar();
+                        if (id >= 0)
+                        {
+                            // Comprimimos el archivo
+                            MessageBox.Show(fileUploader.ComprimirArchivo(strFile, id));
+                        }
+                        else
+                        {
+                            MessageBox.Show("ERROR: id no válida");
+                        }
                     }
                 }
                 else
