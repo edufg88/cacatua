@@ -69,6 +69,45 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Cambia al formulario de búsqueda, limpia el formulario y realiza una búsqueda ordenada por fecha.
+        /// </summary>
+        public void ReiniciarResultados()
+        {
+            CambiarFormularioBusqueda();
+            formBusqueda.Limpiar();
+            formBusqueda.Buscar();
+        }
+
+        /// <summary>
+        /// Comprueba si el hilo recibido está actualmente mostrándose en el DataGridView y si está,
+        /// actualiza dicha fila.
+        /// </summary>
+        /// <param name="hilo">Hilo que se va a actualizar.</param>
+        public bool ActualizarResultados(ENHilo hilo)
+        {
+            bool actualizado = false;
+
+            DataGridViewRowCollection filas = dataGridView_resultados.Rows;
+
+            foreach (DataGridViewRow i in filas)
+            {
+                if (hilo.Id.ToString() == i.Cells[0].Value.ToString())
+                {
+                    i.Cells[1].Value = hilo.Titulo.ToString();
+                    i.Cells[2].Value = hilo.Texto.ToString();
+                    i.Cells[3].Value = hilo.Autor.Usuario.ToString();
+                    i.Cells[4].Value = hilo.Fecha.ToString();
+                    i.Cells[5].Value = hilo.NumRespuestas;
+
+                    actualizado = true;
+                    break;
+                }
+            }
+
+            return actualizado;
+        }
+
         public ArrayList Resultados
         {
             set
@@ -162,6 +201,8 @@ namespace cacatUA
                 formEdicion.CambiarSeleccionado(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
             }
         }
+
+
 
         public override void Recibir(object objeto)
         {

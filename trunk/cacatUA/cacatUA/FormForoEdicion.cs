@@ -147,7 +147,8 @@ namespace cacatUA
                     {
                         CambiarSeleccionado(nuevo.Id);
                         FormPanelAdministracion.Instancia.MensajeEstado("Hilo guardado correctamente.");
-                        
+                        // Rebuscamos en la basura sin modificar el formulario. Mostramos la primera página y ordenamos por fecha.
+                        formularioPadre.ReiniciarResultados();
                     }
                     else
                     {
@@ -161,6 +162,8 @@ namespace cacatUA
                     {
                         desactivarBotones();
                         FormPanelAdministracion.Instancia.MensajeEstado("Hilo actualizado correctamente.");
+                        // Comprobamos si el hilo esta en el datagridview del form original y actualizamos.
+                        formularioPadre.ActualizarResultados(nuevo);
                     }
                     else
                     {

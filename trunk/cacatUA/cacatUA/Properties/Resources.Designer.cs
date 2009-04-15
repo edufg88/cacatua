@@ -137,6 +137,13 @@ namespace cacatUA.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap examinar {
+            get {
+                object obj = ResourceManager.GetObject("examinar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap fileopen {
             get {
                 object obj = ResourceManager.GetObject("fileopen", resourceCulture);
@@ -161,6 +168,13 @@ namespace cacatUA.Properties {
         internal static System.Drawing.Bitmap guardar {
             get {
                 object obj = ResourceManager.GetObject("guardar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap limpiarruta {
+            get {
+                object obj = ResourceManager.GetObject("limpiarruta", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
