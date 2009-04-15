@@ -209,5 +209,11 @@ namespace cacatUA
         {
             cambiarSeleccionado(int.Parse(dataGridView_imagenes.SelectedRows[0].Cells[0].Value.ToString()));
         }
+
+        private void button_seleccionarArchivo_Click(object sender, EventArgs e)
+        {
+           // Para el botón de seleccionar archivo
+
+        }
     }
 }

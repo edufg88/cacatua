@@ -361,6 +361,26 @@ namespace Libreria
             return UsuarioCAD.Instancia.EsAdministrador(this.id);
         }
 
+        public int CantidadEncuestas()
+        {
+            return EncuestaCAD.Instancia.CantidadEncuestas();
+        }
+
+        public int CantidadFirmas()
+        {
+            return FirmaCAD.Instancia.CantidadFirmas();
+        }
+
+        public int CantidadMensajes()
+        {
+            return MensajeCAD.Instancia.CantidadMensajes();
+        }
+
+        public int CantidadImagenes()
+        {
+            return ImagenCAD.Instancia.CantidadImagenes();
+        }
+
         public int Id
         {
             get { return id; }

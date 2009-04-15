@@ -56,6 +56,11 @@ namespace cacatUA
             textBox_adicional.Text = usuario.Adicional;
             dateTimePicker_fechaDeIngreso.Value = usuario.Fechaingreso;
 
+            textBox_numEncuestas.Text = usuario.CantidadEncuestas().ToString();
+            textBox_numFirmas.Text = usuario.CantidadFirmas().ToString();
+            textBox_numImagenes.Text = usuario.CantidadImagenes().ToString();
+            textBox_numMensajes.Text = usuario.CantidadMensajes().ToString();
+
             checkBox_administrador.Checked = usuario.EsAdministrador();
             checkBox_activo.Checked = usuario.Activo;
         }

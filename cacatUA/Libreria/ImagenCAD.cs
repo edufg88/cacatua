@@ -359,5 +359,33 @@ namespace Libreria
 
             return actualizado;
         }
+
+        public int CantidadImagenes()
+        {
+            SqlConnection conexion = null;
+            int cantidad = 0;
+
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string sentencia = "select count(*) from imagenes";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+
+                cantidad = int.Parse(comando.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al contar imágenes " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
     }
 }

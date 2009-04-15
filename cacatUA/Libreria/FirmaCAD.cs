@@ -358,5 +358,33 @@ namespace Libreria
 
             return actualizado;
         }
+
+        public int CantidadFirmas()
+        {
+            SqlConnection conexion = null;
+            int cantidad = 0;
+
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string sentencia = "select count(*) from firmas";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+
+                cantidad = int.Parse(comando.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al contar firmas " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
     }
 }

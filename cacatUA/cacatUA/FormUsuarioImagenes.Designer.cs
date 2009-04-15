@@ -65,6 +65,7 @@
             this.label_imagenes = new System.Windows.Forms.Label();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button_seleccionarArchivo = new System.Windows.Forms.Button();
             this.panel_contenedor.SuspendLayout();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -188,6 +189,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.button_seleccionarArchivo);
             this.panel6.Controls.Add(this.textBox_archivo);
             this.panel6.Controls.Add(this.label_archivo);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -466,6 +468,21 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // button_seleccionarArchivo
+            // 
+            this.button_seleccionarArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_seleccionarArchivo.BackColor = System.Drawing.SystemColors.Window;
+            this.button_seleccionarArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seleccionarArchivo.FlatAppearance.BorderSize = 0;
+            this.button_seleccionarArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seleccionarArchivo.Image = global::cacatUA.Properties.Resources.examinar;
+            this.button_seleccionarArchivo.Location = new System.Drawing.Point(674, 6);
+            this.button_seleccionarArchivo.Name = "button_seleccionarArchivo";
+            this.button_seleccionarArchivo.Size = new System.Drawing.Size(20, 18);
+            this.button_seleccionarArchivo.TabIndex = 108;
+            this.button_seleccionarArchivo.UseVisualStyleBackColor = false;
+            this.button_seleccionarArchivo.Click += new System.EventHandler(this.button_seleccionarArchivo_Click);
+            // 
             // FormUsuarioImagenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,6 +552,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn archivo;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button_seleccionarArchivo;
 
     }
 }

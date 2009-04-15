@@ -147,6 +147,11 @@ namespace Libreria
             return FirmaCAD.Instancia.BuscarFirma(emisor, receptor, fecha);
         }
 
+        public int CantidadFirmas()
+        {
+            return FirmaCAD.Instancia.CantidadFirmas();
+        }
+
         public int Id
         {
             get { return id; }
