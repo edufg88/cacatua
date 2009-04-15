@@ -56,8 +56,8 @@
             this.label_titulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel_secundario = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.button_descartarCambios = new System.Windows.Forms.Button();
-            this.button_accion = new System.Windows.Forms.Button();
+            this.button_accion2 = new System.Windows.Forms.Button();
+            this.button_accion1 = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.textBox_referencia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -186,6 +186,7 @@
             this.textBox_descripcion.Name = "textBox_descripcion";
             this.textBox_descripcion.Size = new System.Drawing.Size(648, 49);
             this.textBox_descripcion.TabIndex = 0;
+            this.textBox_descripcion.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label_texto
             // 
@@ -233,6 +234,7 @@
             this.textBox_categoria.ReadOnly = true;
             this.textBox_categoria.Size = new System.Drawing.Size(648, 20);
             this.textBox_categoria.TabIndex = 0;
+            this.textBox_categoria.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label_categoria
             // 
@@ -279,6 +281,7 @@
             this.textBox_usuario.Name = "textBox_usuario";
             this.textBox_usuario.Size = new System.Drawing.Size(648, 20);
             this.textBox_usuario.TabIndex = 0;
+            this.textBox_usuario.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label_usuario
             // 
@@ -330,6 +333,7 @@
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(543, 20);
             this.textBox_nombre.TabIndex = 0;
+            this.textBox_nombre.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label_titulo
             // 
@@ -376,8 +380,8 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.button_descartarCambios);
-            this.panel9.Controls.Add(this.button_accion);
+            this.panel9.Controls.Add(this.button_accion2);
+            this.panel9.Controls.Add(this.button_accion1);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 330);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
@@ -385,26 +389,25 @@
             this.panel9.Size = new System.Drawing.Size(808, 35);
             this.panel9.TabIndex = 128;
             // 
-            // button_descartarCambios
+            // button_accion2
             // 
-            this.button_descartarCambios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_descartarCambios.Location = new System.Drawing.Point(651, 3);
-            this.button_descartarCambios.Name = "button_descartarCambios";
-            this.button_descartarCambios.Size = new System.Drawing.Size(121, 23);
-            this.button_descartarCambios.TabIndex = 1;
-            this.button_descartarCambios.Text = "Descartar cambios";
-            this.button_descartarCambios.UseVisualStyleBackColor = true;
+            this.button_accion2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_accion2.Location = new System.Drawing.Point(651, 3);
+            this.button_accion2.Name = "button_accion2";
+            this.button_accion2.Size = new System.Drawing.Size(121, 23);
+            this.button_accion2.TabIndex = 1;
+            this.button_accion2.UseVisualStyleBackColor = true;
+            this.button_accion2.Click += new System.EventHandler(this.button_accion2_Click);
             // 
-            // button_accion
+            // button_accion1
             // 
-            this.button_accion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_accion.Location = new System.Drawing.Point(535, 3);
-            this.button_accion.Name = "button_accion";
-            this.button_accion.Size = new System.Drawing.Size(110, 23);
-            this.button_accion.TabIndex = 0;
-            this.button_accion.Text = "Guardar cambios";
-            this.button_accion.UseVisualStyleBackColor = true;
-            this.button_accion.Click += new System.EventHandler(this.button_accion_Click);
+            this.button_accion1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_accion1.Location = new System.Drawing.Point(535, 3);
+            this.button_accion1.Name = "button_accion1";
+            this.button_accion1.Size = new System.Drawing.Size(110, 23);
+            this.button_accion1.TabIndex = 0;
+            this.button_accion1.UseVisualStyleBackColor = true;
+            this.button_accion1.Click += new System.EventHandler(this.button_accion_Click);
             // 
             // panel15
             // 
@@ -425,6 +428,7 @@
             this.textBox_referencia.Name = "textBox_referencia";
             this.textBox_referencia.Size = new System.Drawing.Size(648, 20);
             this.textBox_referencia.TabIndex = 0;
+            this.textBox_referencia.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label8
             // 
@@ -459,6 +463,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(20, 18);
             this.button4.TabIndex = 107;
+            this.toolTip1.SetToolTip(this.button4, "Seleccionar archivo");
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
             // 
@@ -470,6 +475,7 @@
             this.textBox_archivo.Name = "textBox_archivo";
             this.textBox_archivo.Size = new System.Drawing.Size(647, 20);
             this.textBox_archivo.TabIndex = 0;
+            this.textBox_archivo.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label_archivo
             // 
@@ -497,6 +503,7 @@
             this.textBox_tamaño.Name = "textBox_tamaño";
             this.textBox_tamaño.Size = new System.Drawing.Size(150, 20);
             this.textBox_tamaño.TabIndex = 0;
+            this.textBox_tamaño.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label_tamaño
             // 
@@ -560,6 +567,7 @@
             this.textBox_descargas.Name = "textBox_descargas";
             this.textBox_descargas.Size = new System.Drawing.Size(150, 20);
             this.textBox_descargas.TabIndex = 0;
+            this.textBox_descargas.TextChanged += new System.EventHandler(this.formularioModificado);
             // 
             // label1
             // 
@@ -651,8 +659,8 @@
         private System.Windows.Forms.TextBox textBox_referencia;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button_descartarCambios;
-        private System.Windows.Forms.Button button_accion;
+        private System.Windows.Forms.Button button_accion2;
+        private System.Windows.Forms.Button button_accion1;
 
     }
 }

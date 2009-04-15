@@ -58,11 +58,6 @@ namespace cacatUA
             InitializeComponent();
             this.formularioPadre = formularioPadre;
             inicializarControles();
-
-            //this.modo = modo;
-            
-            //actualizarFormulario(id);
-            
         }
 
         Dictionary<string, Control> controles = null;
@@ -191,7 +186,8 @@ namespace cacatUA
                         if (this.modo != modos.CREAR)
                         {
                             prepararControles(controlesCrear);
-                            button_accion.Text = "Crear";
+                            button_accion1.Text = "Crear";
+                            button_accion2.Text = "Limpiar";
                         }
                         break;
                     }
@@ -202,36 +198,17 @@ namespace cacatUA
                         {
                             prepararControles(controlesEditar);
                             seleccionado = material;
-                            // Mostramos el nuevo material
-                            if (material != null)
-                            {
-                                controles["id"].Text = material.Id.ToString();
-                                controles["nombre"].Text = material.Nombre;
-                                controles["descripcion"].Text = material.Descripcion;
-                                // fecha
-
-                                controles["usuario"].Text = material.Usuario.Usuario;
-                                controles["categoria"].Text = material.Categoria.NombreCompleto();
-                                controles["archivo"].Text = material.Archivo;
-                                controles["tamaño"].Text = material.Tamaño.ToString();
-                                controles["descargas"].Text = material.Descargas.ToString();
-                                // idioma
-                                controles["puntuacion"].Text = material.Puntuacion.ToString();
-                                controles["votos"].Text = material.Votos.ToString();
-                                controles["referencia"].Text = material.Referencia;
-                                controles["numComentarios"].Text = material.NumComentarios.ToString();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Problema al obtener los datos del material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+                            mostrarMaterial(material);
+                            button_accion1.Enabled = false;
+                            button_accion2.Enabled = false;
                         }
-                        button_accion.Text = "Editar";                       
+                        button_accion1.Text = "Guardar cambios";
+                        button_accion2.Text = "Deshacer cambios";
                         break;
                     }
                 case modos.BORRAR:
                     {
-                        button_accion.Text = "Borrar";
+                        button_accion1.Text = "Borrar";
                         break;
                     }
             }
@@ -294,7 +271,8 @@ namespace cacatUA
                     }
                 case modos.EDITAR:
                     {
-                        
+                        // Editamos el material
+
                         break;
                     }
                 case modos.BORRAR:
@@ -376,6 +354,68 @@ namespace cacatUA
             FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true, 
                 "Volver al panel anterior seleccionando la categoría actual", 
                 "Cancelar la selección y volver al panel anterior");
+        }
+
+        private void mostrarMaterial(ENMaterial material)
+        {
+            // Mostramos el nuevo material
+            if (material != null)
+            {
+                controles["id"].Text = material.Id.ToString();
+                controles["nombre"].Text = material.Nombre;
+                controles["descripcion"].Text = material.Descripcion;
+                // fecha
+
+                controles["usuario"].Text = material.Usuario.Usuario;
+                controles["categoria"].Text = material.Categoria.NombreCompleto();
+                controles["archivo"].Text = material.Archivo;
+                controles["tamaño"].Text = material.Tamaño.ToString();
+                controles["descargas"].Text = material.Descargas.ToString();
+                // idioma
+                controles["puntuacion"].Text = material.Puntuacion.ToString();
+                controles["votos"].Text = material.Votos.ToString();
+                controles["referencia"].Text = material.Referencia;
+                controles["numComentarios"].Text = material.NumComentarios.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Problema al obtener los datos del material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button_accion2_Click(object sender, EventArgs e)
+        {
+            switch (modo)
+            {
+                case modos.CREAR:
+                    {
+                        // Limpiamos el formulario
+                        limpiarFormulario();
+                        break;
+                    }
+                case modos.EDITAR:
+                    {
+                        // Volvemos a cargar el material
+                        mostrarMaterial(seleccionado);
+                        button_accion1.Enabled = false;
+                        button_accion2.Enabled = false;
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+        }
+
+        private void formularioModificado(object sender, EventArgs e)
+        {
+            // Se ha modificado el formulario
+            if (modo == modos.EDITAR)// && cambioProducido == true)
+            {
+                button_accion1.Enabled = true;
+                button_accion2.Enabled = true;
+            }
         }
     }
 }

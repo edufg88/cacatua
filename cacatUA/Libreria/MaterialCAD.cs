@@ -61,7 +61,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@nombre", material.Nombre);
                 comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
                 comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
-                comando.Parameters.AddWithValue("@categoria", material.Categoria);
+                comando.Parameters.AddWithValue("@categoria", material.Categoria.Id);
                 comando.Parameters.AddWithValue("@archivo", material.Archivo);
                 comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
                 comando.Parameters.AddWithValue("@referencia", material.Referencia);
