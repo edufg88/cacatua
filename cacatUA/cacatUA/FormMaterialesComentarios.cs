@@ -204,7 +204,7 @@ namespace cacatUA
                         // Creamos el nuevo comentario
                         ComentarioMaterial comentario = new ComentarioMaterial();
                         comentario.Texto = textBox_texto.Text;
-                        comentario.Usuario = ENUsuario.ObtenerPorNombre(textBox_usuario.Text);
+                        comentario.Usuario = ENUsuario.Obtener(textBox_usuario.Text);
                         comentario.Fecha = dateTimePicker_fecha.Value;
                         comentario.Material = material;
                         // Validamos el comentario
@@ -223,7 +223,7 @@ namespace cacatUA
                         // Editamos el comentario
                         ComentarioMaterial comentario = new ComentarioMaterial();
                         comentario.Texto = textBox_texto.Text;
-                        comentario.Usuario = ENUsuario.ObtenerPorNombre(textBox_usuario.Text);
+                        comentario.Usuario = ENUsuario.Obtener(textBox_usuario.Text);
                         comentario.Fecha = dateTimePicker_fecha.Value;
                         comentario.Material = material;
                         comentario.Id = int.Parse(textBox_id.Text.ToString());

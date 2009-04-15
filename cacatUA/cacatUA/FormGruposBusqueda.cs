@@ -51,7 +51,7 @@ namespace cacatUA
             }
             if (textBox_usuario.Text != "")
             {
-                ENUsuario usuario = new ENUsuario(textBox_usuario.Text);
+                ENUsuario usuario = ENUsuario.Obtener(textBox_usuario.Text);
                 if (usuario.Id == 0)
                 {
                     correcto = false;
@@ -75,7 +75,7 @@ namespace cacatUA
                 ENUsuario usuario = null;
                 if (textBox_usuario.Text != "")
                 {
-                    usuario = new ENUsuario(textBox_usuario.Text);
+                    usuario = ENUsuario.Obtener(textBox_usuario.Text);
                 }
                 ENGrupos grupo = new ENGrupos(textBox_filtroBusqueda.Text, textBox_usuario.Text, dateTimePicker_fecha.Value);
                 formularioPadre.Resultado = grupo.Buscar(a, b,dateTimePicker_hasta.Value,ref usuario);

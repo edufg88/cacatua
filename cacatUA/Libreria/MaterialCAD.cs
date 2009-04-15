@@ -279,7 +279,7 @@ namespace Libreria
             material.Nombre = reader["nombre"].ToString();
             material.Descripcion = reader["descripcion"].ToString();
             material.Fecha = (DateTime) reader["fecha"];
-            material.Usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
+            material.Usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
             material.Categoria = new ENCategoria(int.Parse(reader["categoria"].ToString()));
             material.Archivo = reader["archivo"].ToString();
             material.Tamaño = int.Parse(reader["tamaño"].ToString());
@@ -297,7 +297,7 @@ namespace Libreria
             comentario.Id = int.Parse(reader["id"].ToString());
             comentario.Texto = reader["texto"].ToString();
             comentario.Fecha = (DateTime)reader["fecha"];
-            comentario.Usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
+            comentario.Usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
             comentario.Material = ENMaterial.Obtener(int.Parse(reader["material"].ToString()));
             return comentario;
         }

@@ -256,7 +256,7 @@ namespace Libreria
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
                 {
-                    ENUsuario usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
+                    ENUsuario usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
                     usuarios.Add(usuario);
                 }
             }

@@ -43,8 +43,8 @@ namespace cacatUA
 
             if (textBox_autor.Text != "")
             {
-                usuario = new ENUsuario(textBox_autor.Text);
-                if (usuario.Id == 0)
+                usuario = ENUsuario.Obtener(textBox_autor.Text);
+                if (usuario==null)
                 {
                     correcto = false;
                     errorUsuario = "Este usuario no existe.";
@@ -109,7 +109,7 @@ namespace cacatUA
             {
                 usuario = null;
                 if (textBox_autor.Text != "")
-                    usuario = new ENUsuario(textBox_autor.Text);
+                    usuario = ENUsuario.Obtener(textBox_autor.Text);
                 DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
                 DateTime fechaFin = dateTimePicker_fechaFin.Value;
 

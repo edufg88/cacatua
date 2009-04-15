@@ -109,8 +109,8 @@ namespace cacatUA
 
             if (textBox_autor.Text != "")
             {
-                ENUsuario usuario = new ENUsuario(textBox_autor.Text);
-                if (usuario.Id == 0)
+                ENUsuario usuario = ENUsuario.Obtener(textBox_autor.Text);
+                if (usuario==null)
                 {
                     correcto = false;
                     errorUsuario = "Este usuario no existe.";
@@ -137,7 +137,7 @@ namespace cacatUA
                 ENHilo nuevo = new ENHilo();
                 nuevo.Texto = textBox_texto.Text;
                 nuevo.Titulo = textBox_titulo.Text;
-                nuevo.Autor = new ENUsuario(textBox_autor.Text);
+                nuevo.Autor = ENUsuario.Obtener(textBox_autor.Text);
                 nuevo.Categoria = categoria;
                 //nuevo.Fecha = dateTimePicker_fecha.Value;
 

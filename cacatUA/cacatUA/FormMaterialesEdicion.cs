@@ -249,7 +249,7 @@ namespace cacatUA
                         ENMaterial material = new ENMaterial();
                         material.Nombre = textBox_nombre.Text.ToString();
                         material.Descripcion = textBox_descripcion.Text.ToString();
-                        material.Usuario = new ENUsuario(textBox_usuario.Text.ToString());
+                        material.Usuario = ENUsuario.Obtener(textBox_usuario.Text.ToString());
                         material.Categoria = categoria;
                         material.Archivo = textBox_archivo.Text.ToString();
                         material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());

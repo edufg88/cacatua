@@ -46,7 +46,7 @@ namespace Libreria
         {
             ENRespuesta respuesta = new ENRespuesta();
             respuesta.Id = int.Parse(dataReader["id"].ToString());
-            respuesta.Autor = new ENUsuario(int.Parse(dataReader["autor"].ToString()));
+            respuesta.Autor = ENUsuario.Obtener(int.Parse(dataReader["autor"].ToString()));
             respuesta.Texto = dataReader["texto"].ToString();
             respuesta.Hilo = ENHilo.Obtener(int.Parse(dataReader["hilo"].ToString()));
             respuesta.Fecha = (DateTime)dataReader["fecha"];

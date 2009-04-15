@@ -50,7 +50,7 @@ namespace cacatUA
                 if (str_usuario != "")
                 {
                     // Comprobamos si el usuario es válido
-                    usuario = ENUsuario.ObtenerPorNombre(str_usuario);
+                    usuario = ENUsuario.Obtener(str_usuario);
                     if (usuario == null)
                     {
                         error = true;
@@ -84,7 +84,7 @@ namespace cacatUA
                 if (str_usuario != "")
                 {
                     // Comprobamos si el usuario es válido
-                    usuario = ENUsuario.ObtenerPorNombre(str_usuario);
+                    usuario = ENUsuario.Obtener(str_usuario);
                     if(usuario == null)
                     {
                         error = true;
