@@ -167,6 +167,8 @@ namespace cacatUA
             else
             {
                 dataGridView_usuarios.Show();
+                button_borrarUsuario.Show();
+                button_editarUsuario.Show();
                 label_seccion2.Text = "Resultados de la búsqueda";
                 tableLayoutPanel_principal.RowStyles[5].Height = panel_DataGridViewUsuarios.Height;
                 ocultoP2 = false;

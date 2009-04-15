@@ -61,6 +61,7 @@ namespace cacatUA
             }
             else
             {
+                errorProvider1.Clear();
                 textBox_id.Text = encuesta.Id.ToString();
                 textBox_pregunta.Text = encuesta.Pregunta;
                 dateTimePicker_fecha.Value = encuesta.Fecha;
@@ -70,6 +71,7 @@ namespace cacatUA
 
         private void cambiarNuevo()
         {
+            errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_pregunta.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
@@ -90,38 +92,57 @@ namespace cacatUA
             }
         }
 
+        private bool validarFormulario()
+        {
+            // Validamos uno a uno todos los campos
+            bool correcto = true;
+            string error = "";
+            // El campo de texto
+            error = ENUsuario.ValidarFormulario("pregunta", textBox_pregunta.Text);
+            if (error != "")
+            {
+                errorProvider1.SetError(textBox_pregunta, error);
+                error = "";
+                correcto = false;
+            }
+            return correcto;
+        }
+
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENEncuesta nueva = ENEncuesta.Obtener(int.Parse(textBox_id.Text));
-            nueva.Pregunta = textBox_pregunta.Text;
-            nueva.Usuario = ENUsuario.Obtener(this.us.Id);
-            nueva.Fecha = dateTimePicker_fecha.Value;
-            nueva.Activa = checkBox_activa.Checked;
+            if (validarFormulario() && textBox_id.Text != "")
+            {
+                ENEncuesta nueva = ENEncuesta.Obtener(int.Parse(textBox_id.Text));
+                nueva.Pregunta = textBox_pregunta.Text;
+                nueva.Usuario = ENUsuario.Obtener(this.us.Id);
+                nueva.Fecha = dateTimePicker_fecha.Value;
+                nueva.Activa = checkBox_activa.Checked;
 
-            if (textBox_id.Text == "")
-            {
-                if (nueva.Guardar())
+                if (textBox_id.Text == "")
                 {
-                    cambiarSeleccionado(nueva.Id);
-                    MessageBox.Show("Encuesta guardada correctamente.");
-                    CargarEncuestas();
+                    if (nueva.Guardar())
+                    {
+                        cambiarSeleccionado(nueva.Id);
+                        MessageBox.Show("Encuesta guardada correctamente.");
+                        CargarEncuestas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar la encuesta");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar la encuesta");
-                }
-            }
-            else
-            {
-                nueva.Id = int.Parse(textBox_id.Text);
-                if (nueva.Actualizar())
-                {
-                    MessageBox.Show("Encuesta actualizada correctamente");
-                    CargarEncuestas();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar la encuesta");
+                    nueva.Id = int.Parse(textBox_id.Text);
+                    if (nueva.Actualizar())
+                    {
+                        MessageBox.Show("Encuesta actualizada correctamente");
+                        CargarEncuestas();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar la encuesta");
+                    }
                 }
             }
         }

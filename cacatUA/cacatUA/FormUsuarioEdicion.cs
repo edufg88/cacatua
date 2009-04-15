@@ -25,6 +25,8 @@ namespace cacatUA
 
         public void CambiarNuevo()
         {
+            errorProvider1.Clear();
+
             textBox_id.Text = "";
             textBox_usuario.Text = "";
             textBox_contrasena.Text = "";
@@ -42,6 +44,8 @@ namespace cacatUA
         { 
             // Cargamos los datos del usuario con esa id en los campos
             ENUsuario usuario = ENUsuario.Obtener(id);
+
+            errorProvider1.Clear();
 
             textBox_id.Text = usuario.Id.ToString();
             textBox_usuario.Text = usuario.Usuario;
@@ -68,13 +72,13 @@ namespace cacatUA
             button_descartarCambios.Enabled = false;
         }
 
-        private void CargarFirmas()
+        private void cargarFirmas()
         {
             ArrayList al = new ArrayList();
             al = ENFirma.Obtener();
         }
 
-        private bool ValidarFormulario()
+        private bool validarFormulario()
         { 
             // Validamos uno a uno todos los campos
             bool correcto = true;
@@ -133,7 +137,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            if (ValidarFormulario())
+            if (validarFormulario())
             {
                 ENUsuario nuevo = new ENUsuario();
                 nuevo.Usuario = textBox_usuario.Text;

@@ -64,6 +64,7 @@ namespace cacatUA
             }
             else
             {
+                errorProvider1.Clear();
                 textBox_id.Text = imagen.Id.ToString();
                 textBox_titulo.Text = imagen.Titulo;
                 textBox_descripcion.Text = imagen.Descripcion;
@@ -74,6 +75,7 @@ namespace cacatUA
 
         private void cambiarNuevo()
         {
+            errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_titulo.Text = "";
             textBox_descripcion.Text = "";
@@ -95,38 +97,65 @@ namespace cacatUA
             }
         }
 
+        private bool validarFormulario()
+        {
+            // Validamos uno a uno todos los campos
+            bool correcto = true;
+            string error = "";
+            // El título
+            error = ENUsuario.ValidarFormulario("tituloImagen", textBox_titulo.Text);
+            if (error != "")
+            {
+                errorProvider1.SetError(textBox_titulo, error);
+                error = "";
+                correcto = false;
+            }
+            // La descripción
+            error = ENUsuario.ValidarFormulario("descripcionImagen", textBox_descripcion.Text);
+            if (error != "")
+            {
+                errorProvider1.SetError(textBox_descripcion, error);
+                error = "";
+                correcto = false;
+            }
+            return correcto;
+        }
+
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENImagen nueva = ENImagen.Obtener(int.Parse(textBox_id.Text));
-            nueva.Titulo = textBox_titulo.Text;
-            nueva.Descripcion = textBox_descripcion.Text;
-            nueva.Fecha = dateTimePicker_fecha.Value;
-            nueva.Archivo = textBox_archivo.Text;
+            if (validarFormulario() && textBox_id.Text != "")
+            {
+                ENImagen nueva = ENImagen.Obtener(int.Parse(textBox_id.Text));
+                nueva.Titulo = textBox_titulo.Text;
+                nueva.Descripcion = textBox_descripcion.Text;
+                nueva.Fecha = dateTimePicker_fecha.Value;
+                nueva.Archivo = textBox_archivo.Text;
 
-            if (textBox_id.Text == "")
-            {
-                if (nueva.Guardar())
+                if (textBox_id.Text == "")
                 {
-                    cambiarSeleccionado(nueva.Id);
-                    MessageBox.Show("Imagen guardada correctamente.");
-                    CargarImagenes();
+                    if (nueva.Guardar())
+                    {
+                        cambiarSeleccionado(nueva.Id);
+                        MessageBox.Show("Imagen guardada correctamente.");
+                        CargarImagenes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al guardar la imagen");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al guardar la imagen");
-                }
-            }
-            else
-            {
-                nueva.Id = int.Parse(textBox_id.Text);
-                if (nueva.Actualizar())
-                {
-                    MessageBox.Show("Imagen actualizada correctamente.");
-                    CargarImagenes();
-                }
-                else
-                {
-                    MessageBox.Show("Error al actualizar la imagen.");
+                    nueva.Id = int.Parse(textBox_id.Text);
+                    if (nueva.Actualizar())
+                    {
+                        MessageBox.Show("Imagen actualizada correctamente.");
+                        CargarImagenes();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al actualizar la imagen.");
+                    }
                 }
             }
         }
