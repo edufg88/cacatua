@@ -64,7 +64,14 @@ namespace cacatUA
         /// </summary>
         public void CambiarCrearNuevo()
         {
+            label_seccion1.Text = "Crear nueva respuesta";
+            usuario = null;
+            textBox_autor.Text = "";
+            textBox_id.Text = "";
+            textBox_texto.Text = "";
+            dateTimePicker_fecha.Value = DateTime.Now;
 
+            desactivarBotones();
         }
 
         /// <summary>
@@ -73,16 +80,36 @@ namespace cacatUA
         /// <param name="id">Identificador de la respuesta que se va a editar.</param>
         public void CambiarEdicion(int id)
         {
+            ENRespuesta respuesta = ENRespuesta.Obtener(id);
+            if (respuesta != null)
+            {
+                label_seccion1.Text = "Editando respuesta";
+                usuario = respuesta.Autor;
+                textBox_autor.Text = respuesta.Autor.Usuario;
+                textBox_id.Text = respuesta.Id.ToString();
+                textBox_texto.Text = respuesta.Texto;
+                dateTimePicker_fecha.Value = respuesta.Fecha;
 
+                desactivarBotones();
+            }
+            else
+            {
+                MessageBox.Show("No se puede cambiar a la respuesta nº " + id);
+            }
         }
 
-        private void ActivarBotones()
+        private void formulario_Modificado(object sender, EventArgs e)
+        {
+            activarBotones();
+        }
+
+        private void activarBotones()
         {
             button_guardarCambios.Enabled = false;
             button_descartarCambios.Enabled = false;
         }
 
-        private void DesactivarBotones()
+        private void desactivarBotones()
         {
             button_guardarCambios.Enabled = false;
             button_descartarCambios.Enabled = false;
@@ -90,22 +117,57 @@ namespace cacatUA
 
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
-            label_seccion1.Text = "Crear una nueva respuesta";
+            CambiarCrearNuevo();
         }
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
+            if (dataGridView_resultados.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccionada = dataGridView_resultados.SelectedRows[0];
+                CambiarEdicion(int.Parse(seleccionada.Cells[0].Value.ToString()));
+            }
         }
 
         private void button_editarRespuesta_Click(object sender, EventArgs e)
         {
-
+            if (dataGridView_resultados.SelectedRows.Count > 0)
+            {
+                DataGridViewRow seleccionada = dataGridView_resultados.SelectedRows[0];
+                CambiarEdicion(int.Parse(seleccionada.Cells[0].Value.ToString()));
+            }
         }
 
         private void button_borrarRespuesta_Click(object sender, EventArgs e)
         {
+            if (dataGridView_resultados.SelectedRows.Count > 0)
+            {
+                DataGridViewSelectedRowCollection filas = dataGridView_resultados.SelectedRows;
+                if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea borrar las respuestas seleccionadas?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+                {
+                    if (dataGridView_resultados.SelectedRows.Count > 1)
+                        FormPanelAdministracion.Instancia.MensajeEstado("Respuestas eliminadas correctamente.");
+                    else
+                        FormPanelAdministracion.Instancia.MensajeEstado("Respuesta eliminada correctamente.");
 
+                    foreach (DataGridViewRow i in filas)
+                    {
+                        // Se borra de la lista y de la base de datos.
+                        ENRespuesta.Borrar(int.Parse(i.Cells[0].Value.ToString()));
+                        dataGridView_resultados.Rows.Remove(i);
+
+                        // Comprobamos si éste era el hilo seleccionado en el formulario de edición.
+                        if (textBox_id.Text.ToString() == i.Cells[0].Value.ToString())
+                        {
+                            CambiarCrearNuevo();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                FormPanelAdministracion.Instancia.MensajeEstado("No hay hilos seleccionados.");
+            }
         }
 
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
