@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -227,6 +227,9 @@
     <Compile Include="InterfazForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="InterfazForm.Designer.cs">
+      <DependentUpon>InterfazForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -330,10 +333,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPeticiones.resx">
       <DependentUpon>FormPeticiones.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="InterfazForm.resx">
-      <DependentUpon>InterfazForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
