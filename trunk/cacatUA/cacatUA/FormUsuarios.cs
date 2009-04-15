@@ -28,7 +28,6 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
-            usuarioSeleccionado = new ENUsuario();
             formulario = 0;
             // Indican si los paneles están ocultos o no
             ocultoP1 = false;
