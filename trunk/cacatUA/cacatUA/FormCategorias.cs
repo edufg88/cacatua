@@ -41,6 +41,7 @@ namespace cacatUA
 
             textBox_Descripcion.Clear();
             textBox_Nombre.Clear();
+            textBox_Ruta.Clear();
         }
         
         private void MeterEnArbol(ENCategoria cat, TreeNodeCollection coleccion) {
