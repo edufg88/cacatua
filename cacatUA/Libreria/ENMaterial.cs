@@ -31,7 +31,6 @@ namespace Libreria
         private int puntuacion;
         private int votos;
         private string referencia;
-        private ArrayList comentarios;
 
         /// <summary>
         /// Constructor por defecto. Crea un material vacío.
