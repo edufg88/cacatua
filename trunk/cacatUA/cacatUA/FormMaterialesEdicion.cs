@@ -17,7 +17,7 @@ namespace cacatUA
     public partial class FormMaterialesEdicion : InterfazForm
     {
         string[] controlesCrear = { "nombre","descripcion","usuario","archivo","referencia" };
-        string[] controlesEditar = { "nombre", "descripcion","usuario", "archivo", "descargas","puntuacion","votos","referencia" };
+        string[] controlesEditar = { "nombre", "descripcion","usuario", "archivo", "descargas","puntuacion","votos","referencia","comentarios" };
         private FormMateriales formularioPadre = null;
         private ENCategoria categoria = null;
         public enum modos { EDITAR = 0, CREAR = 1, BORRAR = 2};
@@ -81,6 +81,8 @@ namespace cacatUA
             controles.Add("puntuacion", textBox_puntuacion);
             controles.Add("votos", textBox_votos);
             controles.Add("referencia", textBox_referencia);
+            controles.Add("numComentarios", textBox_numComentarios);
+            controles.Add("comentarios", linkLabel_comentarios);
         }
 
         private void prepararControles(string[] nombreControles)
@@ -174,6 +176,8 @@ namespace cacatUA
             textBox.Clear();
             textBox = (TextBox)controles["referencia"];
             textBox.Clear();
+            textBox = (TextBox)controles["numComentarios"];
+            textBox.Clear();
 
         }
 
@@ -215,6 +219,7 @@ namespace cacatUA
                                 controles["puntuacion"].Text = material.Puntuacion.ToString();
                                 controles["votos"].Text = material.Votos.ToString();
                                 controles["referencia"].Text = material.Referencia;
+                                controles["numComentarios"].Text = material.NumComentarios.ToString();
                             }
                             else
                             {
