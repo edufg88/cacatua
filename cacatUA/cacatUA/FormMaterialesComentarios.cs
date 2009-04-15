@@ -102,7 +102,6 @@ namespace cacatUA
                 case modos.CREAR:
                     {
                         label_modo.Text = "Crear un nuevo comentario";
-                        dateTimePicker_fecha.Enabled = false;
                         button_accion1.Text = "Crear";
                         button_accion2.Text = "Limpiar";
                         break;
@@ -110,7 +109,6 @@ namespace cacatUA
                 case modos.EDITAR:
                     {
                         label_modo.Text = "Editar comentario";
-                        dateTimePicker_fecha.Enabled = true;
                         button_accion1.Enabled = false;
                         button_accion2.Enabled = false;
                         button_accion1.Text = "Guardar cambios";

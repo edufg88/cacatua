@@ -1479,6 +1479,7 @@
             this.dataGridViewTextBoxColumn_categoria.HeaderText = "Categoría";
             this.dataGridViewTextBoxColumn_categoria.Name = "dataGridViewTextBoxColumn_categoria";
             this.dataGridViewTextBoxColumn_categoria.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_categoria.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // dataGridViewTextBoxColumn_usuario
             // 

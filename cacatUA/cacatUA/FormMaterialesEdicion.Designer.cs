@@ -32,8 +32,8 @@
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
-            this.linkLabel_respuestas = new System.Windows.Forms.LinkLabel();
-            this.textBox_respuestas = new System.Windows.Forms.TextBox();
+            this.linkLabel_comentarios = new System.Windows.Forms.LinkLabel();
+            this.textBox_numComentarios = new System.Windows.Forms.TextBox();
             this.label_respuestas = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
@@ -96,8 +96,8 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.linkLabel_respuestas);
-            this.panel6.Controls.Add(this.textBox_respuestas);
+            this.panel6.Controls.Add(this.linkLabel_comentarios);
+            this.panel6.Controls.Add(this.textBox_numComentarios);
             this.panel6.Controls.Add(this.label_respuestas);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 180);
@@ -106,25 +106,25 @@
             this.panel6.Size = new System.Drawing.Size(808, 30);
             this.panel6.TabIndex = 7;
             // 
-            // linkLabel_respuestas
+            // linkLabel_comentarios
             // 
-            this.linkLabel_respuestas.AutoSize = true;
-            this.linkLabel_respuestas.Location = new System.Drawing.Point(192, 8);
-            this.linkLabel_respuestas.Name = "linkLabel_respuestas";
-            this.linkLabel_respuestas.Size = new System.Drawing.Size(83, 13);
-            this.linkLabel_respuestas.TabIndex = 0;
-            this.linkLabel_respuestas.TabStop = true;
-            this.linkLabel_respuestas.Text = "Ver comentarios";
-            this.linkLabel_respuestas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.mostrarComentarios);
+            this.linkLabel_comentarios.AutoSize = true;
+            this.linkLabel_comentarios.Location = new System.Drawing.Point(192, 8);
+            this.linkLabel_comentarios.Name = "linkLabel_comentarios";
+            this.linkLabel_comentarios.Size = new System.Drawing.Size(83, 13);
+            this.linkLabel_comentarios.TabIndex = 0;
+            this.linkLabel_comentarios.TabStop = true;
+            this.linkLabel_comentarios.Text = "Ver comentarios";
+            this.linkLabel_comentarios.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.mostrarComentarios);
             // 
-            // textBox_respuestas
+            // textBox_numComentarios
             // 
-            this.textBox_respuestas.Location = new System.Drawing.Point(125, 5);
-            this.textBox_respuestas.Name = "textBox_respuestas";
-            this.textBox_respuestas.ReadOnly = true;
-            this.textBox_respuestas.Size = new System.Drawing.Size(59, 20);
-            this.textBox_respuestas.TabIndex = 3;
-            this.textBox_respuestas.TabStop = false;
+            this.textBox_numComentarios.Location = new System.Drawing.Point(125, 5);
+            this.textBox_numComentarios.Name = "textBox_numComentarios";
+            this.textBox_numComentarios.ReadOnly = true;
+            this.textBox_numComentarios.Size = new System.Drawing.Size(59, 20);
+            this.textBox_numComentarios.TabIndex = 3;
+            this.textBox_numComentarios.TabStop = false;
             // 
             // label_respuestas
             // 
@@ -630,8 +630,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
         private System.Windows.Forms.Label label_fechaCreacion;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.LinkLabel linkLabel_respuestas;
-        private System.Windows.Forms.TextBox textBox_respuestas;
+        private System.Windows.Forms.LinkLabel linkLabel_comentarios;
+        private System.Windows.Forms.TextBox textBox_numComentarios;
         private System.Windows.Forms.Label label_respuestas;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button button4;
