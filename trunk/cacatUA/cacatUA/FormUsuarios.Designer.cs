@@ -45,8 +45,8 @@
             this.button_ocultarP2 = new System.Windows.Forms.Button();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_DataGridViewUsuarios = new System.Windows.Forms.Panel();
-            this.button_editarHilo = new System.Windows.Forms.Button();
-            this.button_borrarHilo = new System.Windows.Forms.Button();
+            this.button_editarUsuario = new System.Windows.Forms.Button();
+            this.button_borrarUsuario = new System.Windows.Forms.Button();
             this.dataGridView_usuarios = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -254,8 +254,8 @@
             // 
             // panel_DataGridViewUsuarios
             // 
-            this.panel_DataGridViewUsuarios.Controls.Add(this.button_editarHilo);
-            this.panel_DataGridViewUsuarios.Controls.Add(this.button_borrarHilo);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.button_editarUsuario);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.button_borrarUsuario);
             this.panel_DataGridViewUsuarios.Controls.Add(this.dataGridView_usuarios);
             this.panel_DataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_DataGridViewUsuarios.Location = new System.Drawing.Point(3, 388);
@@ -263,37 +263,37 @@
             this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 109);
             this.panel_DataGridViewUsuarios.TabIndex = 36;
             // 
-            // button_editarHilo
+            // button_editarUsuario
             // 
-            this.button_editarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_editarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarHilo.FlatAppearance.BorderSize = 0;
-            this.button_editarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarHilo.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarHilo.Location = new System.Drawing.Point(788, 3);
-            this.button_editarHilo.Name = "button_editarHilo";
-            this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
-            this.button_editarHilo.TabIndex = 12;
-            this.button_editarHilo.Tag = "Modificar hilo seleccionado";
-            this.button_editarHilo.UseVisualStyleBackColor = true;
-            this.button_editarHilo.Click += new System.EventHandler(this.button_editarHilo_Click);
+            this.button_editarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_editarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarUsuario.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarUsuario.Location = new System.Drawing.Point(788, 3);
+            this.button_editarUsuario.Name = "button_editarUsuario";
+            this.button_editarUsuario.Size = new System.Drawing.Size(36, 36);
+            this.button_editarUsuario.TabIndex = 12;
+            this.button_editarUsuario.Tag = "Modificar hilo seleccionado";
+            this.button_editarUsuario.UseVisualStyleBackColor = true;
+            this.button_editarUsuario.Click += new System.EventHandler(this.button_editarUsuario_Click);
             // 
-            // button_borrarHilo
+            // button_borrarUsuario
             // 
-            this.button_borrarHilo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_borrarHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarHilo.FlatAppearance.BorderSize = 0;
-            this.button_borrarHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarHilo.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarHilo.Location = new System.Drawing.Point(788, 40);
-            this.button_borrarHilo.Name = "button_borrarHilo";
-            this.button_borrarHilo.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarHilo.TabIndex = 11;
-            this.button_borrarHilo.Tag = "Eliminar hilo seleccionado";
-            this.button_borrarHilo.UseVisualStyleBackColor = true;
-            this.button_borrarHilo.Click += new System.EventHandler(this.button_borrarHilo_Click);
+            this.button_borrarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_borrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_borrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarUsuario.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarUsuario.Location = new System.Drawing.Point(788, 40);
+            this.button_borrarUsuario.Name = "button_borrarUsuario";
+            this.button_borrarUsuario.Size = new System.Drawing.Size(36, 36);
+            this.button_borrarUsuario.TabIndex = 11;
+            this.button_borrarUsuario.Tag = "Eliminar hilo seleccionado";
+            this.button_borrarUsuario.UseVisualStyleBackColor = true;
+            this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
             // 
             // dataGridView_usuarios
             // 
@@ -325,46 +325,55 @@
             // 
             this.id.HeaderText = "Id";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             // 
             // usuario
             // 
             this.usuario.HeaderText = "Usuario";
             this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
             // 
             // contrasena
             // 
             this.contrasena.HeaderText = "Contraseña";
             this.contrasena.Name = "contrasena";
+            this.contrasena.ReadOnly = true;
             // 
             // nombre
             // 
             this.nombre.HeaderText = "Nombre";
             this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
             // 
             // dni
             // 
             this.dni.HeaderText = "DNI";
             this.dni.Name = "dni";
+            this.dni.ReadOnly = true;
             // 
             // correo
             // 
             this.correo.HeaderText = "Correo";
             this.correo.Name = "correo";
+            this.correo.ReadOnly = true;
             // 
             // adicional
             // 
             this.adicional.HeaderText = "Adicional";
             this.adicional.Name = "adicional";
+            this.adicional.ReadOnly = true;
             // 
             // fechaingreso
             // 
             this.fechaingreso.HeaderText = "Fecha de ingreso";
             this.fechaingreso.Name = "fechaingreso";
+            this.fechaingreso.ReadOnly = true;
             // 
             // activo
             // 
             this.activo.HeaderText = "Activo";
             this.activo.Name = "activo";
+            this.activo.ReadOnly = true;
             // 
             // FormUsuarios
             // 
@@ -409,8 +418,8 @@
         private System.Windows.Forms.DataGridView dataGridView_usuarios;
         private System.Windows.Forms.Panel panel_cabeceraSeccion2;
         private System.Windows.Forms.Label label_seccion2;
-        private System.Windows.Forms.Button button_borrarHilo;
-        private System.Windows.Forms.Button button_editarHilo;
+        private System.Windows.Forms.Button button_borrarUsuario;
+        private System.Windows.Forms.Button button_editarUsuario;
         private System.Windows.Forms.Button button_ocultarP1;
         private System.Windows.Forms.Button button_ocultarP2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;

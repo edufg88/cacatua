@@ -15,6 +15,7 @@ namespace cacatUA
     {
         private FormUsuarioBusqueda formBusqueda;
         private FormUsuarioEdicion formEdicion;
+        private ENUsuario usuarioSeleccionado;
         private bool ocultoP1;
         private bool ocultoP2;
         private int formulario; // 0 = formBusqueda, 1 = formEdicion;
@@ -27,6 +28,7 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
+            usuarioSeleccionado = new ENUsuario();
             formulario = 0;
             // Indican si los paneles están ocultos o no
             ocultoP1 = false;
@@ -101,6 +103,12 @@ namespace cacatUA
                 dataGridView_usuarios.Rows.Add(fila);
             }
         }
+
+        override public Object Enviar()
+        {
+            return usuarioSeleccionado;
+        }
+
         private void button_seccionBuscar_Click(object sender, EventArgs e)
         {
             // Cargamos el user control de busqueda
@@ -152,6 +160,8 @@ namespace cacatUA
             if (!ocultoP2)
             {
                 dataGridView_usuarios.Hide();
+                button_borrarUsuario.Hide();
+                button_editarUsuario.Hide();
                 tableLayoutPanel_principal.RowStyles[5].Height = 0;
                 ocultoP2 = true;
             }
@@ -169,18 +179,20 @@ namespace cacatUA
             CambiarFormularioEdicion();
             // Cargamos los datos en el formulario
             formEdicion.CambiarSeleccionado(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+            usuarioSeleccionado.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
         }
 
-        private void button_editarHilo_Click(object sender, EventArgs e)
+        private void button_editarUsuario_Click(object sender, EventArgs e)
         {
             if (dataGridView_usuarios.SelectedRows.Count > 0)
             {
                 CambiarFormularioEdicion();
                 formEdicion.CambiarSeleccionado(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+                usuarioSeleccionado.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
             }
         }
 
-        private void button_borrarHilo_Click(object sender, EventArgs e)
+        private void button_borrarUsuario_Click(object sender, EventArgs e)
         {
             if (dataGridView_usuarios.SelectedRows.Count > 0)
             {

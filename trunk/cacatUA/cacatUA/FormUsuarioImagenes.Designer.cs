@@ -48,12 +48,6 @@
             this.button_editarImagen = new System.Windows.Forms.Button();
             this.button_borrarImagen = new System.Windows.Forms.Button();
             this.dataGridView_imagenes = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.archivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
@@ -63,6 +57,12 @@
             this.panel_cabecera = new System.Windows.Forms.Panel();
             this.label_imagenes = new System.Windows.Forms.Label();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_contenedor.SuspendLayout();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -315,45 +315,6 @@
             this.dataGridView_imagenes.TabIndex = 4;
             this.dataGridView_imagenes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_imagenes_CellMouseDoubleClick);
             // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.FillWeight = 152.2843F;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 43;
-            // 
-            // usuario
-            // 
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.Name = "usuario";
-            this.usuario.ReadOnly = true;
-            // 
-            // titulo
-            // 
-            this.titulo.HeaderText = "Titulo";
-            this.titulo.Name = "titulo";
-            this.titulo.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripción";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // archivo
-            // 
-            this.archivo.HeaderText = "Archivo";
-            this.archivo.Name = "archivo";
-            this.archivo.ReadOnly = true;
-            // 
             // panel_cabeceraSeccion2
             // 
             this.panel_cabeceraSeccion2.BackColor = System.Drawing.Color.LightGray;
@@ -459,6 +420,45 @@
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(732, 355);
             this.tableLayoutPanel_principal.TabIndex = 3;
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.FillWeight = 152.2843F;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 43;
+            // 
+            // usuario
+            // 
+            this.usuario.HeaderText = "Usuario";
+            this.usuario.Name = "usuario";
+            this.usuario.ReadOnly = true;
+            // 
+            // titulo
+            // 
+            this.titulo.HeaderText = "Titulo";
+            this.titulo.Name = "titulo";
+            this.titulo.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // archivo
+            // 
+            this.archivo.HeaderText = "Archivo";
+            this.archivo.Name = "archivo";
+            this.archivo.ReadOnly = true;
+            // 
             // FormUsuarioImagenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -511,12 +511,6 @@
         private System.Windows.Forms.Button button_editarImagen;
         private System.Windows.Forms.Button button_borrarImagen;
         private System.Windows.Forms.DataGridView dataGridView_imagenes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn archivo;
         private System.Windows.Forms.Panel panel_cabeceraSeccion2;
         private System.Windows.Forms.Label label_seccion2;
         private System.Windows.Forms.Panel panel_cabeceraSeccion1;
@@ -526,6 +520,12 @@
         private System.Windows.Forms.Panel panel_cabecera;
         private System.Windows.Forms.Label label_imagenes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_principal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn archivo;
 
     }
 }
