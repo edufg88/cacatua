@@ -364,6 +364,7 @@ namespace cacatUA
                 controles["id"].Text = material.Id.ToString();
                 controles["nombre"].Text = material.Nombre;
                 controles["descripcion"].Text = material.Descripcion;
+                ((DateTimePicker)controles["fecha"]).Value = material.Fecha;
                 // fecha
 
                 controles["usuario"].Text = material.Usuario.Usuario;

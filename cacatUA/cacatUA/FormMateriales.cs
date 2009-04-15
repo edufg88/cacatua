@@ -142,7 +142,7 @@ namespace cacatUA
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_comentarios"].Index;
                 fila.Cells[posicion].Value = material.NumComentarios;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_fecha"].Index;
-                fila.Cells[posicion].Value = material.Fecha.ToUniversalTime();
+                fila.Cells[posicion].Value = material.Fecha;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_usuario"].Index;
                 fila.Cells[posicion].Value = material.Usuario.Usuario;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_categoria"].Index;
