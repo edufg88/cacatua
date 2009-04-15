@@ -38,6 +38,22 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene una entidad de negocio Hilo desde una lectura de la base de datos.
+        /// </summary>
+        /// <param name="dataReader">Lectura de la base de datos desde la que se genera el ENHilo.</param>
+        /// <returns>Devuelve un ENHilo.</returns>
+        private ENRespuesta obtenerDatos(SqlDataReader dataReader)
+        {
+            ENRespuesta respuesta = new ENRespuesta();
+            respuesta.Id = int.Parse(dataReader["id"].ToString());
+            respuesta.Autor = new ENUsuario(int.Parse(dataReader["autor"].ToString()));
+            respuesta.Texto = dataReader["texto"].ToString();
+            respuesta.Hilo = ENHilo.Obtener(int.Parse(dataReader["hilo"].ToString()));
+            respuesta.Fecha = (DateTime)dataReader["fecha"];
+            return respuesta;
+        }
+
+        /// <summary>
         /// Obtiene las respuestas de un hilo. Si el hilo no tiene respuestas, se obtiene una lista
         /// de longitud 0. Si ocurre un error, devuelve una lista nula.
         /// </summary>
@@ -58,7 +74,45 @@ namespace Libreria
         /// <returns>Devuelve la respuesta del identificador seleccionado. Si falla, devuelve null.</returns>
         public ENRespuesta Obtener(int id)
         {
-            return null;
+            ENRespuesta respuesta = null;
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+                comando.CommandText = "select * from respuesta where id = @id";
+                comando.Parameters.AddWithValue("@id", id);
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Si hay al menos una fila, extraemos los valores de la primera.
+                if (dataReader.Read())
+                {
+                    respuesta = obtenerDatos(dataReader);
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENRespuesta RespuestaCAD.Obtener(ind id) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return respuesta;
         }
 
         /// <summary>

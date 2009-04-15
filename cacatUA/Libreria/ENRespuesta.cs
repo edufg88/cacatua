@@ -11,18 +11,21 @@ namespace Libreria
         private String texto;
         private ENUsuario autor;
         private DateTime fecha;
+        private ENHilo hilo;
 
         public ENRespuesta()
         {
             id = 0;
             texto = "";
             autor = null;
+            hilo = null;
             fecha = new DateTime();
         }
 
         public int Id
         {
             get { return id; }
+            set { id = value; }
         }
 
         public String Texto
@@ -35,6 +38,12 @@ namespace Libreria
         {
             get { return autor; }
             set { autor = value; }
+        }
+
+        public ENHilo Hilo
+        {
+            get { return hilo; }
+            set { hilo = value; }
         }
 
         public DateTime Fecha
