@@ -17,6 +17,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ComprimirArchivo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreFichero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ComprimirArchivoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ComprimirArchivoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Hola">
         <s:complexType />
       </s:element>
@@ -49,6 +63,12 @@
   <wsdl:message name="subirArchivoSoapOut">
     <wsdl:part name="parameters" element="tns:subirArchivoResponse" />
   </wsdl:message>
+  <wsdl:message name="ComprimirArchivoSoapIn">
+    <wsdl:part name="parameters" element="tns:ComprimirArchivo" />
+  </wsdl:message>
+  <wsdl:message name="ComprimirArchivoSoapOut">
+    <wsdl:part name="parameters" element="tns:ComprimirArchivoResponse" />
+  </wsdl:message>
   <wsdl:message name="HolaSoapIn">
     <wsdl:part name="parameters" element="tns:Hola" />
   </wsdl:message>
@@ -66,6 +86,10 @@
       <wsdl:input message="tns:subirArchivoSoapIn" />
       <wsdl:output message="tns:subirArchivoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="ComprimirArchivo">
+      <wsdl:input message="tns:ComprimirArchivoSoapIn" />
+      <wsdl:output message="tns:ComprimirArchivoSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Hola">
       <wsdl:input message="tns:HolaSoapIn" />
       <wsdl:output message="tns:HolaSoapOut" />
@@ -79,6 +103,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="subirArchivo">
       <soap:operation soapAction="http://84.120.44.73/subirArchivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprimirArchivo">
+      <soap:operation soapAction="http://84.120.44.73/ComprimirArchivo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -109,6 +142,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="subirArchivo">
       <soap12:operation soapAction="http://84.120.44.73/subirArchivo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComprimirArchivo">
+      <soap12:operation soapAction="http://84.120.44.73/ComprimirArchivo" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

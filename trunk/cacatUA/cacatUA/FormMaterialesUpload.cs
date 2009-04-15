@@ -87,6 +87,7 @@ namespace cacatUA
                         {
                             byte[] data = br.ReadBytes((int)bytesRestantes);
                             sTmp = fileUploader.subirArchivo(data, strFile);
+                            MessageBox.Show(sTmp);
                             bytesRestantes = 0;
                             bytesEscritos = numBytes;
                         }
@@ -107,6 +108,8 @@ namespace cacatUA
                     }
                     else
                     {
+                        // Comprimimos el archivo
+                        MessageBox.Show(fileUploader.ComprimirArchivo(strFile));
                         // Completamos la transacción
                         material.CompletarGuardar();
                     }

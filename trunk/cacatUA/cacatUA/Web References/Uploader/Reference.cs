@@ -31,6 +31,8 @@ namespace cacatUA.Uploader {
         
         private System.Threading.SendOrPostCallback subirArchivoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ComprimirArchivoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback HolaOperationCompleted;
         
         private System.Threading.SendOrPostCallback BorrarFicheroOperationCompleted;
@@ -77,6 +79,9 @@ namespace cacatUA.Uploader {
         public event subirArchivoCompletedEventHandler subirArchivoCompleted;
         
         /// <remarks/>
+        public event ComprimirArchivoCompletedEventHandler ComprimirArchivoCompleted;
+        
+        /// <remarks/>
         public event HolaCompletedEventHandler HolaCompleted;
         
         /// <remarks/>
@@ -110,6 +115,35 @@ namespace cacatUA.Uploader {
             if ((this.subirArchivoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.subirArchivoCompleted(this, new subirArchivoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/ComprimirArchivo", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string ComprimirArchivo(string nombreFichero) {
+            object[] results = this.Invoke("ComprimirArchivo", new object[] {
+                        nombreFichero});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ComprimirArchivoAsync(string nombreFichero) {
+            this.ComprimirArchivoAsync(nombreFichero, null);
+        }
+        
+        /// <remarks/>
+        public void ComprimirArchivoAsync(string nombreFichero, object userState) {
+            if ((this.ComprimirArchivoOperationCompleted == null)) {
+                this.ComprimirArchivoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnComprimirArchivoOperationCompleted);
+            }
+            this.InvokeAsync("ComprimirArchivo", new object[] {
+                        nombreFichero}, this.ComprimirArchivoOperationCompleted, userState);
+        }
+        
+        private void OnComprimirArchivoOperationCompleted(object arg) {
+            if ((this.ComprimirArchivoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ComprimirArchivoCompleted(this, new ComprimirArchivoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -201,6 +235,32 @@ namespace cacatUA.Uploader {
         private object[] results;
         
         internal subirArchivoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
+    public delegate void ComprimirArchivoCompletedEventHandler(object sender, ComprimirArchivoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ComprimirArchivoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ComprimirArchivoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
