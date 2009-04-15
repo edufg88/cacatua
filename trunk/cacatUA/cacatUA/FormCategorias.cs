@@ -21,7 +21,8 @@ namespace cacatUA
         // 0 => Normal, navegando
         // 1 => Editando una categoria
         // 2 => Creando una categoria
-        private int estado = 0;
+        private enum EstadoFormulario { NINGUNO = 0, CREACION = 1, EDICION = 2 };
+        EstadoFormulario estado;
 
         public FormCategorias()
         {
@@ -59,7 +60,7 @@ namespace cacatUA
         private void treeViewCategorias_AfterSelect(object sender, TreeViewEventArgs e)
         {
             groupBox_Informacion.Enabled = true;
-            if (estado == 0)
+            if (estado == EstadoFormulario.NINGUNO)
             {
                 //Obtenemos la instancia de la Categoria seleccionada
                 seleccionada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
@@ -102,7 +103,7 @@ namespace cacatUA
             textBox_Ruta.Text = enrutada.NombreCompleto().ToString();
             
             //Parametros
-            estado = 2;
+            estado = EstadoFormulario.CREACION;
         }
 
         private void button_editarCategoria_Click(object sender, EventArgs e)
@@ -122,7 +123,7 @@ namespace cacatUA
                 ActivarEdicion();
 
                 //Parametros
-                estado = 1;
+                estado = EstadoFormulario.EDICION;
             }
         }
 
@@ -161,7 +162,7 @@ namespace cacatUA
             }
             else {
                 //Comprobar accion a realizar
-                if (estado == 1)
+                if (estado == EstadoFormulario.EDICION)
                 {
                     bool validado = true;
 
@@ -224,7 +225,7 @@ namespace cacatUA
                 DesactivarEdicion();
 
                 enrutada = null;
-                estado = 0;
+                estado = EstadoFormulario.NINGUNO;
             }
         }
 
@@ -234,7 +235,7 @@ namespace cacatUA
             DesactivarEdicion();
 
             enrutada = null;
-            estado = 0;
+            estado = EstadoFormulario.NINGUNO;
 
             textBox_Descripcion.Text = seleccionada.Descripcion;
             textBox_Nombre.Text = seleccionada.Nombre;
