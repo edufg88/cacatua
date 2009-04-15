@@ -118,6 +118,11 @@ namespace Libreria
             return EncuestaCAD.Instancia.BuscarEncuesta(usuario);
         }
 
+        public int Cantidad()
+        {
+            return EncuestaCAD.Instancia.CantidadEncuestas();
+        }
+
         public int Id
         {
             get { return id; }
