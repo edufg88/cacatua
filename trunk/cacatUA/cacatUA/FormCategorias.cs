@@ -146,11 +146,10 @@ namespace cacatUA
                     if (seleccionada.Borrar())
                     {
                         treeViewCategorias.Nodes.Remove(treeViewCategorias.SelectedNode);
-                        MessageBox.Show("Categoria borrada correctamente.");
                     }
                     else
                     {
-                        MessageBox.Show("Error al borrar categoria.");
+                        MessageBox.Show("Error al borrar categoria.", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 textBox_Descripcion.Clear();
@@ -192,7 +191,7 @@ namespace cacatUA
                     {
                         if (!seleccionada.Actualizar())
                         {
-                            MessageBox.Show("Error al actualizar categoria.");
+                            MessageBox.Show("Error al actualizar categoria.", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -212,7 +211,7 @@ namespace cacatUA
 
                     if (!nCategoria.Guardar())
                     {
-                        MessageBox.Show("Error al crear categoria.");
+                        MessageBox.Show("Error al crear categoria.","Error interno",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
             }
@@ -300,7 +299,7 @@ namespace cacatUA
             }
             else
             {
-                MessageBox.Show("Debes seleccionar una usuario.", "Error de navegación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debes seleccionar un usuario.", "Error de navegación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -320,9 +319,17 @@ namespace cacatUA
         {
             if (dataGridView_Usuarios.SelectedRows.Count > 0)
             {
-                DataGridViewSelectedRowCollection filas = dataGridView_Usuarios.SelectedRows;
-                if (DialogResult.Yes == MessageBox.Show("¿Está seguro de que desea dessuscribir estos usuarios?", "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
+                string texto = "";
+
+                if (dataGridView_Usuarios.SelectedRows.Count == 1)
+                    texto = "¿Está seguro de que desea dessuscribir este usuario?";
+                else
+                    texto = "¿Está seguro de que desea dessuscribir estos usuarios?";
+
+                if (DialogResult.Yes == MessageBox.Show(texto, "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
                 {
+                    DataGridViewSelectedRowCollection filas = dataGridView_Usuarios.SelectedRows;
+
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
