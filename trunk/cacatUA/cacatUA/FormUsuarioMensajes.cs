@@ -69,10 +69,9 @@ namespace cacatUA
 
         private void cambiarSeleccionado(int id)
         {
-            ENMensaje mensaje = new ENMensaje();
-            bool correcto = mensaje.Obtener(id);
+            ENMensaje mensaje = ENMensaje.Obtener(id);
 
-            if (correcto == false)
+            if (mensaje == null)
             {
                 MessageBox.Show("Error al cargar el mensaje", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -135,7 +134,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENMensaje nuevo = new ENMensaje(int.Parse(textBox_id.Text));
+            ENMensaje nuevo = ENMensaje.Obtener(int.Parse(textBox_id.Text));
             nuevo.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
             nuevo.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
             nuevo.Texto = textBox_texto.Text;

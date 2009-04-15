@@ -53,10 +53,9 @@ namespace cacatUA
 
         private void cambiarSeleccionado(int id)
         {
-            ENEncuesta encuesta = new ENEncuesta();
-            bool correcto = encuesta.Obtener(id);
+            ENEncuesta encuesta = ENEncuesta.Obtener(id);
 
-            if (correcto == false)
+            if (encuesta == null)
             {
                 MessageBox.Show("Error al cargar la encuesta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -93,7 +92,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENEncuesta nueva = new ENEncuesta(int.Parse(textBox_id.Text));
+            ENEncuesta nueva = ENEncuesta.Obtener(int.Parse(textBox_id.Text));
             nueva.Pregunta = textBox_pregunta.Text;
             nueva.Usuario = ENUsuario.Obtener(this.us.Id);
             nueva.Fecha = dateTimePicker_fecha.Value;

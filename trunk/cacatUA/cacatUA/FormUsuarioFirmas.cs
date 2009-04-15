@@ -55,10 +55,9 @@ namespace cacatUA
 
         private void cambiarSeleccionado(int id)
         {
-            ENFirma firma = new ENFirma();
-            bool correcto = firma.Obtener(id);
+            ENFirma firma = ENFirma.Obtener(id);
 
-            if (correcto == false)
+            if (firma == null)
             {
                 MessageBox.Show("Error al cargar la firma", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -134,7 +133,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENFirma nueva = new ENFirma(int.Parse(textBox_id.Text));
+            ENFirma nueva = ENFirma.Obtener(int.Parse(textBox_id.Text));
             nueva.Emisor = ENUsuario.Obtener(textBox_emisor.Text);
             nueva.Receptor = ENUsuario.Obtener(textBox_receptor.Text);
             nueva.Texto = textBox_texto.Text;

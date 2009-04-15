@@ -21,6 +21,7 @@ namespace Libreria
             activa = false;
         }
 
+        /*
         public ENEncuesta(int id)
         {
             ENEncuesta aux = EncuestaCAD.Instancia.ObtenerEncuesta(id);
@@ -35,7 +36,7 @@ namespace Libreria
             this.usuario = aux.usuario;
             this.fecha = aux.fecha;
             this.activa = aux.activa;
-        }
+        }*/
 
         public ENEncuesta(string pregunta, string usuario, DateTime fecha, bool activa)
         {
@@ -47,11 +48,20 @@ namespace Libreria
             this.activa = activa;
         }
 
+        public static ENEncuesta Obtener(int id)
+        {
+            ENEncuesta aux = null;
+            aux = EncuestaCAD.Instancia.ObtenerEncuesta(id);
+
+            return aux;
+        }
+
         public static ArrayList Obtener()
         {
             return EncuestaCAD.Instancia.ObtenerEncuestas();
         }
 
+        /*
         public bool Obtener(int id)
         {
             ENEncuesta aux = new ENEncuesta();
@@ -71,7 +81,7 @@ namespace Libreria
             {
                 return false;
             }
-        }
+        }*/
 
         override public bool Actualizar()
         {

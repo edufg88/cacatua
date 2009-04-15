@@ -319,6 +319,7 @@
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 351);
             this.dataGridView_usuarios.TabIndex = 2;
+            this.dataGridView_usuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseClick);
             this.dataGridView_usuarios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseDoubleClick);
             // 
             // id

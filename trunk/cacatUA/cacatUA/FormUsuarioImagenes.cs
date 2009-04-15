@@ -55,10 +55,10 @@ namespace cacatUA
 
         private void cambiarSeleccionado(int id)
         {
-            ENImagen imagen = new ENImagen();
-            bool correcto = imagen.Obtener(id);
+            ENImagen imagen = null;
+            imagen = ENImagen.Obtener(id);
 
-            if (correcto == false)
+            if (imagen == null)
             {
                 MessageBox.Show("Error al cargar la imagen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,7 +97,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
-            ENImagen nueva = new ENImagen(int.Parse(textBox_id.Text));
+            ENImagen nueva = ENImagen.Obtener(int.Parse(textBox_id.Text));
             nueva.Titulo = textBox_titulo.Text;
             nueva.Descripcion = textBox_descripcion.Text;
             nueva.Fecha = dateTimePicker_fecha.Value;

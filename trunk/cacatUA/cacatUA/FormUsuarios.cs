@@ -210,5 +210,10 @@ namespace cacatUA
             formEdicion.CambiarNuevo();
         }
 
+        private void dataGridView_usuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            usuarioSeleccionado = ENUsuario.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+        }
+
     }
 }
