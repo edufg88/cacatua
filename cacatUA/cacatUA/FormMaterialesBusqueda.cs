@@ -14,7 +14,7 @@ namespace cacatUA
     public partial class FormMaterialesBusqueda : InterfazForm
     {
         private FormMateriales formularioPadre = null;
-
+        private ENCategoria categoria = null;
         public FormMaterialesBusqueda(FormMateriales formularioPadre)
         {
             InitializeComponent();
@@ -27,16 +27,13 @@ namespace cacatUA
             {
                 if (objeto is ENCategoria)
                 {
-                    ENCategoria categoria = (ENCategoria)objeto;
+                    categoria = (ENCategoria)objeto;
                     textBox_categoria.Text = categoria.NombreCompleto();
                 }
                 else
                 {
                     if (objeto is ENUsuario)
-                    {
-                        //usuario = (ENUsuario)objeto;
-                        //textBox_autor.Text = usuario.Usuario;
-                    }
+                        textBox_usuario.Text = ((ENUsuario)objeto).Usuario;
                 }
             }
         }
@@ -60,7 +57,6 @@ namespace cacatUA
                         errorProvider1.SetError(textBox_usuario, "Usuario no válido");
                     }
                 }
-                string categoria = textBox_categoria.Text;
                 string filtroBusqueda = textBox_filtroBusqueda.Text;
                 DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
                 DateTime fechaFin = dateTimePicker_fechaFin.Value;
@@ -95,7 +91,6 @@ namespace cacatUA
                         errorProvider1.SetError(textBox_usuario, "Usuario no válido");
                     }
                 }
-                string categoria = textBox_categoria.Text;
                 string filtroBusqueda = textBox_filtroBusqueda.Text;
                 DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
                 DateTime fechaFin = dateTimePicker_fechaFin.Value;
@@ -129,6 +124,20 @@ namespace cacatUA
                     textBox_filtroBusqueda.Text, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
             }
             */
+        }
+
+        private void seleccionarCategoria(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true,
+                "Volver al panel anterior seleccionando la categoría actual",
+                "Cancelar la selección y volver al panel anterior");
+        }
+
+        private void seleccionarUsuario(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true,
+                "Volver al panel anterior seleccionando el usuario actual",
+                "Cancelar la selección y volver al panel anterior");
         }
     }
 }

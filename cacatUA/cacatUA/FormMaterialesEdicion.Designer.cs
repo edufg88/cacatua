@@ -42,9 +42,11 @@
             this.textBox_descripcion = new System.Windows.Forms.TextBox();
             this.label_texto = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button_seleccionarCategoria = new System.Windows.Forms.Button();
             this.textBox_categoria = new System.Windows.Forms.TextBox();
             this.label_categoria = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.textBox_usuario = new System.Windows.Forms.TextBox();
             this.label_usuario = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -60,6 +62,7 @@
             this.textBox_referencia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.textBox_archivo = new System.Windows.Forms.TextBox();
             this.label_archivo = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -72,9 +75,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox_descargas = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button_seleccionarCategoria = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -148,9 +148,13 @@
             // 
             // dateTimePicker_fecha
             // 
+            this.dateTimePicker_fecha.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlLight;
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(263, 20);
             this.dateTimePicker_fecha.TabIndex = 0;
             // 
             // label_fechaCreacion
@@ -204,12 +208,29 @@
             this.panel3.Size = new System.Drawing.Size(808, 30);
             this.panel3.TabIndex = 3;
             // 
+            // button_seleccionarCategoria
+            // 
+            this.button_seleccionarCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_seleccionarCategoria.BackColor = System.Drawing.SystemColors.Window;
+            this.button_seleccionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seleccionarCategoria.FlatAppearance.BorderSize = 0;
+            this.button_seleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seleccionarCategoria.Image = global::cacatUA.Properties.Resources.seleccionar1;
+            this.button_seleccionarCategoria.Location = new System.Drawing.Point(752, 6);
+            this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
+            this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
+            this.button_seleccionarCategoria.TabIndex = 143;
+            this.button_seleccionarCategoria.TabStop = false;
+            this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
+            this.button_seleccionarCategoria.Click += new System.EventHandler(this.seleccionarCategoria);
+            // 
             // textBox_categoria
             // 
             this.textBox_categoria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_categoria.Location = new System.Drawing.Point(125, 5);
             this.textBox_categoria.Name = "textBox_categoria";
+            this.textBox_categoria.ReadOnly = true;
             this.textBox_categoria.Size = new System.Drawing.Size(648, 20);
             this.textBox_categoria.TabIndex = 0;
             // 
@@ -233,6 +254,22 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(808, 30);
             this.panel2.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::cacatUA.Properties.Resources.seleccionar1;
+            this.button1.Location = new System.Drawing.Point(752, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(20, 18);
+            this.button1.TabIndex = 144;
+            this.button1.TabStop = false;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.seleccionarUsuario);
             // 
             // textBox_usuario
             // 
@@ -410,6 +447,21 @@
             this.panel14.Size = new System.Drawing.Size(808, 30);
             this.panel14.TabIndex = 115;
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.SystemColors.Window;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::cacatUA.Properties.Resources.examinar;
+            this.button4.Location = new System.Drawing.Point(751, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(20, 18);
+            this.button4.TabIndex = 107;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
+            // 
             // textBox_archivo
             // 
             this.textBox_archivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -517,51 +569,6 @@
             this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descargas:";
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.SystemColors.Window;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button1.Location = new System.Drawing.Point(752, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 18);
-            this.button1.TabIndex = 144;
-            this.button1.TabStop = false;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button_seleccionarCategoria
-            // 
-            this.button_seleccionarCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_seleccionarCategoria.BackColor = System.Drawing.SystemColors.Window;
-            this.button_seleccionarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seleccionarCategoria.FlatAppearance.BorderSize = 0;
-            this.button_seleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seleccionarCategoria.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarCategoria.Location = new System.Drawing.Point(752, 6);
-            this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
-            this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarCategoria.TabIndex = 143;
-            this.button_seleccionarCategoria.TabStop = false;
-            this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::cacatUA.Properties.Resources.examinar;
-            this.button4.Location = new System.Drawing.Point(751, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 18);
-            this.button4.TabIndex = 107;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
             // 
             // FormMaterialesEdicion
             // 

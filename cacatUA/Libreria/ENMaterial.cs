@@ -24,13 +24,14 @@ namespace Libreria
         private string descripcion;
         private DateTime fecha;
         private ENUsuario usuario;
-        private string categoria;
+        private ENCategoria categoria;
         private string archivo;
         private int tamaño;
         private int descargas;
         private int puntuacion;
         private int votos;
         private string referencia;
+        private int numComentarios;
 
         /// <summary>
         /// Constructor por defecto. Crea un material vacío.
@@ -42,13 +43,14 @@ namespace Libreria
             nombre = "";
             descripcion = "";
             usuario = null;
-            categoria = "";
+            categoria = null;
             archivo = "";
             tamaño = 0;
             descargas = 0;
             puntuacion = 0;
             votos = 0;
             referencia = "";
+            numComentarios = 0;
         }
         /*
         public ENMaterial(int id)
@@ -96,13 +98,14 @@ namespace Libreria
                     }
                 case "categoria":
                     {
+                        /*
                         if (categoria == "")
                             error = msj_blanco;
                         else
                         {
                             if (categoria.Length > maxTamCategoria || categoria.Length < minTamCategoria)
                                 error = "Debe tener entre " + minTamCategoria + " y " + maxTamCategoria + " caracteres";
-                        }
+                        }*/
                         break;
                     }
                 case "archivo":
@@ -205,7 +208,7 @@ namespace Libreria
             return MaterialCAD.Instancia.ObtenerComentario(id);
         }
 
-        public static ArrayList Obtener(string filtroBusqueda, ENUsuario usuario,string categoria, DateTime fechaInicio, DateTime fechaFin)
+        public static ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, ENCategoria categoria, DateTime fechaInicio, DateTime fechaFin)
         {
             return MaterialCAD.Instancia.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
         }
@@ -265,7 +268,7 @@ namespace Libreria
             set { usuario = value; }
         }
 
-        public string Categoria
+        public ENCategoria Categoria
         {
             get { return categoria; }
             set { categoria = value; }
@@ -305,6 +308,12 @@ namespace Libreria
         {
             get { return referencia; }
             set { referencia = value; }
+        }
+
+        public int NumComentarios
+        {
+            get { return numComentarios; }
+            set { numComentarios = value; }
         }
     }
 

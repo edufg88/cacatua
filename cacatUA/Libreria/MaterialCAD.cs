@@ -61,7 +61,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@nombre", material.Nombre);
                 comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
                 comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
-                comando.Parameters.AddWithValue("@categoria", getIdCategoria(material.Categoria));
+                comando.Parameters.AddWithValue("@categoria", material.Categoria);
                 comando.Parameters.AddWithValue("@archivo", material.Archivo);
                 comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
                 comando.Parameters.AddWithValue("@referencia", material.Referencia);
@@ -168,7 +168,7 @@ namespace Libreria
             return materiales;
         }
 
-        public ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, string categoria, DateTime fechaInicio, DateTime fechaFin)
+        public ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, ENCategoria categoria, DateTime fechaInicio, DateTime fechaFin)
         {
             ArrayList materiales = new ArrayList();
             SqlConnection conexion = null;
@@ -189,7 +189,7 @@ namespace Libreria
                     + "(nombre like @nombre or descripcion like @descripcion) ";
                 if (usuario != null && usuario.Nombre != "")
                     cadenaComando += "and usuario = @usuario ";
-                if (categoria != "")
+                if (categoria != null)
                     cadenaComando += "and categoria = @categoria";
                 /*
                 if (fechaInicio <= fechaFin)
@@ -204,7 +204,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@descripcion","%" + filtroBusqueda + "%");
                 if(usuario != null)
                     comando.Parameters.AddWithValue("@usuario", usuario.Id);
-                comando.Parameters.AddWithValue("@categoria", getIdCategoria(categoria));
+                comando.Parameters.AddWithValue("@categoria", categoria.Id);
 
                 Console.WriteLine(comando.CommandText);
                 
@@ -272,43 +272,22 @@ namespace Libreria
             return idUsuario;
         }
 
-        private int getIdCategoria(string nombre)
-        {
-            int idCategoria = -1;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
-            {
-                // Abrimos la conexión
-                conexion.Open();
-                // Creamos el comando
-                SqlCommand comando = new SqlCommand();
-                // Le asignamos la conexión al comando
-                comando.Connection = conexion;
-                comando.CommandText = "SELECT id FROM categorias where nombre = @nombre";
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                SqlDataReader reader = comando.ExecuteReader();
-                if (reader.Read())
-                {
-                    idCategoria = int.Parse(reader["id"].ToString());
-                }
-            }
-            return idCategoria;
-        }
-
         private ENMaterial obtenerDatos(SqlDataReader reader)
         {
             ENMaterial material = new ENMaterial();
             material.Id = int.Parse(reader["id"].ToString());
             material.Nombre = reader["nombre"].ToString();
             material.Descripcion = reader["descripcion"].ToString();
-            //material.Fecha = reader["fecha"].ToString();
+            material.Fecha = (DateTime) reader["fecha"];
             material.Usuario = new ENUsuario(int.Parse(reader["usuario"].ToString()));
-            material.Categoria = reader["categoria"].ToString();
+            material.Categoria = new ENCategoria(int.Parse(reader["categoria"].ToString()));
             material.Archivo = reader["archivo"].ToString();
             material.Tamaño = int.Parse(reader["tamaño"].ToString());
             material.Descargas = int.Parse(reader["descargas"].ToString());
             material.Puntuacion = int.Parse(reader["puntuacion"].ToString());
             material.Votos = int.Parse(reader["votos"].ToString());
             material.Referencia = reader["referencia"].ToString();
+            material.NumComentarios = int.Parse(reader["numComentarios"].ToString());
             return material;
         }
 

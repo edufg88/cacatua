@@ -14,11 +14,12 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormMaterialesEdicion : UserControl
+    public partial class FormMaterialesEdicion : InterfazForm
     {
-        string[] controlesCrear = { "nombre","descripcion","usuario","categoria","archivo","idioma","referencia" };
-        string[] controlesEditar = { "nombre", "descripcion", "fecha","usuario", "categoria", "archivo", "descargas","idioma","puntuacion","votos","referencia" };
-
+        string[] controlesCrear = { "nombre","descripcion","usuario","archivo","referencia" };
+        string[] controlesEditar = { "nombre", "descripcion","usuario", "archivo", "descargas","puntuacion","votos","referencia" };
+        private FormMateriales formularioPadre = null;
+        private ENCategoria categoria = null;
         public enum modos { EDITAR = 0, CREAR = 1, BORRAR = 2};
         private modos modo;
         public modos Modo
@@ -27,12 +28,40 @@ namespace cacatUA
             set { modo = value; }
         }
 
-        public FormMaterialesEdicion(modos modo, string id)
+        private ENMaterial seleccionado = null;
+        public ENMaterial Seleccionado
+        {
+            get { return seleccionado; }
+            set { seleccionado = value; }
+        }
+
+
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENCategoria)
+                {
+                    categoria = (ENCategoria)objeto;
+                    controles["categoria"].Text = categoria.NombreCompleto();
+                }
+                else
+                {
+                    if (objeto is ENUsuario)
+                        controles["usuario"].Text = ((ENUsuario)objeto).Usuario;
+                }
+            }
+        }
+
+        public FormMaterialesEdicion(FormMateriales formularioPadre)
         {
             InitializeComponent();
-            this.modo = modo;
+            this.formularioPadre = formularioPadre;
             inicializarControles();
-            actualizarFormulario(id);
+
+            //this.modo = modo;
+            
+            //actualizarFormulario(id);
             
         }
 
@@ -73,7 +102,15 @@ namespace cacatUA
                 else
                 {
                     // Lo desactivamos
-                    control.Enabled = false;
+                    if (control is TextBox)
+                    {
+                        if (((TextBox)control).ReadOnly == false)
+                            control.Enabled = false;
+                    }
+                    else
+                    {
+                        control.Enabled = false;
+                    }
                 }
             }
         }
@@ -140,44 +177,51 @@ namespace cacatUA
 
         }
 
-        public void actualizarFormulario(string id)
-        {
+        public void actualizarFormulario(modos modo, ENMaterial material)
+        {           
             switch (modo)
             {
                 case modos.CREAR:
                     {
-                        prepararControles(controlesCrear);
-                        button_accion.Text = "Crear";
+                        seleccionado = null;
+                        if (this.modo != modos.CREAR)
+                        {
+                            prepararControles(controlesCrear);
+                            button_accion.Text = "Crear";
+                        }
                         break;
                     }
                 case modos.EDITAR:
-                    {
-                        prepararControles(controlesEditar);
-                        // Obtenemos toda la información del material
-                        ENMaterial material = ENMaterial.Obtener(int.Parse(id));
-                        if (material != null)
+                    {                    
+                        // Comprobamos que el material a editar no sea el mismo que el que esta editandose
+                        if (seleccionado == null || seleccionado.Id != material.Id)
                         {
-                            controles["id"].Text = material.Id.ToString();
-                            controles["nombre"].Text = material.Nombre;
-                            controles["descripcion"].Text = material.Descripcion;
-                            // fecha
+                            prepararControles(controlesEditar);
+                            seleccionado = material;
+                            // Mostramos el nuevo material
+                            if (material != null)
+                            {
+                                controles["id"].Text = material.Id.ToString();
+                                controles["nombre"].Text = material.Nombre;
+                                controles["descripcion"].Text = material.Descripcion;
+                                // fecha
 
-                            controles["usuario"].Text = material.Usuario.Usuario;
-                            controles["categoria"].Text = material.Categoria;
-                            controles["archivo"].Text = material.Archivo;
-                            controles["tamaño"].Text = material.Tamaño.ToString();
-                            controles["descargas"].Text = material.Descargas.ToString();
-                            // idioma
-                            controles["puntuacion"].Text = material.Puntuacion.ToString();
-                            controles["votos"].Text = material.Votos.ToString();
-                            controles["referencia"].Text = material.Referencia;
-                            
+                                controles["usuario"].Text = material.Usuario.Usuario;
+                                controles["categoria"].Text = material.Categoria.NombreCompleto();
+                                controles["archivo"].Text = material.Archivo;
+                                controles["tamaño"].Text = material.Tamaño.ToString();
+                                controles["descargas"].Text = material.Descargas.ToString();
+                                // idioma
+                                controles["puntuacion"].Text = material.Puntuacion.ToString();
+                                controles["votos"].Text = material.Votos.ToString();
+                                controles["referencia"].Text = material.Referencia;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Problema al obtener los datos del material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Problema al obtener los datos del material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        button_accion.Text = "Editar";
+                        button_accion.Text = "Editar";                       
                         break;
                     }
                 case modos.BORRAR:
@@ -186,6 +230,7 @@ namespace cacatUA
                         break;
                     }
             }
+            this.modo = modo;
         }
 
         private void button_accion_Click(object sender, EventArgs e)
@@ -200,7 +245,7 @@ namespace cacatUA
                         material.Nombre = textBox_nombre.Text.ToString();
                         material.Descripcion = textBox_descripcion.Text.ToString();
                         material.Usuario = new ENUsuario(textBox_usuario.Text.ToString());
-                        material.Categoria = textBox_categoria.Text.ToString();
+                        material.Categoria = categoria;
                         material.Archivo = textBox_archivo.Text.ToString();
                         material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
                         material.Referencia = textBox_referencia.Text.ToString();
@@ -312,6 +357,20 @@ namespace cacatUA
             {
                 Console.WriteLine("<FormMaterialesEdicion::mostrarComentarios> ERROR");
             }
+        }
+
+        private void seleccionarUsuario(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true,
+                "Volver al panel anterior seleccionando el usuario actual",
+                "Cancelar la selección y volver al panel anterior");
+        }
+
+        private void seleccionarCategoria(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormCategorias(), "Seleccionando categoría", true, true, 
+                "Volver al panel anterior seleccionando la categoría actual", 
+                "Cancelar la selección y volver al panel anterior");
         }
     }
 }

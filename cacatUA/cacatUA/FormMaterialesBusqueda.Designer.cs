@@ -67,11 +67,12 @@
             this.button_seleccionarUsuario.FlatAppearance.BorderSize = 0;
             this.button_seleccionarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_seleccionarUsuario.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarUsuario.Location = new System.Drawing.Point(608, 6);
+            this.button_seleccionarUsuario.Location = new System.Drawing.Point(709, 6);
             this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarUsuario.TabIndex = 144;
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Click += new System.EventHandler(this.seleccionarUsuario);
             // 
             // textBox_usuario
             // 
@@ -79,7 +80,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_usuario.Location = new System.Drawing.Point(125, 5);
             this.textBox_usuario.Name = "textBox_usuario";
-            this.textBox_usuario.Size = new System.Drawing.Size(504, 20);
+            this.textBox_usuario.Size = new System.Drawing.Size(605, 20);
             this.textBox_usuario.TabIndex = 2;
             // 
             // label_autor
@@ -97,13 +98,13 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_filtroBusqueda.Location = new System.Drawing.Point(125, 5);
             this.textBox_filtroBusqueda.Name = "textBox_filtroBusqueda";
-            this.textBox_filtroBusqueda.Size = new System.Drawing.Size(504, 20);
+            this.textBox_filtroBusqueda.Size = new System.Drawing.Size(605, 20);
             this.textBox_filtroBusqueda.TabIndex = 1;
             // 
             // button_buscar
             // 
             this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_buscar.Location = new System.Drawing.Point(554, 3);
+            this.button_buscar.Location = new System.Drawing.Point(655, 3);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 23);
             this.button_buscar.TabIndex = 0;
@@ -128,7 +129,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 30);
+            this.panel1.Size = new System.Drawing.Size(765, 30);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel_secundario
@@ -150,7 +151,7 @@
             this.tableLayoutPanel_secundario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_secundario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_secundario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel_secundario.Size = new System.Drawing.Size(664, 153);
+            this.tableLayoutPanel_secundario.Size = new System.Drawing.Size(765, 150);
             this.tableLayoutPanel_secundario.TabIndex = 7;
             // 
             // panel2
@@ -162,7 +163,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(664, 30);
+            this.panel2.Size = new System.Drawing.Size(765, 30);
             this.panel2.TabIndex = 2;
             // 
             // panel3
@@ -174,7 +175,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 60);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(664, 30);
+            this.panel3.Size = new System.Drawing.Size(765, 30);
             this.panel3.TabIndex = 3;
             // 
             // button_seleccionarCategoria
@@ -185,11 +186,12 @@
             this.button_seleccionarCategoria.FlatAppearance.BorderSize = 0;
             this.button_seleccionarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_seleccionarCategoria.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarCategoria.Location = new System.Drawing.Point(608, 6);
+            this.button_seleccionarCategoria.Location = new System.Drawing.Point(709, 6);
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
             this.button_seleccionarCategoria.TabIndex = 143;
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
+            this.button_seleccionarCategoria.Click += new System.EventHandler(this.seleccionarCategoria);
             // 
             // textBox_categoria
             // 
@@ -197,7 +199,8 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_categoria.Location = new System.Drawing.Point(125, 5);
             this.textBox_categoria.Name = "textBox_categoria";
-            this.textBox_categoria.Size = new System.Drawing.Size(504, 20);
+            this.textBox_categoria.ReadOnly = true;
+            this.textBox_categoria.Size = new System.Drawing.Size(605, 20);
             this.textBox_categoria.TabIndex = 2;
             // 
             // label_categoria
@@ -219,20 +222,23 @@
             this.panel4.Location = new System.Drawing.Point(0, 90);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(664, 30);
+            this.panel4.Size = new System.Drawing.Size(765, 30);
             this.panel4.TabIndex = 6;
             // 
             // dateTimePicker_fechaFin
             // 
-            this.dateTimePicker_fechaFin.Location = new System.Drawing.Point(371, 5);
+            this.dateTimePicker_fechaFin.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fechaFin.Location = new System.Drawing.Point(429, 5);
             this.dateTimePicker_fechaFin.Name = "dateTimePicker_fechaFin";
-            this.dateTimePicker_fechaFin.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaFin.ShowUpDown = true;
+            this.dateTimePicker_fechaFin.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fechaFin.TabIndex = 3;
             // 
             // label_hasta
             // 
             this.label_hasta.AutoSize = true;
-            this.label_hasta.Location = new System.Drawing.Point(332, 9);
+            this.label_hasta.Location = new System.Drawing.Point(386, 9);
             this.label_hasta.Name = "label_hasta";
             this.label_hasta.Size = new System.Drawing.Size(33, 13);
             this.label_hasta.TabIndex = 2;
@@ -240,9 +246,12 @@
             // 
             // dateTimePicker_fechaInicio
             // 
+            this.dateTimePicker_fechaInicio.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fechaInicio.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fechaInicio.Name = "dateTimePicker_fechaInicio";
-            this.dateTimePicker_fechaInicio.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fechaInicio.ShowUpDown = true;
+            this.dateTimePicker_fechaInicio.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fechaInicio.TabIndex = 1;
             // 
             // label_mostrarDesde
@@ -261,20 +270,20 @@
             this.panel5.Location = new System.Drawing.Point(0, 120);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(664, 33);
+            this.panel5.Size = new System.Drawing.Size(765, 30);
             this.panel5.TabIndex = 7;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // FormBusquedaMateriales
+            // FormMaterialesBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel_secundario);
-            this.Name = "FormBusquedaMateriales";
-            this.Size = new System.Drawing.Size(664, 153);
+            this.Name = "FormMaterialesBusqueda";
+            this.Size = new System.Drawing.Size(765, 150);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel_secundario.ResumeLayout(false);
