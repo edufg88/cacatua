@@ -139,7 +139,8 @@ namespace cacatUA
                 nuevo.Titulo = textBox_titulo.Text;
                 nuevo.Autor = ENUsuario.Obtener(textBox_autor.Text);
                 nuevo.Categoria = categoria;
-                //nuevo.Fecha = dateTimePicker_fecha.Value;
+                nuevo.Fecha = dateTimePicker_fecha.Value;
+                nuevo.NumRespuestas = int.Parse(textBox_respuestas.Text);
 
                 if (textBox_id.Text == "")
                 {
@@ -147,7 +148,6 @@ namespace cacatUA
                     {
                         CambiarSeleccionado(nuevo.Id);
                         FormPanelAdministracion.Instancia.MensajeEstado("Hilo guardado correctamente.");
-                        // Rebuscamos en la basura sin modificar el formulario. Mostramos la primera página y ordenamos por fecha.
                         formularioPadre.ReiniciarResultados();
                     }
                     else
@@ -162,7 +162,6 @@ namespace cacatUA
                     {
                         desactivarBotones();
                         FormPanelAdministracion.Instancia.MensajeEstado("Hilo actualizado correctamente.");
-                        // Comprobamos si el hilo esta en el datagridview del form original y actualizamos.
                         formularioPadre.ActualizarResultados(nuevo);
                     }
                     else
