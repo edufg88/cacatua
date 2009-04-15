@@ -60,9 +60,9 @@ namespace Libreria
             return GruposCAD.Instancia.Borrar(this);
         }
 
-        public static ENGrupos Obtener(int idn)
+        public static ENGrupos Obtener(int id)
         {
-            return GruposCAD.Instancia.Obtener(idn);
+            return GruposCAD.Instancia.Obtener(id);
         }
 
         public static ArrayList Obtener()
@@ -83,6 +83,16 @@ namespace Libreria
         public ArrayList Buscar(int min, int max,DateTime fechafin,ref ENUsuario usuario)
         {
             return GruposCAD.Instancia.Buscar(min,max,this,fechafin,ref usuario);
+        }
+
+        public static int NumGrupos()
+        {
+            return GruposCAD.Instancia.NumGrupos();
+        }
+
+        public static ENGrupos Ultimo()
+        {
+            return GruposCAD.Instancia.Ultimo();
         }
 
         //Propiedades

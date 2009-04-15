@@ -43,7 +43,7 @@
             this.label_fecha = new System.Windows.Forms.Label();
             this.panel_usuarios = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button_seccionCrear = new System.Windows.Forms.Button();
+            this.button_addUsuario = new System.Windows.Forms.Button();
             this.linkLabel_usuario = new System.Windows.Forms.LinkLabel();
             this.button_borrar = new System.Windows.Forms.Button();
             this.listBox_usuarios = new System.Windows.Forms.ListBox();
@@ -187,10 +187,13 @@
             // 
             // dateTimePicker_fecha
             // 
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
             this.dateTimePicker_fecha.Enabled = false;
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fecha.TabIndex = 3;
             this.dateTimePicker_fecha.ValueChanged += new System.EventHandler(this.textBox_Modificado);
             // 
@@ -219,7 +222,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button_seccionCrear, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.button_addUsuario, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.linkLabel_usuario, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.button_borrar, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(451, 3);
@@ -231,21 +234,21 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(71, 87);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // button_seccionCrear
+            // button_addUsuario
             // 
-            this.button_seccionCrear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.button_addUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_seccionCrear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seccionCrear.FlatAppearance.BorderSize = 0;
-            this.button_seccionCrear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionCrear.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_seccionCrear.Location = new System.Drawing.Point(3, 20);
-            this.button_seccionCrear.Name = "button_seccionCrear";
-            this.button_seccionCrear.Size = new System.Drawing.Size(65, 30);
-            this.button_seccionCrear.TabIndex = 13;
-            this.toolTip1.SetToolTip(this.button_seccionCrear, "Añadir un miembro al grupo");
-            this.button_seccionCrear.UseVisualStyleBackColor = true;
-            this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
+            this.button_addUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_addUsuario.FlatAppearance.BorderSize = 0;
+            this.button_addUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_addUsuario.Image = global::cacatUA.Properties.Resources.nuevo;
+            this.button_addUsuario.Location = new System.Drawing.Point(3, 20);
+            this.button_addUsuario.Name = "button_addUsuario";
+            this.button_addUsuario.Size = new System.Drawing.Size(65, 30);
+            this.button_addUsuario.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.button_addUsuario, "Añadir un miembro al grupo");
+            this.button_addUsuario.UseVisualStyleBackColor = true;
+            this.button_addUsuario.Click += new System.EventHandler(this.button_addUsuario_Click);
             // 
             // linkLabel_usuario
             // 
@@ -415,7 +418,7 @@
         private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button_seccionCrear;
+        private System.Windows.Forms.Button button_addUsuario;
         private System.Windows.Forms.Button button_borrar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;

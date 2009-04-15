@@ -51,6 +51,7 @@
             this.button_buscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button_limpiar = new System.Windows.Forms.Button();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_filtroBusqueda.SuspendLayout();
             this.panel_autor.SuspendLayout();
@@ -174,15 +175,18 @@
             // 
             // dateTimePicker_hasta
             // 
-            this.dateTimePicker_hasta.Location = new System.Drawing.Point(391, 4);
+            this.dateTimePicker_hasta.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_hasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_hasta.Location = new System.Drawing.Point(420, 4);
             this.dateTimePicker_hasta.Name = "dateTimePicker_hasta";
-            this.dateTimePicker_hasta.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_hasta.ShowUpDown = true;
+            this.dateTimePicker_hasta.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_hasta.TabIndex = 3;
             // 
             // label_hasta
             // 
             this.label_hasta.AutoSize = true;
-            this.label_hasta.Location = new System.Drawing.Point(342, 8);
+            this.label_hasta.Location = new System.Drawing.Point(381, 8);
             this.label_hasta.Name = "label_hasta";
             this.label_hasta.Size = new System.Drawing.Size(33, 13);
             this.label_hasta.TabIndex = 2;
@@ -190,9 +194,12 @@
             // 
             // dateTimePicker_fecha
             // 
-            this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 4);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fecha.TabIndex = 1;
             this.dateTimePicker_fecha.Value = new System.DateTime(2006, 1, 1, 0, 0, 0, 0);
             // 
@@ -252,6 +259,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_limpiar);
             this.panel1.Controls.Add(this.button_buscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 120);
@@ -263,7 +271,7 @@
             // button_buscar
             // 
             this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_buscar.Location = new System.Drawing.Point(656, 3);
+            this.button_buscar.Location = new System.Drawing.Point(575, 3);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 24);
             this.button_buscar.TabIndex = 4;
@@ -274,6 +282,17 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // button_limpiar
+            // 
+            this.button_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_limpiar.Location = new System.Drawing.Point(656, 3);
+            this.button_limpiar.Name = "button_limpiar";
+            this.button_limpiar.Size = new System.Drawing.Size(75, 24);
+            this.button_limpiar.TabIndex = 5;
+            this.button_limpiar.Text = "Limpiar";
+            this.button_limpiar.UseVisualStyleBackColor = true;
+            this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
             // 
             // FormGruposBusqueda
             // 
@@ -323,5 +342,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label_hasta;
         private System.Windows.Forms.DateTimePicker dateTimePicker_hasta;
+        private System.Windows.Forms.Button button_limpiar;
     }
 }

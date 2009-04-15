@@ -68,8 +68,16 @@ namespace cacatUA
             numMateriales = 16;
             ultimoMaterial = "Fotos del kiko";
 
-            numGrupos = 17;
-            ultimoGrupo = "Los rockeros";
+            numGrupos = ENGrupos.NumGrupos() ;
+            ENGrupos grupo = ENGrupos.Ultimo();
+            if (grupo != null)
+            {
+                ultimoGrupo = grupo.Nombre;
+            }
+            else
+            {
+                ultimoGrupo = "No hay ningun grupo creado";
+            }
 
             numPeticiones = 178;
             numPeticionesSinContestar = 4;

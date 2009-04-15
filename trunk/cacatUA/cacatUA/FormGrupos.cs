@@ -29,7 +29,7 @@ namespace cacatUA
         /// <summary>
         /// Función para ver solo las opciones de búsqueda
         /// </summary>
-        private void Busqueda()
+        public void Busqueda()
         {
             Actualizar();
             label_seccion1.Text = "Búsqueda";
@@ -96,7 +96,7 @@ namespace cacatUA
             }
             else
             {
-                MessageBox.Show("Seleccione un grupo para editar", "Ventana de Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un grupo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -113,19 +113,23 @@ namespace cacatUA
                 }
                 else
                 {
-                    mensaje = "¿Está seguro de que desea borrar los grupos seleccionados?"; 
+                    mensaje = "¿Está seguro de que desea borrar los grupos seleccionados?";
                 }
-                
+
                 if (DialogResult.Yes == MessageBox.Show(mensaje, "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
                 {
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
                         grupos.Id = int.Parse(i.Cells[0].Value.ToString());
-                        grupos.Borrar(); 
+                        grupos.Borrar();
                         dataGridView_resultados.Rows.Remove(i);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un grupo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

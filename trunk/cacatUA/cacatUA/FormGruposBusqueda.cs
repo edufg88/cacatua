@@ -11,9 +11,10 @@ using Libreria;
 
 namespace cacatUA
 {
-    public partial class FormGruposBusqueda : UserControl
+    public partial class FormGruposBusqueda : InterfazForm
     {
         private FormGrupos formularioPadre = null;
+        private ENUsuario usuario = null;
         public FormGruposBusqueda(FormGrupos formularioPadre)
         {
             this.formularioPadre = formularioPadre;
@@ -85,6 +86,23 @@ namespace cacatUA
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
         {
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
+        }
+
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENUsuario)
+                {
+                    usuario = (ENUsuario)objeto;
+                    textBox_usuario.Text = usuario.Usuario;
+                }
+            }
+        }
+
+        private void button_limpiar_Click(object sender, EventArgs e)
+        {
+            inicio();
         }
     }
 }

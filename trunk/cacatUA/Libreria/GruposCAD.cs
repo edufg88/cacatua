@@ -16,11 +16,21 @@ namespace Libreria
         private static readonly GruposCAD instancia = new GruposCAD();
         private String cadenaConexion;
 
+        /// <summary>
+        /// Obtiene la única instancia de la clase GruposCAD. Si es la primera vez
+        /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
+        /// al objeto que ya fue creado anteriormente.
+        /// </summary>
+        /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
         public static GruposCAD Instancia
         {
             get { return instancia; }
         }
 
+        /// <summary>
+        /// Constructor en el ámbito privado de la clase para no permitir más
+        /// de una instancia.
+        /// </summary>
         private GruposCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
@@ -176,8 +186,8 @@ namespace Libreria
         /// <summary>
         /// Devuelve un grupos con la id indicada por parametro
         /// </summary>
-        /// <param name="id">Id del grupo que se desea buscar</param>
-        /// <returns></returns>
+        /// <param name="id">id del grupo que se desea buscar</param>
+        /// <returns>Devuelve un grupo extraido de la base de datos.</returns>
         public ENGrupos Obtener(int id)
         {
             ENGrupos grupos = null;
@@ -221,8 +231,8 @@ namespace Libreria
         /// <summary>
         /// Borra un grupo de la base de datos
         /// </summary>
-        /// <param name="grupo"></param>
-        /// <returns></returns>
+        /// <param name="grupo">Grupo que queremos borrar</param>
+        /// <returns>Devuelve verdadero si se ha podido borrar o falso en caso contrario</returns>
         public bool Borrar(ENGrupos grupo)
         {
             int resultado = 0;
@@ -256,10 +266,10 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Cambia los datos de un grupo en la DB
+        /// Cambia los datos de un grupo en la BD
         /// </summary>
-        /// <param name="grupo"></param>
-        /// <returns></returns>
+        /// <param name="grupo">Grupo que queremos actualizar en la BD</param>
+        /// <returns>Devuelve verdadero si se ha podido actualizar o falso en caso contrario</returns>
         public bool Actualizar(ENGrupos grupo)
         {
             int resultado = 0;
@@ -297,10 +307,10 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Inserta un grupo en la DB
+        /// Inserta un grupo en la BD
         /// </summary>
-        /// <param name="grupo"></param>
-        /// <returns></returns>
+        /// <param name="grupo">Grupo que queremos guardar en la BD</param>
+        /// <returns>Devuelve verdadero si se ha podido crear o falso en caso contrario</returns>
         public bool Guardar(ENGrupos grupo)
         {
             int resultado = 0;
@@ -355,11 +365,11 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Inserta en la DB los usuarios de un Grupo
+        /// Inserta en la BD los usuarios de un Grupo
         /// </summary>
-        /// <param name="usuario"></param>
-        /// <param name="grupo"></param>
-        /// <returns></returns>
+        /// <param name="usuario">id del usuario a insertar</param>
+        /// <param name="grupo">id del grupo a insertar</param>
+        /// <returns>Devuelve verdadero si se ha podido insertar el usuario o falso en caso contrario</returns>
         public bool InsertarUsuario(string usuario,int grupo)
         {
             int resultado = 0;
@@ -400,11 +410,11 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Borra un usuario miembro de un grupo.
+        /// Borra un miembro de un grupo.
         /// </summary>
-        /// <param name="usuario"></param>
-        /// <param name="grupo"></param>
-        /// <returns></returns>
+        /// <param name="usuario">id del usuario a borrar</param>
+        /// <param name="grupo">id del grupo a borrar</param>
+        /// <returns>Devuelve verdadero si se ha podido borrar el usuario o falso en caso contrario</returns>
         public bool BorrarUsuario(int usuario,int grupo)
         {
             int resultado = 0;
@@ -439,11 +449,14 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Busca los grupos acordes a los parámetros.
+        /// Busca los grupos acordes a los parámetros
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <returns></returns>
+        /// <param name="min">Cantidad minima de usuarios</param>
+        /// <param name="max">Cantidad máxima de usuarios</param>
+        /// <param name="grupo">Nombre del grupo y fecha</param>
+        /// <param name="fechafin">Fecha de fin para el filtro de búsqueda.</param>
+        /// <param name="usuario">usuario del cual queremos saber sus grupos</param>
+        /// <returns>Devuelve un array con los gurpos encontrados segun el filtro de búsqueda</returns>
         public ArrayList Buscar(int min, int max,ENGrupos grupo,DateTime fechafin, ref ENUsuario usuario)
         {
             ArrayList grupos = new ArrayList();
@@ -454,8 +467,6 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
-                /*string fechadesde=grupo.Fecha.ToShortDateString();
-                string fechahasta = fechafin.ToShortDateString();*/
                 string comand="SELECT id,nombre,descripcion,fecha FROM grupos LEFT OUTER JOIN miembros ON id=grupo WHERE fecha between @fechainicio and @fechafin";
                 if (grupo.Nombre != "")
                 {
@@ -514,6 +525,65 @@ namespace Libreria
                     conexion.Close();
             }
             return grupos;
+        }
+
+        public int NumGrupos()
+        {
+            int cantidad=0;
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string comand = "Select count(*) cantidad from grupos";
+                SqlCommand comando = new SqlCommand(comand, conexion);
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    cantidad = int.Parse(reader["cantidad"].ToString());
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("int ENGrupos.NumGrupos():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return cantidad;
+        }
+
+        public ENGrupos Ultimo()
+        {
+            ENGrupos grupo = null;
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string comand = "select * from grupos where id in(select max(id) from grupos)";
+                SqlCommand comando = new SqlCommand(comand,conexion);
+                SqlDataReader dataReader = comando.ExecuteReader();
+                if (dataReader.Read())
+                {
+                    grupo = obtenerDatos(dataReader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENGrupos GruposCAD.Ultimo() " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return grupo;
         }
     }
 }
