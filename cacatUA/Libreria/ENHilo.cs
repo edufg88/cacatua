@@ -14,6 +14,7 @@ namespace Libreria
 	    private ENUsuario autor;
 	    private DateTime fecha;
         private ENCategoria categoria;
+        private int numRespuestas;
 
         /// <summary>
         /// Constructor por defecto. Crea un hilo vacío.
@@ -26,6 +27,7 @@ namespace Libreria
             autor = null;
             fecha = new DateTime();
             categoria = null;
+            numRespuestas = 0;
         }
 
         /// <summary>
@@ -236,16 +238,18 @@ namespace Libreria
             set { categoria = value; }
         }
 
+        /// <summary>
+        /// Realiza un acceso a la base de datos para obtener las respuestas del hilo.
+        /// </summary>
         public ArrayList Respuestas
         {
-            get { return null; }
-            //get { RespuestaCAD.Instancia.Obtener(this); }
+            get { return RespuestaCAD.Instancia.Obtener(this); }
         }
 
         public int NumRespuestas
         {
-            get { return 0; }
-            //get { RespuestaCAD.Instancia.NumRespuestas(this); }
+            get { return numRespuestas; }
+            set { numRespuestas = value; }
         }
     }
 }
