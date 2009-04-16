@@ -144,7 +144,7 @@ namespace cacatUA
                 nuevo.Autor = ENUsuario.Obtener(textBox_autor.Text);
                 nuevo.Categoria = categoria;
                 nuevo.Fecha = dateTimePicker_fecha.Value;
-                nuevo.NumRespuestas = int.Parse(textBox_respuestas.Text);
+                nuevo.NumRespuestas = 0;
 
                 if (textBox_id.Text == "")
                 {
@@ -162,6 +162,7 @@ namespace cacatUA
                 else
                 {
                     nuevo.Id = int.Parse(textBox_id.Text);
+                    nuevo.NumRespuestas = int.Parse(textBox_respuestas.Text);
                     if (nuevo.Actualizar())
                     {
                         desactivarBotones();

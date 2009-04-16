@@ -57,7 +57,16 @@ namespace cacatUA
         public ResumenSistema()
         {
             numHilos = ENHilo.Cantidad();
-            ultimoHilo = ENHilo.Ultimo().Titulo;
+            ENHilo ultimoHiloAux = ENHilo.Ultimo();
+            if (ultimoHiloAux != null)
+            {
+                ultimoHilo = ultimoHiloAux.Titulo;
+            }
+            else
+            {
+                ultimoHilo = "";
+            }
+            
             ultimaRespuesta = "aqui estamos";
 
             numUsuarios = 512;
