@@ -13,9 +13,15 @@ namespace cacatUA
 {
     public partial class FormUsuarioEdicion : InterfazForm
     {
-        // Puntero al formulario padre
+        /// <summary>
+        /// Puntero al formulario padre
+        /// </summary>
         private FormUsuarios padre;
 
+        /// <summary>
+        /// Constructor del formulario de edición de usuario
+        /// </summary>
+        /// <param name="padre">Recibe un puntero al formulario padre</param>
         public FormUsuarioEdicion(FormUsuarios padre)
         {
             InitializeComponent();
@@ -23,6 +29,9 @@ namespace cacatUA
             this.padre = padre;
         }
 
+        /// <summary>
+        /// Carga el formulario en blanco
+        /// </summary>
         public void CambiarNuevo()
         {
             errorProvider1.Clear();
@@ -40,6 +49,10 @@ namespace cacatUA
             checkBox_activo.Checked = false;
         }
 
+        /// <summary>
+        /// Carga el formulario con los datos del usuario recibido
+        /// </summary>
+        /// <param name="id">Recibe un id del usuario cuyos datos se cargarán</param>
         public void CambiarSeleccionado(int id)
         { 
             // Cargamos los datos del usuario con esa id en los campos
@@ -65,24 +78,28 @@ namespace cacatUA
             checkBox_activo.Checked = usuario.Activo;
         }
         
+        /// <summary>
+        /// Activa los botones
+        /// </summary>
         private void activarBotones()
         {
             button_guardarCambios.Enabled = true;
             button_descartarCambios.Enabled = true;
         }
 
+        /// <summary>
+        /// Desactiva los botones
+        /// </summary>
         private void desactivarBotones()
         {
             button_guardarCambios.Enabled = false;
             button_descartarCambios.Enabled = false;
         }
 
-        private void cargarFirmas()
-        {
-            ArrayList al = new ArrayList();
-            al = ENFirma.Obtener();
-        }
-
+        /// <summary>
+        /// Valida los campos del formulario
+        /// </summary>
+        /// <returns>Devuelve true si los campos se validan correctamente, false en caso contrario</returns>
         private bool validarFormulario()
         { 
             // Validamos uno a uno todos los campos

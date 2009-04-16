@@ -38,12 +38,10 @@
             this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
-            this.button_ocultarP1 = new System.Windows.Forms.Button();
             this.label_seccion1 = new System.Windows.Forms.Label();
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
-            this.button_ocultarP2 = new System.Windows.Forms.Button();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_DataGridViewUsuarios = new System.Windows.Forms.Panel();
             this.button_editarUsuario = new System.Windows.Forms.Button();
@@ -180,23 +178,12 @@
             // panel_cabeceraSeccion1
             // 
             this.panel_cabeceraSeccion1.BackColor = System.Drawing.Color.LightGray;
-            this.panel_cabeceraSeccion1.Controls.Add(this.button_ocultarP1);
             this.panel_cabeceraSeccion1.Controls.Add(this.label_seccion1);
             this.panel_cabeceraSeccion1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_cabeceraSeccion1.Location = new System.Drawing.Point(0, 0);
             this.panel_cabeceraSeccion1.Name = "panel_cabeceraSeccion1";
             this.panel_cabeceraSeccion1.Size = new System.Drawing.Size(832, 29);
             this.panel_cabeceraSeccion1.TabIndex = 3;
-            // 
-            // button_ocultarP1
-            // 
-            this.button_ocultarP1.Location = new System.Drawing.Point(714, 3);
-            this.button_ocultarP1.Name = "button_ocultarP1";
-            this.button_ocultarP1.Size = new System.Drawing.Size(110, 23);
-            this.button_ocultarP1.TabIndex = 6;
-            this.button_ocultarP1.Text = "Ocultar";
-            this.button_ocultarP1.UseVisualStyleBackColor = true;
-            this.button_ocultarP1.Click += new System.EventHandler(this.button_ocultarP1_Click);
             // 
             // label_seccion1
             // 
@@ -228,23 +215,12 @@
             // panel_cabeceraSeccion2
             // 
             this.panel_cabeceraSeccion2.BackColor = System.Drawing.Color.LightGray;
-            this.panel_cabeceraSeccion2.Controls.Add(this.button_ocultarP2);
             this.panel_cabeceraSeccion2.Controls.Add(this.label_seccion2);
             this.panel_cabeceraSeccion2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_cabeceraSeccion2.Location = new System.Drawing.Point(0, 0);
             this.panel_cabeceraSeccion2.Name = "panel_cabeceraSeccion2";
             this.panel_cabeceraSeccion2.Size = new System.Drawing.Size(832, 29);
             this.panel_cabeceraSeccion2.TabIndex = 4;
-            // 
-            // button_ocultarP2
-            // 
-            this.button_ocultarP2.Location = new System.Drawing.Point(714, 3);
-            this.button_ocultarP2.Name = "button_ocultarP2";
-            this.button_ocultarP2.Size = new System.Drawing.Size(110, 23);
-            this.button_ocultarP2.TabIndex = 6;
-            this.button_ocultarP2.Text = "Ocultar";
-            this.button_ocultarP2.UseVisualStyleBackColor = true;
-            this.button_ocultarP2.Click += new System.EventHandler(this.button_ocultarP2_Click);
             // 
             // label_seccion2
             // 
@@ -427,8 +403,6 @@
         private System.Windows.Forms.Label label_seccion2;
         private System.Windows.Forms.Button button_borrarUsuario;
         private System.Windows.Forms.Button button_editarUsuario;
-        private System.Windows.Forms.Button button_ocultarP1;
-        private System.Windows.Forms.Button button_ocultarP2;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn contrasena;

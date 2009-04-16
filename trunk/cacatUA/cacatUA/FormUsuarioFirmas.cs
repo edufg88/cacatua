@@ -13,9 +13,19 @@ namespace cacatUA
 {
     public partial class FormUsuarioFirmas : InterfazForm
     {
+        /// <summary>
+        /// Puntero al usuario de las firmas
+        /// </summary>
         private ENUsuario usuario;
+        /// <summary>
+        /// Firma actual
+        /// </summary>
         private ENFirma firma;
 
+        /// <summary>
+        /// Constructor del formulario FormUsuarioFirmas
+        /// </summary>
+        /// <param name="us">Recibe el usuario de las firmas</param>
         public FormUsuarioFirmas(ENUsuario us)
         {
             InitializeComponent();
@@ -24,6 +34,9 @@ namespace cacatUA
             firma = new ENFirma();
         }
 
+        /// <summary>
+        /// Carga todas las firmas en el DataGridView del formulario
+        /// </summary>
         public void CargarFirmas()
         {
             ArrayList datos = new ArrayList();
@@ -31,7 +44,10 @@ namespace cacatUA
             cargarDatos(datos);
         }
 
-        // Este método carga los datos en el DataGridView
+        /// <summary>
+        /// Carga los datos que recibe en el DataGridView
+        /// </summary>
+        /// <param name="datos">Recibe un ArrayList de datos que carga</param>
         private void cargarDatos(ArrayList datos)
         {
             // Borramos los elementos previos
@@ -53,6 +69,10 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Carga en el formulario los datos de la firma recibida
+        /// </summary>
+        /// <param name="id">Recibe el id de la firma que carga en el formulario</param>
         private void cambiarSeleccionado(int id)
         {
             ENFirma firma = ENFirma.Obtener(id);
@@ -72,6 +92,9 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Vacía los campos del formulario
+        /// </summary>
         private void cambiarNuevo()
         {
             errorProvider1.Clear();
@@ -82,6 +105,7 @@ namespace cacatUA
             dateTimePicker_fecha.Value = DateTime.Now;
         }
 
+        /*
         public void InsertarFirmas()
         {
             for (int i = 0; i < 10; i++)
@@ -94,7 +118,12 @@ namespace cacatUA
                 f.Guardar();
             }
         }
+         * */
 
+        /// <summary>
+        /// Valida los campos del formulario
+        /// </summary>
+        /// <returns>Devuelve true si la validación ha sido correcta, false en caso contrario</returns>
         private bool validarFormulario()
         {
             // Validamos uno a uno todos los campos

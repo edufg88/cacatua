@@ -13,9 +13,19 @@ namespace cacatUA
 {
     public partial class FormUsuarioEncuestas : InterfazForm
     {
+        /// <summary>
+        /// Usuario de las encuestas
+        /// </summary>
         private ENUsuario us;
+        /// <summary>
+        /// Encuesta activa
+        /// </summary>
         private ENEncuesta encuesta;
 
+        /// <summary>
+        /// Constructor del formulario FormUsuarioEncuestas
+        /// </summary>
+        /// <param name="us">Recibe el usuario de las encuestas</param>
         public FormUsuarioEncuestas(ENUsuario us)
         {
             InitializeComponent();
@@ -23,6 +33,9 @@ namespace cacatUA
             this.encuesta = new ENEncuesta();
         }
 
+        /// <summary>
+        /// Carga todas las encuestas en el DataGridView del formulario
+        /// </summary>
         public void CargarEncuestas()
         {
             ArrayList datos = new ArrayList();
@@ -30,7 +43,10 @@ namespace cacatUA
             cargarDatos(datos);
         }
 
-        // Este método carga los datos en el DataGridView
+        /// <summary>
+        /// Este método carga los datos recibidos en el DataGridView del formulario
+        /// </summary>
+        /// <param name="datos">Recibe un ArrayList con los datos que cargará</param>
         private void cargarDatos(ArrayList datos)
         {
             // Borramos los elementos previos
@@ -51,6 +67,10 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Carga en el formulario los datos de la encuesta recibida
+        /// </summary>
+        /// <param name="id">Recibe el id de la encuesta cuyos datos cargará</param>
         private void cambiarSeleccionado(int id)
         {
             ENEncuesta encuesta = ENEncuesta.Obtener(id);
@@ -69,6 +89,9 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Vacía el contenido del formulario
+        /// </summary>
         private void cambiarNuevo()
         {
             errorProvider1.Clear();
@@ -77,7 +100,8 @@ namespace cacatUA
             dateTimePicker_fecha.Value = DateTime.Now;
             checkBox_activa.Checked = false;
         }
-
+        
+        /*
         public void InsertarEncuestas()
         {
             for (int i = 0; i < 10; i++)
@@ -91,7 +115,12 @@ namespace cacatUA
                 e.Guardar();
             }
         }
+        */
 
+        /// <summary>
+        /// Valida los campos del formulario
+        /// </summary>
+        /// <returns>Devuelve true si la validación es correcta, false en caso contrario</returns>
         private bool validarFormulario()
         {
             // Validamos uno a uno todos los campos

@@ -37,11 +37,12 @@
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.label_email = new System.Windows.Forms.Label();
             this.panel_fechaIngreso = new System.Windows.Forms.Panel();
+            this.dateTimePicker_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label_fechaIngreso = new System.Windows.Forms.Label();
             this.panel_buscar = new System.Windows.Forms.Panel();
-            this.button_buscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dateTimePicker_fechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.button_limpiar = new System.Windows.Forms.Button();
+            this.button_buscar = new System.Windows.Forms.Button();
             this.tableLayoutPanel_buscar.SuspendLayout();
             this.panel_nombreUsuario.SuspendLayout();
             this.panel_email.SuspendLayout();
@@ -146,6 +147,17 @@
             this.panel_fechaIngreso.Size = new System.Drawing.Size(759, 24);
             this.panel_fechaIngreso.TabIndex = 2;
             // 
+            // dateTimePicker_fechaIngreso
+            // 
+            this.dateTimePicker_fechaIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fechaIngreso.Location = new System.Drawing.Point(147, 3);
+            this.dateTimePicker_fechaIngreso.Name = "dateTimePicker_fechaIngreso";
+            this.dateTimePicker_fechaIngreso.ShowUpDown = true;
+            this.dateTimePicker_fechaIngreso.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker_fechaIngreso.TabIndex = 95;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechaIngreso, "Fecha de creación de la encuesta");
+            // 
             // label_fechaIngreso
             // 
             this.label_fechaIngreso.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -163,6 +175,7 @@
             // 
             // panel_buscar
             // 
+            this.panel_buscar.Controls.Add(this.button_limpiar);
             this.panel_buscar.Controls.Add(this.button_buscar);
             this.panel_buscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_buscar.Location = new System.Drawing.Point(3, 93);
@@ -170,26 +183,27 @@
             this.panel_buscar.Size = new System.Drawing.Size(759, 54);
             this.panel_buscar.TabIndex = 3;
             // 
+            // button_limpiar
+            // 
+            this.button_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_limpiar.Location = new System.Drawing.Point(654, 24);
+            this.button_limpiar.Name = "button_limpiar";
+            this.button_limpiar.Size = new System.Drawing.Size(75, 23);
+            this.button_limpiar.TabIndex = 15;
+            this.button_limpiar.Text = "Limpiar";
+            this.button_limpiar.UseVisualStyleBackColor = true;
+            this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
+            // 
             // button_buscar
             // 
-            this.button_buscar.Location = new System.Drawing.Point(335, 19);
+            this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_buscar.Location = new System.Drawing.Point(573, 24);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 23);
-            this.button_buscar.TabIndex = 12;
+            this.button_buscar.TabIndex = 14;
             this.button_buscar.Text = "Buscar";
             this.button_buscar.UseVisualStyleBackColor = true;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
-            // 
-            // dateTimePicker_fechaIngreso
-            // 
-            this.dateTimePicker_fechaIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
-            this.dateTimePicker_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_fechaIngreso.Location = new System.Drawing.Point(147, 3);
-            this.dateTimePicker_fechaIngreso.Name = "dateTimePicker_fechaIngreso";
-            this.dateTimePicker_fechaIngreso.ShowUpDown = true;
-            this.dateTimePicker_fechaIngreso.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker_fechaIngreso.TabIndex = 95;
-            this.toolTip1.SetToolTip(this.dateTimePicker_fechaIngreso, "Fecha de creación de la encuesta");
             // 
             // FormUsuarioBusqueda
             // 
@@ -223,8 +237,9 @@
         private System.Windows.Forms.Panel panel_fechaIngreso;
         private System.Windows.Forms.Panel panel_buscar;
         private System.Windows.Forms.Label label_fechaIngreso;
-        private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechaIngreso;
+        private System.Windows.Forms.Button button_limpiar;
+        private System.Windows.Forms.Button button_buscar;
     }
 }
