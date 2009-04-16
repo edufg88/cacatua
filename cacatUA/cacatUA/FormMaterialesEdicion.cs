@@ -16,8 +16,8 @@ namespace cacatUA
 {
     public partial class FormMaterialesEdicion : InterfazForm
     {
-        string[] controlesCrear = { "nombre","descripcion","usuario","archivo","referencia" };
-        string[] controlesEditar = { "nombre", "descripcion","usuario", "archivo", "descargas","referencia","comentarios" };
+        string[] controlesCrear = { "nombre","categoria","descripcion","usuario","archivo","referencia" };
+        string[] controlesEditar = { "nombre","categoria","descripcion","usuario","archivo","descargas","referencia","comentarios" };
         private FormMateriales formularioPadre = null;
         private ENCategoria categoria = null;
         public enum modos { EDITAR = 0, CREAR = 1, BORRAR = 2};
@@ -123,22 +123,24 @@ namespace cacatUA
                 string nombre = i.Key;
                 // Obtenemos el control
                 Control control = i.Value;
-                // Obtenemos el tipo del control
-                Console.WriteLine(control.ToString());
-                switch (obtenerTipo(control.ToString()))
+                // Comprobamos si está en la lista
+                if (nombreControles.Contains(nombre))
                 {
-                    case "System.Windows.Forms.TextBox":
+                    if (control is TextBox)
+                    {
+                        TextBox textBox = (TextBox)control;
+                        string msjError = "";
+                        if (textBox.Text == "")
+                            msjError = "Campo obligatorio";
+                        else
+                            msjError = ENMaterial.validarDatos(material, nombre);
+
+                        if (msjError != "OK")
                         {
-                            TextBox textBox = (TextBox)control;
-                            // Validamos el dato
-                            string msjError = material.validarDato(nombre);
-                            if (msjError != "OK")
-                            {
-                                correcto = false;
-                                errorProvider.SetError(control, msjError);
-                            }
-                            break;
+                            correcto = false;
+                            errorProvider.SetError(control, msjError);
                         }
+                    }
                 }
             }
             return correcto;
@@ -146,38 +148,17 @@ namespace cacatUA
 
         public void limpiarFormulario()
         {
-            TextBox textBox;
-            textBox = (TextBox)controles["id"];
-            textBox.Clear();
-            textBox = (TextBox)controles["nombre"];
-            textBox.Clear();
-            textBox = (TextBox)controles["descripcion"];
-            textBox.Clear();
-            //dateTimePicker_fecha
-            textBox = (TextBox)controles["usuario"];
-            textBox.Clear();
-            textBox = (TextBox)controles["categoria"];
-            textBox.Clear();
-            textBox = (TextBox)controles["archivo"];
-            textBox.Clear();
-            textBox = (TextBox)controles["tamaño"];
-            textBox.Clear();
-            textBox = (TextBox)controles["descargas"];
-            textBox.Clear();
-            //comboBox_idioma.Clear();
-            textBox = (TextBox)controles["puntuacion"];
-            textBox.Clear();
-            textBox = (TextBox)controles["votos"];
-            textBox.Clear();
-            textBox = (TextBox)controles["referencia"];
-            textBox.Clear();
-            textBox = (TextBox)controles["numComentarios"];
-            textBox.Clear();
-
+            foreach (KeyValuePair<string, Control> i in controles)
+            {
+                Control control = i.Value;
+                if(control is TextBox)
+                    ((TextBox)control).Clear();
+            }
         }
 
         public void actualizarFormulario(modos modo, ENMaterial material)
-        {           
+        {
+            errorProvider.Clear();
             switch (modo)
             {
                 case modos.CREAR:
@@ -249,35 +230,35 @@ namespace cacatUA
                                 form.ShowDialog();
                             }
                         }
-                        //Uploader.FileUploader file = new Uploader.FileUploader();
-                        // Subimos el archivo
-                        //FormMaterialesUpload form = new FormMaterialesUpload(material);
-                        //form.ShowDialog();
-                        
-                        //MessageBox.Show(subirArchivo(material));
-                        //subirArchivo(material);
-                        /*
-                        // Validamos los datos
-                        if (validarDatos(controlesCrear,material) == true)
-                        {
-                            // Guardamos el material a la base de datos
-                            if (material.Guardar() == false)
-                            {
-                                // Se ha producido algún error, mostramos un mensaje
-                                MessageBox.Show("No se ha podido crear el material", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }*/
                         break;
                     }
                 case modos.EDITAR:
                     {
-                        // Editamos el material
-
-                        break;
-                    }
-                case modos.BORRAR:
-                    {
-                        
+                        // Creamos el material con los datos del formulario
+                        ENMaterial material = new ENMaterial();
+                        material.Id = int.Parse(textBox_id.Text.ToString());
+                        material.Nombre = textBox_nombre.Text.ToString();
+                        material.Descripcion = textBox_descripcion.Text.ToString();
+                        material.Usuario = ENUsuario.Obtener(textBox_usuario.Text.ToString());
+                        material.Categoria = categoria;
+                        material.Archivo = textBox_archivo.Text.ToString();
+                        material.Fecha = dateTimePicker_fecha.Value;
+                        //material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
+                        material.Tamaño = int.Parse(textBox_tamaño.Text.ToString());
+                        material.Referencia = textBox_referencia.Text.ToString();
+                        material.Descargas = int.Parse(textBox_descargas.Text.ToString());
+                        material.NumComentarios = int.Parse(textBox_numComentarios.Text.ToString());
+                        if (validarDatos(controlesEditar, material) == true)
+                        {
+                            if (material.Actualizar() == true)
+                            {
+                                // Actualizamos la fila del datagrid
+                                formularioPadre.ActualizarMaterial(material);
+                                button_accion1.Enabled = false;
+                                button_accion2.Enabled = false;
+                                seleccionado = material;
+                            }
+                        }
                         break;
                     }
             }
@@ -365,14 +346,12 @@ namespace cacatUA
                 controles["nombre"].Text = material.Nombre;
                 controles["descripcion"].Text = material.Descripcion;
                 ((DateTimePicker)controles["fecha"]).Value = material.Fecha;
-                // fecha
-
                 controles["usuario"].Text = material.Usuario.Usuario;
                 controles["categoria"].Text = material.Categoria.NombreCompleto();
+                categoria = material.Categoria;
                 controles["archivo"].Text = material.Archivo;
                 controles["tamaño"].Text = material.Tamaño.ToString();
                 controles["descargas"].Text = material.Descargas.ToString();
-                // idioma
                 controles["puntuacion"].Text = material.Puntuacion.ToString();
                 controles["votos"].Text = material.Votos.ToString();
                 controles["referencia"].Text = material.Referencia;

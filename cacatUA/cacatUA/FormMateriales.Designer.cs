@@ -33,6 +33,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_añadir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -126,21 +127,24 @@
             this.comboBox12 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.bCrearHilo = new System.Windows.Forms.Button();
             this.panel_cabecera = new System.Windows.Forms.Panel();
             this.label_foro = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel_contenido = new System.Windows.Forms.Panel();
             this.panel_opciones = new System.Windows.Forms.Panel();
+            this.button_añadirMaterial = new System.Windows.Forms.Button();
+            this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.panel_cabeceraSeccion1 = new System.Windows.Forms.Panel();
             this.label_seccion = new System.Windows.Forms.Label();
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button_cancelarDescarga = new System.Windows.Forms.Button();
             this.dataGridView_materiales = new System.Windows.Forms.DataGridView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -150,16 +154,12 @@
             this.dataGridViewTextBoxColumn_descargas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_valoracion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn_comentarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.button_añadirMaterial = new System.Windows.Forms.Button();
-            this.button_seccionBuscar = new System.Windows.Forms.Button();
-            this.button_cancelarDescarga = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn_descargar = new System.Windows.Forms.DataGridViewImageColumn();
             this.butto_editarMaterial = new System.Windows.Forms.Button();
             this.button_borrarMaterial = new System.Windows.Forms.Button();
-            this.button_añadir = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.bCrearHilo = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -246,6 +246,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(501, 282);
             this.panel1.TabIndex = 48;
+            // 
+            // button_añadir
+            // 
+            this.button_añadir.Image = global::cacatUA.Properties.Resources.add;
+            this.button_añadir.Location = new System.Drawing.Point(26, 4);
+            this.button_añadir.Name = "button_añadir";
+            this.button_añadir.Size = new System.Drawing.Size(77, 71);
+            this.button_añadir.TabIndex = 70;
+            this.button_añadir.Text = "Añadir";
+            this.button_añadir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button_añadir.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1152,6 +1163,35 @@
             this.tableLayoutPanel17.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel17.TabIndex = 0;
             // 
+            // button12
+            // 
+            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button12.Image = global::cacatUA.Properties.Resources.tool;
+            this.button12.Location = new System.Drawing.Point(3, 23);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(35, 14);
+            this.button12.TabIndex = 6;
+            this.button12.Tag = "Modificar hilo seleccionado";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // bCrearHilo
+            // 
+            this.bCrearHilo.AccessibleName = "";
+            this.bCrearHilo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bCrearHilo.FlatAppearance.BorderSize = 0;
+            this.bCrearHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCrearHilo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.bCrearHilo.Image = global::cacatUA.Properties.Resources.add1;
+            this.bCrearHilo.Location = new System.Drawing.Point(3, 3);
+            this.bCrearHilo.Name = "bCrearHilo";
+            this.bCrearHilo.Size = new System.Drawing.Size(35, 14);
+            this.bCrearHilo.TabIndex = 4;
+            this.bCrearHilo.Tag = "";
+            this.bCrearHilo.UseVisualStyleBackColor = true;
+            // 
             // panel_cabecera
             // 
             this.panel_cabecera.BackColor = System.Drawing.Color.Blue;
@@ -1206,6 +1246,34 @@
             this.panel_opciones.Name = "panel_opciones";
             this.panel_opciones.Size = new System.Drawing.Size(885, 45);
             this.panel_opciones.TabIndex = 1;
+            // 
+            // button_añadirMaterial
+            // 
+            this.button_añadirMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_añadirMaterial.FlatAppearance.BorderSize = 0;
+            this.button_añadirMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_añadirMaterial.Image = global::cacatUA.Properties.Resources.nuevo;
+            this.button_añadirMaterial.Location = new System.Drawing.Point(39, 2);
+            this.button_añadirMaterial.Name = "button_añadirMaterial";
+            this.button_añadirMaterial.Size = new System.Drawing.Size(36, 36);
+            this.button_añadirMaterial.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_añadirMaterial, "Crear un nuevo material");
+            this.button_añadirMaterial.UseVisualStyleBackColor = true;
+            this.button_añadirMaterial.Click += new System.EventHandler(this.añadirMaterial);
+            // 
+            // button_seccionBuscar
+            // 
+            this.button_seccionBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
+            this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
+            this.button_seccionBuscar.Location = new System.Drawing.Point(3, 2);
+            this.button_seccionBuscar.Name = "button_seccionBuscar";
+            this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
+            this.button_seccionBuscar.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Realizar nueva búsqueda");
+            this.button_seccionBuscar.UseVisualStyleBackColor = true;
+            this.button_seccionBuscar.Click += new System.EventHandler(this.buscarMateriales);
             // 
             // tableLayoutPanel_principal
             // 
@@ -1283,6 +1351,23 @@
             this.panel4.Size = new System.Drawing.Size(885, 184);
             this.panel4.TabIndex = 5;
             // 
+            // button_cancelarDescarga
+            // 
+            this.button_cancelarDescarga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_cancelarDescarga.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_cancelarDescarga.FlatAppearance.BorderSize = 0;
+            this.button_cancelarDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cancelarDescarga.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_cancelarDescarga.Image = global::cacatUA.Properties.Resources.cancelarDescarga;
+            this.button_cancelarDescarga.Location = new System.Drawing.Point(844, 74);
+            this.button_cancelarDescarga.Name = "button_cancelarDescarga";
+            this.button_cancelarDescarga.Size = new System.Drawing.Size(36, 36);
+            this.button_cancelarDescarga.TabIndex = 88;
+            this.button_cancelarDescarga.Tag = "Modificar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_cancelarDescarga, "Cancelar descarga material seleccionado");
+            this.button_cancelarDescarga.UseVisualStyleBackColor = true;
+            this.button_cancelarDescarga.Click += new System.EventHandler(this.button9_Click);
+            // 
             // dataGridView_materiales
             // 
             this.dataGridView_materiales.AllowUserToAddRows = false;
@@ -1316,18 +1401,21 @@
             // 
             // dataGridViewTextBoxColumn_id
             // 
-            this.dataGridViewTextBoxColumn_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
             this.dataGridViewTextBoxColumn_id.MinimumWidth = 40;
             this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
             this.dataGridViewTextBoxColumn_id.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_id.Width = 41;
             // 
             // dataGridViewTextBoxColumn_nombre
             // 
+            this.dataGridViewTextBoxColumn_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.dataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn_nombre.Name = "dataGridViewTextBoxColumn_nombre";
             this.dataGridViewTextBoxColumn_nombre.ReadOnly = true;
             this.dataGridViewTextBoxColumn_nombre.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn_nombre.Width = 69;
             // 
             // dataGridViewTextBoxColumn_categoria
             // 
@@ -1339,9 +1427,11 @@
             // 
             // dataGridViewTextBoxColumn_usuario
             // 
-            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Enviado por";
+            this.dataGridViewTextBoxColumn_usuario.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Usuario";
             this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
             this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_usuario.Width = 68;
             // 
             // dataGridViewTextBoxColumn_fecha
             // 
@@ -1367,74 +1457,19 @@
             // 
             // dataGridViewTextBoxColumn_valoracion
             // 
+            this.dataGridViewTextBoxColumn_valoracion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn_valoracion.HeaderText = "Valoración";
             this.dataGridViewTextBoxColumn_valoracion.Name = "dataGridViewTextBoxColumn_valoracion";
             this.dataGridViewTextBoxColumn_valoracion.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_valoracion.Width = 80;
+            this.dataGridViewTextBoxColumn_valoracion.Width = 65;
             // 
             // dataGridViewTextBoxColumn_comentarios
             // 
-            this.dataGridViewTextBoxColumn_comentarios.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewTextBoxColumn_comentarios.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn_comentarios.HeaderText = "Comentarios";
             this.dataGridViewTextBoxColumn_comentarios.Name = "dataGridViewTextBoxColumn_comentarios";
             this.dataGridViewTextBoxColumn_comentarios.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_comentarios.Width = 90;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Descargar";
-            this.dataGridViewImageColumn1.Image = global::cacatUA.Properties.Resources.descargar;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.ToolTipText = "Descargar material";
-            this.dataGridViewImageColumn1.Width = 67;
-            // 
-            // button_añadirMaterial
-            // 
-            this.button_añadirMaterial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_añadirMaterial.FlatAppearance.BorderSize = 0;
-            this.button_añadirMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_añadirMaterial.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_añadirMaterial.Location = new System.Drawing.Point(39, 2);
-            this.button_añadirMaterial.Name = "button_añadirMaterial";
-            this.button_añadirMaterial.Size = new System.Drawing.Size(36, 36);
-            this.button_añadirMaterial.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_añadirMaterial, "Crear un nuevo material");
-            this.button_añadirMaterial.UseVisualStyleBackColor = true;
-            this.button_añadirMaterial.Click += new System.EventHandler(this.añadirMaterial);
-            // 
-            // button_seccionBuscar
-            // 
-            this.button_seccionBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seccionBuscar.FlatAppearance.BorderSize = 0;
-            this.button_seccionBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seccionBuscar.Image = global::cacatUA.Properties.Resources.buscar1;
-            this.button_seccionBuscar.Location = new System.Drawing.Point(3, 2);
-            this.button_seccionBuscar.Name = "button_seccionBuscar";
-            this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
-            this.button_seccionBuscar.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Realizar nueva búsqueda");
-            this.button_seccionBuscar.UseVisualStyleBackColor = true;
-            this.button_seccionBuscar.Click += new System.EventHandler(this.buscarMateriales);
-            // 
-            // button_cancelarDescarga
-            // 
-            this.button_cancelarDescarga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_cancelarDescarga.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_cancelarDescarga.FlatAppearance.BorderSize = 0;
-            this.button_cancelarDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cancelarDescarga.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_cancelarDescarga.Image = global::cacatUA.Properties.Resources.cancelarDescarga;
-            this.button_cancelarDescarga.Location = new System.Drawing.Point(844, 74);
-            this.button_cancelarDescarga.Name = "button_cancelarDescarga";
-            this.button_cancelarDescarga.Size = new System.Drawing.Size(36, 36);
-            this.button_cancelarDescarga.TabIndex = 88;
-            this.button_cancelarDescarga.Tag = "Modificar hilo seleccionado";
-            this.toolTip1.SetToolTip(this.button_cancelarDescarga, "Cancelar descarga material seleccionado");
-            this.button_cancelarDescarga.UseVisualStyleBackColor = true;
-            this.button_cancelarDescarga.Click += new System.EventHandler(this.button9_Click);
+            this.dataGridViewTextBoxColumn_comentarios.Width = 70;
             // 
             // dataGridViewTextBoxColumn_descargar
             // 
@@ -1480,45 +1515,16 @@
             this.button_borrarMaterial.UseVisualStyleBackColor = true;
             this.button_borrarMaterial.Click += new System.EventHandler(this.borrarMaterial);
             // 
-            // button_añadir
+            // dataGridViewImageColumn1
             // 
-            this.button_añadir.Image = global::cacatUA.Properties.Resources.add;
-            this.button_añadir.Location = new System.Drawing.Point(26, 4);
-            this.button_añadir.Name = "button_añadir";
-            this.button_añadir.Size = new System.Drawing.Size(77, 71);
-            this.button_añadir.TabIndex = 70;
-            this.button_añadir.Text = "Añadir";
-            this.button_añadir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button_añadir.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button12.Image = global::cacatUA.Properties.Resources.tool;
-            this.button12.Location = new System.Drawing.Point(3, 23);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(35, 14);
-            this.button12.TabIndex = 6;
-            this.button12.Tag = "Modificar hilo seleccionado";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // bCrearHilo
-            // 
-            this.bCrearHilo.AccessibleName = "";
-            this.bCrearHilo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bCrearHilo.FlatAppearance.BorderSize = 0;
-            this.bCrearHilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCrearHilo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.bCrearHilo.Image = global::cacatUA.Properties.Resources.add1;
-            this.bCrearHilo.Location = new System.Drawing.Point(3, 3);
-            this.bCrearHilo.Name = "bCrearHilo";
-            this.bCrearHilo.Size = new System.Drawing.Size(35, 14);
-            this.bCrearHilo.TabIndex = 4;
-            this.bCrearHilo.Tag = "";
-            this.bCrearHilo.UseVisualStyleBackColor = true;
+            this.dataGridViewImageColumn1.HeaderText = "Descargar";
+            this.dataGridViewImageColumn1.Image = global::cacatUA.Properties.Resources.descargar;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn1.ToolTipText = "Descargar material";
+            this.dataGridViewImageColumn1.Width = 67;
             // 
             // button3
             // 
@@ -1743,6 +1749,7 @@
         private System.Windows.Forms.Panel panel_contenido;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Button button_cancelarDescarga;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_categoria;
@@ -1753,6 +1760,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_valoracion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_comentarios;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewTextBoxColumn_descargar;
-        private System.Windows.Forms.Button button_cancelarDescarga;
     }
 }

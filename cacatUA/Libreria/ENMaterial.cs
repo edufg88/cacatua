@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections;
+using Libreria;
 
 namespace Libreria 
 {
@@ -52,120 +53,67 @@ namespace Libreria
             referencia = "";
             numComentarios = 0;
         }
-        /*
-        public ENMaterial(int id)
-        {
-            Obtener(id);
-        }
-        */
-        public string validarDato(string dato)
+
+        public static string validarDatos(ENMaterial material, string dato)
         {
             string error = "OK";
             switch (dato)
             {
                 case "nombre":
                     {
-                        if (nombre == "")
+                        if (material.Nombre == "")
                             error = msj_blanco;
                         else
                         {
-                            if (nombre.Length > maxTamNombre || nombre.Length < minTamNombre)
+                            if (material.Nombre.Length > maxTamNombre || material.Nombre.Length < minTamNombre)
                                 error = "Debe tener entre " + minTamNombre + " y " + maxTamNombre + " caracteres";
                         }
                         break;
                     }
                 case "usuario":
                     {
-                        /*
-                        if (usuario == "")
-                            error = msj_blanco;
-                        else
-                        {
-                            if (usuario.Length > maxTamUsuario || usuario.Length < minTamUsuario)
-                                error = "Debe tener entre " + minTamUsuario + " y " + maxTamUsuario + " caracteres";
-                            else
-                            {
-                                // Comprobamos si el usuario existe en la base de datos
-
-                                bool existe = MaterialCAD.Instancia.existeUsuario(usuario);
-                                if(existe == false)
-                                    
-                            }
-                        }*/
-                        if (usuario.Id == 0)
-                            error = "El usuario " + usuario + " no está registrado";
+                        if (material.Usuario == null)
+                            error = "El usuario no está registrado";
                         break;
                     }
                 case "categoria":
                     {
-                        /*
-                        if (categoria == "")
-                            error = msj_blanco;
-                        else
-                        {
-                            if (categoria.Length > maxTamCategoria || categoria.Length < minTamCategoria)
-                                error = "Debe tener entre " + minTamCategoria + " y " + maxTamCategoria + " caracteres";
-                        }*/
+                        if (material.Categoria == null)
+                            error = "Categoría no válida";
                         break;
                     }
                 case "archivo":
                     {
-                        if (archivo == "")
+                        if (material.Archivo == "")
                             error = msj_blanco;
                         else
                         {
-                            if (archivo.Length > maxTamArchivo || archivo.Length < minTamArchivo)
+                            if (material.Archivo.Length > maxTamArchivo || material.Archivo.Length < minTamArchivo)
                                 error = "Debe tener entre " + minTamArchivo + " y " + maxTamArchivo + " caracteres";
                         }
+                        break;
+                    }
+                default:
+                    {
                         break;
                     }
             }
             return error;
         }
-        /*
-        public bool Obtener(int id)
-        {
-            bool correcto = true;
-            ENMaterial aux = MaterialCAD.Instancia.obtener(id);
-            if (aux == null)
-            {
-                aux = new ENMaterial();
-                correcto = false;
-            }
-            else
-            {
-                this.id = aux.id;
-                this.nombre = aux.nombre;
-                this.descripcion = aux.descripcion;
-                this.usuario = aux.usuario;
-                this.categoria = aux.categoria;
-                this.archivo = aux.archivo;
-                this.tamaño = aux.tamaño;
-                this.descargas = aux.descargas;
-                this.puntuacion = aux.puntuacion;
-                this.votos = aux.votos;
-                this.referencia = aux.referencia;
-            }
-            return correcto;
-        }
-        */
 
         public static ENMaterial Obtener(int id)
         {
-            return MaterialCAD.Instancia.obtener(id);
+            return MaterialCAD.Instancia.Obtener(id);
         }
 
         override public bool Guardar()
         {
             return MaterialCAD.Instancia.Guardar(this);
-            // MaterialCAD.Instancia.crearMaterial(nombre,descripcion,usuario,categoria,archivo,tamaño,idioma,referencia);
-
-            //return HiloCAD.Instancia.Guardar(this);
         }
 
         public int CompletarGuardar()
         {
-            return MaterialCAD.Instancia.completarGuardar();
+            return MaterialCAD.Instancia.CompletarGuardar();
         }
 
         public bool CancelarGuardar()
@@ -187,14 +135,13 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            return true;
-            //return HiloCAD.Instancia.Actualizar(this);
+            return MaterialCAD.Instancia.Actualizar(this);
         }
 
         public static ArrayList Obtener()
         {
             // Obtenemos del CAD todos los materiales
-            return MaterialCAD.Instancia.obtener();
+            return MaterialCAD.Instancia.Obtener();
         }
 
         public ArrayList ObtenerComentarios()
