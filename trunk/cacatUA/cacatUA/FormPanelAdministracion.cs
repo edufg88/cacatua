@@ -126,7 +126,7 @@ namespace cacatUA
             // Mostramos el texto en las 'migas de pan' de la navegación.
             Button button = new Button();
             button.AutoSize = true;
-            button.Enabled = false;
+            //button.Enabled = false;
             button.Text = descripcion;
             flowLayoutPanel_navegacion.Controls.Add(button);
 
@@ -202,12 +202,7 @@ namespace cacatUA
 
         public void MostrarToolTip()
         {
-            toolTip_avanzado.Show("", button_volver);
-        }
-
-        public bool Navegando
-        {
-            get { return pilaFormularios.Count > 1; }
+            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver);
         }
 
         public bool Volver
