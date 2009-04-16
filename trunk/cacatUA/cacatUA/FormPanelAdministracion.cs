@@ -14,12 +14,22 @@ namespace cacatUA
     sealed public partial class FormPanelAdministracion : Form
     {
         private static readonly FormPanelAdministracion instancia = new FormPanelAdministracion();
+
+        // Pilas que utiliza la navegación para almacenar los formularios y el estado de los botones.
         private Stack<InterfazForm> pilaFormularios;
         private Stack<string> pilaBotonVolverStr;
         private Stack<bool> pilaBotonVolver;
         private Stack<string> pilaBotonCancelarStr;
         private Stack<bool> pilaBotonCancelar;
+
+        // Formularios originales. Uno de cada.
         private FormMateriales formMateriales = null;
+        private FormUsuarios formUsuarios = null;
+        private FormForo formForo = null;
+        private FormGrupos formGrupos = null;
+        private FormCategorias formCategorias = null;
+        private FormPeticiones formPeticiones = null;
+        private FormGeneral formGeneral = null;
 
         /// <summary>
         /// Permite obtener la única instancia de esta clase.
@@ -35,15 +45,24 @@ namespace cacatUA
         private FormPanelAdministracion()
         {
             InitializeComponent();
+
             pilaFormularios = new Stack<InterfazForm>();
             pilaBotonVolverStr = new Stack<string>();
             pilaBotonVolver = new Stack<bool>();
             pilaBotonCancelarStr = new Stack<string>();
             pilaBotonCancelar = new Stack<bool>();
 
-            FormGeneral form = new FormGeneral();
+            formGeneral = new FormGeneral();
+            formMateriales = new FormMateriales();
+            formUsuarios = new FormUsuarios();
+            formForo = new FormForo();
+            formGrupos = new FormGrupos();
+            formCategorias = new FormCategorias();
+            formPeticiones = new FormPeticiones();
+            formGeneral = new FormGeneral();
+
             DesapilarTodos();
-            Apilar(form, "General", false, false, "", "");
+            Apilar(formGeneral, "General", false, false, "", "");
         }
 
         private void FormPanelAdministracion_Load(object sender, EventArgs e)
@@ -53,52 +72,44 @@ namespace cacatUA
 
         private void button_usuarios_Click(object sender, EventArgs e)
         {
-            FormUsuarios form = new FormUsuarios();
             DesapilarTodos();
-            Apilar(form, "Usuarios", false, false, "", "");
+            Apilar(formUsuarios, "Usuarios", false, false, "", "");
         }
 
         private void button_foro_Click(object sender, EventArgs e)
         {
-            FormForo form = new FormForo();
             DesapilarTodos();
-            Apilar(form, "Foro", false, false, "", "");
+            Apilar(formForo, "Foro", false, false, "", "");
         }
 
         private void button_peticiones_Click(object sender, EventArgs e)
         {
-            FormPeticiones form = new FormPeticiones();
             DesapilarTodos();
-            Apilar(form, "Peticiones", false, false, "", "");
+            Apilar(formPeticiones, "Peticiones", false, false, "", "");
         }
 
         private void button_grupos_Click(object sender, EventArgs e)
         {
-            FormGrupos form = new FormGrupos();
             DesapilarTodos();
-            Apilar(form, "Grupos", false, false, "", "");
+            Apilar(formGrupos, "Grupos", false, false, "", "");
         }
 
         private void button_materiales_Click(object sender, EventArgs e)
         {
-            if(formMateriales == null)
-                formMateriales = new FormMateriales();
             DesapilarTodos();
             Apilar(formMateriales, "Materiales", false, false, "", "");
         }
 
         private void button_general_Click(object sender, EventArgs e)
         {
-            FormGeneral form = new FormGeneral();
             DesapilarTodos();
-            Apilar(form, "General", false, false, "", "");
+            Apilar(formGeneral, "General", false, false, "", "");
         }
 
         private void button_categorias_Click(object sender, EventArgs e)
         {
-            FormCategorias form = new FormCategorias();
             DesapilarTodos();
-            Apilar(form, "Categorías", false, false, "", "");
+            Apilar(formCategorias, "Categorías", false, false, "", "");
         }
 
         private void button_salir_Click(object sender, EventArgs e)
@@ -146,6 +157,7 @@ namespace cacatUA
 
         private void button_navegacion_Click(object sender, EventArgs e)
         {
+            // Desapilamos hasta que el último control coincida con el control que invocó el método.
             while (flowLayoutPanel_navegacion.Controls[flowLayoutPanel_navegacion.Controls.Count-1]!=(Control) sender)
             {
                 Desapilar(false);
@@ -223,8 +235,7 @@ namespace cacatUA
 
         public void MostrarToolTip()
         {
-            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver,
-                button_volver.PointToScreen(button_volver.PointToClient(new Point(15,15))));
+            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver);
         }
 
         public void OcultarToolTip()
