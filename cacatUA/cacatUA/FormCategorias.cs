@@ -163,6 +163,7 @@ namespace cacatUA
                 textBox_Ruta.Clear();
                 seleccionada = null;
                 groupBox_Informacion.Enabled = false;
+                treeViewCategorias.SelectedNode = null;
             }           
         }
 
@@ -302,7 +303,6 @@ namespace cacatUA
             if (filas.Count > 0)
             {
                 int usuario = int.Parse(filas[0].Cells[0].Value.ToString());
-                //FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(ENUsuario.Obtener(usuario)), "Viendo usuario", true, false, "Volver a categorías", "");
                 FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a categorías", "");
             }
             else
