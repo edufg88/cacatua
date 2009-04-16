@@ -105,8 +105,8 @@ namespace cacatUA
 
         private void activarBotones()
         {
-            button_guardarCambios.Enabled = false;
-            button_descartarCambios.Enabled = false;
+            button_guardarCambios.Enabled = true;
+            button_descartarCambios.Enabled = true;
         }
 
         private void desactivarBotones()
@@ -136,6 +136,23 @@ namespace cacatUA
                 DataGridViewRow seleccionada = dataGridView_resultados.SelectedRows[0];
                 CambiarEdicion(int.Parse(seleccionada.Cells[0].Value.ToString()));
             }
+        }
+
+        public bool ValidarFormulario()
+        {
+            bool correcto = true;
+
+            if (ENUsuario.Obtener(textBox_autor.Text) == null)
+            {
+                errorProvider1.SetError(textBox_autor, "No existe el usuario");
+                correcto = false;
+            }
+            else
+            {
+                errorProvider1.SetError(textBox_autor, "");
+            }
+
+            return correcto;
         }
 
         private void button_borrarRespuesta_Click(object sender, EventArgs e)
@@ -179,12 +196,52 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
+            if (ValidarFormulario())
+            {
+                ENRespuesta nueva = new ENRespuesta();
+                nueva.Texto = textBox_texto.Text;
+                nueva.Autor = ENUsuario.Obtener(textBox_autor.Text);
+                nueva.Fecha = dateTimePicker_fecha.Value;
+                nueva.Hilo = hilo;
 
+                if (textBox_id.Text == "")
+                {
+                    if (nueva.Guardar())
+                    {
+                        CambiarCrearNuevo();
+                        FormPanelAdministracion.Instancia.MensajeEstado("Respuesta guardada correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede guardar la respuesta.", "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    nueva.Id = int.Parse(textBox_id.Text.ToString());
+                    if (nueva.Guardar())
+                    {
+                        CambiarEdicion(nueva.Id);
+                        FormPanelAdministracion.Instancia.MensajeEstado("Respuesta actualizada correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede actualizar la respuesta.", "Error inesperado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
 
         private void button_descartarCambios_Click(object sender, EventArgs e)
         {
-
+            if (textBox_id.Text == "")
+            {
+                CambiarCrearNuevo();
+            }
+            else
+            {
+                CambiarEdicion(int.Parse(textBox_id.Text.ToString()));
+            }
         }
 
         public override void Recibir(object objeto)
@@ -197,6 +254,11 @@ namespace cacatUA
                     textBox_autor.Text = usuario.Usuario;
                 }
             }
+        }
+
+        public override object Enviar()
+        {
+            return hilo;
         }
     }
 }
