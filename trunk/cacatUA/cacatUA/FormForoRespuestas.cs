@@ -65,6 +65,8 @@ namespace cacatUA
         public void CambiarCrearNuevo()
         {
             label_seccion1.Text = "Crear nueva respuesta";
+            button_guardarCambios.Text = "Crear";
+            button_descartarCambios.Text = "Limpiar";
             usuario = null;
             textBox_autor.Text = "";
             textBox_id.Text = "";
@@ -84,6 +86,8 @@ namespace cacatUA
             if (respuesta != null)
             {
                 label_seccion1.Text = "Editando respuesta";
+                button_guardarCambios.Text = "Guardar cambios";
+                button_descartarCambios.Text = "Descartar cambios";
                 usuario = respuesta.Autor;
                 textBox_autor.Text = respuesta.Autor.Usuario;
                 textBox_id.Text = respuesta.Id.ToString();
@@ -96,6 +100,44 @@ namespace cacatUA
             {
                 MessageBox.Show("No se puede cambiar a la respuesta nº " + id);
             }
+        }
+
+        /// <summary>
+        /// Cambia al formulario de búsqueda, limpia el formulario y realiza una búsqueda ordenada por fecha.
+        /// </summary>
+        public void ReiniciarResultados()
+        {
+            Resultados = ENRespuesta.Obtener(hilo);
+        }
+
+        /// <summary>
+        /// Comprueba si la respuesta actual ha sido modificada y la recarga en el DataGridView.
+        /// El contenido de textBox_id.Text debe ser un número.
+        /// </summary>
+        /// <returns>Devuelve verdadero si ha actualizado alguna fila.</returns>
+        public bool ActualizarResultados()
+        {
+            bool actualizado = false;
+
+            DataGridViewRowCollection filas = dataGridView_resultados.Rows;
+
+            ENRespuesta respuesta = ENRespuesta.Obtener(int.Parse(textBox_id.Text));
+            if (respuesta != null)
+            {
+                foreach (DataGridViewRow i in filas)
+                {
+                    if (respuesta.Id.ToString() == i.Cells[0].Value.ToString())
+                    {
+                        i.Cells[1].Value = respuesta.Texto.ToString();
+                        i.Cells[2].Value = respuesta.Autor.Usuario.ToString();
+
+                        actualizado = true;
+                        break;
+                    }
+                }
+            }
+
+            return actualizado;
         }
 
         private void formulario_Modificado(object sender, EventArgs e)
@@ -173,6 +215,8 @@ namespace cacatUA
                         ENRespuesta.Borrar(int.Parse(i.Cells[0].Value.ToString()));
                         dataGridView_resultados.Rows.Remove(i);
 
+                        hilo.NumRespuestas--;
+
                         // Comprobamos si éste era el hilo seleccionado en el formulario de edición.
                         if (textBox_id.Text.ToString() == i.Cells[0].Value.ToString())
                         {
@@ -209,7 +253,9 @@ namespace cacatUA
                     if (nueva.Guardar())
                     {
                         CambiarCrearNuevo();
+                        ReiniciarResultados();
                         FormPanelAdministracion.Instancia.MensajeEstado("Respuesta guardada correctamente.");
+                        hilo.NumRespuestas++;
                     }
                     else
                     {
@@ -219,9 +265,10 @@ namespace cacatUA
                 else
                 {
                     nueva.Id = int.Parse(textBox_id.Text.ToString());
-                    if (nueva.Guardar())
+                    if (nueva.Actualizar())
                     {
                         CambiarEdicion(nueva.Id);
+                        ActualizarResultados();
                         FormPanelAdministracion.Instancia.MensajeEstado("Respuesta actualizada correctamente.");
                     }
                     else
