@@ -363,22 +363,22 @@ namespace Libreria
 
         public int CantidadEncuestas()
         {
-            return EncuestaCAD.Instancia.CantidadEncuestas();
+            return EncuestaCAD.Instancia.CantidadEncuestas(this.id);
         }
 
         public int CantidadFirmas()
         {
-            return FirmaCAD.Instancia.CantidadFirmas();
+            return FirmaCAD.Instancia.CantidadFirmas(this.id);
         }
 
         public int CantidadMensajes()
         {
-            return MensajeCAD.Instancia.CantidadMensajes();
+            return MensajeCAD.Instancia.CantidadMensajes(this.id);
         }
 
         public int CantidadImagenes()
         {
-            return ImagenCAD.Instancia.CantidadImagenes();
+            return ImagenCAD.Instancia.CantidadImagenes(this.id);
         }
 
         public int Id

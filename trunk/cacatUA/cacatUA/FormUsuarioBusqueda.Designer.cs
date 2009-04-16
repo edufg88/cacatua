@@ -37,11 +37,11 @@
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.label_email = new System.Windows.Forms.Label();
             this.panel_fechaIngreso = new System.Windows.Forms.Panel();
-            this.dateTimePicker_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label_fechaIngreso = new System.Windows.Forms.Label();
             this.panel_buscar = new System.Windows.Forms.Panel();
             this.button_buscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dateTimePicker_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel_buscar.SuspendLayout();
             this.panel_nombreUsuario.SuspendLayout();
             this.panel_email.SuspendLayout();
@@ -82,7 +82,7 @@
             // 
             this.textBox_nombreUsuario.Location = new System.Drawing.Point(147, 4);
             this.textBox_nombreUsuario.Name = "textBox_nombreUsuario";
-            this.textBox_nombreUsuario.Size = new System.Drawing.Size(263, 20);
+            this.textBox_nombreUsuario.Size = new System.Drawing.Size(250, 20);
             this.textBox_nombreUsuario.TabIndex = 9;
             this.textBox_nombreUsuario.Text = "Edu";
             this.toolTip1.SetToolTip(this.textBox_nombreUsuario, "Escriba un nombre de usuario para la búsqueda");
@@ -116,7 +116,7 @@
             // 
             this.textBox_email.Location = new System.Drawing.Point(147, 3);
             this.textBox_email.Name = "textBox_email";
-            this.textBox_email.Size = new System.Drawing.Size(263, 20);
+            this.textBox_email.Size = new System.Drawing.Size(250, 20);
             this.textBox_email.TabIndex = 15;
             this.textBox_email.Text = "usuario@cacatua.org";
             this.toolTip1.SetToolTip(this.textBox_email, "Escriba una dirección de email para la búsqueda");
@@ -145,14 +145,6 @@
             this.panel_fechaIngreso.Name = "panel_fechaIngreso";
             this.panel_fechaIngreso.Size = new System.Drawing.Size(759, 24);
             this.panel_fechaIngreso.TabIndex = 2;
-            // 
-            // dateTimePicker_fechaIngreso
-            // 
-            this.dateTimePicker_fechaIngreso.Location = new System.Drawing.Point(147, 3);
-            this.dateTimePicker_fechaIngreso.Name = "dateTimePicker_fechaIngreso";
-            this.dateTimePicker_fechaIngreso.Size = new System.Drawing.Size(263, 20);
-            this.dateTimePicker_fechaIngreso.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.dateTimePicker_fechaIngreso, "Seleccione la fecha de ingreso para la búsqueda");
             // 
             // label_fechaIngreso
             // 
@@ -188,6 +180,17 @@
             this.button_buscar.UseVisualStyleBackColor = true;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
             // 
+            // dateTimePicker_fechaIngreso
+            // 
+            this.dateTimePicker_fechaIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fechaIngreso.Location = new System.Drawing.Point(147, 3);
+            this.dateTimePicker_fechaIngreso.Name = "dateTimePicker_fechaIngreso";
+            this.dateTimePicker_fechaIngreso.ShowUpDown = true;
+            this.dateTimePicker_fechaIngreso.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker_fechaIngreso.TabIndex = 95;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechaIngreso, "Fecha de creación de la encuesta");
+            // 
             // FormUsuarioBusqueda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,9 +222,9 @@
         private System.Windows.Forms.Label label_email;
         private System.Windows.Forms.Panel panel_fechaIngreso;
         private System.Windows.Forms.Panel panel_buscar;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaIngreso;
         private System.Windows.Forms.Label label_fechaIngreso;
         private System.Windows.Forms.Button button_buscar;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaIngreso;
     }
 }

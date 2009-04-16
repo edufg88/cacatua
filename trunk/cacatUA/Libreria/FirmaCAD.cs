@@ -359,7 +359,7 @@ namespace Libreria
             return actualizado;
         }
 
-        public int CantidadFirmas()
+        public int CantidadFirmas(int emisor)
         {
             SqlConnection conexion = null;
             int cantidad = 0;
@@ -368,9 +368,10 @@ namespace Libreria
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string sentencia = "select count(*) from firmas";
+                string sentencia = "SELECT COUNT(*) FROM firmas WHERE emisor = @emisor";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@emisor", emisor);
 
                 cantidad = int.Parse(comando.ExecuteScalar().ToString());
             }

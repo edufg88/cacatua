@@ -31,7 +31,7 @@ namespace cacatUA
             {
                 ENMensaje m = new ENMensaje();
                 m.Emisor = ENUsuario.Obtener(3);
-                m.Receptor = ENUsuario.Obtener(12);
+                m.Receptor = ENUsuario.Obtener(4);
                 m.Texto = "mensaje " + i.ToString();
                 m.Fecha = DateTime.Now;
                 m.Guardar();

@@ -58,7 +58,6 @@
             this.textBox_usuario = new System.Windows.Forms.TextBox();
             this.label_usuario = new System.Windows.Forms.Label();
             this.checkBox_administrador = new System.Windows.Forms.CheckBox();
-            this.dateTimePicker_fechaDeIngreso = new System.Windows.Forms.DateTimePicker();
             this.label_fechaDeIngreso = new System.Windows.Forms.Label();
             this.textBox_email = new System.Windows.Forms.TextBox();
             this.textBox_nombre = new System.Windows.Forms.TextBox();
@@ -66,6 +65,7 @@
             this.label_nombre = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dateTimePicker_fechaDeIngreso = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel_formEdicion.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_usuarioEdicion.SuspendLayout();
@@ -121,6 +121,7 @@
             // 
             // panel_usuarioEdicion
             // 
+            this.panel_usuarioEdicion.Controls.Add(this.dateTimePicker_fechaDeIngreso);
             this.panel_usuarioEdicion.Controls.Add(this.textBox_id);
             this.panel_usuarioEdicion.Controls.Add(this.label_id);
             this.panel_usuarioEdicion.Controls.Add(this.linkLabel_verEncuestas);
@@ -145,7 +146,6 @@
             this.panel_usuarioEdicion.Controls.Add(this.textBox_usuario);
             this.panel_usuarioEdicion.Controls.Add(this.label_usuario);
             this.panel_usuarioEdicion.Controls.Add(this.checkBox_administrador);
-            this.panel_usuarioEdicion.Controls.Add(this.dateTimePicker_fechaDeIngreso);
             this.panel_usuarioEdicion.Controls.Add(this.label_fechaDeIngreso);
             this.panel_usuarioEdicion.Controls.Add(this.textBox_email);
             this.panel_usuarioEdicion.Controls.Add(this.textBox_nombre);
@@ -387,14 +387,6 @@
             this.toolTip1.SetToolTip(this.checkBox_administrador, "Seleccionar si el usuario es administrador o no");
             this.checkBox_administrador.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker_fechaDeIngreso
-            // 
-            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 10);
-            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
-            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker_fechaDeIngreso.TabIndex = 78;
-            this.toolTip1.SetToolTip(this.dateTimePicker_fechaDeIngreso, "Fecha de ingreso del usuario");
-            // 
             // label_fechaDeIngreso
             // 
             this.label_fechaDeIngreso.AutoSize = true;
@@ -442,6 +434,17 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // dateTimePicker_fechaDeIngreso
+            // 
+            this.dateTimePicker_fechaDeIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaDeIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 11);
+            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
+            this.dateTimePicker_fechaDeIngreso.ShowUpDown = true;
+            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker_fechaDeIngreso.TabIndex = 94;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechaDeIngreso, "Fecha de creación de la encuesta");
+            // 
             // FormUsuarioEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -468,7 +471,6 @@
         private System.Windows.Forms.TextBox textBox_usuario;
         private System.Windows.Forms.Label label_usuario;
         private System.Windows.Forms.CheckBox checkBox_administrador;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaDeIngreso;
         private System.Windows.Forms.Label label_fechaDeIngreso;
         private System.Windows.Forms.TextBox textBox_email;
         private System.Windows.Forms.TextBox textBox_nombre;
@@ -497,6 +499,7 @@
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechaDeIngreso;
 
     }
 }
