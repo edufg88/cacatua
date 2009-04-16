@@ -19,6 +19,7 @@ namespace cacatUA
         private Stack<bool> pilaBotonVolver;
         private Stack<string> pilaBotonCancelarStr;
         private Stack<bool> pilaBotonCancelar;
+        private FormMateriales formMateriales = null;
 
         /// <summary>
         /// Permite obtener la única instancia de esta clase.
@@ -80,9 +81,10 @@ namespace cacatUA
 
         private void button_materiales_Click(object sender, EventArgs e)
         {
-            FormMateriales form = new FormMateriales();
+            if(formMateriales == null)
+                formMateriales = new FormMateriales();
             DesapilarTodos();
-            Apilar(form, "Materiales", false, false, "", "");
+            Apilar(formMateriales, "Materiales", false, false, "", "");
         }
 
         private void button_general_Click(object sender, EventArgs e)

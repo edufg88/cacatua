@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Net;
 using Libreria;
 
 namespace cacatUA
@@ -15,6 +16,9 @@ namespace cacatUA
     {
         FormMaterialesEdicion formEditarMateriales = null;
         FormMaterialesBusqueda formMaterialesBusqueda = null;
+        WebClient cliente;
+
+        Dictionary<int, WebClient> descargas = null;
 
         public enum estados { EDITAR = 0, BUSCAR = 1, CREAR = 2};
         private estados estado;
@@ -104,7 +108,7 @@ namespace cacatUA
             // Por defecto se muestra el formulario de búsqueda
             ActualizarFormulario(estados.BUSCAR);
             estadoAnterior = estados.BUSCAR;
-
+            descargas = new Dictionary<int, WebClient>();
             ArrayList materiales = ENMaterial.Obtener();
             mostrarMateriales(materiales);
         }
@@ -152,7 +156,13 @@ namespace cacatUA
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargas"].Index;
                 fila.Cells[posicion].Value = material.Descargas;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_valoracion"].Index;
-                fila.Cells[posicion].Value = material.Puntuacion;                               
+                fila.Cells[posicion].Value = material.Puntuacion;      
+                // Comprobamos si se está descargando
+                if (estaDescargando(material))
+                {
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewTextBoxCell();
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = "hola";
+                }
                 dataGridView_materiales.Rows.Add(fila);
             }
         }
@@ -249,6 +259,169 @@ namespace cacatUA
                     formMaterialesBusqueda.Recibir(objeto);
                 else
                     formEditarMateriales.Recibir(objeto);
+            }
+        }
+        /*
+        private void actualizarDataGridDescargas()
+        {
+            // Para cada descarga activa, comprobamos 
+
+        }
+        */
+        private void archivoDescargado(object sender, AsyncCompletedEventArgs e)
+        {
+            WebClient webCliente = (WebClient)sender;
+            // Obtenemos la ruta del archivo
+            string ruta = webCliente.BaseAddress;
+            // Obtenemos el id de la ruta
+            string id = ruta.Remove(0, ruta.LastIndexOf(@"/") + 1);
+            id = id.Remove(id.LastIndexOf(@"."));
+            // Eliminamos de las descargas
+            if(descargas.Remove(int.Parse(id)))
+                FormPanelAdministracion.Instancia.MensajeEstado("Material " + id + " descargado");
+            // Cambiamos el icono del datagrid
+            // Comprobamos si está en el datagrid el material
+            DataGridViewRowCollection filas = dataGridView_materiales.Rows;
+            foreach (DataGridViewRow fila in filas)
+            {
+                if (fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString() == id)
+                {
+                    // Lo hemos encontrado
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewImageCell();
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = Properties.Resources.descargar;
+                     
+                    break;
+                }
+            }
+                    
+        }
+
+        private void cambioPorcentaje(object sender, DownloadProgressChangedEventArgs e)
+        {
+            WebClient webCliente = (WebClient)sender;
+            // Obtenemos la ruta del archivo
+            string ruta = webCliente.BaseAddress;
+            // Obtenemos el id de la ruta
+            string id = ruta.Remove(0, ruta.LastIndexOf(@"/")+1);
+            id = id.Remove(id.LastIndexOf(@"."));
+            // Comprobamos si está en el datagrid el material
+            DataGridViewRowCollection filas = dataGridView_materiales.Rows;
+            foreach (DataGridViewRow fila in filas)
+            {
+                if (fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString() == id)
+                {
+                    // Lo hemos encontrado
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewTextBoxCell();
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = e.ProgressPercentage.ToString() + "%";
+                    break;
+                }
+            }
+        }
+
+        private void dataGridView_materiales_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargar"].Index)
+            {
+                // Obtenemos la fila seleccionada
+                DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
+                if (filas.Count == 1)
+                {
+                    // Descargamos el material seleccionado
+                    DataGridViewRow fila = filas[0];
+                    int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
+                    ENMaterial material = ENMaterial.Obtener(id);
+                    // Obtenemos la ruta donde el usuario quiere guardar el material
+                    saveFileDialog.FileName = material.Archivo;
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        if (material != null)
+                        {
+                            
+                            WebClient cliente = new WebClient();
+                            descargas.Add(material.Id, cliente);
+                            Uri uri = new Uri("http://84.120.44.73/ficheros/" + material.Archivo);
+                            
+                            
+                            // Specify that the DownloadFileCallback method gets called
+                            // when the download completes.
+                            cliente.DownloadFileCompleted += new AsyncCompletedEventHandler(archivoDescargado);
+                            // Specify a progress notification handler.
+                            cliente.DownloadProgressChanged += new DownloadProgressChangedEventHandler(cambioPorcentaje);
+                            cliente.DownloadFileAsync(uri, saveFileDialog.FileName);
+                            cliente.BaseAddress = "http://84.120.44.73/ficheros/" + material.Archivo;
+                            //webCliente.DownloadFile("http://84.120.44.73/ficheros/" + material.Archivo,saveFileDialog.FileName);
+                            //webCliente.DownloadFileCompleted
+                        }
+                        else
+                        {
+                            MessageBox.Show("material no válido");
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool estaDescargando(ENMaterial material)
+        {
+            bool descargando = false;
+            foreach (KeyValuePair<int, WebClient> i in descargas)
+            {
+                // Obtenemos el nombre
+                int id = i.Key;
+                // Obtenemos el control
+                WebClient cliente = i.Value;
+                if (id == material.Id)
+                {
+                    descargando = true;
+                    break;
+                }
+            }
+            return descargando;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            // Obtenemos la fila seleccionada
+            DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
+            if (filas.Count == 1)
+            {
+                // Descargamos el material seleccionado
+                DataGridViewRow fila = filas[0];
+                int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
+                ENMaterial material = ENMaterial.Obtener(id);
+                // Comprobamos si se está descargando actualmente
+                if (estaDescargando(material))
+                {
+                    WebClient cliente = descargas[id];
+                    // Eliminamos la descarga
+                    descargas.Remove(id);
+                    cliente.CancelAsync();
+                    
+                    //MessageBox.Show("Cancelado: " + cliente.BaseAddress);
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewImageCell();
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = Properties.Resources.descargar;
+                    FormPanelAdministracion.Instancia.MensajeEstado("Descarga del material " + id.ToString() + " cancelada"); 
+                }
+            }
+        }
+
+        private void dataGridView_materiales_Click(object sender, EventArgs e)
+        {
+            DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
+            if (filas.Count == 1)
+            {
+                // Descargamos el material seleccionado
+                DataGridViewRow fila = filas[0];
+                int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
+                ENMaterial material = ENMaterial.Obtener(id);
+                // Comprobamos si se está descargando el material
+                if (estaDescargando(material))
+                {
+                    // Activamos el botón de cancelar
+                    button_cancelarDescarga.Enabled = true;
+                }
+                else
+                    button_cancelarDescarga.Enabled = false;
             }
         }
     }
