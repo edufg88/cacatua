@@ -126,8 +126,12 @@ namespace cacatUA
             // Mostramos el texto en las 'migas de pan' de la navegación.
             Button button = new Button();
             button.AutoSize = true;
-            //button.Enabled = false;
+            button.Enabled = false;
+            toolTip1.SetToolTip(button, "Retroceder hasta este punto");
+            button.Click += new System.EventHandler(button_navegacion_Click);
             button.Text = descripcion;
+            if (flowLayoutPanel_navegacion.Controls.Count > 0)
+                flowLayoutPanel_navegacion.Controls[flowLayoutPanel_navegacion.Controls.Count - 1].Enabled = true;
             flowLayoutPanel_navegacion.Controls.Add(button);
 
             pilaFormularios.Push(formulario);
@@ -136,6 +140,14 @@ namespace cacatUA
             pilaBotonCancelar.Push(cancelar);
             pilaBotonCancelarStr.Push(cancelarStr);
             MostrarCima();
+        }
+
+        private void button_navegacion_Click(object sender, EventArgs e)
+        {
+            while (flowLayoutPanel_navegacion.Controls[flowLayoutPanel_navegacion.Controls.Count-1]!=(Control) sender)
+            {
+                Desapilar(false);
+            }
         }
 
         /// <summary>
@@ -167,6 +179,11 @@ namespace cacatUA
                 Control control = flowLayoutPanel_navegacion.Controls[flowLayoutPanel_navegacion.Controls.Count - 1];
                 flowLayoutPanel_navegacion.Controls.Remove(control);
             }
+
+            if (flowLayoutPanel_navegacion.Controls.Count > 0)
+            {
+                flowLayoutPanel_navegacion.Controls[flowLayoutPanel_navegacion.Controls.Count - 1].Enabled = false;
+            }
         }
 
         /// <summary>
@@ -194,6 +211,8 @@ namespace cacatUA
             toolTip1.SetToolTip(button_volver, pilaBotonVolverStr.Peek());
             toolTip1.SetToolTip(button_cancelar, pilaBotonCancelarStr.Peek());
 
+            OcultarToolTip();
+
             InterfazForm form = pilaFormularios.Peek();
             panel.Controls.Clear();
             panel.Controls.Add(form);
@@ -202,7 +221,13 @@ namespace cacatUA
 
         public void MostrarToolTip()
         {
-            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver);
+            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver,
+                button_volver.PointToScreen(button_volver.PointToClient(new Point(15,15))));
+        }
+
+        public void OcultarToolTip()
+        {
+            toolTip_avanzado.Hide(button_volver);
         }
 
         public bool Volver
