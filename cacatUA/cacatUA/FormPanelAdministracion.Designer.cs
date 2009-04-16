@@ -40,8 +40,8 @@
             this.button_salir = new System.Windows.Forms.Button();
             this.panel = new System.Windows.Forms.Panel();
             this.toolTip_avanzado = new System.Windows.Forms.ToolTip(this.components);
-            this.button_cancelar = new System.Windows.Forms.Button();
             this.button_volver = new System.Windows.Forms.Button();
+            this.button_cancelar = new System.Windows.Forms.Button();
             this.flowLayoutPanel_navegacion = new System.Windows.Forms.FlowLayoutPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -211,21 +211,7 @@
             this.toolTip_avanzado.IsBalloon = true;
             this.toolTip_avanzado.ShowAlways = true;
             this.toolTip_avanzado.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip_avanzado.ToolTipTitle = "¿Preparado para volver?";
-            // 
-            // button_cancelar
-            // 
-            this.button_cancelar.FlatAppearance.BorderSize = 0;
-            this.button_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cancelar.Image = global::cacatUA.Properties.Resources.cancelar;
-            this.button_cancelar.Location = new System.Drawing.Point(220, 0);
-            this.button_cancelar.Margin = new System.Windows.Forms.Padding(0);
-            this.button_cancelar.Name = "button_cancelar";
-            this.button_cancelar.Size = new System.Drawing.Size(24, 24);
-            this.button_cancelar.TabIndex = 3;
-            this.toolTip_avanzado.SetToolTip(this.button_cancelar, "Cancela la selección y vuelve al panel anterior");
-            this.button_cancelar.UseVisualStyleBackColor = true;
-            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
+            this.toolTip_avanzado.ToolTipTitle = "Preparado para volver";
             // 
             // button_volver
             // 
@@ -237,9 +223,23 @@
             this.button_volver.Name = "button_volver";
             this.button_volver.Size = new System.Drawing.Size(24, 24);
             this.button_volver.TabIndex = 2;
-            this.toolTip_avanzado.SetToolTip(this.button_volver, "Vuelve al panel anterior");
+            this.toolTip1.SetToolTip(this.button_volver, "Vuelve al panel anterior");
             this.button_volver.UseVisualStyleBackColor = true;
             this.button_volver.Click += new System.EventHandler(this.button_volver_Click);
+            // 
+            // button_cancelar
+            // 
+            this.button_cancelar.FlatAppearance.BorderSize = 0;
+            this.button_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cancelar.Image = global::cacatUA.Properties.Resources.cancelar;
+            this.button_cancelar.Location = new System.Drawing.Point(220, 0);
+            this.button_cancelar.Margin = new System.Windows.Forms.Padding(0);
+            this.button_cancelar.Name = "button_cancelar";
+            this.button_cancelar.Size = new System.Drawing.Size(24, 24);
+            this.button_cancelar.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.button_cancelar, "Cancela la selección y vuelve al panel anterior");
+            this.button_cancelar.UseVisualStyleBackColor = true;
+            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
             // 
             // flowLayoutPanel_navegacion
             // 

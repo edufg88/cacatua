@@ -191,13 +191,35 @@ namespace cacatUA
         {
             button_volver.Enabled = pilaBotonVolver.Peek();
             button_cancelar.Enabled = pilaBotonCancelar.Peek();
-            toolTip_avanzado.SetToolTip(button_volver, pilaBotonVolverStr.Peek());
+            toolTip1.SetToolTip(button_volver, pilaBotonVolverStr.Peek());
             toolTip1.SetToolTip(button_cancelar, pilaBotonCancelarStr.Peek());
 
             InterfazForm form = pilaFormularios.Peek();
             panel.Controls.Clear();
             panel.Controls.Add(form);
             form.Dock = DockStyle.Fill;
+        }
+
+        public void MostrarToolTip()
+        {
+            toolTip_avanzado.Show("", button_volver);
+        }
+
+        public bool Navegando
+        {
+            get { return pilaFormularios.Count > 1; }
+        }
+
+        public bool Volver
+        {
+            get { return button_volver.Enabled; }
+            set { button_volver.Enabled = value; }
+        }
+
+        public bool Cancelar
+        {
+            get { return button_cancelar.Enabled; }
+            set { button_cancelar.Enabled = value; }
         }
 
         private void button_volver_Click(object sender, EventArgs e)
