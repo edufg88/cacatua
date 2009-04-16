@@ -13,9 +13,20 @@ namespace cacatUA
 {
     public partial class FormUsuarioMensajes : InterfazForm
     {
+        /// <summary>
+        /// Puntero al usuario de los mensajes
+        /// </summary>
         private ENUsuario usuario;
+
+        /// <summary>
+        /// Mensaje actual
+        /// </summary>
         private ENMensaje mensaje;
 
+        /// <summary>
+        /// Constructor del formulario FromUsuarioMensajes
+        /// </summary>
+        /// <param name="usuario"></param>
         public FormUsuarioMensajes(ENUsuario usuario)
         {
             InitializeComponent();
@@ -25,6 +36,7 @@ namespace cacatUA
             this.mensaje = new ENMensaje();
         }
 
+        /*
         public void InsertarMensajes()
         {
             for (int i = 0; i < 10; i++)
@@ -37,7 +49,11 @@ namespace cacatUA
                 m.Guardar();
             }
         }
+        */
 
+        /// <summary>
+        /// Carga todos los mensajes en el DataGridView del formulario
+        /// </summary>
         public void CargarMensajes()
         {
             ArrayList datos = new ArrayList();
@@ -45,7 +61,10 @@ namespace cacatUA
             cargarDatos(datos);
         }
 
-        // Este método carga los datos en el DataGridView
+        /// <summary>
+        /// Carga los datos recibidos en el DataGridView del formulario
+        /// </summary>
+        /// <param name="datos">Recibie un ArrayList con los datos que cargará</param>
         private void cargarDatos(ArrayList datos)
         {
             // Borramos los elementos previos
@@ -67,6 +86,10 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Carga en el formulario los datos del mensaje recibido
+        /// </summary>
+        /// <param name="id">Recibe el id del mensaje a cargar</param>
         private void cambiarSeleccionado(int id)
         {
             ENMensaje mensaje = ENMensaje.Obtener(id);
@@ -86,6 +109,9 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Vacía los campos del formulario
+        /// </summary>
         private void cambiarNuevo()
         {
             errorProvider1.Clear();
@@ -95,7 +121,11 @@ namespace cacatUA
             textBox_texto.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
         }
-
+        
+        /// <summary>
+        /// Valida los campos del formulario
+        /// </summary>
+        /// <returns>Devuelve true si la validación ha sido correcta, false en caso contrario</returns>
         private bool validarFormulario()
         {
             // Validamos uno a uno todos los campos

@@ -13,9 +13,21 @@ namespace cacatUA
 {
     public partial class FormUsuarioImagenes : InterfazForm
     {
+        /// <summary>
+        /// Puntero al usuario de las imágenes
+        /// </summary>
         private ENUsuario us;
+
+        /// <summary>
+        /// Imagen actual
+        /// </summary>
         private ENImagen imagen;
 
+
+        /// <summary>
+        /// Constructor del formulario FormUsuarioImagenes
+        /// </summary>
+        /// <param name="usuario">Recibe un puntero al usuario de las imágenes</param>
         public FormUsuarioImagenes(ENUsuario usuario)
         {
             InitializeComponent();
@@ -24,6 +36,9 @@ namespace cacatUA
             imagen = new ENImagen();
         }
 
+        /// <summary>
+        /// Carga todas las imágenes en el DataGridView del formulario
+        /// </summary>
         public void CargarImagenes()
         {
             ArrayList datos = new ArrayList();
@@ -31,7 +46,10 @@ namespace cacatUA
             cargarDatos(datos);
         }
 
-        // Este método carga los datos en el DataGridView
+        /// <summary>
+        /// Carga los datos recibidos en el DataGridView del formulario
+        /// </summary>
+        /// <param name="datos">Recibe un ArrayList con los datos que carga</param>
         private void cargarDatos(ArrayList datos)
         {
             // Borramos los elementos previos
@@ -53,6 +71,10 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Carga en el formulario los datos de la imagen recibida
+        /// </summary>
+        /// <param name="id">Recibe el id de la imagen a cargar</param>
         private void cambiarSeleccionado(int id)
         {
             ENImagen imagen = null;
@@ -72,7 +94,10 @@ namespace cacatUA
                 dateTimePicker_fecha.Value = imagen.Fecha;
             }
         }
-
+        
+        /// <summary>
+        /// Vacia los campos del formulario
+        /// </summary>
         private void cambiarNuevo()
         {
             errorProvider1.Clear();
@@ -83,6 +108,7 @@ namespace cacatUA
             dateTimePicker_fecha.Value = DateTime.Now;
         }
 
+        /*
         public void InsertarImagenes()
         {
             for (int i = 0; i < 10; i++)
@@ -96,7 +122,12 @@ namespace cacatUA
                 im.Guardar();
             }
         }
+        */
 
+        /// <summary>
+        /// Valida los campos del formulario
+        /// </summary>
+        /// <returns>Devuelve true si la validación ha sido correcta, false en caso contrario</returns>
         private bool validarFormulario()
         {
             // Validamos uno a uno todos los campos

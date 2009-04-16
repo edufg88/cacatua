@@ -13,13 +13,34 @@ namespace cacatUA
 {
     public partial class FormUsuarios : InterfazForm
     {
+        /// <summary>
+        /// Formulario de búsqueda de usuario
+        /// </summary>
         private FormUsuarioBusqueda formBusqueda;
+        /// <summary>
+        /// Formulario de edición de usuario
+        /// </summary>
         private FormUsuarioEdicion formEdicion;
+        /// <summary>
+        /// Último usuario seleccionado
+        /// </summary>
         private ENUsuario usuarioSeleccionado;
+        /// <summary>
+        /// Indica si el panel1 está oculto o no
+        /// </summary>
         private bool ocultoP1;
+        /// <summary>
+        /// Indica si el panel2 está oculto o no
+        /// </summary>
         private bool ocultoP2;
-        private int formulario; // 0 = formBusqueda, 1 = formEdicion;
+        /// <summary>
+        /// Entero con el formulario activo 0 = formBusqueda, 1 = formEdicion;
+        /// </summary>
+        private int formulario; 
 
+        /// <summary>
+        /// Constructor del formulario principal de usuarios
+        /// </summary>
         public FormUsuarios()
         {
             InitializeComponent();
@@ -34,6 +55,9 @@ namespace cacatUA
             ocultoP2 = false;
         }
 
+        /// <summary>
+        /// Carga el formulario de búsqueda de usuarios
+        /// </summary>
         public void CambiarFormularioBusqueda()
         {
             label_seccion1.Text = "Búsqueda";
@@ -44,6 +68,9 @@ namespace cacatUA
             formulario = 0;
         }
 
+        /// <summary>
+        /// Carga el formulario de edición de usuarios
+        /// </summary>
         public void CambiarFormularioEdicion()
         {
             label_seccion1.Text = "Edición";
@@ -53,22 +80,10 @@ namespace cacatUA
             // Marcamos el formulario activo
             formulario = 1;
         }
-
-        private void InsertarUsuariosPrueba()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ENUsuario usuario = new ENUsuario("edu" + i.ToString(), i.ToString(), "edu" + i.ToString(), "1111111" + i.ToString(), "edu@prueba.com" + i.ToString(), false, "hola");
-                usuario.Guardar();                
-            }
-        }
-
-        private void BorrarUsuariosPrueba()
-        {
-            ENUsuario usuario = new ENUsuario();
-            usuario.BorrarUsuarios();
-        }
-
+        
+        /// <summary>
+        /// Carga todos los usuarios en el DataGridView de 'FormUsuarios'
+        /// </summary>
         public void CargarUsuarios()
         {
             ArrayList al = new ArrayList();
@@ -77,7 +92,10 @@ namespace cacatUA
             CargarDatos(al);
         }
 
-        // Este método carga los datos en el DataGridView
+        /// <summary>
+        /// Carga un ArrayList con datos en el DataGridView de 'FormUsuarios'
+        /// </summary>
+        /// <param name="datos"> ArrayList con los datos a cargar </param>
         public void CargarDatos(ArrayList datos)
         {
             // Borramos los elementos previos
@@ -103,6 +121,10 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Utilizado para la navegación
+        /// </summary>
+        /// <returns>Devuelve el usuario seleccionado en el momento</returns>
         override public Object Enviar()
         {
             return usuarioSeleccionado;
