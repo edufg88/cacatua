@@ -40,6 +40,52 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
+        public bool Actualizar(ENMaterial material)
+        {
+            bool correcto = false;
+            if (material != null)
+            {
+                SqlConnection conexion = null;
+                try
+                {
+                    conexion = new SqlConnection(cadenaConexion);
+                    // Abrimos la conexión.
+                    conexion.Open();
+
+                    // Creamos el comando.
+                    string cadenaComando = "UPDATE materiales SET nombre = @nombre, descripcion = @descripcion," +
+                        "usuario = @usuario, categoria = @categoria, archivo = @archivo, tamaño = @tamaño," +
+                        "referencia = @referencia, descargas = @descargas WHERE id = @id";
+                    SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+
+                    comando.Parameters.AddWithValue("@id", material.Id);
+                    comando.Parameters.AddWithValue("@nombre", material.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
+                    comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
+                    comando.Parameters.AddWithValue("@categoria", material.Categoria.Id);
+                    comando.Parameters.AddWithValue("@archivo", material.Archivo);
+                    comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
+                    comando.Parameters.AddWithValue("@referencia", material.Referencia);
+                    comando.Parameters.AddWithValue("@descargas", material.Descargas);
+
+                    if (comando.ExecuteNonQuery() == 1)
+                        correcto = true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("<ENMaterial::Actualizar> " + ex.Message);
+                }
+                finally
+                {
+                    if (conexion != null)
+                        conexion.Close();
+                }
+            }
+            else
+                Console.WriteLine("<ENMaterial::Actualizar> material == null");
+            return correcto;
+        }
+
         public bool Guardar(ENMaterial material)
         {
             bool correcto = false;
@@ -102,7 +148,7 @@ namespace Libreria
             return correcto;
         }
 
-        public int completarGuardar()
+        public int CompletarGuardar()
         {
             int id = -1;
             try
@@ -149,12 +195,16 @@ namespace Libreria
             return id;
         }
 
-        public ArrayList obtener()
+        public ArrayList Obtener()
         {
             ArrayList materiales = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
                 conexion.Open();
+
                 string cadenaComando = "SELECT * FROM vistaMateriales";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
@@ -164,6 +214,15 @@ namespace Libreria
                     ENMaterial material = obtenerDatos(reader);
                     materiales.Add(material);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::Obtener> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
             }
             return materiales;
         }
@@ -259,7 +318,7 @@ namespace Libreria
             return comentario;
         }
 
-        public ENMaterial obtener(int id)
+        public ENMaterial Obtener(int id)
         {
             ENMaterial material = null;
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -491,10 +550,3 @@ namespace Libreria
         }
     }
 }
-/*
-comando.Parameters["@Date"].Value = DateTime.Now.ToString();
-comando.Parameters.Add("@From", SqlDbType.NVarChar);
-myCmd.Parameters["@From"].Value = msgFrom.Value;
-myCmd.Parameters.Add("@Mail", SqlDbType.NVarChar);
-myCmd.Parameters["@Mail"].Value = msgEmail.Value;
-*/

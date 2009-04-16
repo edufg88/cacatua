@@ -16,7 +16,6 @@ namespace cacatUA
     {
         FormMaterialesEdicion formEditarMateriales = null;
         FormMaterialesBusqueda formMaterialesBusqueda = null;
-        WebClient cliente;
 
         Dictionary<int, WebClient> descargas = null;
 
@@ -128,6 +127,27 @@ namespace cacatUA
         {
             get { return dataGridView_materiales; }
             set { dataGridView_materiales = value; }
+        }
+
+        public void ActualizarMaterial(ENMaterial material)
+        {
+            DataGridViewRowCollection filas = dataGridView_materiales.Rows;
+            foreach (DataGridViewRow fila in filas)
+            {
+                if (fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString() == material.Id.ToString())
+                {
+                    fila.Cells["dataGridViewTextBoxColumn_id"].Value = material.Id.ToString();
+                    fila.Cells["dataGridViewTextBoxColumn_nombre"].Value = material.Nombre;
+                    fila.Cells["dataGridViewTextBoxColumn_comentarios"].Value = material.NumComentarios;
+                    fila.Cells["dataGridViewTextBoxColumn_fecha"].Value = material.Fecha;
+                    fila.Cells["dataGridViewTextBoxColumn_usuario"].Value = material.Usuario.Usuario;
+                    fila.Cells["dataGridViewTextBoxColumn_categoria"].Value = material.Categoria.NombreCompleto();
+                    fila.Cells["dataGridViewTextBoxColumn_tamaño"].Value = material.Tamaño;
+                    fila.Cells["dataGridViewTextBoxColumn_descargas"].Value = material.Descargas;
+                    fila.Cells["dataGridViewTextBoxColumn_valoracion"].Value = material.Puntuacion;  
+                    break;
+                }
+            }
         }
 
         public void mostrarMateriales(ArrayList materiales)
@@ -335,22 +355,15 @@ namespace cacatUA
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         if (material != null)
-                        {
-                            
+                        {                           
                             WebClient cliente = new WebClient();
                             descargas.Add(material.Id, cliente);
                             Uri uri = new Uri("http://84.120.44.73/ficheros/" + material.Archivo);
-                            
-                            
-                            // Specify that the DownloadFileCallback method gets called
-                            // when the download completes.
                             cliente.DownloadFileCompleted += new AsyncCompletedEventHandler(archivoDescargado);
-                            // Specify a progress notification handler.
                             cliente.DownloadProgressChanged += new DownloadProgressChangedEventHandler(cambioPorcentaje);
                             cliente.DownloadFileAsync(uri, saveFileDialog.FileName);
                             cliente.BaseAddress = "http://84.120.44.73/ficheros/" + material.Archivo;
-                            //webCliente.DownloadFile("http://84.120.44.73/ficheros/" + material.Archivo,saveFileDialog.FileName);
-                            //webCliente.DownloadFileCompleted
+                            button_cancelarDescarga.Enabled = true;
                         }
                         else
                         {
