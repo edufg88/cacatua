@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace Libreria
 {
-    sealed class PeticionCAD 
+    sealed class PeticionCAD
     {
 
         private static readonly PeticionCAD instancia = new PeticionCAD();
@@ -27,7 +27,7 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
-        public ArrayList GetSinContestar()
+        public ArrayList ObtenerSinContestar()
         {
             ArrayList peticiones = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -36,7 +36,7 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
                 comando.CommandText = "SELECT * FROM peticiones where respuesta is NULL";
-                
+
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
@@ -58,11 +58,11 @@ namespace Libreria
             Console.WriteLine(us.Usuario);
             peticion.Respuesta = reader["respuesta"].ToString();
             peticion.Fecha = DateTime.Parse(reader["fecha"].ToString());
-            
+
             return peticion;
         }
 
-        public ArrayList GetContestadas()
+        public ArrayList ObtenerContestadas()
         {
             ArrayList peticiones = new ArrayList();
             using (SqlConnection conexion = new SqlConnection(cadenaConexion))
@@ -71,6 +71,26 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
                 comando.CommandText = "SELECT * FROM peticiones where respuesta is not NULL";
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    peticiones.Add(obtenerDatos(reader));
+                }
+            }
+            return peticiones;
+        }
+
+        public ArrayList ObtenerTodas()
+        {
+            ArrayList peticiones = new ArrayList();
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM peticiones";
 
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
@@ -94,10 +114,10 @@ namespace Libreria
                 //comando.Parameters.AddWithValue("@idpet", id);
 
                 SqlDataReader reader = comando.ExecuteReader();
-                
+
                 while (reader.Read())
                 {
-                    peticion=obtenerDatos(reader);
+                    peticion = obtenerDatos(reader);
                 }
             }
             return peticion;
@@ -136,17 +156,17 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
                 comando.CommandText = "DELETE FROM peticiones where id=" + id;
-               
+
                 SqlDataReader reader = comando.ExecuteReader();
             }
             return true;
         }
 
-        public ArrayList Obtener(string asunto,string texto,int usuario)
+        public ArrayList Obtener(string asunto, string texto, int usuario, int mostrar, ref DateTime inicio, ref DateTime final, bool porFecha)
         {
             ArrayList peticiones = null;
 
-            
+
             SqlConnection conexion = null;
             try
             {
@@ -156,7 +176,25 @@ namespace Libreria
 
                 // Componemos la cadena de la sentencia.
                 string sentencia = "select * from peticiones";
-                string condiciones = " where respuesta is NULL";
+                string condiciones = ""; //= " where respuesta is NULL";
+
+                DateTime ini = new DateTime(inicio.Year, inicio.Month, inicio.Day, 0, 0, 0);
+                DateTime fin = new DateTime(final.Year, final.Month, final.Day, 23, 59, 59);
+
+
+
+
+                if (mostrar == 1)
+                {
+                    condiciones += " where respuesta is NULL";
+                }
+                else
+                {
+                    if (mostrar == 2)
+                    {
+                        condiciones += " where respuesta is not NULL";
+                    }
+                }
 
                 if (asunto != "")
                 {
@@ -184,16 +222,30 @@ namespace Libreria
                 {
                     if (condiciones == "")
                     {
-                        condiciones += " where usuario="+@usuario;
+                        condiciones += " where usuario=" + @usuario;
                     }
                     else
                     {
-                        condiciones += " and usuario="+@usuario;
+                        condiciones += " and usuario=" + @usuario;
                     }
                 }
 
+                if (porFecha)
+                {
+
+                    if (condiciones == "")
+                    {
+                        condiciones += " where fecha between @fechainicio and @fechafin ";
+                    }
+                    else
+                    {
+                        condiciones += " and fecha between @fechainicio and @fechafin ";
+                    }
+
+                }
+
                 sentencia = sentencia + condiciones;
-                Console.WriteLine(sentencia);
+
                 // Asignamos la cadena de sentencia y establecemos los parámetros.
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
 
@@ -205,6 +257,14 @@ namespace Libreria
 
                 if (asunto != "")
                     comando.Parameters.AddWithValue("@usuario", usuario);
+
+                if (porFecha)
+                {
+                    comando.Parameters.AddWithValue("@fechainicio", ini);
+                    comando.Parameters.AddWithValue("@fechafin", fin);
+                }
+
+                Console.WriteLine(sentencia);
 
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();

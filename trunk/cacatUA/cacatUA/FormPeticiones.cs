@@ -30,8 +30,7 @@ namespace cacatUA
             }
             else
             {
-                ENUsuario us = new ENUsuario();
-                us.Obtener(usuario);
+                ENUsuario us = ENUsuario.Obtener(usuario);
                 usuario = "" + us.Id;
             }
 
