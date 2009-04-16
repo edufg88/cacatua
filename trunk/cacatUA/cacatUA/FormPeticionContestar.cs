@@ -14,6 +14,7 @@ namespace cacatUA
     {
         private ENPeticion pet;
         private FormPeticiones peticiones;
+
         public FormPeticionContestar(string p, FormPeticiones fp)
         {
             InitializeComponent();
@@ -27,11 +28,22 @@ namespace cacatUA
 
         private void buttonEnviar_Click(object sender, EventArgs e)
         {
-            peticiones.ContestarPeticion(pet.Id);
-            
-            pet.Respuesta = richTextBox_envPetRespuesta.Text;
-            pet.Actualizar();
-            Close();
+            if(validarRespuesta(richTextBox_envPetRespuesta.Text))
+            {            
+                pet.Respuesta = richTextBox_envPetRespuesta.Text;
+                pet.Actualizar();
+                peticiones.ActualizarPeticiones();
+                Close();
+            }
+            else{
+                MessageBox.Show("No es una respuesta valida","ERROR");
+            }
+
+        }
+
+        private bool validarRespuesta(string respuesta)
+        {
+            return respuesta != "";
         }
 
         private void buttonSalir_Click(object sender, EventArgs e)
