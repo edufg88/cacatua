@@ -64,6 +64,7 @@
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel_cabeceraSeccion1.SuspendLayout();
@@ -209,6 +210,7 @@
             this.button_editarFirma.Size = new System.Drawing.Size(36, 36);
             this.button_editarFirma.TabIndex = 9;
             this.button_editarFirma.Tag = "";
+            this.toolTip1.SetToolTip(this.button_editarFirma, "Editar la firma seleccionada");
             this.button_editarFirma.UseVisualStyleBackColor = true;
             this.button_editarFirma.Click += new System.EventHandler(this.button_editarFirma_Click);
             // 
@@ -225,6 +227,7 @@
             this.button_borrarFirma.Size = new System.Drawing.Size(36, 36);
             this.button_borrarFirma.TabIndex = 10;
             this.button_borrarFirma.Tag = "";
+            this.toolTip1.SetToolTip(this.button_borrarFirma, "Borrar la firma seleccionada");
             this.button_borrarFirma.UseVisualStyleBackColor = true;
             this.button_borrarFirma.Click += new System.EventHandler(this.button_borrarFirma_Click);
             // 
@@ -351,6 +354,7 @@
             this.textBox_receptor.ReadOnly = true;
             this.textBox_receptor.Size = new System.Drawing.Size(163, 20);
             this.textBox_receptor.TabIndex = 145;
+            this.toolTip1.SetToolTip(this.textBox_receptor, "Usuario receptor de la firma");
             // 
             // textBox_emisor
             // 
@@ -359,6 +363,7 @@
             this.textBox_emisor.ReadOnly = true;
             this.textBox_emisor.Size = new System.Drawing.Size(163, 20);
             this.textBox_emisor.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.textBox_emisor, "Usuario que realiza la firma");
             // 
             // label_emisor
             // 
@@ -389,6 +394,7 @@
             this.textBox_texto.Name = "textBox_texto";
             this.textBox_texto.Size = new System.Drawing.Size(591, 49);
             this.textBox_texto.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.textBox_texto, "Contenido de la firma");
             // 
             // label_texto
             // 
@@ -412,10 +418,15 @@
             // 
             // dateTimePicker_fecha
             // 
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Enabled = false;
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
-            this.dateTimePicker_fecha.TabIndex = 0;
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker_fecha.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fecha, "Fecha de creación de la firma");
             // 
             // label_fechaCreacion
             // 
@@ -518,7 +529,6 @@
         private System.Windows.Forms.TextBox textBox_texto;
         private System.Windows.Forms.Label label_texto;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
         private System.Windows.Forms.Label label_fechaCreacion;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button button_descartarCambios;
@@ -531,5 +541,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn receptor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechacreacion;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

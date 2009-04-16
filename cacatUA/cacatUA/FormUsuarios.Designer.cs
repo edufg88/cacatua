@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.panel_cabecera = new System.Windows.Forms.Panel();
             this.label_usuarios = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -148,6 +150,7 @@
             this.button_seccionCrear.Name = "button_seccionCrear";
             this.button_seccionCrear.Size = new System.Drawing.Size(36, 36);
             this.button_seccionCrear.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.button_seccionCrear, "Seleccionar el panel de creación de usuario");
             this.button_seccionCrear.UseVisualStyleBackColor = true;
             this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
             // 
@@ -161,6 +164,7 @@
             this.button_seccionBuscar.Name = "button_seccionBuscar";
             this.button_seccionBuscar.Size = new System.Drawing.Size(36, 36);
             this.button_seccionBuscar.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.button_seccionBuscar, "Seleccionar el panel de búsqueda de usuario");
             this.button_seccionBuscar.UseVisualStyleBackColor = true;
             this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
             // 
@@ -276,6 +280,7 @@
             this.button_editarUsuario.Size = new System.Drawing.Size(36, 36);
             this.button_editarUsuario.TabIndex = 12;
             this.button_editarUsuario.Tag = "Modificar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_editarUsuario, "Editar el usuario seleccionado");
             this.button_editarUsuario.UseVisualStyleBackColor = true;
             this.button_editarUsuario.Click += new System.EventHandler(this.button_editarUsuario_Click);
             // 
@@ -292,6 +297,7 @@
             this.button_borrarUsuario.Size = new System.Drawing.Size(36, 36);
             this.button_borrarUsuario.TabIndex = 11;
             this.button_borrarUsuario.Tag = "Eliminar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_borrarUsuario, "Borrar el usuario seleccionado");
             this.button_borrarUsuario.UseVisualStyleBackColor = true;
             this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
             // 
@@ -432,5 +438,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn adicional;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaingreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn activo;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_buscar = new System.Windows.Forms.TableLayoutPanel();
             this.panel_nombreUsuario = new System.Windows.Forms.Panel();
             this.textBox_nombreUsuario = new System.Windows.Forms.TextBox();
@@ -40,6 +41,7 @@
             this.label_fechaIngreso = new System.Windows.Forms.Label();
             this.panel_buscar = new System.Windows.Forms.Panel();
             this.button_buscar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_buscar.SuspendLayout();
             this.panel_nombreUsuario.SuspendLayout();
             this.panel_email.SuspendLayout();
@@ -83,6 +85,7 @@
             this.textBox_nombreUsuario.Size = new System.Drawing.Size(263, 20);
             this.textBox_nombreUsuario.TabIndex = 9;
             this.textBox_nombreUsuario.Text = "Edu";
+            this.toolTip1.SetToolTip(this.textBox_nombreUsuario, "Escriba un nombre de usuario para la búsqueda");
             // 
             // label_nombreUsuario
             // 
@@ -116,6 +119,7 @@
             this.textBox_email.Size = new System.Drawing.Size(263, 20);
             this.textBox_email.TabIndex = 15;
             this.textBox_email.Text = "usuario@cacatua.org";
+            this.toolTip1.SetToolTip(this.textBox_email, "Escriba una dirección de email para la búsqueda");
             // 
             // label_email
             // 
@@ -148,6 +152,7 @@
             this.dateTimePicker_fechaIngreso.Name = "dateTimePicker_fechaIngreso";
             this.dateTimePicker_fechaIngreso.Size = new System.Drawing.Size(263, 20);
             this.dateTimePicker_fechaIngreso.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechaIngreso, "Seleccione la fecha de ingreso para la búsqueda");
             // 
             // label_fechaIngreso
             // 
@@ -217,5 +222,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechaIngreso;
         private System.Windows.Forms.Label label_fechaIngreso;
         private System.Windows.Forms.Button button_buscar;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

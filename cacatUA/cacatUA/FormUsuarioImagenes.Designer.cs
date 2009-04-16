@@ -65,7 +65,7 @@
             this.label_imagenes = new System.Windows.Forms.Label();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button_seleccionarArchivo = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel_contenedor.SuspendLayout();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -128,10 +128,15 @@
             // 
             // dateTimePicker_fecha
             // 
-            this.dateTimePicker_fecha.Location = new System.Drawing.Point(460, 5);
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Enabled = false;
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fecha.Location = new System.Drawing.Point(446, 5);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fecha.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fecha, "Fecha de creación de la imagen");
             // 
             // label_fechaCreacion
             // 
@@ -148,6 +153,7 @@
             this.textBox_titulo.Name = "textBox_titulo";
             this.textBox_titulo.Size = new System.Drawing.Size(144, 20);
             this.textBox_titulo.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.textBox_titulo, "Título de la imagen");
             // 
             // label_titulo
             // 
@@ -186,10 +192,10 @@
             this.textBox_descripcion.Name = "textBox_descripcion";
             this.textBox_descripcion.Size = new System.Drawing.Size(571, 20);
             this.textBox_descripcion.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.textBox_descripcion, "Descripción de la imagen");
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.button_seleccionarArchivo);
             this.panel6.Controls.Add(this.textBox_archivo);
             this.panel6.Controls.Add(this.label_archivo);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -205,8 +211,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_archivo.Location = new System.Drawing.Point(125, 5);
             this.textBox_archivo.Name = "textBox_archivo";
+            this.textBox_archivo.ReadOnly = true;
             this.textBox_archivo.Size = new System.Drawing.Size(571, 20);
             this.textBox_archivo.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.textBox_archivo, "Ruta del fichero imagen");
             // 
             // label_archivo
             // 
@@ -275,6 +283,7 @@
             this.button_editarImagen.Size = new System.Drawing.Size(36, 36);
             this.button_editarImagen.TabIndex = 9;
             this.button_editarImagen.Tag = "";
+            this.toolTip1.SetToolTip(this.button_editarImagen, "Editar la imagen seleccionada");
             this.button_editarImagen.UseVisualStyleBackColor = true;
             this.button_editarImagen.Click += new System.EventHandler(this.button_editarImagen_Click);
             // 
@@ -291,6 +300,7 @@
             this.button_borrarImagen.Size = new System.Drawing.Size(36, 36);
             this.button_borrarImagen.TabIndex = 10;
             this.button_borrarImagen.Tag = "";
+            this.toolTip1.SetToolTip(this.button_borrarImagen, "Borrar la imagen seleccionada");
             this.button_borrarImagen.UseVisualStyleBackColor = true;
             this.button_borrarImagen.Click += new System.EventHandler(this.button_borrarImagen_Click);
             // 
@@ -468,21 +478,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // button_seleccionarArchivo
-            // 
-            this.button_seleccionarArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_seleccionarArchivo.BackColor = System.Drawing.SystemColors.Window;
-            this.button_seleccionarArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_seleccionarArchivo.FlatAppearance.BorderSize = 0;
-            this.button_seleccionarArchivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_seleccionarArchivo.Image = global::cacatUA.Properties.Resources.examinar;
-            this.button_seleccionarArchivo.Location = new System.Drawing.Point(674, 6);
-            this.button_seleccionarArchivo.Name = "button_seleccionarArchivo";
-            this.button_seleccionarArchivo.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarArchivo.TabIndex = 108;
-            this.button_seleccionarArchivo.UseVisualStyleBackColor = false;
-            this.button_seleccionarArchivo.Click += new System.EventHandler(this.button_seleccionarArchivo_Click);
-            // 
             // FormUsuarioImagenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,7 +514,6 @@
         private System.Windows.Forms.Panel panel_contenedor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_secundario;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
         private System.Windows.Forms.Label label_fechaCreacion;
         private System.Windows.Forms.TextBox textBox_titulo;
         private System.Windows.Forms.Label label_titulo;
@@ -552,7 +546,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn archivo;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button button_seleccionarArchivo;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }
