@@ -394,8 +394,10 @@
     <Content Include="datos\buscar.png" />
     <Content Include="datos\CacatUA EER.JPG" />
     <None Include="datos\cancelar.png" />
+    <Content Include="datos\cancelarDescarga.png" />
     <Content Include="datos\categorias.png" />
     <Content Include="datos\close.png" />
+    <Content Include="datos\descargar.png" />
     <Content Include="datos\eliminar.png" />
     <None Include="datos\fileopen.bmp" />
     <None Include="datos\examinar.png" />
