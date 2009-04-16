@@ -68,14 +68,19 @@ namespace Libreria
             set { contestada = true; }
         }
 
-        public static ArrayList GetSinContestar()
+        public static ArrayList ObtenerTodas()
         {
-            return PeticionCAD.Instancia.GetSinContestar();
+            return PeticionCAD.Instancia.ObtenerTodas();
         }
 
-        public static ArrayList GetContestadas()
+        public static ArrayList ObtenerSinContestar()
         {
-            return PeticionCAD.Instancia.GetContestadas();
+            return PeticionCAD.Instancia.ObtenerSinContestar();
+        }
+
+        public static ArrayList ObtenerContestadas()
+        {
+            return PeticionCAD.Instancia.ObtenerContestadas();
         }
 
         public static ENPeticion Obtener(int id)
@@ -98,9 +103,9 @@ namespace Libreria
             return PeticionCAD.Instancia.BorrarPeticion(this.id);
         }
 
-        public static ArrayList Obtener(string asunto, string texto, int usuario)
+        public static ArrayList Obtener(string asunto, string texto, int usuario,int mostrar, ref DateTime inicio,ref DateTime final,bool porFecha)
         {
-            return PeticionCAD.Instancia.Obtener(asunto, texto, usuario);
+            return PeticionCAD.Instancia.Obtener(asunto, texto, usuario,mostrar,ref inicio,ref final,porFecha);
         }
     }
 }
