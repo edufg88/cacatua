@@ -95,7 +95,7 @@
             this.button_seccionCrear.Name = "button_seccionCrear";
             this.button_seccionCrear.Size = new System.Drawing.Size(36, 36);
             this.button_seccionCrear.TabIndex = 1;
-            this.toolTip1.SetToolTip(this.button_seccionCrear, "Crear un nuevo hilo");
+            this.toolTip1.SetToolTip(this.button_seccionCrear, "Crear una nueva respuesta");
             this.button_seccionCrear.UseVisualStyleBackColor = true;
             this.button_seccionCrear.Click += new System.EventHandler(this.button_seccionCrear_Click);
             // 

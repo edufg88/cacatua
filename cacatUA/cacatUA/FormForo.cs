@@ -84,6 +84,7 @@ namespace cacatUA
         /// actualiza dicha fila.
         /// </summary>
         /// <param name="hilo">Hilo que se va a actualizar.</param>
+        /// <returns>Devuelve verdadero si ha actualizado alguna fila.</returns>
         public bool ActualizarResultados(ENHilo hilo)
         {
             bool actualizado = false;
@@ -97,7 +98,6 @@ namespace cacatUA
                     i.Cells[1].Value = hilo.Titulo.ToString();
                     i.Cells[2].Value = hilo.Texto.ToString();
                     i.Cells[3].Value = hilo.Autor.Usuario.ToString();
-                    i.Cells[4].Value = hilo.Fecha.ToString();
                     i.Cells[5].Value = hilo.NumRespuestas;
 
                     actualizado = true;
@@ -216,7 +216,12 @@ namespace cacatUA
                 {
                     formEdicion.Recibir(objeto);
                 }
-                Console.WriteLine("RECIBO ALGO");
+
+                if (objeto is ENHilo)
+                {
+                    ActualizarResultados((ENHilo)objeto);
+                    formEdicion.CambiarSeleccionado(((ENHilo) objeto).Id);
+                }
             }
         }
     }

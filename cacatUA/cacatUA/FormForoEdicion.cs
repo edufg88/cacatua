@@ -28,6 +28,8 @@ namespace cacatUA
             hilo = ENHilo.Obtener(id);
             if (hilo != null)
             {
+                button_guardarCambios.Text = "Guardar cambios";
+                button_descartarCambios.Text = "Descartar cambios";
                 textBox_id.Text = hilo.Id.ToString();
                 textBox_texto.Text = hilo.Texto;
                 textBox_titulo.Text = hilo.Titulo;
@@ -53,6 +55,8 @@ namespace cacatUA
             hilo = null;
             categoria = null;
             usuario = null;
+            button_guardarCambios.Text = "Crear";
+            button_descartarCambios.Text = "Limpiar";
             textBox_id.Text = "";
             textBox_texto.Text = "";
             textBox_titulo.Text = "";
@@ -179,14 +183,20 @@ namespace cacatUA
 
         private void activarBotones()
         {
-            button_guardarCambios.Enabled = true;
-            button_descartarCambios.Enabled = true;
+            if(button_guardarCambios.Enabled == false)
+                button_guardarCambios.Enabled = true;
+
+            if (button_descartarCambios.Enabled == false)
+                button_descartarCambios.Enabled = true;
         }
 
         private void desactivarBotones()
         {
-            button_guardarCambios.Enabled = false;
-            button_descartarCambios.Enabled = false;
+            if (button_guardarCambios.Enabled == true)
+                button_guardarCambios.Enabled = false;
+
+            if (button_descartarCambios.Enabled == true)
+                button_descartarCambios.Enabled = false;
         }
 
         private void button_descartarCambios_Click(object sender, EventArgs e)
