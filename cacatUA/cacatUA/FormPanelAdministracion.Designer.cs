@@ -215,6 +215,7 @@
             // 
             // button_volver
             // 
+            this.button_volver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_volver.FlatAppearance.BorderSize = 0;
             this.button_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_volver.Image = global::cacatUA.Properties.Resources.volver;
@@ -229,6 +230,7 @@
             // 
             // button_cancelar
             // 
+            this.button_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_cancelar.FlatAppearance.BorderSize = 0;
             this.button_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cancelar.Image = global::cacatUA.Properties.Resources.cancelar;
