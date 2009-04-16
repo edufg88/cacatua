@@ -67,6 +67,11 @@ namespace cacatUA
 
             if (estado == EstadoFormulario.NINGUNO)
             {
+                if (seleccionada == null)
+                {
+                    Console.WriteLine("hola");
+                    FormPanelAdministracion.Instancia.MostrarToolTip();
+                }
                 //Obtenemos la instancia de la Categoria seleccionada
                 seleccionada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
 
@@ -152,9 +157,13 @@ namespace cacatUA
                         MessageBox.Show("Error al borrar categoria.", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+                // Limpiar todo el formulario
                 textBox_Descripcion.Clear();
                 textBox_Nombre.Clear();
                 textBox_Ruta.Clear();
+                seleccionada = null;
+                groupBox_Informacion.Enabled = false;
             }           
         }
 
