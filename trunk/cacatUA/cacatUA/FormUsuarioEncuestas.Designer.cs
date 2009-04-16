@@ -62,6 +62,7 @@
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel_cabeceraSeccion1.SuspendLayout();
@@ -207,6 +208,7 @@
             this.button_editarImagen.Size = new System.Drawing.Size(36, 36);
             this.button_editarImagen.TabIndex = 9;
             this.button_editarImagen.Tag = "";
+            this.toolTip1.SetToolTip(this.button_editarImagen, "Editar la encuesta seleccionada");
             this.button_editarImagen.UseVisualStyleBackColor = true;
             this.button_editarImagen.Click += new System.EventHandler(this.button_editarImagen_Click);
             // 
@@ -223,6 +225,7 @@
             this.button_borrarImagen.Size = new System.Drawing.Size(36, 36);
             this.button_borrarImagen.TabIndex = 10;
             this.button_borrarImagen.Tag = "";
+            this.toolTip1.SetToolTip(this.button_borrarImagen, "Borrar la encuesta seleccionada");
             this.button_borrarImagen.UseVisualStyleBackColor = true;
             this.button_borrarImagen.Click += new System.EventHandler(this.button_borrarImagen_Click);
             // 
@@ -335,6 +338,7 @@
             this.textBox_pregunta.Name = "textBox_pregunta";
             this.textBox_pregunta.Size = new System.Drawing.Size(543, 20);
             this.textBox_pregunta.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.textBox_pregunta, "Pregunta en la que se basa la encuesta");
             // 
             // label_pregunta
             // 
@@ -358,10 +362,15 @@
             // 
             // dateTimePicker_fecha
             // 
-            this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 9);
+            this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Enabled = false;
+            this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 8);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";
-            this.dateTimePicker_fecha.Size = new System.Drawing.Size(235, 20);
+            this.dateTimePicker_fecha.ShowUpDown = true;
+            this.dateTimePicker_fecha.Size = new System.Drawing.Size(250, 20);
             this.dateTimePicker_fecha.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fecha, "Fecha de creación de la encuesta");
             // 
             // label_fechaCreacion
             // 
@@ -399,6 +408,7 @@
             this.checkBox_activa.Name = "checkBox_activa";
             this.checkBox_activa.Size = new System.Drawing.Size(15, 14);
             this.checkBox_activa.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.checkBox_activa, "Seleccionar si la encuesta está activa o no");
             this.checkBox_activa.UseVisualStyleBackColor = true;
             // 
             // panel8
@@ -487,7 +497,6 @@
         private System.Windows.Forms.Panel panel_contenedor;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_secundario;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
         private System.Windows.Forms.Label label_fechaCreacion;
         private System.Windows.Forms.TextBox textBox_pregunta;
         private System.Windows.Forms.Label label_pregunta;
@@ -504,5 +513,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn activa;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

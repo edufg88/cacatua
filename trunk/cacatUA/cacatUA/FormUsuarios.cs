@@ -214,8 +214,11 @@ namespace cacatUA
 
         private void dataGridView_usuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (usuarioSeleccionado == null)
+            {
+                FormPanelAdministracion.Instancia.MostrarToolTip();
+            }
             usuarioSeleccionado = ENUsuario.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
         }
-
     }
 }

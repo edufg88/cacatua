@@ -65,6 +65,7 @@
             this.label_email = new System.Windows.Forms.Label();
             this.label_nombre = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_formEdicion.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_usuarioEdicion.SuspendLayout();
@@ -164,6 +165,7 @@
             this.textBox_id.Size = new System.Drawing.Size(49, 20);
             this.textBox_id.TabIndex = 93;
             this.textBox_id.TabStop = false;
+            this.toolTip1.SetToolTip(this.textBox_id, "Número de ID del usuario");
             // 
             // label_id
             // 
@@ -183,6 +185,7 @@
             this.linkLabel_verEncuestas.TabIndex = 91;
             this.linkLabel_verEncuestas.TabStop = true;
             this.linkLabel_verEncuestas.Text = "ver encuestas";
+            this.toolTip1.SetToolTip(this.linkLabel_verEncuestas, "Acceder a las encuestas del usuario");
             this.linkLabel_verEncuestas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verEncuestas_LinkClicked);
             // 
             // linkLabel_verMensajes
@@ -194,6 +197,7 @@
             this.linkLabel_verMensajes.TabIndex = 90;
             this.linkLabel_verMensajes.TabStop = true;
             this.linkLabel_verMensajes.Text = "ver mensajes";
+            this.toolTip1.SetToolTip(this.linkLabel_verMensajes, "Acceder a los mensajes del usuario");
             this.linkLabel_verMensajes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verMensajes_LinkClicked);
             // 
             // linkLabel_verImagenes
@@ -205,6 +209,7 @@
             this.linkLabel_verImagenes.TabIndex = 89;
             this.linkLabel_verImagenes.TabStop = true;
             this.linkLabel_verImagenes.Text = "ver imágenes";
+            this.toolTip1.SetToolTip(this.linkLabel_verImagenes, "Acceder a las imágenes del usuario");
             this.linkLabel_verImagenes.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verImagenes_LinkClicked);
             // 
             // linkLabel_verFirmas
@@ -216,6 +221,7 @@
             this.linkLabel_verFirmas.TabIndex = 88;
             this.linkLabel_verFirmas.TabStop = true;
             this.linkLabel_verFirmas.Text = "ver firmas";
+            this.toolTip1.SetToolTip(this.linkLabel_verFirmas, "Acceder a las firmas del usuario");
             this.linkLabel_verFirmas.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_verFirmas_LinkClicked);
             // 
             // textBox_numEncuestas
@@ -225,6 +231,7 @@
             this.textBox_numEncuestas.ReadOnly = true;
             this.textBox_numEncuestas.Size = new System.Drawing.Size(38, 20);
             this.textBox_numEncuestas.TabIndex = 87;
+            this.toolTip1.SetToolTip(this.textBox_numEncuestas, "Encuestas realizadas por el usuario");
             // 
             // textBox_numMensajes
             // 
@@ -233,6 +240,7 @@
             this.textBox_numMensajes.ReadOnly = true;
             this.textBox_numMensajes.Size = new System.Drawing.Size(38, 20);
             this.textBox_numMensajes.TabIndex = 86;
+            this.toolTip1.SetToolTip(this.textBox_numMensajes, "Mensajes enviados por el usuario");
             // 
             // textBox_numImagenes
             // 
@@ -241,6 +249,7 @@
             this.textBox_numImagenes.ReadOnly = true;
             this.textBox_numImagenes.Size = new System.Drawing.Size(38, 20);
             this.textBox_numImagenes.TabIndex = 85;
+            this.toolTip1.SetToolTip(this.textBox_numImagenes, "Imágenes realizadas por el usuario");
             // 
             // textBox_numFirmas
             // 
@@ -249,6 +258,7 @@
             this.textBox_numFirmas.ReadOnly = true;
             this.textBox_numFirmas.Size = new System.Drawing.Size(38, 20);
             this.textBox_numFirmas.TabIndex = 84;
+            this.toolTip1.SetToolTip(this.textBox_numFirmas, "Firmas realizadas por el usuario");
             // 
             // label_numEncuestas
             // 
@@ -293,6 +303,7 @@
             this.textBox_adicional.Name = "textBox_adicional";
             this.textBox_adicional.Size = new System.Drawing.Size(238, 116);
             this.textBox_adicional.TabIndex = 77;
+            this.toolTip1.SetToolTip(this.textBox_adicional, "Información adicional sobre el usuario");
             // 
             // label_adicional
             // 
@@ -309,6 +320,7 @@
             this.textBox_contrasena.Name = "textBox_contrasena";
             this.textBox_contrasena.Size = new System.Drawing.Size(120, 20);
             this.textBox_contrasena.TabIndex = 73;
+            this.toolTip1.SetToolTip(this.textBox_contrasena, "Contraseña del usuario");
             // 
             // label_contrasena
             // 
@@ -325,6 +337,7 @@
             this.textBox_dni.Name = "textBox_dni";
             this.textBox_dni.Size = new System.Drawing.Size(120, 20);
             this.textBox_dni.TabIndex = 76;
+            this.toolTip1.SetToolTip(this.textBox_dni, "DNI del usuario");
             // 
             // label_dni
             // 
@@ -343,6 +356,7 @@
             this.checkBox_activo.Size = new System.Drawing.Size(56, 17);
             this.checkBox_activo.TabIndex = 79;
             this.checkBox_activo.Text = "Activo";
+            this.toolTip1.SetToolTip(this.checkBox_activo, "Seleccionar si el usuario está activo o no");
             this.checkBox_activo.UseVisualStyleBackColor = true;
             // 
             // textBox_usuario
@@ -351,6 +365,7 @@
             this.textBox_usuario.Name = "textBox_usuario";
             this.textBox_usuario.Size = new System.Drawing.Size(120, 20);
             this.textBox_usuario.TabIndex = 72;
+            this.toolTip1.SetToolTip(this.textBox_usuario, "Nick o Apodo del usuario");
             // 
             // label_usuario
             // 
@@ -369,6 +384,7 @@
             this.checkBox_administrador.Size = new System.Drawing.Size(89, 17);
             this.checkBox_administrador.TabIndex = 80;
             this.checkBox_administrador.Text = "Administrador";
+            this.toolTip1.SetToolTip(this.checkBox_administrador, "Seleccionar si el usuario es administrador o no");
             this.checkBox_administrador.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker_fechaDeIngreso
@@ -377,6 +393,7 @@
             this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
             this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker_fechaDeIngreso.TabIndex = 78;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechaDeIngreso, "Fecha de ingreso del usuario");
             // 
             // label_fechaDeIngreso
             // 
@@ -393,6 +410,7 @@
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(120, 20);
             this.textBox_email.TabIndex = 75;
+            this.toolTip1.SetToolTip(this.textBox_email, "Dirección de correo electrónico del usuario");
             // 
             // textBox_nombre
             // 
@@ -400,6 +418,7 @@
             this.textBox_nombre.Name = "textBox_nombre";
             this.textBox_nombre.Size = new System.Drawing.Size(120, 20);
             this.textBox_nombre.TabIndex = 74;
+            this.toolTip1.SetToolTip(this.textBox_nombre, "Nombre de pila del usuario");
             // 
             // label_email
             // 
@@ -477,6 +496,7 @@
         private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label_id;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }
