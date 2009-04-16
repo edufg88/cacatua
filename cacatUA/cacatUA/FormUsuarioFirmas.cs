@@ -87,8 +87,8 @@ namespace cacatUA
             for (int i = 0; i < 10; i++)
             {
                 ENFirma f = new ENFirma();
-                f.Emisor = ENUsuario.Obtener(13);
-                f.Receptor = ENUsuario.Obtener(12);
+                f.Emisor = ENUsuario.Obtener(3);
+                f.Receptor = ENUsuario.Obtener(4);
                 f.Texto = "hola" + i.ToString();
                 f.Fecha = DateTime.Now;
                 f.Guardar();

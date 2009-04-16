@@ -360,7 +360,7 @@ namespace Libreria
             return actualizado;
         }
 
-        public int CantidadMensajes()
+        public int CantidadMensajes(int emisor)
         {
             SqlConnection conexion = null;
             int cantidad = 0;
@@ -369,9 +369,10 @@ namespace Libreria
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string sentencia = "select count(*) from mensajes";           
+                string sentencia = "SELECT COUNT(*) FROM mensajes WHERE emisor = @emisor";           
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@emisor", emisor);
 
                 cantidad = int.Parse(comando.ExecuteScalar().ToString());
             }

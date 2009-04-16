@@ -339,7 +339,7 @@ namespace Libreria
             return actualizado;
         }
 
-        public int CantidadEncuestas()
+        public int CantidadEncuestas(int usuario)
         {
             SqlConnection conexion = null;
             int cantidad = 0;
@@ -348,9 +348,10 @@ namespace Libreria
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string sentencia = "select count(*) from encuestas";
+                string sentencia = "SELECT COUNT(*) FROM encuestas WHERE usuario = @usuario";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@usuario", usuario);
 
                 cantidad = int.Parse(comando.ExecuteScalar().ToString());
             }

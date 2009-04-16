@@ -360,7 +360,7 @@ namespace Libreria
             return actualizado;
         }
 
-        public int CantidadImagenes()
+        public int CantidadImagenes(int usuario)
         {
             SqlConnection conexion = null;
             int cantidad = 0;
@@ -369,9 +369,10 @@ namespace Libreria
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string sentencia = "select count(*) from imagenes";
+                string sentencia = "SELECT COUNT(*) FROM imagenes WHERE usuario = @usuario";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@usuario", usuario);
 
                 cantidad = int.Parse(comando.ExecuteScalar().ToString());
             }

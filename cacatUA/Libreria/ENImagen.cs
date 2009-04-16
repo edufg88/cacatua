@@ -156,11 +156,6 @@ namespace Libreria
             return ImagenCAD.Instancia.BuscarImagen(usuario);
         }
 
-        public int Cantidad()
-        {
-            return ImagenCAD.Instancia.CantidadImagenes();
-        }
-
         public int Id
         {
             get { return id; }
