@@ -69,7 +69,6 @@ namespace cacatUA
             {
                 if (seleccionada == null)
                 {
-                    Console.WriteLine("hola");
                     FormPanelAdministracion.Instancia.MostrarToolTip();
                 }
                 //Obtenemos la instancia de la Categoria seleccionada
