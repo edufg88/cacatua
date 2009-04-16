@@ -352,16 +352,15 @@ namespace cacatUA
         {
             if (objeto != null)
             {
-                if (objeto is ENUsuario)
+                if (objeto is ENUsuario && seleccionada != null)
                 {
-                    if (seleccionada != null)
-                    {
                         ENUsuario u = (ENUsuario)objeto;
 
-                        seleccionada.SuscribirUsuario(u);
-                        dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
+                        if(seleccionada.SuscribirUsuario(u))
+                            dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
+                        else
+                            MessageBox.Show("No ha sido posible suscribir a este usuario.", "Error de suscripción", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                    }
                 }
             }
         }

@@ -46,8 +46,13 @@ namespace Libreria
         public ENCategoria Obtener(int id)
         {
             ENCategoria categoria = null;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
@@ -60,6 +65,15 @@ namespace Libreria
                 {
                     categoria = obtenerDatos(reader);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Obtener(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
             }
             return categoria;
         }
@@ -190,7 +204,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Actualizar(ENCategoria): " + ex.Message);
+                Console.WriteLine("Borrar(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -204,8 +218,13 @@ namespace Libreria
         public ArrayList ObtenerSuperiores()
         {
             ArrayList categorias = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 string cadenaComando = "SELECT * FROM CATEGORIAS where padre is NULL";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
@@ -217,14 +236,27 @@ namespace Libreria
                     categorias.Add(categoria);
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ObtenerSuperiores(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return categorias;
         }
 
         public ArrayList HijosDe(ENCategoria padre)
         {
             ArrayList hijos = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
@@ -239,14 +271,27 @@ namespace Libreria
                     hijos.Add(categoria);
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("HijosDe(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return hijos;
         }
 
         public ArrayList UsuariosSuscritosA(ENCategoria categoria)
         {
             ArrayList usuarios = new ArrayList();
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
@@ -260,14 +305,27 @@ namespace Libreria
                     usuarios.Add(usuario);
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("UsuariosSuscritosA(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return usuarios;
         }
 
         public int NumHilosEn(ENCategoria categoria)
         {
             int n = 0;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
@@ -280,14 +338,27 @@ namespace Libreria
                     n = int.Parse(reader["numero"].ToString());
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("NumHilosEn(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return n;
         }
 
         public int NumMaterialesEn(ENCategoria categoria)
         {
             int n = 0;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
@@ -300,14 +371,27 @@ namespace Libreria
                     n = int.Parse(reader["numero"].ToString());
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("NumMaterialesEn(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return n;
         }
 
         public int NumCategorias()
         {
             int n = 0;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
@@ -319,6 +403,15 @@ namespace Libreria
                     n = int.Parse(reader["numero"].ToString());
                 }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("NumCategorias(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return n;
         }
 
@@ -326,8 +419,11 @@ namespace Libreria
         {
             int resultado = 0;
             bool añadido = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
@@ -344,6 +440,15 @@ namespace Libreria
                 if (resultado == 1)
                     añadido = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("AñadirSuscripcion(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return añadido;
         }
 
@@ -351,8 +456,11 @@ namespace Libreria
         {
             int resultado = 0;
             bool quitado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
@@ -368,6 +476,16 @@ namespace Libreria
                 if (resultado == 1)
                     quitado = true;
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine("QuitarSuscripcion(ENCategoria): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
             return quitado;
         }
     }

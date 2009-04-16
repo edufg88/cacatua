@@ -65,6 +65,13 @@ namespace Libreria
         }
 
         override public bool Borrar() {
+            //Borramos primero todos los hijos
+            foreach (ENCategoria c in ObtenerHijos()) 
+            {
+                if(!c.Borrar()) {
+                    return false;
+                }
+            }
             return CategoriaCAD.Instancia.Borrar(this);
         }
 
@@ -134,13 +141,22 @@ namespace Libreria
 
         //Metodos relacionados con la tabla suscripcion
 
-        public void SuscribirUsuario(ENUsuario usuario)
+        public bool SuscribirUsuario(ENUsuario usuario)
         {
-            CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario);
-
-            foreach (ENCategoria c in ObtenerHijos())
+            if (CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario))
             {
-                c.SuscribirUsuario(usuario);
+                foreach (ENCategoria c in ObtenerHijos())
+                {
+                    if (!c.SuscribirUsuario(usuario))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
