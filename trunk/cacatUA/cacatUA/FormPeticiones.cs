@@ -200,11 +200,12 @@ namespace cacatUA
 
         private void button_buscarPeticiones_Click(object sender, EventArgs e)
         {
-            //ENUsuario us = new ENUsuario.Obtener(textBox_buscarPeticionAutor.Text.ToString());
+            ENUsuario us =  ENUsuario.Obtener(textBox_buscarPeticionAutor.Text.ToString());
 
             
-            if (textBox_buscarPeticionAutor.Text == "" )
+            if (textBox_buscarPeticionAutor.Text == "" || us!=null)
             {
+                errorProvider1.SetError(textBox_buscarPeticionAutor, "");
                 ActualizarPeticiones();
             }
             else
