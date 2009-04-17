@@ -1817,7 +1817,8 @@
             this.tableLayoutPanelGeneralPeticiones.Controls.Add(this.dataGridView_Peticiones, 0, 3);
             this.tableLayoutPanelGeneralPeticiones.Controls.Add(this.richTextBox_PeticionSeleccionada, 0, 5);
             this.tableLayoutPanelGeneralPeticiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelGeneralPeticiones.Location = new System.Drawing.Point(3, 33);
+            this.tableLayoutPanelGeneralPeticiones.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanelGeneralPeticiones.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanelGeneralPeticiones.Name = "tableLayoutPanelGeneralPeticiones";
             this.tableLayoutPanelGeneralPeticiones.RowCount = 7;
             this.tableLayoutPanelGeneralPeticiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -1827,30 +1828,31 @@
             this.tableLayoutPanelGeneralPeticiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanelGeneralPeticiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanelGeneralPeticiones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanelGeneralPeticiones.Size = new System.Drawing.Size(809, 420);
+            this.tableLayoutPanelGeneralPeticiones.Size = new System.Drawing.Size(815, 426);
             this.tableLayoutPanelGeneralPeticiones.TabIndex = 32;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 703F));
-            this.tableLayoutPanel2.Controls.Add(this.button_contestarPeticion, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button_borrarPeticion, 1, 0);
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 709F));
+            this.tableLayoutPanel2.Controls.Add(this.button_contestarPeticion, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.button_borrarPeticion, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 388);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 394);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(803, 29);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(809, 29);
             this.tableLayoutPanel2.TabIndex = 106;
             // 
             // button_contestarPeticion
             // 
-            this.button_contestarPeticion.Location = new System.Drawing.Point(725, 3);
+            this.button_contestarPeticion.Location = new System.Drawing.Point(702, 3);
             this.button_contestarPeticion.Name = "button_contestarPeticion";
-            this.button_contestarPeticion.Size = new System.Drawing.Size(75, 23);
+            this.button_contestarPeticion.Size = new System.Drawing.Size(74, 23);
             this.button_contestarPeticion.TabIndex = 17;
             this.button_contestarPeticion.Text = "Contestar";
             this.button_contestarPeticion.UseVisualStyleBackColor = true;
@@ -1858,7 +1860,7 @@
             // 
             // button_borrarPeticion
             // 
-            this.button_borrarPeticion.Location = new System.Drawing.Point(625, 3);
+            this.button_borrarPeticion.Location = new System.Drawing.Point(621, 3);
             this.button_borrarPeticion.Name = "button_borrarPeticion";
             this.button_borrarPeticion.Size = new System.Drawing.Size(75, 23);
             this.button_borrarPeticion.TabIndex = 18;
@@ -1873,7 +1875,7 @@
             this.panel_busquedaPeticiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_busquedaPeticiones.Location = new System.Drawing.Point(3, 3);
             this.panel_busquedaPeticiones.Name = "panel_busquedaPeticiones";
-            this.panel_busquedaPeticiones.Size = new System.Drawing.Size(803, 24);
+            this.panel_busquedaPeticiones.Size = new System.Drawing.Size(809, 24);
             this.panel_busquedaPeticiones.TabIndex = 101;
             // 
             // label_busquedaPeticiones
@@ -1894,7 +1896,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 213);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(803, 24);
+            this.panel6.Size = new System.Drawing.Size(809, 24);
             this.panel6.TabIndex = 102;
             // 
             // label_resultadosPeticiones
@@ -1913,9 +1915,9 @@
             this.panel7.BackColor = System.Drawing.Color.LightGray;
             this.panel7.Controls.Add(this.label_peticionSeleccionadaPeticiones);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 278);
+            this.panel7.Location = new System.Drawing.Point(3, 284);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(803, 24);
+            this.panel7.Size = new System.Drawing.Size(809, 24);
             this.panel7.TabIndex = 102;
             // 
             // label_peticionSeleccionadaPeticiones
@@ -1932,7 +1934,7 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel3.Controls.Add(this.textBox_buscarPeticionTexto, 1, 1);
@@ -1956,25 +1958,25 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(803, 174);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(809, 174);
             this.tableLayoutPanel3.TabIndex = 103;
             // 
             // textBox_buscarPeticionTexto
             // 
             this.textBox_buscarPeticionTexto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_buscarPeticionTexto.Location = new System.Drawing.Point(103, 28);
+            this.textBox_buscarPeticionTexto.Location = new System.Drawing.Point(123, 28);
             this.textBox_buscarPeticionTexto.Name = "textBox_buscarPeticionTexto";
-            this.textBox_buscarPeticionTexto.Size = new System.Drawing.Size(672, 20);
+            this.textBox_buscarPeticionTexto.Size = new System.Drawing.Size(658, 20);
             this.textBox_buscarPeticionTexto.TabIndex = 7;
             // 
             // textBox_buscarPeticionAsunto
             // 
             this.textBox_buscarPeticionAsunto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_buscarPeticionAsunto.Location = new System.Drawing.Point(103, 3);
+            this.textBox_buscarPeticionAsunto.Location = new System.Drawing.Point(123, 3);
             this.textBox_buscarPeticionAsunto.Name = "textBox_buscarPeticionAsunto";
-            this.textBox_buscarPeticionAsunto.Size = new System.Drawing.Size(672, 20);
+            this.textBox_buscarPeticionAsunto.Size = new System.Drawing.Size(658, 20);
             this.textBox_buscarPeticionAsunto.TabIndex = 6;
             this.textBox_buscarPeticionAsunto.Tag = "";
             // 
@@ -1991,12 +1993,12 @@
             this.tableLayoutPanel16.Controls.Add(this.panel14, 3, 0);
             this.tableLayoutPanel16.Controls.Add(this.dateTimePicker_FechaFin, 2, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(103, 83);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(123, 83);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(675, 24);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(661, 24);
             this.tableLayoutPanel16.TabIndex = 8;
             // 
             // dateTimePicker_FechaInicio
@@ -2035,7 +2037,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel14.Location = new System.Drawing.Point(553, 3);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(119, 18);
+            this.panel14.Size = new System.Drawing.Size(105, 18);
             this.panel14.TabIndex = 152;
             // 
             // checkBox_BuscarPeticionesPorFecha
@@ -2062,21 +2064,21 @@
             // 
             this.tableLayoutPanel23.ColumnCount = 2;
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 592F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 598F));
             this.tableLayoutPanel23.Controls.Add(this.button_buscarPeticiones, 1, 0);
             this.tableLayoutPanel23.Controls.Add(this.button_LimpiarBusquedaPeticion, 0, 0);
             this.tableLayoutPanel23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel23.Location = new System.Drawing.Point(103, 143);
+            this.tableLayoutPanel23.Location = new System.Drawing.Point(123, 143);
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(672, 28);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(658, 28);
             this.tableLayoutPanel23.TabIndex = 9;
             // 
             // button_buscarPeticiones
             // 
-            this.button_buscarPeticiones.Location = new System.Drawing.Point(514, 3);
+            this.button_buscarPeticiones.Location = new System.Drawing.Point(500, 3);
             this.button_buscarPeticiones.Name = "button_buscarPeticiones";
             this.button_buscarPeticiones.Size = new System.Drawing.Size(75, 22);
             this.button_buscarPeticiones.TabIndex = 15;
@@ -2086,7 +2088,7 @@
             // 
             // button_LimpiarBusquedaPeticion
             // 
-            this.button_LimpiarBusquedaPeticion.Location = new System.Drawing.Point(595, 3);
+            this.button_LimpiarBusquedaPeticion.Location = new System.Drawing.Point(581, 3);
             this.button_LimpiarBusquedaPeticion.Name = "button_LimpiarBusquedaPeticion";
             this.button_LimpiarBusquedaPeticion.Size = new System.Drawing.Size(74, 22);
             this.button_LimpiarBusquedaPeticion.TabIndex = 16;
@@ -2104,12 +2106,12 @@
             this.tableLayoutPanel25.Controls.Add(this.radioButton_Contestadas, 1, 0);
             this.tableLayoutPanel25.Controls.Add(this.radioButton_Ambas, 2, 0);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel25.Location = new System.Drawing.Point(103, 113);
+            this.tableLayoutPanel25.Location = new System.Drawing.Point(123, 113);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(672, 24);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(658, 24);
             this.tableLayoutPanel25.TabIndex = 10;
             // 
             // radioButton_SinContestar
@@ -2153,9 +2155,9 @@
             this.panel_BuscarPorAutor.Controls.Add(this.button_seleccionarUsuario);
             this.panel_BuscarPorAutor.Controls.Add(this.textBox_buscarPeticionAutor);
             this.panel_BuscarPorAutor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_BuscarPorAutor.Location = new System.Drawing.Point(103, 53);
+            this.panel_BuscarPorAutor.Location = new System.Drawing.Point(123, 53);
             this.panel_BuscarPorAutor.Name = "panel_BuscarPorAutor";
-            this.panel_BuscarPorAutor.Size = new System.Drawing.Size(672, 24);
+            this.panel_BuscarPorAutor.Size = new System.Drawing.Size(658, 24);
             this.panel_BuscarPorAutor.TabIndex = 146;
             // 
             // button_seleccionarUsuario
@@ -2166,7 +2168,7 @@
             this.button_seleccionarUsuario.FlatAppearance.BorderSize = 0;
             this.button_seleccionarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_seleccionarUsuario.Image = global::cacatUA.Properties.Resources.seleccionar1;
-            this.button_seleccionarUsuario.Location = new System.Drawing.Point(649, 1);
+            this.button_seleccionarUsuario.Location = new System.Drawing.Point(635, 1);
             this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(21, 17);
             this.button_seleccionarUsuario.TabIndex = 145;
@@ -2179,21 +2181,22 @@
             this.textBox_buscarPeticionAutor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_buscarPeticionAutor.Location = new System.Drawing.Point(0, 0);
             this.textBox_buscarPeticionAutor.Name = "textBox_buscarPeticionAutor";
-            this.textBox_buscarPeticionAutor.Size = new System.Drawing.Size(672, 20);
+            this.textBox_buscarPeticionAutor.Size = new System.Drawing.Size(658, 20);
             this.textBox_buscarPeticionAutor.TabIndex = 8;
             // 
             // panel8
             // 
             this.panel8.Controls.Add(this.label_buscarPeticionPorAsunto);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(94, 19);
+            this.panel8.Size = new System.Drawing.Size(114, 19);
             this.panel8.TabIndex = 147;
             // 
             // label_buscarPeticionPorAsunto
             // 
             this.label_buscarPeticionPorAsunto.AutoSize = true;
-            this.label_buscarPeticionPorAsunto.Location = new System.Drawing.Point(9, 3);
+            this.label_buscarPeticionPorAsunto.Location = new System.Drawing.Point(10, 3);
             this.label_buscarPeticionPorAsunto.Name = "label_buscarPeticionPorAsunto";
             this.label_buscarPeticionPorAsunto.Size = new System.Drawing.Size(40, 13);
             this.label_buscarPeticionPorAsunto.TabIndex = 0;
@@ -2203,15 +2206,16 @@
             // panel9
             // 
             this.panel9.Controls.Add(this.label_buscarPeticionPorTexto);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 28);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(94, 19);
+            this.panel9.Size = new System.Drawing.Size(114, 19);
             this.panel9.TabIndex = 148;
             // 
             // label_buscarPeticionPorTexto
             // 
             this.label_buscarPeticionPorTexto.AutoSize = true;
-            this.label_buscarPeticionPorTexto.Location = new System.Drawing.Point(9, 3);
+            this.label_buscarPeticionPorTexto.Location = new System.Drawing.Point(10, 3);
             this.label_buscarPeticionPorTexto.Name = "label_buscarPeticionPorTexto";
             this.label_buscarPeticionPorTexto.Size = new System.Drawing.Size(37, 13);
             this.label_buscarPeticionPorTexto.TabIndex = 1;
@@ -2220,15 +2224,16 @@
             // panel10
             // 
             this.panel10.Controls.Add(this.label_buscarPeticionPorAutor);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 53);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(94, 24);
+            this.panel10.Size = new System.Drawing.Size(114, 24);
             this.panel10.TabIndex = 149;
             // 
             // label_buscarPeticionPorAutor
             // 
             this.label_buscarPeticionPorAutor.AutoSize = true;
-            this.label_buscarPeticionPorAutor.Location = new System.Drawing.Point(9, 4);
+            this.label_buscarPeticionPorAutor.Location = new System.Drawing.Point(10, 4);
             this.label_buscarPeticionPorAutor.Name = "label_buscarPeticionPorAutor";
             this.label_buscarPeticionPorAutor.Size = new System.Drawing.Size(35, 13);
             this.label_buscarPeticionPorAutor.TabIndex = 2;
@@ -2237,32 +2242,34 @@
             // panel11
             // 
             this.panel11.Controls.Add(this.label_buscarPeticionPorFecha);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(3, 83);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(94, 24);
+            this.panel11.Size = new System.Drawing.Size(114, 24);
             this.panel11.TabIndex = 150;
             // 
             // label_buscarPeticionPorFecha
             // 
             this.label_buscarPeticionPorFecha.AutoSize = true;
-            this.label_buscarPeticionPorFecha.Location = new System.Drawing.Point(8, 8);
+            this.label_buscarPeticionPorFecha.Location = new System.Drawing.Point(9, 8);
             this.label_buscarPeticionPorFecha.Name = "label_buscarPeticionPorFecha";
-            this.label_buscarPeticionPorFecha.Size = new System.Drawing.Size(89, 13);
+            this.label_buscarPeticionPorFecha.Size = new System.Drawing.Size(94, 13);
             this.label_buscarPeticionPorFecha.TabIndex = 3;
-            this.label_buscarPeticionPorFecha.Text = "Realizadas entre:";
+            this.label_buscarPeticionPorFecha.Text = "Realizadas desde:";
             // 
             // panel12
             // 
             this.panel12.Controls.Add(this.label_mostrarPeticiones);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 113);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(94, 24);
+            this.panel12.Size = new System.Drawing.Size(114, 24);
             this.panel12.TabIndex = 151;
             // 
             // label_mostrarPeticiones
             // 
             this.label_mostrarPeticiones.AutoSize = true;
-            this.label_mostrarPeticiones.Location = new System.Drawing.Point(9, 5);
+            this.label_mostrarPeticiones.Location = new System.Drawing.Point(10, 5);
             this.label_mostrarPeticiones.Name = "label_mostrarPeticiones";
             this.label_mostrarPeticiones.Size = new System.Drawing.Size(45, 13);
             this.label_mostrarPeticiones.TabIndex = 4;
@@ -2282,7 +2289,7 @@
             this.dataGridView_Peticiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Peticiones.Location = new System.Drawing.Point(3, 243);
             this.dataGridView_Peticiones.Name = "dataGridView_Peticiones";
-            this.dataGridView_Peticiones.Size = new System.Drawing.Size(803, 29);
+            this.dataGridView_Peticiones.Size = new System.Drawing.Size(809, 35);
             this.dataGridView_Peticiones.TabIndex = 16;
             this.dataGridView_Peticiones.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick);
             this.dataGridView_Peticiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick_1);
@@ -2331,10 +2338,10 @@
             this.richTextBox_PeticionSeleccionada.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox_PeticionSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox_PeticionSeleccionada.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox_PeticionSeleccionada.Location = new System.Drawing.Point(3, 308);
+            this.richTextBox_PeticionSeleccionada.Location = new System.Drawing.Point(3, 314);
             this.richTextBox_PeticionSeleccionada.Name = "richTextBox_PeticionSeleccionada";
             this.richTextBox_PeticionSeleccionada.ReadOnly = true;
-            this.richTextBox_PeticionSeleccionada.Size = new System.Drawing.Size(803, 74);
+            this.richTextBox_PeticionSeleccionada.Size = new System.Drawing.Size(809, 74);
             this.richTextBox_PeticionSeleccionada.TabIndex = 105;
             this.richTextBox_PeticionSeleccionada.Text = "Selecciona una Petición para verla";
             // 

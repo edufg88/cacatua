@@ -202,12 +202,9 @@ namespace cacatUA
 
         private void button_buscarPeticiones_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(textBox_buscarPeticionAutor.Text);
+            
             ENUsuario us =  ENUsuario.Obtener(textBox_buscarPeticionAutor.Text.ToString());
-            if (us != null)
-            {
-                Console.WriteLine("usuario a null");
-            }
+            
             
             if (textBox_buscarPeticionAutor.Text == "" || us!=null)
             {
