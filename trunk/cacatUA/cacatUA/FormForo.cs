@@ -18,6 +18,9 @@ namespace cacatUA
         private enum FormularioActivo { NINGUNO = 0, BUSQUEDA = 1, EDICION = 2 };
         FormularioActivo formularioActivo;
 
+        private int totalResultados;
+        private int paginaActual;
+
         private void inicializar()
         {
             InitializeComponent();
@@ -28,13 +31,19 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
             formularioActivo = FormularioActivo.NINGUNO;
+
+            comboBox_cantidadPorPagina.SelectedItem = comboBox_cantidadPorPagina.Items[2];
+            comboBox_pagina.SelectedItem = comboBox_pagina.Items[0];
+
+            totalResultados = 0;
+            paginaActual = 0;
         }
 
         public FormForo()
         {
             inicializar();
             CambiarFormularioBusqueda();
-            formBusqueda.Buscar();
+            formBusqueda.Buscar(true);
         }
 
         public FormForo(ENCategoria categoria)
@@ -42,7 +51,7 @@ namespace cacatUA
             inicializar();
             CambiarFormularioBusqueda();
             formBusqueda.Recibir(categoria);
-            formBusqueda.Buscar();
+            formBusqueda.Buscar(true);
         }
 
         public void CambiarFormularioBusqueda()
@@ -76,7 +85,7 @@ namespace cacatUA
         {
             CambiarFormularioBusqueda();
             formBusqueda.Limpiar();
-            formBusqueda.Buscar();
+            formBusqueda.Buscar(true);
         }
 
         /// <summary>
@@ -202,7 +211,154 @@ namespace cacatUA
             }
         }
 
+        /// <summary>
+        /// Indica qué cantidad de resultados por página se están mostrando.
+        /// Devuelve el valor seleccionado del ComboBox.
+        /// </summary>
+        public int CantidadPorPagina
+        {
+            get { return int.Parse(comboBox_cantidadPorPagina.Text); }
+        }
 
+        /// <summary>
+        /// Indica por qué columna están siendo ordenados los resultados.
+        /// </summary>
+        public string OrdenarPor
+        {
+            get
+            {
+                string ordenar = "";
+
+                if (dataGridView_resultados.SortedColumn != null)
+                {
+                    if (dataGridView_resultados.SortedColumn == autor)
+                    {
+                        ordenar = "autor";
+                    }
+                    else if (dataGridView_resultados.SortedColumn == id)
+                    {
+                        ordenar = "id";
+                    }
+                    else if (dataGridView_resultados.SortedColumn == titulo)
+                    {
+                        ordenar = "titulo";
+                    }
+                    else if (dataGridView_resultados.SortedColumn == fechacreacion)
+                    {
+                        ordenar = "fechacreacion";
+                    }
+                    else if (dataGridView_resultados.SortedColumn == texto)
+                    {
+                        ordenar = "texto";
+                    }
+                    else if (dataGridView_resultados.SortedColumn == numRespuestas)
+                    {
+                        ordenar = "respuestas";
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("NO ESTA ORDENADA POR NINGUNA");
+                }
+
+                return ordenar;
+            }
+        }
+
+        /// <summary>
+        /// Indica si el orden es ascendente (verdadero) o descendente (falso).
+        /// </summary>
+        public bool Orden
+        {
+            get { return dataGridView_resultados.SortOrder == SortOrder.Ascending; }
+        }
+
+        /// <summary>
+        /// Devuelve la cantidad de resultados totales. También se pueden asignar una
+        /// nueva cantidad de resultados, en cuyo caso se actualizará la cantidad de páginas.
+        /// </summary>
+        public int TotalResultados
+        {
+            get
+            {
+                return totalResultados;
+            }
+
+            set
+            {
+                totalResultados = value;
+                comboBox_pagina.Items.Clear();
+                int paginas = (int) Math.Ceiling(totalResultados / (float)CantidadPorPagina);
+                for (int i = 0; i < paginas; i++)
+                {
+                    comboBox_pagina.Items.Add(i + 1);
+                }
+                if (paginas > 0)
+                    comboBox_pagina.SelectedItem = comboBox_pagina.Items[0];
+
+                ActualizarPaginacion();
+            }
+        }
+
+        /// <summary>
+        /// Devuelve el último hilo que aparece en el DataGridView. Si no hay ninguno, null.
+        /// </summary>
+        public ENHilo UltimoHilo
+        {
+            get
+            {
+                if (dataGridView_resultados.Rows.Count > 0)
+                    return ENHilo.Obtener(int.Parse(dataGridView_resultados.Rows[dataGridView_resultados.Rows.Count - 1].Cells[0].Value.ToString()));
+                else
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Devuelve el primer hilo que aparece en el DataGridView. Si no hay ninguno, null.
+        /// </summary>
+        public ENHilo PrimerHilo
+        {
+            get
+            {
+                if (dataGridView_resultados.Rows.Count > 0)
+                    return ENHilo.Obtener(int.Parse(dataGridView_resultados.Rows[0].Cells[0].Value.ToString()));
+                else
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Sólo actualiza los label que indican los resultados totales, los resultados
+        /// que se están mostrando, qué botones están activos, la página actual...
+        /// </summary>
+        public void ActualizarPaginacion()
+        {
+            if (totalResultados > 0)
+            {
+                int paginas = (int)Math.Ceiling(totalResultados / (float)CantidadPorPagina);
+                int pagina = 0;
+
+                try
+                {
+                    pagina = int.Parse(comboBox_pagina.Text);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("ERROR: void FormForo.ActualizarPaginacion()");
+                }
+
+                int inicial = (pagina - 1) * CantidadPorPagina + 1;
+                int final = inicial - 1 + CantidadPorPagina;
+                if (final > totalResultados) final = totalResultados;
+
+                label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " hilos encontrados)";
+            }
+            else
+            {
+                label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
+            }
+        }
 
         public override void Recibir(object objeto)
         {
@@ -223,6 +379,16 @@ namespace cacatUA
                     formEdicion.CambiarSeleccionado(((ENHilo) objeto).Id);
                 }
             }
+        }
+
+        private void dataGridView_resultados_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            formBusqueda.Buscar(false);
+        }
+
+        private void button_paginaSiguiente_Click(object sender, EventArgs e)
+        {
+            formBusqueda.Siguiente();
         }
     }
 }

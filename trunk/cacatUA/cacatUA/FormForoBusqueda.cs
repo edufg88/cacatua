@@ -17,10 +17,23 @@ namespace cacatUA
         private ENCategoria categoria = null;
         private ENUsuario usuario = null;
 
+        /// <summary>
+        /// Es una lista de objetos:
+        ///     string filtroBusqueda, ENUsuario autor, ENCategoria categoria, DateTime fechaInicio y DateTime fechaFin.
+        /// </summary>
+        private ArrayList ultimaBusqueda = null;
+
         public FormForoBusqueda(FormForo formularioPadre)
         {
             this.formularioPadre = formularioPadre;
             InitializeComponent();
+
+            ultimaBusqueda = new ArrayList();
+            ultimaBusqueda.Add("");
+            ultimaBusqueda.Add((ENUsuario) null);
+            ultimaBusqueda.Add((ENCategoria) null);
+            ultimaBusqueda.Add(new DateTime(2008, 9, 1));
+            ultimaBusqueda.Add(DateTime.Now);
         }
 
         public void Limpiar()
@@ -65,7 +78,12 @@ namespace cacatUA
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
-            Buscar();
+            Buscar(true);
+        }
+
+        private void button_limpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
 
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
@@ -98,24 +116,74 @@ namespace cacatUA
             }
         }
 
-        private void button_limpiar_Click(object sender, EventArgs e)
+        public void Buscar(bool nueva)
         {
-            Limpiar();
+            bool buscar = true;
+            // Si es una nueva búsqueda, validammos el formulario para guardar los datos en la ultimaBusqueda.
+            if (nueva)
+            {
+                if (ValidarFormulario())
+                {
+                    // Obtenemos los valores del formulario.
+                    ultimaBusqueda.Clear();
+                    ultimaBusqueda.Add(textBox_filtroBusqueda.Text);
+                    ultimaBusqueda.Add(ENUsuario.Obtener(textBox_autor.Text));
+                    ultimaBusqueda.Add(categoria);
+                    ultimaBusqueda.Add(dateTimePicker_fechaInicio.Value);
+                    ultimaBusqueda.Add(dateTimePicker_fechaFin.Value);
+                }
+                else
+                {
+                    // Si era una nueva búsqueda y el formulario no era correcto, no buscamos.
+                    buscar = false;
+                }
+            }
+
+            if (buscar)
+            {
+                // Criterios de búsqueda.
+                ENUsuario usuarioAux = (ENUsuario)ultimaBusqueda[1];
+                ENCategoria categoriaAux = (ENCategoria)ultimaBusqueda[2];
+                DateTime fechaInicio = (DateTime)ultimaBusqueda[3];
+                DateTime fechaFin = (DateTime)ultimaBusqueda[4];
+
+                if (nueva)
+                {
+                    // Calculamos cuántos resultados hay con esta búsqueda (necesarios para saber cuántas páginas hay).
+                    // Sólo recalculamos los resultados totales si se trata de una nueva búsqueda.
+                    formularioPadre.TotalResultados = ENHilo.Cantidad((string)ultimaBusqueda[0],
+                        (string)ultimaBusqueda[0], ref usuarioAux, ref fechaInicio, ref fechaFin, ref categoriaAux);
+                }
+
+                // Atributos para la paginación.
+                int cantidad = formularioPadre.CantidadPorPagina;
+                string ordenar = formularioPadre.OrdenarPor;
+                ENHilo ultimo = null;
+                bool orden = formularioPadre.Orden;
+
+                // Realizamos la búsqueda finalmente.
+                formularioPadre.Resultados = ENHilo.Obtener(cantidad, ultimo, ordenar, orden, (string)ultimaBusqueda[0],
+                    (string)ultimaBusqueda[0], ref usuarioAux, ref fechaInicio, ref fechaFin, ref categoriaAux);
+            }
         }
 
-        public void Buscar()
+        public void Siguiente()
         {
-            if (ValidarFormulario())
-            {
-                usuario = null;
-                if (textBox_autor.Text != "")
-                    usuario = ENUsuario.Obtener(textBox_autor.Text);
-                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
-                DateTime fechaFin = dateTimePicker_fechaFin.Value;
+            // Criterios de búsqueda.
+            ENUsuario usuarioAux = (ENUsuario)ultimaBusqueda[1];
+            ENCategoria categoriaAux = (ENCategoria)ultimaBusqueda[2];
+            DateTime fechaInicio = (DateTime)ultimaBusqueda[3];
+            DateTime fechaFin = (DateTime)ultimaBusqueda[4];
 
-                formularioPadre.Resultados = ENHilo.Obtener(0, 0, 0, textBox_filtroBusqueda.Text,
-                    textBox_filtroBusqueda.Text, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
-            }
+            // Atributos para la paginación.
+            int cantidad = formularioPadre.CantidadPorPagina;
+            string ordenar = formularioPadre.OrdenarPor;
+            ENHilo ultimo = formularioPadre.UltimoHilo;
+            bool orden = formularioPadre.Orden;
+
+            // Realizamos la búsqueda finalmente.
+            formularioPadre.Resultados = ENHilo.Obtener(cantidad, ultimo, ordenar, orden, (string)ultimaBusqueda[0],
+                (string)ultimaBusqueda[0], ref usuarioAux, ref fechaInicio, ref fechaFin, ref categoriaAux);
         }
     }
 }
