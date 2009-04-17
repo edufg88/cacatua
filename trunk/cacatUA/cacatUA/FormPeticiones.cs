@@ -18,10 +18,12 @@ namespace cacatUA
             radioButton_Ambas.Checked = true;
             ActualizarPeticiones();
             
+            
         }
 
         public void ActualizarPeticiones()
         {
+
             dataGridView_Peticiones.Rows.Clear();
             string usuario = textBox_buscarPeticionAutor.Text;
             if (usuario == "")

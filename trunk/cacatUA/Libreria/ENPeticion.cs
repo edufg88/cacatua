@@ -107,5 +107,20 @@ namespace Libreria
         {
             return PeticionCAD.Instancia.Obtener(asunto, texto, usuario,mostrar,ref inicio,ref final,porFecha);
         }
+
+        public static int ObtenerNumeroPeticiones()
+        {
+            return PeticionCAD.Instancia.ObtenerNumeroPeticiones();
+        }
+
+        public static int ObtenerNumeroPeticionesSinContestar()
+        {
+            return PeticionCAD.Instancia.ObtenerNumeroPeticionesSinContestar();
+        }
+
+        public static string ObtenerUltimaPeticion()
+        {
+            return PeticionCAD.Instancia.ObtenerUltimaPeticion();
+        }
     }
 }
