@@ -200,6 +200,7 @@ namespace cacatUA
                         else
                         {
                             MessageBox.Show("Usuario guardado correctamente.");
+                            padre.CargarUsuarios();
                         }
                     }
                     else

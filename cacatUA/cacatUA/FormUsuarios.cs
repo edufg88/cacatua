@@ -26,14 +26,6 @@ namespace cacatUA
         /// </summary>
         private ENUsuario usuarioSeleccionado;
         /// <summary>
-        /// Indica si el panel1 está oculto o no
-        /// </summary>
-        //private bool ocultoP1;
-        /// <summary>
-        /// Indica si el panel2 está oculto o no
-        /// </summary>
-        //private bool ocultoP2;
-        /// <summary>
         /// Entero con el formulario activo 0 = formBusqueda, 1 = formEdicion;
         /// </summary>
         private int formulario; 
@@ -52,9 +44,6 @@ namespace cacatUA
             formulario = 0;
             CambiarFormularioBusqueda();
             CargarUsuarios();// Los cargamos en el DataGridView
-            // Indican si los paneles están ocultos o no
-            //ocultoP1 = false;
-            //ocultoP2 = false;
         }
 
         /// <summary>
@@ -75,8 +64,6 @@ namespace cacatUA
             formEdicion.CambiarSeleccionado(usuario.Id);
             usuarioSeleccionado = usuario;
             CargarUsuarios();// Los cargamos en el DataGridView
-            //ocultoP1 = false;
-            //ocultoP2 = false;
         }
 
         /// <summary>
@@ -166,55 +153,6 @@ namespace cacatUA
             CambiarFormularioEdicion();
             formEdicion.CambiarNuevo();
         }
-
-        /*
-        private void button_ocultarP1_Click(object sender, EventArgs e)
-        {
-            label_seccion1.Text += " (Oculto)";
-            if (!ocultoP1)
-            {
-                tableLayoutPanel_principal.RowStyles[3].Height = 0;
-                ocultoP1 = true;
-            }
-            else
-            {
-                switch (formulario)
-                {
-                    case 0:
-                        label_seccion1.Text = "Búsqueda";
-                        tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
-                        break;
-                    case 1:
-                        label_seccion1.Text = "Edición";
-                        tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
-                        break;
-                }
-
-                ocultoP1 = false;
-            }
-        }
-
-        private void button_ocultarP2_Click(object sender, EventArgs e)
-        {
-            label_seccion2.Text += " (Oculto)";
-            if (!ocultoP2)
-            {
-                dataGridView_usuarios.Hide();
-                button_borrarUsuario.Hide();
-                button_editarUsuario.Hide();
-                tableLayoutPanel_principal.RowStyles[5].Height = 0;
-                ocultoP2 = true;
-            }
-            else
-            {
-                dataGridView_usuarios.Show();
-                button_borrarUsuario.Show();
-                button_editarUsuario.Show();
-                label_seccion2.Text = "Resultados de la búsqueda";
-                tableLayoutPanel_principal.RowStyles[5].Height = panel_DataGridViewUsuarios.Height;
-                ocultoP2 = false;
-            }
-        }*/
 
         private void dataGridView_usuarios_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {   
