@@ -181,6 +181,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.label_peticionSeleccionadaPeticiones = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_seleccionarUsuario = new System.Windows.Forms.Button();
             this.textBox_buscarPeticionTexto = new System.Windows.Forms.TextBox();
             this.textBox_buscarPeticionAsunto = new System.Windows.Forms.TextBox();
             this.label_buscarPeticionPorAsunto = new System.Windows.Forms.Label();
@@ -209,6 +210,7 @@
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.richTextBox_PeticionSeleccionada = new System.Windows.Forms.RichTextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -259,6 +261,7 @@
             this.tableLayoutPanel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Peticiones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel6
@@ -1829,7 +1832,7 @@
             this.button_contestarPeticion.Location = new System.Drawing.Point(725, 3);
             this.button_contestarPeticion.Name = "button_contestarPeticion";
             this.button_contestarPeticion.Size = new System.Drawing.Size(75, 23);
-            this.button_contestarPeticion.TabIndex = 0;
+            this.button_contestarPeticion.TabIndex = 17;
             this.button_contestarPeticion.Text = "Contestar";
             this.button_contestarPeticion.UseVisualStyleBackColor = true;
             this.button_contestarPeticion.Click += new System.EventHandler(this.button_contestarPeticion_Click);
@@ -1839,7 +1842,7 @@
             this.button_borrarPeticion.Location = new System.Drawing.Point(625, 3);
             this.button_borrarPeticion.Name = "button_borrarPeticion";
             this.button_borrarPeticion.Size = new System.Drawing.Size(75, 23);
-            this.button_borrarPeticion.TabIndex = 1;
+            this.button_borrarPeticion.TabIndex = 18;
             this.button_borrarPeticion.Text = "Borrar";
             this.button_borrarPeticion.UseVisualStyleBackColor = true;
             this.button_borrarPeticion.Click += new System.EventHandler(this.button_borrarPeticion_Click);
@@ -1913,6 +1916,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.Controls.Add(this.button_seleccionarUsuario, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.textBox_buscarPeticionTexto, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.textBox_buscarPeticionAsunto, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label_buscarPeticionPorAsunto, 0, 0);
@@ -1937,6 +1941,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(803, 174);
             this.tableLayoutPanel3.TabIndex = 103;
             // 
+            // button_seleccionarUsuario
+            // 
+            this.button_seleccionarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_seleccionarUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.button_seleccionarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_seleccionarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_seleccionarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_seleccionarUsuario.Image = global::cacatUA.Properties.Resources.seleccionar1;
+            this.button_seleccionarUsuario.Location = new System.Drawing.Point(781, 28);
+            this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
+            this.button_seleccionarUsuario.Size = new System.Drawing.Size(19, 18);
+            this.button_seleccionarUsuario.TabIndex = 145;
+            this.button_seleccionarUsuario.TabStop = false;
+            this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
+            this.button_seleccionarUsuario.Click += new System.EventHandler(this.button_seleccionarUsuario_Click);
+            // 
             // textBox_buscarPeticionTexto
             // 
             this.textBox_buscarPeticionTexto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -1954,6 +1974,7 @@
             this.textBox_buscarPeticionAsunto.Name = "textBox_buscarPeticionAsunto";
             this.textBox_buscarPeticionAsunto.Size = new System.Drawing.Size(672, 20);
             this.textBox_buscarPeticionAsunto.TabIndex = 6;
+            this.textBox_buscarPeticionAsunto.Tag = "";
             // 
             // label_buscarPeticionPorAsunto
             // 
@@ -1999,15 +2020,16 @@
             this.textBox_buscarPeticionAutor.Location = new System.Drawing.Point(103, 53);
             this.textBox_buscarPeticionAutor.Name = "textBox_buscarPeticionAutor";
             this.textBox_buscarPeticionAutor.Size = new System.Drawing.Size(672, 20);
-            this.textBox_buscarPeticionAutor.TabIndex = 5;
+            this.textBox_buscarPeticionAutor.TabIndex = 8;
             // 
             // tableLayoutPanel16
             // 
-            this.tableLayoutPanel16.ColumnCount = 4;
+            this.tableLayoutPanel16.ColumnCount = 5;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
-            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 257F));
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 121F));
             this.tableLayoutPanel16.Controls.Add(this.dateTimePicker_FechaFin, 2, 0);
             this.tableLayoutPanel16.Controls.Add(this.dateTimePicker_FechaInicio, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label_buscarPeticionPorFechaSeparador, 1, 0);
@@ -2026,7 +2048,7 @@
             this.dateTimePicker_FechaFin.Location = new System.Drawing.Point(233, 3);
             this.dateTimePicker_FechaFin.Name = "dateTimePicker_FechaFin";
             this.dateTimePicker_FechaFin.Size = new System.Drawing.Size(204, 20);
-            this.dateTimePicker_FechaFin.TabIndex = 2;
+            this.dateTimePicker_FechaFin.TabIndex = 10;
             // 
             // dateTimePicker_FechaInicio
             // 
@@ -2034,7 +2056,7 @@
             this.dateTimePicker_FechaInicio.Location = new System.Drawing.Point(3, 3);
             this.dateTimePicker_FechaInicio.Name = "dateTimePicker_FechaInicio";
             this.dateTimePicker_FechaInicio.Size = new System.Drawing.Size(204, 20);
-            this.dateTimePicker_FechaInicio.TabIndex = 0;
+            this.dateTimePicker_FechaInicio.TabIndex = 9;
             this.dateTimePicker_FechaInicio.ValueChanged += new System.EventHandler(this.dateTimePicker7_ValueChanged);
             // 
             // label_buscarPeticionPorFechaSeparador
@@ -2052,7 +2074,7 @@
             this.checkBox_BuscarPeticionesPorFecha.Location = new System.Drawing.Point(443, 3);
             this.checkBox_BuscarPeticionesPorFecha.Name = "checkBox_BuscarPeticionesPorFecha";
             this.checkBox_BuscarPeticionesPorFecha.Size = new System.Drawing.Size(105, 17);
-            this.checkBox_BuscarPeticionesPorFecha.TabIndex = 3;
+            this.checkBox_BuscarPeticionesPorFecha.TabIndex = 11;
             this.checkBox_BuscarPeticionesPorFecha.Text = "Buscar por fecha";
             this.checkBox_BuscarPeticionesPorFecha.UseVisualStyleBackColor = true;
             // 
@@ -2086,7 +2108,7 @@
             this.button_buscarPeticiones.Location = new System.Drawing.Point(594, 3);
             this.button_buscarPeticiones.Name = "button_buscarPeticiones";
             this.button_buscarPeticiones.Size = new System.Drawing.Size(75, 23);
-            this.button_buscarPeticiones.TabIndex = 0;
+            this.button_buscarPeticiones.TabIndex = 15;
             this.button_buscarPeticiones.Text = "Buscar";
             this.button_buscarPeticiones.UseVisualStyleBackColor = true;
             this.button_buscarPeticiones.Click += new System.EventHandler(this.button_buscarPeticiones_Click);
@@ -2115,7 +2137,7 @@
             this.radioButton_SinContestar.Location = new System.Drawing.Point(3, 3);
             this.radioButton_SinContestar.Name = "radioButton_SinContestar";
             this.radioButton_SinContestar.Size = new System.Drawing.Size(88, 17);
-            this.radioButton_SinContestar.TabIndex = 0;
+            this.radioButton_SinContestar.TabIndex = 12;
             this.radioButton_SinContestar.TabStop = true;
             this.radioButton_SinContestar.Text = "Sin Contestar";
             this.radioButton_SinContestar.UseVisualStyleBackColor = true;
@@ -2127,7 +2149,7 @@
             this.radioButton_Contestadas.Location = new System.Drawing.Point(103, 3);
             this.radioButton_Contestadas.Name = "radioButton_Contestadas";
             this.radioButton_Contestadas.Size = new System.Drawing.Size(84, 17);
-            this.radioButton_Contestadas.TabIndex = 1;
+            this.radioButton_Contestadas.TabIndex = 13;
             this.radioButton_Contestadas.TabStop = true;
             this.radioButton_Contestadas.Text = "Contestadas";
             this.radioButton_Contestadas.UseVisualStyleBackColor = true;
@@ -2139,7 +2161,7 @@
             this.radioButton_Ambas.Location = new System.Drawing.Point(203, 3);
             this.radioButton_Ambas.Name = "radioButton_Ambas";
             this.radioButton_Ambas.Size = new System.Drawing.Size(57, 17);
-            this.radioButton_Ambas.TabIndex = 2;
+            this.radioButton_Ambas.TabIndex = 14;
             this.radioButton_Ambas.TabStop = true;
             this.radioButton_Ambas.Text = "Ambas";
             this.radioButton_Ambas.UseVisualStyleBackColor = true;
@@ -2160,7 +2182,7 @@
             this.dataGridView_Peticiones.Location = new System.Drawing.Point(3, 243);
             this.dataGridView_Peticiones.Name = "dataGridView_Peticiones";
             this.dataGridView_Peticiones.Size = new System.Drawing.Size(803, 29);
-            this.dataGridView_Peticiones.TabIndex = 104;
+            this.dataGridView_Peticiones.TabIndex = 16;
             this.dataGridView_Peticiones.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick);
             this.dataGridView_Peticiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick_1);
             // 
@@ -2206,17 +2228,22 @@
             // richTextBox_PeticionSeleccionada
             // 
             this.richTextBox_PeticionSeleccionada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_PeticionSeleccionada.Enabled = false;
+            this.richTextBox_PeticionSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox_PeticionSeleccionada.ForeColor = System.Drawing.Color.Black;
             this.richTextBox_PeticionSeleccionada.Location = new System.Drawing.Point(3, 308);
             this.richTextBox_PeticionSeleccionada.Name = "richTextBox_PeticionSeleccionada";
+            this.richTextBox_PeticionSeleccionada.ReadOnly = true;
             this.richTextBox_PeticionSeleccionada.Size = new System.Drawing.Size(803, 74);
             this.richTextBox_PeticionSeleccionada.TabIndex = 105;
-            this.richTextBox_PeticionSeleccionada.Text = "";
+            this.richTextBox_PeticionSeleccionada.Text = "Selecciona una Petición para verla";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // FormPeticiones
             // 
@@ -2302,6 +2329,7 @@
             this.tableLayoutPanel25.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Peticiones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2487,6 +2515,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.CheckBox checkBox_BuscarPeticionesPorFecha;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button_seleccionarUsuario;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
 
     }
 }

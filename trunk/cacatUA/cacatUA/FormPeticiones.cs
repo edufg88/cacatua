@@ -153,7 +153,7 @@ namespace cacatUA
                 if (dataGridView_Peticiones.SelectedRows != null)
                 {
 
-                    if(MessageBox.Show("¿Esta seguro de que desea borrar la petición seleccionada?","Borrar petición",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes){
+                    if(MessageBox.Show("¿Esta seguro de que desea borrar la petición seleccionada?","Borrar petición",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2)==DialogResult.Yes){
                     dataGridView_Peticiones.Rows[dataGridView_Peticiones.CurrentCell.RowIndex].Selected = true;
 
                     DataGridViewSelectedRowCollection filas = dataGridView_Peticiones.SelectedRows;
@@ -205,8 +205,18 @@ namespace cacatUA
             
             if (textBox_buscarPeticionAutor.Text == "" || us!=null)
             {
-                errorProvider1.SetError(textBox_buscarPeticionAutor, "");
-                ActualizarPeticiones();
+                DateTime inicio = dateTimePicker_FechaInicio.Value;
+                DateTime final = dateTimePicker_FechaFin.Value;
+                if (inicio>final && checkBox_BuscarPeticionesPorFecha.Checked)
+                {
+                    errorProvider2.SetError(checkBox_BuscarPeticionesPorFecha, "La fecha de inicio no puede ser posterior a la de final de periodo");
+                }
+                else
+                {
+                    errorProvider1.SetError(textBox_buscarPeticionAutor, "");
+                    errorProvider2.SetError(checkBox_BuscarPeticionesPorFecha, "");
+                    ActualizarPeticiones();
+                }
             }
             else
             {
@@ -219,7 +229,23 @@ namespace cacatUA
 
         }
 
-        
+        private void button_seleccionarUsuario_Click(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
+        }
+
+        public override void Recibir(object objeto)
+        {
+            if (objeto != null)
+            {
+                if (objeto is ENUsuario)
+                {
+                    ENUsuario usuario = (ENUsuario)objeto;
+                    textBox_buscarPeticionAutor.Text = usuario.Usuario;
+                }
+            }
+        }
+
 
 
 
