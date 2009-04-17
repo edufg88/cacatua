@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_Cabecera = new System.Windows.Forms.Panel();
+            this.label_CabCategorias = new System.Windows.Forms.Label();
+            this.panel_Contenidos = new System.Windows.Forms.Panel();
             this.label_FuncionArbol = new System.Windows.Forms.Label();
             this.groupBox_Informacion = new System.Windows.Forms.GroupBox();
             this.dataGridView_Usuarios = new System.Windows.Forms.DataGridView();
@@ -47,7 +47,7 @@
             this.button_AñadirUsuario = new System.Windows.Forms.Button();
             this.button_quitarUsuario = new System.Windows.Forms.Button();
             this.button_verUsuario = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_UsuariosSuscritos = new System.Windows.Forms.Label();
             this.groupBox_Administracion = new System.Windows.Forms.GroupBox();
             this.button_LimpiarRuta = new System.Windows.Forms.Button();
             this.label_Descripcion = new System.Windows.Forms.Label();
@@ -62,58 +62,57 @@
             this.button_editarCategoria = new System.Windows.Forms.Button();
             this.button_borrarCategoria = new System.Windows.Forms.Button();
             this.treeViewCategorias = new System.Windows.Forms.TreeView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.errorProvider_Categorias = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip_Categorias = new System.Windows.Forms.ToolTip(this.components);
-            this.panel6.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panel_Cabecera.SuspendLayout();
+            this.panel_Contenidos.SuspendLayout();
             this.groupBox_Informacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).BeginInit();
             this.groupBox_Administracion.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Categorias)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel6
+            // panel_Cabecera
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(5)))), ((int)(((byte)(160)))));
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(808, 25);
-            this.panel6.TabIndex = 30;
+            this.panel_Cabecera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(5)))), ((int)(((byte)(160)))));
+            this.panel_Cabecera.Controls.Add(this.label_CabCategorias);
+            this.panel_Cabecera.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Cabecera.Location = new System.Drawing.Point(0, 0);
+            this.panel_Cabecera.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_Cabecera.Name = "panel_Cabecera";
+            this.panel_Cabecera.Size = new System.Drawing.Size(814, 30);
+            this.panel_Cabecera.TabIndex = 30;
             // 
-            // label8
+            // label_CabCategorias
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.label_CabCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.label8.Size = new System.Drawing.Size(76, 19);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Categorías";
+            this.label_CabCategorias.AutoSize = true;
+            this.label_CabCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CabCategorias.ForeColor = System.Drawing.Color.White;
+            this.label_CabCategorias.Location = new System.Drawing.Point(11, 7);
+            this.label_CabCategorias.Name = "label_CabCategorias";
+            this.label_CabCategorias.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.label_CabCategorias.Size = new System.Drawing.Size(76, 19);
+            this.label_CabCategorias.TabIndex = 7;
+            this.label_CabCategorias.Text = "Categorías";
             // 
-            // panel1
+            // panel_Contenidos
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label_FuncionArbol);
-            this.panel1.Controls.Add(this.groupBox_Informacion);
-            this.panel1.Controls.Add(this.groupBox_Administracion);
-            this.panel1.Controls.Add(this.treeViewCategorias);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel1.Location = new System.Drawing.Point(3, 34);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(808, 490);
-            this.panel1.TabIndex = 31;
+            this.panel_Contenidos.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panel_Contenidos.Controls.Add(this.label_FuncionArbol);
+            this.panel_Contenidos.Controls.Add(this.groupBox_Informacion);
+            this.panel_Contenidos.Controls.Add(this.groupBox_Administracion);
+            this.panel_Contenidos.Controls.Add(this.treeViewCategorias);
+            this.panel_Contenidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Contenidos.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panel_Contenidos.Location = new System.Drawing.Point(3, 33);
+            this.panel_Contenidos.Name = "panel_Contenidos";
+            this.panel_Contenidos.Size = new System.Drawing.Size(808, 491);
+            this.panel_Contenidos.TabIndex = 31;
             // 
             // label_FuncionArbol
             // 
@@ -139,11 +138,11 @@
             this.groupBox_Informacion.Controls.Add(this.button_AñadirUsuario);
             this.groupBox_Informacion.Controls.Add(this.button_quitarUsuario);
             this.groupBox_Informacion.Controls.Add(this.button_verUsuario);
-            this.groupBox_Informacion.Controls.Add(this.label3);
+            this.groupBox_Informacion.Controls.Add(this.label_UsuariosSuscritos);
             this.groupBox_Informacion.Enabled = false;
             this.groupBox_Informacion.Location = new System.Drawing.Point(284, 253);
             this.groupBox_Informacion.Name = "groupBox_Informacion";
-            this.groupBox_Informacion.Size = new System.Drawing.Size(507, 218);
+            this.groupBox_Informacion.Size = new System.Drawing.Size(509, 221);
             this.groupBox_Informacion.TabIndex = 14;
             this.groupBox_Informacion.TabStop = false;
             this.groupBox_Informacion.Text = "Más información";
@@ -166,7 +165,7 @@
             this.dataGridView_Usuarios.ReadOnly = true;
             this.dataGridView_Usuarios.RowHeadersVisible = false;
             this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Usuarios.Size = new System.Drawing.Size(332, 76);
+            this.dataGridView_Usuarios.Size = new System.Drawing.Size(334, 79);
             this.dataGridView_Usuarios.TabIndex = 157;
             // 
             // DataGridViewColumno_Id
@@ -257,7 +256,7 @@
             // 
             this.button_AñadirUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_AñadirUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_AñadirUsuario.Location = new System.Drawing.Point(380, 162);
+            this.button_AñadirUsuario.Location = new System.Drawing.Point(382, 162);
             this.button_AñadirUsuario.Name = "button_AñadirUsuario";
             this.button_AñadirUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_AñadirUsuario.TabIndex = 149;
@@ -270,7 +269,7 @@
             // 
             this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_quitarUsuario.Location = new System.Drawing.Point(380, 193);
+            this.button_quitarUsuario.Location = new System.Drawing.Point(382, 193);
             this.button_quitarUsuario.Name = "button_quitarUsuario";
             this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_quitarUsuario.TabIndex = 148;
@@ -283,7 +282,7 @@
             // 
             this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_verUsuario.Location = new System.Drawing.Point(380, 131);
+            this.button_verUsuario.Location = new System.Drawing.Point(382, 131);
             this.button_verUsuario.Name = "button_verUsuario";
             this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_verUsuario.TabIndex = 147;
@@ -292,16 +291,16 @@
             this.button_verUsuario.UseVisualStyleBackColor = true;
             this.button_verUsuario.Click += new System.EventHandler(this.button_verUsuario_Click);
             // 
-            // label3
+            // label_UsuariosSuscritos
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(27, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
-            this.label3.TabIndex = 150;
-            this.label3.Text = "Usuarios suscritos:";
+            this.label_UsuariosSuscritos.AutoSize = true;
+            this.label_UsuariosSuscritos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_UsuariosSuscritos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_UsuariosSuscritos.Location = new System.Drawing.Point(27, 102);
+            this.label_UsuariosSuscritos.Name = "label_UsuariosSuscritos";
+            this.label_UsuariosSuscritos.Size = new System.Drawing.Size(114, 13);
+            this.label_UsuariosSuscritos.TabIndex = 150;
+            this.label_UsuariosSuscritos.Text = "Usuarios suscritos:";
             // 
             // groupBox_Administracion
             // 
@@ -322,7 +321,7 @@
             this.groupBox_Administracion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox_Administracion.Location = new System.Drawing.Point(284, 24);
             this.groupBox_Administracion.Name = "groupBox_Administracion";
-            this.groupBox_Administracion.Size = new System.Drawing.Size(507, 212);
+            this.groupBox_Administracion.Size = new System.Drawing.Size(509, 212);
             this.groupBox_Administracion.TabIndex = 3;
             this.groupBox_Administracion.TabStop = false;
             this.groupBox_Administracion.Text = "Administración";
@@ -334,7 +333,7 @@
             this.button_LimpiarRuta.FlatAppearance.BorderSize = 0;
             this.button_LimpiarRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_LimpiarRuta.Image = global::cacatUA.Properties.Resources.limpiarruta;
-            this.button_LimpiarRuta.Location = new System.Drawing.Point(373, 56);
+            this.button_LimpiarRuta.Location = new System.Drawing.Point(375, 56);
             this.button_LimpiarRuta.Name = "button_LimpiarRuta";
             this.button_LimpiarRuta.Size = new System.Drawing.Size(27, 20);
             this.button_LimpiarRuta.TabIndex = 148;
@@ -365,7 +364,7 @@
             // textBox_Ruta
             // 
             this.textBox_Ruta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Ruta.Location = new System.Drawing.Point(100, 56);
+            this.textBox_Ruta.Location = new System.Drawing.Point(102, 56);
             this.textBox_Ruta.Name = "textBox_Ruta";
             this.textBox_Ruta.ReadOnly = true;
             this.textBox_Ruta.Size = new System.Drawing.Size(267, 20);
@@ -383,7 +382,7 @@
             // textBox_Nombre
             // 
             this.textBox_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Nombre.Location = new System.Drawing.Point(100, 30);
+            this.textBox_Nombre.Location = new System.Drawing.Point(102, 30);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
             this.textBox_Nombre.Size = new System.Drawing.Size(267, 20);
@@ -397,13 +396,13 @@
             this.textBox_Descripcion.Multiline = true;
             this.textBox_Descripcion.Name = "textBox_Descripcion";
             this.textBox_Descripcion.ReadOnly = true;
-            this.textBox_Descripcion.Size = new System.Drawing.Size(409, 62);
+            this.textBox_Descripcion.Size = new System.Drawing.Size(411, 62);
             this.textBox_Descripcion.TabIndex = 1;
             // 
             // button_noGuardar
             // 
             this.button_noGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_noGuardar.Location = new System.Drawing.Point(350, 175);
+            this.button_noGuardar.Location = new System.Drawing.Point(352, 175);
             this.button_noGuardar.Name = "button_noGuardar";
             this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
             this.button_noGuardar.TabIndex = 3;
@@ -415,7 +414,7 @@
             // button_Guardar
             // 
             this.button_Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Guardar.Location = new System.Drawing.Point(258, 175);
+            this.button_Guardar.Location = new System.Drawing.Point(260, 175);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(82, 24);
             this.button_Guardar.TabIndex = 2;
@@ -431,7 +430,7 @@
             this.button_crearCategoria.FlatAppearance.BorderSize = 0;
             this.button_crearCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_crearCategoria.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_crearCategoria.Location = new System.Drawing.Point(465, 10);
+            this.button_crearCategoria.Location = new System.Drawing.Point(467, 10);
             this.button_crearCategoria.Name = "button_crearCategoria";
             this.button_crearCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_crearCategoria.TabIndex = 7;
@@ -448,7 +447,7 @@
             this.button_editarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_editarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_editarCategoria.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarCategoria.Location = new System.Drawing.Point(465, 47);
+            this.button_editarCategoria.Location = new System.Drawing.Point(467, 47);
             this.button_editarCategoria.Name = "button_editarCategoria";
             this.button_editarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_editarCategoria.TabIndex = 8;
@@ -465,7 +464,7 @@
             this.button_borrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_borrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_borrarCategoria.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarCategoria.Location = new System.Drawing.Point(465, 85);
+            this.button_borrarCategoria.Location = new System.Drawing.Point(467, 85);
             this.button_borrarCategoria.Name = "button_borrarCategoria";
             this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_borrarCategoria.TabIndex = 9;
@@ -482,42 +481,25 @@
             this.treeViewCategorias.Location = new System.Drawing.Point(6, 54);
             this.treeViewCategorias.Name = "treeViewCategorias";
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(261, 417);
+            this.treeViewCategorias.Size = new System.Drawing.Size(261, 420);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel6, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(814, 527);
-            this.tableLayoutPanel1.TabIndex = 35;
+            this.tableLayoutPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel.ColumnCount = 1;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Controls.Add(this.panel_Contenidos, 0, 1);
+            this.tableLayoutPanel.Controls.Add(this.panel_Cabecera, 0, 0);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 2;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(814, 527);
+            this.tableLayoutPanel.TabIndex = 35;
             // 
             // errorProvider_Categorias
             // 
@@ -527,20 +509,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel);
             this.Name = "FormCategorias";
             this.Size = new System.Drawing.Size(814, 527);
             this.Load += new System.EventHandler(this.FormCategorias_Load);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_Cabecera.ResumeLayout(false);
+            this.panel_Cabecera.PerformLayout();
+            this.panel_Contenidos.ResumeLayout(false);
+            this.panel_Contenidos.PerformLayout();
             this.groupBox_Informacion.ResumeLayout(false);
             this.groupBox_Informacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Usuarios)).EndInit();
             this.groupBox_Administracion.ResumeLayout(false);
             this.groupBox_Administracion.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider_Categorias)).EndInit();
             this.ResumeLayout(false);
 
@@ -548,12 +530,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_Cabecera;
+        private System.Windows.Forms.Label label_CabCategorias;
+        private System.Windows.Forms.Panel panel_Contenidos;
         private System.Windows.Forms.GroupBox groupBox_Administracion;
         private System.Windows.Forms.TreeView treeViewCategorias;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Button button_editarCategoria;
         private System.Windows.Forms.Button button_borrarCategoria;
         private System.Windows.Forms.Button button_crearCategoria;
@@ -579,7 +561,7 @@
         private System.Windows.Forms.Button button_AñadirUsuario;
         private System.Windows.Forms.Button button_quitarUsuario;
         private System.Windows.Forms.Button button_verUsuario;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_UsuariosSuscritos;
         private System.Windows.Forms.ErrorProvider errorProvider_Categorias;
         private System.Windows.Forms.ToolTip toolTip_Categorias;
         private System.Windows.Forms.Label label_FuncionArbol;
