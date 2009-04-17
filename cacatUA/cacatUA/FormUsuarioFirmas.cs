@@ -83,6 +83,7 @@ namespace cacatUA
             }
             else
             {
+                activarBotones();
                 errorProvider1.Clear();
                 textBox_id.Text = firma.Id.ToString();
                 textBox_emisor.Text = firma.Emisor.Usuario;
@@ -97,6 +98,7 @@ namespace cacatUA
         /// </summary>
         private void cambiarNuevo()
         {
+            desactivarBotones();
             errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_emisor.Text = "";
@@ -104,21 +106,6 @@ namespace cacatUA
             textBox_texto.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
         }
-
-        /*
-        public void InsertarFirmas()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ENFirma f = new ENFirma();
-                f.Emisor = ENUsuario.Obtener(3);
-                f.Receptor = ENUsuario.Obtener(4);
-                f.Texto = "hola" + i.ToString();
-                f.Fecha = DateTime.Now;
-                f.Guardar();
-            }
-        }
-         * */
 
         /// <summary>
         /// Valida los campos del formulario
@@ -140,10 +127,34 @@ namespace cacatUA
             return correcto;
         }
 
+        /// <summary>
+        /// Activa los botones
+        /// </summary>
+        private void activarBotones()
+        {
+            button_guardarCambios.Enabled = true;
+            button_descartarCambios.Enabled = true;
+        }
+
+        /// <summary>
+        /// Desactiva los botones
+        /// </summary>
+        private void desactivarBotones()
+        {
+            button_guardarCambios.Enabled = false;
+            button_descartarCambios.Enabled = false;
+        }
+
         private void FormUsuarioFirmas_Load(object sender, EventArgs e)
         {
             // Cargamos en el DataGridView las firmas del usuario
             CargarFirmas();
+
+            // Si no hay ninguna firma seleccionada desactivamos los botones
+            if (textBox_id.Text == "")
+            {
+                desactivarBotones();
+            }
         }
 
         private void button_editarFirma_Click(object sender, EventArgs e)

@@ -45,6 +45,11 @@ namespace cacatUA
             textBox_adicional.Text = "";
             dateTimePicker_fechaDeIngreso.Value = DateTime.Now;
 
+            textBox_numEncuestas.Text = "";
+            textBox_numFirmas.Text = "";
+            textBox_numImagenes.Text = "";
+            textBox_numMensajes.Text = "";
+
             checkBox_administrador.Checked = false;
             checkBox_activo.Checked = false;
         }
