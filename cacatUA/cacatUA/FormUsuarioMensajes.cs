@@ -177,8 +177,14 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENMensaje.Borrar(int.Parse(i.Cells[0].Value.ToString()));
-                        dataGridView_mensajes.Rows.Remove(i);
+                        if (ENMensaje.Borrar(int.Parse(i.Cells[0].Value.ToString())))
+                        {
+                            dataGridView_mensajes.Rows.Remove(i);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al borrar el mensaje", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

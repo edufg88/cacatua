@@ -217,8 +217,14 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENImagen.Borrar(int.Parse(i.Cells[0].Value.ToString()));
-                        dataGridView_imagenes.Rows.Remove(i);
+                        if (ENImagen.Borrar(int.Parse(i.Cells[0].Value.ToString())))
+                        {
+                            dataGridView_imagenes.Rows.Remove(i);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al borrar la imagen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

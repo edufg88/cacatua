@@ -180,8 +180,14 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENFirma.Borrar(int.Parse(i.Cells[0].Value.ToString()));
-                        dataGridView_firmas.Rows.Remove(i);
+                        if (ENFirma.Borrar(int.Parse(i.Cells[0].Value.ToString())))
+                        {
+                            dataGridView_firmas.Rows.Remove(i);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al borrar la firma", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

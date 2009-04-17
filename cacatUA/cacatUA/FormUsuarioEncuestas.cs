@@ -216,8 +216,14 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENEncuesta.Borrar(int.Parse(i.Cells[0].Value.ToString()));
-                        dataGridView_encuestas.Rows.Remove(i);
+                        if (ENEncuesta.Borrar(int.Parse(i.Cells[0].Value.ToString())))
+                        {
+                            dataGridView_encuestas.Rows.Remove(i);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al borrar la encuesta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

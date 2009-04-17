@@ -18,13 +18,13 @@ namespace Libreria
         const int minTamContrasena = 5;
         const int maxTamNombre = 15;
         const int minTamNombre = 3;
-        const int maxTamAdicional = 50;
+        const int maxTamAdicional = 200;
         const int minTamPregunta = 3;
         const int maxTamPregunta = 50;
-        const int maxTamTextoFirma = 100;
+        const int maxTamTextoFirma = 1000;
         const int minTamTituloImagen = 3;
-        const int maxTamTituloImagen = 15;
-        const int maxTamDescripcionImagen = 30;
+        const int maxTamTituloImagen = 20;
+        const int maxTamDescripcionImagen = 50;
 
         /// <summary>
         /// Id del usuario

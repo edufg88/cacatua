@@ -131,10 +131,9 @@ namespace Libreria
                     usuario = ObtenerDatos(dr);
                 }
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
-                Console.Write("Excepcion obtener usuario por nombre de usuario");
+                Console.Write("Excepcion obtener usuario por nombre de usuario " + ex.Message);
             }
             finally
             {
@@ -194,9 +193,9 @@ namespace Libreria
                 comando.CommandText = "DELETE FROM usuarios";
                 comando.ExecuteNonQuery();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                Console.Write("Excepción borrando todos los usuarios");
+                Console.Write("Excepción borrando todos los usuarios " + ex.Message);
             }
             finally
             {
@@ -226,9 +225,9 @@ namespace Libreria
                     borrado = true;
                 }                
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
-                Console.Write("Excepcion borrar");
+                Console.Write("Excepcion borrar " + ex.Message);
             }
             finally
             {
