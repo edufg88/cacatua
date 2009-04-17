@@ -6,14 +6,35 @@ using System.Collections;
 
 namespace Libreria
 {
+    /// <summary>
+    /// Clase que representa la entidad Mensaje
+    /// </summary>
     public class ENMensaje : InterfazEN
     {
+        /// <summary>
+        /// Id del mensaje
+        /// </summary>
         private int id;
+        /// <summary>
+        /// Emisor del mensaje
+        /// </summary>
         private ENUsuario emisor;
+        /// <summary>
+        /// Texto del mensaje
+        /// </summary>
         private string texto;
+        /// <summary>
+        /// Fecha del mensaje
+        /// </summary>
         private DateTime fecha;
+        /// <summary>
+        /// Receptor del mensaje
+        /// </summary>
         private ENUsuario receptor;
 
+        /// <summary>
+        /// Constructor por defecto de la clase
+        /// </summary>
         public ENMensaje()
         {
             id = 0;
@@ -41,6 +62,13 @@ namespace Libreria
         }
         */
 
+        /// <summary>
+        /// Constructor sobrecargado de la clase
+        /// </summary>
+        /// <param name="emisor">Emisor</param>
+        /// <param name="texto">Texto</param>
+        /// <param name="fecha">Fecha</param>
+        /// <param name="receptor">Receptor</param>
         public ENMensaje(string emisor, string texto, DateTime fecha, string receptor)
         {
             ENUsuario em = ENUsuario.Obtener(emisor);
@@ -53,6 +81,11 @@ namespace Libreria
             this.Fecha = fecha;
         }
 
+        /// <summary>
+        /// Obtiene un mensaje a partir de su id
+        /// </summary>
+        /// <param name="id">Recibe el id del mensaje a obtener</param>
+        /// <returns>Devuelve el mensaje con la id recibida</returns>
         public static ENMensaje Obtener(int id)
         {
             ENMensaje aux = null;
@@ -61,6 +94,12 @@ namespace Libreria
             return aux;
         }
 
+        /// <summary>
+        /// Obtiene un mensaje a partir de su emisor o receptor
+        /// </summary>
+        /// <param name="usuario">Usuario del mensaje</param>
+        /// <param name="emisor">Indica si es emisor o no</param>
+        /// <returns>Devuelve el mensaje</returns>
         public static ENMensaje Obtener(string usuario, bool emisor)
         {
             ENMensaje aux = null;
@@ -69,6 +108,10 @@ namespace Libreria
             return aux;
         }
 
+        /// <summary>
+        /// Obtiene todos los mensajes de la BD
+        /// </summary>
+        /// <returns>Devuelve un ArrayList con el resultado</returns>
         public static ArrayList Obtener()
         {
             return MensajeCAD.Instancia.ObtenerMensajes();
@@ -117,31 +160,58 @@ namespace Libreria
             }
         }*/
 
+        /// <summary>
+        /// Actualiza la BD con el mensaje actual
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
             return MensajeCAD.Instancia.Actualizar(this);
         }
 
+        /// <summary>
+        /// Inserta el mensaje actual en la BD
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
             return MensajeCAD.Instancia.GuardarMensaje(emisor.Usuario, texto, fecha, receptor.Usuario);
         }
 
+        /// <summary>
+        /// Borra el mensaje actual de la BD
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
             return MensajeCAD.Instancia.BorrarMensaje(id);
         }
 
+        /// <summary>
+        /// Borra un mensaje con un determinado id
+        /// </summary>
+        /// <param name="pid">Recibe el id del mensaje a borrar</param>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public static bool Borrar(int pid)
         {
             return MensajeCAD.Instancia.BorrarMensaje(pid);
         }
 
+        /// <summary>
+        /// Borra todas las firmas de la BD
+        /// </summary>
         public void BorrarFirmas()
         {
             MensajeCAD.Instancia.BorrarMensajes();
         }
 
+        /// <summary>
+        /// Busca un determinado mensaje en la BD
+        /// </summary>
+        /// <param name="emisor">Emisor</param>
+        /// <param name="receptor">Receptor</param>
+        /// <param name="fecha">Fecha</param>
+        /// <returns>Devuelve un ArrayList con el resultado</returns>
         public ArrayList Buscar(string emisor, string receptor, DateTime fecha)
         {
             return MensajeCAD.Instancia.BuscarMensaje(emisor, receptor, fecha);

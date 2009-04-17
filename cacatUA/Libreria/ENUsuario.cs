@@ -7,8 +7,12 @@ using System.Collections;
 
 namespace Libreria
 {
+    /// <summary>
+    /// Clase que representa la entidad Usuario
+    /// </summary>
     public class ENUsuario : InterfazEN
     {
+        // Constantes de tamaño para los distintos campos del formulario
         const int maxTamUsuario = 15;
         const int minTamUsuario = 3;
         const int minTamContrasena = 5;
@@ -22,17 +26,46 @@ namespace Libreria
         const int maxTamTituloImagen = 15;
         const int maxTamDescripcionImagen = 30;
 
+        /// <summary>
+        /// Id del usuario
+        /// </summary>
         private int id;
+        /// <summary>
+        /// Nombre de usuario
+        /// </summary>
         private string usuario;
+        /// <summary>
+        /// Contraseña del usuario
+        /// </summary>
         private string contrasena;
+        /// <summary>
+        /// Nombre de pila del usuario
+        /// </summary>
         private string nombre;
+        /// <summary>
+        /// DNI del usuario
+        /// </summary>
         private string dni;
+        /// <summary>
+        /// Email del usuario
+        /// </summary>
         private string correo;
+        /// <summary>
+        /// Información adiciional del usuario
+        /// </summary>
         private string adicional;
+        /// <summary>
+        /// Fecha de ingreso del usuario
+        /// </summary>
         private DateTime fechaingreso;
+        /// <summary>
+        /// Indica si el usuario está activo o no
+        /// </summary>
         private bool activo;
 
-        // Constructor por defecto. Crea un usuario vacío
+        /// <summary>
+        /// Constructor por defecto de la clase. Crea un usuario vacío
+        /// </summary>
         public ENUsuario()
         {
             id = 0;
@@ -43,14 +76,23 @@ namespace Libreria
             correo = "";
             adicional = "";
             activo = false;
-            fechaingreso = DateTime.Now; // La fecha de ingreso es siempre la actual
+            fechaingreso = DateTime.Now; 
         }
 
+        /// <summary>
+        /// Obtiene los usuario de la BD
+        /// </summary>
+        /// <returns>Devuelve un ArrayList con el resultado</returns>
         public static ArrayList Obtener()
         {
             return UsuarioCAD.Instancia.ObtenerUsuarios();
         }
 
+        /// <summary>
+        /// Obtiene un usuario a partir de su id
+        /// </summary>
+        /// <param name="id">Recibe el id del usuario</param>
+        /// <returns>Devuelve el usuario con el id recibido</returns>
         public static ENUsuario Obtener(int id)
         {
             ENUsuario aux = null;
@@ -59,6 +101,11 @@ namespace Libreria
             return aux;
         }
 
+        /// <summary>
+        /// Obtiene un usuario a partir de su nombre de usuario
+        /// </summary>
+        /// <param name="us">Recibe el nombre de usuario del usuario en cuestión</param>
+        /// <returns>Devuelve el usuario con el nombre de usuario recibido</returns>
         public static ENUsuario Obtener(string us)
         {
             ENUsuario aux = null;
@@ -108,7 +155,17 @@ namespace Libreria
             this.fechaingreso = aux.Fechaingreso;
         }*/
 
-        // Constructor sobrecargado (recibe todos los datos menos el id del usuario y la fecha de ingreso)
+        
+        /// <summary>
+        /// Constructor sobrecargado
+        /// </summary>
+        /// <param name="usuario">Nombre de usuario</param>
+        /// <param name="contrasena">Contraseña</param>
+        /// <param name="nombre">Nombre de pila</param>
+        /// <param name="dni">DNI</param>
+        /// <param name="correo">Email</param>
+        /// <param name="activo">Indica si el usuario está activo o no</param>
+        /// <param name="adicional">Información adicional</param>
         public ENUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
         {
             this.usuario = usuario;
@@ -121,7 +178,12 @@ namespace Libreria
             this.fechaingreso = DateTime.Now;
         }
 
-        // Recibe un campo y en función de éste, valida si el dato es correcto
+        /// <summary>
+        /// Valida individualmente cada uno de los campos de los formularios relacionados con el usuario
+        /// </summary>
+        /// <param name="campo">Indica que campo se valida</param>
+        /// <param name="dato">Dato en cuestión a validar</param>
+        /// <returns>Devuelve un string con el error generado</returns>
         public static string ValidarFormulario(string campo, string dato)
         {
             string error = "";
@@ -316,66 +378,121 @@ namespace Libreria
             }
         }*/
 
+        /// <summary>
+        /// Actualiza la BD con el usuario actual
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
             return UsuarioCAD.Instancia.Actualizar(this);
         }
 
+        /// <summary>
+        /// Inserta en la BD el usuario actual
+        /// </summary>
+        /// <returns></returns>
         override public bool Guardar()
         {
             return UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
         }
 
+        /// <summary>
+        /// Inserta en la tabla 'administradores' el usuario actual
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public bool GuardarAdmin()
         {
             return UsuarioCAD.Instancia.CrearAdmin(id);
         }
 
+        /// <summary>
+        /// Borra de la BD el usuario actual
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
             return UsuarioCAD.Instancia.BorrarUsuario(id);
         }
 
+        /// <summary>
+        /// Borra el usuario actual de la tabla 'administradores'
+        /// </summary>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public bool BorrarAdmin()
         {
             return UsuarioCAD.Instancia.BorrarAdmin(id);
         }
 
+        /// <summary>
+        /// Borra de la BD un usuario con determinado id
+        /// </summary>
+        /// <param name="pid">Recibe el id del usuario a borrar</param>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public static bool Borrar(int pid)
         {
             return UsuarioCAD.Instancia.BorrarUsuario(pid);
         }
 
+        /// <summary>
+        /// Borra todos los usuarios de la BD
+        /// </summary>
         public void BorrarUsuarios()
         {
             UsuarioCAD.Instancia.BorrarUsuarios();
         }
 
+        /// <summary>
+        /// Busca un determinado usuario en la BD
+        /// </summary>
+        /// <param name="nombreUsuario">Nombre de usuario</param>
+        /// <param name="email">Email</param>
+        /// <param name="fechaIngreso">Fecha de ingreso</param>
+        /// <returns>Devuelve un ArrayList con el resultado de la búsqueda</returns>
         public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso)
         {
             return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso);
         }
 
+        /// <summary>
+        /// Indica si el usuario actual es administrador o no
+        /// </summary>
+        /// <returns>Devuelve true si es administrador, false en caso contrario</returns>
         public bool EsAdministrador()
         {
             return UsuarioCAD.Instancia.EsAdministrador(this.id);
         }
 
+        /// <summary>
+        /// Devuelve el número de encuestas del usuario actual
+        /// </summary>
+        /// <returns>Devuelve el número de encustas</returns>
         public int CantidadEncuestas()
         {
             return EncuestaCAD.Instancia.CantidadEncuestas(this.id);
         }
 
+        /// <summary>
+        /// Devuelve el número de firmas del usuario actual
+        /// </summary>
+        /// <returns>Devuelve el número de firmas</returns>
         public int CantidadFirmas()
         {
             return FirmaCAD.Instancia.CantidadFirmas(this.id);
         }
 
+        /// <summary>
+        /// Devuelve el número de mensajes del usuario actual
+        /// </summary>
+        /// <returns>Devuelve el número de mensajes</returns>
         public int CantidadMensajes()
         {
             return MensajeCAD.Instancia.CantidadMensajes(this.id);
         }
 
+        /// <summary>
+        /// Devuelve el número de imágenes del usuario actual
+        /// </summary>
+        /// <returns>Devuelve el número de imágenes</returns>
         public int CantidadImagenes()
         {
             return ImagenCAD.Instancia.CantidadImagenes(this.id);
