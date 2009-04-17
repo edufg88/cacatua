@@ -11,20 +11,31 @@ using System.Configuration;
 
 namespace Libreria
 {
-    // Clase singleton
-    // Componente de Acceso a Datos para relacionarse con la BD 'usuarios'
+    /// <summary>
+    /// Clase singleton. Componente de Acceso a Datos para la tabla 'usuarios'
+    /// </summary>
     sealed class UsuarioCAD
     {
+        /// <summary>
+        /// Instancia única de la clase
+        /// </summary>
         private static readonly UsuarioCAD instancia = new UsuarioCAD();
+        /// <summary>
+        /// Cadena de conexión con la BD
+        /// </summary>
         private String cadenaConexion;
         
-        // Devuelve la instancia única de la clase
+        /// <summary>
+        /// Devuelve una instancia única de la clase
+        /// </summary>
         public static UsuarioCAD Instancia
         {
             get { return(instancia); }
         }
 
-        // El constructor privado crea la cadena de conexión
+        /// <summary>
+        /// Constructor privado
+        /// </summary>
         private UsuarioCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
@@ -422,6 +433,7 @@ namespace Libreria
                 if (usarUsuario)
                 {
                     comando.CommandText += "(usuario LIKE @usuario) ";
+                    comando.Parameters.AddWithValue("@usuario", "%" + nombreUsuario + "%");
                 }
                 if (usarCorreo)
                 {
@@ -430,6 +442,7 @@ namespace Libreria
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(correo LIKE @correo) ";
+                    comando.Parameters.AddWithValue("@correo", "%" + correo + "%");
                 }
 
                 if (usarFecha)
@@ -439,11 +452,8 @@ namespace Libreria
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(fechaingreso = @fechaingreso) ";
+                    comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
                 }
-
-                comando.Parameters.AddWithValue("@usuario", "%" + nombreUsuario + "%");
-                comando.Parameters.AddWithValue("@correo", "%" + correo + "%");
-                comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
 
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader

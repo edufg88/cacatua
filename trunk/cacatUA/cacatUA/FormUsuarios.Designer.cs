@@ -365,7 +365,6 @@
             this.Controls.Add(this.tableLayoutPanel_principal);
             this.Name = "FormUsuarios";
             this.Size = new System.Drawing.Size(838, 500);
-            this.Load += new System.EventHandler(this.FormUsuarios_Load);
             this.tableLayoutPanel_principal.ResumeLayout(false);
             this.panel_cabecera.ResumeLayout(false);
             this.panel_cabecera.PerformLayout();

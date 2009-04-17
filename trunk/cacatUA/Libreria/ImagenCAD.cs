@@ -256,6 +256,7 @@ namespace Libreria
                 if (usarTitulo)
                 {
                     comando.CommandText += "(titulo = @titulo) ";
+                    comando.Parameters.AddWithValue("@titulo", titulo);
                 }
                 if (usarUsuario)
                 {
@@ -264,10 +265,8 @@ namespace Libreria
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(usuario = @usuario) ";
-                }
-
-                comando.Parameters.AddWithValue("@titulo", titulo);
-                comando.Parameters.AddWithValue("@usuario", autor.Id);
+                    comando.Parameters.AddWithValue("@usuario", autor.Id);
+                }                
 
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader

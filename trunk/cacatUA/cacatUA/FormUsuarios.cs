@@ -50,6 +50,8 @@ namespace cacatUA
             formBusqueda.Dock = DockStyle.Top;
 
             formulario = 0;
+            CambiarFormularioBusqueda();
+            CargarUsuarios();// Los cargamos en el DataGridView
             // Indican si los paneles están ocultos o no
             //ocultoP1 = false;
             //ocultoP2 = false;
@@ -72,7 +74,7 @@ namespace cacatUA
             CambiarFormularioEdicion();
             formEdicion.CambiarSeleccionado(usuario.Id);
             usuarioSeleccionado = usuario;
-
+            CargarUsuarios();// Los cargamos en el DataGridView
             //ocultoP1 = false;
             //ocultoP2 = false;
         }
@@ -163,12 +165,6 @@ namespace cacatUA
             // Cargamos el user control de crear
             CambiarFormularioEdicion();
             formEdicion.CambiarNuevo();
-        }
-
-        private void FormUsuarios_Load(object sender, EventArgs e)
-        {
-            CambiarFormularioBusqueda();
-            CargarUsuarios();// Los cargamos en el DataGridView
         }
 
         /*

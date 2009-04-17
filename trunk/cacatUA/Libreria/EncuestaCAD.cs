@@ -269,7 +269,8 @@ namespace Libreria
                 
                 if (usarAsunto)
                 {
-                    comando.CommandText += "(pregunta = @pregunta) ";    
+                    comando.CommandText += "(pregunta = @pregunta) ";
+                    comando.Parameters.AddWithValue("@pregunta", asunto);
                 }
 
                 if (usarFecha)
@@ -279,10 +280,8 @@ namespace Libreria
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(fecha = @fecha) ";
-                }
-
-                comando.Parameters.AddWithValue("@pregunta", asunto);
-                comando.Parameters.AddWithValue("@fecha", cadenaFecha);
+                    comando.Parameters.AddWithValue("@fecha", cadenaFecha);
+                }                
 
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader
