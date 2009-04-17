@@ -55,7 +55,6 @@ namespace Libreria
             peticion.Texto = reader["texto"].ToString();
             ENUsuario us = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
             peticion.Usuario = us;
-            Console.WriteLine(us.Usuario);
             peticion.Respuesta = reader["respuesta"].ToString();
             peticion.Fecha = DateTime.Parse(reader["fecha"].ToString());
 
@@ -264,7 +263,7 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@fechafin", fin);
                 }
 
-                Console.WriteLine(sentencia);
+               
 
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();
