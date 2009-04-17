@@ -181,9 +181,40 @@ namespace cacatUA
             ENHilo ultimo = formularioPadre.UltimoHilo;
             bool orden = formularioPadre.Orden;
 
+            if (ultimo != null) Console.WriteLine("         >>>>> " + ultimo.Titulo);
+
             // Realizamos la búsqueda finalmente.
             formularioPadre.Resultados = ENHilo.Obtener(cantidad, ultimo, ordenar, orden, (string)ultimaBusqueda[0],
                 (string)ultimaBusqueda[0], ref usuarioAux, ref fechaInicio, ref fechaFin, ref categoriaAux);
+
+            formularioPadre.ActualizarPaginacion();
+        }
+
+        public void Anterior()
+        {
+            // Criterios de búsqueda.
+            ENUsuario usuarioAux = (ENUsuario)ultimaBusqueda[1];
+            ENCategoria categoriaAux = (ENCategoria)ultimaBusqueda[2];
+            DateTime fechaInicio = (DateTime)ultimaBusqueda[3];
+            DateTime fechaFin = (DateTime)ultimaBusqueda[4];
+
+            // Atributos para la paginación.
+            int cantidad = formularioPadre.CantidadPorPagina;
+            string ordenar = formularioPadre.OrdenarPor;
+            ENHilo ultimo = formularioPadre.PrimerHilo;
+            bool orden = formularioPadre.Orden;
+
+            if (ultimo != null) Console.WriteLine("         >>>>> " + ultimo.Titulo);
+
+            // Realizamos la búsqueda finalmente.
+            ArrayList resultados = ENHilo.Obtener(cantidad, ultimo, ordenar, !orden, (string)ultimaBusqueda[0],
+               (string)ultimaBusqueda[0], ref usuarioAux, ref fechaInicio, ref fechaFin, ref categoriaAux);
+
+            // Hay que invertir el resultado.
+            resultados.Reverse();
+            formularioPadre.Resultados = resultados;
+
+            formularioPadre.ActualizarPaginacion();
         }
     }
 }
