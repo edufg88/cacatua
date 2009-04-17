@@ -168,6 +168,8 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelTituloPeticiones = new System.Windows.Forms.Panel();
+            this.labelTitulo = new System.Windows.Forms.Label();
             this.tableLayoutPanelGeneralPeticiones = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.button_contestarPeticion = new System.Windows.Forms.Button();
@@ -218,8 +220,6 @@
             this.richTextBox_PeticionSeleccionada = new System.Windows.Forms.RichTextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.panelTituloPeticiones = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -258,6 +258,7 @@
             this.tableLayoutPanel32.SuspendLayout();
             this.tableLayoutPanel33.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panelTituloPeticiones.SuspendLayout();
             this.tableLayoutPanelGeneralPeticiones.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel_busquedaPeticiones.SuspendLayout();
@@ -278,7 +279,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Peticiones)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            this.panelTituloPeticiones.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel6
@@ -1779,6 +1779,32 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(815, 456);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // panelTituloPeticiones
+            // 
+            this.panelTituloPeticiones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(196)))), ((int)(((byte)(29)))));
+            this.panelTituloPeticiones.Controls.Add(this.labelTitulo);
+            this.panelTituloPeticiones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTituloPeticiones.Location = new System.Drawing.Point(0, 0);
+            this.panelTituloPeticiones.Margin = new System.Windows.Forms.Padding(0);
+            this.panelTituloPeticiones.Name = "panelTituloPeticiones";
+            this.panelTituloPeticiones.Size = new System.Drawing.Size(815, 30);
+            this.panelTituloPeticiones.TabIndex = 31;
+            // 
+            // labelTitulo
+            // 
+            this.labelTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTitulo.AutoSize = true;
+            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitulo.ForeColor = System.Drawing.Color.White;
+            this.labelTitulo.Location = new System.Drawing.Point(11, 4);
+            this.labelTitulo.Name = "labelTitulo";
+            this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.labelTitulo.Size = new System.Drawing.Size(73, 19);
+            this.labelTitulo.TabIndex = 7;
+            this.labelTitulo.Text = "Peticiones";
+            // 
             // tableLayoutPanelGeneralPeticiones
             // 
             this.tableLayoutPanelGeneralPeticiones.ColumnCount = 1;
@@ -2320,32 +2346,6 @@
             // 
             this.errorProvider2.ContainerControl = this;
             // 
-            // labelTitulo
-            // 
-            this.labelTitulo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.White;
-            this.labelTitulo.Location = new System.Drawing.Point(11, 4);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.labelTitulo.Size = new System.Drawing.Size(73, 19);
-            this.labelTitulo.TabIndex = 7;
-            this.labelTitulo.Text = "Peticiones";
-            // 
-            // panelTituloPeticiones
-            // 
-            this.panelTituloPeticiones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(196)))), ((int)(((byte)(29)))));
-            this.panelTituloPeticiones.Controls.Add(this.labelTitulo);
-            this.panelTituloPeticiones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTituloPeticiones.Location = new System.Drawing.Point(0, 0);
-            this.panelTituloPeticiones.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTituloPeticiones.Name = "panelTituloPeticiones";
-            this.panelTituloPeticiones.Size = new System.Drawing.Size(815, 30);
-            this.panelTituloPeticiones.TabIndex = 31;
-            // 
             // FormPeticiones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2411,6 +2411,8 @@
             this.tableLayoutPanel32.PerformLayout();
             this.tableLayoutPanel33.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelTituloPeticiones.ResumeLayout(false);
+            this.panelTituloPeticiones.PerformLayout();
             this.tableLayoutPanelGeneralPeticiones.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel_busquedaPeticiones.ResumeLayout(false);
@@ -2444,8 +2446,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Peticiones)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            this.panelTituloPeticiones.ResumeLayout(false);
-            this.panelTituloPeticiones.PerformLayout();
             this.ResumeLayout(false);
 
         }
