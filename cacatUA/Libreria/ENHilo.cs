@@ -62,13 +62,14 @@ namespace Libreria
         /// hilos por página. También es necesario especificar el identificador (id) del hilo desde el que se
         /// va a empezar a contar.
         /// </summary>
-        /// <param name="pagina">Número de página.</param>
         /// <param name="cantidad">Cantidad de hilos en cada página.</param>
-        /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
+        /// <param name="ultimo">Último hilo que se devolvió.</param>
+        /// <param name="ordenar">Columna por la que se va a ordenar.</param>
+        /// <param name="ascendente">Indica si es un filtro ascendente o descendente.</param>
         /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
-        public static ArrayList Obtener(int pagina, int cantidad, int ultimoId)
+        public static ArrayList Obtener(int cantidad, ENHilo ultimo, string ordenar, bool ascendente)
         {
-            return HiloCAD.Instancia.Obtener(pagina, cantidad, ultimoId);
+            return HiloCAD.Instancia.Obtener(cantidad, ultimo, ordenar, ascendente);
         }
 
         /// <summary>
@@ -78,9 +79,10 @@ namespace Libreria
         /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
         /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
         /// </summary>
-        /// <param name="pagina">Número de página.</param>
         /// <param name="cantidad">Cantidad de hilos en cada página.</param>
-        /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
+        /// <param name="ultimo">Último hilo que se devolvió.</param>
+        /// <param name="ordenar">Columna por la que se va a ordenar.</param>
+        /// <param name="ascendente">Indica si es un filtro ascendente o descendente.</param>
         /// <param name="titulo">Título para el filtro de búsqueda.</param>
         /// <param name="texto">Texto para el filtro de búsqueda.</param>
         /// <param name="autor">Autor para el filtro de búsqueda.</param>
@@ -88,11 +90,29 @@ namespace Libreria
         /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
         /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
         /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
-        public static ArrayList Obtener(int pagina, int cantidad, int ultimoId, String titulo, String texto
+        public static ArrayList Obtener(int cantidad, ENHilo ultimo, string ordenar, bool ascendente, String titulo, String texto
             , ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
-            return HiloCAD.Instancia.Obtener(pagina, cantidad, ultimoId, titulo, texto, ref autor,
+            return HiloCAD.Instancia.Obtener(cantidad, ultimo, ordenar, ascendente, titulo, texto, ref autor,
                 ref fechaInicio, ref fechaFin, ref categoria);
+        }
+
+        /// <summary>
+        /// Obtiene la cantidad de resultados totales que hay con el filtro de búsqueda indicado.
+        /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
+        /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
+        /// </summary>
+        /// <param name="titulo">Título para el filtro de búsqueda.</param>
+        /// <param name="texto">Texto para el filtro de búsqueda.</param>
+        /// <param name="autor">Autor para el filtro de búsqueda.</param>
+        /// <param name="fechaInicio">Fecha de inicio para el filtro de búsqueda.</param>
+        /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
+        /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
+        public static int Cantidad(String titulo, String texto, ref ENUsuario autor,
+            ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
+        {
+            return HiloCAD.Instancia.Cantidad(titulo, texto, ref autor, ref fechaInicio, ref fechaFin, ref categoria);
         }
 
         /// <summary>

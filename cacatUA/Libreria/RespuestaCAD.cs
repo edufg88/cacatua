@@ -90,7 +90,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ArrayList RespuestaCAD.Obtener(ENHilo) " + ex.Message);
+                Console.WriteLine("ERROR: ArrayList RespuestaCAD.Obtener(ENHilo) " + ex.Message);
             }
             finally
             {
@@ -138,7 +138,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENRespuesta RespuestaCAD.Obtener(int id) " + ex.Message);
+                Console.WriteLine("ERROR: ENRespuesta RespuestaCAD.Obtener(int id) " + ex.Message);
             }
             finally
             {
@@ -192,7 +192,7 @@ namespace Libreria
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("bool RespuestaCAD.Guardar(ENRespuesta, out int) " + ex.Message);
+                    Console.WriteLine("ERROR: bool RespuestaCAD.Guardar(ENRespuesta, out int) " + ex.Message);
                 }
                 finally
                 {
@@ -231,7 +231,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("bool RespuestaCAD.Borrar(int) " + ex.Message);
+                Console.WriteLine("ERROR: bool RespuestaCAD.Borrar(int) " + ex.Message);
             }
             finally
             {
@@ -274,7 +274,7 @@ namespace Libreria
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("bool RespuestaCAD.Actualizar(ENRespuesta) " + ex.Message);
+                    Console.WriteLine("ERROR: bool RespuestaCAD.Actualizar(ENRespuesta) " + ex.Message);
                 }
                 finally
                 {
@@ -330,7 +330,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("int RespuestaCAD.Cantidad(ENHilo) " + ex.Message);
+                Console.WriteLine("ERROR: int RespuestaCAD.Cantidad(ENHilo) " + ex.Message);
             }
             finally
             {
@@ -387,7 +387,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENRespuesta RespuestaCAD.Ultimo(ENHilo) " + ex.Message);
+                Console.WriteLine("ERROR: ENRespuesta RespuestaCAD.Ultimo(ENHilo) " + ex.Message);
             }
             finally
             {

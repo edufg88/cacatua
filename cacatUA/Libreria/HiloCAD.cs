@@ -92,7 +92,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENHilo HiloCAD.Obtener(ind id) " + ex.Message);
+                Console.WriteLine("ERROR: ENHilo HiloCAD.Obtener(ind id) " + ex.Message);
             }
             finally
             {
@@ -135,7 +135,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ArrayList HiloCAD.Obtener() " + ex.Message);
+                Console.WriteLine("ERROR: ArrayList HiloCAD.Obtener() " + ex.Message);
             }
             finally
             {
@@ -151,16 +151,17 @@ namespace Libreria
         /// hilos por página. También es necesario especificar el identificador (id) del hilo desde el que se
         /// va a empezar a contar.
         /// </summary>
-        /// <param name="pagina">Número de página.</param>
         /// <param name="cantidad">Cantidad de hilos en cada página.</param>
-        /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
+        /// <param name="ultimo">Último hilo que se devolvió.</param>
+        /// <param name="ordenar">Columna por la que se va a ordenar.</param>
+        /// <param name="ascendente">Indica si es un filtro ascendente o descendente.</param>
         /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
-        public ArrayList Obtener(int pagina, int cantidad, int ultimoId)
+        public ArrayList Obtener(int cantidad, ENHilo ultimo, string ordenar, bool ascendente)
         {
             ENUsuario usuario = null;
             ENCategoria categoria = null;
             DateTime fecha = DateTime.Now;
-            return Obtener(pagina, cantidad, ultimoId, "", "", ref usuario, ref fecha, ref fecha, ref categoria);
+            return Obtener(cantidad, ultimo, ordenar, ascendente, "", "", ref usuario, ref fecha, ref fecha, ref categoria);
         }
 
         /// <summary>
@@ -170,20 +171,29 @@ namespace Libreria
         /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
         /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
         /// </summary>
-        /// <param name="pagina">Número de página.</param>
         /// <param name="cantidad">Cantidad de hilos en cada página.</param>
-        /// <param name="ultimoId">Identificador del último hilo que se devolvió.</param>
+        /// <param name="ultimo">Último hilo que se devolvió.</param>
+        /// <param name="ordenar">
+        /// Columna por la que se va a ordenar. Debe coincide con el nombre de alguna columna de la base de datos.
+        /// Para la tabla vistaHilos: "id", "titulo", "texto", "fechacreacion", "autor", "respuestas".
+        /// En el caso del autor, como es un valor entero que hace referencia al id, hay que obtener el nombre
+        /// por separado, haciendo el producto cartesiano típico e igualando los ids.
+        /// </param>
+        /// <param name="ascendente">Indica si es un filtro ascendente o descendente.</param>
         /// <param name="titulo">Título para el filtro de búsqueda.</param>
         /// <param name="texto">Texto para el filtro de búsqueda.</param>
         /// <param name="autor">Autor para el filtro de búsqueda.</param>
-        /// <param name="fechaInicio">Fecha de inicio par el filtro de búsqueda.</param>
+        /// <param name="fechaInicio">Fecha de inicio para el filtro de búsqueda.</param>
         /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
         /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
         /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
-        public ArrayList Obtener(int pagina, int cantidad, int ultimoId, String titulo, String texto
+        public ArrayList Obtener(int cantidad, ENHilo ultimo, string ordenar, bool ascendente, String titulo, String texto
             , ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
             ArrayList hilos = null;
+            if (ordenar == "") ordenar = "vistaHilos.id";
+            else if (ordenar == "id") ordenar = "vistaHilos.id";
+            else if (ordenar == "autor") ordenar = "nombreusuario";
 
             SqlConnection conexion = null;
             try
@@ -193,21 +203,142 @@ namespace Libreria
                 conexion.Open();
 
                 // Componemos la cadena de la sentencia.
-                string sentencia = "select * from vistaHilos ";
+                string sentencia = "";
+
+                if (cantidad > 0)
+                    sentencia += "SET ROWCOUNT " + cantidad + " \n";
+                sentencia += "select vistaHilos.*, usuarios.usuario as nombreusuario \nfrom vistaHilos, usuarios \nwhere autor = usuarios.id \n";
                 if (titulo != "")
-                    sentencia += "where (titulo like '%"+@titulo+"%' ";
+                    sentencia += "and (titulo like '%" + @titulo + "%' \n";
                 else
-                    sentencia += "where (titulo like '%' ";
+                    sentencia += "and (titulo like '%' \n";
                 if (texto != "")
-                    sentencia += "or texto like '%"+@texto+"%') ";
+                    sentencia += "or texto like '%" + @texto + "%') \n";
                 else
-                    sentencia += "or texto like '%') ";
+                    sentencia += "or texto like '%') \n";
                 if (autor != null)
-                    sentencia += "and autor = @autor ";
+                    sentencia += "and autor = @autor \n";
                 if (fechaInicio != fechaFin)
-                    sentencia += "and fechacreacion between @fechainicio and @fechafin ";
+                    sentencia += "and fechacreacion between @fechainicio and @fechafin \n";
                 if (categoria != null)
-                    sentencia += "and categoria = @categoria ";
+                    sentencia += "and categoria = @categoria \n";
+
+                if (ultimo != null)
+                {
+                    sentencia += "and " + @ordenar + " ";
+                    if (ascendente) sentencia += ">"; else sentencia += "<";
+                    sentencia += " @ordenarUltimo \n";
+                }
+
+                sentencia += "order by " + @ordenar + " ";
+                if (ascendente) sentencia += "ASC \n"; else sentencia += "DESC \n";
+
+                // Asignamos la cadena de sentencia y establecemos los parámetros.
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                if (titulo != "")
+                    comando.Parameters.AddWithValue("@titulo", titulo);
+                if (texto != "")
+                    comando.Parameters.AddWithValue("@texto", texto);
+                if (autor != null)
+                    comando.Parameters.AddWithValue("@autor", autor.Id);
+                if (fechaInicio <= fechaFin)
+                {
+                    comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
+                    comando.Parameters.AddWithValue("@fechafin", fechaFin);
+                }
+                if (categoria != null)
+                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
+
+                if (ultimo != null)
+                {
+                    switch (ordenar)
+                    {
+                        case "vistaHilos.id":
+                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Id); break;
+                        case "texto":
+                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Texto); break;
+                        case "titulo":
+                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Titulo); break;
+                        case "fechacreacion":
+                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Fecha); break;
+                        case "respuestas":
+                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.NumRespuestas); break;
+                        case "autor":
+                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Autor.Usuario); break;
+                    }
+                }
+
+                Console.WriteLine(sentencia);
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Insertamos todas las filas extraidas en el vector.
+                hilos = new ArrayList();
+                while (dataReader.Read())
+                {
+                    ENHilo material = obtenerDatos(dataReader);
+                    hilos.Add(material);
+                }
+
+                // Cerramos la consulta.
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: ArrayList HiloCAD.Obtener(monton de gente) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return hilos;
+        }
+
+        /// <summary>
+        /// Obtiene la cantidad de resultados totales que hay con el filtro de búsqueda indicado.
+        /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
+        /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
+        /// </summary>
+        /// <param name="titulo">Título para el filtro de búsqueda.</param>
+        /// <param name="texto">Texto para el filtro de búsqueda.</param>
+        /// <param name="autor">Autor para el filtro de búsqueda.</param>
+        /// <param name="fechaInicio">Fecha de inicio para el filtro de búsqueda.</param>
+        /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
+        /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
+        public int Cantidad(String titulo, String texto, ref ENUsuario autor,
+            ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
+        {
+            int cantidad = 0;
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                // Componemos la cadena de la sentencia.
+                string sentencia = "";
+
+                sentencia += "select count(*) as cantidad \nfrom vistaHilos, usuarios \nwhere autor = usuarios.id \n";
+                if (titulo != "")
+                    sentencia += "and (titulo like '%" + @titulo + "%' \n";
+                else
+                    sentencia += "and (titulo like '%' \n";
+                if (texto != "")
+                    sentencia += "or texto like '%" + @texto + "%') \n";
+                else
+                    sentencia += "or texto like '%') \n";
+                if (autor != null)
+                    sentencia += "and autor = @autor \n";
+                if (fechaInicio != fechaFin)
+                    sentencia += "and fechacreacion between @fechainicio and @fechafin \n";
+                if (categoria != null)
+                    sentencia += "and categoria = @categoria \n";
 
                 // Asignamos la cadena de sentencia y establecemos los parámetros.
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
@@ -228,12 +359,10 @@ namespace Libreria
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();
 
-                // Insertamos todas las filas extraidas en el vector.
-                hilos = new ArrayList();
-                while (dataReader.Read())
+                // Extraemos el valor.
+                if (dataReader.Read())
                 {
-                    ENHilo material = obtenerDatos(dataReader);
-                    hilos.Add(material);
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
                 }
 
                 // Cerramos la consulta.
@@ -241,7 +370,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ArrayList HiloCAD.Obtener(monton de gente) " + ex.Message);
+                Console.WriteLine("ERROR: int HiloCAD.Cantidad(monton de gente) " + ex.Message);
             }
             finally
             {
@@ -249,7 +378,7 @@ namespace Libreria
                     conexion.Close();
             }
 
-            return hilos;
+            return cantidad;
         }
 
         /// <summary>
@@ -296,7 +425,7 @@ namespace Libreria
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("bool HiloCAD.Guardar(ENHilo, out int) " + ex.Message);
+                    Console.WriteLine("ERROR: bool HiloCAD.Guardar(ENHilo, out int) " + ex.Message);
                 }
                 finally
                 {
@@ -376,7 +505,7 @@ namespace Libreria
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("bool HiloCAD.Actualizar(ENHilo) " + ex.Message);
+                    Console.WriteLine("ERROR: bool HiloCAD.Actualizar(ENHilo) " + ex.Message);
                 }
                 finally
                 {
@@ -448,7 +577,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("int HiloCAD.Cantidad(ENUsuario, ENCategoria) " + ex.Message);
+                Console.WriteLine("ERROR: int HiloCAD.Cantidad(ENUsuario, ENCategoria) " + ex.Message);
             }
             finally
             {
@@ -494,7 +623,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENHilo HiloCAD.Ultimo() " + ex.Message);
+                Console.WriteLine("ERROR: ENHilo HiloCAD.Ultimo() " + ex.Message);
             }
             finally
             {
