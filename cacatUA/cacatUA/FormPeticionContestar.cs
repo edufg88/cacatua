@@ -43,7 +43,21 @@ namespace cacatUA
 
         private bool validarRespuesta(string respuesta)
         {
-            return respuesta != "";
+            if (respuesta == "" || respuesta == "\n")
+            {
+                return false;
+            }
+            else
+            {
+                if (respuesta.Length > 5000)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
         }
 
         private void buttonSalir_Click(object sender, EventArgs e)
