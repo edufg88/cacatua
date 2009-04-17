@@ -108,8 +108,8 @@ namespace Libreria
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
-                comando.CommandText = "SELECT * FROM usuarios where usuario LIKE @usuario"; // Asignamos la sentencia SQL
-                comando.Parameters.AddWithValue("@usuario", "%" + us + "%");
+                comando.CommandText = "SELECT * FROM usuarios where usuario = @usuario"; // Asignamos la sentencia SQL
+                comando.Parameters.AddWithValue("@usuario", us);
 
                 // Creamo un objeto DataReader
                 SqlDataReader dr = comando.ExecuteReader();
