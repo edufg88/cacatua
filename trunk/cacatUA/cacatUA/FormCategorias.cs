@@ -303,7 +303,7 @@ namespace cacatUA
             if (filas.Count > 0)
             {
                 int usuario = int.Parse(filas[0].Cells[0].Value.ToString());
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver a categorías", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", false, true, "Volver a categorías", "");
             }
             else
             {
@@ -313,7 +313,7 @@ namespace cacatUA
 
         private void button_AñadirUsuario_Click(object sender, EventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, false, "Seleccionar usuario", "");
+            FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Seleccionar usuario", "");
         }
 
         private void button_LimpiarRuta_Click(object sender, EventArgs e)
