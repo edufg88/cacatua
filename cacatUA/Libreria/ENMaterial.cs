@@ -214,6 +214,16 @@ namespace Libreria
             return MaterialCAD.Instancia.BorrarComentario(comentario);
         }
 
+        public static int NumMateriales()
+        {
+            return MaterialCAD.Instancia.NumMateriales();
+        }
+
+        public static ENMaterial Ultimo()
+        {
+            return MaterialCAD.Instancia.Ultimo();
+        }
+
         /// <summary>
         /// Identificador único del material.
         /// </summary>

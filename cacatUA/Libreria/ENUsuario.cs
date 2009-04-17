@@ -463,6 +463,24 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Comprueba cuántos usuarios (administradores o no, activos o inactivos) hay en la base de datos.
+        /// </summary>
+        /// <returns>Devuelve la cantidad de usuarios totales que hay en la base de datos.</returns>
+        public static int NumUsuarios()
+        {
+            return UsuarioCAD.Instancia.NumUsuarios();
+        }
+
+        /// <summary>
+        /// Obtiene el último usuario insertado en la base de datos.
+        /// </summary>
+        /// <returns>Devuelve la entidad de negocio del último usuario registrado en la base de datos.</returns>
+        public static ENUsuario Ultimo()
+        {
+            return UsuarioCAD.Instancia.Ultimo();
+        }
+
+        /// <summary>
         /// Devuelve el número de encuestas del usuario actual
         /// </summary>
         /// <returns>Devuelve el número de encustas</returns>
