@@ -280,6 +280,7 @@
             this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
             this.comboBox_cantidadPorPagina.TabIndex = 1;
+            this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
             // 
             // button_paginaSiguiente
             // 
@@ -301,6 +302,7 @@
             this.button_paginaAnterior.TabIndex = 12;
             this.button_paginaAnterior.Text = "Anterior";
             this.button_paginaAnterior.UseVisualStyleBackColor = true;
+            this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
             // 
             // comboBox_pagina
             // 
@@ -341,6 +343,7 @@
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
             this.comboBox_pagina.TabIndex = 11;
+            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
             // 
             // button_editarHilo
             // 
@@ -410,6 +413,7 @@
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
+            this.id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.id.Width = 41;
             // 
             // titulo

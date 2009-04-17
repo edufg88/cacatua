@@ -164,10 +164,13 @@ namespace cacatUA
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (dataGridView_resultados.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0)
             {
-                DataGridViewRow seleccionada = dataGridView_resultados.SelectedRows[0];
-                CambiarEdicion(int.Parse(seleccionada.Cells[0].Value.ToString()));
+                if (dataGridView_resultados.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow seleccionada = dataGridView_resultados.SelectedRows[0];
+                    CambiarEdicion(int.Parse(seleccionada.Cells[0].Value.ToString()));
+                }
             }
         }
 

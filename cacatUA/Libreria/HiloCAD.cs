@@ -225,13 +225,30 @@ namespace Libreria
 
                 if (ultimo != null)
                 {
-                    sentencia += "and " + @ordenar + " ";
+                    // Siempre comparamos el id.
+                    sentencia += "and vistaHilos.id ";
                     if (ascendente) sentencia += ">"; else sentencia += "<";
-                    sentencia += " @ordenarUltimo \n";
+                    sentencia += " @ordenarUltimoId \n";
+
+                    // Si además estamos ordenando por otra columna distinta, comparamos también.
+                    /*if (ordenar != "vistaHilos.id")
+                    {
+                        sentencia += "and " + @ordenar + " ";
+                        if (ascendente) sentencia += ">"; else sentencia += "<";
+                        sentencia += " @ordenarUltimo \n";
+                    }*/
                 }
 
-                sentencia += "order by " + @ordenar + " ";
-                if (ascendente) sentencia += "ASC \n"; else sentencia += "DESC \n";
+                // Siempre se ordena por el identificador según el orden.
+                sentencia += "order by vistaHilos.id ";
+                if (ascendente) sentencia += "ASC "; else sentencia += "DESC ";
+
+                // Si además estamos ordenando por otra columna distinta, la añadimos al order by también.
+                /*if (ordenar != "vistaHilos.id")
+                {
+                    sentencia += ", " + @ordenar + " ";
+                    if (ascendente) sentencia += "ASC \n"; else sentencia += "DESC \n";
+                }*/
 
                 // Asignamos la cadena de sentencia y establecemos los parámetros.
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
@@ -251,10 +268,9 @@ namespace Libreria
 
                 if (ultimo != null)
                 {
-                    switch (ordenar)
+                    comando.Parameters.AddWithValue("@ordenarUltimoId", ultimo.Id);
+                    /*switch (ordenar)
                     {
-                        case "vistaHilos.id":
-                            comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Id); break;
                         case "texto":
                             comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Texto); break;
                         case "titulo":
@@ -265,10 +281,14 @@ namespace Libreria
                             comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.NumRespuestas); break;
                         case "autor":
                             comando.Parameters.AddWithValue("@ordenarUltimo", ultimo.Autor.Usuario); break;
-                    }
+                    }*/
                 }
 
+                Console.WriteLine("");
+                Console.WriteLine("--------------------------");
                 Console.WriteLine(sentencia);
+                Console.WriteLine("--------------------------");
+                Console.WriteLine("");
 
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();
