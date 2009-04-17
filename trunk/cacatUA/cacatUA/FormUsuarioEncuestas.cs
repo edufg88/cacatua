@@ -87,6 +87,7 @@ namespace cacatUA
             }
             else
             {
+                activarBotones();
                 errorProvider1.Clear();
                 textBox_id.Text = encuesta.Id.ToString();
                 textBox_pregunta.Text = encuesta.Pregunta;
@@ -100,28 +101,13 @@ namespace cacatUA
         /// </summary>
         private void cambiarNuevo()
         {
+            desactivarBotones();
             errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_pregunta.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
             checkBox_activa.Checked = false;
         }
-        
-        /*
-        public void InsertarEncuestas()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ENEncuesta e = new ENEncuesta();
-                e.Pregunta = "encuesta " + i.ToString();
-                e.Usuario = ENUsuario.Obtener(3);
-                e.Fecha = DateTime.Now;
-                e.Activa = false;
-
-                e.Guardar();
-            }
-        }
-        */
 
         /// <summary>
         /// Valida los campos del formulario
@@ -141,6 +127,24 @@ namespace cacatUA
                 correcto = false;
             }
             return correcto;
+        }
+
+        /// <summary>
+        /// Activa los botones
+        /// </summary>
+        private void activarBotones()
+        {
+            button_guardarCambios.Enabled = true;
+            button_descartarCambios.Enabled = true;
+        }
+
+        /// <summary>
+        /// Desactiva los botones
+        /// </summary>
+        private void desactivarBotones()
+        {
+            button_guardarCambios.Enabled = false;
+            button_descartarCambios.Enabled = false;
         }
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
@@ -230,6 +234,11 @@ namespace cacatUA
         {
             // Cargamos en el DataGridView las encuestas del usuario
             CargarEncuestas();
+            // Si no hay encuesta seleccionada desactivamos los botones
+            if (textBox_id.Text == "")
+            {
+                desactivarBotones();
+            }
         }
     }
 }

@@ -36,21 +36,6 @@ namespace cacatUA
             this.mensaje = new ENMensaje();
         }
 
-        /*
-        public void InsertarMensajes()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ENMensaje m = new ENMensaje();
-                m.Emisor = ENUsuario.Obtener(3);
-                m.Receptor = ENUsuario.Obtener(4);
-                m.Texto = "mensaje " + i.ToString();
-                m.Fecha = DateTime.Now;
-                m.Guardar();
-            }
-        }
-        */
-
         /// <summary>
         /// Carga todos los mensajes en el DataGridView del formulario
         /// </summary>
@@ -100,6 +85,7 @@ namespace cacatUA
             }
             else
             {
+                activarBotones();
                 errorProvider1.Clear();
                 textBox_id.Text = mensaje.Id.ToString();
                 textBox_emisor.Text = mensaje.Emisor.Usuario;
@@ -114,6 +100,7 @@ namespace cacatUA
         /// </summary>
         private void cambiarNuevo()
         {
+            desactivarBotones();
             errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_emisor.Text = "";
@@ -142,6 +129,24 @@ namespace cacatUA
             return correcto;
         }
 
+        /// <summary>
+        /// Activa los botones
+        /// </summary>
+        private void activarBotones()
+        {
+            button_guardarCambios.Enabled = true;
+            button_descartarCambios.Enabled = true;
+        }
+
+        /// <summary>
+        /// Desactiva los botones
+        /// </summary>
+        private void desactivarBotones()
+        {
+            button_guardarCambios.Enabled = false;
+            button_descartarCambios.Enabled = false;
+        }
+
         private void button_editarMensaje_Click(object sender, EventArgs e)
         {
             if (dataGridView_mensajes.SelectedRows.Count > 0)
@@ -154,6 +159,12 @@ namespace cacatUA
         {
             // Cargamos en el DataGridView los mensajes del usuario
             CargarMensajes();
+
+            // Si no hay ningún mensaje desactivamos los botones
+            if (textBox_id.Text == "")
+            {
+                desactivarBotones();
+            }
         }
 
         private void button_borrarMensaje_Click(object sender, EventArgs e)

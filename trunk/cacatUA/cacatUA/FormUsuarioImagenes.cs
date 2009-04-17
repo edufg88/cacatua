@@ -86,6 +86,7 @@ namespace cacatUA
             }
             else
             {
+                activarBotones();
                 errorProvider1.Clear();
                 textBox_id.Text = imagen.Id.ToString();
                 textBox_titulo.Text = imagen.Titulo;
@@ -100,6 +101,7 @@ namespace cacatUA
         /// </summary>
         private void cambiarNuevo()
         {
+            desactivarBotones();
             errorProvider1.Clear();
             textBox_id.Text = "";
             textBox_titulo.Text = "";
@@ -107,22 +109,6 @@ namespace cacatUA
             textBox_archivo.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
         }
-
-        /*
-        public void InsertarImagenes()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                ENImagen im = new ENImagen();
-                im.Titulo = "titulo " + i.ToString();
-                im.Descripcion = "descripcion " + i.ToString();
-                im.Fecha = DateTime.Now;
-                im.Usuario = ENUsuario.Obtener(3);
-                im.Archivo = "fichero " + i.ToString();
-                im.Guardar();
-            }
-        }
-        */
 
         /// <summary>
         /// Valida los campos del formulario
@@ -150,6 +136,24 @@ namespace cacatUA
                 correcto = false;
             }
             return correcto;
+        }
+
+        /// <summary>
+        /// Activa los botones
+        /// </summary>
+        private void activarBotones()
+        {
+            button_guardarCambios.Enabled = true;
+            button_descartarCambios.Enabled = true;
+        }
+
+        /// <summary>
+        /// Desactiva los botones
+        /// </summary>
+        private void desactivarBotones()
+        {
+            button_guardarCambios.Enabled = false;
+            button_descartarCambios.Enabled = false;
         }
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
@@ -234,6 +238,11 @@ namespace cacatUA
         {
             // Cargamos en el DataGridView las imágenes del usuario
             CargarImagenes();
+            // Si no hay imagen seleccionada desactivamos los botones
+            if (textBox_id.Text == "")
+            {
+                desactivarBotones();
+            }
         }
 
         private void dataGridView_imagenes_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
