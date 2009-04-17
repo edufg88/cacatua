@@ -330,9 +330,9 @@ namespace cacatUA
                 string texto = "";
 
                 if (dataGridView_Usuarios.SelectedRows.Count == 1)
-                    texto = "¿Está seguro de que desea dessuscribir este usuario?";
+                    texto = "¿Está seguro de que desea insuscribir este usuario?";
                 else
-                    texto = "¿Está seguro de que desea dessuscribir estos usuarios?";
+                    texto = "¿Está seguro de que desea insuscribir estos usuarios?";
 
                 if (DialogResult.Yes == MessageBox.Show(texto, "Ventana de confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2))
                 {
@@ -342,7 +342,7 @@ namespace cacatUA
                     {
                         // Se borra de la lista y de la base de datos.
                         ENUsuario usuario = ENUsuario.Obtener(int.Parse(i.Cells[0].Value.ToString()));
-                        seleccionada.DessuscribirUsuario(usuario);
+                        seleccionada.InsuscribirUsuario(usuario);
                         dataGridView_Usuarios.Rows.Remove(i);
                     }
                 }
