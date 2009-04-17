@@ -292,5 +292,117 @@ namespace Libreria
 
             return peticiones;
         }
+
+        public int ObtenerNumeroPeticiones()
+        {
+
+            int n = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM peticiones";
+                
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    n = int.Parse(reader["numero"].ToString());
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Numero de peticiones: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return n;
+            
+        }
+
+        public int ObtenerNumeroPeticionesSinContestar()
+        {
+
+            int n = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM peticiones where respuesta is NULL";
+
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    n = int.Parse(reader["numero"].ToString());
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Numero de peticiones: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return n;
+
+        }
+
+        public string ObtenerUltimaPeticion()
+        {
+
+            string texto = "";
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT texto FROM peticiones order by fecha";
+
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    texto = reader["texto"].ToString();
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Numero de peticiones: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return texto;
+
+        }
+
     }
 }
