@@ -244,8 +244,14 @@ namespace cacatUA
                     foreach (DataGridViewRow i in filas)
                     {
                         // Se borra de la lista y de la base de datos.
-                        ENUsuario.Borrar(int.Parse(i.Cells[0].Value.ToString()));
-                        dataGridView_usuarios.Rows.Remove(i);
+                        if (ENUsuario.Borrar(int.Parse(i.Cells[0].Value.ToString())))
+                        {
+                            dataGridView_usuarios.Rows.Remove(i);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al borrar usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

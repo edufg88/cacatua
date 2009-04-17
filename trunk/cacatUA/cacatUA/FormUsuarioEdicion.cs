@@ -63,24 +63,27 @@ namespace cacatUA
             // Cargamos los datos del usuario con esa id en los campos
             ENUsuario usuario = ENUsuario.Obtener(id);
 
-            errorProvider1.Clear();
+            if (usuario != null)
+            {
+                errorProvider1.Clear();
 
-            textBox_id.Text = usuario.Id.ToString();
-            textBox_usuario.Text = usuario.Usuario;
-            textBox_contrasena.Text = usuario.Contrasena;
-            textBox_nombre.Text = usuario.Nombre;
-            textBox_dni.Text = usuario.Dni;
-            textBox_email.Text = usuario.Correo;
-            textBox_adicional.Text = usuario.Adicional;
-            dateTimePicker_fechaDeIngreso.Value = usuario.Fechaingreso;
+                textBox_id.Text = usuario.Id.ToString();
+                textBox_usuario.Text = usuario.Usuario;
+                textBox_contrasena.Text = usuario.Contrasena;
+                textBox_nombre.Text = usuario.Nombre;
+                textBox_dni.Text = usuario.Dni;
+                textBox_email.Text = usuario.Correo;
+                textBox_adicional.Text = usuario.Adicional;
+                dateTimePicker_fechaDeIngreso.Value = usuario.Fechaingreso;
 
-            textBox_numEncuestas.Text = usuario.CantidadEncuestas().ToString();
-            textBox_numFirmas.Text = usuario.CantidadFirmas().ToString();
-            textBox_numImagenes.Text = usuario.CantidadImagenes().ToString();
-            textBox_numMensajes.Text = usuario.CantidadMensajes().ToString();
+                textBox_numEncuestas.Text = usuario.CantidadEncuestas().ToString();
+                textBox_numFirmas.Text = usuario.CantidadFirmas().ToString();
+                textBox_numImagenes.Text = usuario.CantidadImagenes().ToString();
+                textBox_numMensajes.Text = usuario.CantidadMensajes().ToString();
 
-            checkBox_administrador.Checked = usuario.EsAdministrador();
-            checkBox_activo.Checked = usuario.Activo;
+                checkBox_administrador.Checked = usuario.EsAdministrador();
+                checkBox_activo.Checked = usuario.Activo;
+            }
         }
         
         /// <summary>
@@ -193,6 +196,10 @@ namespace cacatUA
                             {
                                 MessageBox.Show("Error al guardar como admistrador");
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario guardado correctamente.");
                         }
                     }
                     else
