@@ -1355,6 +1355,7 @@
             // 
             this.button_cancelarDescarga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_cancelarDescarga.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_cancelarDescarga.Enabled = false;
             this.button_cancelarDescarga.FlatAppearance.BorderSize = 0;
             this.button_cancelarDescarga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cancelarDescarga.ForeColor = System.Drawing.SystemColors.ControlText;

@@ -15,134 +15,176 @@ namespace cacatUA
     public partial class FormMaterialesUpload : Form
     {
         ENMaterial material;
-        FileStream fStream = null;
-        string error = "";
-        private bool cancelar;
+        private string error = "OK";
+        public string Error
+        {
+            get { return error; }
+        }
 
-        public FormMaterialesUpload(ENMaterial material)
+        private bool cancelar;
+        int maxTamañoPaquete = 30000; // en bytes
+        int maxTamañoFichero = 16; // en megabytes
+
+        public enum modos { ACTUALIZAR = 0, CREAR = 1};
+        private modos modo;
+        public modos Modo
+        {
+            get { return modo; }
+            set { modo = value; }
+        }
+
+        public FormMaterialesUpload(ENMaterial material,modos modo)
         {
             InitializeComponent();
             this.material = material;
             cancelar = false;
+            this.modo = modo;
             Thread thread = new Thread(new ThreadStart(subirArchivo));
             thread.Start();
+        }
+
+        private void subirArchivo()
+        {
+            try
+            {
+                // Creamos una instancia del servicio web que nos permite subir el archivo
+                Uploader.FileUploader fileUploader = new Uploader.FileUploader();
+
+                // Obtenemos la ruta del archivo
+                string rutaArchivo = material.Archivo;
+                // Obtenemos únicamente el nombre del archivo (sin la ruta)
+                string nombreArchivo = Path.GetFileName(rutaArchivo);
+                // Creamos un nombre de archivo temporal para que no sobreescriba a otro añadiendo el id del usuario
+                string nombreArchivoTemporal = nombreArchivo + "_" + material.Usuario.Id.ToString();
+
+                // Obtenemos información del archivo
+                FileInfo fileInfo = new FileInfo(rutaArchivo);
+
+                // Obtenemos el tamaño del archivo
+                long numBytes = fileInfo.Length;
+                // Convertimos a megabytes
+                int numMB = Convert.ToInt32(numBytes / 1048576);
+                if (numMB < maxTamañoFichero)
+                {
+                    // Abrimos y leemos el fichero (binario)
+                    FileStream fileStream = new FileStream(rutaArchivo, FileMode.Open, FileAccess.Read);
+                    BinaryReader binaryReader = new BinaryReader(fileStream);
+
+                    // Inicializamos los contadores
+                    long bytesRestantes = numBytes;
+                    long bytesEnviados = 0;
+
+                    // Mientras queden bytes por enviar y no se cancele la subida, enviamos más datos
+                    while (bytesRestantes > 0 && cancelar == false)
+                    {
+                        // Vamos a enviar el número máximo de bytes que podamos
+                        long bytesEnviar = maxTamañoPaquete;
+
+                        // En caso de que el número de bytes restantes sea menor que el tamaño del paquete, cambiamos
+                        if(bytesRestantes < maxTamañoPaquete)
+                            bytesEnviar = bytesRestantes;
+
+                        // Leemos del fichero los datos a enviar
+                        byte[] datos = binaryReader.ReadBytes((int)bytesEnviar);
+
+                        // Enviamos los datos
+                        string mensaje = fileUploader.subirArchivo(datos, nombreArchivoTemporal);
+                        if(mensaje == "OK")
+                        {
+                            // Decrementamos el número de bytes que faltan por enviar
+                            bytesRestantes -= bytesEnviar;
+                            // Incrementamos el número de bytes enviados
+                            bytesEnviados += bytesEnviar;
+                            // Actualizamos la barra de progreso
+                            progressBar.Value = (int)((100 * bytesEnviados) / numBytes);
+                        }
+                        else
+                        {
+                            // Se ha producido un error al subir el archivo, cancelamos
+                            error = "Ha habido un problema al subir el archivo";
+                            cancelar = true;
+                        }
+                    }
+
+                    // Cerramos los ficheros
+                    binaryReader.Close();
+                    fileStream.Close();
+                    fileStream.Dispose();
+
+                    // Comprobamos si se ha subido el archivo correctamente o bien se ha cancelado
+                    if (cancelar == true)
+                    {
+                        error = "Cancelado por el usuario";
+                        // El archivo ha sido cancelado por algún motivo
+                        // Comprobamos si se estaba subiendo un nuevo archivo o actualizando
+                        if (modo == modos.CREAR)
+                        {
+                            // Se estaba creando un nuevo archivo, cancelamos la transacción para que no se guarde en la bd
+                            material.CancelarGuardar();
+                        }
+                        // Borramos el fichero del servidor
+                        if (fileUploader.BorrarFichero(nombreArchivoTemporal) == false)
+                            error = "Ha habido un problema al borrar el fichero en el servidor";
+                    }
+                    else
+                    {
+                        // El archivo se ha subido correctamente
+                        // Comprobamos si se estaba creando uno nuevo o actualizando
+                        if (modo == modos.CREAR)
+                        {
+                            // Completamos la transacción y obtenemos la id que va a tener el archivo
+                            int id = material.CompletarGuardar();
+                            if (id >= 0)
+                            {
+                                // Comprimimos el archivo con el id
+                                if (fileUploader.ComprimirArchivo(nombreArchivoTemporal, id, nombreArchivo) != "OK")
+                                    error = "Ha habido un problema al comprimir el fichero en el servidor";
+                                // Borramos el archivo temporal
+                                if (fileUploader.BorrarFichero(nombreArchivoTemporal) == false)
+                                    error = "Ha habido un problema al borrar el fichero en el servidor";
+                            }
+                            else
+                                error = "Ha habido un problema al crear el fichero en el servidor";
+                        }
+                        else
+                        {
+                            // Estamos actualizando el fichero, borramos el fichero que tenga esa id
+                            if (fileUploader.BorrarFichero(material.Id + ".zip") == false)
+                                error = "Ha habido un problema al borrar el fichero en el servidor";                         
+                            // Comprimimos el archivo
+                            if (fileUploader.ComprimirArchivo(nombreArchivoTemporal, material.Id, nombreArchivo) != "OK")
+                                error = "Ha habido un problema al comprimir el fichero en el servidor";
+                            // Borramos el archivo temporal
+                            if (fileUploader.BorrarFichero(nombreArchivoTemporal) == false)
+                                error = "Ha habido un problema al borrar el fichero en el servidor";
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("ERROR", "Fichero demasiado grande", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message.ToString();
+            }
+            finally
+            {
+                this.Close();
+                if (error != "OK")
+                {
+                    if(modo == modos.CREAR)
+                        material.CancelarGuardar();
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Cancelamos la transacción
             cancelar = true;
-
             this.Close();
-        }
-
-        private void subirArchivo()
-        {
-            String strFile = System.IO.Path.GetFileName(material.Archivo);
-            Uploader.FileUploader fileUploader = new Uploader.FileUploader();
-            try
-            {               
-                //strFile.Insert(0, material.Id.ToString() + "_" + material.Usuario.Usuario + "_");
-                // Creamos una instacia del servicio web
-                
-
-                // Obtenemos información del fichero
-                FileInfo fileInfo = new FileInfo(material.Archivo);
-
-                // Obtenemos el tamaño del fichero
-                long numBytes = fileInfo.Length;
-                double dLen = Convert.ToDouble(fileInfo.Length / 1000000);
-
-                if (dLen < 16)
-                {
-
-                    /*
-                    fStream = new FileStream(material.Archivo, FileMode.Open, FileAccess.Read);
-                    BinaryReader br = new BinaryReader(fStream);
-
-                    // Convertimos el fichero en un array de bytes
-                    byte[] data = br.ReadBytes((int)numBytes);
-                    br.Close();
-                    */
-
-                    // Pasamos el array de bytes y el nombre del fichero al servicio web
-                    Console.WriteLine("Tiene: " + numBytes.ToString() + " bytes");
-                    fStream = new FileStream(material.Archivo, FileMode.Open, FileAccess.Read);
-                    BinaryReader br = new BinaryReader(fStream);
-
-                    string sTmp = "";
-                    long bytesRestantes = numBytes;
-                    long bytesEscritos = 0;
-                    while (bytesRestantes > 0 && cancelar == false)
-                    {
-                        // Convertimos el fichero en un array de bytes
-                        if (bytesRestantes > 10024)
-                        {
-                            byte[] data = br.ReadBytes((int)10024);
-                            sTmp = fileUploader.subirArchivo(data, strFile);
-                            bytesRestantes -= 10024;
-                            bytesEscritos += 10024;
-                        }
-                        else
-                        {
-                            byte[] data = br.ReadBytes((int)bytesRestantes);
-                            sTmp = fileUploader.subirArchivo(data, strFile);
-                            MessageBox.Show(sTmp);
-                            bytesRestantes = 0;
-                            bytesEscritos = numBytes;
-                        }
-                        // Actualizamos el progressbar
-                        progressBar.Value = (int)((100 * bytesEscritos) / numBytes);
-                        Console.WriteLine(progressBar.Value);
-                    }
-                    br.Close();
-                    fStream.Close();
-                    fStream.Dispose();
-                    if (cancelar == true)
-                    {
-                        // Cancelamos la transacción
-                        material.CancelarGuardar();
-                        // Borramos el fichero del servidor
-                        if (fileUploader.BorrarFichero(strFile) == false)
-                            MessageBox.Show("ERROR: No se ha podido borrar el archivo");
-                    }
-                    else
-                    {
-                        // Completamos la transacción
-                        int id = material.CompletarGuardar();
-                        if (id >= 0)
-                        {
-                            // Comprimimos el archivo
-                            MessageBox.Show(fileUploader.ComprimirArchivo(strFile, id));
-                            // Borramos el fichero
-                            if (fileUploader.BorrarFichero(strFile) == false)
-                                MessageBox.Show("ERROR: No se ha podido borrar el archivo");
-                        }
-                        else
-                        {
-                            MessageBox.Show("ERROR: id no válida");
-                        }
-                    }
-                }
-                else
-                {
-                    error = "Fichero demasiado grande";
-                }
-            }
-            catch (Exception ex)
-            {
-                // display an error message to the user
-                error = "ERROR";
-                MessageBox.Show(ex.Message.ToString(), "Upload Errorr");
-            } 
-            finally
-            {
-                this.Close();
-                if (error != "")
-                {
-                    material.CancelarGuardar();
-                }
-            }
         }
     }
 }

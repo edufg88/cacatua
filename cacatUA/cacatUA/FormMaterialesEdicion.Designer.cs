@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button4 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.linkLabel_comentarios = new System.Windows.Forms.LinkLabel();
             this.textBox_numComentarios = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.textBox_referencia = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
             this.textBox_archivo = new System.Windows.Forms.TextBox();
             this.label_archivo = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -93,6 +93,22 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.SystemColors.Window;
+            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Image = global::cacatUA.Properties.Resources.examinar;
+            this.button4.Location = new System.Drawing.Point(751, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(20, 18);
+            this.button4.TabIndex = 107;
+            this.toolTip1.SetToolTip(this.button4, "Seleccionar archivo");
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
             // 
             // panel6
             // 
@@ -451,28 +467,13 @@
             this.panel14.Size = new System.Drawing.Size(808, 30);
             this.panel14.TabIndex = 115;
             // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.SystemColors.Window;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = global::cacatUA.Properties.Resources.examinar;
-            this.button4.Location = new System.Drawing.Point(751, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(20, 18);
-            this.button4.TabIndex = 107;
-            this.toolTip1.SetToolTip(this.button4, "Seleccionar archivo");
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
-            // 
             // textBox_archivo
             // 
             this.textBox_archivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_archivo.Location = new System.Drawing.Point(125, 5);
             this.textBox_archivo.Name = "textBox_archivo";
+            this.textBox_archivo.ReadOnly = true;
             this.textBox_archivo.Size = new System.Drawing.Size(647, 20);
             this.textBox_archivo.TabIndex = 0;
             this.textBox_archivo.TextChanged += new System.EventHandler(this.formularioModificado);
