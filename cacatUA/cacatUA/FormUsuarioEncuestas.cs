@@ -29,7 +29,10 @@ namespace cacatUA
         public FormUsuarioEncuestas(ENUsuario us)
         {
             InitializeComponent();
-            this.us = ENUsuario.Obtener(us.Id);
+            if (us != null)
+            {
+                this.us = ENUsuario.Obtener(us.Id);
+            }
             this.encuesta = new ENEncuesta();
         }
 
@@ -39,7 +42,10 @@ namespace cacatUA
         public void CargarEncuestas()
         {
             ArrayList datos = new ArrayList();
-            datos = encuesta.Buscar(us.Id);
+            if (us != null)
+            {
+                datos = encuesta.Buscar(us.Id);
+            }
             cargarDatos(datos);
         }
 

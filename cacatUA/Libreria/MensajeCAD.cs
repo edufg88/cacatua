@@ -281,7 +281,8 @@ namespace Libreria
                 
                 if (usarEmisor)
                 {
-                    comando.CommandText += "(emisor = @emisor) ";    
+                    comando.CommandText += "(emisor = @emisor) ";
+                    comando.Parameters.AddWithValue("@emisor", em.Id);
                 }
                 if (usarReceptor)
                 { 
@@ -290,8 +291,9 @@ namespace Libreria
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(receptor = @receptor) ";
+                    comando.Parameters.AddWithValue("@receptor", rec.Id);
                 }
-                
+
                 if (usarFecha)
                 {
                     if (usarEmisor || usarReceptor)
@@ -299,11 +301,8 @@ namespace Libreria
                         comando.CommandText += "AND ";
                     }
                     comando.CommandText += "(fecha = @fecha) ";
+                    comando.Parameters.AddWithValue("@fecha", cadenaFecha);
                 }
-
-                comando.Parameters.AddWithValue("@emisor", em.Id);
-                comando.Parameters.AddWithValue("@receptor", rec.Id);
-                comando.Parameters.AddWithValue("@fecha", cadenaFecha);
 
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader

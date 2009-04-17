@@ -34,6 +34,7 @@
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardarCambios = new System.Windows.Forms.Button();
             this.panel_usuarioEdicion = new System.Windows.Forms.Panel();
+            this.dateTimePicker_fechaDeIngreso = new System.Windows.Forms.DateTimePicker();
             this.textBox_id = new System.Windows.Forms.TextBox();
             this.label_id = new System.Windows.Forms.Label();
             this.linkLabel_verEncuestas = new System.Windows.Forms.LinkLabel();
@@ -65,7 +66,6 @@
             this.label_nombre = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.dateTimePicker_fechaDeIngreso = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel_formEdicion.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_usuarioEdicion.SuspendLayout();
@@ -156,6 +156,17 @@
             this.panel_usuarioEdicion.Name = "panel_usuarioEdicion";
             this.panel_usuarioEdicion.Size = new System.Drawing.Size(759, 285);
             this.panel_usuarioEdicion.TabIndex = 37;
+            // 
+            // dateTimePicker_fechaDeIngreso
+            // 
+            this.dateTimePicker_fechaDeIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaDeIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 11);
+            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
+            this.dateTimePicker_fechaDeIngreso.ShowUpDown = true;
+            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker_fechaDeIngreso.TabIndex = 94;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechaDeIngreso, "Fecha de creación de la encuesta");
             // 
             // textBox_id
             // 
@@ -433,17 +444,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // dateTimePicker_fechaDeIngreso
-            // 
-            this.dateTimePicker_fechaDeIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
-            this.dateTimePicker_fechaDeIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 11);
-            this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";
-            this.dateTimePicker_fechaDeIngreso.ShowUpDown = true;
-            this.dateTimePicker_fechaDeIngreso.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker_fechaDeIngreso.TabIndex = 94;
-            this.toolTip1.SetToolTip(this.dateTimePicker_fechaDeIngreso, "Fecha de creación de la encuesta");
             // 
             // FormUsuarioEdicion
             // 
