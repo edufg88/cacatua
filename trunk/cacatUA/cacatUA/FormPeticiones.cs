@@ -202,11 +202,16 @@ namespace cacatUA
 
         private void button_buscarPeticiones_Click(object sender, EventArgs e)
         {
+            Console.WriteLine(textBox_buscarPeticionAutor.Text);
             ENUsuario us =  ENUsuario.Obtener(textBox_buscarPeticionAutor.Text.ToString());
-
+            if (us != null)
+            {
+                Console.WriteLine("usuario a null");
+            }
             
             if (textBox_buscarPeticionAutor.Text == "" || us!=null)
             {
+                
                 DateTime inicio = dateTimePicker_FechaInicio.Value;
                 DateTime final = dateTimePicker_FechaFin.Value;
                 if (inicio>final && checkBox_BuscarPeticionesPorFecha.Checked)
@@ -215,14 +220,14 @@ namespace cacatUA
                 }
                 else
                 {
-                    errorProvider1.SetError(textBox_buscarPeticionAutor, "");
+                    errorProvider1.SetError(panel_BuscarPorAutor, "");
                     errorProvider2.SetError(checkBox_BuscarPeticionesPorFecha, "");
                     ActualizarPeticiones();
                 }
             }
             else
             {
-                errorProvider1.SetError(textBox_buscarPeticionAutor, "El autor no es valido");
+                errorProvider1.SetError(panel_BuscarPorAutor, "El autor no es valido");
             }
         }
 
@@ -246,6 +251,17 @@ namespace cacatUA
                     textBox_buscarPeticionAutor.Text = usuario.Usuario;
                 }
             }
+        }
+
+        private void button_LimpiarBusquedaPeticion_Click(object sender, EventArgs e)
+        {
+            textBox_buscarPeticionAsunto.Text = "";
+            textBox_buscarPeticionAutor.Text= "";
+            textBox_buscarPeticionTexto.Text= "";
+            dateTimePicker_FechaInicio.Value = new DateTime(2008, 9, 1);
+            dateTimePicker_FechaFin.Value = DateTime.Now;
+            errorProvider2.Clear();
+            errorProvider1.Clear();
         }
 
 
