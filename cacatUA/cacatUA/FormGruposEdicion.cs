@@ -88,7 +88,8 @@ namespace cacatUA
         {
             if (listBox_usuarios.SelectedItem != null)
             {
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Viendo usuario", true, false, "Volver al panel anterior", "");
+                ENUsuario usuario = ENUsuario.Obtener(listBox_usuarios.SelectedItem.ToString());
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(usuario), "Viendo usuario", false, true, "Volver al panel anterior", "");
             }
             else
             {
