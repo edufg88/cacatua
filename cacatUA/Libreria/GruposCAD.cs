@@ -101,6 +101,34 @@ namespace Libreria
             return usuarios;
         }
 
+        private bool guardarUsuario(int usuario, int grupo, SqlConnection conexion)
+        {
+            int resultado = 0;
+            bool insertado = false;
+            try
+            {
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "INSERT INTO " +
+                    "miembros(usuario,grupo) " +
+                    "VALUES (@usuario,@grupo)";
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@grupo", grupo);
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                {
+                    insertado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.InsertarUsuario():" + ex.Message);
+            }
+            return insertado;
+        }
+
         /// <summary>
         /// Devuelve todos los grupos que hay en la base de datos
         /// </summary>
@@ -335,11 +363,12 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@descripcion", grupo.Descripcion);
                     comando.Parameters.AddWithValue("@fecha", grupo.Fecha);
                     resultado = comando.ExecuteNonQuery();
+                    ENGrupos aux = Ultimo();
                     if (grupo.NumUsuarios != 0)
                     {
-                        foreach (Object obj in grupo.Usuarios)
+                        foreach (ENUsuario obj in grupo.Usuarios)
                         {
-                            if (!InsertarUsuario(obj.ToString(), grupo.Id))
+                            if (!guardarUsuario(obj.Id,aux.Id,conexion))
                             {
                                 usuario = false;
                             }
@@ -364,13 +393,14 @@ namespace Libreria
             return guardado;
         }
 
+
         /// <summary>
         /// Inserta en la BD los usuarios de un Grupo
         /// </summary>
         /// <param name="usuario">id del usuario a insertar</param>
         /// <param name="grupo">id del grupo a insertar</param>
         /// <returns>Devuelve verdadero si se ha podido insertar el usuario o falso en caso contrario</returns>
-        public bool InsertarUsuario(string usuario,int grupo)
+        public bool InsertarUsuario(int usuario, int grupo)
         {
             int resultado = 0;
             bool insertado = false;
@@ -379,8 +409,6 @@ namespace Libreria
             {
                 // Creamos y abrimos la conexión.
                 conexion = new SqlConnection(cadenaConexion);
-                conexion.Open();
-                // Abrimos la conexión
                 conexion.Open();
                 // Creamos el comando
                 SqlCommand comando = new SqlCommand();
@@ -391,7 +419,7 @@ namespace Libreria
                     "VALUES (@usuario,@grupo)";
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@grupo", grupo);
-                resultado=comando.ExecuteNonQuery();
+                resultado = comando.ExecuteNonQuery();
                 if (resultado == 1)
                 {
                     insertado = true;
@@ -399,7 +427,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error en ENGrupos.Insertarusuario():" + ex.Message);
+                Console.WriteLine("Error en ENGrupos.InsertarUsuario():" + ex.Message);
             }
             finally
             {

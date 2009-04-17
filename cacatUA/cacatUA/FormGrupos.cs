@@ -15,6 +15,8 @@ namespace cacatUA
     {
         private FormGruposEdicion formEdicion;
         private FormGruposBusqueda formBusqueda;
+        private enum FormularioActivo { NINGUNO = 0, BUSQUEDA = 1, EDICION = 2 };
+        FormularioActivo formularioActivo;
 
         public FormGrupos()
         {
@@ -23,6 +25,7 @@ namespace cacatUA
             formBusqueda = new FormGruposBusqueda(this);
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
+            formularioActivo = FormularioActivo.NINGUNO;
 
             Busqueda();
         }
@@ -31,11 +34,15 @@ namespace cacatUA
         /// </summary>
         public void Busqueda()
         {
-            Actualizar();
-            label_seccion1.Text = "Búsqueda";
-            panel_contenedor.Controls.Clear();
-            panel_contenedor.Controls.Add(formBusqueda);
-            tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
+            if (formularioActivo != FormularioActivo.BUSQUEDA)
+            {
+                formularioActivo = FormularioActivo.BUSQUEDA;
+                Actualizar();
+                label_seccion1.Text = "Búsqueda";
+                panel_contenedor.Controls.Clear();
+                panel_contenedor.Controls.Add(formBusqueda);
+                tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
+            }
         }
 
         /// <summary>
@@ -43,10 +50,14 @@ namespace cacatUA
         /// </summary>
         private void Edicion() 
         {
-            label_seccion1.Text = "Edición";
-            panel_contenedor.Controls.Clear();
-            panel_contenedor.Controls.Add(formEdicion);
-            tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
+            if (formularioActivo != FormularioActivo.EDICION)
+            {
+                formularioActivo = FormularioActivo.EDICION;
+                label_seccion1.Text = "Edición";
+                panel_contenedor.Controls.Clear();
+                panel_contenedor.Controls.Add(formEdicion);
+                tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
+            }
         }
 
         public ArrayList Resultado
@@ -126,6 +137,7 @@ namespace cacatUA
                         dataGridView_resultados.Rows.Remove(i);
                     }
                 }
+                Busqueda();
             }
             else
             {
@@ -133,14 +145,19 @@ namespace cacatUA
             }
         }
 
-        public override object Enviar()
-        {
-            return null;
-        }
-
         public override void Recibir(object objeto)
         {
-
+            if (objeto != null)
+            {
+                if (formularioActivo == FormularioActivo.BUSQUEDA)
+                {
+                    formBusqueda.Recibir(objeto);
+                }
+                else
+                {
+                    formEdicion.Recibir(objeto);
+                }
+            }
         }
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

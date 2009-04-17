@@ -77,7 +77,7 @@ namespace Libreria
 
         public bool InsertarMiembro(int usuario)
         {
-            return GruposCAD.Instancia.BorrarUsuario(usuario, id);
+            return GruposCAD.Instancia.InsertarUsuario(usuario, id);
         }
 
         public ArrayList Buscar(int min, int max,DateTime fechafin,ref ENUsuario usuario)
