@@ -6,7 +6,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="datos" type="s:base64Binary" />
-            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreFichero" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -20,8 +20,9 @@
       <s:element name="ComprimirArchivo">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="nombreFichero" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ficheroComprimir" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreFichero" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -29,16 +30,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="ComprimirArchivoResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Hola">
-        <s:complexType />
-      </s:element>
-      <s:element name="HolaResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HolaResult" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -56,6 +47,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="existeFichero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nombreFichero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="existeFicheroResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="existeFicheroResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="subirArchivoSoapIn">
@@ -70,17 +75,17 @@
   <wsdl:message name="ComprimirArchivoSoapOut">
     <wsdl:part name="parameters" element="tns:ComprimirArchivoResponse" />
   </wsdl:message>
-  <wsdl:message name="HolaSoapIn">
-    <wsdl:part name="parameters" element="tns:Hola" />
-  </wsdl:message>
-  <wsdl:message name="HolaSoapOut">
-    <wsdl:part name="parameters" element="tns:HolaResponse" />
-  </wsdl:message>
   <wsdl:message name="BorrarFicheroSoapIn">
     <wsdl:part name="parameters" element="tns:BorrarFichero" />
   </wsdl:message>
   <wsdl:message name="BorrarFicheroSoapOut">
     <wsdl:part name="parameters" element="tns:BorrarFicheroResponse" />
+  </wsdl:message>
+  <wsdl:message name="existeFicheroSoapIn">
+    <wsdl:part name="parameters" element="tns:existeFichero" />
+  </wsdl:message>
+  <wsdl:message name="existeFicheroSoapOut">
+    <wsdl:part name="parameters" element="tns:existeFicheroResponse" />
   </wsdl:message>
   <wsdl:portType name="FileUploaderSoap">
     <wsdl:operation name="subirArchivo">
@@ -91,13 +96,13 @@
       <wsdl:input message="tns:ComprimirArchivoSoapIn" />
       <wsdl:output message="tns:ComprimirArchivoSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Hola">
-      <wsdl:input message="tns:HolaSoapIn" />
-      <wsdl:output message="tns:HolaSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="BorrarFichero">
       <wsdl:input message="tns:BorrarFicheroSoapIn" />
       <wsdl:output message="tns:BorrarFicheroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="existeFichero">
+      <wsdl:input message="tns:existeFicheroSoapIn" />
+      <wsdl:output message="tns:existeFicheroSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="FileUploaderSoap" type="tns:FileUploaderSoap">
@@ -120,8 +125,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Hola">
-      <soap:operation soapAction="http://84.120.44.73/Hola" style="document" />
+    <wsdl:operation name="BorrarFichero">
+      <soap:operation soapAction="http://84.120.44.73/BorrarFichero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -129,8 +134,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="BorrarFichero">
-      <soap:operation soapAction="http://84.120.44.73/BorrarFichero" style="document" />
+    <wsdl:operation name="existeFichero">
+      <soap:operation soapAction="http://84.120.44.73/existeFichero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -159,8 +164,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Hola">
-      <soap12:operation soapAction="http://84.120.44.73/Hola" style="document" />
+    <wsdl:operation name="BorrarFichero">
+      <soap12:operation soapAction="http://84.120.44.73/BorrarFichero" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -168,8 +173,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="BorrarFichero">
-      <soap12:operation soapAction="http://84.120.44.73/BorrarFichero" style="document" />
+    <wsdl:operation name="existeFichero">
+      <soap12:operation soapAction="http://84.120.44.73/existeFichero" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

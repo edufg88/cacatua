@@ -14,8 +14,8 @@ namespace cacatUA
 {
     public partial class FormMateriales : InterfazForm
     {
-        FormMaterialesEdicion formEditarMateriales = null;
-        FormMaterialesBusqueda formMaterialesBusqueda = null;
+        public FormMaterialesEdicion formEditarMateriales = null;
+        public FormMaterialesBusqueda formMaterialesBusqueda = null;
 
         Dictionary<int, WebClient> descargas = null;
 
@@ -43,7 +43,7 @@ namespace cacatUA
             tableLayoutPanel_principal.RowStyles[3].Height = form.Height;
         }
 
-        private void ActualizarFormulario(estados estado)
+        public void ActualizarFormulario(estados estado)
         {
             this.estadoAnterior = this.estado;
             this.estado = estado;
@@ -159,6 +159,7 @@ namespace cacatUA
                 ENMaterial material = (ENMaterial)materiales[i];
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dataGridView_materiales);
+
                 int posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_id"].Index;
                 fila.Cells[posicion].Value = material.Id.ToString();
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_nombre"].Index;
@@ -248,7 +249,8 @@ namespace cacatUA
                         DataGridViewRow fila = filas[i];
                         // Eliminamos el material de la base de datos
                         int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
-                        bool borrado = ENMaterial.borrarMaterial(id);
+                        ENMaterial material = ENMaterial.Obtener(id);
+                        bool borrado = material.Borrar();
                         if (borrado == false)
                         {
                             string mensaje = "ERROR: No se ha podido borrar el material " + id;

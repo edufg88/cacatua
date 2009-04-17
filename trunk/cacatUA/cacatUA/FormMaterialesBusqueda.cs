@@ -146,7 +146,7 @@ namespace cacatUA
             limpiarFormulario();
         }
 
-        private void limpiarFormulario()
+        public void limpiarFormulario()
         {
             categoria = null;
             textBox_categoria.Clear();

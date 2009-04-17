@@ -54,7 +54,7 @@ namespace Libreria
 
                     // Creamos el comando.
                     string cadenaComando = "UPDATE materiales SET nombre = @nombre, descripcion = @descripcion," +
-                        "usuario = @usuario, categoria = @categoria, archivo = @archivo, tamaño = @tamaño," +
+                        "usuario = @usuario, categoria = @categoria, tamaño = @tamaño," +
                         "referencia = @referencia, descargas = @descargas WHERE id = @id";
                     SqlCommand comando = new SqlCommand(cadenaComando, conexion);
 
@@ -63,7 +63,6 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
                     comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
                     comando.Parameters.AddWithValue("@categoria", material.Categoria.Id);
-                    comando.Parameters.AddWithValue("@archivo", material.Archivo);
                     comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
                     comando.Parameters.AddWithValue("@referencia", material.Referencia);
                     comando.Parameters.AddWithValue("@descargas", material.Descargas);
@@ -342,7 +341,7 @@ namespace Libreria
             return material;
         }
 
-        public bool Borrar(int id)
+        public bool Borrar(ENMaterial material)
         {
             int resultado = 0;
             bool borrado = false;
@@ -355,7 +354,7 @@ namespace Libreria
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
                 comando.CommandText = "DELETE FROM materiales where id = @id";
-                comando.Parameters.AddWithValue("@id", id);
+                comando.Parameters.AddWithValue("@id", material.Id);
                 resultado = comando.ExecuteNonQuery();
                 if (resultado == 1)
                     borrado = true;

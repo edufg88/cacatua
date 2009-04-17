@@ -33,9 +33,9 @@ namespace cacatUA.Uploader {
         
         private System.Threading.SendOrPostCallback ComprimirArchivoOperationCompleted;
         
-        private System.Threading.SendOrPostCallback HolaOperationCompleted;
-        
         private System.Threading.SendOrPostCallback BorrarFicheroOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback existeFicheroOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -82,33 +82,33 @@ namespace cacatUA.Uploader {
         public event ComprimirArchivoCompletedEventHandler ComprimirArchivoCompleted;
         
         /// <remarks/>
-        public event HolaCompletedEventHandler HolaCompleted;
-        
-        /// <remarks/>
         public event BorrarFicheroCompletedEventHandler BorrarFicheroCompleted;
         
         /// <remarks/>
+        public event existeFicheroCompletedEventHandler existeFicheroCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/subirArchivo", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string subirArchivo([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] datos, string fileName) {
+        public string subirArchivo([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] datos, string nombreFichero) {
             object[] results = this.Invoke("subirArchivo", new object[] {
                         datos,
-                        fileName});
+                        nombreFichero});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void subirArchivoAsync(byte[] datos, string fileName) {
-            this.subirArchivoAsync(datos, fileName, null);
+        public void subirArchivoAsync(byte[] datos, string nombreFichero) {
+            this.subirArchivoAsync(datos, nombreFichero, null);
         }
         
         /// <remarks/>
-        public void subirArchivoAsync(byte[] datos, string fileName, object userState) {
+        public void subirArchivoAsync(byte[] datos, string nombreFichero, object userState) {
             if ((this.subirArchivoOperationCompleted == null)) {
                 this.subirArchivoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnsubirArchivoOperationCompleted);
             }
             this.InvokeAsync("subirArchivo", new object[] {
                         datos,
-                        fileName}, this.subirArchivoOperationCompleted, userState);
+                        nombreFichero}, this.subirArchivoOperationCompleted, userState);
         }
         
         private void OnsubirArchivoOperationCompleted(object arg) {
@@ -120,59 +120,34 @@ namespace cacatUA.Uploader {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/ComprimirArchivo", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string ComprimirArchivo(string nombreFichero, int id) {
+        public string ComprimirArchivo(string ficheroComprimir, int id, string nombreFichero) {
             object[] results = this.Invoke("ComprimirArchivo", new object[] {
-                        nombreFichero,
-                        id});
+                        ficheroComprimir,
+                        id,
+                        nombreFichero});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void ComprimirArchivoAsync(string nombreFichero, int id) {
-            this.ComprimirArchivoAsync(nombreFichero, id, null);
+        public void ComprimirArchivoAsync(string ficheroComprimir, int id, string nombreFichero) {
+            this.ComprimirArchivoAsync(ficheroComprimir, id, nombreFichero, null);
         }
         
         /// <remarks/>
-        public void ComprimirArchivoAsync(string nombreFichero, int id, object userState) {
+        public void ComprimirArchivoAsync(string ficheroComprimir, int id, string nombreFichero, object userState) {
             if ((this.ComprimirArchivoOperationCompleted == null)) {
                 this.ComprimirArchivoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnComprimirArchivoOperationCompleted);
             }
             this.InvokeAsync("ComprimirArchivo", new object[] {
-                        nombreFichero,
-                        id}, this.ComprimirArchivoOperationCompleted, userState);
+                        ficheroComprimir,
+                        id,
+                        nombreFichero}, this.ComprimirArchivoOperationCompleted, userState);
         }
         
         private void OnComprimirArchivoOperationCompleted(object arg) {
             if ((this.ComprimirArchivoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ComprimirArchivoCompleted(this, new ComprimirArchivoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/Hola", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string Hola() {
-            object[] results = this.Invoke("Hola", new object[0]);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void HolaAsync() {
-            this.HolaAsync(null);
-        }
-        
-        /// <remarks/>
-        public void HolaAsync(object userState) {
-            if ((this.HolaOperationCompleted == null)) {
-                this.HolaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnHolaOperationCompleted);
-            }
-            this.InvokeAsync("Hola", new object[0], this.HolaOperationCompleted, userState);
-        }
-        
-        private void OnHolaOperationCompleted(object arg) {
-            if ((this.HolaCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.HolaCompleted(this, new HolaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -202,6 +177,35 @@ namespace cacatUA.Uploader {
             if ((this.BorrarFicheroCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.BorrarFicheroCompleted(this, new BorrarFicheroCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://84.120.44.73/existeFichero", RequestNamespace="http://84.120.44.73", ResponseNamespace="http://84.120.44.73", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public bool existeFichero(string nombreFichero) {
+            object[] results = this.Invoke("existeFichero", new object[] {
+                        nombreFichero});
+            return ((bool)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void existeFicheroAsync(string nombreFichero) {
+            this.existeFicheroAsync(nombreFichero, null);
+        }
+        
+        /// <remarks/>
+        public void existeFicheroAsync(string nombreFichero, object userState) {
+            if ((this.existeFicheroOperationCompleted == null)) {
+                this.existeFicheroOperationCompleted = new System.Threading.SendOrPostCallback(this.OnexisteFicheroOperationCompleted);
+            }
+            this.InvokeAsync("existeFichero", new object[] {
+                        nombreFichero}, this.existeFicheroOperationCompleted, userState);
+        }
+        
+        private void OnexisteFicheroOperationCompleted(object arg) {
+            if ((this.existeFicheroCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.existeFicheroCompleted(this, new existeFicheroCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -278,32 +282,6 @@ namespace cacatUA.Uploader {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
-    public delegate void HolaCompletedEventHandler(object sender, HolaCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class HolaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal HolaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public string Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((string)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
     public delegate void BorrarFicheroCompletedEventHandler(object sender, BorrarFicheroCompletedEventArgs e);
     
     /// <remarks/>
@@ -315,6 +293,32 @@ namespace cacatUA.Uploader {
         private object[] results;
         
         internal BorrarFicheroCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
+    public delegate void existeFicheroCompletedEventHandler(object sender, existeFicheroCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.3053")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class existeFicheroCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal existeFicheroCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

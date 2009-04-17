@@ -130,7 +130,7 @@ namespace cacatUA
                     {
                         TextBox textBox = (TextBox)control;
                         string msjError = "";
-                        if (textBox.Text == "")
+                        if (textBox.Text == "" && nombre != "referencia")
                             msjError = "Campo obligatorio";
                         else
                             msjError = ENMaterial.validarDatos(material, nombre);
@@ -210,7 +210,8 @@ namespace cacatUA
                         material.Usuario = ENUsuario.Obtener(textBox_usuario.Text.ToString());
                         material.Categoria = categoria;
                         material.Archivo = textBox_archivo.Text.ToString();
-                        material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
+                       // material.Tamaño = int.Parse(textBox_tamaño.Text.ToString());
+                        //material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
                         material.Referencia = textBox_referencia.Text.ToString();
 
                         if (validarDatos(controlesCrear, material) == true)
@@ -226,8 +227,15 @@ namespace cacatUA
                             else
                             {
                                 // Subimos el material
-                                FormMaterialesUpload form = new FormMaterialesUpload(material);
+                                FormMaterialesUpload form = new FormMaterialesUpload(material,FormMaterialesUpload.modos.CREAR);
                                 form.ShowDialog();
+                                if (form.Error == "OK")
+                                {
+                                    // Volvemos al formulario de búsqueda y lo limpiamos para que salgan todos los materiales (includo el nuevo)
+                                    formularioPadre.ActualizarFormulario(FormMateriales.estados.BUSCAR);
+                                    formularioPadre.formMaterialesBusqueda.limpiarFormulario();
+                                    formularioPadre.formMaterialesBusqueda.Buscar();
+                                }
                             }
                         }
                         break;
@@ -250,13 +258,29 @@ namespace cacatUA
                         material.NumComentarios = int.Parse(textBox_numComentarios.Text.ToString());
                         if (validarDatos(controlesEditar, material) == true)
                         {
-                            if (material.Actualizar() == true)
+                            // Comprobamos si el material ha cambiado respecto al original
+                            ENMaterial original = ENMaterial.Obtener(material.Id);
+                            string error = "OK";
+                            if (original.Archivo != material.Archivo)
                             {
-                                // Actualizamos la fila del datagrid
-                                formularioPadre.ActualizarMaterial(material);
-                                button_accion1.Enabled = false;
-                                button_accion2.Enabled = false;
-                                seleccionado = material;
+                                // Actualizamos al material
+                                FormMaterialesUpload form = new FormMaterialesUpload(material, FormMaterialesUpload.modos.ACTUALIZAR);
+                                form.ShowDialog();
+                                error = form.Error;
+                            }
+                            if (error == "OK")
+                            {
+                                if (material.Actualizar() == true)
+                                {
+                                    material = ENMaterial.Obtener(material.Id);
+                                    // Actualizamos la fila del datagrid
+                                    formularioPadre.ActualizarMaterial(material);
+                                    // Actualizamos el formulario de edición
+                                    mostrarMaterial(material);
+                                    button_accion1.Enabled = false;
+                                    button_accion2.Enabled = false;
+                                    seleccionado = material;
+                                }
                             }
                         }
                         break;
@@ -277,11 +301,11 @@ namespace cacatUA
                 if (tamaño > 1024)
                 {
                     tamaño = tamaño / 1024;
-                    controles["tamaño"].Text = tamaño.ToString() + " KB";
+                    controles["tamaño"].Text = tamaño.ToString(); // + " KB";
                 }
                 else
                 {
-                    controles["tamaño"].Text = tamaño.ToString() + " bytes";
+                    controles["tamaño"].Text = tamaño.ToString(); // + " bytes";
                 }
             }
         }
