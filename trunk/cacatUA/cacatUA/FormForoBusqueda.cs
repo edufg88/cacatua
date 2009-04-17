@@ -181,7 +181,7 @@ namespace cacatUA
             ENHilo ultimo = formularioPadre.UltimoHilo;
             bool orden = formularioPadre.Orden;
 
-            if (ultimo != null) Console.WriteLine("         >>>>> " + ultimo.Titulo);
+            //if (ultimo != null) Console.WriteLine("         >>>>> " + ultimo.Titulo);
 
             // Realizamos la búsqueda finalmente.
             formularioPadre.Resultados = ENHilo.Obtener(cantidad, ultimo, ordenar, orden, (string)ultimaBusqueda[0],
@@ -204,7 +204,7 @@ namespace cacatUA
             ENHilo ultimo = formularioPadre.PrimerHilo;
             bool orden = formularioPadre.Orden;
 
-            if (ultimo != null) Console.WriteLine("         >>>>> " + ultimo.Titulo);
+            //if (ultimo != null) Console.WriteLine("         >>>>> " + ultimo.Titulo);
 
             // Realizamos la búsqueda finalmente.
             ArrayList resultados = ENHilo.Obtener(cantidad, ultimo, ordenar, !orden, (string)ultimaBusqueda[0],

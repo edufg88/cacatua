@@ -547,5 +547,76 @@ namespace Libreria
             }
             return correcto;
         }
+
+        public int NumMateriales()
+        {
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "select count(*) as cantidad from materiales";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENMaterial::NumMateriales() " + ex.Message);
+                //throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
+        public ENMaterial Ultimo()
+        {
+            ENMaterial material = null;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT * FROM vistaMateriales where id in (select max(id) from vistaMateriales)";
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                if (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    material = obtenerDatos(dr);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ENMaterial::Ultimo() " + ex.Message);
+                //throw ex;
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return material;
+        }
     }
 }

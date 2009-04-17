@@ -284,11 +284,11 @@ namespace Libreria
                     }*/
                 }
 
-                Console.WriteLine("");
+                /*Console.WriteLine("");
                 Console.WriteLine("--------------------------");
                 Console.WriteLine(sentencia);
                 Console.WriteLine("--------------------------");
-                Console.WriteLine("");
+                Console.WriteLine("");*/
 
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();

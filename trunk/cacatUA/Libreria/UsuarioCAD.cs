@@ -510,5 +510,76 @@ namespace Libreria
 
             return (esAdmin);
         }
+
+        public int NumUsuarios()
+        {
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "select count(*) as cantidad from usuarios";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepcion NumUsuarios " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
+        public ENUsuario Ultimo()
+        {
+            ENUsuario usuario = null;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT * FROM usuarios where id in (select max(id) from usuarios)";
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                if (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENUsuarioCRUD
+                    usuario = ObtenerDatos(dr);
+                }
+            }
+            catch (SqlException)
+            {
+                // throw new CADException (“Error en la consulta de clientes por ciudad: " + clienteID, sqlex );
+                Console.Write("Excepcion obtener ultimo usuario");
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return usuario;
+        }
     }
 }

@@ -66,16 +66,40 @@ namespace cacatUA
             {
                 ultimoHilo = "";
             }
-            
-            ultimaRespuesta = "aqui estamos";
+            ENRespuesta ultimaRespuestaAux = ENRespuesta.Ultimo();
+            if (ultimaRespuestaAux != null)
+            {
+                ultimaRespuesta = ultimaRespuestaAux.Texto;
+            }
+            else
+            {
+                ultimaRespuesta = "";
+            }
 
-            numUsuarios = 512;
-            ultimoUsuario = "Antonio";
+            numUsuarios = ENUsuario.NumUsuarios();
+            ENUsuario ultimoUsuarioAux = ENUsuario.Ultimo();
+            if (ultimoUsuarioAux != null)
+            {
+                ultimoUsuario = ultimoUsuarioAux.Usuario;
+            }
+            else
+            {
+                ultimoUsuario = "";
+            }
 
             numCategorias = ENCategoria.NumCategorias();
 
-            numMateriales = 16;
-            ultimoMaterial = "Fotos del kiko";
+            numMateriales = ENMaterial.NumMateriales();
+            ENMaterial ultimoMaterialAux = ENMaterial.Ultimo();
+            if (ultimoMaterialAux != null)
+            {
+                ultimoMaterial = ultimoMaterialAux.Nombre;
+            }
+            else
+            {
+                ultimoMaterial = "";
+            }
+
 
             numGrupos = ENGrupos.NumGrupos() ;
             ENGrupos grupo = ENGrupos.Ultimo();
@@ -88,9 +112,9 @@ namespace cacatUA
                 ultimoGrupo = "No hay ningun grupo creado";
             }
 
-            numPeticiones = 178;
-            numPeticionesSinContestar = 4;
-            ultimaPeticion = "¿Podéis crear una categoría de mierda?";
+            numPeticiones = ENPeticion.ObtenerNumeroPeticiones();
+            numPeticionesSinContestar = ENPeticion.ObtenerNumeroPeticionesSinContestar();
+            ultimaPeticion = ENPeticion.ObtenerUltimaPeticion();
         }
 
         [CategoryAttribute("Foro"),
