@@ -28,11 +28,11 @@ namespace cacatUA
         /// <summary>
         /// Indica si el panel1 está oculto o no
         /// </summary>
-        private bool ocultoP1;
+        //private bool ocultoP1;
         /// <summary>
         /// Indica si el panel2 está oculto o no
         /// </summary>
-        private bool ocultoP2;
+        //private bool ocultoP2;
         /// <summary>
         /// Entero con el formulario activo 0 = formBusqueda, 1 = formEdicion;
         /// </summary>
@@ -51,8 +51,30 @@ namespace cacatUA
 
             formulario = 0;
             // Indican si los paneles están ocultos o no
-            ocultoP1 = false;
-            ocultoP2 = false;
+            //ocultoP1 = false;
+            //ocultoP2 = false;
+        }
+
+        /// <summary>
+        /// Constructor sobrecargado
+        /// </summary>
+        /// <param name="usuario">Recibe un usuario y lo carga en el formulario de edición</param>
+        public FormUsuarios(ENUsuario usuario)
+        {
+            InitializeComponent();
+            formBusqueda = new FormUsuarioBusqueda(this);
+            formEdicion = new FormUsuarioEdicion(this);
+            formEdicion.Dock = DockStyle.Top;
+            formBusqueda.Dock = DockStyle.Top;
+
+            // En este constructor cargamos directamente un usuario en el formulario de edición
+            formulario = 1;
+            CambiarFormularioEdicion();
+            formEdicion.CambiarSeleccionado(usuario.Id);
+            usuarioSeleccionado = usuario;
+
+            //ocultoP1 = false;
+            //ocultoP2 = false;
         }
 
         /// <summary>
@@ -149,6 +171,7 @@ namespace cacatUA
             CargarUsuarios();// Los cargamos en el DataGridView
         }
 
+        /*
         private void button_ocultarP1_Click(object sender, EventArgs e)
         {
             label_seccion1.Text += " (Oculto)";
@@ -195,7 +218,7 @@ namespace cacatUA
                 tableLayoutPanel_principal.RowStyles[5].Height = panel_DataGridViewUsuarios.Height;
                 ocultoP2 = false;
             }
-        }
+        }*/
 
         private void dataGridView_usuarios_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {   
