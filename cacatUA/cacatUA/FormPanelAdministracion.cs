@@ -39,6 +39,12 @@ namespace cacatUA
             get { return instancia; }
         }
 
+        public FormMateriales InstanciaFormMateriales
+        {
+            get { return formMateriales; }
+        }
+
+
         /// <summary>
         /// Constructor por defecto. Privado para no permitir más de una instancia de esta clase.
         /// </summary>

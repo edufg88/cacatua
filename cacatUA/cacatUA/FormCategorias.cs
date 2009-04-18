@@ -332,7 +332,8 @@ namespace cacatUA
 
         private void linkLabel_verMateriales_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormPanelAdministracion.Instancia.Apilar(new FormMateriales(seleccionada), "Viendo materiales", true, false, "Volver a categorías", "");
+            FormPanelAdministracion.Instancia.Apilar(FormPanelAdministracion.Instancia.InstanciaFormMateriales, "Viendo materiales", true, false, "Volver a categorías", "");
+            FormPanelAdministracion.Instancia.InstanciaFormMateriales.BuscarPorCategoria(seleccionada);
         }
 
         private void button_verUsuario_Click(object sender, EventArgs e)
