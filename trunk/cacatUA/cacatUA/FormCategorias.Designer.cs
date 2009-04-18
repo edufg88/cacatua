@@ -108,7 +108,7 @@
             this.panel_Contenidos.Controls.Add(this.groupBox_Administracion);
             this.panel_Contenidos.Controls.Add(this.treeViewCategorias);
             this.panel_Contenidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Contenidos.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panel_Contenidos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel_Contenidos.Location = new System.Drawing.Point(3, 33);
             this.panel_Contenidos.Name = "panel_Contenidos";
             this.panel_Contenidos.Size = new System.Drawing.Size(808, 491);
@@ -195,7 +195,7 @@
             // linkLabel_verMateriales
             // 
             this.linkLabel_verMateriales.AutoSize = true;
-            this.linkLabel_verMateriales.Location = new System.Drawing.Point(262, 69);
+            this.linkLabel_verMateriales.Location = new System.Drawing.Point(199, 69);
             this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
             this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
             this.linkLabel_verMateriales.TabIndex = 156;
@@ -206,7 +206,7 @@
             // 
             // textBox_nMateriales
             // 
-            this.textBox_nMateriales.Location = new System.Drawing.Point(188, 66);
+            this.textBox_nMateriales.Location = new System.Drawing.Point(148, 66);
             this.textBox_nMateriales.Name = "textBox_nMateriales";
             this.textBox_nMateriales.ReadOnly = true;
             this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
@@ -214,7 +214,7 @@
             // 
             // textBox_nHilos
             // 
-            this.textBox_nHilos.Location = new System.Drawing.Point(188, 32);
+            this.textBox_nHilos.Location = new System.Drawing.Point(148, 32);
             this.textBox_nHilos.Name = "textBox_nHilos";
             this.textBox_nHilos.ReadOnly = true;
             this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
@@ -223,7 +223,7 @@
             // linkLabel_verHilos
             // 
             this.linkLabel_verHilos.AutoSize = true;
-            this.linkLabel_verHilos.Location = new System.Drawing.Point(262, 35);
+            this.linkLabel_verHilos.Location = new System.Drawing.Point(199, 35);
             this.linkLabel_verHilos.Name = "linkLabel_verHilos";
             this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
             this.linkLabel_verHilos.TabIndex = 153;
@@ -235,20 +235,20 @@
             // label_nMateriales
             // 
             this.label_nMateriales.AutoSize = true;
-            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nMateriales.Location = new System.Drawing.Point(27, 69);
             this.label_nMateriales.Name = "label_nMateriales";
-            this.label_nMateriales.Size = new System.Drawing.Size(137, 13);
+            this.label_nMateriales.Size = new System.Drawing.Size(115, 13);
             this.label_nMateriales.TabIndex = 152;
             this.label_nMateriales.Text = "Número de materiales: ";
             // 
             // label_nHilos
             // 
             this.label_nHilos.AutoSize = true;
-            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_nHilos.Location = new System.Drawing.Point(27, 35);
             this.label_nHilos.Name = "label_nHilos";
-            this.label_nHilos.Size = new System.Drawing.Size(106, 13);
+            this.label_nHilos.Size = new System.Drawing.Size(89, 13);
             this.label_nHilos.TabIndex = 151;
             this.label_nHilos.Text = "Número de hilos: ";
             // 
@@ -294,11 +294,11 @@
             // label_UsuariosSuscritos
             // 
             this.label_UsuariosSuscritos.AutoSize = true;
-            this.label_UsuariosSuscritos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_UsuariosSuscritos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_UsuariosSuscritos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label_UsuariosSuscritos.Location = new System.Drawing.Point(27, 102);
             this.label_UsuariosSuscritos.Name = "label_UsuariosSuscritos";
-            this.label_UsuariosSuscritos.Size = new System.Drawing.Size(114, 13);
+            this.label_UsuariosSuscritos.Size = new System.Drawing.Size(95, 13);
             this.label_UsuariosSuscritos.TabIndex = 150;
             this.label_UsuariosSuscritos.Text = "Usuarios suscritos:";
             // 
@@ -318,7 +318,6 @@
             this.groupBox_Administracion.Controls.Add(this.button_crearCategoria);
             this.groupBox_Administracion.Controls.Add(this.button_editarCategoria);
             this.groupBox_Administracion.Controls.Add(this.button_borrarCategoria);
-            this.groupBox_Administracion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox_Administracion.Location = new System.Drawing.Point(284, 24);
             this.groupBox_Administracion.Name = "groupBox_Administracion";
             this.groupBox_Administracion.Size = new System.Drawing.Size(509, 212);
@@ -478,10 +477,10 @@
             this.treeViewCategorias.AllowDrop = true;
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeViewCategorias.Location = new System.Drawing.Point(6, 54);
+            this.treeViewCategorias.Location = new System.Drawing.Point(11, 54);
             this.treeViewCategorias.Name = "treeViewCategorias";
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(261, 420);
+            this.treeViewCategorias.Size = new System.Drawing.Size(256, 420);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
