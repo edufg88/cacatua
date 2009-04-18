@@ -151,6 +151,9 @@
             // 
             this.dataGridView_Usuarios.AllowUserToAddRows = false;
             this.dataGridView_Usuarios.AllowUserToDeleteRows = false;
+            this.dataGridView_Usuarios.AllowUserToOrderColumns = true;
+            this.dataGridView_Usuarios.AllowUserToResizeColumns = false;
+            this.dataGridView_Usuarios.AllowUserToResizeRows = false;
             this.dataGridView_Usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
@@ -159,7 +162,7 @@
             this.DataGridViewColumno_Id,
             this.DataGridViewColumno_Usuario,
             this.DataGridViewColumno_Nombre});
-            this.dataGridView_Usuarios.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dataGridView_Usuarios.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridView_Usuarios.Location = new System.Drawing.Point(18, 129);
             this.dataGridView_Usuarios.Name = "dataGridView_Usuarios";
             this.dataGridView_Usuarios.ReadOnly = true;
