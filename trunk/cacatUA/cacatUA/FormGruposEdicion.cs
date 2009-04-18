@@ -13,6 +13,8 @@ namespace cacatUA
 {
     public partial class FormGruposEdicion : InterfazForm
     {
+        const int kMAXNombre = 100;
+        const int kMAXDesc = 5000;
         private ENGrupos grupo = null;
         private ENUsuario usuario = null;
         private FormGrupos formularioPadre = null;
@@ -35,9 +37,11 @@ namespace cacatUA
             textBox_id.Text = "";
             textBox_descripcion.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
-            numericUpDown_numUsuarios1.Value = 0;
+            textBox_numUsuarios.Text = "0";
+            button_descartarCambios.Text = "Limpiar";
             listBox_usuarios.Items.Clear();
             desactivarBotones();
+            errorProvider1.Clear();
         }
 
         public void Editar(int id)
@@ -50,7 +54,9 @@ namespace cacatUA
             textBox_id.Text = grupo.Id.ToString();
             textBox_descripcion.Text = grupo.Descripcion;
             dateTimePicker_fecha.Value = grupo.Fecha;
-            numericUpDown_numUsuarios1.Value = grupo.NumUsuarios;
+            textBox_numUsuarios.Text = grupo.NumUsuarios.ToString();
+            button_descartarCambios.Text = "Descartar Cambios";
+            errorProvider1.Clear();
             foreach (ENUsuario ob in grupo.Usuarios)
             {
                 listBox_usuarios.Items.Add(ob.Usuario);
@@ -70,10 +76,20 @@ namespace cacatUA
                 errorNombre = "Debes introducir un nombre.";
                 correcto = false;
             }
+            else if (textBox_nombre.Text.Length >= kMAXNombre)
+            {
+                errorNombre = "El nombre debe tener menos de "+kMAXNombre+" carácteres";
+                correcto = false;
+            }
 
             if (textBox_descripcion.Text == "")
             {
                 errorDesc = "Debes introducir una descripción.";
+                correcto = false;
+            }
+            else if (textBox_descripcion.Text.Length >= kMAXDesc)
+            {
+                errorDesc = "La descripción debe tener menos de "+kMAXDesc+" caracteres.";
                 correcto = false;
             }
 
@@ -90,10 +106,6 @@ namespace cacatUA
             {
                 ENUsuario usuario = ENUsuario.Obtener(listBox_usuarios.SelectedItem.ToString());
                 FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(usuario), "Viendo usuario", false, true, "Volver al panel anterior", "");
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -115,8 +127,8 @@ namespace cacatUA
                 {
                     if (grupo.Guardar())
                     {
-                        MessageBox.Show("Grupo creado correctamente", "Ventana de Información");
-                        formularioPadre.Busqueda();
+                        FormPanelAdministracion.Instancia.MensajeEstado("Grupo guardado correctamente.");
+                        formularioPadre.ReiniciarResultados();
                     }
                     else
                     {
@@ -128,8 +140,8 @@ namespace cacatUA
                     grupo.Id = int.Parse(textBox_id.Text);
                     if (grupo.Actualizar() && insertarUsuarios() && borrarUsuarios())
                     {
-                        MessageBox.Show("Grupo editado correctamente", "Ventana de Información");
-                        formularioPadre.Busqueda();
+                        FormPanelAdministracion.Instancia.MensajeEstado("Grupo actualizado correctamente.");
+                        formularioPadre.ReiniciarResultados();
                     }
                     else
                     {
@@ -148,7 +160,6 @@ namespace cacatUA
                     if (!grupo.InsertarMiembro(ob.Id))
                     {
                         //MessageBox.Show("Error al borrar algun miembro del grupo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Console.Write("Error al insertar usuario");
                         return false;
                     }
                 }
@@ -165,7 +176,6 @@ namespace cacatUA
                     if (!grupo.BorrarMiembro(ob.Id))
                     {
                         //MessageBox.Show("Error al borrar algun miembro del grupo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Console.Write("Error al borrar usuario");
                         return false;
                     }
                 }
@@ -181,10 +191,6 @@ namespace cacatUA
                 borrados.Add(usuario);
                 listBox_usuarios.Items.Remove(usuario.Usuario);
                 activarBotones();
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un usuario", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -232,7 +238,7 @@ namespace cacatUA
                     }
                     else
                     {
-                        MessageBox.Show("El usuario ya existe en el grupo, seleccione otro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        FormPanelAdministracion.Instancia.MensajeEstado("El usuario ya existe, escoja otro.");
                     }
                 }
             }

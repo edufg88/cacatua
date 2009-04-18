@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_principal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_paginaSiguiente = new System.Windows.Forms.Button();
+            this.comboBox_pagina = new System.Windows.Forms.ComboBox();
+            this.button_paginaAnterior = new System.Windows.Forms.Button();
+            this.comboBox_cantidadPorPagina = new System.Windows.Forms.ComboBox();
+            this.label_cantidadPagina = new System.Windows.Forms.Label();
             this.button_editar = new System.Windows.Forms.Button();
             this.button_borrar = new System.Windows.Forms.Button();
             this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
@@ -39,6 +44,7 @@
             this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_tituloResultado = new System.Windows.Forms.Panel();
+            this.label_resultados = new System.Windows.Forms.Label();
             this.label_resultado = new System.Windows.Forms.Label();
             this.panel_Titulo = new System.Windows.Forms.Panel();
             this.labelTitulo = new System.Windows.Forms.Label();
@@ -84,6 +90,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button_paginaSiguiente);
+            this.panel1.Controls.Add(this.comboBox_pagina);
+            this.panel1.Controls.Add(this.button_paginaAnterior);
+            this.panel1.Controls.Add(this.comboBox_cantidadPorPagina);
+            this.panel1.Controls.Add(this.label_cantidadPagina);
             this.panel1.Controls.Add(this.button_editar);
             this.panel1.Controls.Add(this.button_borrar);
             this.panel1.Controls.Add(this.dataGridView_resultados);
@@ -93,6 +104,91 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(860, 137);
             this.panel1.TabIndex = 104;
+            // 
+            // button_paginaSiguiente
+            // 
+            this.button_paginaSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_paginaSiguiente.Location = new System.Drawing.Point(742, 108);
+            this.button_paginaSiguiente.Name = "button_paginaSiguiente";
+            this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.button_paginaSiguiente.TabIndex = 99;
+            this.button_paginaSiguiente.Text = "Siguiente";
+            this.button_paginaSiguiente.UseVisualStyleBackColor = true;
+            this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
+            // 
+            // comboBox_pagina
+            // 
+            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_pagina.Items.AddRange(new object[] {
+            "1"});
+            this.comboBox_pagina.Location = new System.Drawing.Point(690, 109);
+            this.comboBox_pagina.Name = "comboBox_pagina";
+            this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
+            this.comboBox_pagina.TabIndex = 98;
+            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
+            // 
+            // button_paginaAnterior
+            // 
+            this.button_paginaAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_paginaAnterior.Enabled = false;
+            this.button_paginaAnterior.Location = new System.Drawing.Point(609, 108);
+            this.button_paginaAnterior.Name = "button_paginaAnterior";
+            this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
+            this.button_paginaAnterior.TabIndex = 97;
+            this.button_paginaAnterior.Text = "Anterior";
+            this.button_paginaAnterior.UseVisualStyleBackColor = true;
+            this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
+            // 
+            // comboBox_cantidadPorPagina
+            // 
+            this.comboBox_cantidadPorPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_cantidadPorPagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_cantidadPorPagina.FormattingEnabled = true;
+            this.comboBox_cantidadPorPagina.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15",
+            "17",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "150",
+            "200",
+            "250",
+            "300"});
+            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(111, 109);
+            this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
+            this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
+            this.comboBox_cantidadPorPagina.TabIndex = 96;
+            this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
+            // 
+            // label_cantidadPagina
+            // 
+            this.label_cantidadPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_cantidadPagina.AutoSize = true;
+            this.label_cantidadPagina.Location = new System.Drawing.Point(3, 113);
+            this.label_cantidadPagina.Name = "label_cantidadPagina";
+            this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
+            this.label_cantidadPagina.TabIndex = 95;
+            this.label_cantidadPagina.Text = "Cantidad por página:";
             // 
             // button_editar
             // 
@@ -147,7 +243,7 @@
             this.dataGridView_resultados.ReadOnly = true;
             this.dataGridView_resultados.RowHeadersVisible = false;
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_resultados.Size = new System.Drawing.Size(814, 131);
+            this.dataGridView_resultados.Size = new System.Drawing.Size(814, 96);
             this.dataGridView_resultados.TabIndex = 94;
             this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
             // 
@@ -182,12 +278,22 @@
             // panel_tituloResultado
             // 
             this.panel_tituloResultado.BackColor = System.Drawing.Color.LightGray;
+            this.panel_tituloResultado.Controls.Add(this.label_resultados);
             this.panel_tituloResultado.Controls.Add(this.label_resultado);
             this.panel_tituloResultado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_tituloResultado.Location = new System.Drawing.Point(3, 353);
             this.panel_tituloResultado.Name = "panel_tituloResultado";
             this.panel_tituloResultado.Size = new System.Drawing.Size(854, 29);
             this.panel_tituloResultado.TabIndex = 101;
+            // 
+            // label_resultados
+            // 
+            this.label_resultados.AutoSize = true;
+            this.label_resultados.Location = new System.Drawing.Point(180, 8);
+            this.label_resultados.Name = "label_resultados";
+            this.label_resultados.Size = new System.Drawing.Size(214, 13);
+            this.label_resultados.TabIndex = 3;
+            this.label_resultados.Text = "(mostrando 1 - 61 de 379 hilos encontrados)";
             // 
             // label_resultado
             // 
@@ -299,6 +405,7 @@
             this.Size = new System.Drawing.Size(860, 522);
             this.tableLayoutPanel_principal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).EndInit();
             this.panel_tituloResultado.ResumeLayout(false);
             this.panel_tituloResultado.PerformLayout();
@@ -333,6 +440,12 @@
         private System.Windows.Forms.Button button_seccionBuscar;
         private System.Windows.Forms.Panel panel_cabeceraSeccion1;
         private System.Windows.Forms.Label label_seccion1;
+        private System.Windows.Forms.Button button_paginaSiguiente;
+        private System.Windows.Forms.ComboBox comboBox_pagina;
+        private System.Windows.Forms.Button button_paginaAnterior;
+        private System.Windows.Forms.ComboBox comboBox_cantidadPorPagina;
+        private System.Windows.Forms.Label label_cantidadPagina;
+        private System.Windows.Forms.Label label_resultados;
 
     }
 }
