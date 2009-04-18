@@ -164,6 +164,7 @@ namespace cacatUA
                 {
                     error = "Fichero demasiado grande";
                 }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -184,7 +185,6 @@ namespace cacatUA
         {
             // Cancelamos la transacción
             cancelar = true;
-            this.Close();
         }
     }
 }

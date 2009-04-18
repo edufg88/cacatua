@@ -35,7 +35,6 @@ namespace cacatUA
             set { seleccionado = value; }
         }
 
-
         public override void Recibir(object objeto)
         {
             if (objeto != null)
