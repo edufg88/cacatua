@@ -17,15 +17,12 @@ namespace cacatUA
         private ENCategoria seleccionada;
         private ENCategoria enrutada;
         private TreeNode sel;
+        private String ultimoMensaje = "";
 
         /// <summary>
         /// Indica el estado del formulario.
         /// </summary>
         EstadoFormulario estado;
-
-        
-
-
 
         public FormCategorias()
         {
@@ -109,6 +106,9 @@ namespace cacatUA
             //Activar/Desactivar controles
             ActivarEdicion();
 
+            //Para que se produzca el evento AfterSelect en el siguiente click
+            treeViewCategorias.SelectedNode = null;
+
             //Limpiar controles
             textBox_Nombre.Clear();
             textBox_Descripcion.Clear();
@@ -117,8 +117,12 @@ namespace cacatUA
             enrutada = seleccionada;
             if(enrutada != null)
                 textBox_Ruta.Text = enrutada.NombreCompleto().ToString();
-            
-            //Parametros
+
+            //Texto en la barra de estado
+            ultimoMensaje = "Creando una nueva categoria - Utilice el panel de la izquierda para establecer la ruta.";
+            FormPanelAdministracion.Instancia.MensajeEstado(ultimoMensaje);
+
+            //Cambiamos el estado del formulario
             estado = EstadoFormulario.CREACION;
         }
 
@@ -138,9 +142,16 @@ namespace cacatUA
                 //Activar/Desactivar controles
                 ActivarEdicion();
 
-                //Parametros
+                //Texto en la barra de estado
+                ultimoMensaje = "Editando la categoria " + seleccionada.Id + " - Utilice el panel de la izquierda para modificar la ruta.";
+                FormPanelAdministracion.Instancia.MensajeEstado(ultimoMensaje);
+                
+                //Cambiamos el estado del formulario
                 estado = EstadoFormulario.EDICION;
             }
+
+            //Para que se produzca el evento AfterSelect en el siguiente click
+            treeViewCategorias.SelectedNode = null;
         }
 
         private void button_borrarCategoria_Click(object sender, EventArgs e)
@@ -156,6 +167,8 @@ namespace cacatUA
                     if (seleccionada.Borrar())
                     {
                         treeViewCategorias.Nodes.Remove(treeViewCategorias.SelectedNode);
+                        ultimoMensaje = "";
+                        FormPanelAdministracion.Instancia.MensajeEstado("Categoria borrada correctamente.");
                     }
                     else
                     {
@@ -208,6 +221,11 @@ namespace cacatUA
                         {
                             MessageBox.Show("Error al actualizar categoria.", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        else
+                        {
+                            ultimoMensaje = "";
+                            FormPanelAdministracion.Instancia.MensajeEstado("Categoria actualizada correctamente.");
+                        }
                     }
                 }
                 else
@@ -226,7 +244,12 @@ namespace cacatUA
 
                     if (!nCategoria.Guardar())
                     {
-                        MessageBox.Show("Error al crear categoria.","Error interno",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("Error al crear categoria.", "Error interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        ultimoMensaje = "";
+                        FormPanelAdministracion.Instancia.MensajeEstado("Categoria creada correctamente.");
                     }
                 }
             }
@@ -262,6 +285,7 @@ namespace cacatUA
                 textBox_Ruta.Clear();
             }
 
+            FormPanelAdministracion.Instancia.MensajeEstado("");
             enrutada = null;
             estado = EstadoFormulario.NINGUNO;
         }
@@ -279,7 +303,7 @@ namespace cacatUA
             textBox_Nombre.ReadOnly = false;
             textBox_Ruta.BackColor = SystemColors.Window;
             button_Guardar.Visible = true;
-            button_noGuardar.Visible = true;
+            button_noGuardar.Visible = true;   
         }
 
         /// <summary>
@@ -356,11 +380,24 @@ namespace cacatUA
                     {
                         // Se borra de la lista y de la base de datos.
                         ENUsuario usuario = ENUsuario.Obtener(int.Parse(i.Cells[0].Value.ToString()));
-                        seleccionada.InsuscribirUsuario(usuario);
+                        if (!seleccionada.InsuscribirUsuario(usuario))
+                        {
+                            MessageBox.Show("Error al insuscribir al usuario: " + usuario.Id, "Error de insuscripción", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            FormPanelAdministracion.Instancia.MensajeEstado(usuario.Id + " insuscrito correctamente.");
+                        }
                         dataGridView_Usuarios.Rows.Remove(i);
                     }
                 }
             }
+        }
+
+
+        private void FormCategorias_VisibleChanged(object sender, EventArgs e)
+        {
+            FormPanelAdministracion.Instancia.MensajeEstado(ultimoMensaje);
         }
 
         /// <summary>
@@ -383,8 +420,12 @@ namespace cacatUA
                 {
                         ENUsuario u = (ENUsuario)objeto;
 
-                        if(seleccionada.SuscribirUsuario(u))
+                        if (seleccionada.SuscribirUsuario(u))
+                        {
                             dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
+                            ultimoMensaje = "";
+                            FormPanelAdministracion.Instancia.MensajeEstado(u.Usuario.ToString() + " suscrito correctamente.");
+                        }
                         else
                             MessageBox.Show("No ha sido posible suscribir a este usuario.", "Error de suscripción", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

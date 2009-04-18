@@ -514,6 +514,7 @@
             this.Name = "FormCategorias";
             this.Size = new System.Drawing.Size(814, 527);
             this.Load += new System.EventHandler(this.FormCategorias_Load);
+            this.VisibleChanged += new System.EventHandler(this.FormCategorias_VisibleChanged);
             this.panel_Cabecera.ResumeLayout(false);
             this.panel_Cabecera.PerformLayout();
             this.panel_Contenidos.ResumeLayout(false);

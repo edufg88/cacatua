@@ -227,13 +227,22 @@ namespace Libreria
         /// </summary>
         /// <param name="usuario">Objeto ENUsuario a insuscribir.</param>
         /// <returns>Devuelve 'true' si el usuario ha sido insuscrito correctamente.</returns>
-        public void InsuscribirUsuario(ENUsuario usuario)
+        public bool InsuscribirUsuario(ENUsuario usuario)
         {
-            CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
-
-            foreach (ENCategoria c in ObtenerHijos())
+            if (CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario))
             {
-                c.InsuscribirUsuario(usuario);
+                foreach (ENCategoria c in ObtenerHijos())
+                {
+                    if (!c.InsuscribirUsuario(usuario))
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }        
 
