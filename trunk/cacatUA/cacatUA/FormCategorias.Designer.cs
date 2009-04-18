@@ -93,7 +93,7 @@
             this.label_CabCategorias.AutoSize = true;
             this.label_CabCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_CabCategorias.ForeColor = System.Drawing.Color.White;
-            this.label_CabCategorias.Location = new System.Drawing.Point(11, 7);
+            this.label_CabCategorias.Location = new System.Drawing.Point(11, 4);
             this.label_CabCategorias.Name = "label_CabCategorias";
             this.label_CabCategorias.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.label_CabCategorias.Size = new System.Drawing.Size(76, 19);
@@ -117,7 +117,7 @@
             // label_FuncionArbol
             // 
             this.label_FuncionArbol.AutoSize = true;
-            this.label_FuncionArbol.Location = new System.Drawing.Point(12, 24);
+            this.label_FuncionArbol.Location = new System.Drawing.Point(12, 18);
             this.label_FuncionArbol.Name = "label_FuncionArbol";
             this.label_FuncionArbol.Size = new System.Drawing.Size(234, 13);
             this.label_FuncionArbol.TabIndex = 15;
@@ -140,9 +140,9 @@
             this.groupBox_Informacion.Controls.Add(this.button_verUsuario);
             this.groupBox_Informacion.Controls.Add(this.label_UsuariosSuscritos);
             this.groupBox_Informacion.Enabled = false;
-            this.groupBox_Informacion.Location = new System.Drawing.Point(284, 253);
+            this.groupBox_Informacion.Location = new System.Drawing.Point(284, 244);
             this.groupBox_Informacion.Name = "groupBox_Informacion";
-            this.groupBox_Informacion.Size = new System.Drawing.Size(509, 221);
+            this.groupBox_Informacion.Size = new System.Drawing.Size(509, 230);
             this.groupBox_Informacion.TabIndex = 14;
             this.groupBox_Informacion.TabStop = false;
             this.groupBox_Informacion.Text = "Más información";
@@ -160,12 +160,12 @@
             this.DataGridViewColumno_Usuario,
             this.DataGridViewColumno_Nombre});
             this.dataGridView_Usuarios.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.dataGridView_Usuarios.Location = new System.Drawing.Point(30, 131);
+            this.dataGridView_Usuarios.Location = new System.Drawing.Point(18, 129);
             this.dataGridView_Usuarios.Name = "dataGridView_Usuarios";
             this.dataGridView_Usuarios.ReadOnly = true;
             this.dataGridView_Usuarios.RowHeadersVisible = false;
             this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Usuarios.Size = new System.Drawing.Size(334, 79);
+            this.dataGridView_Usuarios.Size = new System.Drawing.Size(346, 87);
             this.dataGridView_Usuarios.TabIndex = 157;
             // 
             // DataGridViewColumno_Id
@@ -195,7 +195,7 @@
             // linkLabel_verMateriales
             // 
             this.linkLabel_verMateriales.AutoSize = true;
-            this.linkLabel_verMateriales.Location = new System.Drawing.Point(199, 69);
+            this.linkLabel_verMateriales.Location = new System.Drawing.Point(184, 69);
             this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
             this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
             this.linkLabel_verMateriales.TabIndex = 156;
@@ -206,7 +206,7 @@
             // 
             // textBox_nMateriales
             // 
-            this.textBox_nMateriales.Location = new System.Drawing.Point(148, 66);
+            this.textBox_nMateriales.Location = new System.Drawing.Point(133, 66);
             this.textBox_nMateriales.Name = "textBox_nMateriales";
             this.textBox_nMateriales.ReadOnly = true;
             this.textBox_nMateriales.Size = new System.Drawing.Size(40, 20);
@@ -214,7 +214,7 @@
             // 
             // textBox_nHilos
             // 
-            this.textBox_nHilos.Location = new System.Drawing.Point(148, 32);
+            this.textBox_nHilos.Location = new System.Drawing.Point(133, 32);
             this.textBox_nHilos.Name = "textBox_nHilos";
             this.textBox_nHilos.ReadOnly = true;
             this.textBox_nHilos.Size = new System.Drawing.Size(40, 20);
@@ -223,7 +223,7 @@
             // linkLabel_verHilos
             // 
             this.linkLabel_verHilos.AutoSize = true;
-            this.linkLabel_verHilos.Location = new System.Drawing.Point(199, 35);
+            this.linkLabel_verHilos.Location = new System.Drawing.Point(184, 35);
             this.linkLabel_verHilos.Name = "linkLabel_verHilos";
             this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
             this.linkLabel_verHilos.TabIndex = 153;
@@ -236,7 +236,7 @@
             // 
             this.label_nMateriales.AutoSize = true;
             this.label_nMateriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nMateriales.Location = new System.Drawing.Point(27, 69);
+            this.label_nMateriales.Location = new System.Drawing.Point(15, 69);
             this.label_nMateriales.Name = "label_nMateriales";
             this.label_nMateriales.Size = new System.Drawing.Size(115, 13);
             this.label_nMateriales.TabIndex = 152;
@@ -246,7 +246,7 @@
             // 
             this.label_nHilos.AutoSize = true;
             this.label_nHilos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nHilos.Location = new System.Drawing.Point(27, 35);
+            this.label_nHilos.Location = new System.Drawing.Point(15, 35);
             this.label_nHilos.Name = "label_nHilos";
             this.label_nHilos.Size = new System.Drawing.Size(89, 13);
             this.label_nHilos.TabIndex = 151;
@@ -256,7 +256,7 @@
             // 
             this.button_AñadirUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_AñadirUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_AñadirUsuario.Location = new System.Drawing.Point(382, 162);
+            this.button_AñadirUsuario.Location = new System.Drawing.Point(382, 160);
             this.button_AñadirUsuario.Name = "button_AñadirUsuario";
             this.button_AñadirUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_AñadirUsuario.TabIndex = 149;
@@ -269,7 +269,7 @@
             // 
             this.button_quitarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_quitarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_quitarUsuario.Location = new System.Drawing.Point(382, 193);
+            this.button_quitarUsuario.Location = new System.Drawing.Point(382, 191);
             this.button_quitarUsuario.Name = "button_quitarUsuario";
             this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_quitarUsuario.TabIndex = 148;
@@ -282,7 +282,7 @@
             // 
             this.button_verUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_verUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_verUsuario.Location = new System.Drawing.Point(382, 131);
+            this.button_verUsuario.Location = new System.Drawing.Point(382, 129);
             this.button_verUsuario.Name = "button_verUsuario";
             this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_verUsuario.TabIndex = 147;
@@ -296,7 +296,7 @@
             this.label_UsuariosSuscritos.AutoSize = true;
             this.label_UsuariosSuscritos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_UsuariosSuscritos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_UsuariosSuscritos.Location = new System.Drawing.Point(27, 102);
+            this.label_UsuariosSuscritos.Location = new System.Drawing.Point(15, 104);
             this.label_UsuariosSuscritos.Name = "label_UsuariosSuscritos";
             this.label_UsuariosSuscritos.Size = new System.Drawing.Size(95, 13);
             this.label_UsuariosSuscritos.TabIndex = 150;
@@ -318,9 +318,9 @@
             this.groupBox_Administracion.Controls.Add(this.button_crearCategoria);
             this.groupBox_Administracion.Controls.Add(this.button_editarCategoria);
             this.groupBox_Administracion.Controls.Add(this.button_borrarCategoria);
-            this.groupBox_Administracion.Location = new System.Drawing.Point(284, 24);
+            this.groupBox_Administracion.Location = new System.Drawing.Point(284, 14);
             this.groupBox_Administracion.Name = "groupBox_Administracion";
-            this.groupBox_Administracion.Size = new System.Drawing.Size(509, 212);
+            this.groupBox_Administracion.Size = new System.Drawing.Size(509, 211);
             this.groupBox_Administracion.TabIndex = 3;
             this.groupBox_Administracion.TabStop = false;
             this.groupBox_Administracion.Text = "Administración";
@@ -332,12 +332,12 @@
             this.button_LimpiarRuta.FlatAppearance.BorderSize = 0;
             this.button_LimpiarRuta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_LimpiarRuta.Image = global::cacatUA.Properties.Resources.limpiarruta;
-            this.button_LimpiarRuta.Location = new System.Drawing.Point(375, 56);
+            this.button_LimpiarRuta.Location = new System.Drawing.Point(461, 90);
             this.button_LimpiarRuta.Name = "button_LimpiarRuta";
-            this.button_LimpiarRuta.Size = new System.Drawing.Size(27, 20);
+            this.button_LimpiarRuta.Size = new System.Drawing.Size(20, 18);
             this.button_LimpiarRuta.TabIndex = 148;
             this.button_LimpiarRuta.Tag = "Borrar ruta";
-            this.toolTip_Categorias.SetToolTip(this.button_LimpiarRuta, "Establecer como categoria superior.");
+            this.toolTip_Categorias.SetToolTip(this.button_LimpiarRuta, "Haz click para convertir la categoría en categoría superior.");
             this.button_LimpiarRuta.UseVisualStyleBackColor = true;
             this.button_LimpiarRuta.Visible = false;
             this.button_LimpiarRuta.Click += new System.EventHandler(this.button_LimpiarRuta_Click);
@@ -345,7 +345,7 @@
             // label_Descripcion
             // 
             this.label_Descripcion.AutoSize = true;
-            this.label_Descripcion.Location = new System.Drawing.Point(20, 85);
+            this.label_Descripcion.Location = new System.Drawing.Point(15, 117);
             this.label_Descripcion.Name = "label_Descripcion";
             this.label_Descripcion.Size = new System.Drawing.Size(66, 13);
             this.label_Descripcion.TabIndex = 147;
@@ -354,7 +354,7 @@
             // label_Ruta
             // 
             this.label_Ruta.AutoSize = true;
-            this.label_Ruta.Location = new System.Drawing.Point(20, 59);
+            this.label_Ruta.Location = new System.Drawing.Point(15, 91);
             this.label_Ruta.Name = "label_Ruta";
             this.label_Ruta.Size = new System.Drawing.Size(36, 13);
             this.label_Ruta.TabIndex = 54;
@@ -362,17 +362,18 @@
             // 
             // textBox_Ruta
             // 
-            this.textBox_Ruta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Ruta.Location = new System.Drawing.Point(102, 56);
+            this.textBox_Ruta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Ruta.Location = new System.Drawing.Point(97, 89);
             this.textBox_Ruta.Name = "textBox_Ruta";
             this.textBox_Ruta.ReadOnly = true;
-            this.textBox_Ruta.Size = new System.Drawing.Size(267, 20);
+            this.textBox_Ruta.Size = new System.Drawing.Size(385, 20);
             this.textBox_Ruta.TabIndex = 53;
             // 
             // label_Nombre
             // 
             this.label_Nombre.AutoSize = true;
-            this.label_Nombre.Location = new System.Drawing.Point(20, 33);
+            this.label_Nombre.Location = new System.Drawing.Point(15, 65);
             this.label_Nombre.Name = "label_Nombre";
             this.label_Nombre.Size = new System.Drawing.Size(47, 13);
             this.label_Nombre.TabIndex = 48;
@@ -380,28 +381,29 @@
             // 
             // textBox_Nombre
             // 
-            this.textBox_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Nombre.Location = new System.Drawing.Point(102, 30);
+            this.textBox_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_Nombre.Location = new System.Drawing.Point(97, 62);
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
-            this.textBox_Nombre.Size = new System.Drawing.Size(267, 20);
+            this.textBox_Nombre.Size = new System.Drawing.Size(385, 20);
             this.textBox_Nombre.TabIndex = 0;
             // 
             // textBox_Descripcion
             // 
             this.textBox_Descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_Descripcion.Location = new System.Drawing.Point(23, 107);
+            this.textBox_Descripcion.Location = new System.Drawing.Point(97, 117);
             this.textBox_Descripcion.Multiline = true;
             this.textBox_Descripcion.Name = "textBox_Descripcion";
             this.textBox_Descripcion.ReadOnly = true;
-            this.textBox_Descripcion.Size = new System.Drawing.Size(411, 62);
+            this.textBox_Descripcion.Size = new System.Drawing.Size(385, 49);
             this.textBox_Descripcion.TabIndex = 1;
             // 
             // button_noGuardar
             // 
             this.button_noGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_noGuardar.Location = new System.Drawing.Point(352, 175);
+            this.button_noGuardar.Location = new System.Drawing.Point(400, 174);
             this.button_noGuardar.Name = "button_noGuardar";
             this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
             this.button_noGuardar.TabIndex = 3;
@@ -413,7 +415,7 @@
             // button_Guardar
             // 
             this.button_Guardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_Guardar.Location = new System.Drawing.Point(260, 175);
+            this.button_Guardar.Location = new System.Drawing.Point(308, 174);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(82, 24);
             this.button_Guardar.TabIndex = 2;
@@ -424,51 +426,48 @@
             // 
             // button_crearCategoria
             // 
-            this.button_crearCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_crearCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_crearCategoria.FlatAppearance.BorderSize = 0;
             this.button_crearCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_crearCategoria.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_crearCategoria.Location = new System.Drawing.Point(467, 10);
+            this.button_crearCategoria.Location = new System.Drawing.Point(14, 19);
             this.button_crearCategoria.Name = "button_crearCategoria";
             this.button_crearCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_crearCategoria.TabIndex = 7;
-            this.button_crearCategoria.Tag = "Crear categoria";
+            this.button_crearCategoria.Tag = "Crear nueva categoria";
             this.toolTip_Categorias.SetToolTip(this.button_crearCategoria, "Crear una nueva categoria.");
             this.button_crearCategoria.UseVisualStyleBackColor = true;
             this.button_crearCategoria.Click += new System.EventHandler(this.button_crearCategoria_Click);
             // 
             // button_editarCategoria
             // 
-            this.button_editarCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_editarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_editarCategoria.FlatAppearance.BorderSize = 0;
             this.button_editarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_editarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_editarCategoria.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarCategoria.Location = new System.Drawing.Point(467, 47);
+            this.button_editarCategoria.Location = new System.Drawing.Point(50, 19);
             this.button_editarCategoria.Name = "button_editarCategoria";
             this.button_editarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_editarCategoria.TabIndex = 8;
             this.button_editarCategoria.Tag = "Modificar categoria seleccionada";
-            this.toolTip_Categorias.SetToolTip(this.button_editarCategoria, "Modificar la categoria seleccionada.");
+            this.toolTip_Categorias.SetToolTip(this.button_editarCategoria, "Editar la categoria seleccionada.");
             this.button_editarCategoria.UseVisualStyleBackColor = true;
             this.button_editarCategoria.Click += new System.EventHandler(this.button_editarCategoria_Click);
             // 
             // button_borrarCategoria
             // 
-            this.button_borrarCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button_borrarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_borrarCategoria.FlatAppearance.BorderSize = 0;
             this.button_borrarCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_borrarCategoria.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button_borrarCategoria.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarCategoria.Location = new System.Drawing.Point(467, 85);
+            this.button_borrarCategoria.Location = new System.Drawing.Point(86, 19);
             this.button_borrarCategoria.Name = "button_borrarCategoria";
             this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
             this.button_borrarCategoria.TabIndex = 9;
             this.button_borrarCategoria.Tag = "Borrar categoria seleccionada";
-            this.toolTip_Categorias.SetToolTip(this.button_borrarCategoria, "Borrar la categoria seleccionada.");
+            this.toolTip_Categorias.SetToolTip(this.button_borrarCategoria, "Eliminar la categoria seleccionada.");
             this.button_borrarCategoria.UseVisualStyleBackColor = true;
             this.button_borrarCategoria.Click += new System.EventHandler(this.button_borrarCategoria_Click);
             // 
@@ -477,10 +476,10 @@
             this.treeViewCategorias.AllowDrop = true;
             this.treeViewCategorias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeViewCategorias.Location = new System.Drawing.Point(11, 54);
+            this.treeViewCategorias.Location = new System.Drawing.Point(11, 44);
             this.treeViewCategorias.Name = "treeViewCategorias";
             this.treeViewCategorias.PathSeparator = "/";
-            this.treeViewCategorias.Size = new System.Drawing.Size(256, 420);
+            this.treeViewCategorias.Size = new System.Drawing.Size(256, 430);
             this.treeViewCategorias.TabIndex = 13;
             this.treeViewCategorias.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCategorias_AfterSelect);
             // 
