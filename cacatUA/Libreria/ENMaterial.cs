@@ -107,6 +107,9 @@ namespace Libreria
             return error;
         }
 
+        /// <summary>
+        /// Convierte el tamaño a un entero a partir de un string con la medida.
+        /// </summary>
         public static int convertirTamaño(string strTamaño)
         {
             int tamaño = 0;          
@@ -126,6 +129,9 @@ namespace Libreria
             return tamaño;
         }
 
+        /// <summary>
+        /// A partir de un entero con el tamaño, le añade la medida al final.
+        /// </summary>
         public static string convertirTamaño(int tamaño)
         {
             string strTamaño = "";
@@ -159,6 +165,15 @@ namespace Libreria
             return MaterialCAD.Instancia.Obtener();
         }
 
+        /// <summary>
+        /// Realizamos una búsqueda mediante paginación y devolvemos todos los materiales que encontremos.
+        /// <param name="propiedadOrdenar">Propiedad por la que vamos a ordenar los resultados de la búsqueda.</param>
+        /// <param name="ascendente">Indica si la búsqueda se realiza en orden ascendente o descedente.</param>
+        /// <param name="pagina">Número de página que queremos mostrar.</param>
+        /// <param name="cantidadPorPagina">Cantidad de materiales que mostramos por página. A partir de este dato
+        /// y la página que queremos mostrar, podemos cálcular la fila inicial y final para realizar la búsqueda.</param>
+        /// <param name="busqueda">Estructura de datos donde almacenamos todos los parámetros que vamos a indicar en la búsqueda.</param>
+        /// </summary>
         public static ArrayList Obtener(string propiedadOrdenar, bool ascendente, int pagina, int cantidadPorPagina, BusquedaMaterial busqueda)
         {
             return MaterialCAD.Instancia.Obtener(propiedadOrdenar, ascendente, pagina, cantidadPorPagina, busqueda);
@@ -264,11 +279,17 @@ namespace Libreria
             return MaterialCAD.Instancia.BorrarComentario(comentario);
         }
 
+        /// <summary>
+        /// Obtiene el número de materiales total que hay en la base de datos.
+        /// </summary>
         public static int NumMateriales()
         {
             return MaterialCAD.Instancia.NumMateriales();
         }
 
+        /// <summary>
+        /// Obtiene el último material creado en la base de datos.
+        /// </summary>
         public static ENMaterial Ultimo()
         {
             return MaterialCAD.Instancia.Ultimo();

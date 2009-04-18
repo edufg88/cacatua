@@ -158,6 +158,7 @@ namespace cacatUA
         {
             if (formMaterialesBusqueda == null)
                 formMaterialesBusqueda = new FormMaterialesBusqueda(this);
+            formMaterialesBusqueda.limpiarFormulario();
             formMaterialesBusqueda.Recibir(categoria);
             ActualizarFormulario(estados.BUSCAR);
             formMaterialesBusqueda.NuevaBusqueda();

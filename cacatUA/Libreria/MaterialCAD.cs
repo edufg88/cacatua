@@ -20,7 +20,7 @@ namespace Libreria
         private String cadenaConexion;
         private SqlTransaction transaccion = null;
         /// <summary>
-        /// Obtiene la única instancia de la clase HiloCAD. Si es la primera vez
+        /// Obtiene la única instancia de la clase MaterialCAD. Si es la primera vez
         /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
         /// al objeto que ya fue creado anteriormente.
         /// </summary>
@@ -29,7 +29,6 @@ namespace Libreria
         {
             get { return instancia; }
         }
-
 
         /// <summary>
         /// Constructor en el ámbito privado de la clase para no permitir más
@@ -40,6 +39,10 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
+        /// <summary>
+        /// Actualizamos el material en la base de datos con los nuevos cambios
+        /// <returns>Devuelve true si si todo ha ido correctamente o false si se produce algún error</returns>
+        /// </summary>
         public bool Actualizar(ENMaterial material)
         {
             bool correcto = false;
@@ -85,48 +88,61 @@ namespace Libreria
             return correcto;
         }
 
+        /// <summary>
+        /// Crea o guarda el material en la base de datos. En esta función únicamente crea una transacción
+        /// y luego hay que llamar a otra función para completar la transacción o cancelarla en función de si
+        /// se ha subido bien el material o no.
+        /// <returns>Devuelve true si si todo ha ido correctamente o false si se produce algún error</returns>
+        /// </summary>
         public bool Guardar(ENMaterial material)
         {
             bool correcto = false;
-            SqlConnection conexion = null;
-            try
+            if (material != null)
             {
-                conexion = new SqlConnection(cadenaConexion);
-                // Abrimos la conexión.
-                conexion.Open();
+                SqlConnection conexion = null;
+                try
+                {
+                    conexion = new SqlConnection(cadenaConexion);
+                    // Abrimos la conexión.
+                    conexion.Open();
 
-                transaccion = conexion.BeginTransaction();
+                    transaccion = conexion.BeginTransaction();
 
-                // Creamos el comando.
-                string cadenaComando = "INSERT INTO " +
-                    "Materiales(nombre,descripcion,usuario,categoria,archivo,tamaño,referencia) " +
-                    "VALUES (@nombre,@descripcion,@usuario,@categoria,@archivo,@tamaño,@referencia);";
-                SqlCommand comando = new SqlCommand(cadenaComando, conexion, transaccion);
+                    // Creamos el comando.
+                    string cadenaComando = "INSERT INTO " +
+                        "Materiales(nombre,descripcion,usuario,categoria,archivo,tamaño,referencia) " +
+                        "VALUES (@nombre,@descripcion,@usuario,@categoria,@archivo,@tamaño,@referencia);";
+                    SqlCommand comando = new SqlCommand(cadenaComando, conexion, transaccion);
 
-                comando.Parameters.AddWithValue("@nombre", material.Nombre);
-                comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
-                comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
-                comando.Parameters.AddWithValue("@categoria", material.Categoria.Id);
-                comando.Parameters.AddWithValue("@archivo", material.Archivo);
-                comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
-                comando.Parameters.AddWithValue("@referencia", material.Referencia);
+                    comando.Parameters.AddWithValue("@nombre", material.Nombre);
+                    comando.Parameters.AddWithValue("@descripcion", material.Descripcion);
+                    comando.Parameters.AddWithValue("@usuario", material.Usuario.Id);
+                    comando.Parameters.AddWithValue("@categoria", material.Categoria.Id);
+                    comando.Parameters.AddWithValue("@archivo", material.Archivo);
+                    comando.Parameters.AddWithValue("@tamaño", material.Tamaño);
+                    comando.Parameters.AddWithValue("@referencia", material.Referencia);
 
-                if (comando.ExecuteNonQuery() == 1)
-                    correcto = true;
+                    if (comando.ExecuteNonQuery() == 1)
+                        correcto = true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("<ENMaterial::Guardar> " + ex.Message);
+                    transaccion = null;
+                    if (conexion != null)
+                        conexion.Close();
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
-                //throw ex;
-            }
-            finally
-            {
-                //if (conexion != null)
-                //    conexion.Close();
-            }
+            else
+                Console.WriteLine("<ENMaterial::Guardar> material == null");
             return correcto;
         }
 
+        /// <summary>
+        /// En caso de que cuando estabamos subiendo un nuevo material se produzca algún error, cancelamos
+        /// la transacción pendiente y no actualizamos la base de datos.
+        /// <returns>Devuelve true si se ha cancelado correctamente la transacción o false en caso contrario.</returns>
+        /// </summary>
         public bool CancelarGuardar()
         {
             bool correcto = false;
@@ -137,6 +153,7 @@ namespace Libreria
                     transaccion.Rollback();
                     if (transaccion.Connection != null)
                         transaccion.Connection.Close();
+                    transaccion = null;
                     correcto = true;
                 }
             }
@@ -147,6 +164,19 @@ namespace Libreria
             return correcto;
         }
 
+        /// <summary>
+        /// Completa la operación de guardar el material.
+        /// Se necesita esta función porque cuando se crea un nuevo material, primero lo que se hace es 
+        /// subir el archivo al servidor y en caso de que se suba con éxito se guarda en la base de datos.
+        /// Sin embargo, se nos presenta un problema: cuando subimos el fichero se debe comprimir y guardar con el nombre del id del material y no
+        /// sabemos este id hasta que no guardemos el material en la base de datos.
+        /// Para solucionar esto hacemos una transacción, es decir, cuando llamamos a la función Guardar creamos una
+        /// transacción y guardamos el material en la base de datos. Una vez subido el material, si se ha subido correctamente,
+        /// llamamos a esta función. En esta función, antes de hacer commit de la transacción, obtenenemos el id del
+        /// último material insertado, que es el nuestro. A continuación, actualizamos el nombre del archivo por el id
+        /// del material y la extensión ".zip" y finalmente hacemos commit de la transacción.
+        /// <returns>Devuelve el id del material para poder comprimir con ese nombre.</returns>
+        /// </summary>
         public int CompletarGuardar()
         {
             int id = -1;
@@ -156,44 +186,43 @@ namespace Libreria
                 string cadenaComando = "SELECT MAX(id) as id FROM materiales";
                 SqlCommand comando = new SqlCommand(cadenaComando, transaccion.Connection, transaccion);
                 SqlDataReader reader = comando.ExecuteReader();
-                // Recorremos el reader y vamos insertando en el array list objetos del tipo ENMaterialCRUD
                 if (reader.Read())
                 {
                     id = int.Parse(reader["id"].ToString());
-                    //ENMaterial material = obtenerDatos(reader);
-                    //materiales.Add(material);
-                }
-                else
-                {
-                    Console.WriteLine("malllll");
-                }
-                reader.Close();
+                    // Cerramos el reader
+                    reader.Close();
 
-                // Actualizamos el nombre del archivo a la id
-                cadenaComando = "UPDATE materiales SET archivo = @archivo WHERE id = @id";
-                comando = new SqlCommand(cadenaComando, transaccion.Connection, transaccion);
-                comando.Parameters.AddWithValue("@archivo", id.ToString() + ".zip");
-                comando.Parameters.AddWithValue("@id", id);
-                if (comando.ExecuteNonQuery() != 1)
-                    Console.WriteLine("error al hacer update");
+                    // Actualizamos el nombre del archivo a la id
+                    cadenaComando = "UPDATE materiales SET archivo = @archivo WHERE id = @id";
+                    comando = new SqlCommand(cadenaComando, transaccion.Connection, transaccion);
+                    comando.Parameters.AddWithValue("@archivo", id.ToString() + ".zip");
+                    comando.Parameters.AddWithValue("@id", id);
+                    if (comando.ExecuteNonQuery() != 1)
+                    {
+                        id = -1;
+                        Console.WriteLine("<ENMaterial::CompletarGuardar> ERROR al modificar el nombre del archivo");
+                    }
 
-                transaccion.Commit();
-                if(transaccion.Connection != null)
-                    transaccion.Connection.Close();
+                    // Completamos la transacción
+                    transaccion.Commit();
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("<ENMaterial::completarGuardar> " + ex.Message);
-                //throw ex;
+                Console.WriteLine("<ENMaterial::CompletarGuardar> " + ex.Message);
             }
             finally
             {
+                transaccion = null;
                 if (transaccion.Connection!= null)
                     transaccion.Connection.Close();
             }
             return id;
         }
 
+        /// <summary>
+        /// Obtenemos todos los materiales que hay en la base de datos.
+        /// </summary>
         public ArrayList Obtener()
         {
             ArrayList materiales = new ArrayList();
@@ -207,10 +236,9 @@ namespace Libreria
                 string cadenaComando = "SELECT * FROM vistaMateriales";
                 SqlCommand comando = new SqlCommand(cadenaComando, conexion);
                 SqlDataReader reader = comando.ExecuteReader();
-                // Recorremos el reader y vamos insertando en el array list objetos del tipo ENMaterialCRUD
                 while (reader.Read())
                 {
-                    ENMaterial material = obtenerDatos(reader);
+                    ENMaterial material = ObtenerDatos(reader);
                     materiales.Add(material);
                 }
             }
@@ -226,6 +254,15 @@ namespace Libreria
             return materiales;
         }
 
+        /// <summary>
+        /// Realizamos una búsqueda mediante paginación y devolvemos todos los materiales que encontremos.
+        /// <param name="propiedadOrdenar">Propiedad por la que vamos a ordenar los resultados de la búsqueda.</param>
+        /// <param name="ascendente">Indica si la búsqueda se realiza en orden ascendente o descedente.</param>
+        /// <param name="pagina">Número de página que queremos mostrar.</param>
+        /// <param name="cantidadPorPagina">Cantidad de materiales que mostramos por página. A partir de este dato
+        /// y la página que queremos mostrar, podemos cálcular la fila inicial y final para realizar la búsqueda.</param>
+        /// <param name="busqueda">Estructura de datos donde almacenamos todos los parámetros que vamos a indicar en la búsqueda.</param>
+        /// </summary>
         public ArrayList Obtener(string propiedadOrdenar, bool ascendente, int pagina, int cantidadPorPagina, BusquedaMaterial busqueda)
         {
             ArrayList materiales = new ArrayList();
@@ -271,6 +308,10 @@ namespace Libreria
                     cadenaComun += "and categoria = @categoria";
                     comando.Parameters.AddWithValue("@categoria", busqueda.Categoria.Id);
                 }
+                cadenaComun += " and fecha between @fechaInicio and @fechaFin";
+                comando.Parameters.AddWithValue("@fechaInicio", busqueda.FechaInicio);
+                comando.Parameters.AddWithValue("@fechaFin", busqueda.FechaFin);
+
                 comandoSinPaginacion += cadenaComun;
                 comandoConPaginacion += cadenaComun;
                 comandoConPaginacion += " ) as alias WHERE row >= @filaInicio and row <= @filaFinal";
@@ -285,7 +326,7 @@ namespace Libreria
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
                 {
-                    ENMaterial material = obtenerDatos(reader);
+                    ENMaterial material = ObtenerDatos(reader);
                     materiales.Add(material);
                 }
 
@@ -311,47 +352,53 @@ namespace Libreria
             return materiales;
         }
 
-        private ENMaterial obtenerDatos(SqlDataReader reader)
+        /// <summary>
+        /// Inicializamos un material a partir de los datos del reader.
+        /// </summary>
+        private ENMaterial ObtenerDatos(SqlDataReader reader)
         {
             ENMaterial material = new ENMaterial();
-            material.Id = int.Parse(reader["id"].ToString());
-            material.Nombre = reader["nombre"].ToString();
-            material.Descripcion = reader["descripcion"].ToString();
-            material.Fecha = (DateTime) reader["fecha"];
-            material.Usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
-            material.Categoria = new ENCategoria(int.Parse(reader["categoria"].ToString()));
-            material.Archivo = reader["archivo"].ToString();
-            material.Tamaño = int.Parse(reader["tamaño"].ToString());
-            material.Descargas = int.Parse(reader["descargas"].ToString());
-            material.Puntuacion = int.Parse(reader["puntuacion"].ToString());
-            material.Votos = int.Parse(reader["votos"].ToString());
-            material.Referencia = reader["referencia"].ToString();
-            material.NumComentarios = int.Parse(reader["numComentarios"].ToString());
+            try
+            {
+                material.Id = int.Parse(reader["id"].ToString());
+                material.Nombre = reader["nombre"].ToString();
+                material.Descripcion = reader["descripcion"].ToString();
+                material.Fecha = (DateTime)reader["fecha"];
+                material.Usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
+                material.Categoria = new ENCategoria(int.Parse(reader["categoria"].ToString()));
+                material.Archivo = reader["archivo"].ToString();
+                material.Tamaño = int.Parse(reader["tamaño"].ToString());
+                material.Descargas = int.Parse(reader["descargas"].ToString());
+                material.Puntuacion = int.Parse(reader["puntuacion"].ToString());
+                material.Votos = int.Parse(reader["votos"].ToString());
+                material.Referencia = reader["referencia"].ToString();
+                material.NumComentarios = int.Parse(reader["numComentarios"].ToString());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("<ENMaterial::Obtener> " + e.Message);
+                material = null;
+            }
             return material;
         }
 
-        private ComentarioMaterial ObtenerDatosComentario(SqlDataReader reader)
-        {
-            ComentarioMaterial comentario = new ComentarioMaterial();
-            comentario.Id = int.Parse(reader["id"].ToString());
-            comentario.Texto = reader["texto"].ToString();
-            comentario.Fecha = (DateTime)reader["fecha"];
-            comentario.Usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
-            comentario.Material = ENMaterial.Obtener(int.Parse(reader["material"].ToString()));
-            return comentario;
-        }
-
+        /// <summary>
+        /// Obtenemos un material a partir de un id.
+        /// </summary>
         public ENMaterial Obtener(int id)
         {
             ENMaterial material = null;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
                 conexion.Open();
-                // Creamos el comando
+
+                // Creamos el comando.
                 SqlCommand comando = new SqlCommand();
 
-                // Le asignamos la conexión al comando
+                // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
 
                 string cadenaComando = "SELECT * FROM vistaMateriales where id = @id";
@@ -360,32 +407,83 @@ namespace Libreria
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list objetos del tipo ENMaterialCRUD
                 if (reader.Read())
-                    material = obtenerDatos(reader);
+                    material = ObtenerDatos(reader);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::Obtener> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
             }
             return material;
         }
 
+        /// <summary>
+        /// Borramos el material de la base de datos.
+        /// <returns>Devuelve true si si todo ha ido correctamente o false si se produce algún error.</returns>
+        /// </summary>
         public bool Borrar(ENMaterial material)
         {
-            int resultado = 0;
             bool borrado = false;
-            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            SqlConnection conexion = null;
+            try
             {
-                // Abrimos la conexión
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
                 conexion.Open();
-                // Creamos el comando
+
+                // Creamos el comando.
                 SqlCommand comando = new SqlCommand();
-                // Le asignamos la conexión al comando
+
+                // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
-                comando.CommandText = "DELETE FROM materiales where id = @id";
+
+                string cadenaComando = "DELETE FROM materiales where id = @id";
+                comando.CommandText = cadenaComando;
                 comando.Parameters.AddWithValue("@id", material.Id);
-                resultado = comando.ExecuteNonQuery();
-                if (resultado == 1)
+                if (comando.ExecuteNonQuery() == 1)
                     borrado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::Borrar> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
             }
             return borrado;
         }
 
+        /// <summary>
+        /// Inicializamos un comentario a partir del reader
+        /// </summary>
+        private ComentarioMaterial ObtenerDatosComentario(SqlDataReader reader)
+        {
+            ComentarioMaterial comentario = new ComentarioMaterial();
+            try
+            {
+                comentario.Id = int.Parse(reader["id"].ToString());
+                comentario.Texto = reader["texto"].ToString();
+                comentario.Fecha = (DateTime)reader["fecha"];
+                comentario.Usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
+                comentario.Material = ENMaterial.Obtener(int.Parse(reader["material"].ToString()));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("<ENMaterial::ObtenerDatosComentario> " + e.Message);
+                comentario = null;
+            }
+            return comentario;
+        }
+
+        /// <summary>
+        /// Obtenemos todos los comentarios de un material
+        /// </summary>
         public ArrayList ObtenerComentarios(ENMaterial material)
         {
             ArrayList comentarios = new ArrayList();
@@ -426,6 +524,9 @@ namespace Libreria
             return comentarios;
         }
 
+        /// <summary>
+        /// Obtenemos el comentario a partir de la id.
+        /// </summary>
         public ComentarioMaterial ObtenerComentario(int id)
         {
             ComentarioMaterial comentario = null;
@@ -453,7 +554,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("<ENMaterial::ObtenerComentarios> " + ex.Message);
+                Console.WriteLine("<ENMaterial::ObtenerComentario> " + ex.Message);
             }
             finally
             {
@@ -463,6 +564,9 @@ namespace Libreria
             return comentario;
         }
 
+        /// <summary>
+        /// Creamos un comentario en la base de datos.
+        /// </summary>
         public bool GuardarComentario(ComentarioMaterial comentario)
         {
             bool correcto = false;
@@ -490,8 +594,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
-                //throw ex;
+                Console.WriteLine("<ENMaterial::GuardarComentario> " + ex.Message);
             }
             finally
             {
@@ -501,6 +604,10 @@ namespace Libreria
             return correcto;
         }
 
+        /// <summary>
+        /// Borramos un comentario de la base de datos.
+        /// <returns>Devuelve true si si todo ha ido correctamente o false si se produce algún error.</returns>
+        /// </summary>
         public bool BorrarComentario(ComentarioMaterial comentario)
         {
             bool borrado = false;
@@ -523,8 +630,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
-                //throw ex;
+                Console.WriteLine("<ENMaterial::BorrarComentario> " + ex.Message);
             }
             finally
             {
@@ -534,6 +640,10 @@ namespace Libreria
             return borrado;
         }
 
+        /// <summary>
+        /// Guardamos los cambios que se hayan hecho sobre el comentario.
+        /// <returns>Devuelve true si si todo ha ido correctamente o false si se produce algún error.</returns>
+        /// </summary>
         public bool ActualizarComentario(ComentarioMaterial comentario)
         {
             bool correcto = false;
@@ -561,8 +671,7 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENMaterial::Guardar(ENMaterial material) " + ex.Message);
-                //throw ex;
+                Console.WriteLine("<ENMaterial::ActualizarComentario> " + ex.Message);
             }
             finally
             {
@@ -572,6 +681,9 @@ namespace Libreria
             return correcto;
         }
 
+        /// <summary>
+        /// Obtenemos el número de materiales total que hay en la base de datos.
+        /// </summary>
         public int NumMateriales()
         {
             int cantidad = 0;
@@ -581,37 +693,33 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "select count(*) as cantidad from materiales";
+                string sentencia = "SELECT COUNT(*) as cantidad FROM materiales";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
-                SqlDataReader dataReader = comando.ExecuteReader();
+                SqlDataReader reader = comando.ExecuteReader();
 
-                if (dataReader.Read())
-                {
-                    cantidad = int.Parse(dataReader["cantidad"].ToString());
-                }
-
-                dataReader.Close();
+                if (reader.Read())
+                    cantidad = int.Parse(reader["cantidad"].ToString());
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENMaterial::NumMateriales() " + ex.Message);
-                //throw ex;
+                Console.WriteLine("<ENMaterial::NumMateriales> " + ex.Message);
             }
             finally
             {
                 if (conexion != null)
                     conexion.Close();
             }
-
             return cantidad;
         }
 
+        /// <summary>
+        /// Obtenemos el último material que se ha creado en la base de datos.
+        /// </summary>
         public ENMaterial Ultimo()
         {
             ENMaterial material = null;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
-
             try
             {
                 conexion.Open(); // Abrimos la conexión
@@ -620,30 +728,30 @@ namespace Libreria
                 comando.CommandText = "SELECT * FROM vistaMateriales where id in (select max(id) from vistaMateriales)";
 
                 // Creamo un objeto DataReader
-                SqlDataReader dr = comando.ExecuteReader();
-                if (dr.Read())
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
                 {
                     // Extraemos la información del DataReader y la almacenamos
-                    material = obtenerDatos(dr);
+                    material = ObtenerDatos(reader);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENMaterial::Ultimo() " + ex.Message);
-                //throw ex;
+                Console.WriteLine("<ENMaterial::Ultimo> " + ex.Message);
             }
             finally
             {
                 if (conexion != null)
-                {
                     conexion.Close();
-                }
             }
-
             return material;
         }
     }
 
+    /// <summary>
+    /// Estructura de datos auxiliar que se usa para realizar búsquedas y que nos permite, entre otras
+    /// cosas, tener almacenada la última búsqueda que se ha realizado.
+    /// </summary>
     public class BusquedaMaterial
     {
         private ENUsuario usuario;
