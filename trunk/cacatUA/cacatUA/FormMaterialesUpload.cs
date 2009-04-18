@@ -23,7 +23,7 @@ namespace cacatUA
 
         private bool cancelar;
         int maxTamañoPaquete = 30000; // en bytes
-        int maxTamañoFichero = 16; // en megabytes
+        int maxTamañoFichero = 30; // en megabytes
 
         public enum modos { ACTUALIZAR = 0, CREAR = 1};
         private modos modo;
@@ -162,7 +162,7 @@ namespace cacatUA
                 }
                 else
                 {
-                    MessageBox.Show("ERROR", "Fichero demasiado grande", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error = "Fichero demasiado grande";
                 }
             }
             catch (Exception ex)
