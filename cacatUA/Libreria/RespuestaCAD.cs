@@ -73,7 +73,7 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "select * from respuestas where hilo = @id order by fecha";
+                string sentencia = "select * from respuestas where hilo = @id order by id desc";
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@id", hilo.Id);
                 SqlDataReader dataReader = comando.ExecuteReader();
