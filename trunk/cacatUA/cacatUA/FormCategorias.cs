@@ -13,16 +13,19 @@ namespace cacatUA
 
     public partial class FormCategorias : InterfazForm
     {
+        private enum EstadoFormulario { NINGUNO = 0, CREACION = 1, EDICION = 2 };
         private ENCategoria seleccionada;
         private ENCategoria enrutada;
         private TreeNode sel;
 
-        //Indica en que estado se encuentra el formulario
-        // 0 => Normal, navegando
-        // 1 => Editando una categoria
-        // 2 => Creando una categoria
-        private enum EstadoFormulario { NINGUNO = 0, CREACION = 1, EDICION = 2 };
+        /// <summary>
+        /// Indica el estado del formulario.
+        /// </summary>
         EstadoFormulario estado;
+
+        
+
+
 
         public FormCategorias()
         {
@@ -48,6 +51,9 @@ namespace cacatUA
             groupBox_Informacion.Enabled = false;
         }
         
+        /// <summary>
+        /// Introduce una categoria en una coleccion de nodos de arbol.
+        /// </summary>
         private void MeterEnArbol(ENCategoria cat, TreeNodeCollection coleccion) {
             TreeNode nodo = new TreeNode();
             nodo.Name = cat.Id.ToString();
@@ -260,6 +266,10 @@ namespace cacatUA
             estado = EstadoFormulario.NINGUNO;
         }
 
+        /// <summary>
+        /// Realiza los cambios necesarios en el formulario para
+        /// activar la edición de una categoria.
+        /// </summary>
         private void ActivarEdicion()
         {
             label_FuncionArbol.Text = "Seleccione una categoria para formar la ruta:";
@@ -271,7 +281,11 @@ namespace cacatUA
             button_Guardar.Visible = true;
             button_noGuardar.Visible = true;
         }
-        
+
+        /// <summary>
+        /// Realiza los cambios necesarios en el formulario para
+        /// desactivar la edición de una categoria.
+        /// </summary>
         private void DesactivarEdicion()
         {
             label_FuncionArbol.Text = "Seleccione una categoria para más informacion:";
@@ -349,13 +363,18 @@ namespace cacatUA
             }
         }
 
-        //Heredado de InterfazForm
-
+        /// <summary>
+        /// Envia el objeto seleccionado en este formulario para la navegación.
+        /// </summary>
         override public Object Enviar()
         {
             return seleccionada;
         }
 
+        /// <summary>
+        /// Recibe un objeto de otro formulario tras la navegación.
+        /// </summary>
+        /// <param name="objeto">Objeto recibido.</param>
         public override void Recibir(Object objeto)
         {
             if (objeto != null)

@@ -10,22 +10,38 @@ using System.Configuration;
 
 namespace Libreria
 {
+    /// <summary>
+    /// Clase singleton que realiza el acceso a la base de datos para manipular las categorias.
+    /// </summary>
     sealed class CategoriaCAD
-    {
-        
+    {        
         private String cadenaConexion;        
         private static readonly CategoriaCAD instancia = new CategoriaCAD();
-        
+
+        /// <summary>
+        /// Obtiene la única instancia de la clase CategoriasCAD. Si es la primera vez
+        /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
+        /// al objeto que ya fue creado anteriormente.
+        /// </summary>
+        /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
         public static CategoriaCAD Instancia
         {
             get { return instancia; }
         }
-
+        /// <summary>
+        /// Constructor en el ámbito privado de la clase para no permitir 
+        /// más de una instancia.
+        /// </summary>
         private CategoriaCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
+        /// <summary>
+        /// Crea una categoria a partir de una fila de la consulta a la base de datos.
+        /// </summary>
+        /// <param name="reader">Contenedor de una fila de la base de datos</param>
+        /// <returns>Devuelve un objeto ENCategoria instanciado.</returns>
         private ENCategoria obtenerDatos(SqlDataReader reader)
         {
             ENCategoria categoria = new ENCategoria();
@@ -43,6 +59,11 @@ namespace Libreria
             return categoria;
         }
 
+        /// <summary>
+        /// Obtiene una categoria a partir de un identificador.
+        /// </summary>
+        /// <param name="id">Entero que identifica a la categoria buscada.</param>
+        /// <returns>Devuelve el objeto si existe, en caso contrario 'null'</returns>
         public ENCategoria Obtener(int id)
         {
             ENCategoria categoria = null;
@@ -68,7 +89,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Obtener(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -78,6 +98,11 @@ namespace Libreria
             return categoria;
         }
 
+        /// <summary>
+        /// Crea una categoria en la base de datos.
+        /// </summary>
+        /// <param name="categoria">Categoria a insertar en la base de datos.</param>
+        /// <returns>Devuelve 'true' si el objeto se ha creado correctamente.</returns>
         public bool Crear(ENCategoria categoria)
         {
             int resultado = 0;
@@ -117,7 +142,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Crear(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -128,6 +152,11 @@ namespace Libreria
             return creada;
         }
 
+        /// <summary>
+        /// Actualiza una categoria en la base de datos.
+        /// </summary>
+        /// <param name="categoria">Categoria a actualizar en la base de datos.</param>
+        /// <returns>Devuelve 'true' si el objeto se ha actualizado correctamente.</returns>
         public bool Actualizar(ENCategoria categoria)
         {
             int resultado = 0;
@@ -168,7 +197,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Actualizar(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -179,6 +207,11 @@ namespace Libreria
             return actualizada;
         }
 
+        /// <summary>
+        /// Borrar una categoria de la base de datos.
+        /// </summary>
+        /// <param name="categoria">Categoria a borrar en la base de datos.</param>
+        /// <returns>Devuelve 'true' si el objeto se ha borrado correctamente.</returns>
         public bool Borrar(ENCategoria categoria)
         {
             int resultado = 0;
@@ -204,7 +237,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Borrar(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -215,6 +247,10 @@ namespace Libreria
             return borrada;
         }
 
+        /// <summary>
+        /// Obtiene el conjunto de categorias superiores (no tienen padre).
+        /// </summary>
+        /// <returns>Lista que contiene los objetos que son categorias superiores.</returns>
         public ArrayList ObtenerSuperiores()
         {
             ArrayList categorias = new ArrayList();
@@ -238,7 +274,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ObtenerSuperiores(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -248,6 +283,11 @@ namespace Libreria
             return categorias;
         }
 
+        /// <summary>
+        /// Obtiene las categorias que son hijas de otra.
+        /// </summary>
+        /// <param name="padre">Categoria padre.</param>
+        /// <returns>Lista que contiene los objetos que son hijos del parámetro.</returns>
         public ArrayList HijosDe(ENCategoria padre)
         {
             ArrayList hijos = new ArrayList();
@@ -273,7 +313,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("HijosDe(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -283,6 +322,11 @@ namespace Libreria
             return hijos;
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios suscritos a una categoria.
+        /// </summary>
+        /// <param name="categoria">Categoria de la que queremos los usuarios suscritos.</param>
+        /// <returns>Lista de usuarios suscritos a la categoria determinada.</returns>
         public ArrayList UsuariosSuscritosA(ENCategoria categoria)
         {
             ArrayList usuarios = new ArrayList();
@@ -307,7 +351,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("UsuariosSuscritosA(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -317,6 +360,11 @@ namespace Libreria
             return usuarios;
         }
 
+        /// <summary>
+        /// Obtiene el número de hilos asociados a una categoria.
+        /// </summary>
+        /// <param name="categoria">Categoría asociada.</param>
+        /// <returns>Entero que indica el número de hilos.</returns>
         public int NumHilosEn(ENCategoria categoria)
         {
             int n = 0;
@@ -340,7 +388,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("NumHilosEn(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -350,6 +397,11 @@ namespace Libreria
             return n;
         }
 
+        /// <summary>
+        /// Obtiene el número de materiales asociados a una categoria.
+        /// </summary>
+        /// <param name="categoria">Categoría asociada.</param>
+        /// <returns>Entero que indica el número de materiales.</returns>
         public int NumMaterialesEn(ENCategoria categoria)
         {
             int n = 0;
@@ -373,7 +425,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("NumMaterialesEn(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -383,6 +434,10 @@ namespace Libreria
             return n;
         }
 
+        /// <summary>
+        /// Obtiene el numero de categorias totales en la base de datos.
+        /// </summary>
+        /// <returns>Entero que indica el número de categorias.</returns>
         public int NumCategorias()
         {
             int n = 0;
@@ -405,7 +460,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("NumCategorias(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -415,6 +469,12 @@ namespace Libreria
             return n;
         }
 
+        /// <summary>
+        /// Suscribe un usuario a una categoria.
+        /// </summary>
+        /// <param name="categoria">Categoria a la que suscribir.</param>
+        /// <param name="usuario">Usuario a suscribir.</param>
+        /// <returns>'true' si el usuario se ha suscrito correctamente.</returns>
         public bool AñadirSuscripcion(ENCategoria categoria, ENUsuario usuario)
         {
             int resultado = 0;
@@ -442,7 +502,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("AñadirSuscripcion(ENCategoria): " + ex.Message);
             }
             finally
             {
@@ -452,6 +511,12 @@ namespace Libreria
             return añadido;
         }
 
+        /// <summary>
+        /// Insuscribe un usuario a una categoria.
+        /// </summary>
+        /// <param name="categoria">Categoria a la que insuscribir.</param>
+        /// <param name="usuario">Usuario a insuscribir.</param>
+        /// <returns>'true' si el usuario se ha insuscrito correctamente.</returns>
         public bool QuitarSuscripcion(ENCategoria categoria, ENUsuario usuario)
         {
             int resultado = 0;
@@ -478,7 +543,6 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("QuitarSuscripcion(ENCategoria): " + ex.Message);
             }
             finally
             {
