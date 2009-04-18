@@ -16,10 +16,36 @@ namespace cacatUA
     {
         public FormMaterialesEdicion formEditarMateriales = null;
         public FormMaterialesBusqueda formMaterialesBusqueda = null;
+        private int cantidadPorPagina;
+        public int CantidadPorPagina
+        {
+            get { return cantidadPorPagina; }
+            set { cantidadPorPagina = value; }
+        }
+
+        private string propiedadOrdenar;
+        public string PropiedadOrdenar
+        {
+            get { return propiedadOrdenar; }
+            set { propiedadOrdenar = value; }
+        }
+
+        private int pagina;
+        public int Pagina
+        {
+            get { return pagina; }
+            set { pagina = value; }
+        }
+
+        public SortOrder Orden()
+        {
+            string nomColumna = "dataGridViewTextBoxColumn_" + propiedadOrdenar;
+            return dataGridView_materiales.Columns[nomColumna].HeaderCell.SortGlyphDirection;
+        }
 
         Dictionary<int, WebClient> descargas = null;
 
-        public enum estados { EDITAR = 0, BUSCAR = 1, CREAR = 2};
+        public enum estados { EDITAR = 0, BUSCAR = 1, CREAR = 2, INICIAL = 3};
         private estados estado;
         private estados estadoAnterior;
         public estados Estado
@@ -69,7 +95,10 @@ namespace cacatUA
                             // Cambiamos el título de la sección
                             label_seccion.Text = "Búsqueda";
                             if (formMaterialesBusqueda == null)
+                            {
                                 formMaterialesBusqueda = new FormMaterialesBusqueda(this);
+                                formMaterialesBusqueda.Buscar();
+                            }
                             CambiarFormulario(formMaterialesBusqueda);
                         }
                         break;
@@ -104,12 +133,23 @@ namespace cacatUA
         public FormMateriales()
         {
             InitializeComponent();
-            // Por defecto se muestra el formulario de búsqueda
-            ActualizarFormulario(estados.BUSCAR);
-            estadoAnterior = estados.BUSCAR;
+
+            
             descargas = new Dictionary<int, WebClient>();
-            ArrayList materiales = ENMaterial.Obtener();
-            mostrarMateriales(materiales);
+            //ArrayList materiales = ENMaterial.Obtener();
+            //mostrarMateriales(materiales);
+            cantidadPorPagina = 10;
+            comboBox_cantidadPorPagina.Text = cantidadPorPagina.ToString();
+            comboBox_pagina.Text = "1";
+            pagina = 1;
+            
+            // Por defecto ordenamos por id por orden descendente
+            propiedadOrdenar = "id";
+            dataGridView_materiales.Columns["dataGridViewTextBoxColumn_id"].HeaderCell.SortGlyphDirection = SortOrder.Descending;
+            // Por defecto se muestra el formulario de búsqueda 
+            // NOTA: Es importante de que esto se ponga al final del constructor
+            estadoAnterior = estados.INICIAL;
+            ActualizarFormulario(estados.BUSCAR);      
         }
 
         public FormMateriales(ENCategoria categoria)
@@ -118,9 +158,9 @@ namespace cacatUA
             // Por defecto se muestra el formulario de búsqueda
             ActualizarFormulario(estados.BUSCAR);
             estadoAnterior = estados.BUSCAR;
-
-            formMaterialesBusqueda.Recibir(categoria);
-            formMaterialesBusqueda.Buscar();
+            
+            //formMaterialesBusqueda.Recibir(categoria);
+            //formMaterialesBusqueda.Buscar(0);
         }
 
         public DataGridView Materiales
@@ -138,15 +178,21 @@ namespace cacatUA
                 {
                     fila.Cells["dataGridViewTextBoxColumn_id"].Value = material.Id.ToString();
                     fila.Cells["dataGridViewTextBoxColumn_nombre"].Value = material.Nombre;
-                    fila.Cells["dataGridViewTextBoxColumn_comentarios"].Value = material.NumComentarios;
+                    fila.Cells["dataGridViewTextBoxColumn_numComentarios"].Value = material.NumComentarios;
                     fila.Cells["dataGridViewTextBoxColumn_fecha"].Value = material.Fecha;
                     fila.Cells["dataGridViewTextBoxColumn_usuario"].Value = material.Usuario.Usuario;
                     fila.Cells["dataGridViewTextBoxColumn_categoria"].Value = material.Categoria.NombreCompleto();
-                    fila.Cells["dataGridViewTextBoxColumn_tamaño"].Value = material.Tamaño;
+                    fila.Cells["dataGridViewTextBoxColumn_tamaño"].Value = ENMaterial.convertirTamaño(material.Tamaño);
                     fila.Cells["dataGridViewTextBoxColumn_descargas"].Value = material.Descargas;
-                    fila.Cells["dataGridViewTextBoxColumn_valoracion"].Value = material.Puntuacion;  
+                    fila.Cells["dataGridViewTextBoxColumn_puntuacion"].Value = material.Puntuacion;
                     break;
                 }
+            }
+            // Comprobamos si el material es el que está en el formulario de edición
+            if (formEditarMateriales != null && formEditarMateriales.Controles["id"].Text == material.Id.ToString())
+            {
+                // Actualizamos el formulario
+                formEditarMateriales.mostrarMaterial(material);
             }
         }
 
@@ -159,12 +205,11 @@ namespace cacatUA
                 ENMaterial material = (ENMaterial)materiales[i];
                 DataGridViewRow fila = new DataGridViewRow();
                 fila.CreateCells(dataGridView_materiales);
-
                 int posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_id"].Index;
                 fila.Cells[posicion].Value = material.Id.ToString();
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_nombre"].Index;
                 fila.Cells[posicion].Value = material.Nombre;
-                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_comentarios"].Index;
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_numComentarios"].Index;
                 fila.Cells[posicion].Value = material.NumComentarios;
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_fecha"].Index;
                 fila.Cells[posicion].Value = material.Fecha;
@@ -173,11 +218,11 @@ namespace cacatUA
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_categoria"].Index;
                 fila.Cells[posicion].Value = material.Categoria.NombreCompleto();
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_tamaño"].Index;
-                fila.Cells[posicion].Value = material.Tamaño;
+                fila.Cells[posicion].Value = ENMaterial.convertirTamaño(material.Tamaño);
                 posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargas"].Index;
                 fila.Cells[posicion].Value = material.Descargas;
-                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_valoracion"].Index;
-                fila.Cells[posicion].Value = material.Puntuacion;      
+                posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_puntuacion"].Index;
+                fila.Cells[posicion].Value = material.Puntuacion; 
                 // Comprobamos si se está descargando
                 if (estaDescargando(material))
                 {
@@ -188,7 +233,7 @@ namespace cacatUA
             }
         }
 
-        private void editarMaterial(object sender, EventArgs e)
+        private void editarMaterial()
         {
             // Comprobamos si hay algún material seleccionado 
             DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
@@ -212,9 +257,14 @@ namespace cacatUA
                 int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
                 // Comprobamos si corresponde con el que está actualmente seleccionado
                 if (seleccionado == null || id != seleccionado.Id)
-                    seleccionado = ENMaterial.Obtener(id); 
+                    seleccionado = ENMaterial.Obtener(id);
                 ActualizarFormulario(estados.EDITAR);
             }
+        }
+
+        private void editarMaterial(object sender, EventArgs e)
+        {
+            editarMaterial();
         }
 
         private void borrarMaterial(object sender, EventArgs e)
@@ -282,14 +332,13 @@ namespace cacatUA
                 else
                     formEditarMateriales.Recibir(objeto);
             }
-        }
-        /*
-        private void actualizarDataGridDescargas()
-        {
-            // Para cada descarga activa, comprobamos 
 
+            if (objeto is ENMaterial)
+            {
+                ActualizarMaterial((ENMaterial)objeto);
+            }
         }
-        */
+
         private void archivoDescargado(object sender, AsyncCompletedEventArgs e)
         {
             WebClient webCliente = (WebClient)sender;
@@ -357,7 +406,7 @@ namespace cacatUA
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         if (material != null)
-                        {                           
+                        {
                             WebClient cliente = new WebClient();
                             descargas.Add(material.Id, cliente);
                             Uri uri = new Uri("http://84.120.44.73/ficheros/" + material.Archivo);
@@ -366,12 +415,23 @@ namespace cacatUA
                             cliente.DownloadFileAsync(uri, saveFileDialog.FileName);
                             cliente.BaseAddress = "http://84.120.44.73/ficheros/" + material.Archivo;
                             button_cancelarDescarga.Enabled = true;
+                            // Aumentamos el número de descargas
+                            material.Descargas++;
+                            material.Actualizar();
+                            ActualizarMaterial(material);
                         }
                         else
                         {
                             MessageBox.Show("material no válido");
                         }
                     }
+                }
+            }
+            else
+            {
+                if (e.RowIndex < 0)
+                {
+                    ordenModificado(e.ColumnIndex);
                 }
             }
         }
@@ -438,6 +498,120 @@ namespace cacatUA
                 else
                     button_cancelarDescarga.Enabled = false;
             }
+        }
+
+        /// <summary>
+        /// Cuando en el formulario de búsqueda se realiza una búsqueda, este llama a esta función y le pasa
+        /// el número de resultados obtenidos y el array list con todos los resultados obtenidos en función
+        /// del número de resultados por página indicado.
+        /// </summary>
+        public void ActualizarPaginacion(int totalResultados)
+        {
+            if (totalResultados > 0)
+            {
+                int paginas = (int)Math.Ceiling(totalResultados / (float)CantidadPorPagina);
+                // Añadimos las páginas al combo box
+                string paginaActual = pagina.ToString();
+                comboBox_pagina.Items.Clear();
+                for (int i = 1; i <= paginas; i++)
+                    comboBox_pagina.Items.Add(i.ToString());
+                comboBox_pagina.Text = paginaActual;
+
+                int inicial = (pagina - 1) * CantidadPorPagina + 1;
+                int final = inicial - 1 + CantidadPorPagina;
+                if (final > totalResultados) final = totalResultados;
+
+                label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " materiales encontrados)";
+                if (comboBox_pagina.Text == "1")
+                    button_paginaAnterior.Enabled = false;
+                else
+                    button_paginaAnterior.Enabled = true;
+
+                if (comboBox_pagina.Text == paginas.ToString())
+                    button_paginaSiguiente.Enabled = false;
+                else
+                    button_paginaSiguiente.Enabled = true;
+            }
+            else
+            {
+                label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
+                button_paginaAnterior.Enabled = false;
+                button_paginaSiguiente.Enabled = false;
+            }
+        }
+
+        private void comboBox_cantidadPorPagina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Actualizamos el número de resultados por página
+            cantidadPorPagina = int.Parse(comboBox_cantidadPorPagina.Text.ToString());
+        }
+
+        private void ordenModificado(int numColumna)
+        {
+            // Obtenemos la columna a ordenar
+            DataGridViewColumn columna = dataGridView_materiales.Columns[numColumna];
+            // Obtenemos el nombre de la columna que estaba ordenada anteriormente
+            string nomColumnaAnterior = "dataGridViewTextBoxColumn_" + propiedadOrdenar;
+            // Comprobamos si coincide con la columna actual
+            if (columna.Name == nomColumnaAnterior)
+            {
+                // Coincide, cambiamos el orden
+                if (columna.HeaderCell.SortGlyphDirection == SortOrder.Ascending)
+                    columna.HeaderCell.SortGlyphDirection = SortOrder.Descending;
+                else
+                    columna.HeaderCell.SortGlyphDirection = SortOrder.Ascending;
+            }
+            else
+            {
+                // Si no coincide, quitamos al orden a la anterior columna
+                dataGridView_materiales.Columns[nomColumnaAnterior].HeaderCell.SortGlyphDirection = SortOrder.None;
+                // Ponemos por defecto a la nueva columna descendente
+                columna.HeaderCell.SortGlyphDirection = SortOrder.Descending;
+                // Guardamos la nueva propiedad por la que ordenamos
+                string nomColumna = columna.Name;
+                propiedadOrdenar = nomColumna.Substring(nomColumna.LastIndexOf('_')+1);
+            }
+            FormPanelAdministracion.Instancia.MensajeEstado("Ordenando columna " + columna.HeaderText + " en modo " + Orden().ToString());
+            pagina = 1;
+            comboBox_pagina.Text = pagina.ToString();
+            formMaterialesBusqueda.Buscar();
+        }
+
+        private void dataGridView_materiales_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+                editarMaterial();
+        }
+
+        private void button_paginaSiguiente_Click(object sender, EventArgs e)
+        {
+            // Cambiamos de página
+            pagina++;
+            comboBox_pagina.Text = pagina.ToString();
+            // Realizamos una nueva búsqueda
+            formMaterialesBusqueda.Buscar();
+        }
+
+        private void button_paginaAnterior_Click(object sender, EventArgs e)
+        {
+            // Cambiamos de página
+            pagina--;
+            comboBox_pagina.Text = pagina.ToString();
+            // Realizamos una nueva búsqueda
+            formMaterialesBusqueda.Buscar();
+        }
+
+        private void comboBox_pagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            pagina = int.Parse(comboBox_pagina.Text.ToString());
+            formMaterialesBusqueda.Buscar();
+        }
+
+        private void comboBox_cantidadPorPagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // Actualizamos el número de resultados por página
+            cantidadPorPagina = int.Parse(comboBox_cantidadPorPagina.Text.ToString());
+            formMaterialesBusqueda.Buscar();
         }
     }
 }

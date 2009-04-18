@@ -210,11 +210,16 @@ namespace cacatUA
                         // Validamos el comentario
                         if(validar(comentario) == true)
                         {
-                            material.GuardarComentario(comentario);
-                            // Actualizamos el datagridview
-                            mostrarComentarios();
-                            // Limpiamos el formulario
-                            LimpiarFormulario();
+                            if (material.GuardarComentario(comentario) == true)
+                            {
+                                material.NumComentarios++;
+                                // Actualizamos el datagridview
+                                mostrarComentarios();
+                                // Limpiamos el formulario
+                                LimpiarFormulario();
+                            }
+                            else
+                                FormPanelAdministracion.Instancia.MensajeEstado("No se ha podido crear el comentario");
                         }
                         break;
                     }
@@ -332,8 +337,12 @@ namespace cacatUA
                             string mensaje = "ERROR: No se ha podido borrar el comentario " + id;
                             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        // Eliminamos la fila
-                        dataGridView_comentarios.Rows.Remove(fila);
+                        else
+                        {
+                            // Eliminamos la fila
+                            dataGridView_comentarios.Rows.Remove(fila);
+                            material.NumComentarios--;
+                        }
                     }
                 }
             }
@@ -355,6 +364,11 @@ namespace cacatUA
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true,
                 "Volver al panel anterior seleccionando el usuario actual",
                 "Cancelar la selección y volver al panel anterior");
+        }
+
+        public override object Enviar()
+        {
+            return material;
         }
     }
 }

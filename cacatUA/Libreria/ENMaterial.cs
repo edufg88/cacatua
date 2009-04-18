@@ -107,6 +107,42 @@ namespace Libreria
             return error;
         }
 
+        public static int convertirTamaño(string strTamaño)
+        {
+            int tamaño = 0;          
+            if (strTamaño != "")
+            {
+                bool bytes = false;
+                // Comprobamos si está expresado en bytes
+                if (strTamaño.LastIndexOf("bytes") > 0)
+                    bytes = true;
+                // Quitamos la medida
+                strTamaño = strTamaño.Remove(strTamaño.IndexOf(' '));
+                strTamaño.Trim();
+                tamaño = int.Parse(strTamaño);
+                if (bytes == false)
+                    tamaño *= 1024;
+            }
+            return tamaño;
+        }
+
+        public static string convertirTamaño(int tamaño)
+        {
+            string strTamaño = "";
+            if (tamaño < 1024)
+            {
+                // Expresamos en bytes
+                strTamaño = tamaño.ToString() + " bytes";
+            }
+            else
+            {
+                // Convertimos a kbytes
+                tamaño = tamaño / 1024;
+                strTamaño = tamaño.ToString() + " KB";
+            }
+            return strTamaño;
+        }
+
         /// <summary>
         /// Obtiene un material a partir de la id.
         /// </summary>
@@ -121,6 +157,11 @@ namespace Libreria
         public static ArrayList Obtener()
         {
             return MaterialCAD.Instancia.Obtener();
+        }
+
+        public static ArrayList Obtener(string propiedadOrdenar, bool ascendente, int pagina, int cantidadPorPagina, BusquedaMaterial busqueda)
+        {
+            return MaterialCAD.Instancia.Obtener(propiedadOrdenar, ascendente, pagina, cantidadPorPagina, busqueda);
         }
 
         /// <summary>
@@ -163,8 +204,7 @@ namespace Libreria
         }
 
         /// <summary>
-        /// En caso de que cuando estabamos subiendo un nuevo material se produzca algún error, cancelamos
-        /// la transacción pendiente y no actualizamos la base de datos.
+        /// Borramos el material de la base de datos.
         /// <returns>Devuelve true si se ha podido borrar el material o false en caso contrario.</returns>
         /// </summary>
         override public bool Borrar()
@@ -181,34 +221,44 @@ namespace Libreria
             return MaterialCAD.Instancia.Actualizar(this);
         }
 
-
-
-
+        /// <summary>
+        /// Obtenemos todos los comentarios que tenga el material.
+        /// </summary>
         public ArrayList ObtenerComentarios()
         {
             return MaterialCAD.Instancia.ObtenerComentarios(this);
         }
 
+        /// <summary>
+        /// Obtenemos el comentario que tenga esa id.
+        /// </summary>
         public static ComentarioMaterial ObtenerComentario(int id)
         {
             return MaterialCAD.Instancia.ObtenerComentario(id);
         }
 
-        public static ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, ENCategoria categoria, DateTime fechaInicio, DateTime fechaFin)
-        {
-            return MaterialCAD.Instancia.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
-        }
-
+        /// <summary>
+        /// Creamos / guardamos un nuevo comentario en la base de datos.
+        /// <returns>Devuelve true si se ha podido crear el material o false en caso contrario.</returns>
+        /// </summary>
         public bool GuardarComentario(ComentarioMaterial comentario)
         {
             return MaterialCAD.Instancia.GuardarComentario(comentario);
         }
 
+        /// <summary>
+        /// Actualizamos el comentario en la base de datos con los cambios realizados.
+        /// <returns>Devuelve true si se ha podido actualizar el material o false en caso contrario.</returns>
+        /// </summary>
         public bool ActualizarComentario(ComentarioMaterial comentario)
         {
             return MaterialCAD.Instancia.ActualizarComentario(comentario);
         }
 
+        /// <summary>
+        /// Borramos el comentario de la base de datos.
+        /// <returns>Devuelve true si se ha podido borrar el material o false en caso contrario.</returns>
+        /// </summary>
         public static bool BorrarComentario(ComentarioMaterial comentario)
         {
             return MaterialCAD.Instancia.BorrarComentario(comentario);
