@@ -154,9 +154,8 @@ namespace cacatUA
             ActualizarFormulario(estados.BUSCAR);
         }
 
-        public FormMateriales(ENCategoria categoria)
+        public void BuscarPorCategoria(ENCategoria categoria)
         {
-            Inicializar();
             if (formMaterialesBusqueda == null)
                 formMaterialesBusqueda = new FormMaterialesBusqueda(this);
             formMaterialesBusqueda.Recibir(categoria);
