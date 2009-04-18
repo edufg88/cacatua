@@ -15,11 +15,14 @@ namespace cacatUA
     {
         private FormMateriales formularioPadre = null;
         private ENCategoria categoria = null;
+        private BusquedaMaterial busquedaActual = null;
+
         public FormMaterialesBusqueda(FormMateriales formularioPadre)
         {
             InitializeComponent();
             this.formularioPadre = formularioPadre;
             limpiarFormulario();
+            busquedaActual = new BusquedaMaterial();
         }
 
         public override void Recibir(object objeto)
@@ -39,14 +42,39 @@ namespace cacatUA
             }
         }
 
-        public void Buscar()
+        public ArrayList Buscar()
         {
-            bool error = false;
-            errorProvider1.Clear();
-            ENUsuario usuario = null;
+            ArrayList materiales = null;
             // Obtenemos los datos introducidos por el usuario
             try
             {
+                // Tipo de orden (ascendente o descendente)
+                SortOrder orden = formularioPadre.Orden();
+                bool ascendente = false;
+                if (orden == SortOrder.Ascending)
+                    ascendente = true;
+                materiales = ENMaterial.Obtener(formularioPadre.PropiedadOrdenar, ascendente, formularioPadre.Pagina, formularioPadre.CantidadPorPagina, busquedaActual);
+                
+                // Obtenemos el número de materiales total de la búsqueda (contando todas las páginas)
+                //MessageBox.Show(busquedaActual.NumResultados.ToString());
+                formularioPadre.ActualizarPaginacion(busquedaActual.NumResultados);
+                formularioPadre.mostrarMateriales(materiales);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return materiales;
+        }
+
+        private void buscarMaterial(object sender, EventArgs e)
+        {
+            errorProvider.Clear();
+            bool error = false;
+            // Creamos una nueva búsqueda
+            try
+            {
+                ENUsuario usuario = null;
                 string str_usuario = textBox_usuario.Text;
                 if (str_usuario != "")
                 {
@@ -55,7 +83,7 @@ namespace cacatUA
                     if (usuario == null)
                     {
                         error = true;
-                        errorProvider1.SetError(textBox_usuario, "Usuario no válido");
+                        errorProvider.SetError(textBox_usuario, "Usuario no válido");
                     }
                 }
                 string filtroBusqueda = textBox_filtroBusqueda.Text;
@@ -63,68 +91,21 @@ namespace cacatUA
                 DateTime fechaFin = dateTimePicker_fechaFin.Value;
                 if (error == false)
                 {
-                    ArrayList materiales = ENMaterial.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
-                    formularioPadre.mostrarMateriales(materiales);
+                    busquedaActual = new BusquedaMaterial();
+                    busquedaActual.Usuario = usuario;
+                    busquedaActual.FiltroBusqueda = filtroBusqueda;
+                    busquedaActual.FechaInicio = fechaInicio;
+                    busquedaActual.FechaFin = fechaFin;
+                    busquedaActual.Categoria = categoria;
+                    // Ponemos la página a 1
+                    formularioPadre.Pagina = 1;
+                    Buscar();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("error", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void buscarMaterial(object sender, EventArgs e)
-        {
-            bool error = false;
-            errorProvider1.Clear();
-            ENUsuario usuario = null;
-            // Obtenemos los datos introducidos por el usuario
-            try
-            {
-                string str_usuario = textBox_usuario.Text;
-                if (str_usuario != "")
-                {
-                    // Comprobamos si el usuario es válido
-                    usuario = ENUsuario.Obtener(str_usuario);
-                    if(usuario == null)
-                    {
-                        error = true;
-                        errorProvider1.SetError(textBox_usuario, "Usuario no válido");
-                    }
-                }
-                string filtroBusqueda = textBox_filtroBusqueda.Text;
-                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
-                DateTime fechaFin = dateTimePicker_fechaFin.Value;
-                if (error == false)
-                {
-                    ArrayList materiales = ENMaterial.Obtener(filtroBusqueda, usuario, categoria, fechaInicio, fechaFin);
-                    formularioPadre.mostrarMateriales(materiales);
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("error", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-
-
-
-            /*
-            if (ValidarFormulario())
-            {
-                ENUsuario usuario = null;
-                if (textBox_usuario.Text != "")
-                    usuario = new ENUsuario(textBox_usuario.Text);
-                ENCategoria categoria = null;
-                if (textBox_categoria.Text != "")
-                    categoria = new ENCategoria(int.Parse(textBox_categoria.Text));
-                DateTime fechaInicio = dateTimePicker_fechaInicio.Value;
-                DateTime fechaFin = dateTimePicker_fechaFin.Value;
-
-                formularioPadre.Resultados = ENHilo.Obtener(0, 0, 0, textBox_filtroBusqueda.Text,
-                    textBox_filtroBusqueda.Text, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
-            }
-            */
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }  
         }
 
         private void seleccionarCategoria(object sender, EventArgs e)

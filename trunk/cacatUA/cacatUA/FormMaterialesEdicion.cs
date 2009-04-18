@@ -60,7 +60,13 @@ namespace cacatUA
             inicializarControles();
         }
 
-        Dictionary<string, Control> controles = null;
+        private Dictionary<string, Control> controles = null;
+        public Dictionary<string, Control> Controles
+        {
+            get { return controles; }
+            set { controles = value; }
+        }
+
         private void inicializarControles()
         {
             controles = new Dictionary<string, Control>();
@@ -210,8 +216,7 @@ namespace cacatUA
                         material.Usuario = ENUsuario.Obtener(textBox_usuario.Text.ToString());
                         material.Categoria = categoria;
                         material.Archivo = textBox_archivo.Text.ToString();
-                       // material.Tamaño = int.Parse(textBox_tamaño.Text.ToString());
-                        //material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
+                        material.Tamaño = ENMaterial.convertirTamaño(textBox_tamaño.Text);
                         material.Referencia = textBox_referencia.Text.ToString();
 
                         if (validarDatos(controlesCrear, material) == true)
@@ -251,8 +256,7 @@ namespace cacatUA
                         material.Categoria = categoria;
                         material.Archivo = textBox_archivo.Text.ToString();
                         material.Fecha = dateTimePicker_fecha.Value;
-                        //material.Tamaño = convertirTamaño(textBox_tamaño.Text.ToString());
-                        material.Tamaño = int.Parse(textBox_tamaño.Text.ToString());
+                        material.Tamaño = ENMaterial.convertirTamaño(textBox_tamaño.Text);
                         material.Referencia = textBox_referencia.Text.ToString();
                         material.Descargas = int.Parse(textBox_descargas.Text.ToString());
                         material.NumComentarios = int.Parse(textBox_numComentarios.Text.ToString());
@@ -297,39 +301,9 @@ namespace cacatUA
             {
                 controles["archivo"].Text = dialogo.FileName;
                 FileInfo info = new FileInfo(dialogo.FileName);
-                long tamaño = info.Length;
-                if (tamaño > 1024)
-                {
-                    tamaño = tamaño / 1024;
-                    controles["tamaño"].Text = tamaño.ToString(); // + " KB";
-                }
-                else
-                {
-                    controles["tamaño"].Text = tamaño.ToString(); // + " bytes";
-                }
+                int tamaño = (int)info.Length;
+                controles["tamaño"].Text = ENMaterial.convertirTamaño(tamaño);
             }
-        }
-
-        private string obtenerTipo(string tipo)
-        {
-            Console.WriteLine(tipo);
-            tipo = tipo.Remove(tipo.IndexOf(","));
-            tipo.Trim();
-            Console.WriteLine(tipo);
-            return tipo;
-        }
-
-        private int convertirTamaño(string tamaño)
-        {
-            // Quitamos la medida
-            if (tamaño != "")
-            {
-                tamaño = tamaño.Remove(tamaño.IndexOf(' '));
-                tamaño.Trim();
-                return int.Parse(tamaño);
-            }
-            else
-                return 0;
         }
 
         private void mostrarComentarios(object sender, LinkLabelLinkClickedEventArgs e)
@@ -361,7 +335,7 @@ namespace cacatUA
                 "Cancelar la selección y volver al panel anterior");
         }
 
-        private void mostrarMaterial(ENMaterial material)
+        public void mostrarMaterial(ENMaterial material)
         {
             // Mostramos el nuevo material
             if (material != null)
@@ -374,7 +348,7 @@ namespace cacatUA
                 controles["categoria"].Text = material.Categoria.NombreCompleto();
                 categoria = material.Categoria;
                 controles["archivo"].Text = material.Archivo;
-                controles["tamaño"].Text = material.Tamaño.ToString();
+                controles["tamaño"].Text = ENMaterial.convertirTamaño(material.Tamaño);
                 controles["descargas"].Text = material.Descargas.ToString();
                 controles["puntuacion"].Text = material.Puntuacion.ToString();
                 controles["votos"].Text = material.Votos.ToString();

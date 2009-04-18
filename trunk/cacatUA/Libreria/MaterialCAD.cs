@@ -226,7 +226,7 @@ namespace Libreria
             return materiales;
         }
 
-        public ArrayList Obtener(string filtroBusqueda, ENUsuario usuario, ENCategoria categoria, DateTime fechaInicio, DateTime fechaFin)
+        public ArrayList Obtener(string propiedadOrdenar, bool ascendente, int pagina, int cantidadPorPagina, BusquedaMaterial busqueda)
         {
             ArrayList materiales = new ArrayList();
             SqlConnection conexion = null;
@@ -242,31 +242,45 @@ namespace Libreria
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
 
-                Console.WriteLine("nombre: " + filtroBusqueda);
-                string cadenaComando = "SELECT * FROM vistaMateriales WHERE "
-                    + "(nombre like @nombre or descripcion like @descripcion) ";
-                if (usuario != null && usuario.Nombre != "")
-                    cadenaComando += "and usuario = @usuario ";
-                if (categoria != null)
-                    cadenaComando += "and categoria = @categoria";
-                /*
-                if (fechaInicio <= fechaFin)
+                // Cálculamos las filas de inicio y fin a partir de la página
+                int filaInicio = (pagina - 1) * cantidadPorPagina + 1;
+                int filaFinal = filaInicio - 1 + cantidadPorPagina;
+
+                // Formamos dos comandos, uno para obtener el número de resultados total sin paginación y
+                // otro para obtener los materiales paginados con toda la información
+                string comandoSinPaginacion = "";
+                string comandoConPaginacion = "";
+                string cadenaComun = "";
+
+                comandoSinPaginacion += "SELECT count(*) as numResultados FROM vistaMateriales WHERE ";
+                comandoConPaginacion += "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY " + propiedadOrdenar;
+                if (ascendente == true)
+                    comandoConPaginacion += " ASC";
+                else
+                    comandoConPaginacion += " DESC";
+                comandoConPaginacion += ") as row FROM vistaMateriales WHERE"; 
+
+                cadenaComun += "(nombre like @nombre or descripcion like @descripcion) ";
+                if (busqueda.Usuario != null)
                 {
-                    comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
-                    comando.Parameters.AddWithValue("@fechafin", fechaFin);
+                    cadenaComun += "and usuario = @usuario ";
+                    comando.Parameters.AddWithValue("@usuario", busqueda.Usuario.Id);
                 }
-                */
+                if (busqueda.Categoria != null)
+                {
+                    cadenaComun += "and categoria = @categoria";
+                    comando.Parameters.AddWithValue("@categoria", busqueda.Categoria.Id);
+                }
+                comandoSinPaginacion += cadenaComun;
+                comandoConPaginacion += cadenaComun;
+                comandoConPaginacion += " ) as alias WHERE row >= @filaInicio and row <= @filaFinal";
 
-                comando.CommandText = cadenaComando;
-                comando.Parameters.AddWithValue("@nombre","%" + filtroBusqueda + "%");
-                comando.Parameters.AddWithValue("@descripcion","%" + filtroBusqueda + "%");
-                if(usuario != null)
-                    comando.Parameters.AddWithValue("@usuario", usuario.Id);
-                if(categoria != null)
-                comando.Parameters.AddWithValue("@categoria", categoria.Id);
-
-                Console.WriteLine(comando.CommandText);
-                
+                // Obtenemos los resultados con paginación
+                comando.CommandText = comandoConPaginacion;
+                comando.Parameters.AddWithValue("@nombre", "%" + busqueda.FiltroBusqueda + "%");
+                comando.Parameters.AddWithValue("@descripcion", "%" + busqueda.FiltroBusqueda + "%");
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
@@ -274,10 +288,20 @@ namespace Libreria
                     ENMaterial material = obtenerDatos(reader);
                     materiales.Add(material);
                 }
+
+                // Obtenemos los resultados sin paginación
+                comando.CommandText = comandoSinPaginacion;
+                reader.Close();
+                reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Guardamos los resultados de la búsqueda
+                    busqueda.NumResultados = int.Parse(reader["numResultados"].ToString());
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ENMaterial::Obtener(string filtroBusqueda, string usuario, string categoria, DateTime fechaInicio, DateTime fechaFin)) " + ex.Message);
+                Console.WriteLine("<ENMaterial::Obtener> " + ex.Message);
             }
             finally
             {
@@ -617,6 +641,62 @@ namespace Libreria
             }
 
             return material;
+        }
+    }
+
+    public class BusquedaMaterial
+    {
+        private ENUsuario usuario;
+        private ENCategoria categoria;
+        private string filtroBusqueda;
+        private DateTime fechaInicio;
+        private DateTime fechaFin;
+        private int numResultados;
+
+        public BusquedaMaterial()
+        {
+            categoria = null;
+            usuario = null;
+            filtroBusqueda = "";
+            numResultados = 0;
+            fechaInicio = new DateTime(2008, 9, 1);
+            fechaFin = DateTime.Now;
+        }
+
+        public ENUsuario Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
+        public ENCategoria Categoria
+        {
+            get { return categoria; }
+            set { categoria = value; }
+        }
+
+        public string FiltroBusqueda
+        {
+            get { return filtroBusqueda; }
+            set { filtroBusqueda = value; }
+        }
+
+        public DateTime FechaInicio
+        {
+            get { return fechaInicio; }
+            set { fechaInicio = value; }
+        }
+
+        public DateTime FechaFin
+        {
+            get { return fechaFin; }
+            set { fechaFin = value; }
+        }
+
+        public int NumResultados
+        {
+            get { return numResultados; }
+            set { numResultados = value; }
         }
     }
 }
