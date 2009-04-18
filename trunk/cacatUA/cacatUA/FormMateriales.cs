@@ -227,8 +227,8 @@ namespace cacatUA
                 // Comprobamos si se está descargando
                 if (estaDescargando(material))
                 {
-                    fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewTextBoxCell();
-                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = "hola";
+                    posicion = dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargar"].Index;
+                    fila.Cells[posicion].Value = "cargando";
                 }
                 dataGridView_materiales.Rows.Add(fila);
             }
