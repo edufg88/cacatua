@@ -357,11 +357,10 @@ namespace Libreria
                     // Le asignamos la conexión al comando
                     comando.Connection = conexion;
                     comando.CommandText = "INSERT INTO " +
-                        "grupos(nombre,descripcion,fecha) " +
-                        "VALUES (@nombre,@descripcion,@fecha)";
+                        "grupos(nombre,descripcion) " +
+                        "VALUES (@nombre,@descripcion)";
                     comando.Parameters.AddWithValue("@nombre", grupo.Nombre);
                     comando.Parameters.AddWithValue("@descripcion", grupo.Descripcion);
-                    comando.Parameters.AddWithValue("@fecha", grupo.Fecha);
                     resultado = comando.ExecuteNonQuery();
                     ENGrupos aux = Ultimo();
                     if (grupo.NumUsuarios != 0)
@@ -477,15 +476,18 @@ namespace Libreria
         }
 
         /// <summary>
-        /// Busca los grupos acordes a los parámetros
+        /// Busca los grupos acordes a los parámetros.
         /// </summary>
-        /// <param name="min">Cantidad minima de usuarios</param>
-        /// <param name="max">Cantidad máxima de usuarios</param>
-        /// <param name="grupo">Nombre del grupo y fecha</param>
+        /// <param name="cantidad">Cantidad de grupos en cada página.</param>
+        /// <param name="ultimo">Último grupo que se devolvió.</param>
+        /// <param name="orden">Indica si es un filtro ascendente o descendente.</param>
+        /// <param name="min">Cantidad minima de usuarios.</param>
+        /// <param name="max">Cantidad máxima de usuarios.</param>
+        /// <param name="grupo">Nombre del grupo y fecha.</param>
         /// <param name="fechafin">Fecha de fin para el filtro de búsqueda.</param>
-        /// <param name="usuario">usuario del cual queremos saber sus grupos</param>
-        /// <returns>Devuelve un array con los gurpos encontrados segun el filtro de búsqueda</returns>
-        public ArrayList Buscar(int min, int max,ENGrupos grupo,DateTime fechafin, ref ENUsuario usuario)
+        /// <param name="usuario">usuario del cual queremos saber sus grupos.</param>
+        /// <returns>Devuelve un array con los gurpos encontrados segun el filtro de búsqueda.</returns>
+        public ArrayList Buscar(int cantidad,ENGrupos ultimo,bool orden,int min, int max,ENGrupos grupo,DateTime fechafin, ref ENUsuario usuario)
         {
             ArrayList grupos = new ArrayList();
             SqlConnection conexion = null;
@@ -495,7 +497,12 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 // Creamos el comando
-                string comand="SELECT id,nombre,descripcion,fecha FROM grupos LEFT OUTER JOIN miembros ON id=grupo WHERE fecha between @fechainicio and @fechafin";
+                string comand="";
+                if (cantidad>0)
+                {
+                    comand += "SET ROWCOUNT " + cantidad + " \n";
+                }
+                comand+="SELECT id,nombre,descripcion,fecha FROM grupos LEFT OUTER JOIN miembros ON id=grupo WHERE fecha between @fechainicio and @fechafin";
                 if (grupo.Nombre != "")
                 {
                     comand+=" AND nombre like'%"+@grupo.Nombre+"%'";
@@ -510,9 +517,16 @@ namespace Libreria
                 }
                 else if(max!=0)
                 {
-                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) BETWEEN @min AND @max";
+                    comand += " AND (SELECT COUNT(miembros_1.grupo) AS Expr1 FROM grupos AS grupos_1 LEFT OUTER JOIN miembros AS miembros_1 ON miembros_1.grupo = grupos_1.id WHERE(grupos_1.id = grupos.id) GROUP BY miembros_1.grupo) BETWEEN @min AND @max";
                 }
-                comand += " GROUP BY id,nombre,descripcion,fecha";
+                if (ultimo != null)
+                {
+                    comand += " AND id";
+                    if (orden) comand += ">"; else comand += "<";
+                    comand+="@ultimo";
+                }
+                comand += " GROUP BY id,nombre,descripcion,fecha ORDER BY id ";
+                if (orden) comand += "ASC"; else comand += "DESC";
                 SqlCommand comando = new SqlCommand(comand, conexion);
                 comando.Parameters.AddWithValue("@fechainicio", grupo.Fecha);
                 comando.Parameters.AddWithValue("@fechafin", fechafin);
@@ -533,8 +547,10 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@min", min);
                     comando.Parameters.AddWithValue("@max", max);
                 }
-                /*if (autor != null)
-                    comando.Parameters.AddWithValue("@autor", autor.Id);*/
+                if (ultimo != null)
+                {
+                    comando.Parameters.AddWithValue("@ultimo", ultimo.Id);
+                }
 
                 SqlDataReader reader = comando.ExecuteReader();
                 while (reader.Read())
@@ -555,6 +571,10 @@ namespace Libreria
             return grupos;
         }
 
+        /// <summary>
+        /// Calcula el número de grupos en la base de datos
+        /// </summary>
+        /// <returns>Entero con la cantidad de grupos</returns>
         public int NumGrupos()
         {
             int cantidad=0;
@@ -584,6 +604,10 @@ namespace Libreria
             return cantidad;
         }
 
+        /// <summary>
+        /// Obtiene el último grupo creado en la base de datos.
+        /// </summary>
+        /// <returns>Ultimo grupo creado</returns>
         public ENGrupos Ultimo()
         {
             ENGrupos grupo = null;

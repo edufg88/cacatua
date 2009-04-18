@@ -49,13 +49,13 @@
             this.listBox_usuarios = new System.Windows.Forms.ListBox();
             this.label_usuarios = new System.Windows.Forms.Label();
             this.panel_numUsuarios = new System.Windows.Forms.Panel();
-            this.numericUpDown_numUsuarios1 = new System.Windows.Forms.NumericUpDown();
             this.label_numUsuarios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox_numUsuarios = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_nombre.SuspendLayout();
             this.panel_descripcion.SuspendLayout();
@@ -63,7 +63,6 @@
             this.panel_usuarios.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_numUsuarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -302,7 +301,7 @@
             // 
             // panel_numUsuarios
             // 
-            this.panel_numUsuarios.Controls.Add(this.numericUpDown_numUsuarios1);
+            this.panel_numUsuarios.Controls.Add(this.textBox_numUsuarios);
             this.panel_numUsuarios.Controls.Add(this.label_numUsuarios);
             this.panel_numUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_numUsuarios.Location = new System.Drawing.Point(0, 153);
@@ -310,15 +309,6 @@
             this.panel_numUsuarios.Name = "panel_numUsuarios";
             this.panel_numUsuarios.Size = new System.Drawing.Size(899, 30);
             this.panel_numUsuarios.TabIndex = 10;
-            // 
-            // numericUpDown_numUsuarios1
-            // 
-            this.numericUpDown_numUsuarios1.Location = new System.Drawing.Point(125, 8);
-            this.numericUpDown_numUsuarios1.Name = "numericUpDown_numUsuarios1";
-            this.numericUpDown_numUsuarios1.ReadOnly = true;
-            this.numericUpDown_numUsuarios1.Size = new System.Drawing.Size(113, 20);
-            this.numericUpDown_numUsuarios1.TabIndex = 0;
-            this.numericUpDown_numUsuarios1.ValueChanged += new System.EventHandler(this.textBox_Modificado);
             // 
             // label_numUsuarios
             // 
@@ -366,6 +356,14 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // textBox_numUsuarios
+            // 
+            this.textBox_numUsuarios.Enabled = false;
+            this.textBox_numUsuarios.Location = new System.Drawing.Point(124, 7);
+            this.textBox_numUsuarios.Name = "textBox_numUsuarios";
+            this.textBox_numUsuarios.Size = new System.Drawing.Size(100, 20);
+            this.textBox_numUsuarios.TabIndex = 1;
+            // 
             // FormGruposEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,7 +384,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel_numUsuarios.ResumeLayout(false);
             this.panel_numUsuarios.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_numUsuarios1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -409,7 +406,6 @@
         private System.Windows.Forms.ListBox listBox_usuarios;
         private System.Windows.Forms.Label label_usuarios;
         private System.Windows.Forms.Panel panel_numUsuarios;
-        private System.Windows.Forms.NumericUpDown numericUpDown_numUsuarios1;
         private System.Windows.Forms.Label label_numUsuarios;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button_descartarCambios;
@@ -422,5 +418,6 @@
         private System.Windows.Forms.Button button_borrar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.TextBox textBox_numUsuarios;
     }
 }
