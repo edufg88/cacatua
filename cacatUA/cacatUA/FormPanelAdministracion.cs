@@ -140,7 +140,7 @@ namespace cacatUA
             Button button = new Button();
             button.AutoSize = true;
             button.Enabled = false;
-            toolTip1.SetToolTip(button, "Retroceder hasta este punto");
+            toolTip1.SetToolTip(button, "Retroceder hasta este punto cancelando todas las tareas sin terminar");
             button.Click += new System.EventHandler(button_navegacion_Click);
             button.Text = descripcion;
             if (flowLayoutPanel_navegacion.Controls.Count > 0)
@@ -233,22 +233,34 @@ namespace cacatUA
             form.Dock = DockStyle.Fill;
         }
 
+        /// <summary>
+        /// Obliga a que aparezca un tooltip (el que es un globo) en el botón "volver".
+        /// </summary>
         public void MostrarToolTip()
         {
             toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver);
         }
 
+        /// <summary>
+        /// Oculta el tooltip (el que es un globo) del botón "volver".
+        /// </summary>
         public void OcultarToolTip()
         {
             toolTip_avanzado.Hide(button_volver);
         }
 
+        /// <summary>
+        /// Modifica el estado del botón volver.
+        /// </summary>
         public bool Volver
         {
             get { return button_volver.Enabled; }
             set { button_volver.Enabled = value; }
         }
 
+        /// <summary>
+        /// Modifica el estado del botón cancelar.
+        /// </summary>
         public bool Cancelar
         {
             get { return button_cancelar.Enabled; }
@@ -265,9 +277,19 @@ namespace cacatUA
             Desapilar(false);
         }
 
+        /// <summary>
+        /// Permite establecer un texto en la barra de estado. Por ejemplo, en vez de salir un MessageBox
+        /// cuando se crea ALGO, se establece un mensaje que diga "ALGO creado correctamente".
+        /// </summary>
+        /// <param name="mensaje">Cadena de texto con el mensaje.</param>
         public void MensajeEstado(string mensaje)
         {
             toolStripStatusLabel1.Text = mensaje;
+        }
+
+        private void flowLayoutPanel_navegacion_ControlAdded(object sender, ControlEventArgs e)
+        {
+            ((FlowLayoutPanel)sender).AutoScrollPosition = new Point(20, 20);
         }
     }
 }

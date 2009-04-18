@@ -73,6 +73,7 @@ namespace cacatUA
             textBox_texto.Text = "";
             dateTimePicker_fecha.Value = DateTime.Now;
 
+            errorProvider1.Clear();
             desactivarBotones();
         }
 
@@ -94,6 +95,7 @@ namespace cacatUA
                 textBox_texto.Text = respuesta.Texto;
                 dateTimePicker_fecha.Value = respuesta.Fecha;
 
+                errorProvider1.Clear();
                 desactivarBotones();
             }
             else
@@ -186,16 +188,39 @@ namespace cacatUA
         public bool ValidarFormulario()
         {
             bool correcto = true;
+            string errorTexto = "";
+            string errorAutor = "";
 
-            if (ENUsuario.Obtener(textBox_autor.Text) == null)
+            if (textBox_autor.Text.Length == 0)
             {
-                errorProvider1.SetError(textBox_autor, "No existe el usuario");
+                errorAutor = "Debes introducir un usuario.";
                 correcto = false;
             }
             else
             {
-                errorProvider1.SetError(textBox_autor, "");
+                if (ENUsuario.Obtener(textBox_autor.Text) == null)
+                {
+                    errorAutor = "No existe el usuario.";
+                    correcto = false;
+                }
             }
+
+            if (textBox_texto.Text.Length == 0)
+            {
+                errorTexto = "Debes introducir un texto.";
+                correcto = false;
+            }
+            else
+            {
+                if (textBox_texto.Text.Length > 5000)
+                {
+                    errorTexto = "El texto no puede tener más de 5000 caracteres.";
+                    correcto = false;
+                }
+            }
+
+            errorProvider1.SetError(textBox_autor, errorAutor);
+            errorProvider1.SetError(textBox_texto, errorTexto);
 
             return correcto;
         }

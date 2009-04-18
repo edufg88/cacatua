@@ -81,7 +81,7 @@
             this.dateTimePicker_fechaFin.Name = "dateTimePicker_fechaFin";
             this.dateTimePicker_fechaFin.ShowUpDown = true;
             this.dateTimePicker_fechaFin.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker_fechaFin.TabIndex = 3;
+            this.dateTimePicker_fechaFin.TabIndex = 1;
             // 
             // label_hasta
             // 
@@ -100,7 +100,7 @@
             this.dateTimePicker_fechaInicio.Name = "dateTimePicker_fechaInicio";
             this.dateTimePicker_fechaInicio.ShowUpDown = true;
             this.dateTimePicker_fechaInicio.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker_fechaInicio.TabIndex = 1;
+            this.dateTimePicker_fechaInicio.TabIndex = 0;
             this.dateTimePicker_fechaInicio.Value = new System.DateTime(2008, 9, 1, 0, 0, 0, 0);
             // 
             // label_mostrarDesde
@@ -135,8 +135,7 @@
             this.button_seleccionarCategoria.Location = new System.Drawing.Point(709, 6);
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarCategoria.TabIndex = 143;
-            this.button_seleccionarCategoria.TabStop = false;
+            this.button_seleccionarCategoria.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_seleccionarCategoria, "Haz clic para seleccionar una categoría de la lista");
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
             this.button_seleccionarCategoria.Click += new System.EventHandler(this.button_seleccionarCategoria_Click);
@@ -149,7 +148,7 @@
             this.textBox_categoria.Name = "textBox_categoria";
             this.textBox_categoria.ReadOnly = true;
             this.textBox_categoria.Size = new System.Drawing.Size(605, 20);
-            this.textBox_categoria.TabIndex = 2;
+            this.textBox_categoria.TabIndex = 0;
             // 
             // label_categoria
             // 
@@ -183,8 +182,7 @@
             this.button_seleccionarUsuario.Location = new System.Drawing.Point(709, 6);
             this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarUsuario.TabIndex = 144;
-            this.button_seleccionarUsuario.TabStop = false;
+            this.button_seleccionarUsuario.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_seleccionarUsuario, "Haz clic para seleccionar un usuario de la lista");
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
             this.button_seleccionarUsuario.Click += new System.EventHandler(this.button_seleccionarUsuario_Click);
@@ -196,7 +194,7 @@
             this.textBox_autor.Location = new System.Drawing.Point(125, 5);
             this.textBox_autor.Name = "textBox_autor";
             this.textBox_autor.Size = new System.Drawing.Size(605, 20);
-            this.textBox_autor.TabIndex = 2;
+            this.textBox_autor.TabIndex = 0;
             // 
             // label_autor
             // 
@@ -225,7 +223,7 @@
             this.textBox_filtroBusqueda.Location = new System.Drawing.Point(125, 5);
             this.textBox_filtroBusqueda.Name = "textBox_filtroBusqueda";
             this.textBox_filtroBusqueda.Size = new System.Drawing.Size(605, 20);
-            this.textBox_filtroBusqueda.TabIndex = 1;
+            this.textBox_filtroBusqueda.TabIndex = 0;
             // 
             // label_filtroBusqueda
             // 
