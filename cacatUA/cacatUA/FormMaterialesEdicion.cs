@@ -241,6 +241,11 @@ namespace cacatUA
                                     formularioPadre.formMaterialesBusqueda.limpiarFormulario();
                                     formularioPadre.formMaterialesBusqueda.Buscar();
                                 }
+                                else
+                                {
+                                    FormPanelAdministracion.Instancia.MensajeEstado(form.Error);
+                                    MessageBox.Show(form.Error,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                }
                             }
                         }
                         break;
