@@ -266,26 +266,36 @@ namespace Libreria
             return CategoriaCAD.Instancia.NumCategorias();
         } 
 
-        //Propiedades
-
+        /// <summary>
+        /// Identificador de la categoria.
+        /// </summary>
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
 
+        /// <summary>
+        /// Nombre de la categoria.
+        /// </summary>
         public String Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
 
+        /// <summary>
+        /// Descripcion de la categoria.
+        /// </summary>
         public String Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
 
+        /// <summary>
+        /// Identificador del padre.
+        /// </summary>
         public int Padre
         {
             get { return padre; }
