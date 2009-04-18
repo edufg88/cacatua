@@ -203,14 +203,14 @@
             this.panel.AutoScroll = true;
             this.panel.AutoScrollMinSize = new System.Drawing.Size(630, 0);
             this.panel.BackColor = System.Drawing.SystemColors.Control;
-            this.panel.Location = new System.Drawing.Point(197, 27);
+            this.panel.Location = new System.Drawing.Point(197, 30);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(784, 501);
+            this.panel.Size = new System.Drawing.Size(784, 498);
             this.panel.TabIndex = 0;
             // 
             // toolTip_avanzado
             // 
-            this.toolTip_avanzado.IsBalloon = true;
+            this.toolTip_avanzado.ShowAlways = true;
             this.toolTip_avanzado.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_avanzado.ToolTipTitle = "Preparado para volver";
             // 
@@ -225,7 +225,7 @@
             this.button_volver.Location = new System.Drawing.Point(0, 0);
             this.button_volver.Margin = new System.Windows.Forms.Padding(0);
             this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(24, 24);
+            this.button_volver.Size = new System.Drawing.Size(24, 27);
             this.button_volver.TabIndex = 2;
             this.toolTip1.SetToolTip(this.button_volver, "Vuelve al panel anterior");
             this.button_volver.UseVisualStyleBackColor = true;
@@ -242,7 +242,7 @@
             this.button_cancelar.Location = new System.Drawing.Point(24, 0);
             this.button_cancelar.Margin = new System.Windows.Forms.Padding(0);
             this.button_cancelar.Name = "button_cancelar";
-            this.button_cancelar.Size = new System.Drawing.Size(24, 24);
+            this.button_cancelar.Size = new System.Drawing.Size(24, 27);
             this.button_cancelar.TabIndex = 3;
             this.toolTip1.SetToolTip(this.button_cancelar, "Cancela la selección y vuelve al panel anterior");
             this.button_cancelar.UseVisualStyleBackColor = true;
@@ -250,13 +250,17 @@
             // 
             // flowLayoutPanel_navegacion
             // 
-            this.flowLayoutPanel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.flowLayoutPanel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel_navegacion.AutoScroll = true;
+            this.flowLayoutPanel_navegacion.AutoScrollMargin = new System.Drawing.Size(5, 55);
             this.flowLayoutPanel_navegacion.Location = new System.Drawing.Point(48, 0);
             this.flowLayoutPanel_navegacion.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel_navegacion.Name = "flowLayoutPanel_navegacion";
-            this.flowLayoutPanel_navegacion.Size = new System.Drawing.Size(736, 27);
+            this.flowLayoutPanel_navegacion.Size = new System.Drawing.Size(736, 31);
             this.flowLayoutPanel_navegacion.TabIndex = 4;
+            this.flowLayoutPanel_navegacion.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel_navegacion_ControlAdded);
             // 
             // statusStrip1
             // 
@@ -275,13 +279,15 @@
             // 
             // panel_navegacion
             // 
+            this.panel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_navegacion.Controls.Add(this.button_volver);
             this.panel_navegacion.Controls.Add(this.button_cancelar);
             this.panel_navegacion.Controls.Add(this.flowLayoutPanel_navegacion);
             this.panel_navegacion.Location = new System.Drawing.Point(197, 0);
             this.panel_navegacion.Margin = new System.Windows.Forms.Padding(0);
             this.panel_navegacion.Name = "panel_navegacion";
-            this.panel_navegacion.Size = new System.Drawing.Size(784, 28);
+            this.panel_navegacion.Size = new System.Drawing.Size(784, 31);
             this.panel_navegacion.TabIndex = 6;
             // 
             // FormPanelAdministracion

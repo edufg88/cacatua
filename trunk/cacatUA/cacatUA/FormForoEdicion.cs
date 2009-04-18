@@ -85,7 +85,10 @@ namespace cacatUA
 
             if (textBox_titulo.Text != "")
             {
-
+                if (textBox_titulo.Text.Length > 200)
+                {
+                    errorTitulo = "El título no puede tener más de 200 caracteres.";
+                }
             }
             else
             {
@@ -94,7 +97,10 @@ namespace cacatUA
 
             if (textBox_texto.Text != "")
             {
-
+                if (textBox_titulo.Text.Length > 5000)
+                {
+                    errorTitulo = "El texto no puede tener más de 5000 caracteres.";
+                }
             }
             else
             {

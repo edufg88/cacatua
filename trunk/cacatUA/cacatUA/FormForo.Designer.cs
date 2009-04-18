@@ -279,7 +279,7 @@
             this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(111, 169);
             this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
-            this.comboBox_cantidadPorPagina.TabIndex = 1;
+            this.comboBox_cantidadPorPagina.TabIndex = 3;
             this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
             // 
             // button_paginaSiguiente
@@ -288,7 +288,7 @@
             this.button_paginaSiguiente.Location = new System.Drawing.Point(720, 168);
             this.button_paginaSiguiente.Name = "button_paginaSiguiente";
             this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
-            this.button_paginaSiguiente.TabIndex = 13;
+            this.button_paginaSiguiente.TabIndex = 6;
             this.button_paginaSiguiente.Text = "Siguiente";
             this.button_paginaSiguiente.UseVisualStyleBackColor = true;
             this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
@@ -299,7 +299,7 @@
             this.button_paginaAnterior.Location = new System.Drawing.Point(587, 168);
             this.button_paginaAnterior.Name = "button_paginaAnterior";
             this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
-            this.button_paginaAnterior.TabIndex = 12;
+            this.button_paginaAnterior.TabIndex = 4;
             this.button_paginaAnterior.Text = "Anterior";
             this.button_paginaAnterior.UseVisualStyleBackColor = true;
             this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
@@ -342,7 +342,7 @@
             this.comboBox_pagina.Location = new System.Drawing.Point(668, 169);
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
-            this.comboBox_pagina.TabIndex = 11;
+            this.comboBox_pagina.TabIndex = 5;
             this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
             // 
             // button_editarHilo
@@ -356,7 +356,7 @@
             this.button_editarHilo.Location = new System.Drawing.Point(797, 5);
             this.button_editarHilo.Name = "button_editarHilo";
             this.button_editarHilo.Size = new System.Drawing.Size(36, 36);
-            this.button_editarHilo.TabIndex = 9;
+            this.button_editarHilo.TabIndex = 1;
             this.button_editarHilo.Tag = "Modificar hilo seleccionado";
             this.toolTip1.SetToolTip(this.button_editarHilo, "Editar hilo seleccionado");
             this.button_editarHilo.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@
             this.button_borrarHilo.Location = new System.Drawing.Point(797, 41);
             this.button_borrarHilo.Name = "button_borrarHilo";
             this.button_borrarHilo.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarHilo.TabIndex = 10;
+            this.button_borrarHilo.TabIndex = 2;
             this.button_borrarHilo.Tag = "Eliminar hilo seleccionado";
             this.toolTip1.SetToolTip(this.button_borrarHilo, "Eliminar hilos seleccionados");
             this.button_borrarHilo.UseVisualStyleBackColor = true;
@@ -402,7 +402,7 @@
             this.dataGridView_resultados.RowHeadersVisible = false;
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_resultados.Size = new System.Drawing.Size(790, 161);
-            this.dataGridView_resultados.TabIndex = 4;
+            this.dataGridView_resultados.TabIndex = 0;
             this.dataGridView_resultados.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_ColumnHeaderMouseClick);
             this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
             // 
@@ -464,7 +464,7 @@
             this.panel_contenedor.Margin = new System.Windows.Forms.Padding(0);
             this.panel_contenedor.Name = "panel_contenedor";
             this.panel_contenedor.Size = new System.Drawing.Size(838, 240);
-            this.panel_contenedor.TabIndex = 7;
+            this.panel_contenedor.TabIndex = 0;
             // 
             // errorProvider1
             // 

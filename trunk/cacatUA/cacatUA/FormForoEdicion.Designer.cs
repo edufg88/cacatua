@@ -196,8 +196,7 @@
             this.button_seleccionarCategoria.Location = new System.Drawing.Point(833, 6);
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarCategoria.TabIndex = 143;
-            this.button_seleccionarCategoria.TabStop = false;
+            this.button_seleccionarCategoria.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_seleccionarCategoria, "Haz clic para seleccionar una categoría de la lista");
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
             this.button_seleccionarCategoria.Click += new System.EventHandler(this.button_seleccionarCategoria_Click);
@@ -245,8 +244,7 @@
             this.button_seleccionarUsuario.Location = new System.Drawing.Point(833, 6);
             this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarUsuario.TabIndex = 144;
-            this.button_seleccionarUsuario.TabStop = false;
+            this.button_seleccionarUsuario.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button_seleccionarUsuario, "Haz clic para seleccionar un usuario de la lista");
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
             this.button_seleccionarUsuario.Click += new System.EventHandler(this.button_seleccionarUsuario_Click);
