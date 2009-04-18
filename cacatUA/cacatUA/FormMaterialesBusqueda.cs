@@ -67,7 +67,7 @@ namespace cacatUA
             return materiales;
         }
 
-        private void buscarMaterial(object sender, EventArgs e)
+        public void NuevaBusqueda()
         {
             errorProvider.Clear();
             bool error = false;
@@ -106,6 +106,11 @@ namespace cacatUA
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }  
+        }
+
+        private void buscarMaterial(object sender, EventArgs e)
+        {
+            NuevaBusqueda();
         }
 
         private void seleccionarCategoria(object sender, EventArgs e)

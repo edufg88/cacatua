@@ -97,7 +97,8 @@ namespace cacatUA
                             if (formMaterialesBusqueda == null)
                             {
                                 formMaterialesBusqueda = new FormMaterialesBusqueda(this);
-                                formMaterialesBusqueda.Buscar();
+                                CambiarFormulario(formMaterialesBusqueda);
+                                formMaterialesBusqueda.NuevaBusqueda();
                             }
                             CambiarFormulario(formMaterialesBusqueda);
                         }
@@ -130,37 +131,37 @@ namespace cacatUA
             }
         }
 
-        public FormMateriales()
+        private void Inicializar()
         {
             InitializeComponent();
-
-            
             descargas = new Dictionary<int, WebClient>();
-            //ArrayList materiales = ENMaterial.Obtener();
-            //mostrarMateriales(materiales);
             cantidadPorPagina = 10;
             comboBox_cantidadPorPagina.Text = cantidadPorPagina.ToString();
             comboBox_pagina.Text = "1";
             pagina = 1;
-            
+
             // Por defecto ordenamos por id por orden descendente
             propiedadOrdenar = "id";
             dataGridView_materiales.Columns["dataGridViewTextBoxColumn_id"].HeaderCell.SortGlyphDirection = SortOrder.Descending;
             // Por defecto se muestra el formulario de búsqueda 
             // NOTA: Es importante de que esto se ponga al final del constructor
-            estadoAnterior = estados.INICIAL;
-            ActualizarFormulario(estados.BUSCAR);      
+            estadoAnterior = estados.INICIAL;       
+        }
+
+        public FormMateriales()
+        {
+            Inicializar();
+            ActualizarFormulario(estados.BUSCAR);
         }
 
         public FormMateriales(ENCategoria categoria)
         {
-            InitializeComponent();
-            // Por defecto se muestra el formulario de búsqueda
+            Inicializar();
+            if (formMaterialesBusqueda == null)
+                formMaterialesBusqueda = new FormMaterialesBusqueda(this);
+            formMaterialesBusqueda.Recibir(categoria);
             ActualizarFormulario(estados.BUSCAR);
-            estadoAnterior = estados.BUSCAR;
-            
-            //formMaterialesBusqueda.Recibir(categoria);
-            //formMaterialesBusqueda.Buscar(0);
+            formMaterialesBusqueda.NuevaBusqueda();
         }
 
         public DataGridView Materiales
