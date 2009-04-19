@@ -197,7 +197,7 @@ namespace Libreria
             return (borrado);
         }
 
-        public bool GuardarFirma(string emisor, string texto, DateTime fecha, string receptor)
+        public bool GuardarFirma(string emisor, string texto, string receptor)
         {
             bool guardado = false;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -213,11 +213,10 @@ namespace Libreria
 
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "firmas (emisor, texto, fecha, receptor) " +
-                    "VALUES (@emisor, @texto, @fecha, @receptor)";
+                    "firmas (emisor, texto, receptor) " +
+                    "VALUES (@emisor, @texto, @receptor)";
                 comando.Parameters.AddWithValue("@emisor", em.Id);
                 comando.Parameters.AddWithValue("@texto", texto);
-                comando.Parameters.AddWithValue("@fecha", fecha);
                 comando.Parameters.AddWithValue("@receptor", rec.Id);
                 
                 if (comando.ExecuteNonQuery() == 1)

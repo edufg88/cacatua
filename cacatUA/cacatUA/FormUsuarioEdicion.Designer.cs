@@ -160,6 +160,7 @@
             // dateTimePicker_fechaDeIngreso
             // 
             this.dateTimePicker_fechaDeIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechaDeIngreso.Enabled = false;
             this.dateTimePicker_fechaDeIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fechaDeIngreso.Location = new System.Drawing.Point(502, 11);
             this.dateTimePicker_fechaDeIngreso.Name = "dateTimePicker_fechaDeIngreso";

@@ -198,7 +198,7 @@ namespace Libreria
             return (borrado);
         }
 
-        public bool GuardarMensaje(string emisor, string texto, DateTime fecha, string receptor)
+        public bool GuardarMensaje(string emisor, string texto, string receptor)
         {
             bool guardado = false;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -214,11 +214,10 @@ namespace Libreria
 
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "mensajes (emisor, texto, fecha, receptor) " +
-                    "VALUES (@emisor, @texto, @fecha, @receptor)";
+                    "mensajes (emisor, texto, receptor) " +
+                    "VALUES (@emisor, @texto, @receptor)";
                 comando.Parameters.AddWithValue("@emisor", em.Id);
                 comando.Parameters.AddWithValue("@texto", texto);
-                comando.Parameters.AddWithValue("@fecha", fecha);
                 comando.Parameters.AddWithValue("@receptor", rec.Id);
                 
                 if (comando.ExecuteNonQuery() == 1)

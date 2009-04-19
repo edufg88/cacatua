@@ -188,24 +188,31 @@ namespace cacatUA
                             ENUsuario aux = ENUsuario.Obtener(nuevo.Usuario);
                             if (aux.GuardarAdmin())
                             {
-                                CambiarSeleccionado(nuevo.Id);
-                                MessageBox.Show("Usuario guardado correctamente.");
+                                // Si se ha creado, mostramos el mensaje en la barra de estado
+                                FormPanelAdministracion.Instancia.MensajeEstado("Usuario guardado correctamente.");
+                                // Cambiamos al formulario de búsqueda
+                                padre.CambiarFormularioBusqueda();
+                                // Recargamos los usuarios
                                 padre.CargarUsuarios();
                             }
                             else
                             {
-                                MessageBox.Show("Error al guardar como admistrador");
+                                FormPanelAdministracion.Instancia.MensajeEstado("Error al guardar como admistrador");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Usuario guardado correctamente.");
+                            // Si se ha creado, mostramos el mensaje en la barra de estado
+                            FormPanelAdministracion.Instancia.MensajeEstado("Usuario guardado correctamente.");
+                            // Cambiamos al formulario de búsqueda
+                            padre.CambiarFormularioBusqueda();
+                            // Recargamos los usuarios
                             padre.CargarUsuarios();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Error al guardar el usuario");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Error al guardar el usuario");
                     }
                 }
                 else
@@ -231,12 +238,13 @@ namespace cacatUA
                                 aux.BorrarAdmin();
                             }
                         }
-                        MessageBox.Show("Usuario actualizado correctamente.");
+                        
+                        FormPanelAdministracion.Instancia.MensajeEstado("Usuario actualizado correctamente.");
                         padre.CargarUsuarios();
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar el usuario.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Error al actualizar el usuario.");
                     }
                 }
             }

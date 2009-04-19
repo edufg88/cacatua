@@ -186,7 +186,7 @@ namespace Libreria
             return (borrado);
         }
 
-        public bool GuardarImagen(string titulo, string descripcion, string usuario, string archivo, DateTime fecha)
+        public bool GuardarImagen(string titulo, string descripcion, string usuario, string archivo)
         {
             bool guardado = false;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -201,13 +201,12 @@ namespace Libreria
 
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "imagenes (titulo, descripcion, usuario, archivo, fecha) " +
-                    "VALUES (@titulo, @descripcion, @usuario, @archivo, @fecha)";
+                    "imagenes (titulo, descripcion, usuario, archivo) " +
+                    "VALUES (@titulo, @descripcion, @usuario, @archivo)";
                 comando.Parameters.AddWithValue("@titulo", titulo);
                 comando.Parameters.AddWithValue("@descripcion", descripcion);
                 comando.Parameters.AddWithValue("@usuario", autor.Id);
                 comando.Parameters.AddWithValue("@archivo", archivo);
-                comando.Parameters.AddWithValue("@fecha", fecha);
 
                 if (comando.ExecuteNonQuery() == 1)
                 {

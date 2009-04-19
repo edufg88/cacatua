@@ -175,7 +175,7 @@ namespace Libreria
         /// <returns>Devuelve true si se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return FirmaCAD.Instancia.GuardarFirma(emisor.Usuario, texto, fecha, receptor.Usuario);
+            return FirmaCAD.Instancia.GuardarFirma(emisor.Usuario, texto, receptor.Usuario);
         }
 
         /// <summary>

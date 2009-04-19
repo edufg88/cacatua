@@ -182,7 +182,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return ImagenCAD.Instancia.GuardarImagen(titulo, descripcion, usuario.Usuario, archivo, fecha);
+            return ImagenCAD.Instancia.GuardarImagen(titulo, descripcion, usuario.Usuario, archivo);
         }
 
         /// <summary>
