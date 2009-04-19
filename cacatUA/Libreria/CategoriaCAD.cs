@@ -102,14 +102,16 @@ namespace Libreria
         /// Crea una categoria en la base de datos.
         /// </summary>
         /// <param name="categoria">Categoria a insertar en la base de datos.</param>
+        /// <param name="id">Identificador que tomara valor al crear el objeto.</param>
         /// <returns>Devuelve 'true' si el objeto se ha creado correctamente.</returns>
-        public bool Crear(ENCategoria categoria)
+        public bool Crear(ENCategoria categoria, out int id)
         {
-            int resultado = 0;
+            id = 0;
             bool creada = false;
             SqlConnection conexion = null;
             try
             {
+
                 // Creamos la conexion
                 conexion = new SqlConnection(cadenaConexion);
                 // Abrimos la conexión
@@ -118,27 +120,40 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
+
                 if (categoria.Padre == 0)
                 {
-                    comando.CommandText = "INSERT INTO " +
+                    comando.CommandText = "BEGIN TRAN " +
+                                          "INSERT INTO " +
                                           "CATEGORIAS (nombre,descripcion) " +
-                                          "VALUES (@nombre,@descripcion)";
+                                          "VALUES (@nombre,@descripcion); " +
+                                          "select max(id) as id from CATEGORIAS; " + 
+                                          "COMMIT TRAN";
                     comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
                     comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
                 }
                 else
                 {
-                    comando.CommandText = "INSERT INTO " +
+                    comando.CommandText = "BEGIN TRAN " + 
+                                          "INSERT INTO " +
                                           "CATEGORIAS (nombre,descripcion,padre) " +
-                                          "VALUES (@nombre,@descripcion,@padre)";
+                                          "VALUES (@nombre,@descripcion,@padre); " +
+                                          "select max(id) as id from CATEGORIAS; " + 
+                                          "COMMIT TRAN";
                     comando.Parameters.AddWithValue("@nombre", categoria.Nombre);
                     comando.Parameters.AddWithValue("@descripcion", categoria.Descripcion);
                     comando.Parameters.AddWithValue("@padre", categoria.Padre);
                 }
 
-                resultado = comando.ExecuteNonQuery();
-                if (resultado == 1)
+                SqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
                     creada = true;
+                    id = int.Parse(reader["id"].ToString());
+                }
+
+                reader.Close();
             }
             catch (Exception ex)
             {

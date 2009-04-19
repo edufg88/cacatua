@@ -17,6 +17,7 @@ namespace cacatUA
         private ENCategoria seleccionada;
         private ENCategoria enrutada;
         private TreeNode sel;
+        private TreeNode enr;
         private String ultimoMensaje = "";
 
         /// <summary>
@@ -90,6 +91,7 @@ namespace cacatUA
                     dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
                 }
 
+                // TreeNode seleccionado
                 sel = treeViewCategorias.SelectedNode;
 
             }
@@ -98,6 +100,9 @@ namespace cacatUA
                 //Obtenemos la instancia de la Categoria seleccionada
                 enrutada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
                 textBox_Ruta.Text = enrutada.NombreCompleto();
+                
+                // TreeNode seleccionado para enrutar
+                enr = treeViewCategorias.SelectedNode;
             }
         }
 
@@ -115,8 +120,11 @@ namespace cacatUA
 
             //Controles activados
             enrutada = seleccionada;
-            if(enrutada != null)
+            if (enrutada != null)
+            {
                 textBox_Ruta.Text = enrutada.NombreCompleto().ToString();
+                enr = sel;
+            }
 
             //Texto en la barra de estado
             ultimoMensaje = "Creando una nueva categoria - Utilice el panel de la izquierda para establecer la ruta.";
@@ -137,6 +145,7 @@ namespace cacatUA
                 if (treeViewCategorias.SelectedNode.Level != 0)
                 {
                     enrutada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Parent.Name));
+                    enr = treeViewCategorias.SelectedNode.Parent;
                 }
 
                 //Activar/Desactivar controles
@@ -183,13 +192,19 @@ namespace cacatUA
                 seleccionada = null;
                 groupBox_Informacion.Enabled = false;
                 treeViewCategorias.SelectedNode = null;
+                dataGridView_Usuarios.Rows.Clear();
+                textBox_nHilos.Clear();
+                textBox_nMateriales.Clear();
             }           
         }
 
         private void button_Guardar_Click(object sender, EventArgs e)
         {
             //Booleano que nos sirve para controlar si hay errores que impiden guardar
-            bool validado = true; 
+            bool validado = true;
+ 
+            // Nodo que luego tendra el foco del formulario
+            TreeNode nodoSel = null;
  
             //Sea cual sea lo que estemos haciendo, el nombre no se puede dejar vacio
             if(textBox_Nombre.Text == "") {
@@ -225,7 +240,17 @@ namespace cacatUA
                         {
                             ultimoMensaje = "";
                             FormPanelAdministracion.Instancia.MensajeEstado("Categoria actualizada correctamente.");
+                            
+                            sel.Text = seleccionada.Nombre;
+                            sel.Remove();
+
+                            if (enr != null)
+                                enr.Nodes.Add(sel);
+                            else
+                                treeViewCategorias.Nodes.Add(sel);
                         }
+
+                        nodoSel = sel;
                     }
                 }
                 else
@@ -250,6 +275,17 @@ namespace cacatUA
                     {
                         ultimoMensaje = "";
                         FormPanelAdministracion.Instancia.MensajeEstado("Categoria creada correctamente.");
+
+                        //Creamos el nodo de la nueva categoria
+                        TreeNode nodo = new TreeNode();
+                        nodo.Name = nCategoria.Id.ToString();
+                        nodo.Text = nCategoria.Nombre;
+                        if (enr != null)
+                            enr.Nodes.Add(nodo);
+                        else
+                            treeViewCategorias.Nodes.Add(nodo);
+
+                        nodoSel = nodo;
                     }
                 }
             }
@@ -259,12 +295,12 @@ namespace cacatUA
                //Activar/Desactivar controles
                DesactivarEdicion();
 
-                //Recargamos el arbol para que aparezcan los cambios
-                FormCategorias_Load(null, null);
-
                 //Volvemos al estado inicial
                 enrutada = null;
+                enr = null;
                 estado = EstadoFormulario.NINGUNO;
+                treeViewCategorias.SelectedNode = nodoSel; 
+                treeViewCategorias.Focus();
             }
         }
 
@@ -287,7 +323,11 @@ namespace cacatUA
 
             FormPanelAdministracion.Instancia.MensajeEstado("");
             enrutada = null;
+            enr = null;
             estado = EstadoFormulario.NINGUNO;
+
+            treeViewCategorias.SelectedNode = sel;
+            treeViewCategorias.Focus();
         }
 
         /// <summary>
@@ -359,6 +399,7 @@ namespace cacatUA
         {
             textBox_Ruta.Text = "";
             enrutada = new ENCategoria();
+            enr = null;
         }
 
 
@@ -399,6 +440,11 @@ namespace cacatUA
         private void FormCategorias_VisibleChanged(object sender, EventArgs e)
         {
             FormPanelAdministracion.Instancia.MensajeEstado(ultimoMensaje);
+            if (sel != null)
+            {
+                treeViewCategorias.SelectedNode = sel;
+                treeViewCategorias.Focus();
+            }
         }
 
         /// <summary>
