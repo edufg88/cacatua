@@ -175,7 +175,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return MensajeCAD.Instancia.GuardarMensaje(emisor.Usuario, texto, fecha, receptor.Usuario);
+            return MensajeCAD.Instancia.GuardarMensaje(emisor.Usuario, texto, receptor.Usuario);
         }
 
         /// <summary>

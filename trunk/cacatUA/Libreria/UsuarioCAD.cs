@@ -347,7 +347,7 @@ namespace Libreria
             return (borrado);
         }
             
-        public bool CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, DateTime fechaingreso, bool activo, string adicional)
+        public bool CrearUsuario(string usuario, string contrasena, string nombre, string dni, string correo, bool activo, string adicional)
         {
             bool creado = false;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -359,15 +359,14 @@ namespace Libreria
 
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "usuarios (usuario, contrasena, nombre, dni, correo, adicional, fechaingreso, activo) " +
-                    "VALUES (@usuario, @contrasena, @nombre, @dni, @correo, @adicional, @fechaingreso, @activo)";
+                    "usuarios (usuario, contrasena, nombre, dni, correo, adicional, activo) " +
+                    "VALUES (@usuario, @contrasena, @nombre, @dni, @correo, @adicional, @activo)";
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@contrasena", contrasena);
                 comando.Parameters.AddWithValue("@nombre", nombre);
                 comando.Parameters.AddWithValue("@dni", dni);
                 comando.Parameters.AddWithValue("@correo", correo);
                 comando.Parameters.AddWithValue("@adicional", adicional);
-                comando.Parameters.AddWithValue("@fechaingreso", fechaingreso);
                 comando.Parameters.AddWithValue("@activo", activo);
 
                 if (comando.ExecuteNonQuery() == 1)

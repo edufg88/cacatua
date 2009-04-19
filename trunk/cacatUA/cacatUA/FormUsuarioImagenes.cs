@@ -170,13 +170,16 @@ namespace cacatUA
                 {
                     if (nueva.Guardar())
                     {
-                        cambiarSeleccionado(nueva.Id);
-                        MessageBox.Show("Imagen guardada correctamente.");
+                        // Si se ha creado, mostramos el mensaje en la barra de estado
+                        FormPanelAdministracion.Instancia.MensajeEstado("Imagen guardada correctamente.");
+                        // Cambiamos al formulario vacío
+                        cambiarNuevo();
+                        // Recargamos las encuestas
                         CargarImagenes();
                     }
                     else
                     {
-                        MessageBox.Show("Error al guardar la imagen");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Error al guardar la imagen");
                     }
                 }
                 else
@@ -184,12 +187,12 @@ namespace cacatUA
                     nueva.Id = int.Parse(textBox_id.Text);
                     if (nueva.Actualizar())
                     {
-                        MessageBox.Show("Imagen actualizada correctamente.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Imagen actualizada correctamente.");
                         CargarImagenes();
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar la imagen.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Error al actualizar la imagen.");
                     }
                 }
             }
@@ -223,7 +226,7 @@ namespace cacatUA
                         }
                         else
                         {
-                            MessageBox.Show("Error al borrar la imagen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            FormPanelAdministracion.Instancia.MensajeEstado("Error al borrar la imagen.");
                         }
                     }
                 }

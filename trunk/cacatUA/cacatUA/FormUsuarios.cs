@@ -188,7 +188,7 @@ namespace cacatUA
                         }
                         else
                         {
-                            MessageBox.Show("Error al borrar usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            FormPanelAdministracion.Instancia.MensajeEstado("Error al borrar usuario.");
                         }
                     }
                 }

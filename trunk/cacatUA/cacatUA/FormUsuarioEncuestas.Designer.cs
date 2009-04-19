@@ -363,6 +363,7 @@
             // dateTimePicker_fecha
             // 
             this.dateTimePicker_fecha.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fecha.Enabled = false;
             this.dateTimePicker_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_fecha.Location = new System.Drawing.Point(125, 8);
             this.dateTimePicker_fecha.Name = "dateTimePicker_fecha";

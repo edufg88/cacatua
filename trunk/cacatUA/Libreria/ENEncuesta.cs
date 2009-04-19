@@ -141,7 +141,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return EncuestaCAD.Instancia.GuardarEncuesta(pregunta, usuario.Usuario, fecha, activa);
+            return EncuestaCAD.Instancia.GuardarEncuesta(pregunta, usuario.Usuario, activa);
         }
 
         /// <summary>

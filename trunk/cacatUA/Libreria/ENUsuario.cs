@@ -16,7 +16,7 @@ namespace Libreria
         const int maxTamUsuario = 15;
         const int minTamUsuario = 3;
         const int minTamContrasena = 5;
-        const int maxTamNombre = 15;
+        const int maxTamNombre = 40;
         const int minTamNombre = 3;
         const int maxTamAdicional = 200;
         const int minTamPregunta = 3;
@@ -243,11 +243,8 @@ namespace Libreria
                     break;
 
                 case "dni":
-                    if (dato == "")
-                    {
-                        error = campoEnBlanco1 + "campo" + campoEnBlanco2;
-                    }
-                    else
+                    
+                    if (dato != "")
                     {
                         // Creamos una expresión regular para validar el DNI
                         Regex er = new Regex(@"^\d{8}[a-zA-Z]$");
@@ -390,10 +387,10 @@ namespace Libreria
         /// <summary>
         /// Inserta en la BD el usuario actual
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, fechaingreso, activo, adicional);
+            return UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, activo, adicional);
         }
 
         /// <summary>

@@ -161,7 +161,7 @@ namespace Libreria
             return (borrado);
         }
 
-        public bool GuardarEncuesta(string pregunta, string usuario, DateTime fecha, bool activa)
+        public bool GuardarEncuesta(string pregunta, string usuario, bool activa)
         {
             bool guardado = false;
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -176,11 +176,10 @@ namespace Libreria
 
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "encuestas (pregunta, usuario, fecha, activa) " +
-                    "VALUES (@pregunta, @usuario, @fecha, @activa) ";
+                    "encuestas (pregunta, usuario, activa) " +
+                    "VALUES (@pregunta, @usuario, @activa) ";
                 comando.Parameters.AddWithValue("@pregunta", pregunta);
                 comando.Parameters.AddWithValue("@usuario", us.Id);
-                comando.Parameters.AddWithValue("@fecha", fecha);
                 comando.Parameters.AddWithValue("@activa", activa);
                 
                 if (comando.ExecuteNonQuery() == 1)

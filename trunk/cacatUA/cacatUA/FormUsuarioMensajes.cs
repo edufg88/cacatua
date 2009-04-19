@@ -81,7 +81,7 @@ namespace cacatUA
             
             if (mensaje == null)
             {
-                MessageBox.Show("Error al cargar el mensaje", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FormPanelAdministracion.Instancia.MensajeEstado("Error al cargar el mensaje");
             }
             else
             {
@@ -183,7 +183,7 @@ namespace cacatUA
                         }
                         else
                         {
-                            MessageBox.Show("Error al borrar el mensaje", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            FormPanelAdministracion.Instancia.MensajeEstado("Error al borrar el mensaje");
                         }
                     }
                 }
@@ -211,13 +211,16 @@ namespace cacatUA
                 {
                     if (nuevo.Guardar())
                     {
-                        cambiarSeleccionado(nuevo.Id);
-                        MessageBox.Show("Mensaje guardado correctamente.");
+                        // Si se ha creado, mostramos el mensaje en la barra de estado
+                        FormPanelAdministracion.Instancia.MensajeEstado("Mensaje guardado correctamente.");
+                        // Cambiamos al formulario vacío
+                        cambiarNuevo();
+                        // Recargamos las encuestas
                         CargarMensajes();
                     }
                     else
                     {
-                        MessageBox.Show("Error al guardar el mensaje");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Error al guardar el mensaje");
                     }
                 }
                 else
@@ -225,12 +228,12 @@ namespace cacatUA
                     nuevo.Id = int.Parse(textBox_id.Text);
                     if (nuevo.Actualizar())
                     {
-                        MessageBox.Show("Mensaje actualizado correctamente.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Mensaje actualizado correctamente.");
                         CargarMensajes();
                     }
                     else
                     {
-                        MessageBox.Show("Error al actualizar la firma.");
+                        FormPanelAdministracion.Instancia.MensajeEstado("Error al actualizar la firma.");
                     }
                 }
             }
