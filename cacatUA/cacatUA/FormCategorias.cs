@@ -89,10 +89,11 @@ namespace cacatUA
                 textBox_Ruta.Text = seleccionada.Ruta();
                 textBox_nHilos.Text = seleccionada.NumHilos().ToString();
                 textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
-
                 label_UsuariosSuscritos.Text = "Usuarios suscritos (" + seleccionada.NumSuscritos().ToString() + "):";
 
+                //Llenamos el ComboBox de las paginas
                 totalPaginas = ((seleccionada.NumSuscritos()-1)/10)+1;
+                comboBox_pagina.Items.Clear();
                 for (int i = 1; i <= totalPaginas; i++)
                     comboBox_pagina.Items.Add(i);
                 rellenarGridUsuarios(seleccionada);
