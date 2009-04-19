@@ -76,7 +76,7 @@ namespace Libreria
 
         override public bool Guardar()
         {
-            return CategoriaCAD.Instancia.Crear(this);
+            return CategoriaCAD.Instancia.Crear(this,out id);
         }
 
         /// <summary>
