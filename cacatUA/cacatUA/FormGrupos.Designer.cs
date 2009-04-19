@@ -39,10 +39,6 @@
             this.button_editar = new System.Windows.Forms.Button();
             this.button_borrar = new System.Windows.Forms.Button();
             this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_tituloResultado = new System.Windows.Forms.Panel();
             this.label_resultados = new System.Windows.Forms.Label();
             this.label_resultado = new System.Windows.Forms.Label();
@@ -55,6 +51,10 @@
             this.button_seccionCrear = new System.Windows.Forms.Button();
             this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).BeginInit();
@@ -111,7 +111,7 @@
             this.button_paginaSiguiente.Location = new System.Drawing.Point(742, 108);
             this.button_paginaSiguiente.Name = "button_paginaSiguiente";
             this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
-            this.button_paginaSiguiente.TabIndex = 99;
+            this.button_paginaSiguiente.TabIndex = 6;
             this.button_paginaSiguiente.Text = "Siguiente";
             this.button_paginaSiguiente.UseVisualStyleBackColor = true;
             this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
@@ -125,7 +125,7 @@
             this.comboBox_pagina.Location = new System.Drawing.Point(690, 109);
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
-            this.comboBox_pagina.TabIndex = 98;
+            this.comboBox_pagina.TabIndex = 5;
             this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
             // 
             // button_paginaAnterior
@@ -135,7 +135,7 @@
             this.button_paginaAnterior.Location = new System.Drawing.Point(609, 108);
             this.button_paginaAnterior.Name = "button_paginaAnterior";
             this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
-            this.button_paginaAnterior.TabIndex = 97;
+            this.button_paginaAnterior.TabIndex = 4;
             this.button_paginaAnterior.Text = "Anterior";
             this.button_paginaAnterior.UseVisualStyleBackColor = true;
             this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
@@ -177,7 +177,7 @@
             this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(111, 109);
             this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
-            this.comboBox_cantidadPorPagina.TabIndex = 96;
+            this.comboBox_cantidadPorPagina.TabIndex = 3;
             this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
             // 
             // label_cantidadPagina
@@ -187,7 +187,7 @@
             this.label_cantidadPagina.Location = new System.Drawing.Point(3, 113);
             this.label_cantidadPagina.Name = "label_cantidadPagina";
             this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
-            this.label_cantidadPagina.TabIndex = 95;
+            this.label_cantidadPagina.TabIndex = 2;
             this.label_cantidadPagina.Text = "Cantidad por página:";
             // 
             // button_editar
@@ -201,7 +201,7 @@
             this.button_editar.Location = new System.Drawing.Point(821, 3);
             this.button_editar.Name = "button_editar";
             this.button_editar.Size = new System.Drawing.Size(36, 36);
-            this.button_editar.TabIndex = 11;
+            this.button_editar.TabIndex = 1;
             this.button_editar.Tag = "";
             this.toolTip1.SetToolTip(this.button_editar, "Editar grupo seleccionado");
             this.button_editar.UseVisualStyleBackColor = true;
@@ -218,7 +218,7 @@
             this.button_borrar.Location = new System.Drawing.Point(821, 39);
             this.button_borrar.Name = "button_borrar";
             this.button_borrar.Size = new System.Drawing.Size(36, 36);
-            this.button_borrar.TabIndex = 12;
+            this.button_borrar.TabIndex = 2;
             this.button_borrar.Tag = "";
             this.toolTip1.SetToolTip(this.button_borrar, "Borrar grupo seleccionado");
             this.button_borrar.UseVisualStyleBackColor = true;
@@ -244,36 +244,9 @@
             this.dataGridView_resultados.RowHeadersVisible = false;
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_resultados.Size = new System.Drawing.Size(814, 96);
-            this.dataGridView_resultados.TabIndex = 94;
+            this.dataGridView_resultados.TabIndex = 0;
+            this.dataGridView_resultados.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_ColumnHeaderMouseClick);
             this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 50;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            // 
-            // ColumnNumUsuarios
-            // 
-            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
-            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
-            this.ColumnNumUsuarios.ReadOnly = true;
-            this.ColumnNumUsuarios.Width = 128;
-            // 
-            // ColumnFecha
-            // 
-            this.ColumnFecha.HeaderText = "Fecha de Creación";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.ReadOnly = true;
-            this.ColumnFecha.Width = 122;
             // 
             // panel_tituloResultado
             // 
@@ -291,9 +264,9 @@
             this.label_resultados.AutoSize = true;
             this.label_resultados.Location = new System.Drawing.Point(180, 8);
             this.label_resultados.Name = "label_resultados";
-            this.label_resultados.Size = new System.Drawing.Size(214, 13);
+            this.label_resultados.Size = new System.Drawing.Size(225, 13);
             this.label_resultados.TabIndex = 3;
-            this.label_resultados.Text = "(mostrando 1 - 61 de 379 hilos encontrados)";
+            this.label_resultados.Text = "(mostrando 1 - 50 de 200 grupos encontrados)";
             // 
             // label_resultado
             // 
@@ -396,6 +369,35 @@
             this.button_seccionBuscar.UseVisualStyleBackColor = true;
             this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.ColumnID.Width = 50;
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            this.ColumnNombre.ReadOnly = true;
+            // 
+            // ColumnNumUsuarios
+            // 
+            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
+            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
+            this.ColumnNumUsuarios.ReadOnly = true;
+            this.ColumnNumUsuarios.Width = 128;
+            // 
+            // ColumnFecha
+            // 
+            this.ColumnFecha.HeaderText = "Fecha de Creación";
+            this.ColumnFecha.Name = "ColumnFecha";
+            this.ColumnFecha.ReadOnly = true;
+            this.ColumnFecha.Width = 122;
+            // 
             // FormGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,10 +428,6 @@
         private System.Windows.Forms.Button button_editar;
         private System.Windows.Forms.Button button_borrar;
         private System.Windows.Forms.DataGridView dataGridView_resultados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
         private System.Windows.Forms.Panel panel_tituloResultado;
         private System.Windows.Forms.Label label_resultado;
         private System.Windows.Forms.Panel panel_Titulo;
@@ -446,6 +444,10 @@
         private System.Windows.Forms.ComboBox comboBox_cantidadPorPagina;
         private System.Windows.Forms.Label label_cantidadPagina;
         private System.Windows.Forms.Label label_resultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
 
     }
 }

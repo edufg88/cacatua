@@ -217,7 +217,7 @@ namespace cacatUA
                 int final = inicial - 1 + CantidadPorPagina;
                 if (final > totalResultados) final = totalResultados;
 
-                label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " hilos encontrados)";
+                label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " grupos encontrados)";
             }
             else
             {
@@ -343,6 +343,27 @@ namespace cacatUA
             {
                 PaginaActual--;
                 formBusqueda.Anterior();
+            }
+        }
+
+        private void dataGridView_resultados_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.ColumnIndex == 0)
+            {
+                if (dataGridView_resultados.SortedColumn != null)
+                {
+                    dataGridView_resultados.SortedColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
+                }
+
+                ListSortDirection orden;
+                if (dataGridView_resultados.SortOrder == SortOrder.Ascending)
+                    orden = ListSortDirection.Descending;
+                else
+                    orden = ListSortDirection.Ascending;
+
+                dataGridView_resultados.Sort(dataGridView_resultados.Columns[0], orden);
+
+                formBusqueda.Buscar(false);
             }
         }
     }
