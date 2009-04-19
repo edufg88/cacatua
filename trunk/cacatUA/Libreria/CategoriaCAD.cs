@@ -342,7 +342,7 @@ namespace Libreria
         /// </summary>
         /// <param name="categoria">Categoria de la que queremos los usuarios suscritos.</param>
         /// <returns>Lista de usuarios suscritos a la categoria determinada.</returns>
-        public ArrayList UsuariosSuscritosA(ENCategoria categoria)
+        public ArrayList UsuariosSuscritosA(ENCategoria categoria, int numPagina)
         {
             ArrayList usuarios = new ArrayList();
             SqlConnection conexion = null;
@@ -354,7 +354,13 @@ namespace Libreria
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
-                comando.CommandText = "SELECT usuario FROM SUSCRIPCIONES where categoria = @idcat";
+                int desde = ((numPagina - 1) * 10) + 1;
+                int hasta = numPagina * 10;
+                comando.CommandText = "SELECT usuario FROM (" +
+                                      "SELECT *, ROW_NUMBER() OVER (ORDER BY usuario) " +
+                                      "as fila FROM SUSCRIPCIONES WHERE categoria = @idcat) " +
+                                      "as alias WHERE fila >= " + desde.ToString() + " and fila <= " + hasta.ToString() + 
+                                      " ORDER BY usuario asc";            
                 comando.Parameters.AddWithValue("@idcat", categoria.Id);
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
@@ -373,6 +379,45 @@ namespace Libreria
                     conexion.Close();
             }
             return usuarios;
+        }
+
+
+        /// <summary>
+        /// Obtiene el número de usuarios suscritos a una determinada categoria.
+        /// </summary>
+        /// <param name="cat">Categoria asociada</param>
+        /// <returns>Entero que indica el número de usuarios suscritos a la categoria.</returns>
+        public int NumSuscritos(ENCategoria categoria)
+        {
+            int n = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero " +
+                                      "FROM SUSCRIPCIONES " +
+                                      "WHERE categoria = @idcat";
+                comando.Parameters.AddWithValue("@idcat", categoria.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    n = int.Parse(reader["numero"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return n;
         }
 
         /// <summary>

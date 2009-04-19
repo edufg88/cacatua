@@ -19,6 +19,8 @@ namespace cacatUA
         private TreeNode sel;
         private TreeNode enr;
         private String ultimoMensaje = "";
+        int numPagina;
+        int totalPaginas;
 
         /// <summary>
         /// Indica el estado del formulario.
@@ -78,6 +80,9 @@ namespace cacatUA
                 //Obtenemos la instancia de la Categoria seleccionada
                 seleccionada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Name));
 
+                //Num pagina
+                numPagina = 1;
+
                 //Llevar datos a los controles
                 textBox_Nombre.Text = seleccionada.Nombre;
                 textBox_Descripcion.Text = seleccionada.Descripcion;
@@ -85,11 +90,12 @@ namespace cacatUA
                 textBox_nHilos.Text = seleccionada.NumHilos().ToString();
                 textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
 
-                dataGridView_Usuarios.Rows.Clear();
-                foreach (ENUsuario u in seleccionada.UsuariosSuscritos())
-                {
-                    dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
-                }
+                label_UsuariosSuscritos.Text = "Usuarios suscritos (" + seleccionada.NumSuscritos().ToString() + "):";
+
+                totalPaginas = ((seleccionada.NumSuscritos()-1)/10)+1;
+                for (int i = 1; i <= totalPaginas; i++)
+                    comboBox_pagina.Items.Add(i);
+                rellenarGridUsuarios(seleccionada);
 
                 // TreeNode seleccionado
                 sel = treeViewCategorias.SelectedNode;
@@ -104,6 +110,27 @@ namespace cacatUA
                 // TreeNode seleccionado para enrutar
                 enr = treeViewCategorias.SelectedNode;
             }
+        }
+
+        /// <summary>
+        /// Rellena el dataGridView de los usuarios suscritos.
+        /// </summary>
+        /// <param name="categoria">Categoria asociada.</param>
+        private void rellenarGridUsuarios(ENCategoria categoria)
+        {
+            dataGridView_Usuarios.Rows.Clear();
+            foreach (ENUsuario u in categoria.UsuariosSuscritos(numPagina))
+            {
+                dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
+            }
+
+            //Detalles de la paginacion
+            comboBox_pagina.SelectedIndex = comboBox_pagina.Items.IndexOf(numPagina);
+            if (numPagina == totalPaginas)
+                button_Siguiente.Enabled = false;
+
+            if (numPagina == 1)
+                button_Anterior.Enabled = false;
         }
 
         private void button_crearCategoria_Click(object sender, EventArgs e)
@@ -193,6 +220,7 @@ namespace cacatUA
                 groupBox_Informacion.Enabled = false;
                 treeViewCategorias.SelectedNode = null;
                 dataGridView_Usuarios.Rows.Clear();
+                label_UsuariosSuscritos.Text = "Usuarios suscritos: ";
                 textBox_nHilos.Clear();
                 textBox_nMateriales.Clear();
             }           
@@ -481,6 +509,37 @@ namespace cacatUA
 
                 }
             }
+        }
+
+        private void button_Anterior_Click(object sender, EventArgs e)
+        {
+            if (numPagina == totalPaginas)
+                button_Siguiente.Enabled = true;
+
+            numPagina--;
+            rellenarGridUsuarios(seleccionada);
+        }
+
+        private void button_Siguiente_Click(object sender, EventArgs e)
+        {
+            if(numPagina == 1)
+                button_Anterior.Enabled = true;
+
+            numPagina++;
+            rellenarGridUsuarios(seleccionada);
+        }
+
+        private void comboBox_pagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (numPagina == 1)
+                button_Anterior.Enabled = true;
+            if (numPagina == totalPaginas)
+                button_Siguiente.Enabled = true;
+
+            numPagina = int.Parse(comboBox_pagina.SelectedItem.ToString());
+
+
+            rellenarGridUsuarios(seleccionada);
         }
     }
 }
