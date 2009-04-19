@@ -326,8 +326,11 @@ namespace cacatUA
             enr = null;
             estado = EstadoFormulario.NINGUNO;
 
-            treeViewCategorias.SelectedNode = sel;
-            treeViewCategorias.Focus();
+            if (sel != null)
+            {
+                treeViewCategorias.SelectedNode = sel;
+                treeViewCategorias.Focus();
+            }
         }
 
         /// <summary>
