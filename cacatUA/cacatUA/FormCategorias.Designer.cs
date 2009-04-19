@@ -34,6 +34,9 @@
             this.panel_Contenidos = new System.Windows.Forms.Panel();
             this.label_FuncionArbol = new System.Windows.Forms.Label();
             this.groupBox_Informacion = new System.Windows.Forms.GroupBox();
+            this.comboBox_pagina = new System.Windows.Forms.ComboBox();
+            this.button_Siguiente = new System.Windows.Forms.Button();
+            this.button_Anterior = new System.Windows.Forms.Button();
             this.dataGridView_Usuarios = new System.Windows.Forms.DataGridView();
             this.DataGridViewColumno_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataGridViewColumno_Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,6 +131,9 @@
             this.groupBox_Informacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox_Informacion.Controls.Add(this.comboBox_pagina);
+            this.groupBox_Informacion.Controls.Add(this.button_Siguiente);
+            this.groupBox_Informacion.Controls.Add(this.button_Anterior);
             this.groupBox_Informacion.Controls.Add(this.dataGridView_Usuarios);
             this.groupBox_Informacion.Controls.Add(this.linkLabel_verMateriales);
             this.groupBox_Informacion.Controls.Add(this.textBox_nMateriales);
@@ -146,6 +152,38 @@
             this.groupBox_Informacion.TabIndex = 14;
             this.groupBox_Informacion.TabStop = false;
             this.groupBox_Informacion.Text = "Más información";
+            // 
+            // comboBox_pagina
+            // 
+            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_pagina.Location = new System.Drawing.Point(97, 196);
+            this.comboBox_pagina.Name = "comboBox_pagina";
+            this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
+            this.comboBox_pagina.TabIndex = 160;
+            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
+            // 
+            // button_Siguiente
+            // 
+            this.button_Siguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_Siguiente.Location = new System.Drawing.Point(149, 194);
+            this.button_Siguiente.Name = "button_Siguiente";
+            this.button_Siguiente.Size = new System.Drawing.Size(75, 23);
+            this.button_Siguiente.TabIndex = 159;
+            this.button_Siguiente.Text = "Siguiente";
+            this.button_Siguiente.UseVisualStyleBackColor = true;
+            this.button_Siguiente.Click += new System.EventHandler(this.button_Siguiente_Click);
+            // 
+            // button_Anterior
+            // 
+            this.button_Anterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_Anterior.Location = new System.Drawing.Point(18, 194);
+            this.button_Anterior.Name = "button_Anterior";
+            this.button_Anterior.Size = new System.Drawing.Size(75, 23);
+            this.button_Anterior.TabIndex = 158;
+            this.button_Anterior.Text = "Anterior";
+            this.button_Anterior.UseVisualStyleBackColor = true;
+            this.button_Anterior.Click += new System.EventHandler(this.button_Anterior_Click);
             // 
             // dataGridView_Usuarios
             // 
@@ -168,7 +206,7 @@
             this.dataGridView_Usuarios.ReadOnly = true;
             this.dataGridView_Usuarios.RowHeadersVisible = false;
             this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Usuarios.Size = new System.Drawing.Size(346, 87);
+            this.dataGridView_Usuarios.Size = new System.Drawing.Size(346, 56);
             this.dataGridView_Usuarios.TabIndex = 157;
             // 
             // DataGridViewColumno_Id
@@ -568,6 +606,9 @@
         private System.Windows.Forms.ToolTip toolTip_Categorias;
         private System.Windows.Forms.Label label_FuncionArbol;
         private System.Windows.Forms.Button button_LimpiarRuta;
+        private System.Windows.Forms.Button button_Anterior;
+        private System.Windows.Forms.Button button_Siguiente;
+        private System.Windows.Forms.ComboBox comboBox_pagina;
 
 
     }

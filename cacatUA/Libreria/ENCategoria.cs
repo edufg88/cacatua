@@ -153,9 +153,9 @@ namespace Libreria
         /// Metodo que obtiene una lista compuesta por todos los usuarios suscritos a la categoria.
         /// </summary>
         /// <returns>Devuelve la lista de ENUsuario suscritos.</returns>
-        public ArrayList UsuariosSuscritos()
+        public ArrayList UsuariosSuscritos(int numPagina)
         {
-            return CategoriaCAD.Instancia.UsuariosSuscritosA(this);
+            return CategoriaCAD.Instancia.UsuariosSuscritosA(this,numPagina);
         }
 
         /// <summary>
@@ -244,7 +244,17 @@ namespace Libreria
             {
                 return false;
             }
-        }        
+        }
+
+
+        /// <summary>
+        /// Obtiene el número de usuarios suscritos a la categoría.
+        /// </summary>
+        /// <returns>Entero que indica el número de usuarios suscritos.</returns>
+        public int NumSuscritos()
+        {
+            return CategoriaCAD.Instancia.NumSuscritos(this);
+        }
 
         /// <summary>
         /// Método estático que obtiene una categoria de la base de datos a partir de su identificador.
