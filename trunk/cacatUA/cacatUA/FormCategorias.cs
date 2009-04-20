@@ -122,7 +122,13 @@ namespace cacatUA
             int hasta = (numPagina*10);
             int total = seleccionada.NumSuscritos();
 
-            label_UsuariosSuscritos.Text = "Mostrando " + desde.ToString() + "-" + hasta.ToString() + " de " + total.ToString() + " usuarios suscritos:";
+            if (hasta > total)
+                hasta = total;
+
+            if (total > 0)
+                label_UsuariosSuscritos.Text = "Mostrando " + desde.ToString() + "-" + hasta.ToString() + " de " + total.ToString() + " usuarios suscritos:";
+            else
+                label_UsuariosSuscritos.Text = "Esta categoria no tiene usuarios sucritos.";
             dataGridView_Usuarios.Rows.Clear();
             foreach (ENUsuario u in categoria.UsuariosSuscritos(numPagina))
             {

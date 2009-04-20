@@ -155,6 +155,9 @@ namespace cacatUA
             int hasta = (numeroPagina * tamañoPagina);
             int total = totalBusqueda;
 
+            if (hasta > total)
+                hasta = total;
+
             if (totalBusqueda > 0)
                 label_resultados.Text = "(mostrando " + desde + " - " + hasta + " de " + total + " hilos encontrados)";
             else
