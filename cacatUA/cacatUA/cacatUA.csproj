@@ -474,10 +474,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:2086/FileUploader.asmx%3fop=subirArchivo">
+    <WebReferenceUrl Include="http://localhost:2086/FileUploader.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Uploader\</RelPath>
-      <UpdateFromURL>http://localhost:2086/FileUploader.asmx%3fop=subirArchivo</UpdateFromURL>
+      <UpdateFromURL>http://localhost:2086/FileUploader.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
