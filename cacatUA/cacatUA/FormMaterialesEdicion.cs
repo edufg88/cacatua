@@ -292,6 +292,10 @@ namespace cacatUA
                                     button_accion2.Enabled = false;
                                     seleccionado = material;
                                 }
+                                else
+                                {
+                                    MessageBox.Show("No se ha podido actualizar el material en la base de datos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                         }
                         break;
