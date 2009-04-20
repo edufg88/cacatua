@@ -39,6 +39,10 @@
             this.button_editar = new System.Windows.Forms.Button();
             this.button_borrar = new System.Windows.Forms.Button();
             this.dataGridView_resultados = new System.Windows.Forms.DataGridView();
+            this.DataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_numUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_tituloResultado = new System.Windows.Forms.Panel();
             this.label_resultados = new System.Windows.Forms.Label();
             this.label_resultado = new System.Windows.Forms.Label();
@@ -51,10 +55,6 @@
             this.button_seccionCrear = new System.Windows.Forms.Button();
             this.button_seccionBuscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNumUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_resultados)).BeginInit();
@@ -179,6 +179,7 @@
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
             this.comboBox_cantidadPorPagina.TabIndex = 3;
             this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
+            this.comboBox_cantidadPorPagina.SelectedIndexChanged += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectedIndexChanged);
             // 
             // label_cantidadPagina
             // 
@@ -234,10 +235,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_resultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_resultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnID,
-            this.ColumnNombre,
-            this.ColumnNumUsuarios,
-            this.ColumnFecha});
+            this.DataGridViewTextBoxColumn_id,
+            this.DataGridViewTextBoxColumn_nombre,
+            this.DataGridViewTextBoxColumn_numUsuarios,
+            this.DataGridViewTextBoxColumn_fecha});
             this.dataGridView_resultados.Location = new System.Drawing.Point(3, 3);
             this.dataGridView_resultados.Name = "dataGridView_resultados";
             this.dataGridView_resultados.ReadOnly = true;
@@ -245,8 +246,40 @@
             this.dataGridView_resultados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_resultados.Size = new System.Drawing.Size(814, 96);
             this.dataGridView_resultados.TabIndex = 0;
-            this.dataGridView_resultados.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_ColumnHeaderMouseClick);
+            this.dataGridView_resultados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_resultados_CellClick);
             this.dataGridView_resultados.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_resultados_CellMouseDoubleClick);
+            // 
+            // DataGridViewTextBoxColumn_id
+            // 
+            this.DataGridViewTextBoxColumn_id.HeaderText = "ID";
+            this.DataGridViewTextBoxColumn_id.Name = "DataGridViewTextBoxColumn_id";
+            this.DataGridViewTextBoxColumn_id.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.DataGridViewTextBoxColumn_id.Width = 50;
+            // 
+            // DataGridViewTextBoxColumn_nombre
+            // 
+            this.DataGridViewTextBoxColumn_nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
+            this.DataGridViewTextBoxColumn_nombre.Name = "DataGridViewTextBoxColumn_nombre";
+            this.DataGridViewTextBoxColumn_nombre.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // DataGridViewTextBoxColumn_numUsuarios
+            // 
+            this.DataGridViewTextBoxColumn_numUsuarios.HeaderText = "Número de Usuarios";
+            this.DataGridViewTextBoxColumn_numUsuarios.Name = "DataGridViewTextBoxColumn_numUsuarios";
+            this.DataGridViewTextBoxColumn_numUsuarios.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_numUsuarios.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.DataGridViewTextBoxColumn_numUsuarios.Width = 128;
+            // 
+            // DataGridViewTextBoxColumn_fecha
+            // 
+            this.DataGridViewTextBoxColumn_fecha.HeaderText = "Fecha de Creación";
+            this.DataGridViewTextBoxColumn_fecha.Name = "DataGridViewTextBoxColumn_fecha";
+            this.DataGridViewTextBoxColumn_fecha.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.DataGridViewTextBoxColumn_fecha.Width = 122;
             // 
             // panel_tituloResultado
             // 
@@ -369,35 +402,6 @@
             this.button_seccionBuscar.UseVisualStyleBackColor = true;
             this.button_seccionBuscar.Click += new System.EventHandler(this.button_seccionBuscar_Click);
             // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "ID";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.ReadOnly = true;
-            this.ColumnID.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.ColumnID.Width = 50;
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            this.ColumnNombre.ReadOnly = true;
-            // 
-            // ColumnNumUsuarios
-            // 
-            this.ColumnNumUsuarios.HeaderText = "Número de Usuarios";
-            this.ColumnNumUsuarios.Name = "ColumnNumUsuarios";
-            this.ColumnNumUsuarios.ReadOnly = true;
-            this.ColumnNumUsuarios.Width = 128;
-            // 
-            // ColumnFecha
-            // 
-            this.ColumnFecha.HeaderText = "Fecha de Creación";
-            this.ColumnFecha.Name = "ColumnFecha";
-            this.ColumnFecha.ReadOnly = true;
-            this.ColumnFecha.Width = 122;
-            // 
             // FormGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,10 +448,10 @@
         private System.Windows.Forms.ComboBox comboBox_cantidadPorPagina;
         private System.Windows.Forms.Label label_cantidadPagina;
         private System.Windows.Forms.Label label_resultados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_numUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_fecha;
 
     }
 }
