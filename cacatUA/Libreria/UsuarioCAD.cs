@@ -147,7 +147,7 @@ namespace Libreria
         }
 
         // Devuelve la lista de usuarios
-        public ArrayList ObtenerUsuarios()
+        public ArrayList ObtenerUsuarios(int pagina, int tamaño)
         {
             ArrayList usuarios = new ArrayList();
             SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -158,6 +158,12 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 comando.Connection = conexion;
                 comando.CommandText = "SELECT * FROM usuarios";
+                int desde = ((pagina - 1) * tamaño) + 1;
+                int hasta = pagina * tamaño;
+                comando.CommandText = "SELECT * FROM (" +
+                                      "SELECT *, ROW_NUMBER() OVER (ORDER BY id asc) " +
+                                      "as fila FROM usuarios) " +
+                                      "as alias WHERE fila >= " + desde.ToString() + " and fila <= " + hasta.ToString();
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader
                 while (dr.Read())
@@ -389,7 +395,7 @@ namespace Libreria
             return (creado);
         }
 
-        public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso)
+        public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso, int pagina, int tamaño)
         {
             bool usarUsuario = false;
             bool usarCorreo = false;
@@ -421,12 +427,17 @@ namespace Libreria
 
             try
             {
+
+                int desde = ((pagina - 1) * tamaño) + 1;
+                int hasta = pagina * tamaño;
                 conexion.Open();
                 SqlCommand comando = new SqlCommand();
 
                 comando.Connection = conexion;
 
-                comando.CommandText = "SELECT * FROM usuarios WHERE ";
+                comando.CommandText = "SELECT * FROM (" +
+                                     "SELECT *, ROW_NUMBER() OVER (ORDER BY id asc) " +
+                                     "as fila FROM usuarios WHERE ";
 
                 if (usarUsuario)
                 {
@@ -452,6 +463,8 @@ namespace Libreria
                     comando.CommandText += "(fechaingreso = @fechaingreso) ";
                     comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
                 }
+
+                comando.CommandText += ") as alias WHERE fila >= " + desde.ToString() + " and fila <= " + hasta.ToString();
 
                 SqlDataReader dr = comando.ExecuteReader();
                 // Generamos el ArrayList a partir del DataReader
@@ -508,6 +521,95 @@ namespace Libreria
             }
 
             return (esAdmin);
+        }
+
+        public int NumUsuarios(string nombreUsuario, string correo, DateTime fechaIngreso)
+        {
+            bool usarUsuario = false;
+            bool usarCorreo = false;
+            bool usarFecha = false;
+            string cadenaFecha = "";
+
+            if (nombreUsuario != "")
+            {
+                usarUsuario = true;
+            }
+            if (correo != "")
+            {
+                usarCorreo = true;
+            }
+            if (fechaIngreso.Date != DateTime.Now.Date)
+            {
+                usarFecha = true;
+
+                // Generamos una cadena a partir de la fecha
+                cadenaFecha += fechaIngreso.Day;
+                cadenaFecha += "/";
+                cadenaFecha += fechaIngreso.Month;
+                cadenaFecha += "/";
+                cadenaFecha += fechaIngreso.Year;
+            }
+
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = conexion;
+
+                comando.CommandText = "SELECT count(*) cantidad FROM usuarios WHERE ";
+
+                if (usarUsuario)
+                {
+                    comando.CommandText += "(usuario LIKE @usuario) ";
+                    comando.Parameters.AddWithValue("@usuario", "%" + nombreUsuario + "%");
+                }
+                if (usarCorreo)
+                {
+                    if (usarUsuario)
+                    {
+                        comando.CommandText += "AND ";
+                    }
+                    comando.CommandText += "(correo LIKE @correo) ";
+                    comando.Parameters.AddWithValue("@correo", "%" + correo + "%");
+                }
+
+                if (usarFecha)
+                {
+                    if (usarUsuario || usarCorreo)
+                    {
+                        comando.CommandText += "AND ";
+                    }
+                    comando.CommandText += "(fechaingreso = @fechaingreso) ";
+                    comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
+                }
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Extraemos el valor.
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                // Cerramos la consulta.
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepcion NumUsuarios(<parametros>) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
         }
 
         public int NumUsuarios()

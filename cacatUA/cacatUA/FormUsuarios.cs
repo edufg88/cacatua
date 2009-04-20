@@ -28,7 +28,29 @@ namespace cacatUA
         /// <summary>
         /// Entero con el formulario activo 0 = formBusqueda, 1 = formEdicion;
         /// </summary>
-        private int formulario; 
+        private int formulario;
+
+        private int numeroPagina = 1;
+        private int tamañoPagina = 10;
+        private int totalPaginas;
+
+        public int NumeroPagina
+        {
+            get { return numeroPagina; }
+            set { numeroPagina = value; }
+        }
+
+        public int TamañoPagina
+        {
+            get { return tamañoPagina; }
+            set { tamañoPagina = value; }
+        }
+
+        public int TotalPaginas
+        {
+            get { return totalPaginas; }
+            set { totalPaginas = value; }
+        }
 
         /// <summary>
         /// Constructor del formulario principal de usuarios
@@ -43,7 +65,7 @@ namespace cacatUA
 
             formulario = 0;
             CambiarFormularioBusqueda();
-            CargarUsuarios();// Los cargamos en el DataGridView
+            CargarUsuarios(); // Los cargamos en el DataGridView
         }
 
         /// <summary>
@@ -97,10 +119,30 @@ namespace cacatUA
         /// </summary>
         public void CargarUsuarios()
         {
-            ArrayList al = new ArrayList();
-            al = ENUsuario.Obtener();
+            formBusqueda.BuscarUsuarios();
 
-            CargarDatos(al);
+            comboBox_pagina.Items.Clear();
+            for (int i = 1; i <= totalPaginas; i++)
+                comboBox_pagina.Items.Add(i);
+
+            comboBox_cantidadPorPagina.SelectedIndex = comboBox_cantidadPorPagina.Items.IndexOf(tamañoPagina.ToString());
+            comboBox_pagina.SelectedIndex = comboBox_pagina.Items.IndexOf(numeroPagina);
+
+            if (numeroPagina == 1)
+                button_paginaAnterior.Enabled = false;
+            else
+                button_paginaAnterior.Enabled = true;
+            if (numeroPagina == totalPaginas)
+                button_paginaSiguiente.Enabled = false;
+            else
+                button_paginaSiguiente.Enabled = true;
+
+
+            
+            /*ArrayList al = new ArrayList();
+            al = ENUsuario.Obtener(numeroPagina,tamañoPagina);
+
+            CargarDatos(al);*/
         }
 
         /// <summary>
@@ -204,6 +246,36 @@ namespace cacatUA
                 FormPanelAdministracion.Instancia.MostrarToolTip();
             }
             usuarioSeleccionado = ENUsuario.Obtener(int.Parse(dataGridView_usuarios.SelectedRows[0].Cells[0].Value.ToString()));
+        }
+
+        private void comboBox_cantidadPorPagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            tamañoPagina = int.Parse(comboBox_cantidadPorPagina.SelectedItem.ToString());
+            numeroPagina = 1;
+            CargarUsuarios();
+        }
+
+        private void comboBox_pagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (numeroPagina == 1)
+                button_paginaAnterior.Enabled = true;
+            if (numeroPagina == totalPaginas)
+                button_paginaSiguiente.Enabled = true;
+          
+            numeroPagina = int.Parse(comboBox_pagina.SelectedItem.ToString());
+            CargarUsuarios();
+        }
+
+        private void button_paginaAnterior_Click(object sender, EventArgs e)
+        {
+            numeroPagina--;
+            CargarUsuarios();
+        }
+
+        private void button_paginaSiguiente_Click(object sender, EventArgs e)
+        {
+            numeroPagina++;
+            CargarUsuarios();
         }
     }
 }
