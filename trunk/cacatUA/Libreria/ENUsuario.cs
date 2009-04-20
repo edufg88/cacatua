@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Collections;
 
+
 namespace Libreria
 {
     /// <summary>
@@ -83,9 +84,9 @@ namespace Libreria
         /// Obtiene los usuario de la BD
         /// </summary>
         /// <returns>Devuelve un ArrayList con el resultado</returns>
-        public static ArrayList Obtener()
+        public static ArrayList Obtener(int numPagina,int tamPagina)
         {
-            return UsuarioCAD.Instancia.ObtenerUsuarios();
+            return UsuarioCAD.Instancia.ObtenerUsuarios(numPagina,tamPagina);
         }
 
         /// <summary>
@@ -445,9 +446,15 @@ namespace Libreria
         /// <param name="email">Email</param>
         /// <param name="fechaIngreso">Fecha de ingreso</param>
         /// <returns>Devuelve un ArrayList con el resultado de la búsqueda</returns>
-        public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso)
+        public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso, int pagina, int tamaño)
         {
-            return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso);
+            return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso,pagina,tamaño);
+        }
+
+
+        public static int NumUsuarios(string nombreUsuario, string email, DateTime fechaIngreso)
+        {
+            return UsuarioCAD.Instancia.NumUsuarios(nombreUsuario, email, fechaIngreso);
         }
 
         /// <summary>

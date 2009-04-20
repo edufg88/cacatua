@@ -25,23 +25,33 @@ namespace cacatUA
         public FormUsuarioBusqueda(FormUsuarios padre)
         {
             InitializeComponent();
+            textBox_email.Clear();
+            textBox_nombreUsuario.Clear();
 
             this.padre = padre;
         }
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
+            BuscarUsuarios();
+        }
+
+        public void BuscarUsuarios()
+        {
             ArrayList usuarios;
             if (textBox_email.Text != "" || textBox_nombreUsuario.Text != "")
             {
-                usuarios = ENUsuario.Buscar(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value);
-                // Aquí tenemos que llevar el resultado al datagrid de formUsuario.
-                padre.CargarDatos(usuarios);
+                padre.TotalPaginas = ((ENUsuario.NumUsuarios(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value) - 1) / padre.TamañoPagina) + 1;
+                usuarios = ENUsuario.Buscar(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value,padre.NumeroPagina,padre.TamañoPagina);
+                // Aquí tenemos que llevar el resultado al datagrid de formUsuario.    
             }
             else
             {
-                padre.CargarUsuarios();
+               padre.TotalPaginas = ((ENUsuario.NumUsuarios() - 1) / padre.TamañoPagina) + 1;
+                //Llevamos al grid todos los usuarios
+               usuarios = ENUsuario.Obtener(padre.NumeroPagina, padre.TamañoPagina);
             }
+            padre.CargarDatos(usuarios);
         }
 
         private void FormUsuarioBusqueda_Load(object sender, EventArgs e)

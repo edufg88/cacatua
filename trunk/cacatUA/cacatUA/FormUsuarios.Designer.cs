@@ -44,8 +44,11 @@
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_DataGridViewUsuarios = new System.Windows.Forms.Panel();
-            this.button_editarUsuario = new System.Windows.Forms.Button();
-            this.button_borrarUsuario = new System.Windows.Forms.Button();
+            this.label_cantidadPagina = new System.Windows.Forms.Label();
+            this.comboBox_cantidadPorPagina = new System.Windows.Forms.ComboBox();
+            this.button_paginaSiguiente = new System.Windows.Forms.Button();
+            this.button_paginaAnterior = new System.Windows.Forms.Button();
+            this.comboBox_pagina = new System.Windows.Forms.ComboBox();
             this.dataGridView_usuarios = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +59,8 @@
             this.adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_editarUsuario = new System.Windows.Forms.Button();
+            this.button_borrarUsuario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
@@ -234,48 +239,144 @@
             // 
             // panel_DataGridViewUsuarios
             // 
+            this.panel_DataGridViewUsuarios.Controls.Add(this.label_cantidadPagina);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.comboBox_cantidadPorPagina);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.button_paginaSiguiente);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.button_paginaAnterior);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.comboBox_pagina);
+            this.panel_DataGridViewUsuarios.Controls.Add(this.dataGridView_usuarios);
             this.panel_DataGridViewUsuarios.Controls.Add(this.button_editarUsuario);
             this.panel_DataGridViewUsuarios.Controls.Add(this.button_borrarUsuario);
-            this.panel_DataGridViewUsuarios.Controls.Add(this.dataGridView_usuarios);
             this.panel_DataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_DataGridViewUsuarios.Location = new System.Drawing.Point(3, 388);
             this.panel_DataGridViewUsuarios.Name = "panel_DataGridViewUsuarios";
             this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 109);
             this.panel_DataGridViewUsuarios.TabIndex = 36;
             // 
-            // button_editarUsuario
+            // label_cantidadPagina
             // 
-            this.button_editarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_editarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_editarUsuario.FlatAppearance.BorderSize = 0;
-            this.button_editarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_editarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_editarUsuario.Image = global::cacatUA.Properties.Resources.tool;
-            this.button_editarUsuario.Location = new System.Drawing.Point(788, 3);
-            this.button_editarUsuario.Name = "button_editarUsuario";
-            this.button_editarUsuario.Size = new System.Drawing.Size(36, 36);
-            this.button_editarUsuario.TabIndex = 12;
-            this.button_editarUsuario.Tag = "Modificar hilo seleccionado";
-            this.toolTip1.SetToolTip(this.button_editarUsuario, "Editar el usuario seleccionado");
-            this.button_editarUsuario.UseVisualStyleBackColor = true;
-            this.button_editarUsuario.Click += new System.EventHandler(this.button_editarUsuario_Click);
+            this.label_cantidadPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_cantidadPagina.AutoSize = true;
+            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 82);
+            this.label_cantidadPagina.Name = "label_cantidadPagina";
+            this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
+            this.label_cantidadPagina.TabIndex = 13;
+            this.label_cantidadPagina.Text = "Cantidad por página:";
             // 
-            // button_borrarUsuario
+            // comboBox_cantidadPorPagina
             // 
-            this.button_borrarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_borrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarUsuario.FlatAppearance.BorderSize = 0;
-            this.button_borrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarUsuario.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarUsuario.Location = new System.Drawing.Point(788, 40);
-            this.button_borrarUsuario.Name = "button_borrarUsuario";
-            this.button_borrarUsuario.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarUsuario.TabIndex = 11;
-            this.button_borrarUsuario.Tag = "Eliminar hilo seleccionado";
-            this.toolTip1.SetToolTip(this.button_borrarUsuario, "Borrar el usuario seleccionado");
-            this.button_borrarUsuario.UseVisualStyleBackColor = true;
-            this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
+            this.comboBox_cantidadPorPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_cantidadPorPagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_cantidadPorPagina.FormattingEnabled = true;
+            this.comboBox_cantidadPorPagina.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "95",
+            "100",
+            "110",
+            "120",
+            "130",
+            "140",
+            "150",
+            "160",
+            "170",
+            "180",
+            "190",
+            "200",
+            "250",
+            "300"});
+            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 78);
+            this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
+            this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
+            this.comboBox_cantidadPorPagina.TabIndex = 14;
+            this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
+            // 
+            // button_paginaSiguiente
+            // 
+            this.button_paginaSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 77);
+            this.button_paginaSiguiente.Name = "button_paginaSiguiente";
+            this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.button_paginaSiguiente.TabIndex = 17;
+            this.button_paginaSiguiente.Text = "Siguiente";
+            this.button_paginaSiguiente.UseVisualStyleBackColor = true;
+            this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
+            // 
+            // button_paginaAnterior
+            // 
+            this.button_paginaAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 77);
+            this.button_paginaAnterior.Name = "button_paginaAnterior";
+            this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
+            this.button_paginaAnterior.TabIndex = 15;
+            this.button_paginaAnterior.Text = "Anterior";
+            this.button_paginaAnterior.UseVisualStyleBackColor = true;
+            this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
+            // 
+            // comboBox_pagina
+            // 
+            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_pagina.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30"});
+            this.comboBox_pagina.Location = new System.Drawing.Point(655, 78);
+            this.comboBox_pagina.Name = "comboBox_pagina";
+            this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
+            this.comboBox_pagina.TabIndex = 16;
+            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
             // 
             // dataGridView_usuarios
             // 
@@ -299,7 +400,7 @@
             this.dataGridView_usuarios.Name = "dataGridView_usuarios";
             this.dataGridView_usuarios.RowHeadersVisible = false;
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 351);
+            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 64);
             this.dataGridView_usuarios.TabIndex = 2;
             this.dataGridView_usuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseClick);
             this.dataGridView_usuarios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseDoubleClick);
@@ -358,6 +459,40 @@
             this.activo.Name = "activo";
             this.activo.ReadOnly = true;
             // 
+            // button_editarUsuario
+            // 
+            this.button_editarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_editarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_editarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_editarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_editarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_editarUsuario.Image = global::cacatUA.Properties.Resources.tool;
+            this.button_editarUsuario.Location = new System.Drawing.Point(788, 3);
+            this.button_editarUsuario.Name = "button_editarUsuario";
+            this.button_editarUsuario.Size = new System.Drawing.Size(36, 36);
+            this.button_editarUsuario.TabIndex = 12;
+            this.button_editarUsuario.Tag = "Modificar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_editarUsuario, "Editar el usuario seleccionado");
+            this.button_editarUsuario.UseVisualStyleBackColor = true;
+            this.button_editarUsuario.Click += new System.EventHandler(this.button_editarUsuario_Click);
+            // 
+            // button_borrarUsuario
+            // 
+            this.button_borrarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_borrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_borrarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_borrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_borrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button_borrarUsuario.Image = global::cacatUA.Properties.Resources.close;
+            this.button_borrarUsuario.Location = new System.Drawing.Point(788, 40);
+            this.button_borrarUsuario.Name = "button_borrarUsuario";
+            this.button_borrarUsuario.Size = new System.Drawing.Size(36, 36);
+            this.button_borrarUsuario.TabIndex = 11;
+            this.button_borrarUsuario.Tag = "Eliminar hilo seleccionado";
+            this.toolTip1.SetToolTip(this.button_borrarUsuario, "Borrar el usuario seleccionado");
+            this.button_borrarUsuario.UseVisualStyleBackColor = true;
+            this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,6 +512,7 @@
             this.panel_cabeceraSeccion2.ResumeLayout(false);
             this.panel_cabeceraSeccion2.PerformLayout();
             this.panel_DataGridViewUsuarios.ResumeLayout(false);
+            this.panel_DataGridViewUsuarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_usuarios)).EndInit();
             this.ResumeLayout(false);
 
@@ -412,5 +548,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaingreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn activo;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label_cantidadPagina;
+        private System.Windows.Forms.ComboBox comboBox_cantidadPorPagina;
+        private System.Windows.Forms.Button button_paginaSiguiente;
+        private System.Windows.Forms.Button button_paginaAnterior;
+        private System.Windows.Forms.ComboBox comboBox_pagina;
     }
 }
