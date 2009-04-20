@@ -89,6 +89,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método Obtener(id): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -157,6 +160,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método Crear(categoria,id): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -212,6 +218,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método Actualizar(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -252,6 +261,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método Borrar(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -289,6 +301,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método ObtenerSuperiores(): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -328,6 +343,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método HijosDe(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -372,6 +390,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método UsuariosSuscritosA(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -411,6 +432,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método NumSuscritos(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -448,6 +472,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método NumHilos(): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -485,6 +512,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método NumMateriales(): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -520,6 +550,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método NumCategorias(): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -562,6 +595,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método AñadirSuscripcion(): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {
@@ -603,6 +639,9 @@ namespace Libreria
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Excepción en el método QuitarSuscripcion(): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
             }
             finally
             {

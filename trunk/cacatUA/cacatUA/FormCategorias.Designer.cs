@@ -157,7 +157,7 @@
             // 
             this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_pagina.Location = new System.Drawing.Point(97, 196);
+            this.comboBox_pagina.Location = new System.Drawing.Point(237, 196);
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
             this.comboBox_pagina.TabIndex = 160;
@@ -166,7 +166,7 @@
             // button_Siguiente
             // 
             this.button_Siguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_Siguiente.Location = new System.Drawing.Point(149, 194);
+            this.button_Siguiente.Location = new System.Drawing.Point(289, 194);
             this.button_Siguiente.Name = "button_Siguiente";
             this.button_Siguiente.Size = new System.Drawing.Size(75, 23);
             this.button_Siguiente.TabIndex = 159;
@@ -177,7 +177,7 @@
             // button_Anterior
             // 
             this.button_Anterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button_Anterior.Location = new System.Drawing.Point(18, 194);
+            this.button_Anterior.Location = new System.Drawing.Point(156, 194);
             this.button_Anterior.Name = "button_Anterior";
             this.button_Anterior.Size = new System.Drawing.Size(75, 23);
             this.button_Anterior.TabIndex = 158;
@@ -425,6 +425,7 @@
             this.textBox_Nombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Nombre.Location = new System.Drawing.Point(97, 62);
+            this.textBox_Nombre.MaxLength = 50;
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
             this.textBox_Nombre.Size = new System.Drawing.Size(385, 20);
@@ -435,6 +436,7 @@
             this.textBox_Descripcion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_Descripcion.Location = new System.Drawing.Point(97, 117);
+            this.textBox_Descripcion.MaxLength = 200;
             this.textBox_Descripcion.Multiline = true;
             this.textBox_Descripcion.Name = "textBox_Descripcion";
             this.textBox_Descripcion.ReadOnly = true;
