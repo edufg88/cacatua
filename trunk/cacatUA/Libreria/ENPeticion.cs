@@ -103,9 +103,11 @@ namespace Libreria
             return PeticionCAD.Instancia.BorrarPeticion(this.id);
         }
 
-        public static ArrayList Obtener(string asunto, string texto, int usuario,int mostrar, ref DateTime inicio,ref DateTime final,bool porFecha)
+        public static ArrayList Obtener(string asunto, string texto, int usuario,int mostrar, ref DateTime inicio,ref DateTime final,bool porFecha,string orden,bool ascendente,int numeroDePagina,int cantidad,ref int resultados)
         {
-            return PeticionCAD.Instancia.Obtener(asunto, texto, usuario,mostrar,ref inicio,ref final,porFecha);
+          
+            return PeticionCAD.Instancia.Obtener(asunto, texto, usuario,mostrar,ref inicio,ref final,porFecha,orden,ascendente,numeroDePagina,cantidad,ref resultados);
+            
         }
 
         public static int ObtenerNumeroPeticiones()

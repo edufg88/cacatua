@@ -160,7 +160,7 @@ namespace Libreria
             }
             return true;
         }
-
+        /*
         public ArrayList Obtener(string asunto, string texto, int usuario, int mostrar, ref DateTime inicio, ref DateTime final, bool porFecha)
         {
             ArrayList peticiones = null;
@@ -175,7 +175,7 @@ namespace Libreria
 
                 // Componemos la cadena de la sentencia.
                 string sentencia = "select * from peticiones";
-                string condiciones = ""; //= " where respuesta is NULL";
+                string condiciones = ""; 
 
                 DateTime ini = new DateTime(inicio.Year, inicio.Month, inicio.Day, 0, 0, 0);
                 DateTime fin = new DateTime(final.Year, final.Month, final.Day, 23, 59, 59);
@@ -289,6 +289,171 @@ namespace Libreria
                     conexion.Close();
             }
 
+            return peticiones;
+        }*/
+
+        public ArrayList Obtener(string asunto, string texto, int usuario, int mostrar, ref DateTime inicio, ref DateTime final, bool porFecha,string propiedadOrdenar, bool ascendente, int pagina, int cantidadPorPagina,ref int resultados)
+        {
+            ArrayList peticiones = new ArrayList();
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                // Cálculamos las filas de inicio y fin a partir de la página
+                int filaInicio = (pagina - 1) * cantidadPorPagina + 1;
+                int filaFinal = filaInicio - 1 + cantidadPorPagina;
+
+                // Formamos dos comandos, uno para obtener el número de resultados total sin paginación y
+                // otro para obtener los materiales paginados con toda la información
+                string comandoSinPaginacion = "";
+                string comandoConPaginacion = "";
+                string cadenaComun = "";
+
+                comandoSinPaginacion += "SELECT count(*) as numResultados FROM peticiones";
+                comandoConPaginacion += "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY " + propiedadOrdenar;
+                if (ascendente == true)
+                    comandoConPaginacion += " ASC";
+                else
+                    comandoConPaginacion += " DESC";
+                comandoConPaginacion += ") as row FROM peticiones";
+
+                DateTime ini = inicio;
+                DateTime fin = final;
+
+                if (mostrar == 1)
+                {
+                    cadenaComun += " where respuesta is NULL";
+                }
+                else
+                {
+                    if (mostrar == 2)
+                    {
+                        cadenaComun += " where respuesta is not NULL";
+                    }
+                }
+
+                if (asunto != "")
+                {
+                    if (cadenaComun == "")
+                    {
+                        cadenaComun += " where asunto like '%" + @asunto + "%'";
+                    }
+                    else
+                    {
+                        cadenaComun += " and asunto like '%" + @asunto + "%'";
+                    }
+                }
+                if (texto != "")
+                {
+                    if (cadenaComun == "")
+                    {
+                        cadenaComun += " where texto like '%" + @texto + "%'";
+                    }
+                    else
+                    {
+                        cadenaComun += " and texto like '%" + @texto + "%'";
+                    }
+                }
+                if (usuario != 0)
+                {
+                    if (cadenaComun == "")
+                    {
+                        cadenaComun += " where usuario=" + @usuario;
+                    }
+                    else
+                    {
+                        cadenaComun += " and usuario=" + @usuario;
+                    }
+                }
+
+                if (porFecha)
+                {
+
+                    if (cadenaComun == "")
+                    {
+                        cadenaComun += " where fecha between @fechainicio and @fechafin ";
+                    }
+                    else
+                    {
+                        cadenaComun += " and fecha between @fechainicio and @fechafin ";
+                    }
+
+                }
+                /*
+                cadenaComun += "(nombre like @nombre or descripcion like @descripcion) ";
+                if (busqueda.Usuario != null)
+                {
+                    cadenaComun += "and usuario = @usuario ";
+                    comando.Parameters.AddWithValue("@usuario", busqueda.Usuario.Id);
+                }
+                if (busqueda.Categoria != null)
+                {
+                    cadenaComun += "and categoria = @categoria";
+                    comando.Parameters.AddWithValue("@categoria", busqueda.Categoria.Id);
+                }
+                cadenaComun += " and fecha between @fechaInicio and @fechaFin";
+                comando.Parameters.AddWithValue("@fechaInicio", busqueda.FechaInicio);
+                comando.Parameters.AddWithValue("@fechaFin", busqueda.FechaFin);
+                */
+                comandoSinPaginacion += cadenaComun;
+                comandoConPaginacion += cadenaComun;
+                comandoConPaginacion += " ) as alias WHERE row >= @filaInicio and row <= @filaFinal";
+
+                // Obtenemos los resultados con paginación
+                comando.CommandText = comandoConPaginacion;
+                if (asunto != "")
+                    comando.Parameters.AddWithValue("@asunto", asunto);
+
+                if (asunto != "")
+                    comando.Parameters.AddWithValue("@texto", texto);
+
+                if (asunto != "")
+                    comando.Parameters.AddWithValue("@usuario", usuario);
+
+                if (porFecha)
+                {
+                    comando.Parameters.AddWithValue("@fechainicio", ini);
+                    comando.Parameters.AddWithValue("@fechafin", fin);
+                }
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
+                
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENPeticion peticion = obtenerDatos(reader);
+                    peticiones.Add(peticion);
+                }
+
+                // Obtenemos los resultados sin paginación
+                comando.CommandText = comandoSinPaginacion;
+                reader.Close();
+                reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Guardamos los resultados de la búsqueda
+                    resultados = int.Parse(reader["numResultados"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENPeticion::Obtener> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
             return peticiones;
         }
 
