@@ -275,6 +275,7 @@ namespace cacatUA
 
         private void borrarMaterial(object sender, EventArgs e)
         {
+            Uploader.FileUploader fileUploader = new Uploader.FileUploader();
             // Comprobamos que haya algún material seleccionado
             DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
             if (filas.Count == 0)
@@ -306,14 +307,34 @@ namespace cacatUA
                         // Eliminamos el material de la base de datos
                         int id = int.Parse(fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString());
                         ENMaterial material = ENMaterial.Obtener(id);
-                        bool borrado = material.Borrar();
-                        if (borrado == false)
+
+                        bool borrado = true;
+                        // Borramos el fichero físicamente del servidor
+                        if (fileUploader.existeFichero(material.Archivo))
                         {
-                            string mensaje = "ERROR: No se ha podido borrar el material " + id;
+                            if (fileUploader.BorrarFichero(material.Archivo) == false)
+                                borrado = false;
+                        }
+                        // Si se ha borrado del servidor, lo borramos de la base de datos
+                        if (borrado == true)
+                        {
+                            borrado = material.Borrar();
+                            if (borrado == false)
+                            {
+                                string mensaje = "ERROR: No se ha podido borrar el material " + id;
+                                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                // Eliminamos la fila
+                                dataGridView_materiales.Rows.Remove(fila);
+                            }
+                        }
+                        else
+                        {
+                            string mensaje = "ERROR: No se ha podido borrar el material" + material.Archivo + " del servidor";
                             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        // Eliminamos la fila
-                        dataGridView_materiales.Rows.Remove(fila);
                     }
                 }
             }
@@ -416,7 +437,7 @@ namespace cacatUA
                         {
                             WebClient cliente = new WebClient();
                             descargas.Add(material.Id, cliente);
-                            Uri uri = new Uri(servidor + "/ficheros/" + material.Archivo);
+                            Uri uri = new Uri(servidor + "/materiales/" + material.Archivo);
                             cliente.DownloadFileCompleted += new AsyncCompletedEventHandler(archivoDescargado);
                             cliente.DownloadProgressChanged += new DownloadProgressChangedEventHandler(cambioPorcentaje);
                             cliente.DownloadFileAsync(uri, saveFileDialog.FileName);

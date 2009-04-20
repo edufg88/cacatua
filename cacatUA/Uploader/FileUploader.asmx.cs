@@ -24,7 +24,7 @@ namespace Uploader
     // [System.Web.Script.Services.ScriptService]
     public class FileUploader : System.Web.Services.WebService
     {
-        private string directorioFicheros = HostingEnvironment.MapPath("~/ficheros/");
+        private string directorioFicheros = HostingEnvironment.MapPath("~/materiales/");
 
         /// <summary>
         /// Sube un archivo al servidor iis. Es posible que para subir un archivo se llame a esta función x veces,
