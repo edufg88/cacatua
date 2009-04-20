@@ -18,6 +18,10 @@ namespace cacatUA
         /// </summary>
         private FormUsuarios padre;
 
+        private String bNombre = "";
+        private String bEmail = "";
+        private DateTime bFecha;
+
         /// <summary>
         /// Constructor del formulario de búsqueda
         /// </summary>
@@ -33,27 +37,30 @@ namespace cacatUA
 
         private void button_buscar_Click(object sender, EventArgs e)
         {
+            bNombre = textBox_nombreUsuario.Text;
+            bEmail = textBox_email.Text;
+            bFecha = dateTimePicker_fechaIngreso.Value;
             BuscarUsuarios();
         }
 
         public void BuscarUsuarios()
         {
             ArrayList usuarios;
-            if (textBox_email.Text != "" || textBox_nombreUsuario.Text != "")
+            if (bNombre != "" || bEmail != "")
             {
-                padre.TotalBusqueda = ENUsuario.NumUsuarios(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value);
+                padre.TotalBusqueda = ENUsuario.NumUsuarios(bNombre, bEmail,bFecha);
                 padre.TotalPaginas = ((padre.TotalBusqueda - 1) / padre.TamañoPagina) + 1;
-                usuarios = ENUsuario.Buscar(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value,padre.NumeroPagina,padre.TamañoPagina);
-                // Aquí tenemos que llevar el resultado al datagrid de formUsuario.    
+                usuarios = ENUsuario.Buscar(bNombre, bEmail, bFecha, padre.NumeroPagina, padre.TamañoPagina);
+                    
             }
             else
             {
                padre.TotalBusqueda = ENUsuario.NumUsuarios();
                padre.TotalPaginas = ((padre.TotalBusqueda - 1) / padre.TamañoPagina) + 1;
                
-                //Llevamos al grid todos los usuarios
                usuarios = ENUsuario.Obtener(padre.NumeroPagina, padre.TamañoPagina);
             }
+            // Aquí tenemos que llevar el resultado al datagrid de formUsuario.
             padre.CargarDatos(usuarios);
         }
 
