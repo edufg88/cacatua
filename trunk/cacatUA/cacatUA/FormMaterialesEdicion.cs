@@ -243,7 +243,10 @@ namespace cacatUA
                                 else
                                 {
                                     FormPanelAdministracion.Instancia.MensajeEstado(form.Error);
-                                    MessageBox.Show(form.Error,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                                    if (form.Error == "Cancelado por el usuario")
+                                        FormPanelAdministracion.Instancia.MensajeEstado("Creación del material cancelada por el usuario");
+                                    else
+                                        MessageBox.Show(form.Error,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
                                 }
                             }
                         }

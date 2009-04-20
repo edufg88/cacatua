@@ -9,11 +9,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.Net;
 using Libreria;
+using System.Configuration;
 
 namespace cacatUA
 {
     public partial class FormMateriales : InterfazForm
     {
+        private string servidor = cacatUA.Properties.Settings.Default.cacatUA_Uploader_FileUploader;
+
         public FormMaterialesEdicion formEditarMateriales = null;
         public FormMaterialesBusqueda formMaterialesBusqueda = null;
         private int cantidadPorPagina;
@@ -145,7 +148,9 @@ namespace cacatUA
             dataGridView_materiales.Columns["dataGridViewTextBoxColumn_id"].HeaderCell.SortGlyphDirection = SortOrder.Descending;
             // Por defecto se muestra el formulario de búsqueda 
             // NOTA: Es importante de que esto se ponga al final del constructor
-            estadoAnterior = estados.INICIAL;       
+            estadoAnterior = estados.INICIAL;
+            servidor = servidor.Remove(servidor.LastIndexOf(@"/"));
+            Console.WriteLine(servidor);
         }
 
         public FormMateriales()
@@ -349,8 +354,7 @@ namespace cacatUA
             string id = ruta.Remove(0, ruta.LastIndexOf(@"/") + 1);
             id = id.Remove(id.LastIndexOf(@"."));
             // Eliminamos de las descargas
-            if(descargas.Remove(int.Parse(id)))
-                FormPanelAdministracion.Instancia.MensajeEstado("Material " + id + " descargado");
+            descargas.Remove(int.Parse(id));
             // Cambiamos el icono del datagrid
             // Comprobamos si está en el datagrid el material
             DataGridViewRowCollection filas = dataGridView_materiales.Rows;
@@ -358,10 +362,13 @@ namespace cacatUA
             {
                 if (fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString() == id)
                 {
-                    // Lo hemos encontrado
+                    // Comprobamos si el porcentaje era 100%
+                    if (fila.Cells["dataGridViewTextBoxColumn_descargar"].Value.ToString() == "100%")
+                        FormPanelAdministracion.Instancia.MensajeEstado("Material " + id + " descargado");
+                    else
+                        MessageBox.Show("No se ha podido establecer conexión con el servidor", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewImageCell();
-                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = Properties.Resources.descargar;
-                     
+                    fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = Properties.Resources.descargar;                  
                     break;
                 }
             }
@@ -382,7 +389,6 @@ namespace cacatUA
             {
                 if (fila.Cells["dataGridViewTextBoxColumn_id"].Value.ToString() == id)
                 {
-                    // Lo hemos encontrado
                     fila.Cells["dataGridViewTextBoxColumn_descargar"] = new DataGridViewTextBoxCell();
                     fila.Cells["dataGridViewTextBoxColumn_descargar"].Value = e.ProgressPercentage.ToString() + "%";
                     break;
@@ -410,11 +416,11 @@ namespace cacatUA
                         {
                             WebClient cliente = new WebClient();
                             descargas.Add(material.Id, cliente);
-                            Uri uri = new Uri("http://84.120.44.73/ficheros/" + material.Archivo);
+                            Uri uri = new Uri(servidor + "/ficheros/" + material.Archivo);
                             cliente.DownloadFileCompleted += new AsyncCompletedEventHandler(archivoDescargado);
                             cliente.DownloadProgressChanged += new DownloadProgressChangedEventHandler(cambioPorcentaje);
                             cliente.DownloadFileAsync(uri, saveFileDialog.FileName);
-                            cliente.BaseAddress = "http://84.120.44.73/ficheros/" + material.Archivo;
+                            cliente.BaseAddress = uri.ToString();
                             button_cancelarDescarga.Enabled = true;
                             // Aumentamos el número de descargas
                             material.Descargas++;

@@ -212,10 +212,10 @@ namespace Libreria
                 Console.WriteLine("<ENMaterial::CompletarGuardar> " + ex.Message);
             }
             finally
-            {
-                transaccion = null;
+            {                
                 if (transaccion.Connection!= null)
                     transaccion.Connection.Close();
+                transaccion = null;
             }
             return id;
         }

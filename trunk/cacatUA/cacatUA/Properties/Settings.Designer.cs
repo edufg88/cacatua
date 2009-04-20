@@ -48,7 +48,7 @@ namespace cacatUA.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://84.120.44.73/FileUploader.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2086/FileUploader.asmx")]
         public string cacatUA_Uploader_FileUploader {
             get {
                 return ((string)(this["cacatUA_Uploader_FileUploader"]));

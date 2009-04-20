@@ -101,7 +101,8 @@ namespace cacatUA
                         else
                         {
                             // Se ha producido un error al subir el archivo, cancelamos
-                            error = "Ha habido un problema al subir el archivo";
+                            error = "Ha habido un problema al subir el archivo: ";
+                            error += mensaje;
                             cancelar = true;
                         }
                     }
@@ -114,7 +115,8 @@ namespace cacatUA
                     // Comprobamos si se ha subido el archivo correctamente o bien se ha cancelado
                     if (cancelar == true)
                     {
-                        error = "Cancelado por el usuario";
+                        if(error == "OK")
+                            error = "Cancelado por el usuario";
                         // El archivo ha sido cancelado por algún motivo
                         // Comprobamos si se estaba subiendo un nuevo archivo o actualizando
                         if (modo == modos.CREAR)
@@ -123,19 +125,25 @@ namespace cacatUA
                             material.CancelarGuardar();
                         }
                         // Borramos el fichero del servidor
-                        if (fileUploader.BorrarFichero(nombreArchivoTemporal) == false)
-                            error = "Ha habido un problema al borrar el fichero en el servidor";
+                        if (fileUploader.existeFichero(nombreArchivoTemporal))
+                        {
+                            if (fileUploader.BorrarFichero(nombreArchivoTemporal) == false)
+                                error = "Ha habido un problema al borrar el fichero en el servidor";
+                        }
                     }
                     else
                     {
+                        
                         // El archivo se ha subido correctamente
                         // Comprobamos si se estaba creando uno nuevo o actualizando
                         if (modo == modos.CREAR)
                         {
+                            // Desactivamos el botón de cancelar
+                            button_cancelar.Enabled = false;
                             // Completamos la transacción y obtenemos la id que va a tener el archivo
                             int id = material.CompletarGuardar();
                             if (id >= 0)
-                            {
+                            {                           
                                 // Comprimimos el archivo con el id
                                 if (fileUploader.ComprimirArchivo(nombreArchivoTemporal, id, nombreArchivo) != "OK")
                                     error = "Ha habido un problema al comprimir el fichero en el servidor";

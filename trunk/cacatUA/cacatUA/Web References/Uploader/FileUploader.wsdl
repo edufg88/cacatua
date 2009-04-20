@@ -185,10 +185,10 @@
   </wsdl:binding>
   <wsdl:service name="FileUploader">
     <wsdl:port name="FileUploaderSoap" binding="tns:FileUploaderSoap">
-      <soap:address location="http://84.120.44.73/FileUploader.asmx" />
+      <soap:address location="http://localhost:2086/FileUploader.asmx" />
     </wsdl:port>
     <wsdl:port name="FileUploaderSoap12" binding="tns:FileUploaderSoap12">
-      <soap12:address location="http://84.120.44.73/FileUploader.asmx" />
+      <soap12:address location="http://localhost:2086/FileUploader.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
