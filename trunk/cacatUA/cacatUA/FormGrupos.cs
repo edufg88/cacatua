@@ -18,6 +18,7 @@ namespace cacatUA
         private enum FormularioActivo { NINGUNO = 0, BUSQUEDA = 1, EDICION = 2 };
         FormularioActivo formularioActivo;
 
+        private int cantidadPorPagina;
         private int totalResultados;
         private int paginaActual;
         private int totalPaginas;
@@ -30,9 +31,12 @@ namespace cacatUA
             formBusqueda.Dock = DockStyle.Top;
             formularioActivo = FormularioActivo.NINGUNO;
 
-            comboBox_cantidadPorPagina.SelectedItem = comboBox_cantidadPorPagina.Items[4];
+            cantidadPorPagina = 5;
+            comboBox_cantidadPorPagina.Text = cantidadPorPagina.ToString();
             comboBox_pagina.SelectedItem = comboBox_pagina.Items[0];
 
+            propiedadOrdenar = "id";
+            dataGridView_resultados.Columns["dataGridViewTextBoxColumn_id"].HeaderCell.SortGlyphDirection = SortOrder.Descending;
             totalResultados = 0;
             paginaActual = 0;
             totalPaginas = 0;
@@ -43,7 +47,7 @@ namespace cacatUA
             formBusqueda = new FormGruposBusqueda(this);
             iniciar();
             Busqueda();
-            formBusqueda.Buscar(true);
+            formBusqueda.NuevaBusqueda();
         }
 
         public FormGrupos(ENUsuario usuario)
@@ -51,14 +55,14 @@ namespace cacatUA
             formBusqueda = new FormGruposBusqueda(this, usuario);
             iniciar();
             Busqueda();
-            formBusqueda.Buscar(true);
+            formBusqueda.NuevaBusqueda();
         }
 
         public void ReiniciarResultados()
         {
             Busqueda();
             formBusqueda.inicio();
-            formBusqueda.Buscar(true);
+            formBusqueda.NuevaBusqueda();
         }
 
         public void Busqueda()
@@ -75,7 +79,7 @@ namespace cacatUA
             else
             {
                 formBusqueda.inicio();
-                formBusqueda.Buscar(true);
+                formBusqueda.NuevaBusqueda();
             }
         }
 
@@ -191,12 +195,15 @@ namespace cacatUA
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Edicion();
-            formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            if (e.RowIndex >= 0)
+            {
+                Edicion();
+                formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
+            }
         }
 
 
-
+        /*
         public void ActualizarPaginacion()
         {
             if (totalResultados > 0)
@@ -223,9 +230,9 @@ namespace cacatUA
             {
                 label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
             }
-        }
+        }*/
 
-        public int TotalResultados
+        /*public int TotalResultados
         {
             get
             {
@@ -271,43 +278,24 @@ namespace cacatUA
                 else
                     return null;
             }
-        }
+        }*/
         public int CantidadPorPagina
         {
-            get { return int.Parse(comboBox_cantidadPorPagina.Text); }
+            get { return cantidadPorPagina; }
+            set { cantidadPorPagina = value; }
         }
 
-        public bool Orden
+        /*public bool Orden
         {
             get { return dataGridView_resultados.SortOrder == SortOrder.Ascending; }
-        }
+        }*/
 
         public int PaginaActual
         {
             get { return paginaActual; }
-            set
-            {
-                paginaActual = value;
-                if (paginaActual > 1)
-                {
-                    button_paginaAnterior.Enabled = true;
-                }
-                else
-                {
-                    button_paginaAnterior.Enabled = false;
-                }
-
-                if (paginaActual < totalPaginas)
-                {
-                    button_paginaSiguiente.Enabled = true;
-                }
-                else
-                {
-                    button_paginaSiguiente.Enabled = false;
-                }
-            }
+            set { paginaActual = value; }
         }
-
+        /*
         private void button_paginaSiguiente_Click(object sender, EventArgs e)
         {
             PaginaActual++;
@@ -344,9 +332,17 @@ namespace cacatUA
                 PaginaActual--;
                 formBusqueda.Anterior();
             }
+        }*/
+
+        private void dataGridView_resultados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                ordenModificado(e.ColumnIndex);
+            }
         }
 
-        private void dataGridView_resultados_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        /*private void dataGridView_resultados_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex == 0)
             {
@@ -365,6 +361,122 @@ namespace cacatUA
 
                 formBusqueda.Buscar(false);
             }
+        }*/
+
+        private void ordenModificado(int numColumna)
+        {
+            // Obtenemos la columna a ordenar
+            DataGridViewColumn columna = dataGridView_resultados.Columns[numColumna];
+            // Obtenemos el nombre de la columna que estaba ordenada anteriormente
+            string nomColumnaAnterior = "DataGridViewTextBoxColumn_" + propiedadOrdenar;
+            // Comprobamos si coincide con la columna actual
+            if (columna.Name == nomColumnaAnterior)
+            {
+                // Coincide, cambiamos el orden
+                if (columna.HeaderCell.SortGlyphDirection == SortOrder.Ascending)
+                    columna.HeaderCell.SortGlyphDirection = SortOrder.Descending;
+                else
+                    columna.HeaderCell.SortGlyphDirection = SortOrder.Ascending;
+            }
+            else
+            {
+                // Si no coincide, quitamos al orden a la anterior columna
+                dataGridView_resultados.Columns[nomColumnaAnterior].HeaderCell.SortGlyphDirection = SortOrder.None;
+                // Ponemos por defecto a la nueva columna descendente
+                columna.HeaderCell.SortGlyphDirection = SortOrder.Descending;
+                // Guardamos la nueva propiedad por la que ordenamos
+                string nomColumna = columna.Name;
+                propiedadOrdenar = nomColumna.Substring(nomColumna.LastIndexOf('_') + 1);
+            }
+            FormPanelAdministracion.Instancia.MensajeEstado("Ordenando columna " + columna.HeaderText + " en modo " + Ordenar().ToString());
+            paginaActual = 1;
+            comboBox_pagina.Text = paginaActual.ToString();
+            formBusqueda.Buscar();
+        }
+
+        private string propiedadOrdenar;
+        public string PropiedadOrdenar
+        {
+            get { return propiedadOrdenar; }
+            set { propiedadOrdenar = value; }
+        }
+
+        public SortOrder Ordenar()
+        {
+            string nomColumna = "dataGridViewTextBoxColumn_" + propiedadOrdenar;
+            return dataGridView_resultados.Columns[nomColumna].HeaderCell.SortGlyphDirection;
+        }
+
+        public void ActualizarPaginacion(int totalResultados)
+        {
+            if (totalResultados > 0)
+            {
+                int paginas = (int)Math.Ceiling(totalResultados / (float)CantidadPorPagina);
+                // Añadimos las páginas al combo box
+                string pagina = paginaActual.ToString();
+                comboBox_pagina.Items.Clear();
+                for (int i = 1; i <= paginas; i++)
+                    comboBox_pagina.Items.Add(i.ToString());
+                comboBox_pagina.Text = pagina;
+
+                int inicial = (paginaActual - 1) * CantidadPorPagina + 1;
+                int final = inicial - 1 + CantidadPorPagina;
+                if (final > totalResultados) final = totalResultados;
+
+                label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " grupos encontrados)";
+                if (comboBox_pagina.Text == "1")
+                    button_paginaAnterior.Enabled = false;
+                else
+                    button_paginaAnterior.Enabled = true;
+
+                if (comboBox_pagina.Text == paginas.ToString())
+                    button_paginaSiguiente.Enabled = false;
+                else
+                    button_paginaSiguiente.Enabled = true;
+            }
+            else
+            {
+                label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
+                button_paginaAnterior.Enabled = false;
+                button_paginaSiguiente.Enabled = false;
+            }
+        }
+
+        private void comboBox_cantidadPorPagina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Actualizamos el número de resultados por página
+            CantidadPorPagina = int.Parse(comboBox_cantidadPorPagina.Text.ToString());
+        }
+
+        private void button_paginaSiguiente_Click(object sender, EventArgs e)
+        {
+            // Cambiamos de página
+            paginaActual++;
+            comboBox_pagina.Text = paginaActual.ToString();
+            // Realizamos una nueva búsqueda
+            formBusqueda.Buscar();
+        }
+
+        private void button_paginaAnterior_Click(object sender, EventArgs e)
+        {
+            // Cambiamos de página
+            paginaActual--;
+            comboBox_pagina.Text = paginaActual.ToString();
+            // Realizamos una nueva búsqueda
+            formBusqueda.Buscar();
+        }
+
+        private void comboBox_pagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            paginaActual = int.Parse(comboBox_pagina.Text.ToString());
+            formBusqueda.Buscar();
+        }
+
+        private void comboBox_cantidadPorPagina_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            // Actualizamos el número de resultados por página
+            CantidadPorPagina = int.Parse(comboBox_cantidadPorPagina.Text.ToString());
+            formBusqueda.Buscar();
         }
     }
 }
