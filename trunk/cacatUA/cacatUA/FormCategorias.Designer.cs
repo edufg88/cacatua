@@ -155,7 +155,7 @@
             // 
             // comboBox_pagina
             // 
-            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_pagina.Location = new System.Drawing.Point(237, 196);
             this.comboBox_pagina.Name = "comboBox_pagina";
@@ -165,7 +165,7 @@
             // 
             // button_Siguiente
             // 
-            this.button_Siguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_Siguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Siguiente.Location = new System.Drawing.Point(289, 194);
             this.button_Siguiente.Name = "button_Siguiente";
             this.button_Siguiente.Size = new System.Drawing.Size(75, 23);
@@ -176,7 +176,7 @@
             // 
             // button_Anterior
             // 
-            this.button_Anterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_Anterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_Anterior.Location = new System.Drawing.Point(156, 194);
             this.button_Anterior.Name = "button_Anterior";
             this.button_Anterior.Size = new System.Drawing.Size(75, 23);
