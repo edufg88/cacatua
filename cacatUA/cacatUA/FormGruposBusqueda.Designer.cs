@@ -48,10 +48,10 @@
             this.numericUpDown_numUsuarios1 = new System.Windows.Forms.NumericUpDown();
             this.label_numUsuarios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_limpiar = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button_limpiar = new System.Windows.Forms.Button();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_filtroBusqueda.SuspendLayout();
             this.panel_autor.SuspendLayout();
@@ -268,21 +268,6 @@
             this.panel1.Size = new System.Drawing.Size(791, 34);
             this.panel1.TabIndex = 11;
             // 
-            // button_buscar
-            // 
-            this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_buscar.Location = new System.Drawing.Point(575, 3);
-            this.button_buscar.Name = "button_buscar";
-            this.button_buscar.Size = new System.Drawing.Size(75, 24);
-            this.button_buscar.TabIndex = 4;
-            this.button_buscar.Text = "Buscar";
-            this.button_buscar.UseVisualStyleBackColor = true;
-            this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // button_limpiar
             // 
             this.button_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -293,6 +278,21 @@
             this.button_limpiar.Text = "Limpiar";
             this.button_limpiar.UseVisualStyleBackColor = true;
             this.button_limpiar.Click += new System.EventHandler(this.button_limpiar_Click);
+            // 
+            // button_buscar
+            // 
+            this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_buscar.Location = new System.Drawing.Point(575, 3);
+            this.button_buscar.Name = "button_buscar";
+            this.button_buscar.Size = new System.Drawing.Size(75, 24);
+            this.button_buscar.TabIndex = 4;
+            this.button_buscar.Text = "Buscar";
+            this.button_buscar.UseVisualStyleBackColor = true;
+            this.button_buscar.Click += new System.EventHandler(this.buscarGrupo);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // FormGruposBusqueda
             // 
