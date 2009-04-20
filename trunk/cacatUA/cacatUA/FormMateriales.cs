@@ -639,6 +639,7 @@ namespace cacatUA
         {
             // Actualizamos el número de resultados por página
             cantidadPorPagina = int.Parse(comboBox_cantidadPorPagina.Text.ToString());
+            pagina = 1;
             formMaterialesBusqueda.Buscar();
         }
     }
