@@ -141,9 +141,9 @@ namespace Libreria
         /// <param name="fechafin">Fecha de fin para el filtro de búsqueda.</param>
         /// <param name="usuario">usuario del cual queremos saber sus grupos.</param>
         /// <returns>Devuelve un array con los gurpos encontrados segun el filtro de búsqueda.</returns>
-        public ArrayList Buscar(int cantidad,ENGrupos ultimo,bool orden,int min, int max,DateTime fechafin,ref ENUsuario usuario)
+        public ArrayList Buscar(string ordenar,int pagina,int cantidad,bool orden,int min, int max,DateTime fechafin,ref ENUsuario usuario)
         {
-            return GruposCAD.Instancia.Buscar(cantidad,ultimo,orden,min,max,this,fechafin,ref usuario);
+            return GruposCAD.Instancia.Buscar(ordenar,pagina,cantidad,orden,min,max,this,fechafin,ref usuario);
         }
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace Libreria
         /// <returns>Devuelve un entero con el número de grupos.</returns>
         public int Cantidad(int min, int max, DateTime fechafin, ref ENUsuario usuario)
         {
-            ArrayList Cantidad = GruposCAD.Instancia.Buscar(0, null, true, min, max, this, fechafin, ref usuario);
+            ArrayList Cantidad = GruposCAD.Instancia.Buscar(min, max, this, fechafin, ref usuario);
             return Cantidad.Count;
         }
 

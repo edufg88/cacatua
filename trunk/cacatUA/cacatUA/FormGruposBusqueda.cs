@@ -93,10 +93,10 @@ namespace cacatUA
             return correcto;
         }
 
-        private void button_buscar_Click(object sender, EventArgs e)
+        /*private void button_buscar_Click(object sender, EventArgs e)
         {
-            Buscar(true);
-        }
+            Buscar();
+        }*/
 
         private void button_seleccionarUsuario_Click(object sender, EventArgs e)
         {
@@ -115,7 +115,7 @@ namespace cacatUA
             }
         }
 
-        public void Buscar(bool nueva)
+        /*public void Buscar(bool nueva)
         {
             bool buscar = true;
             // Si es una nueva búsqueda, validammos el formulario para guardar los datos en la ultimaBusqueda.
@@ -155,15 +155,16 @@ namespace cacatUA
 
                 // Atributos para la paginación.
                 int cantidad = formularioPadre.CantidadPorPagina;
-                ENGrupos ultimo = null;
                 bool orden = formularioPadre.Orden;
+                int pagina = formularioPadre.PaginaActual;
+                string propiedadOrdenar = formularioPadre.PropiedadOrdenar;
 
                 // Realizamos la búsqueda finalmente.
                 ENGrupos grupoAux = new ENGrupos((string)ultimaBusqueda[0], fechaInicio);
-                formularioPadre.Resultado = grupoAux.Buscar(cantidad, ultimo, orden,(int)ultimaBusqueda[4],(int)ultimaBusqueda[5],
+                formularioPadre.Resultado = grupoAux.Buscar(propiedadOrdenar, pagina,cantidad, orden, (int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
                         fechaFin,ref usuarioAux);
             }
-        }
+        }*/
 
 
         private void button_limpiar_Click(object sender, EventArgs e)
@@ -172,7 +173,7 @@ namespace cacatUA
             formularioPadre.ReiniciarResultados();
         }
 
-        public void Siguiente()
+        /*public void Siguiente()
         {
             // Criterios de búsqueda.
             ENUsuario usuarioAux = (ENUsuario)ultimaBusqueda[1];
@@ -181,13 +182,14 @@ namespace cacatUA
 
             // Atributos para la paginación.
             int cantidad = formularioPadre.CantidadPorPagina;
-            ENGrupos ultimo = formularioPadre.UltimoGrupo;
             bool orden = formularioPadre.Orden;
+            int pagina = formularioPadre.PaginaActual;
+            string propiedadOrdenar = formularioPadre.PropiedadOrdenar;
 
 
             // Realizamos la búsqueda finalmente.
             ENGrupos grupoAux = new ENGrupos((string)ultimaBusqueda[0], fechaInicio);
-            formularioPadre.Resultado = grupoAux.Buscar(cantidad, ultimo, orden, (int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
+            formularioPadre.Resultado = grupoAux.Buscar(propiedadOrdenar, pagina, cantidad, orden, (int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
                     fechaFin, ref usuarioAux);
 
             formularioPadre.ActualizarPaginacion();
@@ -202,17 +204,92 @@ namespace cacatUA
 
             // Atributos para la paginación.
             int cantidad = formularioPadre.CantidadPorPagina;
-            ENGrupos ultimo = formularioPadre.PrimerGrupo;
             bool orden = formularioPadre.Orden;
+            int pagina = formularioPadre.PaginaActual;
+            string propiedadOrdenar = formularioPadre.PropiedadOrdenar;
 
             // Realizamos la búsqueda finalmente.
             ENGrupos grupoAux = new ENGrupos((string)ultimaBusqueda[0], fechaInicio);
-            ArrayList resultados = grupoAux.Buscar(cantidad, ultimo, !orden, (int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
+            ArrayList resultados = grupoAux.Buscar(propiedadOrdenar, pagina, cantidad, orden, (int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
                     fechaFin, ref usuarioAux);
 
             resultados.Reverse();
             formularioPadre.Resultado = resultados;
             formularioPadre.ActualizarPaginacion();
+        }*/
+
+        public ArrayList Buscar()
+        {
+            ArrayList grupos = null;
+            // Obtenemos los datos introducidos por el usuario
+            try
+            {
+                // Tipo de orden (ascendente o descendente)
+                SortOrder orden = formularioPadre.Ordenar();
+                bool ascendente = false;
+                if (orden == SortOrder.Ascending)
+                {
+                    ascendente = true;
+                }
+
+                ENUsuario usuarioAux = (ENUsuario)ultimaBusqueda[1];
+                DateTime fechaInicio = (DateTime)ultimaBusqueda[2];
+                DateTime fechaFin = (DateTime)ultimaBusqueda[3];
+
+                int cantidad = formularioPadre.CantidadPorPagina;
+                int pagina = formularioPadre.PaginaActual;
+                string propiedadOrdenar = formularioPadre.PropiedadOrdenar;
+
+                ENGrupos grupo = new ENGrupos((string)ultimaBusqueda[0], fechaInicio);
+                int cont = grupo.Cantidad((int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
+                    fechaFin, ref usuarioAux);
+                formularioPadre.Resultado = grupo.Buscar(propiedadOrdenar, pagina, cantidad, ascendente, (int)ultimaBusqueda[4], (int)ultimaBusqueda[5],
+                    fechaFin, ref usuarioAux);
+
+                // Obtenemos el número de materiales total de la búsqueda (contando todas las páginas)
+                //MessageBox.Show(busquedaActual.NumResultados.ToString());
+                formularioPadre.ActualizarPaginacion(cont);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return grupos;
+        }
+
+        public void NuevaBusqueda()
+        {
+            errorProvider1.Clear();
+            bool error = false;
+            // Creamos una nueva búsqueda
+            try
+            {
+                if (ValidarFormulario())
+                {
+                    string filtroBusqueda = textBox_filtroBusqueda.Text;
+                    DateTime fechaInicio = dateTimePicker_fecha.Value;
+                    DateTime fechaFin = dateTimePicker_hasta.Value;
+                    ultimaBusqueda.Clear();
+                    ultimaBusqueda.Add(textBox_filtroBusqueda.Text);
+                    ultimaBusqueda.Add(ENUsuario.Obtener(textBox_usuario.Text));
+                    ultimaBusqueda.Add(dateTimePicker_fecha.Value);
+                    ultimaBusqueda.Add(dateTimePicker_hasta.Value);
+                    ultimaBusqueda.Add(int.Parse(numericUpDown_numUsuarios1.Value.ToString()));
+                    ultimaBusqueda.Add(int.Parse(numericUpDown_numUsuarios2.Value.ToString()));
+                    // Ponemos la página a 1
+                    formularioPadre.PaginaActual = 1;
+                    Buscar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buscarGrupo(object sender, EventArgs e)
+        {
+            NuevaBusqueda();
         }
     }
 }

@@ -487,10 +487,13 @@ namespace Libreria
         /// <param name="fechafin">Fecha de fin para el filtro de búsqueda.</param>
         /// <param name="usuario">usuario del cual queremos saber sus grupos.</param>
         /// <returns>Devuelve un array con los gurpos encontrados segun el filtro de búsqueda.</returns>
-        public ArrayList Buscar(int cantidad,ENGrupos ultimo,bool orden,int min, int max,ENGrupos grupo,DateTime fechafin, ref ENUsuario usuario)
+        public ArrayList Buscar(string ordenar,int pagina,int cantidad,bool orden,int min, int max,ENGrupos grupo,DateTime fechafin, ref ENUsuario usuario)
         {
             ArrayList grupos = new ArrayList();
             SqlConnection conexion = null;
+
+            int filaInicio = (pagina - 1) * cantidad + 1;
+            int filaFinal = filaInicio - 1 + cantidad;
             try
             {
                 // Creamos y abrimos la conexión.
@@ -498,11 +501,12 @@ namespace Libreria
                 conexion.Open();
                 // Creamos el comando
                 string comand="";
-                if (cantidad>0)
-                {
-                    comand += "SET ROWCOUNT " + cantidad + " \n";
-                }
-                comand+="SELECT id,nombre,descripcion,fecha FROM grupos LEFT OUTER JOIN miembros ON id=grupo WHERE fecha between @fechainicio and @fechafin";
+                comand += "SELECT id,nombre,descripcion,fecha,count(miembros.grupo) as numUsuarios FROM (SELECT id,nombre,descripcion,fecha,numUsuarios, ROW_NUMBER() OVER (ORDER BY " + ordenar;
+                if (orden == true)
+                    comand += " ASC";
+                else
+                    comand += " DESC";
+                comand += ") as row FROM grupos LEFT OUTER JOIN miembros ON grupo=id WHERE fecha between @fechainicio and @fechafin";
                 if (grupo.Nombre != "")
                 {
                     comand+=" AND nombre like'%"+@grupo.Nombre+"%'";
@@ -519,17 +523,12 @@ namespace Libreria
                 {
                     comand += " AND (SELECT COUNT(miembros_1.grupo) AS Expr1 FROM grupos AS grupos_1 LEFT OUTER JOIN miembros AS miembros_1 ON miembros_1.grupo = grupos_1.id WHERE(grupos_1.id = grupos.id) GROUP BY miembros_1.grupo) BETWEEN @min AND @max";
                 }
-                if (ultimo != null)
-                {
-                    comand += " AND id";
-                    if (orden) comand += ">"; else comand += "<";
-                    comand+="@ultimo";
-                }
-                comand += " GROUP BY id,nombre,descripcion,fecha ORDER BY id ";
-                if (orden) comand += "ASC"; else comand += "DESC";
+                comand += " GROUP BY miembros.grupo,id,nombre,descripcion,fecha) as alias WHERE row >= @filaInicio and row <= @filaFinal";
                 SqlCommand comando = new SqlCommand(comand, conexion);
                 comando.Parameters.AddWithValue("@fechainicio", grupo.Fecha);
                 comando.Parameters.AddWithValue("@fechafin", fechafin);
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
                 if (grupo.Nombre != "")
                 {
                     comando.Parameters.AddWithValue("@nombre", grupo.Nombre);
@@ -546,10 +545,6 @@ namespace Libreria
                 {
                     comando.Parameters.AddWithValue("@min", min);
                     comando.Parameters.AddWithValue("@max", max);
-                }
-                if (ultimo != null)
-                {
-                    comando.Parameters.AddWithValue("@ultimo", ultimo.Id);
                 }
 
                 SqlDataReader reader = comando.ExecuteReader();
@@ -570,6 +565,78 @@ namespace Libreria
             }
             return grupos;
         }
+
+        public ArrayList Buscar(int min, int max, ENGrupos grupo, DateTime fechafin, ref ENUsuario usuario)
+        {
+            ArrayList grupos = new ArrayList();
+            SqlConnection conexion = null;
+
+
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                // Creamos el comando
+                string comand = "";
+                comand += "SELECT id,nombre,descripcion,fecha FROM grupos LEFT OUTER JOIN miembros ON id=grupo WHERE fecha between @fechainicio and @fechafin";
+                if (grupo.Nombre != "")
+                {
+                    comand += " AND nombre like'%" + @grupo.Nombre + "%'";
+                }
+                if (usuario != null)
+                {
+                    comand += " AND usuario=@usuario";
+                }
+                if (max != 0 && min == max)
+                {
+                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) = @min";
+                }
+                else if (max != 0)
+                {
+                    comand += " AND (SELECT COUNT(miembros_1.grupo) AS Expr1 FROM grupos AS grupos_1 LEFT OUTER JOIN miembros AS miembros_1 ON miembros_1.grupo = grupos_1.id WHERE(grupos_1.id = grupos.id) GROUP BY miembros_1.grupo) BETWEEN @min AND @max";
+                }
+                comand += " GROUP BY id,nombre,descripcion,fecha";
+                SqlCommand comando = new SqlCommand(comand, conexion);
+                comando.Parameters.AddWithValue("@fechainicio", grupo.Fecha);
+                comando.Parameters.AddWithValue("@fechafin", fechafin);
+                if (grupo.Nombre != "")
+                {
+                    comando.Parameters.AddWithValue("@nombre", grupo.Nombre);
+                }
+                if (usuario != null)
+                {
+                    comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                }
+                if (max != 0 && min == max)
+                {
+                    comando.Parameters.AddWithValue("@min", min);
+                }
+                else if (max != 0)
+                {
+                    comando.Parameters.AddWithValue("@min", min);
+                    comando.Parameters.AddWithValue("@max", max);
+                }
+
+                SqlDataReader reader = comando.ExecuteReader();
+                while (reader.Read())
+                {
+                    ENGrupos aux = Obtener(int.Parse(reader["id"].ToString()));
+                    grupos.Add(aux);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ArrayList ENGrupos.Buscar():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return grupos;
+        }
+
 
         /// <summary>
         /// Calcula el número de grupos en la base de datos
