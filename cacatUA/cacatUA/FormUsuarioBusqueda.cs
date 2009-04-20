@@ -41,13 +41,16 @@ namespace cacatUA
             ArrayList usuarios;
             if (textBox_email.Text != "" || textBox_nombreUsuario.Text != "")
             {
-                padre.TotalPaginas = ((ENUsuario.NumUsuarios(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value) - 1) / padre.TamañoPagina) + 1;
+                padre.TotalBusqueda = ENUsuario.NumUsuarios(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value);
+                padre.TotalPaginas = ((padre.TotalBusqueda - 1) / padre.TamañoPagina) + 1;
                 usuarios = ENUsuario.Buscar(textBox_nombreUsuario.Text, textBox_email.Text, dateTimePicker_fechaIngreso.Value,padre.NumeroPagina,padre.TamañoPagina);
                 // Aquí tenemos que llevar el resultado al datagrid de formUsuario.    
             }
             else
             {
-               padre.TotalPaginas = ((ENUsuario.NumUsuarios() - 1) / padre.TamañoPagina) + 1;
+               padre.TotalBusqueda = ENUsuario.NumUsuarios();
+               padre.TotalPaginas = ((padre.TotalBusqueda - 1) / padre.TamañoPagina) + 1;
+               
                 //Llevamos al grid todos los usuarios
                usuarios = ENUsuario.Obtener(padre.NumeroPagina, padre.TamañoPagina);
             }

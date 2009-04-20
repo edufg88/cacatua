@@ -89,7 +89,6 @@ namespace cacatUA
                 textBox_Ruta.Text = seleccionada.Ruta();
                 textBox_nHilos.Text = seleccionada.NumHilos().ToString();
                 textBox_nMateriales.Text = seleccionada.NumMateriales().ToString();
-                label_UsuariosSuscritos.Text = "Usuarios suscritos (" + seleccionada.NumSuscritos().ToString() + "):";
 
                 //Llenamos el ComboBox de las paginas
                 totalPaginas = ((seleccionada.NumSuscritos()-1)/10)+1;
@@ -119,6 +118,11 @@ namespace cacatUA
         /// <param name="categoria">Categoria asociada.</param>
         private void rellenarGridUsuarios(ENCategoria categoria)
         {
+            int desde = ((numPagina-1)*10)+1;
+            int hasta = (numPagina*10);
+            int total = seleccionada.NumSuscritos();
+
+            label_UsuariosSuscritos.Text = "Mostrando " + desde.ToString() + "-" + hasta.ToString() + " de " + total.ToString() + " usuarios suscritos:";
             dataGridView_Usuarios.Rows.Clear();
             foreach (ENUsuario u in categoria.UsuariosSuscritos(numPagina))
             {
@@ -414,7 +418,7 @@ namespace cacatUA
             if (filas.Count > 0)
             {
                 int usuario = int.Parse(filas[0].Cells[0].Value.ToString());
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(ENUsuario.Obtener(usuario)), "Viendo usuario", false, true, "Volver a categorías", "");
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(ENUsuario.Obtener(usuario)), "Viendo usuario", true, false, "Volver a categorías", "");
             }
             else
             {
@@ -460,11 +464,18 @@ namespace cacatUA
                         }
                         else
                         {
-                            FormPanelAdministracion.Instancia.MensajeEstado(usuario.Id + " insuscrito correctamente.");
+                            FormPanelAdministracion.Instancia.MensajeEstado("Usuario/s insuscrito/s correctamente.");
+                            treeViewCategorias.SelectedNode = sel;
+                            treeViewCategorias.Focus();
+                            numPagina = 1;
+                            rellenarGridUsuarios(seleccionada);
                         }
-                        dataGridView_Usuarios.Rows.Remove(i);
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No hay ningún usuario sleccionado.", "Error de insuscripción", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -504,6 +515,10 @@ namespace cacatUA
                             dataGridView_Usuarios.Rows.Add(u.Id, u.Usuario, u.Nombre);
                             ultimoMensaje = "";
                             FormPanelAdministracion.Instancia.MensajeEstado(u.Usuario.ToString() + " suscrito correctamente.");
+                            treeViewCategorias.SelectedNode = sel;
+                            treeViewCategorias.Focus();
+                            numPagina = 1;
+                            rellenarGridUsuarios(seleccionada);
                         }
                         else
                             MessageBox.Show("No ha sido posible suscribir a este usuario.", "Error de suscripción", MessageBoxButtons.OK, MessageBoxIcon.Error);

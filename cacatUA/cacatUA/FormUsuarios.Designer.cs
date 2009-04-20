@@ -62,6 +62,7 @@
             this.button_editarUsuario = new System.Windows.Forms.Button();
             this.button_borrarUsuario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label_resultados = new System.Windows.Forms.Label();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -87,13 +88,14 @@
             this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
-            this.tableLayoutPanel_principal.RowCount = 6;
+            this.tableLayoutPanel_principal.RowCount = 7;
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(838, 500);
             this.tableLayoutPanel_principal.TabIndex = 0;
             // 
@@ -220,6 +222,7 @@
             // panel_cabeceraSeccion2
             // 
             this.panel_cabeceraSeccion2.BackColor = System.Drawing.Color.LightGray;
+            this.panel_cabeceraSeccion2.Controls.Add(this.label_resultados);
             this.panel_cabeceraSeccion2.Controls.Add(this.label_seccion2);
             this.panel_cabeceraSeccion2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_cabeceraSeccion2.Location = new System.Drawing.Point(0, 0);
@@ -250,14 +253,14 @@
             this.panel_DataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_DataGridViewUsuarios.Location = new System.Drawing.Point(3, 388);
             this.panel_DataGridViewUsuarios.Name = "panel_DataGridViewUsuarios";
-            this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 109);
+            this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 89);
             this.panel_DataGridViewUsuarios.TabIndex = 36;
             // 
             // label_cantidadPagina
             // 
             this.label_cantidadPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_cantidadPagina.AutoSize = true;
-            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 82);
+            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 62);
             this.label_cantidadPagina.Name = "label_cantidadPagina";
             this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
             this.label_cantidadPagina.TabIndex = 13;
@@ -309,7 +312,7 @@
             "200",
             "250",
             "300"});
-            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 78);
+            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 58);
             this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
             this.comboBox_cantidadPorPagina.TabIndex = 14;
@@ -318,7 +321,7 @@
             // button_paginaSiguiente
             // 
             this.button_paginaSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 77);
+            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 57);
             this.button_paginaSiguiente.Name = "button_paginaSiguiente";
             this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
             this.button_paginaSiguiente.TabIndex = 17;
@@ -329,7 +332,7 @@
             // button_paginaAnterior
             // 
             this.button_paginaAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 77);
+            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 57);
             this.button_paginaAnterior.Name = "button_paginaAnterior";
             this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
             this.button_paginaAnterior.TabIndex = 15;
@@ -372,7 +375,7 @@
             "28",
             "29",
             "30"});
-            this.comboBox_pagina.Location = new System.Drawing.Point(655, 78);
+            this.comboBox_pagina.Location = new System.Drawing.Point(655, 58);
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
             this.comboBox_pagina.TabIndex = 16;
@@ -400,7 +403,7 @@
             this.dataGridView_usuarios.Name = "dataGridView_usuarios";
             this.dataGridView_usuarios.RowHeadersVisible = false;
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 64);
+            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 44);
             this.dataGridView_usuarios.TabIndex = 2;
             this.dataGridView_usuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseClick);
             this.dataGridView_usuarios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseDoubleClick);
@@ -493,6 +496,15 @@
             this.button_borrarUsuario.UseVisualStyleBackColor = true;
             this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
             // 
+            // label_resultados
+            // 
+            this.label_resultados.AutoSize = true;
+            this.label_resultados.Location = new System.Drawing.Point(166, 8);
+            this.label_resultados.Name = "label_resultados";
+            this.label_resultados.Size = new System.Drawing.Size(214, 13);
+            this.label_resultados.TabIndex = 37;
+            this.label_resultados.Text = "(mostrando 0 - 0 de 0 usuarios encontrados)";
+            // 
             // FormUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -553,5 +565,6 @@
         private System.Windows.Forms.Button button_paginaSiguiente;
         private System.Windows.Forms.Button button_paginaAnterior;
         private System.Windows.Forms.ComboBox comboBox_pagina;
+        private System.Windows.Forms.Label label_resultados;
     }
 }

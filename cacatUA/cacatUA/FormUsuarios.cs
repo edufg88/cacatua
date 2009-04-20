@@ -30,9 +30,15 @@ namespace cacatUA
         /// </summary>
         private int formulario;
 
+        /// <summary>
+        /// Indica si el formulario tiene que enviar un usuario a otro.
+        /// </summary>
+        private bool devolver;
+
         private int numeroPagina = 1;
         private int tamañoPagina = 10;
         private int totalPaginas;
+        private int totalBusqueda;
 
         public int NumeroPagina
         {
@@ -52,6 +58,12 @@ namespace cacatUA
             set { totalPaginas = value; }
         }
 
+        public int TotalBusqueda
+        {
+            get { return totalBusqueda; }
+            set { totalBusqueda = value; }
+        }
+
         /// <summary>
         /// Constructor del formulario principal de usuarios
         /// </summary>
@@ -63,6 +75,7 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
+            devolver = true;
             formulario = 0;
             CambiarFormularioBusqueda();
             CargarUsuarios(); // Los cargamos en el DataGridView
@@ -80,6 +93,7 @@ namespace cacatUA
             formEdicion.Dock = DockStyle.Top;
             formBusqueda.Dock = DockStyle.Top;
 
+            devolver = false;
             // En este constructor cargamos directamente un usuario en el formulario de edición
             formulario = 1;
             CambiarFormularioEdicion();
@@ -137,12 +151,14 @@ namespace cacatUA
             else
                 button_paginaSiguiente.Enabled = true;
 
+            int desde = ((numeroPagina - 1) * tamañoPagina) + 1;
+            int hasta = (numeroPagina * tamañoPagina);
+            int total = totalBusqueda;
 
-            
-            /*ArrayList al = new ArrayList();
-            al = ENUsuario.Obtener(numeroPagina,tamañoPagina);
-
-            CargarDatos(al);*/
+            if (totalBusqueda > 0)
+                label_resultados.Text = "(mostrando " + desde + " - " + hasta + " de " + total + " hilos encontrados)";
+            else
+                label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
         }
 
         /// <summary>
@@ -180,7 +196,10 @@ namespace cacatUA
         /// <returns>Devuelve el usuario seleccionado en el momento</returns>
         override public Object Enviar()
         {
-            return usuarioSeleccionado;
+            if (devolver)
+                return usuarioSeleccionado;
+            else
+                return null;
         }
 
         private void button_seccionBuscar_Click(object sender, EventArgs e)
@@ -241,7 +260,7 @@ namespace cacatUA
 
         private void dataGridView_usuarios_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (usuarioSeleccionado == null)
+            if (usuarioSeleccionado == null && devolver)
             {
                 FormPanelAdministracion.Instancia.MostrarToolTip();
             }
