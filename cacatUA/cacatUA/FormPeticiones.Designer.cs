@@ -177,6 +177,7 @@
             this.panel_busquedaPeticiones = new System.Windows.Forms.Panel();
             this.label_busquedaPeticiones = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label_resultados = new System.Windows.Forms.Label();
             this.label_resultadosPeticiones = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label_peticionSeleccionadaPeticiones = new System.Windows.Forms.Label();
@@ -198,6 +199,7 @@
             this.radioButton_Contestadas = new System.Windows.Forms.RadioButton();
             this.radioButton_Ambas = new System.Windows.Forms.RadioButton();
             this.panel_BuscarPorAutor = new System.Windows.Forms.Panel();
+            this.button_buscarUsuario = new System.Windows.Forms.Button();
             this.button_seleccionarUsuario = new System.Windows.Forms.Button();
             this.textBox_buscarPeticionAutor = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -211,12 +213,6 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label_mostrarPeticiones = new System.Windows.Forms.Label();
             this.dataGridView_Peticiones = new System.Windows.Forms.DataGridView();
-            this.Autor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.richTextBox_PeticionSeleccionada = new System.Windows.Forms.RichTextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button_paginaSiguiente = new System.Windows.Forms.Button();
@@ -226,6 +222,12 @@
             this.label_cantidadPagina = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -1903,12 +1905,21 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.LightGray;
+            this.panel6.Controls.Add(this.label_resultados);
             this.panel6.Controls.Add(this.label_resultadosPeticiones);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 213);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(810, 24);
             this.panel6.TabIndex = 102;
+            // 
+            // label_resultados
+            // 
+            this.label_resultados.AutoSize = true;
+            this.label_resultados.Location = new System.Drawing.Point(179, 6);
+            this.label_resultados.Name = "label_resultados";
+            this.label_resultados.Size = new System.Drawing.Size(0, 13);
+            this.label_resultados.TabIndex = 1;
             // 
             // label_resultadosPeticiones
             // 
@@ -2163,6 +2174,7 @@
             // 
             // panel_BuscarPorAutor
             // 
+            this.panel_BuscarPorAutor.Controls.Add(this.button_buscarUsuario);
             this.panel_BuscarPorAutor.Controls.Add(this.button_seleccionarUsuario);
             this.panel_BuscarPorAutor.Controls.Add(this.textBox_buscarPeticionAutor);
             this.panel_BuscarPorAutor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2170,6 +2182,21 @@
             this.panel_BuscarPorAutor.Name = "panel_BuscarPorAutor";
             this.panel_BuscarPorAutor.Size = new System.Drawing.Size(659, 24);
             this.panel_BuscarPorAutor.TabIndex = 146;
+            // 
+            // button_buscarUsuario
+            // 
+            this.button_buscarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_buscarUsuario.BackColor = System.Drawing.SystemColors.Window;
+            this.button_buscarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_buscarUsuario.FlatAppearance.BorderSize = 0;
+            this.button_buscarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_buscarUsuario.Image = global::cacatUA.Properties.Resources.seleccionar1;
+            this.button_buscarUsuario.Location = new System.Drawing.Point(637, 1);
+            this.button_buscarUsuario.Name = "button_buscarUsuario";
+            this.button_buscarUsuario.Size = new System.Drawing.Size(20, 18);
+            this.button_buscarUsuario.TabIndex = 146;
+            this.button_buscarUsuario.UseVisualStyleBackColor = false;
+            this.button_buscarUsuario.Click += new System.EventHandler(this.button1_Click);
             // 
             // button_seleccionarUsuario
             // 
@@ -2293,12 +2320,12 @@
             this.dataGridView_Peticiones.AllowUserToResizeRows = false;
             this.dataGridView_Peticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Peticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Autor,
-            this.Asunto,
-            this.Fecha,
-            this.Texto,
-            this.Respuesta,
-            this.Id});
+            this.dataGridViewTextBoxColumn_usuario,
+            this.dataGridViewTextBoxColumn_asunto,
+            this.dataGridViewTextBoxColumn_fecha,
+            this.dataGridViewTextBoxColumn_texto,
+            this.dataGridViewTextBoxColumn_respuesta,
+            this.dataGridViewTextBoxColumn_id});
             this.dataGridView_Peticiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Peticiones.Location = new System.Drawing.Point(3, 243);
             this.dataGridView_Peticiones.MultiSelect = false;
@@ -2306,47 +2333,9 @@
             this.dataGridView_Peticiones.RowHeadersVisible = false;
             this.dataGridView_Peticiones.Size = new System.Drawing.Size(810, 83);
             this.dataGridView_Peticiones.TabIndex = 16;
-            this.dataGridView_Peticiones.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick);
-            this.dataGridView_Peticiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick_1);
-            // 
-            // Autor
-            // 
-            this.Autor.HeaderText = "Autor";
-            this.Autor.Name = "Autor";
-            this.Autor.ReadOnly = true;
-            // 
-            // Asunto
-            // 
-            this.Asunto.HeaderText = "Asunto";
-            this.Asunto.Name = "Asunto";
-            this.Asunto.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Texto
-            // 
-            this.Texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Texto.HeaderText = "Texto";
-            this.Texto.Name = "Texto";
-            this.Texto.ReadOnly = true;
-            // 
-            // Respuesta
-            // 
-            this.Respuesta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Respuesta.HeaderText = "Respuesta";
-            this.Respuesta.Name = "Respuesta";
-            this.Respuesta.ReadOnly = true;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
+            this.dataGridView_Peticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick);
+            this.dataGridView_Peticiones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellClick);
+            this.dataGridView_Peticiones.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_Peticiones_RowStateChanged);
             // 
             // richTextBox_PeticionSeleccionada
             // 
@@ -2383,6 +2372,7 @@
             this.button_paginaSiguiente.TabIndex = 96;
             this.button_paginaSiguiente.Text = "Siguiente";
             this.button_paginaSiguiente.UseVisualStyleBackColor = true;
+            this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
             // 
             // comboBox_pagina
             // 
@@ -2394,6 +2384,7 @@
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
             this.comboBox_pagina.TabIndex = 95;
+            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
             // 
             // button_paginaAnterior
             // 
@@ -2405,6 +2396,7 @@
             this.button_paginaAnterior.TabIndex = 94;
             this.button_paginaAnterior.Text = "Anterior";
             this.button_paginaAnterior.UseVisualStyleBackColor = true;
+            this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
             // 
             // comboBox_cantidadPorPagina
             // 
@@ -2444,6 +2436,8 @@
             this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
             this.comboBox_cantidadPorPagina.TabIndex = 92;
+            this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
+            this.comboBox_cantidadPorPagina.SelectedIndexChanged += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectedIndexChanged);
             // 
             // label_cantidadPagina
             // 
@@ -2462,6 +2456,51 @@
             // errorProvider2
             // 
             this.errorProvider2.ContainerControl = this;
+            // 
+            // dataGridViewTextBoxColumn_usuario
+            // 
+            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
+            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_usuario.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_asunto
+            // 
+            this.dataGridViewTextBoxColumn_asunto.HeaderText = "Asunto";
+            this.dataGridViewTextBoxColumn_asunto.Name = "dataGridViewTextBoxColumn_asunto";
+            this.dataGridViewTextBoxColumn_asunto.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_asunto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_fecha
+            // 
+            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
+            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_texto
+            // 
+            this.dataGridViewTextBoxColumn_texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn_texto.HeaderText = "Texto";
+            this.dataGridViewTextBoxColumn_texto.Name = "dataGridViewTextBoxColumn_texto";
+            this.dataGridViewTextBoxColumn_texto.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_texto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_respuesta
+            // 
+            this.dataGridViewTextBoxColumn_respuesta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn_respuesta.HeaderText = "Respuesta";
+            this.dataGridViewTextBoxColumn_respuesta.Name = "dataGridViewTextBoxColumn_respuesta";
+            this.dataGridViewTextBoxColumn_respuesta.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_respuesta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_id
+            // 
+            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
+            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn_id.Width = 30;
             // 
             // FormPeticiones
             // 
@@ -2737,12 +2776,6 @@
         private System.Windows.Forms.RadioButton radioButton_Ambas;
         private System.Windows.Forms.DataGridView dataGridView_Peticiones;
         private System.Windows.Forms.RichTextBox richTextBox_PeticionSeleccionada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Autor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Asunto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Texto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Respuesta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.CheckBox checkBox_BuscarPeticionesPorFecha;
         private System.Windows.Forms.Button button_seleccionarUsuario;
         private System.Windows.Forms.Panel panel_BuscarPorAutor;
@@ -2767,6 +2800,14 @@
         private System.Windows.Forms.Button button_paginaSiguiente;
         private System.Windows.Forms.ComboBox comboBox_pagina;
         private System.Windows.Forms.Button button_paginaAnterior;
+        private System.Windows.Forms.Label label_resultados;
+        private System.Windows.Forms.Button button_buscarUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_asunto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_texto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_respuesta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
 
     }
 }
