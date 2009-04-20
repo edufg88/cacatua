@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // progressBar
@@ -39,15 +39,15 @@
             this.progressBar.Size = new System.Drawing.Size(452, 23);
             this.progressBar.TabIndex = 0;
             // 
-            // button1
+            // button_cancelar
             // 
-            this.button1.Location = new System.Drawing.Point(486, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Cancelar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_cancelar.Location = new System.Drawing.Point(486, 12);
+            this.button_cancelar.Name = "button_cancelar";
+            this.button_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.button_cancelar.TabIndex = 1;
+            this.button_cancelar.Text = "Cancelar";
+            this.button_cancelar.UseVisualStyleBackColor = true;
+            this.button_cancelar.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormMaterialesUpload
             // 
@@ -55,7 +55,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 46);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button_cancelar);
             this.Controls.Add(this.progressBar);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(600, 80);
@@ -72,6 +72,6 @@
         #endregion
 
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_cancelar;
     }
 }

@@ -19,7 +19,7 @@
       <Value Profile="(Default)">Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\cacatua.mdf;Integrated Security=True;User Instance=True</Value>
     </Setting>
     <Setting Name="cacatUA_Uploader_FileUploader" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://84.120.44.73/FileUploader.asmx</Value>
+      <Value Profile="(Default)">http://localhost:2086/FileUploader.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>
