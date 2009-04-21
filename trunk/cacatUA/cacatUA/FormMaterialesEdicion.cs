@@ -235,10 +235,12 @@ namespace cacatUA
                                 form.ShowDialog();
                                 if (form.Error == "OK")
                                 {
+                                    // Limpiamos el formulario de edición
+                                    formularioPadre.formEditarMateriales.limpiarFormulario();
                                     // Volvemos al formulario de búsqueda y lo limpiamos para que salgan todos los materiales (includo el nuevo)
                                     formularioPadre.ActualizarFormulario(FormMateriales.estados.BUSCAR);
                                     formularioPadre.formMaterialesBusqueda.limpiarFormulario();
-                                    formularioPadre.formMaterialesBusqueda.Buscar();
+                                    formularioPadre.formMaterialesBusqueda.NuevaBusqueda();
                                 }
                                 else
                                 {
