@@ -104,6 +104,8 @@
             this.richTextBox_envPetRespuesta.Size = new System.Drawing.Size(740, 84);
             this.richTextBox_envPetRespuesta.TabIndex = 115;
             this.richTextBox_envPetRespuesta.Text = "descripción detallada del mensaje";
+            this.richTextBox_envPetRespuesta.TextChanged += new System.EventHandler(this.richTextBox_envPetRespuesta_TextChanged_1);
+            this.richTextBox_envPetRespuesta.Click += new System.EventHandler(this.richTextBox_envPetRespuesta_TextChanged);
             // 
             // panelDesc
             // 
@@ -135,6 +137,7 @@
             this.richTextBox_envPetPeticion.Size = new System.Drawing.Size(740, 83);
             this.richTextBox_envPetPeticion.TabIndex = 89;
             this.richTextBox_envPetPeticion.Text = "peticion del usuario";
+            this.richTextBox_envPetPeticion.TextChanged += new System.EventHandler(this.richTextBox_envPetPeticion_TextChanged);
             // 
             // panel1
             // 
@@ -254,8 +257,10 @@
             // 
             // FormPeticionContestar
             // 
+            this.AcceptButton = this.buttonEnviar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.buttonSalir;
             this.ClientSize = new System.Drawing.Size(751, 352);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.buttonEnviar);
@@ -263,7 +268,7 @@
             this.Controls.Add(this.tableLayoutPanelAsunto);
             this.Controls.Add(this.tableLayoutPanelPara);
             this.Name = "FormPeticionContestar";
-            this.Text = "FormContestarPeticion";
+            this.Text = "Contestar petición";
             this.tableLayoutPanelDesc.ResumeLayout(false);
             this.panelDesc.ResumeLayout(false);
             this.panelDesc.PerformLayout();

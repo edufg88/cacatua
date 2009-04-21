@@ -213,6 +213,12 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label_mostrarPeticiones = new System.Windows.Forms.Label();
             this.dataGridView_Peticiones = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.richTextBox_PeticionSeleccionada = new System.Windows.Forms.RichTextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button_paginaSiguiente = new System.Windows.Forms.Button();
@@ -222,12 +228,6 @@
             this.label_cantidadPagina = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -1866,7 +1866,7 @@
             this.button_contestarPeticion.Location = new System.Drawing.Point(703, 3);
             this.button_contestarPeticion.Name = "button_contestarPeticion";
             this.button_contestarPeticion.Size = new System.Drawing.Size(74, 23);
-            this.button_contestarPeticion.TabIndex = 17;
+            this.button_contestarPeticion.TabIndex = 1;
             this.button_contestarPeticion.Text = "Contestar";
             this.button_contestarPeticion.UseVisualStyleBackColor = true;
             this.button_contestarPeticion.Click += new System.EventHandler(this.button_contestarPeticion_Click);
@@ -1876,7 +1876,7 @@
             this.button_borrarPeticion.Location = new System.Drawing.Point(622, 3);
             this.button_borrarPeticion.Name = "button_borrarPeticion";
             this.button_borrarPeticion.Size = new System.Drawing.Size(75, 23);
-            this.button_borrarPeticion.TabIndex = 18;
+            this.button_borrarPeticion.TabIndex = 0;
             this.button_borrarPeticion.Text = "Borrar";
             this.button_borrarPeticion.UseVisualStyleBackColor = true;
             this.button_borrarPeticion.Click += new System.EventHandler(this.button_borrarPeticion_Click);
@@ -1990,7 +1990,7 @@
             this.textBox_buscarPeticionTexto.Location = new System.Drawing.Point(123, 28);
             this.textBox_buscarPeticionTexto.Name = "textBox_buscarPeticionTexto";
             this.textBox_buscarPeticionTexto.Size = new System.Drawing.Size(659, 20);
-            this.textBox_buscarPeticionTexto.TabIndex = 7;
+            this.textBox_buscarPeticionTexto.TabIndex = 1;
             // 
             // textBox_buscarPeticionAsunto
             // 
@@ -1999,7 +1999,7 @@
             this.textBox_buscarPeticionAsunto.Location = new System.Drawing.Point(123, 3);
             this.textBox_buscarPeticionAsunto.Name = "textBox_buscarPeticionAsunto";
             this.textBox_buscarPeticionAsunto.Size = new System.Drawing.Size(659, 20);
-            this.textBox_buscarPeticionAsunto.TabIndex = 6;
+            this.textBox_buscarPeticionAsunto.TabIndex = 0;
             this.textBox_buscarPeticionAsunto.Tag = "";
             // 
             // tableLayoutPanel16
@@ -2033,7 +2033,7 @@
             this.dateTimePicker_FechaInicio.Name = "dateTimePicker_FechaInicio";
             this.dateTimePicker_FechaInicio.ShowUpDown = true;
             this.dateTimePicker_FechaInicio.Size = new System.Drawing.Size(247, 20);
-            this.dateTimePicker_FechaInicio.TabIndex = 153;
+            this.dateTimePicker_FechaInicio.TabIndex = 0;
             this.dateTimePicker_FechaInicio.Value = new System.DateTime(2008, 9, 1, 0, 0, 0, 0);
             // 
             // panel13
@@ -2060,7 +2060,7 @@
             this.panel14.Location = new System.Drawing.Point(553, 3);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(106, 18);
-            this.panel14.TabIndex = 152;
+            this.panel14.TabIndex = 2;
             // 
             // checkBox_BuscarPeticionesPorFecha
             // 
@@ -2068,7 +2068,7 @@
             this.checkBox_BuscarPeticionesPorFecha.Location = new System.Drawing.Point(3, 3);
             this.checkBox_BuscarPeticionesPorFecha.Name = "checkBox_BuscarPeticionesPorFecha";
             this.checkBox_BuscarPeticionesPorFecha.Size = new System.Drawing.Size(105, 17);
-            this.checkBox_BuscarPeticionesPorFecha.TabIndex = 11;
+            this.checkBox_BuscarPeticionesPorFecha.TabIndex = 0;
             this.checkBox_BuscarPeticionesPorFecha.Text = "Buscar por fecha";
             this.checkBox_BuscarPeticionesPorFecha.UseVisualStyleBackColor = true;
             // 
@@ -2080,7 +2080,7 @@
             this.dateTimePicker_FechaFin.Name = "dateTimePicker_FechaFin";
             this.dateTimePicker_FechaFin.ShowUpDown = true;
             this.dateTimePicker_FechaFin.Size = new System.Drawing.Size(244, 20);
-            this.dateTimePicker_FechaFin.TabIndex = 154;
+            this.dateTimePicker_FechaFin.TabIndex = 1;
             // 
             // tableLayoutPanel23
             // 
@@ -2103,7 +2103,7 @@
             this.button_buscarPeticiones.Location = new System.Drawing.Point(501, 3);
             this.button_buscarPeticiones.Name = "button_buscarPeticiones";
             this.button_buscarPeticiones.Size = new System.Drawing.Size(75, 22);
-            this.button_buscarPeticiones.TabIndex = 15;
+            this.button_buscarPeticiones.TabIndex = 0;
             this.button_buscarPeticiones.Text = "Buscar";
             this.button_buscarPeticiones.UseVisualStyleBackColor = true;
             this.button_buscarPeticiones.Click += new System.EventHandler(this.button_buscarPeticiones_Click);
@@ -2113,7 +2113,7 @@
             this.button_LimpiarBusquedaPeticion.Location = new System.Drawing.Point(582, 3);
             this.button_LimpiarBusquedaPeticion.Name = "button_LimpiarBusquedaPeticion";
             this.button_LimpiarBusquedaPeticion.Size = new System.Drawing.Size(74, 22);
-            this.button_LimpiarBusquedaPeticion.TabIndex = 16;
+            this.button_LimpiarBusquedaPeticion.TabIndex = 1;
             this.button_LimpiarBusquedaPeticion.Text = "Limpiar";
             this.button_LimpiarBusquedaPeticion.UseVisualStyleBackColor = true;
             this.button_LimpiarBusquedaPeticion.Click += new System.EventHandler(this.button_LimpiarBusquedaPeticion_Click);
@@ -2142,7 +2142,7 @@
             this.radioButton_SinContestar.Location = new System.Drawing.Point(3, 3);
             this.radioButton_SinContestar.Name = "radioButton_SinContestar";
             this.radioButton_SinContestar.Size = new System.Drawing.Size(88, 17);
-            this.radioButton_SinContestar.TabIndex = 12;
+            this.radioButton_SinContestar.TabIndex = 0;
             this.radioButton_SinContestar.TabStop = true;
             this.radioButton_SinContestar.Text = "Sin Contestar";
             this.radioButton_SinContestar.UseVisualStyleBackColor = true;
@@ -2154,7 +2154,7 @@
             this.radioButton_Contestadas.Location = new System.Drawing.Point(103, 3);
             this.radioButton_Contestadas.Name = "radioButton_Contestadas";
             this.radioButton_Contestadas.Size = new System.Drawing.Size(84, 17);
-            this.radioButton_Contestadas.TabIndex = 13;
+            this.radioButton_Contestadas.TabIndex = 1;
             this.radioButton_Contestadas.TabStop = true;
             this.radioButton_Contestadas.Text = "Contestadas";
             this.radioButton_Contestadas.UseVisualStyleBackColor = true;
@@ -2166,7 +2166,7 @@
             this.radioButton_Ambas.Location = new System.Drawing.Point(203, 3);
             this.radioButton_Ambas.Name = "radioButton_Ambas";
             this.radioButton_Ambas.Size = new System.Drawing.Size(57, 17);
-            this.radioButton_Ambas.TabIndex = 14;
+            this.radioButton_Ambas.TabIndex = 2;
             this.radioButton_Ambas.TabStop = true;
             this.radioButton_Ambas.Text = "Ambas";
             this.radioButton_Ambas.UseVisualStyleBackColor = true;
@@ -2220,7 +2220,7 @@
             this.textBox_buscarPeticionAutor.Location = new System.Drawing.Point(0, 0);
             this.textBox_buscarPeticionAutor.Name = "textBox_buscarPeticionAutor";
             this.textBox_buscarPeticionAutor.Size = new System.Drawing.Size(659, 20);
-            this.textBox_buscarPeticionAutor.TabIndex = 8;
+            this.textBox_buscarPeticionAutor.TabIndex = 0;
             // 
             // panel8
             // 
@@ -2331,131 +2331,12 @@
             this.dataGridView_Peticiones.MultiSelect = false;
             this.dataGridView_Peticiones.Name = "dataGridView_Peticiones";
             this.dataGridView_Peticiones.RowHeadersVisible = false;
+            this.dataGridView_Peticiones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Peticiones.Size = new System.Drawing.Size(810, 83);
-            this.dataGridView_Peticiones.TabIndex = 16;
+            this.dataGridView_Peticiones.TabIndex = 0;
             this.dataGridView_Peticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick);
             this.dataGridView_Peticiones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellClick);
             this.dataGridView_Peticiones.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_Peticiones_RowStateChanged);
-            // 
-            // richTextBox_PeticionSeleccionada
-            // 
-            this.richTextBox_PeticionSeleccionada.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox_PeticionSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_PeticionSeleccionada.ForeColor = System.Drawing.Color.Black;
-            this.richTextBox_PeticionSeleccionada.Location = new System.Drawing.Point(3, 392);
-            this.richTextBox_PeticionSeleccionada.Name = "richTextBox_PeticionSeleccionada";
-            this.richTextBox_PeticionSeleccionada.ReadOnly = true;
-            this.richTextBox_PeticionSeleccionada.Size = new System.Drawing.Size(810, 74);
-            this.richTextBox_PeticionSeleccionada.TabIndex = 105;
-            this.richTextBox_PeticionSeleccionada.Text = "Selecciona una Petición para verla";
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.button_paginaSiguiente);
-            this.panel15.Controls.Add(this.comboBox_pagina);
-            this.panel15.Controls.Add(this.button_paginaAnterior);
-            this.panel15.Controls.Add(this.comboBox_cantidadPorPagina);
-            this.panel15.Controls.Add(this.label_cantidadPagina);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(0, 329);
-            this.panel15.Margin = new System.Windows.Forms.Padding(0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(816, 30);
-            this.panel15.TabIndex = 107;
-            // 
-            // button_paginaSiguiente
-            // 
-            this.button_paginaSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 4);
-            this.button_paginaSiguiente.Name = "button_paginaSiguiente";
-            this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
-            this.button_paginaSiguiente.TabIndex = 96;
-            this.button_paginaSiguiente.Text = "Siguiente";
-            this.button_paginaSiguiente.UseVisualStyleBackColor = true;
-            this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
-            // 
-            // comboBox_pagina
-            // 
-            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_pagina.Items.AddRange(new object[] {
-            "1"});
-            this.comboBox_pagina.Location = new System.Drawing.Point(655, 5);
-            this.comboBox_pagina.Name = "comboBox_pagina";
-            this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
-            this.comboBox_pagina.TabIndex = 95;
-            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
-            // 
-            // button_paginaAnterior
-            // 
-            this.button_paginaAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_paginaAnterior.Enabled = false;
-            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 4);
-            this.button_paginaAnterior.Name = "button_paginaAnterior";
-            this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
-            this.button_paginaAnterior.TabIndex = 94;
-            this.button_paginaAnterior.Text = "Anterior";
-            this.button_paginaAnterior.UseVisualStyleBackColor = true;
-            this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
-            // 
-            // comboBox_cantidadPorPagina
-            // 
-            this.comboBox_cantidadPorPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboBox_cantidadPorPagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_cantidadPorPagina.FormattingEnabled = true;
-            this.comboBox_cantidadPorPagina.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "15",
-            "17",
-            "20",
-            "30",
-            "40",
-            "50",
-            "60",
-            "70",
-            "80",
-            "90",
-            "100",
-            "150",
-            "200",
-            "250",
-            "300"});
-            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 4);
-            this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
-            this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
-            this.comboBox_cantidadPorPagina.TabIndex = 92;
-            this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
-            this.comboBox_cantidadPorPagina.SelectedIndexChanged += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectedIndexChanged);
-            // 
-            // label_cantidadPagina
-            // 
-            this.label_cantidadPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label_cantidadPagina.AutoSize = true;
-            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 8);
-            this.label_cantidadPagina.Name = "label_cantidadPagina";
-            this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
-            this.label_cantidadPagina.TabIndex = 91;
-            this.label_cantidadPagina.Text = "Cantidad por página:";
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // errorProvider2
-            // 
-            this.errorProvider2.ContainerControl = this;
             // 
             // dataGridViewTextBoxColumn_usuario
             // 
@@ -2501,6 +2382,126 @@
             this.dataGridViewTextBoxColumn_id.ReadOnly = true;
             this.dataGridViewTextBoxColumn_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.dataGridViewTextBoxColumn_id.Width = 30;
+            // 
+            // richTextBox_PeticionSeleccionada
+            // 
+            this.richTextBox_PeticionSeleccionada.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox_PeticionSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox_PeticionSeleccionada.ForeColor = System.Drawing.Color.Black;
+            this.richTextBox_PeticionSeleccionada.Location = new System.Drawing.Point(3, 392);
+            this.richTextBox_PeticionSeleccionada.Name = "richTextBox_PeticionSeleccionada";
+            this.richTextBox_PeticionSeleccionada.ReadOnly = true;
+            this.richTextBox_PeticionSeleccionada.Size = new System.Drawing.Size(810, 74);
+            this.richTextBox_PeticionSeleccionada.TabIndex = 105;
+            this.richTextBox_PeticionSeleccionada.Text = "Selecciona una Petición para verla";
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.button_paginaSiguiente);
+            this.panel15.Controls.Add(this.comboBox_pagina);
+            this.panel15.Controls.Add(this.button_paginaAnterior);
+            this.panel15.Controls.Add(this.comboBox_cantidadPorPagina);
+            this.panel15.Controls.Add(this.label_cantidadPagina);
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel15.Location = new System.Drawing.Point(0, 329);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(816, 30);
+            this.panel15.TabIndex = 107;
+            // 
+            // button_paginaSiguiente
+            // 
+            this.button_paginaSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 4);
+            this.button_paginaSiguiente.Name = "button_paginaSiguiente";
+            this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.button_paginaSiguiente.TabIndex = 3;
+            this.button_paginaSiguiente.Text = "Siguiente";
+            this.button_paginaSiguiente.UseVisualStyleBackColor = true;
+            this.button_paginaSiguiente.Click += new System.EventHandler(this.button_paginaSiguiente_Click);
+            // 
+            // comboBox_pagina
+            // 
+            this.comboBox_pagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_pagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_pagina.Items.AddRange(new object[] {
+            "1"});
+            this.comboBox_pagina.Location = new System.Drawing.Point(655, 5);
+            this.comboBox_pagina.Name = "comboBox_pagina";
+            this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
+            this.comboBox_pagina.TabIndex = 2;
+            this.comboBox_pagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_pagina_SelectionChangeCommitted);
+            // 
+            // button_paginaAnterior
+            // 
+            this.button_paginaAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_paginaAnterior.Enabled = false;
+            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 4);
+            this.button_paginaAnterior.Name = "button_paginaAnterior";
+            this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
+            this.button_paginaAnterior.TabIndex = 1;
+            this.button_paginaAnterior.Text = "Anterior";
+            this.button_paginaAnterior.UseVisualStyleBackColor = true;
+            this.button_paginaAnterior.Click += new System.EventHandler(this.button_paginaAnterior_Click);
+            // 
+            // comboBox_cantidadPorPagina
+            // 
+            this.comboBox_cantidadPorPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboBox_cantidadPorPagina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_cantidadPorPagina.FormattingEnabled = true;
+            this.comboBox_cantidadPorPagina.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "15",
+            "17",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100",
+            "150",
+            "200",
+            "250",
+            "300"});
+            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 4);
+            this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
+            this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
+            this.comboBox_cantidadPorPagina.TabIndex = 0;
+            this.comboBox_cantidadPorPagina.SelectionChangeCommitted += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectionChangeCommitted);
+            this.comboBox_cantidadPorPagina.SelectedIndexChanged += new System.EventHandler(this.comboBox_cantidadPorPagina_SelectedIndexChanged);
+            // 
+            // label_cantidadPagina
+            // 
+            this.label_cantidadPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_cantidadPagina.AutoSize = true;
+            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 8);
+            this.label_cantidadPagina.Name = "label_cantidadPagina";
+            this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
+            this.label_cantidadPagina.TabIndex = 91;
+            this.label_cantidadPagina.Text = "Cantidad por página:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
             // 
             // FormPeticiones
             // 

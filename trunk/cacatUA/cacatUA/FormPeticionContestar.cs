@@ -14,6 +14,7 @@ namespace cacatUA
     {
         private ENPeticion pet;
         private FormPeticiones peticiones;
+        private bool editado = false;
 
         public FormPeticionContestar(string p, FormPeticiones fp)
         {
@@ -43,26 +44,52 @@ namespace cacatUA
 
         private bool validarRespuesta(string respuesta)
         {
-            if (respuesta == "" || respuesta == "\n")
+            if (respuesta != "descripción detallada del mensaje")
             {
-                return false;
-            }
-            else
-            {
-                if (respuesta.Length > 5000)
+                if (respuesta == "" || respuesta == "\n")
                 {
                     return false;
                 }
                 else
                 {
-                    return true;
+                    if (respuesta.Length > 5000)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
                 }
+            }
+            else
+            {
+                return false;
             }
         }
 
         private void buttonSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void richTextBox_envPetPeticion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox_envPetRespuesta_TextChanged(object sender, EventArgs e)
+        {
+            if (editado != true)
+            {
+                editado = true;
+                richTextBox_envPetRespuesta.Text = "";
+            }
+        }
+
+        private void richTextBox_envPetRespuesta_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
