@@ -105,7 +105,7 @@
             this.button4.Location = new System.Drawing.Point(751, 6);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(20, 18);
-            this.button4.TabIndex = 107;
+            this.button4.TabIndex = 1;
             this.toolTip1.SetToolTip(this.button4, "Seleccionar archivo");
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.seleccionarArchivo);
@@ -236,7 +236,7 @@
             this.button_seleccionarCategoria.Location = new System.Drawing.Point(752, 6);
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarCategoria.TabIndex = 143;
+            this.button_seleccionarCategoria.TabIndex = 1;
             this.button_seleccionarCategoria.TabStop = false;
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
             this.button_seleccionarCategoria.Click += new System.EventHandler(this.seleccionarCategoria);
@@ -271,7 +271,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(808, 30);
-            this.panel2.TabIndex = 2;
+            this.panel2.TabIndex = 0;
             // 
             // button1
             // 
@@ -284,7 +284,7 @@
             this.button1.Location = new System.Drawing.Point(752, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(20, 18);
-            this.button1.TabIndex = 144;
+            this.button1.TabIndex = 1;
             this.button1.TabStop = false;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.seleccionarUsuario);
@@ -328,7 +328,7 @@
             this.textBox_id.Name = "textBox_id";
             this.textBox_id.ReadOnly = true;
             this.textBox_id.Size = new System.Drawing.Size(49, 20);
-            this.textBox_id.TabIndex = 4;
+            this.textBox_id.TabIndex = 1;
             this.textBox_id.TabStop = false;
             // 
             // label_id
@@ -535,7 +535,7 @@
             this.textBox_votos.Location = new System.Drawing.Point(628, 5);
             this.textBox_votos.Name = "textBox_votos";
             this.textBox_votos.Size = new System.Drawing.Size(145, 20);
-            this.textBox_votos.TabIndex = 4;
+            this.textBox_votos.TabIndex = 2;
             // 
             // label14
             // 
@@ -551,7 +551,7 @@
             this.textBox_puntuacion.Location = new System.Drawing.Point(380, 5);
             this.textBox_puntuacion.Name = "textBox_puntuacion";
             this.textBox_puntuacion.Size = new System.Drawing.Size(158, 20);
-            this.textBox_puntuacion.TabIndex = 2;
+            this.textBox_puntuacion.TabIndex = 1;
             // 
             // label13
             // 

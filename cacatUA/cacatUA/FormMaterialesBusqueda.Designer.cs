@@ -71,7 +71,7 @@
             this.button_seleccionarUsuario.Location = new System.Drawing.Point(709, 6);
             this.button_seleccionarUsuario.Name = "button_seleccionarUsuario";
             this.button_seleccionarUsuario.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarUsuario.TabIndex = 144;
+            this.button_seleccionarUsuario.TabIndex = 1;
             this.button_seleccionarUsuario.UseVisualStyleBackColor = false;
             this.button_seleccionarUsuario.Click += new System.EventHandler(this.seleccionarUsuario);
             // 
@@ -82,7 +82,7 @@
             this.textBox_usuario.Location = new System.Drawing.Point(125, 5);
             this.textBox_usuario.Name = "textBox_usuario";
             this.textBox_usuario.Size = new System.Drawing.Size(605, 20);
-            this.textBox_usuario.TabIndex = 2;
+            this.textBox_usuario.TabIndex = 0;
             // 
             // label_autor
             // 
@@ -100,7 +100,7 @@
             this.textBox_filtroBusqueda.Location = new System.Drawing.Point(125, 5);
             this.textBox_filtroBusqueda.Name = "textBox_filtroBusqueda";
             this.textBox_filtroBusqueda.Size = new System.Drawing.Size(605, 20);
-            this.textBox_filtroBusqueda.TabIndex = 1;
+            this.textBox_filtroBusqueda.TabIndex = 0;
             // 
             // button_buscar
             // 
@@ -190,7 +190,7 @@
             this.button_seleccionarCategoria.Location = new System.Drawing.Point(709, 6);
             this.button_seleccionarCategoria.Name = "button_seleccionarCategoria";
             this.button_seleccionarCategoria.Size = new System.Drawing.Size(20, 18);
-            this.button_seleccionarCategoria.TabIndex = 143;
+            this.button_seleccionarCategoria.TabIndex = 1;
             this.button_seleccionarCategoria.UseVisualStyleBackColor = false;
             this.button_seleccionarCategoria.Click += new System.EventHandler(this.seleccionarCategoria);
             // 
@@ -202,7 +202,7 @@
             this.textBox_categoria.Name = "textBox_categoria";
             this.textBox_categoria.ReadOnly = true;
             this.textBox_categoria.Size = new System.Drawing.Size(605, 20);
-            this.textBox_categoria.TabIndex = 2;
+            this.textBox_categoria.TabIndex = 0;
             // 
             // label_categoria
             // 
@@ -234,7 +234,7 @@
             this.dateTimePicker_fechaFin.Name = "dateTimePicker_fechaFin";
             this.dateTimePicker_fechaFin.ShowUpDown = true;
             this.dateTimePicker_fechaFin.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker_fechaFin.TabIndex = 3;
+            this.dateTimePicker_fechaFin.TabIndex = 1;
             // 
             // label_hasta
             // 
@@ -253,7 +253,7 @@
             this.dateTimePicker_fechaInicio.Name = "dateTimePicker_fechaInicio";
             this.dateTimePicker_fechaInicio.ShowUpDown = true;
             this.dateTimePicker_fechaInicio.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker_fechaInicio.TabIndex = 1;
+            this.dateTimePicker_fechaInicio.TabIndex = 0;
             // 
             // label_mostrarDesde
             // 
@@ -281,7 +281,7 @@
             this.button_limpiar.Location = new System.Drawing.Point(654, 4);
             this.button_limpiar.Name = "button_limpiar";
             this.button_limpiar.Size = new System.Drawing.Size(75, 23);
-            this.button_limpiar.TabIndex = 8;
+            this.button_limpiar.TabIndex = 1;
             this.button_limpiar.Text = "Limpiar";
             this.button_limpiar.UseVisualStyleBackColor = true;
             this.button_limpiar.Click += new System.EventHandler(this.limpiarFormulario);
