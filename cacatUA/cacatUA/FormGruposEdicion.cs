@@ -99,16 +99,6 @@ namespace cacatUA
             return correcto;
         }
 
-
-        private void linkLabel_usuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (listBox_usuarios.SelectedItem != null)
-            {
-                ENUsuario usuario = ENUsuario.Obtener(listBox_usuarios.SelectedItem.ToString());
-                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(usuario), "Viendo usuario", true, false, "Volver al panel anterior", "");
-            }
-        }
-
         private void button_guardar_Click(object sender, EventArgs e)
         {
             if (ValidarFormulario())
@@ -247,6 +237,20 @@ namespace cacatUA
         private void button_addUsuario_Click(object sender, EventArgs e)
         {
             FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(), "Seleccionando usuario", true, true, "Volver al panel anterior seleccionando el usuario actual", "Cancelar la selección y volver al panel anterior");
+        }
+
+        private void button_verUsuario_Click(object sender, EventArgs e)
+        {
+            if (listBox_usuarios.SelectedItem != null)
+            {
+                ENUsuario usuario = ENUsuario.Obtener(listBox_usuarios.SelectedItem.ToString());
+                FormPanelAdministracion.Instancia.Apilar(new FormUsuarios(usuario), "Viendo usuario", true, false, "Volver al panel anterior", "");
+            }
+        }
+
+        private void listBox_usuarios_DoubleClick(object sender, EventArgs e)
+        {
+            button_verUsuario_Click(sender, e);
         }
     }
 }

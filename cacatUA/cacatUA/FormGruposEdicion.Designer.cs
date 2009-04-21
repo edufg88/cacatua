@@ -42,26 +42,24 @@
             this.dateTimePicker_fecha = new System.Windows.Forms.DateTimePicker();
             this.label_fecha = new System.Windows.Forms.Label();
             this.panel_usuarios = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_verUsuario = new System.Windows.Forms.Button();
             this.button_addUsuario = new System.Windows.Forms.Button();
-            this.linkLabel_usuario = new System.Windows.Forms.LinkLabel();
             this.button_borrar = new System.Windows.Forms.Button();
             this.listBox_usuarios = new System.Windows.Forms.ListBox();
             this.label_usuarios = new System.Windows.Forms.Label();
             this.panel_numUsuarios = new System.Windows.Forms.Panel();
+            this.textBox_numUsuarios = new System.Windows.Forms.TextBox();
             this.label_numUsuarios = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button_descartarCambios = new System.Windows.Forms.Button();
             this.button_guardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox_numUsuarios = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel_secundario.SuspendLayout();
             this.panel_nombre.SuspendLayout();
             this.panel_descripcion.SuspendLayout();
             this.panel_fecha.SuspendLayout();
             this.panel_usuarios.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.panel_numUsuarios.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -207,7 +205,9 @@
             // 
             // panel_usuarios
             // 
-            this.panel_usuarios.Controls.Add(this.tableLayoutPanel1);
+            this.panel_usuarios.Controls.Add(this.button_verUsuario);
+            this.panel_usuarios.Controls.Add(this.button_addUsuario);
+            this.panel_usuarios.Controls.Add(this.button_borrar);
             this.panel_usuarios.Controls.Add(this.listBox_usuarios);
             this.panel_usuarios.Controls.Add(this.label_usuarios);
             this.panel_usuarios.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -217,66 +217,43 @@
             this.panel_usuarios.Size = new System.Drawing.Size(899, 93);
             this.panel_usuarios.TabIndex = 9;
             // 
-            // tableLayoutPanel1
+            // button_verUsuario
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.button_addUsuario, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.linkLabel_usuario, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button_borrar, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(451, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.81818F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.18182F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(71, 87);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.button_verUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_verUsuario.FlatAppearance.BorderSize = 0;
+            this.button_verUsuario.Location = new System.Drawing.Point(460, 10);
+            this.button_verUsuario.Name = "button_verUsuario";
+            this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
+            this.button_verUsuario.TabIndex = 15;
+            this.button_verUsuario.Text = "Ver usuario";
+            this.toolTip1.SetToolTip(this.button_verUsuario, "Añadir un miembro al grupo");
+            this.button_verUsuario.UseVisualStyleBackColor = true;
+            this.button_verUsuario.Click += new System.EventHandler(this.button_verUsuario_Click);
             // 
             // button_addUsuario
             // 
-            this.button_addUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_addUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_addUsuario.FlatAppearance.BorderSize = 0;
-            this.button_addUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_addUsuario.Image = global::cacatUA.Properties.Resources.nuevo;
-            this.button_addUsuario.Location = new System.Drawing.Point(3, 20);
+            this.button_addUsuario.Location = new System.Drawing.Point(460, 38);
             this.button_addUsuario.Name = "button_addUsuario";
-            this.button_addUsuario.Size = new System.Drawing.Size(65, 30);
+            this.button_addUsuario.Size = new System.Drawing.Size(100, 25);
             this.button_addUsuario.TabIndex = 13;
+            this.button_addUsuario.Text = "Añadir usuario";
             this.toolTip1.SetToolTip(this.button_addUsuario, "Añadir un miembro al grupo");
             this.button_addUsuario.UseVisualStyleBackColor = true;
             this.button_addUsuario.Click += new System.EventHandler(this.button_addUsuario_Click);
             // 
-            // linkLabel_usuario
-            // 
-            this.linkLabel_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel_usuario.AutoSize = true;
-            this.linkLabel_usuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel_usuario.Location = new System.Drawing.Point(3, 0);
-            this.linkLabel_usuario.Name = "linkLabel_usuario";
-            this.linkLabel_usuario.Size = new System.Drawing.Size(65, 13);
-            this.linkLabel_usuario.TabIndex = 4;
-            this.linkLabel_usuario.TabStop = true;
-            this.linkLabel_usuario.Text = "Ver usuario";
-            this.linkLabel_usuario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_usuario_LinkClicked);
-            // 
             // button_borrar
             // 
-            this.button_borrar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
             this.button_borrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_borrar.FlatAppearance.BorderSize = 0;
-            this.button_borrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_borrar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrar.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrar.Location = new System.Drawing.Point(3, 56);
+            this.button_borrar.Location = new System.Drawing.Point(460, 66);
             this.button_borrar.Name = "button_borrar";
-            this.button_borrar.Size = new System.Drawing.Size(65, 28);
+            this.button_borrar.Size = new System.Drawing.Size(100, 25);
             this.button_borrar.TabIndex = 14;
             this.button_borrar.Tag = "";
+            this.button_borrar.Text = "Quitar usuario";
             this.toolTip1.SetToolTip(this.button_borrar, "Borrar miembro del grupo");
             this.button_borrar.UseVisualStyleBackColor = true;
             this.button_borrar.Click += new System.EventHandler(this.button_borrar_Click);
@@ -289,6 +266,7 @@
             this.listBox_usuarios.Name = "listBox_usuarios";
             this.listBox_usuarios.Size = new System.Drawing.Size(320, 82);
             this.listBox_usuarios.TabIndex = 4;
+            this.listBox_usuarios.DoubleClick += new System.EventHandler(this.listBox_usuarios_DoubleClick);
             // 
             // label_usuarios
             // 
@@ -310,14 +288,22 @@
             this.panel_numUsuarios.Size = new System.Drawing.Size(899, 30);
             this.panel_numUsuarios.TabIndex = 10;
             // 
+            // textBox_numUsuarios
+            // 
+            this.textBox_numUsuarios.Enabled = false;
+            this.textBox_numUsuarios.Location = new System.Drawing.Point(124, 7);
+            this.textBox_numUsuarios.Name = "textBox_numUsuarios";
+            this.textBox_numUsuarios.Size = new System.Drawing.Size(100, 20);
+            this.textBox_numUsuarios.TabIndex = 1;
+            // 
             // label_numUsuarios
             // 
             this.label_numUsuarios.AutoSize = true;
             this.label_numUsuarios.Location = new System.Drawing.Point(16, 10);
             this.label_numUsuarios.Name = "label_numUsuarios";
-            this.label_numUsuarios.Size = new System.Drawing.Size(81, 13);
+            this.label_numUsuarios.Size = new System.Drawing.Size(79, 13);
             this.label_numUsuarios.TabIndex = 0;
-            this.label_numUsuarios.Text = "Nº de Usuarios:";
+            this.label_numUsuarios.Text = "Nº de usuarios:";
             // 
             // panel1
             // 
@@ -356,14 +342,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // textBox_numUsuarios
-            // 
-            this.textBox_numUsuarios.Enabled = false;
-            this.textBox_numUsuarios.Location = new System.Drawing.Point(124, 7);
-            this.textBox_numUsuarios.Name = "textBox_numUsuarios";
-            this.textBox_numUsuarios.Size = new System.Drawing.Size(100, 20);
-            this.textBox_numUsuarios.TabIndex = 1;
-            // 
             // FormGruposEdicion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,8 +358,6 @@
             this.panel_fecha.PerformLayout();
             this.panel_usuarios.ResumeLayout(false);
             this.panel_usuarios.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.panel_numUsuarios.ResumeLayout(false);
             this.panel_numUsuarios.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -402,7 +378,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_fecha;
         private System.Windows.Forms.Label label_fecha;
         private System.Windows.Forms.Panel panel_usuarios;
-        private System.Windows.Forms.LinkLabel linkLabel_usuario;
         private System.Windows.Forms.ListBox listBox_usuarios;
         private System.Windows.Forms.Label label_usuarios;
         private System.Windows.Forms.Panel panel_numUsuarios;
@@ -413,11 +388,11 @@
         private System.Windows.Forms.TextBox textBox_nombre;
         private System.Windows.Forms.TextBox textBox_id;
         private System.Windows.Forms.Label label_id;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button_addUsuario;
         private System.Windows.Forms.Button button_borrar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TextBox textBox_numUsuarios;
+        private System.Windows.Forms.Button button_verUsuario;
     }
 }
