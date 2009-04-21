@@ -14,12 +14,14 @@ namespace Libreria
     /// </remarks>
     public class ENMaterial : InterfazEN
     {
-        const int maxTamNombre = 30;
-        const int minTamNombre = 5;
+        const int maxTamNombre = 50;
+        const int minTamNombre = 2;
         const int maxTamArchivo = 100;
         const int minTamArchivo = 5;
-        const int maxTamReferencia = 100;
-        const int minTamReferencia = 5;
+        const int maxTamReferencia = 50;
+        const int minTamReferencia = 2;
+        const int maxTamDescripcion = 5000;
+        const int minTamDescripcion = 2;
 
         private int id;
         private string nombre;
@@ -88,6 +90,12 @@ namespace Libreria
                     {
                         if (material.Archivo.Length > maxTamArchivo || material.Archivo.Length < minTamArchivo)
                             error = "Debe tener entre " + minTamArchivo + " y " + maxTamArchivo + " caracteres";
+                        break;
+                    }
+                case "descripcion":
+                    {
+                        if (material.Descripcion.Length > maxTamDescripcion || material.Descripcion.Length < minTamDescripcion)
+                            error = "Debe tener entre " + minTamDescripcion + " y " + maxTamDescripcion + " caracteres";
                         break;
                     }
                 case "referencia":
@@ -431,7 +439,7 @@ namespace Libreria
         private ENMaterial material;
 
         static int minTamTexto = 1;
-        static int maxTamTexto = 1000;
+        static int maxTamTexto = 5000;
 
         /// <summary>
         /// Identificador único del comentario.

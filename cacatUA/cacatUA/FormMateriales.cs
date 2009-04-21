@@ -328,6 +328,8 @@ namespace cacatUA
                             {
                                 // Eliminamos la fila
                                 dataGridView_materiales.Rows.Remove(fila);
+                                // Mostramos un mensaje
+                                FormPanelAdministracion.Instancia.MensajeEstado("Borrado el material " + material.Id.ToString());
                             }
                         }
                         else

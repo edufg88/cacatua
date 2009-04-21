@@ -241,6 +241,8 @@ namespace cacatUA
                                     formularioPadre.ActualizarFormulario(FormMateriales.estados.BUSCAR);
                                     formularioPadre.formMaterialesBusqueda.limpiarFormulario();
                                     formularioPadre.formMaterialesBusqueda.NuevaBusqueda();
+                                    // Mostramos un mensaje
+                                    FormPanelAdministracion.Instancia.MensajeEstado("Material creado correctamente");
                                 }
                                 else
                                 {
@@ -293,6 +295,8 @@ namespace cacatUA
                                     button_accion1.Enabled = false;
                                     button_accion2.Enabled = false;
                                     seleccionado = material;
+                                    // Mostramos un mensaje
+                                    FormPanelAdministracion.Instancia.MensajeEstado("Material editado correctamente");
                                 }
                                 else
                                 {
