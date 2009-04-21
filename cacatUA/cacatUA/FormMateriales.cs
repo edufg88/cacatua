@@ -459,7 +459,13 @@ namespace cacatUA
             {
                 if (e.RowIndex < 0)
                 {
-                    ordenModificado(e.ColumnIndex);
+                    // Comprobamos si la columna se puede ordenar
+                    if(e.ColumnIndex != dataGridView_materiales.Columns["dataGridViewTextBoxColumn_descargar"].Index)
+                    {
+                        // Obtenemos el nombre de la columna que estaba ordenada anteriormente
+                        string nomColumnaAnterior = "dataGridViewTextBoxColumn_" + propiedadOrdenar;
+                        ordenModificado(e.ColumnIndex);
+                    }
                 }
             }
         }
