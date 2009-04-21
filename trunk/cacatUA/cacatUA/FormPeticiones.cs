@@ -503,6 +503,7 @@ namespace cacatUA
         private void comboBox_cantidadPorPagina_SelectionChangeCommitted(object sender, EventArgs e)
         {
             cantidadPorPagina = int.Parse(comboBox_cantidadPorPagina.Text.ToString());
+            pagina = 1;
             ActualizarPaginacion(numeroResultados());
             ActualizarPeticiones();
         }
