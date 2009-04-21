@@ -217,6 +217,8 @@ namespace cacatUA
                                 mostrarComentarios();
                                 // Limpiamos el formulario
                                 LimpiarFormulario();
+                                // Mostramos el mensaje
+                                FormPanelAdministracion.Instancia.MensajeEstado("Comentario creado correctamente");
                             }
                             else
                                 FormPanelAdministracion.Instancia.MensajeEstado("No se ha podido crear el comentario");
@@ -243,6 +245,8 @@ namespace cacatUA
                                 // Desactivamos los botones
                                 button_accion1.Enabled = false;
                                 button_accion2.Enabled = false;
+                                // Mostramos el mensaje
+                                FormPanelAdministracion.Instancia.MensajeEstado("Comentario editado correctamente");
                             }
                             else
                                 Console.WriteLine("mal");
@@ -342,6 +346,10 @@ namespace cacatUA
                             // Eliminamos la fila
                             dataGridView_comentarios.Rows.Remove(fila);
                             material.NumComentarios--;
+                            // Mostramos el mensaje 
+                            FormPanelAdministracion.Instancia.MensajeEstado("Borrado el comentario " + comentario.Id.ToString());
+                            // Cambiamos a modo editar
+                            ActualizarFormulario(modos.CREAR);
                         }
                     }
                 }
