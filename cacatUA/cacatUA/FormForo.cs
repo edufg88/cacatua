@@ -37,8 +37,8 @@ namespace cacatUA
             comboBox_pagina.SelectedItem = comboBox_pagina.Items[0];
 
             totalResultados = 0;
-            paginaActual = 0;
             totalPaginas = 0;
+            PaginaActual = 0;
         }
 
         public FormForo()
@@ -253,7 +253,7 @@ namespace cacatUA
                     button_paginaAnterior.Enabled = false;
                 }
 
-                if (paginaActual < totalPaginas)
+                if (paginaActual < totalPaginas && totalPaginas > 0 && totalResultados > 0)
                 {
                     button_paginaSiguiente.Enabled = true;
                 }
@@ -350,6 +350,10 @@ namespace cacatUA
                 {
                     comboBox_pagina.SelectedItem = comboBox_pagina.Items[0];
                     PaginaActual = 1;
+                }
+                else
+                {
+                    PaginaActual = 0;
                 }
 
                 ActualizarPaginacion();
@@ -461,16 +465,21 @@ namespace cacatUA
         private void button_paginaSiguiente_Click(object sender, EventArgs e)
         {
             PaginaActual++;
-            comboBox_pagina.SelectedItem = comboBox_pagina.Items[PaginaActual - 1];
-            formBusqueda.Siguiente();
+            if (PaginaActual > 0 && comboBox_pagina.Items.Count > PaginaActual - 1)
+            {
+                comboBox_pagina.SelectedItem = comboBox_pagina.Items[PaginaActual - 1];
+                formBusqueda.Siguiente();
+            }
         }
 
         private void button_paginaAnterior_Click(object sender, EventArgs e)
         {
             PaginaActual--;
-            if (PaginaActual>0)
+            if (PaginaActual > 0 && comboBox_pagina.Items.Count > PaginaActual - 1)
+            {
                 comboBox_pagina.SelectedItem = comboBox_pagina.Items[PaginaActual - 1];
-            formBusqueda.Anterior();
+                formBusqueda.Anterior();
+            }
         }
 
         private void comboBox_cantidadPorPagina_SelectionChangeCommitted(object sender, EventArgs e)
