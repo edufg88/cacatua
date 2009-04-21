@@ -260,7 +260,6 @@ namespace cacatUA
         public void NuevaBusqueda()
         {
             errorProvider1.Clear();
-            bool error = false;
             // Creamos una nueva búsqueda
             try
             {
