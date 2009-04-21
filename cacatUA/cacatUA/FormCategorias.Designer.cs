@@ -239,7 +239,7 @@
             this.linkLabel_verMateriales.Location = new System.Drawing.Point(184, 69);
             this.linkLabel_verMateriales.Name = "linkLabel_verMateriales";
             this.linkLabel_verMateriales.Size = new System.Drawing.Size(73, 13);
-            this.linkLabel_verMateriales.TabIndex = 156;
+            this.linkLabel_verMateriales.TabIndex = 1;
             this.linkLabel_verMateriales.TabStop = true;
             this.linkLabel_verMateriales.Text = "Ver materiales";
             this.toolTip_Categorias.SetToolTip(this.linkLabel_verMateriales, "Ver los materiales asociados a esta categoria.");
@@ -267,7 +267,7 @@
             this.linkLabel_verHilos.Location = new System.Drawing.Point(184, 35);
             this.linkLabel_verHilos.Name = "linkLabel_verHilos";
             this.linkLabel_verHilos.Size = new System.Drawing.Size(47, 13);
-            this.linkLabel_verHilos.TabIndex = 153;
+            this.linkLabel_verHilos.TabIndex = 0;
             this.linkLabel_verHilos.TabStop = true;
             this.linkLabel_verHilos.Text = "Ver hilos";
             this.toolTip_Categorias.SetToolTip(this.linkLabel_verHilos, "Ver los hilos asociados a esta categoria.");
@@ -300,7 +300,7 @@
             this.button_AñadirUsuario.Location = new System.Drawing.Point(382, 160);
             this.button_AñadirUsuario.Name = "button_AñadirUsuario";
             this.button_AñadirUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_AñadirUsuario.TabIndex = 149;
+            this.button_AñadirUsuario.TabIndex = 3;
             this.button_AñadirUsuario.Text = "Añadir usuario";
             this.toolTip_Categorias.SetToolTip(this.button_AñadirUsuario, "Suscribir un usuario a esta categoria.");
             this.button_AñadirUsuario.UseVisualStyleBackColor = true;
@@ -313,7 +313,7 @@
             this.button_quitarUsuario.Location = new System.Drawing.Point(382, 191);
             this.button_quitarUsuario.Name = "button_quitarUsuario";
             this.button_quitarUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_quitarUsuario.TabIndex = 148;
+            this.button_quitarUsuario.TabIndex = 4;
             this.button_quitarUsuario.Text = "Quitar usuario";
             this.toolTip_Categorias.SetToolTip(this.button_quitarUsuario, "Borrar la suscripción del usuario en esta categoria.");
             this.button_quitarUsuario.UseVisualStyleBackColor = true;
@@ -326,7 +326,7 @@
             this.button_verUsuario.Location = new System.Drawing.Point(382, 129);
             this.button_verUsuario.Name = "button_verUsuario";
             this.button_verUsuario.Size = new System.Drawing.Size(100, 25);
-            this.button_verUsuario.TabIndex = 147;
+            this.button_verUsuario.TabIndex = 2;
             this.button_verUsuario.Text = "Ver usuario";
             this.toolTip_Categorias.SetToolTip(this.button_verUsuario, "Ver el usuario seleccionado.");
             this.button_verUsuario.UseVisualStyleBackColor = true;
@@ -376,7 +376,7 @@
             this.button_LimpiarRuta.Location = new System.Drawing.Point(461, 90);
             this.button_LimpiarRuta.Name = "button_LimpiarRuta";
             this.button_LimpiarRuta.Size = new System.Drawing.Size(20, 18);
-            this.button_LimpiarRuta.TabIndex = 148;
+            this.button_LimpiarRuta.TabIndex = 5;
             this.button_LimpiarRuta.Tag = "Borrar ruta";
             this.toolTip_Categorias.SetToolTip(this.button_LimpiarRuta, "Haz click para convertir la categoría en categoría superior.");
             this.button_LimpiarRuta.UseVisualStyleBackColor = true;
@@ -409,7 +409,7 @@
             this.textBox_Ruta.Name = "textBox_Ruta";
             this.textBox_Ruta.ReadOnly = true;
             this.textBox_Ruta.Size = new System.Drawing.Size(385, 20);
-            this.textBox_Ruta.TabIndex = 53;
+            this.textBox_Ruta.TabIndex = 4;
             // 
             // label_Nombre
             // 
@@ -429,7 +429,7 @@
             this.textBox_Nombre.Name = "textBox_Nombre";
             this.textBox_Nombre.ReadOnly = true;
             this.textBox_Nombre.Size = new System.Drawing.Size(385, 20);
-            this.textBox_Nombre.TabIndex = 0;
+            this.textBox_Nombre.TabIndex = 3;
             // 
             // textBox_Descripcion
             // 
@@ -441,7 +441,7 @@
             this.textBox_Descripcion.Name = "textBox_Descripcion";
             this.textBox_Descripcion.ReadOnly = true;
             this.textBox_Descripcion.Size = new System.Drawing.Size(385, 49);
-            this.textBox_Descripcion.TabIndex = 1;
+            this.textBox_Descripcion.TabIndex = 5;
             // 
             // button_noGuardar
             // 
@@ -449,7 +449,7 @@
             this.button_noGuardar.Location = new System.Drawing.Point(400, 174);
             this.button_noGuardar.Name = "button_noGuardar";
             this.button_noGuardar.Size = new System.Drawing.Size(82, 24);
-            this.button_noGuardar.TabIndex = 3;
+            this.button_noGuardar.TabIndex = 7;
             this.button_noGuardar.Text = "Cancelar";
             this.button_noGuardar.UseVisualStyleBackColor = true;
             this.button_noGuardar.Visible = false;
@@ -461,7 +461,7 @@
             this.button_Guardar.Location = new System.Drawing.Point(308, 174);
             this.button_Guardar.Name = "button_Guardar";
             this.button_Guardar.Size = new System.Drawing.Size(82, 24);
-            this.button_Guardar.TabIndex = 2;
+            this.button_Guardar.TabIndex = 6;
             this.button_Guardar.Text = "Guardar";
             this.button_Guardar.UseVisualStyleBackColor = true;
             this.button_Guardar.Visible = false;
@@ -476,7 +476,7 @@
             this.button_crearCategoria.Location = new System.Drawing.Point(14, 19);
             this.button_crearCategoria.Name = "button_crearCategoria";
             this.button_crearCategoria.Size = new System.Drawing.Size(36, 36);
-            this.button_crearCategoria.TabIndex = 7;
+            this.button_crearCategoria.TabIndex = 0;
             this.button_crearCategoria.Tag = "Crear nueva categoria";
             this.toolTip_Categorias.SetToolTip(this.button_crearCategoria, "Crear una nueva categoria.");
             this.button_crearCategoria.UseVisualStyleBackColor = true;
@@ -492,7 +492,7 @@
             this.button_editarCategoria.Location = new System.Drawing.Point(50, 19);
             this.button_editarCategoria.Name = "button_editarCategoria";
             this.button_editarCategoria.Size = new System.Drawing.Size(36, 36);
-            this.button_editarCategoria.TabIndex = 8;
+            this.button_editarCategoria.TabIndex = 1;
             this.button_editarCategoria.Tag = "Modificar categoria seleccionada";
             this.toolTip_Categorias.SetToolTip(this.button_editarCategoria, "Editar la categoria seleccionada.");
             this.button_editarCategoria.UseVisualStyleBackColor = true;
@@ -508,7 +508,7 @@
             this.button_borrarCategoria.Location = new System.Drawing.Point(86, 19);
             this.button_borrarCategoria.Name = "button_borrarCategoria";
             this.button_borrarCategoria.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarCategoria.TabIndex = 9;
+            this.button_borrarCategoria.TabIndex = 2;
             this.button_borrarCategoria.Tag = "Borrar categoria seleccionada";
             this.toolTip_Categorias.SetToolTip(this.button_borrarCategoria, "Eliminar la categoria seleccionada.");
             this.button_borrarCategoria.UseVisualStyleBackColor = true;
