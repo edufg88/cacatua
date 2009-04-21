@@ -42,6 +42,7 @@
             this.panel_contenedor = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel_cabeceraSeccion2 = new System.Windows.Forms.Panel();
+            this.label_resultados = new System.Windows.Forms.Label();
             this.label_seccion2 = new System.Windows.Forms.Label();
             this.panel_DataGridViewUsuarios = new System.Windows.Forms.Panel();
             this.label_cantidadPagina = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.button_editarUsuario = new System.Windows.Forms.Button();
             this.button_borrarUsuario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label_resultados = new System.Windows.Forms.Label();
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,12 +102,12 @@
             // panel_cabecera
             // 
             this.panel_cabecera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.panel_cabecera.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_cabecera.Controls.Add(this.label_usuarios);
             this.panel_cabecera.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_cabecera.Location = new System.Drawing.Point(3, 3);
+            this.panel_cabecera.Location = new System.Drawing.Point(0, 0);
+            this.panel_cabecera.Margin = new System.Windows.Forms.Padding(0);
             this.panel_cabecera.Name = "panel_cabecera";
-            this.panel_cabecera.Size = new System.Drawing.Size(832, 24);
+            this.panel_cabecera.Size = new System.Drawing.Size(838, 30);
             this.panel_cabecera.TabIndex = 31;
             // 
             // label_usuarios
@@ -118,7 +118,7 @@
             this.label_usuarios.AutoSize = true;
             this.label_usuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_usuarios.ForeColor = System.Drawing.Color.White;
-            this.label_usuarios.Location = new System.Drawing.Point(3, 0);
+            this.label_usuarios.Location = new System.Drawing.Point(7, 4);
             this.label_usuarios.Name = "label_usuarios";
             this.label_usuarios.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.label_usuarios.Size = new System.Drawing.Size(64, 19);
@@ -229,6 +229,15 @@
             this.panel_cabeceraSeccion2.Name = "panel_cabeceraSeccion2";
             this.panel_cabeceraSeccion2.Size = new System.Drawing.Size(832, 29);
             this.panel_cabeceraSeccion2.TabIndex = 4;
+            // 
+            // label_resultados
+            // 
+            this.label_resultados.AutoSize = true;
+            this.label_resultados.Location = new System.Drawing.Point(166, 8);
+            this.label_resultados.Name = "label_resultados";
+            this.label_resultados.Size = new System.Drawing.Size(214, 13);
+            this.label_resultados.TabIndex = 37;
+            this.label_resultados.Text = "(mostrando 0 - 0 de 0 usuarios encontrados)";
             // 
             // label_seccion2
             // 
@@ -495,15 +504,6 @@
             this.toolTip1.SetToolTip(this.button_borrarUsuario, "Borrar el usuario seleccionado");
             this.button_borrarUsuario.UseVisualStyleBackColor = true;
             this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
-            // 
-            // label_resultados
-            // 
-            this.label_resultados.AutoSize = true;
-            this.label_resultados.Location = new System.Drawing.Point(166, 8);
-            this.label_resultados.Name = "label_resultados";
-            this.label_resultados.Size = new System.Drawing.Size(214, 13);
-            this.label_resultados.TabIndex = 37;
-            this.label_resultados.Text = "(mostrando 0 - 0 de 0 usuarios encontrados)";
             // 
             // FormUsuarios
             // 
