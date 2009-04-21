@@ -19,9 +19,7 @@ namespace cacatUA
         FormularioActivo formularioActivo;
 
         private int cantidadPorPagina;
-        private int totalResultados;
         private int paginaActual;
-        private int totalPaginas;
 
         private void iniciar()
         {
@@ -37,9 +35,7 @@ namespace cacatUA
 
             propiedadOrdenar = "id";
             dataGridView_resultados.Columns["dataGridViewTextBoxColumn_id"].HeaderCell.SortGlyphDirection = SortOrder.Descending;
-            totalResultados = 0;
             paginaActual = 0;
-            totalPaginas = 0;
         }
 
         public FormGrupos()
