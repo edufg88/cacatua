@@ -563,5 +563,10 @@ namespace cacatUA
 
             rellenarGridUsuarios(seleccionada);
         }
+
+        private void dataGridView_Usuarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            button_verUsuario_Click(sender, e);
+        }
     }
 }
