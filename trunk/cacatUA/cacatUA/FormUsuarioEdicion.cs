@@ -167,6 +167,7 @@ namespace cacatUA
 
         private void button_guardarCambios_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             if (validarFormulario())
             {
                 ENUsuario nuevo = new ENUsuario();
