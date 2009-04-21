@@ -183,6 +183,7 @@
             // 
             // button_salir
             // 
+            this.button_salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_salir.FlatAppearance.BorderSize = 0;
             this.button_salir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
             this.button_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
@@ -294,6 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button_salir;
             this.ClientSize = new System.Drawing.Size(981, 548);
             this.Controls.Add(this.panel_navegacion);
             this.Controls.Add(this.statusStrip1);
