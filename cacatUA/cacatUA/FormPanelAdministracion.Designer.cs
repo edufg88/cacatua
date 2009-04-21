@@ -56,7 +56,7 @@
             // 
             this.tableLayoutPanel_botones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.tableLayoutPanel_botones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tableLayoutPanel_botones.BackColor = System.Drawing.Color.DimGray;
             this.tableLayoutPanel_botones.ColumnCount = 1;
             this.tableLayoutPanel_botones.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_botones.Controls.Add(this.button_categorias, 0, 6);
@@ -305,6 +305,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel de administración";
             this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPanelAdministracion_FormClosing);
             this.tableLayoutPanel_botones.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
