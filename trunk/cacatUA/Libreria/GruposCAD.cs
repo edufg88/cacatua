@@ -501,12 +501,12 @@ namespace Libreria
                 conexion.Open();
                 // Creamos el comando
                 string comand="";
-                comand += "SELECT id,nombre,descripcion,fecha,count(miembros.grupo) as numUsuarios FROM (SELECT id,nombre,descripcion,fecha,numUsuarios, ROW_NUMBER() OVER (ORDER BY " + ordenar;
+                comand += "SELECT id, nombre, descripcion, fecha, numUsuarios FROM (SELECT id,nombre,descripcion,fecha,numUsuarios, ROW_NUMBER() OVER (ORDER BY " + ordenar;
                 if (orden == true)
                     comand += " ASC";
                 else
                     comand += " DESC";
-                comand += ") as row FROM grupos LEFT OUTER JOIN miembros ON grupo=id WHERE fecha between @fechainicio and @fechafin";
+                comand += ") as row FROM vistaGrupos WHERE fecha between @fechainicio and @fechafin";
                 if (grupo.Nombre != "")
                 {
                     comand+=" AND nombre like'%"+@grupo.Nombre+"%'";
@@ -517,13 +517,13 @@ namespace Libreria
                 }
                 if (max!=0 && min == max )
                 {
-                    comand += " AND (SELECT COUNT(*) FROM miembros WHERE grupo = id GROUP BY grupo) = @min";
+                    comand += " AND numUsuarios = @min";
                 }
                 else if(max!=0)
                 {
-                    comand += " AND (SELECT COUNT(miembros_1.grupo) AS Expr1 FROM grupos AS grupos_1 LEFT OUTER JOIN miembros AS miembros_1 ON miembros_1.grupo = grupos_1.id WHERE(grupos_1.id = grupos.id) GROUP BY miembros_1.grupo) BETWEEN @min AND @max";
+                    comand += " AND numUsuarios BETWEEN @min AND @max";
                 }
-                comand += " GROUP BY miembros.grupo,id,nombre,descripcion,fecha) as alias WHERE row >= @filaInicio and row <= @filaFinal";
+                comand += " ) as alias WHERE row >= @filaInicio and row <= @filaFinal";
                 SqlCommand comando = new SqlCommand(comand, conexion);
                 comando.Parameters.AddWithValue("@fechainicio", grupo.Fecha);
                 comando.Parameters.AddWithValue("@fechafin", fechafin);
