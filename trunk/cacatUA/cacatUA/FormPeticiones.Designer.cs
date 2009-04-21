@@ -2479,6 +2479,7 @@
             this.dataGridViewTextBoxColumn_asunto.Name = "dataGridViewTextBoxColumn_asunto";
             this.dataGridViewTextBoxColumn_asunto.ReadOnly = true;
             this.dataGridViewTextBoxColumn_asunto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn_asunto.Width = 150;
             // 
             // dataGridViewTextBoxColumn_fecha
             // 
