@@ -213,12 +213,6 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.label_mostrarPeticiones = new System.Windows.Forms.Label();
             this.dataGridView_Peticiones = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.richTextBox_PeticionSeleccionada = new System.Windows.Forms.RichTextBox();
             this.panel15 = new System.Windows.Forms.Panel();
             this.button_paginaSiguiente = new System.Windows.Forms.Button();
@@ -228,6 +222,12 @@
             this.label_cantidadPagina = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_asunto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_texto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn_respuesta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -2320,12 +2320,12 @@
             this.dataGridView_Peticiones.AllowUserToResizeRows = false;
             this.dataGridView_Peticiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Peticiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn_id,
             this.dataGridViewTextBoxColumn_usuario,
             this.dataGridViewTextBoxColumn_asunto,
             this.dataGridViewTextBoxColumn_fecha,
             this.dataGridViewTextBoxColumn_texto,
-            this.dataGridViewTextBoxColumn_respuesta,
-            this.dataGridViewTextBoxColumn_id});
+            this.dataGridViewTextBoxColumn_respuesta});
             this.dataGridView_Peticiones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Peticiones.Location = new System.Drawing.Point(3, 243);
             this.dataGridView_Peticiones.MultiSelect = false;
@@ -2337,51 +2337,6 @@
             this.dataGridView_Peticiones.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellContentClick);
             this.dataGridView_Peticiones.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Peticiones_CellClick);
             this.dataGridView_Peticiones.RowStateChanged += new System.Windows.Forms.DataGridViewRowStateChangedEventHandler(this.dataGridView_Peticiones_RowStateChanged);
-            // 
-            // dataGridViewTextBoxColumn_usuario
-            // 
-            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Autor";
-            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
-            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_usuario.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn_asunto
-            // 
-            this.dataGridViewTextBoxColumn_asunto.HeaderText = "Asunto";
-            this.dataGridViewTextBoxColumn_asunto.Name = "dataGridViewTextBoxColumn_asunto";
-            this.dataGridViewTextBoxColumn_asunto.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_asunto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn_fecha
-            // 
-            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
-            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn_texto
-            // 
-            this.dataGridViewTextBoxColumn_texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn_texto.HeaderText = "Texto";
-            this.dataGridViewTextBoxColumn_texto.Name = "dataGridViewTextBoxColumn_texto";
-            this.dataGridViewTextBoxColumn_texto.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_texto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn_respuesta
-            // 
-            this.dataGridViewTextBoxColumn_respuesta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn_respuesta.HeaderText = "Respuesta";
-            this.dataGridViewTextBoxColumn_respuesta.Name = "dataGridViewTextBoxColumn_respuesta";
-            this.dataGridViewTextBoxColumn_respuesta.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_respuesta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // dataGridViewTextBoxColumn_id
-            // 
-            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
-            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
-            this.dataGridViewTextBoxColumn_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.dataGridViewTextBoxColumn_id.Width = 30;
             // 
             // richTextBox_PeticionSeleccionada
             // 
@@ -2502,6 +2457,52 @@
             // errorProvider2
             // 
             this.errorProvider2.ContainerControl = this;
+            // 
+            // dataGridViewTextBoxColumn_id
+            // 
+            this.dataGridViewTextBoxColumn_id.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn_id.Name = "dataGridViewTextBoxColumn_id";
+            this.dataGridViewTextBoxColumn_id.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn_id.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn_usuario
+            // 
+            this.dataGridViewTextBoxColumn_usuario.HeaderText = "Autor";
+            this.dataGridViewTextBoxColumn_usuario.Name = "dataGridViewTextBoxColumn_usuario";
+            this.dataGridViewTextBoxColumn_usuario.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_usuario.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_asunto
+            // 
+            this.dataGridViewTextBoxColumn_asunto.HeaderText = "Asunto";
+            this.dataGridViewTextBoxColumn_asunto.Name = "dataGridViewTextBoxColumn_asunto";
+            this.dataGridViewTextBoxColumn_asunto.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_asunto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_fecha
+            // 
+            this.dataGridViewTextBoxColumn_fecha.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn_fecha.Name = "dataGridViewTextBoxColumn_fecha";
+            this.dataGridViewTextBoxColumn_fecha.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn_fecha.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn_texto
+            // 
+            this.dataGridViewTextBoxColumn_texto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn_texto.HeaderText = "Texto";
+            this.dataGridViewTextBoxColumn_texto.Name = "dataGridViewTextBoxColumn_texto";
+            this.dataGridViewTextBoxColumn_texto.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_texto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // dataGridViewTextBoxColumn_respuesta
+            // 
+            this.dataGridViewTextBoxColumn_respuesta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn_respuesta.HeaderText = "Respuesta";
+            this.dataGridViewTextBoxColumn_respuesta.Name = "dataGridViewTextBoxColumn_respuesta";
+            this.dataGridViewTextBoxColumn_respuesta.ReadOnly = true;
+            this.dataGridViewTextBoxColumn_respuesta.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // FormPeticiones
             // 
@@ -2803,12 +2804,12 @@
         private System.Windows.Forms.Button button_paginaAnterior;
         private System.Windows.Forms.Label label_resultados;
         private System.Windows.Forms.Button button_buscarUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_asunto;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_texto;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_respuesta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn_id;
 
     }
 }

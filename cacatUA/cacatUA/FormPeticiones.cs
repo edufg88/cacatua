@@ -12,6 +12,7 @@ namespace cacatUA
 {
     public partial class FormPeticiones : InterfazForm
     {
+        private FormPeticionContestar contestar = null;
 
         private int cantidadPorPagina;
         public int CantidadPorPagina
@@ -114,12 +115,12 @@ namespace cacatUA
             {
                 fila = new DataGridViewRow();
                 fila.CreateCells(dataGridView_Peticiones);
-                fila.Cells[0].Value = p.Usuario.Usuario;
-                fila.Cells[1].Value = p.Asunto;
-                fila.Cells[2].Value = p.Fecha;
-                fila.Cells[3].Value = p.Texto;
-                fila.Cells[4].Value = p.Respuesta;
-                fila.Cells[5].Value = p.Id;
+                fila.Cells[1].Value = p.Usuario.Usuario;
+                fila.Cells[2].Value = p.Asunto;
+                fila.Cells[3].Value = p.Fecha;
+                fila.Cells[4].Value = p.Texto;
+                fila.Cells[5].Value = p.Respuesta;
+                fila.Cells[0].Value = p.Id;
                 dataGridView_Peticiones.Rows.Add(fila);
                 i++;
 
@@ -206,9 +207,21 @@ namespace cacatUA
                     dataGridView_Peticiones.Rows[fila.Index].Selected = true;
                     if (fila.Cells["dataGridViewTextBoxColumn_Respuesta"].Value.ToString() == "")
                     {
-                        string id = fila.Cells["dataGridViewTextBoxColumn_Id"].Value.ToString();
-                        FormPeticionContestar form = new FormPeticionContestar(id, this);
-                        form.Show();
+                        if (contestar == null)
+                        {
+                            string id = fila.Cells["dataGridViewTextBoxColumn_Id"].Value.ToString();
+                            FormPeticionContestar form = new FormPeticionContestar(id, this);
+                            contestar = form;
+                            form.Show();
+                        }
+                        else
+                        {
+                            contestar.Close();
+                            string id = fila.Cells["dataGridViewTextBoxColumn_Id"].Value.ToString();
+                            FormPeticionContestar form = new FormPeticionContestar(id, this);
+                            contestar = form;
+                            form.Show();
+                        }
                     }
                     
                 }
@@ -255,7 +268,7 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridView_Peticiones.ClearSelection();
                     dataGridView_Peticiones.Rows[fila.Index].Selected = true;
-                    ENPeticion.Obtener(int.Parse(dataGridView_Peticiones.Rows[fila.Index].Cells[5].Value.ToString())).Borrar();
+                    ENPeticion.Obtener(int.Parse(dataGridView_Peticiones.Rows[fila.Index].Cells[0].Value.ToString())).Borrar();
                     dataGridView_Peticiones.Rows.Remove(dataGridView_Peticiones.CurrentRow);
                     richTextBox_PeticionSeleccionada.Text = "Seleccione una Petición para verla";
 
@@ -280,13 +293,13 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridView_Peticiones.ClearSelection();
                     dataGridView_Peticiones.Rows[fila.Index].Selected = true;
-                    string mostrar = "Autor: " + fila.Cells[0].Value.ToString() +
-                        "\nAsunto: " + fila.Cells[1].Value.ToString() +
-                        "\nFecha: " + fila.Cells[2].Value.ToString() +
-                        "\nTexto: " + fila.Cells[3].Value.ToString();
-                    if (fila.Cells[0].Value.ToString() != "")
+                    string mostrar = "Autor: " + fila.Cells[1].Value.ToString() +
+                        "\nAsunto: " + fila.Cells[2].Value.ToString() +
+                        "\nFecha: " + fila.Cells[3].Value.ToString() +
+                        "\nTexto: " + fila.Cells[4].Value.ToString();
+                    if (fila.Cells[5].Value.ToString() != "")
                     {
-                        mostrar += "\nRespuesta: " + fila.Cells[4].Value.ToString();
+                        mostrar += "\nRespuesta: " + fila.Cells[5].Value.ToString();
                     }
                     richTextBox_PeticionSeleccionada.Text = mostrar;
                 }
@@ -439,13 +452,13 @@ namespace cacatUA
                     DataGridViewRow fila = fila = filas[0];
                     dataGridView_Peticiones.ClearSelection();
                     dataGridView_Peticiones.Rows[fila.Index].Selected = true;
-                    string mostrar = "Autor: " + fila.Cells[0].Value.ToString() +
-                        "\nAsunto: " + fila.Cells[1].Value.ToString() +
-                        "\nFecha: " + fila.Cells[2].Value.ToString() +
-                        "\nTexto: " + fila.Cells[3].Value.ToString();
-                    if (fila.Cells[0].Value.ToString() != "")
+                    string mostrar = "Autor: " + fila.Cells[1].Value.ToString() +
+                        "\nAsunto: " + fila.Cells[2].Value.ToString() +
+                        "\nFecha: " + fila.Cells[3].Value.ToString() +
+                        "\nTexto: " + fila.Cells[4].Value.ToString();
+                    if (fila.Cells[5].Value.ToString() != "")
                     {
-                        mostrar += "\nRespuesta: " + fila.Cells[4].Value.ToString();
+                        mostrar += "\nRespuesta: " + fila.Cells[5].Value.ToString();
                     }
                     richTextBox_PeticionSeleccionada.Text = mostrar;
                 }
