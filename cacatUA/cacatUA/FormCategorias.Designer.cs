@@ -208,6 +208,7 @@
             this.dataGridView_Usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Usuarios.Size = new System.Drawing.Size(346, 56);
             this.dataGridView_Usuarios.TabIndex = 157;
+            this.dataGridView_Usuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Usuarios_CellDoubleClick);
             // 
             // DataGridViewColumno_Id
             // 
