@@ -57,6 +57,7 @@
             // buttonSalir
             // 
             this.buttonSalir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonSalir.Location = new System.Drawing.Point(673, 319);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(75, 23);
