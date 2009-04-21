@@ -150,7 +150,7 @@ namespace cacatUA
             // NOTA: Es importante de que esto se ponga al final del constructor
             estadoAnterior = estados.INICIAL;
             servidor = servidor.Remove(servidor.LastIndexOf(@"/"));
-            Console.WriteLine(servidor);
+            //Console.WriteLine(servidor);
         }
 
         public FormMateriales()
