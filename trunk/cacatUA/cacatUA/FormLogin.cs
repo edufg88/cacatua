@@ -14,8 +14,6 @@ namespace cacatUA
         public FormLogin()
         {
             InitializeComponent();
-            // Limpiamos la etiqueta de mensajes
-            label_mensaje.Text = "";
 
             string mdf = Application.ExecutablePath;
             mdf = mdf.Remove(mdf.LastIndexOf(@"\bin\"));
@@ -38,7 +36,7 @@ namespace cacatUA
             else
             {
                 // Mostramos el mensaje de error
-                label_mensaje.Text = "Error: Usuario o contraseña no válidos";
+                label_error.Visible = true;
             }
         }
 

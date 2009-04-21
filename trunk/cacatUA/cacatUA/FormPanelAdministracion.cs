@@ -297,5 +297,13 @@ namespace cacatUA
         {
             ((FlowLayoutPanel)sender).AutoScrollPosition = new Point(20, 20);
         }
+
+        private void FormPanelAdministracion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult.OK != MessageBox.Show ("¿Está seguro de que desea salir?", "Ventana de confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1))
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

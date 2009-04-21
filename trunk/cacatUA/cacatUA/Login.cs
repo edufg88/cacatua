@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Libreria;
 
 namespace cacatUA
 {
@@ -11,8 +12,16 @@ namespace cacatUA
         {
             // Validamos los datos
             bool correcto = false;
-            if (usuario == "cacatua" && contraseña == "123456")
-                correcto = true;
+            ENUsuario enusuario = ENUsuario.Obtener(usuario);
+            if (enusuario != null)
+            {
+                //if (usuario.Contrasena == sha1(contraseña))
+                if (enusuario.Contrasena == contraseña)
+                {
+                    if (enusuario.EsAdministrador())
+                        correcto = true;
+                }
+            }
             return correcto;
         }
     }
