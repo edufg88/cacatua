@@ -25,10 +25,6 @@ namespace cacatUA
         /// Último usuario seleccionado
         /// </summary>
         private ENUsuario usuarioSeleccionado;
-        /// <summary>
-        /// Entero con el formulario activo 0 = formBusqueda, 1 = formEdicion;
-        /// </summary>
-        private int formulario;
 
         /// <summary>
         /// Indica si el formulario tiene que enviar un usuario a otro.
@@ -76,7 +72,6 @@ namespace cacatUA
             formBusqueda.Dock = DockStyle.Top;
 
             devolver = true;
-            formulario = 0;
             CambiarFormularioBusqueda();
             CargarUsuarios(); // Los cargamos en el DataGridView
         }
@@ -95,7 +90,6 @@ namespace cacatUA
 
             devolver = false;
             // En este constructor cargamos directamente un usuario en el formulario de edición
-            formulario = 1;
             CambiarFormularioEdicion();
             formEdicion.CambiarSeleccionado(usuario.Id);
             usuarioSeleccionado = usuario;
@@ -111,8 +105,6 @@ namespace cacatUA
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formBusqueda);
             tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
-            // Marcamos el formulario activo
-            formulario = 0;
         }
 
         /// <summary>
@@ -124,8 +116,6 @@ namespace cacatUA
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formEdicion);
             tableLayoutPanel_principal.RowStyles[3].Height = formEdicion.Height;
-            // Marcamos el formulario activo
-            formulario = 1;
         }
         
         /// <summary>

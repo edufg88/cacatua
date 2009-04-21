@@ -14,12 +14,13 @@ namespace Libreria
     public class ENUsuario : InterfazEN
     {
         // Constantes de tamaño para los distintos campos del formulario
-        const int maxTamUsuario = 15;
-        const int minTamUsuario = 3;
+        const int maxTamUsuario = 30;
+        const int minTamUsuario = 2;
         const int minTamContrasena = 5;
-        const int maxTamNombre = 40;
+        const int maxTamContrasena = 40;
+        const int maxTamNombre = 50;
         const int minTamNombre = 3;
-        const int maxTamAdicional = 200;
+        const int maxTamAdicional = 5000;
         const int minTamPregunta = 3;
         const int maxTamPregunta = 50;
         const int maxTamTextoFirma = 1000;
@@ -196,7 +197,7 @@ namespace Libreria
                 case "usuario":
                     if (dato == "")
                     {
-                        error = campoEnBlanco1 + "campo" + campoEnBlanco2;
+                        error = campoEnBlanco1 + "'usuario'" + campoEnBlanco2;
                     }
                     else
                     {
@@ -214,7 +215,7 @@ namespace Libreria
                 case "contrasena":
                     if (dato == "")
                     {
-                        error = campoEnBlanco1 + "campo" + campoEnBlanco2;
+                        error = campoEnBlanco1 + "'contraseña'" + campoEnBlanco2;
                     }
                     else 
                     {
@@ -228,7 +229,7 @@ namespace Libreria
                 case "nombre":
                     if (dato == "")
                     {
-                        error = campoEnBlanco1 + "campo" + campoEnBlanco2;
+                        error = campoEnBlanco1 + "'nombre'" + campoEnBlanco2;
                     }
                     else
                     {
@@ -260,7 +261,7 @@ namespace Libreria
                 case "correo":
                     if (dato == "")
                     {
-                        error = campoEnBlanco1 + "campo" + campoEnBlanco2;
+                        error = campoEnBlanco1 + "correo" + campoEnBlanco2;
                     }
                     else
                     {
