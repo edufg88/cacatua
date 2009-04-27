@@ -244,7 +244,7 @@ namespace cacatUA
         /// </summary>
         public void MostrarToolTip()
         {
-            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver);
+            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver, 30, 30);
         }
 
         /// <summary>
