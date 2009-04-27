@@ -84,6 +84,7 @@
             // linkLabel_respuestas
             // 
             this.linkLabel_respuestas.AutoSize = true;
+            this.linkLabel_respuestas.Enabled = false;
             this.linkLabel_respuestas.Location = new System.Drawing.Point(192, 8);
             this.linkLabel_respuestas.Name = "linkLabel_respuestas";
             this.linkLabel_respuestas.Size = new System.Drawing.Size(113, 13);

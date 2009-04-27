@@ -217,8 +217,7 @@
             // 
             // button_volver
             // 
-            this.button_volver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_volver.AutoEllipsis = true;
             this.button_volver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_volver.FlatAppearance.BorderSize = 0;
             this.button_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -234,8 +233,7 @@
             // 
             // button_cancelar
             // 
-            this.button_cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_cancelar.AutoEllipsis = true;
             this.button_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_cancelar.FlatAppearance.BorderSize = 0;
             this.button_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

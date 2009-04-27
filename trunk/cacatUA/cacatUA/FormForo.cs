@@ -53,6 +53,7 @@ namespace cacatUA
             inicializar();
             CambiarFormularioBusqueda();
             formBusqueda.Recibir(categoria);
+            formEdicion.Recibir(categoria);
             formBusqueda.Buscar(true);
         }
 
@@ -170,7 +171,7 @@ namespace cacatUA
         private void button_seccionCrear_Click(object sender, EventArgs e)
         {
             CambiarFormularioEdicion("Crear nuevo hilo");
-            formEdicion.CambiarNuevo();
+            formEdicion.CambiarNuevo2();
         }
 
         private void dataGridView_resultados_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

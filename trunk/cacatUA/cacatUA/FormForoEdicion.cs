@@ -69,6 +69,23 @@ namespace cacatUA
             desactivarBotones();
         }
 
+        public void CambiarNuevo2() // La diferencia con el anterior es que no restaura la categoría.
+        {
+            hilo = null;
+            usuario = null;
+            button_guardarCambios.Text = "Crear";
+            button_descartarCambios.Text = "Limpiar";
+            textBox_id.Text = "";
+            textBox_texto.Text = "";
+            textBox_titulo.Text = "";
+            textBox_autor.Text = "";
+            textBox_respuestas.Text = "";
+            dateTimePicker_fecha.Value = DateTime.Now;
+            linkLabel_respuestas.Enabled = false;
+            errorProvider1.Clear();
+            desactivarBotones();
+        }
+
         public ENHilo Seleccionado
         {
             get { return hilo; }
