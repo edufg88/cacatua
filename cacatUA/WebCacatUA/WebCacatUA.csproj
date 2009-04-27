@@ -75,7 +75,9 @@
   <ItemGroup>
     <Content Include="estilos\PaginaMaestra.css" />
     <Content Include="imagenes\boton.png" />
+    <Content Include="imagenes\boton_encima.png" />
     <Content Include="imagenes\cabecera.png" />
+    <Content Include="imagenes\fondo.png" />
     <Content Include="index.aspx" />
     <Content Include="PaginaMaestra.Master" />
   </ItemGroup>
