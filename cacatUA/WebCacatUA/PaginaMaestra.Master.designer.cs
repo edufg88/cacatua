@@ -94,6 +94,15 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
     
     /// <summary>
+    /// Control ContentPlaceHolder_titulo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_titulo;
+    
+    /// <summary>
     /// Control ContentPlaceHolder_contenido.
     /// </summary>
     /// <remarks>

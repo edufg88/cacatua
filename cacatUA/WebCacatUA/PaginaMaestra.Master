@@ -33,11 +33,16 @@
             </div>
             
             <div id="menu">
-                <div id="boton_inicio" class="boton"><a href="/">Inicio</a></div>
+                <div id="boton_inicio" class="boton"><a href="index.aspx">Inicio</a></div>
                 <div id="boton_usuarios" class="boton"><a href="usuarios.aspx">Usuarios</a></div>
                 <div id="boton_materiales" class="boton"><a href="materiales.aspx">Materiales</a></div>
                 <div id="boton_foro" class="boton"><a href="foro.aspx">Foro</a></div>
             </div>
+        </div>
+        
+        <div id="titulo">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder_titulo" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
         
         <div id="contenido">

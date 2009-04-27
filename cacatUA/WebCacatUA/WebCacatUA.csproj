@@ -56,6 +56,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="foro.aspx.cs">
+      <DependentUpon>foro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="foro.aspx.designer.cs">
+      <DependentUpon>foro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="materiales.aspx.cs">
+      <DependentUpon>materiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="materiales.aspx.designer.cs">
+      <DependentUpon>materiales.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -71,8 +85,17 @@
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usuarios.aspx.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuarios.aspx.designer.cs">
+      <DependentUpon>usuarios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="foro.aspx" />
+    <Content Include="materiales.aspx" />
     <Content Include="estilos\PaginaMaestra.css" />
     <Content Include="imagenes\boton.png" />
     <Content Include="imagenes\boton_encima.png" />
@@ -80,6 +103,7 @@
     <Content Include="imagenes\fondo.png" />
     <Content Include="index.aspx" />
     <Content Include="PaginaMaestra.Master" />
+    <Content Include="usuarios.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
