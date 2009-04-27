@@ -12,15 +12,31 @@
 <body>
     <form id="form1" runat="server">
     <div id="contenedor">
+    
         <div id="encabezado">
+            <div id="acceso">
+                <asp:Label ID="Label_iniciarSesion" runat="server" Text="Iniciar sesión: "></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
+                <asp:Button ID="Button1" runat="server" Text="Entrar" />
+                <asp:Label ID="Label_idioma" runat="server" Text="Idioma: "></asp:Label>
+                <asp:DropDownList ID="DropDownList1" runat="server" Width="100px">
+                    <asp:ListItem Selected="True">Español</asp:ListItem>
+                    <asp:ListItem>English</asp:ListItem>
+                    <asp:ListItem>Français</asp:ListItem>
+                    <asp:ListItem>Esperanto</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            
             <div id="cabecera">
                 <img alt="CacatUA" src="imagenes/cabecera.png" />
             </div>
+            
             <div id="menu">
-                <div id="boton_inicio" class="boton"><a href="">Inicio</a></div>
-                <div id="boton_usuarios" class="boton"><a href="">Usuarios</a></div>
-                <div id="boton_materiales" class="boton"><a href="">Materiales</a></div>
-                <div id="boton_foro" class="boton"><a href="">Foro</a></div>
+                <div id="boton_inicio" class="boton"><a href="/">Inicio</a></div>
+                <div id="boton_usuarios" class="boton"><a href="usuarios.aspx">Usuarios</a></div>
+                <div id="boton_materiales" class="boton"><a href="materiales.aspx">Materiales</a></div>
+                <div id="boton_foro" class="boton"><a href="foro.aspx">Foro</a></div>
             </div>
         </div>
         
@@ -30,7 +46,7 @@
         </div>
         
         <div id="pie">
-            <p>Pie de página</p>
+            <p>CacatUA - Diseño y programación de aplicaciones avanzadas 2008/2009</p>
         </div>
     </div>
     </form>

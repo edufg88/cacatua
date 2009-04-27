@@ -29,8 +29,18 @@ a
 
 #encabezado
 {
+    position: relative;
     margin: auto;
     height: 210px;
+    width: 1000px;
+}
+
+#acceso
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 10pt;
 }
 
 #cabecera
@@ -77,6 +87,8 @@ a
 #contenido
 {
     clear: both;
+    margin: 30px 50px;
+    border: 5px solid #000000;
 }
 
 
@@ -89,4 +101,11 @@ a
 #pie
 {
     clear: both;
+    background: #E7E5DC;
+    border-bottom: 1px solid #D5D3CB;
+    border-top: 1px solid #F3F2F6;
+    color: #625F5B;
+    margin: 50px;
+    padding: 15px;
+    font-size: 10pt;
 }
