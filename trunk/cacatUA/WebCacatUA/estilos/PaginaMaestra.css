@@ -1,0 +1,92 @@
+﻿*
+{
+    margin: 0;
+    font-family: DejaVu Sans, Calibri, Verdana, Arial;
+}
+
+body
+{
+    background-image: url(../imagenes/fondo.png);
+    background-repeat: repeat-x;
+}
+
+#contenedor
+{
+    text-align: center;
+}
+
+a
+{
+       
+}
+
+
+
+/**********************************************************
+**********************************************************/
+
+
+
+#encabezado
+{
+    margin: auto;
+    height: 210px;
+}
+
+#cabecera
+{
+    float: left;
+}
+
+#menu
+{
+    float: left;
+    margin-top: 140px;
+}
+
+#menu .boton
+{
+    float: left;
+}
+
+#menu .boton a
+{
+    background: url(../imagenes/boton.png) no-repeat center;
+    display: block;
+    height: 40px;
+    width: 140px;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #c9c9c9;
+    padding-top: 20px;
+}
+
+#menu .boton a:hover
+{
+    background: url(../imagenes/boton_encima.png) no-repeat center;
+}
+
+
+
+/**********************************************************
+**********************************************************/
+
+
+
+#contenido
+{
+    clear: both;
+}
+
+
+
+/**********************************************************
+**********************************************************/
+
+
+
+#pie
+{
+    clear: both;
+}
