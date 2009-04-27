@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="PaginaMaestra.master.cs" Inherits="PaginaMaestra" Debug="false" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Página sin título</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="Encabezado" 
+        
+        style="padding: 0px; font-family: calibri; font-size: medium; color: #808080; height: 150px;">
+        <div style="height: 100px">
+            <asp:Image ID="Image1" runat="server" Height="100px" ImageAlign="Left" 
+                ImageUrl="imagenes/logoWeb.png" Width="500px" 
+                AlternateText="logo de CacatUA" BorderStyle="None" ToolTip="CacatUA" />
+            <div style="float: right; width: auto">
+                <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem>España</asp:ListItem>
+                    <asp:ListItem>Francia</asp:ListItem>
+                    <asp:ListItem Value="Alemania"></asp:ListItem>
+                    <asp:ListItem>UK</asp:ListItem>
+                    <asp:ListItem>EEUU</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div style="margin: 5px 0px 0px 0px; height: 40px; vertical-align: middle; width: auto; background-color: #000000; background-image: url('imagenes/fondoMenu.png'); background-repeat: repeat-x; font-family: calibri; color: #FFFFFF;">
+            <div style="padding: 5px; width: 45%; height: 30px; float: left;">
+                <table style="width: auto; height: 30px;" border="0">
+                    <tr style="width: 100px">
+                        <td align="center" 
+                            
+                            
+                            style="width: 100px; background-image: url('imagenes/boton.png'); background-repeat: no-repeat; ">
+                            Buscador</td>
+                        <td align="center" 
+                            
+                            
+                            style="width: 100px; background-image: url('imagenes/boton.png'); background-repeat: no-repeat;">
+                            Materiales</td>
+                        <td align="center" 
+                            
+                            
+                            style="width: 100px; background-image: url('imagenes/boton.png'); background-repeat: no-repeat;" 
+                            colspan="0">
+                            Foro</td>
+                    </tr>
+                    
+                </table>
+            </div>
+            <div 
+                
+                
+                style="padding: 5px; float: right; width: 45%; height: 30px; text-align: right;">
+                <table style="width:auto; float: right;">
+                    <tr>
+                        <td>
+                <asp:Label ID="Label1" runat="server" Text="Login:"></asp:Label>
+                        </td>
+                        <td>
+                <asp:TextBox ID="TextBox1" runat="server" Width="90px"></asp:TextBox>
+                        </td>
+                        <td>
+                <asp:Label ID="Label2" runat="server" Text="Password:"></asp:Label>
+                        </td>
+                        <td>
+                <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" Width="90px"></asp:TextBox>
+                        </td>
+                        <td>
+                <asp:Button ID="Button4" runat="server" Text="Entrar" />
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+    </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder_Contenido" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
