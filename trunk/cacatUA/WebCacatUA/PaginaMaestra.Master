@@ -21,11 +21,11 @@
                 <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, Entrar %>" />
                 <asp:Button ID="Button2" runat="server" Text="<%$ Resources: I18N, Registrarse %>" />
                 <asp:Label ID="Label_idioma" runat="server" Text="<%$ Resources: I18N, Idioma %>"></asp:Label>
-                <asp:DropDownList ID="DropDownList1" runat="server" Width="100px">
-                    <asp:ListItem Selected="True">Español</asp:ListItem>
-                    <asp:ListItem>English</asp:ListItem>
-                    <asp:ListItem>Français</asp:ListItem>
-                    <asp:ListItem>Esperanto</asp:ListItem>
+                <asp:DropDownList ID="DropDownList_Idiomas" runat="server" Width="100px" 
+                    AutoPostBack="True" 
+                    onselectedindexchanged="DropDownList_Idiomas_SelectedIndexChanged">
+                    <asp:ListItem Value="es">Español</asp:ListItem>
+                    <asp:ListItem Value="en">English</asp:ListItem>
                 </asp:DropDownList>
             </div>
             

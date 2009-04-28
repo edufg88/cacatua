@@ -14,16 +14,19 @@ using System.Xml.Linq;
 public partial class PaginaMaestra : System.Web.UI.MasterPage
 {
 
-    public static String lenguaje = "en";
-
-    public string Lenguaje
-    {
-        get { return lenguaje; }
-        set { lenguaje = value; }
-    }
-
     protected void Page_Load(object sender, EventArgs e)
     {
+           
+    }
 
+    protected void DropDownList_Idiomas_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        Session["idioma"] = DropDownList_Idiomas.SelectedValue.ToString();
+        
+        //Refrescar la pagina
+        /*string[] arrResult = HttpContext.Current.Request.RawUrl.Split('/');
+        String result = arrResult[arrResult.GetUpperBound(0)];
+        arrResult = result.Split('?');
+        Response.Redirect(arrResult[arrResult.GetLowerBound(0)]);*/
     }
 }
