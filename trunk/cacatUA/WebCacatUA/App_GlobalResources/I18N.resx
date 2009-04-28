@@ -117,7 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Autor" xml:space="preserve">
+    <value>Autor</value>
+  </data>
+  <data name="Categoria" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Categorías" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="Entrar" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
+  <data name="Foro" xml:space="preserve">
+    <value>Foro</value>
+  </data>
+  <data name="Grupo" xml:space="preserve">
+    <value>Grupo</value>
+  </data>
+  <data name="Grupos" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="Hilo" xml:space="preserve">
+    <value>Hilo</value>
+  </data>
+  <data name="Hilos" xml:space="preserve">
+    <value>Hilos</value>
+  </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>Idioma</value>
+  </data>
+  <data name="IniciarSesion" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="Inicio" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="Materiales" xml:space="preserve">
+    <value>Materiales</value>
+  </data>
+  <data name="NRespuestas" xml:space="preserve">
+    <value>Número de respuestas</value>
+  </data>
+  <data name="PaginaInicio" xml:space="preserve">
+    <value>Página de inicio</value>
+  </data>
+  <data name="Respuesta" xml:space="preserve">
+    <value>Respuesta</value>
+  </data>
+  <data name="Texto" xml:space="preserve">
+    <value>Texto</value>
+  </data>
   <data name="TextoInicial" xml:space="preserve">
-    <value>Sin idioma</value>
+    <value>Bienvenido a la edición web de CacatUA</value>
+  </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Usuarios" xml:space="preserve">
+    <value>Usuarios</value>
   </data>
 </root>
