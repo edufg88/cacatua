@@ -19,14 +19,14 @@ namespace WebCacatUA
     {
         protected override void InitializeCulture()
         {
+            String idioma = (String)Session["idioma"];
 
-            CultureInfo cultureInfo = new CultureInfo(PaginaMaestra.lenguaje);
-            Thread.CurrentThread.CurrentUICulture = cultureInfo;
-            base.InitializeCulture();
-            if (PaginaMaestra.lenguaje == "es")
-                PaginaMaestra.lenguaje = "en";
-            else
-                PaginaMaestra.lenguaje = "es";
+            if (idioma != null)
+            {
+                CultureInfo cultureInfo = new CultureInfo(idioma);
+                Thread.CurrentThread.CurrentUICulture = cultureInfo;
+                base.InitializeCulture();
+            }
         }
     }
 }
