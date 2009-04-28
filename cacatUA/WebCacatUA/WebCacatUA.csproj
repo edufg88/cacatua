@@ -78,12 +78,8 @@
     <Compile Include="foro.aspx.designer.cs">
       <DependentUpon>foro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InterfazWeb.aspx.cs">
-      <DependentUpon>InterfazWeb.aspx</DependentUpon>
+    <Compile Include="InterfazWeb.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InterfazWeb.aspx.designer.cs">
-      <DependentUpon>InterfazWeb.aspx</DependentUpon>
     </Compile>
     <Compile Include="materiales.aspx.cs">
       <DependentUpon>materiales.aspx</DependentUpon>
@@ -117,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="foro.aspx" />
-    <Content Include="InterfazWeb.aspx" />
     <Content Include="materiales.aspx" />
     <Content Include="estilos\PaginaMaestra.css" />
     <Content Include="imagenes\boton.png" />

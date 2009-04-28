@@ -15,11 +15,11 @@ using System.Globalization;
 
 namespace WebCacatUA
 {
-    public partial class InterfazWeb : Page
+    public class InterfazWeb : Page
     {
         protected override void InitializeCulture()
         {
-            
+
             CultureInfo cultureInfo = new CultureInfo(PaginaMaestra.lenguaje);
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
             base.InitializeCulture();
