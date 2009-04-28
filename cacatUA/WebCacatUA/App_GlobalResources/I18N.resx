@@ -165,6 +165,9 @@
   <data name="PaginaInicio" xml:space="preserve">
     <value>Página de inicio</value>
   </data>
+  <data name="Registrarse" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
   <data name="Respuesta" xml:space="preserve">
     <value>Respuesta</value>
   </data>

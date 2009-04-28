@@ -19,6 +19,7 @@
                 <asp:TextBox ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
                 <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, Entrar %>" />
+                <asp:Button ID="Button2" runat="server" Text="<%$ Resources: I18N, Registrarse %>" />
                 <asp:Label ID="Label_idioma" runat="server" Text="<%$ Resources: I18N, Idioma %>"></asp:Label>
                 <asp:DropDownList ID="DropDownList1" runat="server" Width="100px">
                     <asp:ListItem Selected="True">Español</asp:ListItem>
