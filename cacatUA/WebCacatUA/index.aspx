@@ -5,6 +5,8 @@
 <p>Página de inicio</p>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">
-<p>Contenido</p>
+<p>
+    <asp:Label ID="Label_TextoInicial" runat="server" Text="<%$ Resources: I18N, TextoInicial %>"></asp:Label>
+    </p>
 </asp:Content>
 

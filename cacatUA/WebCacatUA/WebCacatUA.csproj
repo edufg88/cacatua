@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9D13C5CC-7B0C-45D1-A248-37EDDB545667}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -56,12 +56,34 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\I18N.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>I18N.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\I18N.en.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>I18N.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\I18N.es.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>I18N.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="foro.aspx.cs">
       <DependentUpon>foro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="foro.aspx.designer.cs">
       <DependentUpon>foro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterfazWeb.aspx.cs">
+      <DependentUpon>InterfazWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterfazWeb.aspx.designer.cs">
+      <DependentUpon>InterfazWeb.aspx</DependentUpon>
     </Compile>
     <Compile Include="materiales.aspx.cs">
       <DependentUpon>materiales.aspx</DependentUpon>
@@ -95,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="foro.aspx" />
+    <Content Include="InterfazWeb.aspx" />
     <Content Include="materiales.aspx" />
     <Content Include="estilos\PaginaMaestra.css" />
     <Content Include="imagenes\boton.png" />
@@ -104,6 +127,27 @@
     <Content Include="index.aspx" />
     <Content Include="PaginaMaestra.Master" />
     <Content Include="usuarios.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\I18N.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>I18N.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\I18N.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>I18N.es.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\I18N.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>I18N.en.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -128,9 +172,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
