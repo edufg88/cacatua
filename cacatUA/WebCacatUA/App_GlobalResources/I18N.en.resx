@@ -117,7 +117,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Autor" xml:space="preserve">
+    <value>Author</value>
+  </data>
+  <data name="Categoria" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Categorías" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="Entrar" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="Foro" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="Grupo" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="Grupos" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="Hilo" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="Hilos" xml:space="preserve">
+    <value>Posts</value>
+  </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="IniciarSesion" xml:space="preserve">
+    <value>Start session</value>
+  </data>
+  <data name="Inicio" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>Material</value>
+  </data>
+  <data name="Materiales" xml:space="preserve">
+    <value>Materials</value>
+  </data>
+  <data name="NRespuestas" xml:space="preserve">
+    <value>Replies count</value>
+  </data>
+  <data name="PaginaInicio" xml:space="preserve">
+    <value>Home page</value>
+  </data>
+  <data name="Respuesta" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="Texto" xml:space="preserve">
+    <value>Text</value>
+  </data>
   <data name="TextoInicial" xml:space="preserve">
     <value>Welcome to CacatUA web edition</value>
+  </data>
+  <data name="Titulo" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Usuarios" xml:space="preserve">
+    <value>Users</value>
   </data>
 </root>

@@ -15,11 +15,11 @@
     
         <div id="encabezado">
             <div id="acceso">
-                <asp:Label ID="Label_iniciarSesion" runat="server" Text="Iniciar sesión: "></asp:Label>
+                <asp:Label ID="Label_iniciarSesion" runat="server" Text="<%$ Resources: I18N, IniciarSesion %>"></asp:Label>
                 <asp:TextBox ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
                 <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
-                <asp:Button ID="Button1" runat="server" Text="Entrar" />
-                <asp:Label ID="Label_idioma" runat="server" Text="Idioma: "></asp:Label>
+                <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, Entrar %>" />
+                <asp:Label ID="Label_idioma" runat="server" Text="<%$ Resources: I18N, Idioma %>"></asp:Label>
                 <asp:DropDownList ID="DropDownList1" runat="server" Width="100px">
                     <asp:ListItem Selected="True">Español</asp:ListItem>
                     <asp:ListItem>English</asp:ListItem>
@@ -33,10 +33,10 @@
             </div>
             
             <div id="menu">
-                <div id="boton_inicio" class="boton"><a href="index.aspx">Inicio</a></div>
-                <div id="boton_usuarios" class="boton"><a href="usuarios.aspx">Usuarios</a></div>
-                <div id="boton_materiales" class="boton"><a href="materiales.aspx">Materiales</a></div>
-                <div id="boton_foro" class="boton"><a href="foro.aspx">Foro</a></div>
+                <div id="boton_inicio" class="boton"><a href="index.aspx"><asp:Label ID="Label_inicio" runat="server" Text="<%$ Resources: I18N, Inicio %>"></asp:Label></a></div>
+                <div id="boton_usuarios" class="boton"><a href="usuarios.aspx"><asp:Label ID="Label_usuarios" runat="server" Text="<%$ Resources: I18N, Usuarios %>"></asp:Label></a></div>
+                <div id="boton_materiales" class="boton"><a href="materiales.aspx"><asp:Label ID="Label_materiales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label></a></div>
+                <div id="boton_foro" class="boton"><a href="foro.aspx"><asp:Label ID="Label_foro" runat="server" Text="<%$ Resources: I18N, Foro %>"></asp:Label></a></div>
             </div>
         </div>
         
