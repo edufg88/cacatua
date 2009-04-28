@@ -13,6 +13,15 @@ using System.Xml.Linq;
 
 public partial class PaginaMaestra : System.Web.UI.MasterPage
 {
+
+    public static String lenguaje = "en";
+
+    public string Lenguaje
+    {
+        get { return lenguaje; }
+        set { lenguaje = value; }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 

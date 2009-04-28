@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
-public partial class foro : System.Web.UI.Page
+public partial class foro : WebCacatUA.InterfazWeb
 {
     protected void Page_Load(object sender, EventArgs e)
     {

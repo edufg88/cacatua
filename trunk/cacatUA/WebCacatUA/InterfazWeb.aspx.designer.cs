@@ -8,7 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-
-public partial class foro {
+namespace WebCacatUA {
+    
+    
+    public partial class InterfazWeb {
+    }
 }
