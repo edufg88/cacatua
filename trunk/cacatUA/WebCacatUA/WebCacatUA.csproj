@@ -145,6 +145,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Libreria\Libreria.csproj">
+      <Project>{CD721870-5DEA-4363-8DA3-0CA84C416EF1}</Project>
+      <Name>Libreria</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
