@@ -150,6 +150,16 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene todas las categorías que desciendan del objeto que invoca el método.
+        /// Se recorre el árbol de categorías por niveles obteniendo una listas compuesta.
+        /// </summary>
+        /// <returns>Devuelve una lista de ENCategoria que son descendientes de la categoría padre.</returns>
+        public ArrayList ObtenerDescendencia()
+        {
+            return CategoriaCAD.Instancia.DescendenciaDe(this);
+        }
+
+        /// <summary>
         /// Metodo que obtiene una lista compuesta por todos los usuarios suscritos a la categoria.
         /// </summary>
         /// <returns>Devuelve la lista de ENUsuario suscritos.</returns>
