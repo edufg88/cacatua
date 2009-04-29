@@ -1,0 +1,74 @@
+﻿#contenidoUsuario
+{
+    margin-right: 315px;
+    position: relative;
+    top: 0;
+}
+
+#navegacionUsuario
+{
+    float: right;
+}
+
+#menuUsuario
+{
+    background: url(../imagenes/navegacion.png) no-repeat center;
+    padding: 20px;
+    width: 275px;
+    height: 435px;   
+}
+
+#menuUsuario .botonUsuario a
+{
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #BBBBFE; 
+}
+
+#nombreUsuario
+{
+    font-size: 16pt;
+    color: #BBBBFE;
+    height: 40px;
+}
+
+#gruposUsuario, #encuestaUsuario
+{
+    padding: 15px;
+    width: 270px;
+    margin: 8px;
+    margin-left: 7px;
+    margin-right: 10px;
+    border-bottom: 1px solid #999999;
+    border-right: 1px solid #aaaaaa;
+    border-left: 1px solid #bbbbbb;
+    border-top: 1px solid #cccccc;
+    background-color: #ffffff;
+}
+
+#grupoUsuario, #preguntaEncuesta
+{
+    font-weight: bold;
+    padding-bottom: 10px;   
+}
+
+#accionesEncuesta
+{
+    padding-top: 10px;   
+}
+
+#fotoUsuario
+{
+    padding-bottom: 35px;   
+}
+
+#sinImagen
+{
+    width: 100px;
+    height: 60px;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 40px;
+    color: #AAA;   
+}

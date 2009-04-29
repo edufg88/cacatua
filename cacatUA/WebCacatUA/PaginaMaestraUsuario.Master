@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="PaginaMaestraUsuario.master.cs" Inherits="WebCacatUA.PaginaMaestraUsuario" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder id="ContentPlaceHolder_headUsuario" runat="server">            
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="estilos/PaginaMaestraUsuario.css" media="screen" />
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
+    <asp:ContentPlaceHolder id="ContentPlaceHolder_tituloUsuario" runat="server">            
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
+    
+    <div id="navegacionUsuario">
+        <div id="menuUsuario">
+            <div id="nombreUsuario">Nombre de usuario</div>
+            <div id="fotoUsuario"><div id="sinImagen">Sin imagen</div></div>
+            
+            <div id="datosUsuario" class="botonUsuario"><a href="usuario.aspx?usuario=antonio">Datos del usuario</a></div>
+            <div id="firmasUsuario" class="botonUsuario"><a href="firmas.aspx?usuario=antonio">Firmas (13)</a></div>
+            <div id="mensajesUsuario" class="botonUsuario"><a href="mensajes.aspx?usuario=antonio">Mensajes privados (79) (sólo sale si eres tú mismo)</a></div>
+            <div id="galeriaUsuario" class="botonUsuario"><a href="galeria.aspx?usuario=antonio">Galería de fotos (43)</a></div>
+            <div id="encuestasUsuario" class="botonUsuario"><a href="encuestas.aspx?usuario=antonio">Encuestas (13) (si eres tu mismo, podrás editarlas al entrar)</a></div>
+            <div id="enviarMensajeUsuario" class="botonUsuario"><a href="enviarmensaje.aspx?usuario=antonio">Enviar mensaje (sólo sale si no eres tu mismo)</a></div>
+        </div>
+        <div id="gruposUsuario">
+            <div id="grupoUsuario">Grupos del usuario</div>
+            <div class="botonGrupo"><a href="grupo.aspx?id=52">Los máquinas (15 miembros)</a></div>
+            <div class="botonGrupo"><a href="grupo.aspx?id=23">Yoquesé (4 miembros)</a></div>
+        </div>
+        <div id="encuestaUsuario">
+            <div id="preguntaEncuesta">¿Qué tal estáis?</div>
+            <div class="opcionEncuesta">Bien</div>
+            <div class="opcionEncuesta">Mal</div>
+            <div class="opcionEncuesta">Regular</div>
+            <div id="accionesEncuesta"><a href="encuestas.aspx?usuario=antonio">Ver otras encuestas del usuario (si eres tú mismo, el mensaje será "Editar tus encuestas")</a></div>
+        </div>
+    </div>
+    
+    <div id="contenidoUsuario">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder_contenidoUsuario" runat="server">            
+        </asp:ContentPlaceHolder>
+    </div>
+    
+</asp:Content>
+
