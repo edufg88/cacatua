@@ -305,8 +305,13 @@ namespace Libreria
                 }
                 if (busqueda.Categoria != null)
                 {
-                    cadenaComun += "and categoria = @categoria";
-                    comando.Parameters.AddWithValue("@categoria", busqueda.Categoria.Id);
+                    cadenaComun += "and categoria in (" + busqueda.Categoria.Id.ToString();
+                    ArrayList descencientes = busqueda.Categoria.ObtenerDescendencia();
+                    foreach (ENCategoria i in descencientes)
+                        cadenaComun += "," + i.Id.ToString();
+                    cadenaComun += ")";
+                    //cadenaComun += "and categoria = @categoria";
+                    //comando.Parameters.AddWithValue("@categoria", busqueda.Categoria.Id);
                 }
                 cadenaComun += " and fecha between @fechaInicio and @fechaFin";
                 comando.Parameters.AddWithValue("@fechaInicio", busqueda.FechaInicio);
