@@ -165,6 +165,8 @@
       <DependentUpon>cacatua.mdf</DependentUpon>
     </Content>
     <Content Include="estilos\PaginaMaestraUsuario.css" />
+    <Content Include="imagenes\banderas\english.png" />
+    <Content Include="imagenes\banderas\español.png" />
     <Content Include="imagenes\navegacion.png" />
     <Content Include="PaginaMaestraUsuario.Master" />
     <Content Include="usuario.aspx" />

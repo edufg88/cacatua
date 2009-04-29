@@ -98,6 +98,28 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene todos los hilos según la categoría, el autor, la fecha, el filtro de búsqueda, etc., ordenándolos
+        /// según los criterios de orden. También considera el rango según "cantidad" y "orden".
+        /// </summary>
+        /// <param name="cantidad">Cantidad de resultados que se muestran.</param>
+        /// <param name="pagina">Página de resultado que se muestra.</param>
+        /// <param name="ordenar">Campo por el que se va a ordenar el resultado.</param>
+        /// <param name="ascendente">Indica si es ascendente o descendente.</param>
+        /// <param name="titulo">Título para el filtro de búsqueda.</param>
+        /// <param name="texto">Texto para el filtro de búsqueda.</param>
+        /// <param name="autor">Autor para el filtro de búsqueda.</param>
+        /// <param name="fechaInicio">Fecha de inicio para el filtro de búsqueda.</param>
+        /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
+        /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
+        public static ArrayList Obtener(int cantidad, int pagina, string ordenar, bool ascendente, string titulo, string texto,
+            ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
+        {
+            return HiloCAD.Instancia.Obtener(cantidad, pagina, ordenar, ascendente, titulo, texto, ref autor,
+                ref fechaInicio, ref fechaFin, ref categoria);
+        }
+
+        /// <summary>
         /// Obtiene la cantidad de resultados totales que hay con el filtro de búsqueda indicado.
         /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
         /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
