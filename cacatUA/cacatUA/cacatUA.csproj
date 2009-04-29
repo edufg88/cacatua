@@ -382,11 +382,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="datos\add.jpg" />
-    <Content Include="cacatua.mdf">
-    </Content>
-    <Content Include="cacatua_log.ldf">
-      <DependentUpon>cacatua.mdf</DependentUpon>
-    </Content>
     <Content Include="datos\add.png" />
     <None Include="datos\avanzar.png" />
     <Content Include="datos\avatar.jpg" />

@@ -17,7 +17,11 @@ namespace cacatUA
 
             string mdf = Application.ExecutablePath;
             mdf = mdf.Remove(mdf.LastIndexOf(@"\bin\"));
-            AppDomain.CurrentDomain.SetData("DataDirectory", @mdf);
+
+            string mdf2 = mdf.Remove(mdf.LastIndexOf(@"\cacatUA"));
+            mdf2 += @"\WebCacatUA\App_Data";
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", @mdf2);
         }
 
         private void button_conectar_Click(object sender, EventArgs e)
