@@ -318,6 +318,110 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene todos los hilos según la categoría, el autor, la fecha, el filtro de búsqueda, etc., ordenándolos
+        /// según los criterios de orden. También considera el rango según "cantidad" y "orden".
+        /// </summary>
+        /// <param name="cantidad">Cantidad de resultados que se muestran.</param>
+        /// <param name="pagina">Página de resultado que se muestra.</param>
+        /// <param name="ordenar">Campo por el que se va a ordenar el resultado.</param>
+        /// <param name="ascendente">Indica si es ascendente o descendente.</param>
+        /// <param name="titulo">Título para el filtro de búsqueda.</param>
+        /// <param name="texto">Texto para el filtro de búsqueda.</param>
+        /// <param name="autor">Autor para el filtro de búsqueda.</param>
+        /// <param name="fechaInicio">Fecha de inicio para el filtro de búsqueda.</param>
+        /// <param name="fechaFin">Fecha de fin para el filtro de búsqueda.</param>
+        /// <param name="categoria">Categoria para el filtro de búsqueda.</param>
+        /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo). Si falla, devuelve null.</returns>
+        public ArrayList Obtener (int cantidad, int pagina, string ordenar, bool ascendente, string titulo, string texto,
+            ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
+        {
+            ArrayList hilos = null;
+            if (ordenar == "") ordenar = "vistaHilos.id";
+            else if (ordenar == "id") ordenar = "vistaHilos.id";
+            else if (ordenar == "autor") ordenar = "nombreusuario";
+
+            String ordenStr = "ASC";
+            if (!ascendente) ordenStr = "DESC";
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                // Componemos la cadena de la sentencia.
+                string sentencia = "select * from (select vistaHilos.*, usuarios.usuario as nombreusuario, ROW_NUMBER() OVER (ORDER BY " + @ordenar + " " + ordenStr + ") AS filas \n";
+                sentencia += "from vistaHilos, usuarios \nwhere autor = usuarios.id \n";
+
+                if (titulo != "")
+                    sentencia += "and (titulo like '%" + @titulo + "%' \n";
+                else
+                    sentencia += "and (titulo like '%' \n";
+                if (texto != "")
+                    sentencia += "or texto like '%" + @texto + "%') \n";
+                else
+                    sentencia += "or texto like '%') \n";
+                if (autor != null)
+                    sentencia += "and autor = @autor \n";
+                if (fechaInicio != fechaFin)
+                    sentencia += "and fechacreacion between @fechainicio and @fechafin \n";
+                if (categoria != null)
+                    sentencia += "and categoria = @categoria \n";
+                sentencia += ") as alias where filas > @filaInicio and filas <= @filaFin \n";
+
+                // Asignamos la cadena de sentencia y establecemos los parámetros.
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                if (titulo != "")
+                    comando.Parameters.AddWithValue("@titulo", titulo);
+                if (texto != "")
+                    comando.Parameters.AddWithValue("@texto", texto);
+                if (autor != null)
+                    comando.Parameters.AddWithValue("@autor", autor.Id);
+                if (fechaInicio <= fechaFin)
+                {
+                    comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
+                    comando.Parameters.AddWithValue("@fechafin", fechaFin);
+                }
+                if (categoria != null)
+                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
+                comando.Parameters.AddWithValue("@filaInicio", (pagina-1)*cantidad);
+                comando.Parameters.AddWithValue("@filaFin", pagina*cantidad);
+
+                Console.WriteLine("");
+                Console.WriteLine("--------------------------");
+                Console.WriteLine(sentencia);
+                Console.WriteLine("--------------------------");
+                Console.WriteLine("");
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Insertamos todas las filas extraidas en el vector.
+                hilos = new ArrayList();
+                while (dataReader.Read())
+                {
+                    ENHilo material = obtenerDatos(dataReader);
+                    hilos.Add(material);
+                }
+
+                // Cerramos la consulta.
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: ArrayList HiloCAD.Obtener(monton de gente2) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return hilos;
+        }
+
+        /// <summary>
         /// Obtiene la cantidad de resultados totales que hay con el filtro de búsqueda indicado.
         /// Sólo devuelve aquellos hilos que coincidan con el título especificado, texto especificado, etc.
         /// Si se especifican con cadena vacía, todos los hilos son coincidentes.
