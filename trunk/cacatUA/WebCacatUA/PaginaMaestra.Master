@@ -49,10 +49,11 @@
         <div id="contenido">
             <asp:ContentPlaceHolder id="ContentPlaceHolder_contenido" runat="server">            
             </asp:ContentPlaceHolder>
+            <div id="auxiliar"></div>
         </div>
         
         <div id="pie">
-            <p>CacatUA - Diseño y programación de aplicaciones avanzadas 2008/2009</p>
+            <p>CacatUA - Diseño y Programación Avanzada de Aplicaciones 2008/2009</p>
         </div>
     </div>
     </form>
