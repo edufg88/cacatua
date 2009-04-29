@@ -5,6 +5,8 @@
 <p>Foro</p>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">
-<p>Contenido</p>
+<asp:Label ID="Label1" runat="server" Text="Me cago en jesús"></asp:Label><br />
+<asp:Label ID="Label2" runat="server" Text="Me cago en jesús"></asp:Label><br />
+<asp:Label ID="Label3" runat="server" Text="Me cago en jesús"></asp:Label><br />
 </asp:Content>
 
