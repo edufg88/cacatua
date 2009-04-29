@@ -19,14 +19,23 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
            
     }
 
-    protected void DropDownList_Idiomas_SelectedIndexChanged(object sender, EventArgs e)
+    protected void RefrescarPagina()
     {
-        Session["idioma"] = DropDownList_Idiomas.SelectedValue.ToString();
-        
-        //Refrescar la pagina
-        /*string[] arrResult = HttpContext.Current.Request.RawUrl.Split('/');
+        string[] arrResult = HttpContext.Current.Request.RawUrl.Split('/');
         String result = arrResult[arrResult.GetUpperBound(0)];
         arrResult = result.Split('?');
-        Response.Redirect(arrResult[arrResult.GetLowerBound(0)]);*/
+        Response.Redirect(arrResult[arrResult.GetLowerBound(0)]);
+    }
+
+    protected void ImageButton_Español_Click(object sender, ImageClickEventArgs e)
+    {
+        Session["idioma"] = "es";
+        RefrescarPagina();
+    }
+
+    protected void ImageButton_Ingles_Click(object sender, ImageClickEventArgs e)
+    {
+        Session["idioma"] = "en";
+        RefrescarPagina();
     }
 }

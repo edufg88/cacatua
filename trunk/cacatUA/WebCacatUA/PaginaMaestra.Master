@@ -20,13 +20,13 @@
                 <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, Entrar %>" />
                 <asp:Button ID="Button2" runat="server" Text="<%$ Resources: I18N, Registrarse %>" />
-                <asp:Label ID="Label_idioma" runat="server" Text="<%$ Resources: I18N, Idioma %>"></asp:Label>
-                <asp:DropDownList ID="DropDownList_Idiomas" runat="server" Width="100px" 
-                    AutoPostBack="True" 
-                    onselectedindexchanged="DropDownList_Idiomas_SelectedIndexChanged">
-                    <asp:ListItem Value="es">Español</asp:ListItem>
-                    <asp:ListItem Value="en">English</asp:ListItem>
-                </asp:DropDownList>
+                <asp:ImageButton ID="ImageButton_Español" runat="server" AlternateText="es" 
+                    BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
+                    ImageUrl="~/imagenes/banderas/español.png" 
+                    onclick="ImageButton_Español_Click" />
+                <asp:ImageButton ID="ImageButton_Ingles" runat="server" AlternateText="en" 
+                    BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
+                    ImageUrl="~/imagenes/banderas/english.png" onclick="ImageButton_Ingles_Click" />
             </div>
             
             <div id="cabecera">
