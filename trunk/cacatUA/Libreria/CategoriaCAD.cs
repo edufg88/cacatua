@@ -356,6 +356,24 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene la descendencia completa de una categoría.
+        /// Es una especie de cola. Se recorre la cola hasta llegar al final pero por cada elemento de la cola se le añaden sus hijos.
+        /// Sería un recorrido por niveles del árbol de categorías.
+        /// </summary>
+        /// <param name="padre">Categoría que va a ser examinada para sacar su descendencia.</param>
+        /// <returns>Devuelve una lista con la lista de ENCategoria (recorrido por niveles).</returns>
+        public ArrayList DescendenciaDe(ENCategoria padre)
+        {
+            ArrayList descendencia = HijosDe(padre);
+
+            for (int i = 0; i < descendencia.Count; i++)
+            {
+                descendencia.AddRange(HijosDe((ENCategoria) descendencia[i]));
+            }
+            return descendencia;
+        }
+
+        /// <summary>
         /// Obtiene todos los usuarios suscritos a una categoria.
         /// </summary>
         /// <param name="categoria">Categoria de la que queremos los usuarios suscritos.</param>
