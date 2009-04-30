@@ -9,11 +9,14 @@ body
     background-image: url(../imagenes/fondo.png);
     background-repeat: repeat-x;
     background-color: #dcd9cd;
+    text-align: center;
 }
 
 #contenedor
 {
     text-align: center;
+    width: 1016px;
+    margin: auto;
 }
 
 a
@@ -40,8 +43,16 @@ a
 {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 15px;
     font-size: 10pt;
+}
+
+#internacionalizacion
+{
+    position: absolute;
+    top: 180px;
+    left: 20px;
+    
 }
 
 #cabecera
