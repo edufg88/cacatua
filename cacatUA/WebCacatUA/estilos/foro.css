@@ -1,0 +1,53 @@
+﻿#navegacionForo
+{
+    float: left;
+    width: 20%;
+}
+
+.categoriaForo
+{
+    display: block;   
+}
+
+#migasForo
+{
+    display: inline;
+    font-size: 10pt;
+}
+
+
+
+/********************************************
+********************************************/
+
+#contenidoForo
+{
+    float: right;
+    width: 80%;
+}
+
+#hilosForo
+{
+    margin-top: 20px;
+    margin-bottom: 20px;   
+}
+
+
+
+/********************************************
+********************************************/
+
+#paginacionForo
+{
+
+}
+
+#cantidadPaginaForo
+{
+    float: left;
+}
+
+#paginasForo
+{
+    float: right;
+}
