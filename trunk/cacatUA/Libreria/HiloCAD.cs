@@ -47,10 +47,12 @@ namespace Libreria
             ENHilo hilo = new ENHilo();
             hilo.Id = int.Parse(dataReader["id"].ToString());
             hilo.Autor = ENUsuario.Obtener(int.Parse(dataReader["autor"].ToString()));
+            hilo.AutorUltimaRespuesta = ENUsuario.Obtener(int.Parse(dataReader["autorrespuesta"].ToString()));
             hilo.Texto = dataReader["texto"].ToString();
             hilo.Titulo = dataReader["titulo"].ToString();
             hilo.Categoria = new ENCategoria(int.Parse(dataReader["categoria"].ToString()));
             hilo.Fecha = (DateTime) dataReader["fechacreacion"];
+            hilo.FechaUltimaRespuesta = (DateTime)dataReader["fecharespuesta"];
             hilo.NumRespuestas = int.Parse(dataReader["respuestas"].ToString());
             return hilo;
         }

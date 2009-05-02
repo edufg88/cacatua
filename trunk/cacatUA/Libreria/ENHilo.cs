@@ -12,7 +12,9 @@ namespace Libreria
 	    private String titulo;
 	    private String texto;
 	    private ENUsuario autor;
+        private ENUsuario autorUltimaRespuesta;
 	    private DateTime fecha;
+        private DateTime fechaUltimaRespuesta;
         private ENCategoria categoria;
         private int numRespuestas;
 
@@ -268,10 +270,22 @@ namespace Libreria
             set { autor = value; }
         }
 
+        public ENUsuario AutorUltimaRespuesta
+        {
+            get { return autorUltimaRespuesta; }
+            set { autorUltimaRespuesta = value; }
+        }
+
         public DateTime Fecha
         {
             get { return fecha; }
             set { fecha = value; }
+        }
+
+        public DateTime FechaUltimaRespuesta
+        {
+            get { return fechaUltimaRespuesta; }
+            set { fechaUltimaRespuesta = value; }
         }
 
         public ENCategoria Categoria
