@@ -223,7 +223,16 @@ namespace Libreria
                 if (fechaInicio != fechaFin)
                     sentencia += "and fechacreacion between @fechainicio and @fechafin \n";
                 if (categoria != null)
-                    sentencia += "and categoria = @categoria \n";
+                {
+                    ArrayList categorias = categoria.ObtenerDescendencia();
+                    string categoriasStr = categoria.Id.ToString();
+                    foreach (ENCategoria i in categorias)
+                    {
+                        categoriasStr += ", " + i.Id;
+                    }
+
+                    sentencia += "and categoria in (" + categoriasStr + ") \n";
+                }
 
                 if (ultimo != null)
                 {
@@ -265,8 +274,6 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
                     comando.Parameters.AddWithValue("@fechafin", fechaFin);
                 }
-                if (categoria != null)
-                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
 
                 if (ultimo != null)
                 {
@@ -369,7 +376,16 @@ namespace Libreria
                 if (fechaInicio != fechaFin)
                     sentencia += "and fechacreacion between @fechainicio and @fechafin \n";
                 if (categoria != null)
-                    sentencia += "and categoria = @categoria \n";
+                {
+                    ArrayList categorias = categoria.ObtenerDescendencia();
+                    string categoriasStr = categoria.Id.ToString();
+                    foreach (ENCategoria i in categorias)
+                    {
+                        categoriasStr += ", " + i.Id;
+                    }
+
+                    sentencia += "and categoria in ("+categoriasStr+") \n";
+                }
                 sentencia += ") as alias where filas > @filaInicio and filas <= @filaFin \n";
 
                 // Asignamos la cadena de sentencia y establecemos los parámetros.
@@ -385,8 +401,6 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
                     comando.Parameters.AddWithValue("@fechafin", fechaFin);
                 }
-                if (categoria != null)
-                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
                 comando.Parameters.AddWithValue("@filaInicio", (pagina-1)*cantidad);
                 comando.Parameters.AddWithValue("@filaFin", pagina*cantidad);
 
@@ -464,7 +478,16 @@ namespace Libreria
                 if (fechaInicio != fechaFin)
                     sentencia += "and fechacreacion between @fechainicio and @fechafin \n";
                 if (categoria != null)
-                    sentencia += "and categoria = @categoria \n";
+                {
+                    ArrayList categorias = categoria.ObtenerDescendencia();
+                    string categoriasStr = categoria.Id.ToString();
+                    foreach (ENCategoria i in categorias)
+                    {
+                        categoriasStr += ", " + i.Id;
+                    }
+
+                    sentencia += "and categoria in (" + categoriasStr + ") \n";
+                }
 
                 // Asignamos la cadena de sentencia y establecemos los parámetros.
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
@@ -479,8 +502,6 @@ namespace Libreria
                     comando.Parameters.AddWithValue("@fechainicio", fechaInicio);
                     comando.Parameters.AddWithValue("@fechafin", fechaFin);
                 }
-                if (categoria != null)
-                    comando.Parameters.AddWithValue("@categoria", categoria.Id);
 
                 // Realizamos la consulta.
                 SqlDataReader dataReader = comando.ExecuteReader();
