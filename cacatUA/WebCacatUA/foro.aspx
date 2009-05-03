@@ -5,15 +5,15 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_titulo" Runat="Server">
         <div id="cabeceraForo">
-            Foro
-            <div id="migasForo">
-                <asp:Label ID="Label_migas" runat="server" Text=""></asp:Label>
-            </div>
+            <asp:Label ID="Label_foro" runat="server" Text="<%$ Resources: I18N, Foro %>"></asp:Label>
         </div>
-        
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">
 
+<div id="migasForo">
+    <asp:Label ID="Label_migas" runat="server" Text=""></asp:Label>
+</div>
+            
 <div id="navegacionForo">
     <div id="nombreCategoriasForo">Categorías</div>
     <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
@@ -23,14 +23,15 @@
     <div id="busquedaForo">
 
         <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="40%"></asp:TextBox>
-        <asp:Button ID="Button_buscar" runat="server" Text="Button" Width="10%"/>
+        <asp:Button ID="Button_buscar" runat="server" Text="<%$ Resources: I18N, Buscar %>" Width="10%"/>
 
         <asp:Label ID="Label_ordenarPor" runat="server" Text="Ordenar por:"></asp:Label>
         <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%">
             <asp:ListItem Value="titulo">título</asp:ListItem>
-            <asp:ListItem Value="fecha">fecha</asp:ListItem>
+            <asp:ListItem Value="fechacreacion">fecha de creación</asp:ListItem>
             <asp:ListItem Selected="True" Value="fecharespuesta">fecha de última respuesta</asp:ListItem>
             <asp:ListItem Value="respuestas">número de respuestas</asp:ListItem>
+            <asp:ListItem Value="visitas">número de visitas</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="DropDownList_orden" runat="server" Width="12%">
             <asp:ListItem Value="ascendente">ascendente</asp:ListItem>
@@ -44,7 +45,8 @@
     </div>
     
     <div id="hilosForo">
-        <asp:Label ID="Label_hilos" runat="server" Text=""></asp:Label>
+        <asp:Table ID="Table_hilosForo" runat="server" CssClass="tablaHilosForo" 
+            CellPadding="0" CellSpacing="0"></asp:Table>        
     </div>
     
     <div id="paginacionForo">

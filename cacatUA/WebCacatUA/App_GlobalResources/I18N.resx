@@ -120,14 +120,23 @@
   <data name="Autor" xml:space="preserve">
     <value>Autor</value>
   </data>
+  <data name="Buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
   <data name="Categoria" xml:space="preserve">
     <value>Categoría</value>
   </data>
   <data name="Categorías" xml:space="preserve">
     <value>Categorías</value>
   </data>
+  <data name="creadoPor" xml:space="preserve">
+    <value>creado por</value>
+  </data>
   <data name="Entrar" xml:space="preserve">
     <value>Entrar</value>
+  </data>
+  <data name="EstasAqui" xml:space="preserve">
+    <value>Estás aquí</value>
   </data>
   <data name="Foro" xml:space="preserve">
     <value>Foro</value>
@@ -159,17 +168,26 @@
   <data name="Materiales" xml:space="preserve">
     <value>Materiales</value>
   </data>
+  <data name="nadie" xml:space="preserve">
+    <value>nadie</value>
+  </data>
   <data name="NRespuestas" xml:space="preserve">
     <value>Número de respuestas</value>
   </data>
   <data name="PaginaInicio" xml:space="preserve">
     <value>Página de inicio</value>
   </data>
+  <data name="por" xml:space="preserve">
+    <value>por</value>
+  </data>
   <data name="Registrarse" xml:space="preserve">
     <value>Registrarse</value>
   </data>
   <data name="Respuesta" xml:space="preserve">
     <value>Respuesta</value>
+  </data>
+  <data name="Respuestas" xml:space="preserve">
+    <value>Respuestas</value>
   </data>
   <data name="Texto" xml:space="preserve">
     <value>Texto</value>
@@ -180,10 +198,16 @@
   <data name="Titulo" xml:space="preserve">
     <value>Título</value>
   </data>
+  <data name="UltimaRespuesta" xml:space="preserve">
+    <value>Última respuesta</value>
+  </data>
   <data name="Usuario" xml:space="preserve">
     <value>Usuario</value>
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="Visitas" xml:space="preserve">
+    <value>Visitas</value>
   </data>
 </root>

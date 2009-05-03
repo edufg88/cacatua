@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Buscar.
+        /// </summary>
+        internal static string Buscar {
+            get {
+                return ResourceManager.GetString("Buscar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Categoría.
         /// </summary>
         internal static string Categoria {
@@ -88,11 +97,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a creado por.
+        /// </summary>
+        internal static string creadoPor {
+            get {
+                return ResourceManager.GetString("creadoPor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Entrar.
         /// </summary>
         internal static string Entrar {
             get {
                 return ResourceManager.GetString("Entrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estás aquí.
+        /// </summary>
+        internal static string EstasAqui {
+            get {
+                return ResourceManager.GetString("EstasAqui", resourceCulture);
             }
         }
         
@@ -187,6 +214,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a nadie.
+        /// </summary>
+        internal static string nadie {
+            get {
+                return ResourceManager.GetString("nadie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Número de respuestas.
         /// </summary>
         internal static string NRespuestas {
@@ -205,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a por.
+        /// </summary>
+        internal static string por {
+            get {
+                return ResourceManager.GetString("por", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Registrarse.
         /// </summary>
         internal static string Registrarse {
@@ -219,6 +264,15 @@ namespace Resources {
         internal static string Respuesta {
             get {
                 return ResourceManager.GetString("Respuesta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Respuestas.
+        /// </summary>
+        internal static string Respuestas {
+            get {
+                return ResourceManager.GetString("Respuestas", resourceCulture);
             }
         }
         
@@ -250,6 +304,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Última respuesta.
+        /// </summary>
+        internal static string UltimaRespuesta {
+            get {
+                return ResourceManager.GetString("UltimaRespuesta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Usuario.
         /// </summary>
         internal static string Usuario {
@@ -264,6 +327,15 @@ namespace Resources {
         internal static string Usuarios {
             get {
                 return ResourceManager.GetString("Usuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Visitas.
+        /// </summary>
+        internal static string Visitas {
+            get {
+                return ResourceManager.GetString("Visitas", resourceCulture);
             }
         }
     }

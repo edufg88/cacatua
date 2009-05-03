@@ -1,7 +1,7 @@
 ﻿#navegacionForo
 {
     float: left;
-    width: 20%;
+    width: 15%;
 }
 
 .categoriaForo
@@ -11,8 +11,7 @@
 
 #migasForo
 {
-    display: inline;
-    font-size: 10pt;
+    margin-bottom: 10px;
 }
 
 
@@ -23,23 +22,106 @@
 #contenidoForo
 {
     float: right;
-    width: 80%;
+    width: 85%;
+}
+
+#mostrandoForo
+{
+    margin-top: 20px;   
 }
 
 #hilosForo
 {
-    margin-top: 20px;
-    margin-bottom: 20px;   
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
 }
 
+.tablaHilosForo
+{
+    width: 100%;
+    background-color: #fff;
+}
 
+.hiloForo
+{
+
+}
+
+.enlaceHiloForo
+{
+    font-weight: bold;
+    text-decoration: none;
+    color: #777;
+}
+
+.enlaceHiloForo:hover
+{
+    color: #000;   
+}
+
+.columna1HiloForo
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.columna2HiloForo
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: center;
+    width: 10%;
+}
+
+.columna3HiloForo
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: center;
+    width: 10%;
+}
+
+.columna4HiloForo
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    width: 20%;
+}
+
+.tituloHiloForo
+{
+
+}
+
+.respuestasHiloForo, .visitasHiloForo
+{
+    font-size: small;   
+}
+
+.creadoHiloForo, .ultimaRespuestaHiloForo
+{
+    font-size: small;
+}
+
+.cabeceraForo
+{
+    border: 0;
+    background-color: #777;
+    color: #eee;
+    font-size: small;
+}
 
 /********************************************
 ********************************************/
 
 #paginacionForo
 {
-
+    clear: both;
 }
 
 #cantidadPaginaForo

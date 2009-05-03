@@ -15,7 +15,7 @@ body
 #contenedor
 {
     text-align: center;
-    width: 1016px;
+    width: 1000px;
     margin: auto;
 }
 
@@ -109,7 +109,7 @@ a
     position: relative;
     clear: both;
     text-align: left;
-    margin: 10px 50px;
+    margin: 10px 30px;
 }
 
 #auxiliar
@@ -130,7 +130,7 @@ a
     border-bottom: 1px solid #D5D3CB;
     border-top: 1px solid #F3F2F6;
     color: #625F5B;
-    margin: 50px;
+    margin: 30px 20px;
     padding: 15px;
     font-size: 10pt;
 }
