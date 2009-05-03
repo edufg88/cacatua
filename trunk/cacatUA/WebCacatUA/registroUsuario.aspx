@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="registroUsuario.aspx.cs" Inherits="registroUsuario" Title="Registro de usuario - CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="estilos/registroUsuario.css" media="screen" />
 </asp:Content>
 <script runat="server">
 
@@ -83,7 +84,6 @@
     }  
 </script>
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
     <div id="cabeceraRegistro">
         <p>
@@ -92,9 +92,9 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
-    <div id="contenidoRegistro">
-        <p>
-            Nick de usuario
+    <div id="contenido">
+        <p class="etiqueta">Nick de usuario</p>
+        <p>    
             <asp:TextBox ID="TextBox_usuario" runat="server"></asp:TextBox>
             <asp:CustomValidator 
                     ID="CustomValidator_usuario" 
@@ -106,9 +106,9 @@
                     ErrorMessage="X">
             </asp:CustomValidator>
         </p>
+        <p class="etiqueta">Contraseña</p>
         <p>
-            Contraseña
-            <asp:TextBox ID="TextBox_contrasena" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox_contrasena" TextMode="Password" runat="server"></asp:TextBox>
             <asp:CustomValidator 
                     ID="CustomValidator_contrasena" 
                     runat="server"
@@ -119,8 +119,8 @@
                     ErrorMessage="X">
             </asp:CustomValidator>
         </p>
+        <p class="etiqueta">Nombre</p>
         <p>
-            Nombre
             <asp:TextBox ID="TextBox_nombre" runat="server"></asp:TextBox>
             <asp:CustomValidator 
                     ID="CustomValidator_nombre" 
@@ -132,8 +132,8 @@
                     ErrorMessage="X">
             </asp:CustomValidator>
         </p>
+        <p class="etiqueta">DNI</p>
         <p>
-            DNI
             <asp:TextBox ID="TextBox_dni" runat="server"></asp:TextBox>
             <asp:CustomValidator 
                     ID="CustomValidator_dni" 
@@ -145,8 +145,8 @@
                     ErrorMessage="X">
             </asp:CustomValidator>
         </p>
+        <p class="etiqueta">Correo</p>
         <p>
-            Correo
             <asp:TextBox ID="TextBox_correo" runat="server"></asp:TextBox>
             <asp:CustomValidator 
                     ID="CustomValidator_correo" 
@@ -158,9 +158,9 @@
                     ErrorMessage="X">
             </asp:CustomValidator>
         </p>
+        <p class="etiqueta">Información Adicional</p>
         <p>
-            Información Adicional
-            <asp:TextBox ID="TextBox_adicional" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox_adicional" TextMode="MultiLine" Columns="20" Rows="4" runat="server"></asp:TextBox>
             <asp:CustomValidator 
                     ID="CustomValidator_adicional" 
                     runat="server"
@@ -171,13 +171,13 @@
                     ErrorMessage="X">
             </asp:CustomValidator>  
         </p>
-        <div id="pieContenidoRegistro">
-            <p>       
-                <asp:Button ID="Button_confirmar" runat="server" Text="Confirmar" 
-                    CausesValidation="true" />
-                <asp:Button ID="Button_limpiar" runat="server" Text="Limpiar" />   
-            </p>
-        </div>
+    
+        <p class="pie">       
+            <asp:Button ID="Button_confirmar" runat="server" Text="Confirmar" 
+                CausesValidation="true" />
+            <asp:Button ID="Button_limpiar" runat="server" Text="Limpiar" />   
+        </p>
+
     </div>
 
 <script type="text/javascript" language="javascript">

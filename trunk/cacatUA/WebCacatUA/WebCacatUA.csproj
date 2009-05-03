@@ -222,6 +222,7 @@
   <ItemGroup>
     <Content Include="enviarmensaje.aspx" />
     <Content Include="estilos\foro.css" />
+    <Content Include="estilos\registroUsuario.css" />
     <Content Include="registroUsuario.aspx" />
     <Content Include="grupo.aspx" />
     <Content Include="firmas.aspx" />
@@ -245,7 +246,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1383</DevelopmentServerPort>
+          <DevelopmentServerPort>2592</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
