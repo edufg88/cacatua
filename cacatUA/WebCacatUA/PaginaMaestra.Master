@@ -75,7 +75,7 @@
                 </asp:CustomValidator>
                                
                 <asp:TextBox ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
-                <asp:TextBox ID="TextBox1" runat="server" Width="100px"></asp:TextBox>
+                <asp:TextBox ID="TextBox1" runat="server" Width="100px" TextMode="Password"></asp:TextBox>
                 <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, Entrar %>" CausesValidation="true" />
                 <asp:Button ID="Button2" runat="server" 
                     Text="<%$ Resources: I18N, Registrarse %>" onclick="Button2_Click" />
