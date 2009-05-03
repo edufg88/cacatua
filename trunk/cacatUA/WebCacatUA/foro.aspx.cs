@@ -92,28 +92,52 @@ public partial class foro : WebCacatUA.InterfazWeb
             Panel_categorias.Controls.Add(labelCategoria);
         }
 
+        mostrarMigas();
+    }
+
+    private void mostrarMigas()
+    {
         Label_migas.Controls.Clear();
+        LinkButton labelCategoria = null;
+        Label labelSeparador = null;
+
         if (categoria != null)
         {
             ENCategoria categoriaAux = categoria;
             do
             {
-                LinkButton labelCategoria = new LinkButton();
-                labelCategoria.CssClass = "categoriaMigaForo";
-                labelCategoria.Text = categoriaAux.Nombre;
-                labelCategoria.PostBackUrl = "foro.aspx?categoria=" + categoriaAux.Id;
                 if (Label_migas.Controls.Count > 0)
                 {
-                    Label labelSeparador = new Label();
+                    labelSeparador = new Label();
                     labelSeparador.Text = " > ";
                     Label_migas.Controls.AddAt(0, labelSeparador);
                 }
+                labelCategoria = new LinkButton();
+                labelCategoria.CssClass = "categoriaMigaForo";
+                labelCategoria.Text = categoriaAux.Nombre;
+                labelCategoria.PostBackUrl = "foro.aspx?categoria=" + categoriaAux.Id;
                 Label_migas.Controls.AddAt(0, labelCategoria);
 
                 categoriaAux = ENCategoria.Obtener(categoriaAux.Padre);
             }
             while (categoriaAux != null);
         }
+
+        if (Label_migas.Controls.Count > 0)
+        {
+            labelSeparador = new Label();
+            labelSeparador.Text = " > ";
+            Label_migas.Controls.AddAt(0, labelSeparador);
+        }
+        labelCategoria = new LinkButton();
+        labelCategoria.CssClass = "categoriaMigaForo";
+        labelCategoria.Text = Resources.I18N.Foro;
+        labelCategoria.PostBackUrl = "foro.aspx";
+        Label_migas.Controls.AddAt(0, labelCategoria);
+
+        labelSeparador = new Label();
+        labelSeparador.Text = Resources.I18N.EstasAqui + ": ";
+        Label_migas.Controls.AddAt(0, labelSeparador);
     }
 
     /// <summary>
@@ -126,21 +150,79 @@ public partial class foro : WebCacatUA.InterfazWeb
         else
             Label_mostrandoForo.Text = "No hay resultados con estas condiciones de búsqueda.";
 
-        Label_hilos.Text = "";
+        Table_hilosForo.Controls.Clear();
+        insertarCabecera();
+
         DateTime fechaInicio = DateTime.Now;
         DateTime fechaFin = fechaInicio;
 
         ArrayList hilos = ENHilo.Obtener(cantidad, pagina, ordenar, orden, busqueda, busqueda, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
         if (hilos != null)
         {
-            for (int i = 0; i < hilos.Count; i++)
+            foreach (ENHilo i in hilos)
             {
-                Label_hilos.Text += ((ENHilo)hilos[i]).Id.ToString() + " " + ((ENHilo)hilos[i]).Titulo.ToString() + " " + ((ENHilo)hilos[i]).FechaUltimaRespuesta.ToString() + @"<br />";
+                // Columna del título y del creado.
+                TableCell c1 = new TableCell();
+                c1.CssClass = "columna1HiloForo";
+                Label l1 = new Label();
+                l1.Text = "<a href=\"hilo.aspx?id=" + i.Id + "\" class=\"enlaceHiloForo\">" + i.Titulo + "</a>";
+                Panel p1 = new Panel();
+                p1.CssClass = "tituloHiloForo";
+                p1.Controls.Add(l1);
+                c1.Controls.Add(p1);
+                Label l2 = new Label();
+                l2.Text = Resources.I18N.creadoPor +" <a href=\"usuario.aspx?id=" + i.Autor.Id + "\" class=\"autorForo\">" + i.Autor.Usuario + "</a>, " + i.Fecha;
+                Panel p2 = new Panel();
+                p2.CssClass = "creadoHiloForo";
+                p2.Controls.Add(l2);
+                c1.Controls.Add(p2);
+
+                // Columna del número de respuestas.
+                TableCell c2 = new TableCell();
+                c2.CssClass = "columna2HiloForo";
+                Label l3 = new Label();
+                l3.Text = i.NumRespuestas.ToString();
+                Panel p3 = new Panel();
+                p3.CssClass = "respuestasHiloForo";
+                p3.Controls.Add(l3);
+                c2.Controls.Add(p3);
+
+                // Columna del número de visitas.
+                TableCell c3 = new TableCell();
+                c3.CssClass = "columna3HiloForo";
+                Label l4 = new Label();
+                l4.Text = i.NumVisitas.ToString();
+                Panel p4 = new Panel();
+                p4.CssClass = "visitasHiloForo";
+                p4.Controls.Add(l4);
+                c3.Controls.Add(p4);
+
+                // Columna con la última respuesta.
+                TableCell c4 = new TableCell();
+                c4.CssClass = "columna4HiloForo";
+                Label l5 = new Label();
+                if (i.NumRespuestas > 0)
+                    l5.Text = Resources.I18N.por + " <a href=\"usuario.aspx?id=" + i.AutorUltimaRespuesta.Id + "\" class=\"autorRespuesta\">" + i.AutorUltimaRespuesta.Usuario + "</a><br />" + i.FechaUltimaRespuesta;
+                else
+                    l5.Text = Resources.I18N.nadie;
+                Panel p5 = new Panel();
+                p5.CssClass = "ultimaRespuestaHiloForo";
+                p5.Controls.Add(l5);
+                c4.Controls.Add(p5);
+
+                // Insertamos las columnas en la fila e insertamos la fila en la tabla.
+                TableRow fila = new TableRow();
+                fila.CssClass = "hiloForo";
+                fila.Controls.Add(c1);
+                fila.Controls.Add(c2);
+                fila.Controls.Add(c3);
+                fila.Controls.Add(c4);
+                Table_hilosForo.Controls.Add(fila);
             }
         }
         else
         {
-            Label_hilos.Text = "null";
+            Label_mostrandoForo.Text = "null";
         }
     }
 
@@ -205,6 +287,58 @@ public partial class foro : WebCacatUA.InterfazWeb
         DateTime fechaFin = fechaInicio;
 
         totalResultados = ENHilo.Cantidad(busqueda, busqueda, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
+    }
+
+    private void insertarCabecera()
+    {
+                // Columna del título y del creado.
+                TableCell c1 = new TableCell();
+                c1.CssClass = "columna1HiloForo cabeceraForo";
+                Label l1 = new Label();
+                l1.Text = Resources.I18N.Hilos;
+                Panel p1 = new Panel();
+                p1.CssClass = "tituloHiloForo";
+                p1.Controls.Add(l1);
+                c1.Controls.Add(p1);
+
+                // Columna del número de respuestas.
+                TableCell c2 = new TableCell();
+                c2.CssClass = "columna2HiloForo cabeceraForo";
+                Label l3 = new Label();
+                l3.Text = Resources.I18N.Respuestas;
+                Panel p3 = new Panel();
+                p3.CssClass = "respuestasHiloForo";
+                p3.Controls.Add(l3);
+                c2.Controls.Add(p3);
+
+                // Columna del número de visitas.
+                TableCell c3 = new TableCell();
+                c3.CssClass = "columna3HiloForo cabeceraForo";
+                Label l4 = new Label();
+                l4.Text = Resources.I18N.Visitas;
+                Panel p4 = new Panel();
+                p4.CssClass = "visitasHiloForo";
+                p4.Controls.Add(l4);
+                c3.Controls.Add(p4);
+
+                // Columna con la última respuesta.
+                TableCell c4 = new TableCell();
+                c4.CssClass = "columna4HiloForo cabeceraForo";
+                Label l5 = new Label();
+                l5.Text = Resources.I18N.UltimaRespuesta;
+                Panel p5 = new Panel();
+                p5.CssClass = "ultimaRespuestaHiloForo";
+                p5.Controls.Add(l5);
+                c4.Controls.Add(p5);
+
+                // Insertamos las columnas en la fila e insertamos la fila en la tabla.
+                TableRow fila = new TableRow();
+                fila.CssClass = "hiloForo";
+                fila.Controls.Add(c1);
+                fila.Controls.Add(c2);
+                fila.Controls.Add(c3);
+                fila.Controls.Add(c4);
+                Table_hilosForo.Controls.Add(fila);
     }
 
     protected void Button_paginaAnterior_Click(object sender, EventArgs e)

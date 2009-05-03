@@ -120,14 +120,23 @@
   <data name="Autor" xml:space="preserve">
     <value>Author</value>
   </data>
+  <data name="Buscar" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="Categoria" xml:space="preserve">
     <value>Categoría</value>
   </data>
   <data name="Categorías" xml:space="preserve">
     <value>Categorías</value>
   </data>
+  <data name="creadoPor" xml:space="preserve">
+    <value>posted by</value>
+  </data>
   <data name="Entrar" xml:space="preserve">
-    <value>Join</value>
+    <value>Login</value>
+  </data>
+  <data name="EstasAqui" xml:space="preserve">
+    <value>You are here</value>
   </data>
   <data name="Foro" xml:space="preserve">
     <value>Forum</value>
@@ -159,14 +168,26 @@
   <data name="Materiales" xml:space="preserve">
     <value>Materials</value>
   </data>
+  <data name="nadie" xml:space="preserve">
+    <value>no one</value>
+  </data>
   <data name="NRespuestas" xml:space="preserve">
     <value>Replies count</value>
   </data>
   <data name="PaginaInicio" xml:space="preserve">
     <value>Home page</value>
   </data>
+  <data name="por" xml:space="preserve">
+    <value>by</value>
+  </data>
+  <data name="Registrarse" xml:space="preserve">
+    <value>Join in</value>
+  </data>
   <data name="Respuesta" xml:space="preserve">
     <value>Reply</value>
+  </data>
+  <data name="Respuestas" xml:space="preserve">
+    <value>Replies</value>
   </data>
   <data name="Texto" xml:space="preserve">
     <value>Text</value>
@@ -177,10 +198,16 @@
   <data name="Titulo" xml:space="preserve">
     <value>Title</value>
   </data>
+  <data name="UltimaRespuesta" xml:space="preserve">
+    <value>Last reply</value>
+  </data>
   <data name="Usuario" xml:space="preserve">
     <value>User</value>
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="Visitas" xml:space="preserve">
+    <value>Views</value>
   </data>
 </root>

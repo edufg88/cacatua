@@ -13,6 +13,15 @@
 public partial class foro {
     
     /// <summary>
+    /// Control Label_foro.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_foro;
+    
+    /// <summary>
     /// Control Label_migas.
     /// </summary>
     /// <remarks>
@@ -85,13 +94,13 @@ public partial class foro {
     protected global::System.Web.UI.WebControls.Label Label_mostrandoForo;
     
     /// <summary>
-    /// Control Label_hilos.
+    /// Control Table_hilosForo.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_hilos;
+    protected global::System.Web.UI.WebControls.Table Table_hilosForo;
     
     /// <summary>
     /// Control Label_cantidadPagina.
