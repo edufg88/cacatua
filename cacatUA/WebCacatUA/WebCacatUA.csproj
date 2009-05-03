@@ -71,6 +71,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="registroUsuario.aspx.cs">
+      <DependentUpon>registroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registroUsuario.aspx.designer.cs">
+      <DependentUpon>registroUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="enviarmensaje.aspx.cs">
       <DependentUpon>enviarmensaje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +222,7 @@
   <ItemGroup>
     <Content Include="enviarmensaje.aspx" />
     <Content Include="estilos\foro.css" />
+    <Content Include="registroUsuario.aspx" />
     <Content Include="grupo.aspx" />
     <Content Include="firmas.aspx" />
     <Content Include="mensajes.aspx" />
