@@ -54,6 +54,7 @@ namespace Libreria
             hilo.Fecha = (DateTime) dataReader["fechacreacion"];
             hilo.FechaUltimaRespuesta = (DateTime)dataReader["fecharespuesta"];
             hilo.NumRespuestas = int.Parse(dataReader["respuestas"].ToString());
+            hilo.NumVisitas = int.Parse(dataReader["visitas"].ToString());
             return hilo;
         }
 

@@ -17,6 +17,7 @@ namespace Libreria
         private DateTime fechaUltimaRespuesta;
         private ENCategoria categoria;
         private int numRespuestas;
+        private int numVisitas;
 
         /// <summary>
         /// Constructor por defecto. Crea un hilo vacío.
@@ -30,6 +31,7 @@ namespace Libreria
             fecha = new DateTime();
             categoria = null;
             numRespuestas = 0;
+            numVisitas = 0;
         }
 
         /// <summary>
@@ -48,6 +50,8 @@ namespace Libreria
             this.autor = autor;
             this.fecha = DateTime.Now;
             this.categoria = categoria;
+            numRespuestas = 0;
+            numVisitas = 0;
         }
 
         /// <summary>
@@ -306,6 +310,12 @@ namespace Libreria
         {
             get { return numRespuestas; }
             set { numRespuestas = value; }
+        }
+
+        public int NumVisitas
+        {
+            get { return numVisitas; }
+            set { numVisitas = value; }
         }
     }
 }
