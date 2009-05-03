@@ -107,6 +107,11 @@ namespace Libreria
             return aux;
         }
 
+        public static ArrayList ObtenerFirmas(string usuario, bool emisor)
+        {
+            return FirmaCAD.Instancia.ObtenerFirmas(usuario, emisor);
+        }
+
         /// <summary>
         /// Obtiene todas las firmas
         /// </summary>
