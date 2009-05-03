@@ -96,7 +96,7 @@ namespace Libreria
                 }
                 else 
                 {
-                    comando.CommandText = "SELECT * FROM firmas where receptor = @usuario";
+                    comando.CommandText = "SELECT * FROM firmas where receptor = @usuario order";
                 }
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
 
@@ -117,6 +117,52 @@ namespace Libreria
             }
 
             return firma;
+        }
+
+        public ArrayList ObtenerFirmas(string nombre, bool emisor)
+        {
+            ArrayList firmas = new ArrayList();
+
+            // Obtenemos el usuario por nombre para obtener su id
+            ENUsuario usuario = ENUsuario.Obtener(nombre);
+
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+
+                // Asignamos la sentencia SQL
+                if (emisor)
+                {
+                    comando.CommandText = "SELECT * FROM firmas where emisor = @usuario";
+                }
+                else
+                {
+                    comando.CommandText = "SELECT * FROM firmas where receptor = @usuario order by fecha DESC";
+                }
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                while(dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENFirma
+                    ENFirma firma;
+                    firma = ObtenerDatos(dr);
+                    firmas.Add(firma);
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener firma por nombre de usuario");
+            }
+
+            return firmas;
         }
 
         // Devuelve la lista de firmas

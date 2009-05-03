@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9D13C5CC-7B0C-45D1-A248-37EDDB545667}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -71,12 +71,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="enviarmensaje.aspx.cs">
+      <DependentUpon>enviarmensaje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enviarmensaje.aspx.designer.cs">
+      <DependentUpon>enviarmensaje.aspx</DependentUpon>
+    </Compile>
     <Compile Include="foro.aspx.cs">
       <DependentUpon>foro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="foro.aspx.designer.cs">
       <DependentUpon>foro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="grupo.aspx.cs">
+      <DependentUpon>grupo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="grupo.aspx.designer.cs">
+      <DependentUpon>grupo.aspx</DependentUpon>
     </Compile>
     <Compile Include="InterfazWeb.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -94,6 +108,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="mensajes.aspx.cs">
+      <DependentUpon>mensajes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mensajes.aspx.designer.cs">
+      <DependentUpon>mensajes.aspx</DependentUpon>
     </Compile>
     <Compile Include="PaginaMaestra.Master.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
@@ -123,6 +144,13 @@
     </Compile>
     <Compile Include="usuarios.aspx.designer.cs">
       <DependentUpon>usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="firmas.aspx.cs">
+      <DependentUpon>firmas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="firmas.aspx.designer.cs">
+      <DependentUpon>firmas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -185,7 +213,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="enviarmensaje.aspx" />
     <Content Include="estilos\foro.css" />
+    <Content Include="grupo.aspx" />
+    <Content Include="firmas.aspx" />
+    <Content Include="mensajes.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
@@ -210,9 +242,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
