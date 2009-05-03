@@ -10,43 +10,16 @@
 
 
 
-public partial class PaginaMaestra {
+public partial class registroUsuario {
     
     /// <summary>
-    /// Control Head1.
+    /// Control TextBox_usuario.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-    
-    /// <summary>
-    /// Control head.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
-    
-    /// <summary>
-    /// Control form1.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-    
-    /// <summary>
-    /// Control Label_iniciarSesion.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_iniciarSesion;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_usuario;
     
     /// <summary>
     /// Control CustomValidator_usuario.
@@ -58,6 +31,15 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_usuario;
     
     /// <summary>
+    /// Control TextBox_contrasena.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox TextBox_contrasena;
+    
+    /// <summary>
     /// Control CustomValidator_contrasena.
     /// </summary>
     /// <remarks>
@@ -67,110 +49,92 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_contrasena;
     
     /// <summary>
-    /// Control TextBox2.
+    /// Control TextBox_nombre.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox2;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_nombre;
     
     /// <summary>
-    /// Control TextBox1.
+    /// Control CustomValidator_nombre.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox1;
+    protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_nombre;
     
     /// <summary>
-    /// Control Button1.
+    /// Control TextBox_dni.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button1;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_dni;
     
     /// <summary>
-    /// Control Button2.
+    /// Control CustomValidator_dni.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button2;
+    protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_dni;
     
     /// <summary>
-    /// Control ImageButton_Español.
+    /// Control TextBox_correo.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ImageButton ImageButton_Español;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_correo;
     
     /// <summary>
-    /// Control ImageButton_Ingles.
+    /// Control CustomValidator_correo.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.ImageButton ImageButton_Ingles;
+    protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_correo;
     
     /// <summary>
-    /// Control Label_inicio.
+    /// Control TextBox_adicional.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_inicio;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_adicional;
     
     /// <summary>
-    /// Control Label_usuarios.
+    /// Control CustomValidator_adicional.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_usuarios;
+    protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_adicional;
     
     /// <summary>
-    /// Control Label_materiales.
+    /// Control Button_confirmar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_materiales;
+    protected global::System.Web.UI.WebControls.Button Button_confirmar;
     
     /// <summary>
-    /// Control Label_foro.
+    /// Control Button_limpiar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_foro;
-    
-    /// <summary>
-    /// Control ContentPlaceHolder_titulo.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_titulo;
-    
-    /// <summary>
-    /// Control ContentPlaceHolder_contenido.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_contenido;
+    protected global::System.Web.UI.WebControls.Button Button_limpiar;
 }

@@ -38,4 +38,16 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         Session["idioma"] = "en";
         RefrescarPagina();
     }
+
+    /// <summary>
+    /// Valida el usuario y la contraseña de un login en el lado del servidor
+    /// </summary>
+    protected void ValidarLogin()
+    { 
+    
+    }
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("registroUsuario.aspx");
+    }
 }
