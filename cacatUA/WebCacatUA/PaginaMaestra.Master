@@ -54,33 +54,12 @@
             <div id="acceso">
                 <asp:Label ID="Label_iniciarSesion" runat="server" Text="<%$ Resources: I18N, IniciarSesion %>"></asp:Label>
                 <asp:Label ID="Label_infoLogin" runat="server" ForeColor="Red"></asp:Label>
-                
-                <!-- Validadores de login -->
-                <!--
-                <asp:CustomValidator 
-                    ID="CustomValidator_usuario" 
-                    runat="server"
-                    ClientValidationFunction="ValidarUsuarioC"
-                    ServerValidationFunction="ValidarUsuarioS"
-                    ControlToValidate="TextBox_usuario"
-                    Display="Dynamic"
-                    ErrorMessage="ErrorUsuario">
-                </asp:CustomValidator>
-                <asp:CustomValidator
-                    ID="CustomValidator_contrasena"
-                    runat="server"
-                    ClientValidationFunction="ValidarContrasenaC"
-                    ServerValidationFunction="ValidarContrasenaS"
-                    ControlToValidate="TextBox_contrasena"
-                    Display="Dynamic"
-                    ErrorMessage="ErrorContrasena">
-                </asp:CustomValidator>
-                -->               
+     
                 <asp:TextBox ID="TextBox_usuario" runat="server" Width="100px"></asp:TextBox>
                 <asp:TextBox ID="TextBox_contrasena" runat="server" Width="100px" 
                     TextMode="Password"></asp:TextBox>
                 <asp:Button ID="Button_entrar" runat="server" 
-                    Text="<%$ Resources: I18N, Entrar %>" CausesValidation="true" 
+                    Text="<%$ Resources: I18N, Entrar %>" 
                     onclick="Button_entrar_Click" />
                 <asp:Button ID="Button_registrarse" runat="server" 
                     Text="<%$ Resources: I18N, Registrarse %>" 

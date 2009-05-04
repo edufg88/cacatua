@@ -28,5 +28,9 @@
 .infoError
 {
 	font-size: small;
-	color: red;
+}
+
+.infoGeneral
+{
+	font-size: medium;
 }

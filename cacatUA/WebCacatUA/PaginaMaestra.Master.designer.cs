@@ -58,24 +58,6 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.Label Label_infoLogin;
     
     /// <summary>
-    /// Control CustomValidator_usuario.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_usuario;
-    
-    /// <summary>
-    /// Control CustomValidator_contrasena.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_contrasena;
-    
-    /// <summary>
     /// Control TextBox_usuario.
     /// </summary>
     /// <remarks>

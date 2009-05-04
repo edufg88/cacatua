@@ -13,6 +13,15 @@
 public partial class registroUsuario {
     
     /// <summary>
+    /// Control Label_infoGeneral.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_infoGeneral;
+    
+    /// <summary>
     /// Control TextBox_usuario.
     /// </summary>
     /// <remarks>
@@ -29,6 +38,15 @@ public partial class registroUsuario {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_infoUsuario;
+    
+    /// <summary>
+    /// Control RequiredFieldValidator_usuario.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_usuario;
     
     /// <summary>
     /// Control TextBox_contrasena.
@@ -49,6 +67,15 @@ public partial class registroUsuario {
     protected global::System.Web.UI.WebControls.Label Label_infoContrasena;
     
     /// <summary>
+    /// Control RequiredFieldValidator_contrasena.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_contrasena;
+    
+    /// <summary>
     /// Control TextBox_confirmarContrasena.
     /// </summary>
     /// <remarks>
@@ -67,6 +94,15 @@ public partial class registroUsuario {
     protected global::System.Web.UI.WebControls.Label Label_infoConfContrasena;
     
     /// <summary>
+    /// Control RequiredFieldValidator_confContrasena.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_confContrasena;
+    
+    /// <summary>
     /// Control TextBox_nombre.
     /// </summary>
     /// <remarks>
@@ -83,6 +119,15 @@ public partial class registroUsuario {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_infoNombre;
+    
+    /// <summary>
+    /// Control RequiredFieldValidator_nombre.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_nombre;
     
     /// <summary>
     /// Control TextBox_dni.
@@ -119,6 +164,15 @@ public partial class registroUsuario {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_infoCorreo;
+    
+    /// <summary>
+    /// Control RequiredFieldValidator_correo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator_correo;
     
     /// <summary>
     /// Control TextBox_adicional.
