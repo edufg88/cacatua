@@ -61,6 +61,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Anterior.
+        /// </summary>
+        internal static string Anterior {
+            get {
+                return ResourceManager.GetString("Anterior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ascendente.
+        /// </summary>
+        internal static string ascendente {
+            get {
+                return ResourceManager.GetString("ascendente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Autor.
         /// </summary>
         internal static string Autor {
@@ -79,11 +97,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad por página.
+        /// </summary>
+        internal static string CantidadPorPagina {
+            get {
+                return ResourceManager.GetString("CantidadPorPagina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Categoría.
         /// </summary>
         internal static string Categoria {
             get {
                 return ResourceManager.GetString("Categoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categorías.
+        /// </summary>
+        internal static string Categorias {
+            get {
+                return ResourceManager.GetString("Categorias", resourceCulture);
             }
         }
         
@@ -106,6 +142,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Crear nuevo hilo.
+        /// </summary>
+        internal static string CrearNuevoHilo {
+            get {
+                return ResourceManager.GetString("CrearNuevoHilo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a descendente.
+        /// </summary>
+        internal static string descendente {
+            get {
+                return ResourceManager.GetString("descendente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Entrar.
         /// </summary>
         internal static string Entrar {
@@ -120,6 +174,24 @@ namespace Resources {
         internal static string EstasAqui {
             get {
                 return ResourceManager.GetString("EstasAqui", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a fecha de creación.
+        /// </summary>
+        internal static string fechacreacion {
+            get {
+                return ResourceManager.GetString("fechacreacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a fecha de última respuesta.
+        /// </summary>
+        internal static string fecharespuesta {
+            get {
+                return ResourceManager.GetString("fecharespuesta", resourceCulture);
             }
         }
         
@@ -223,11 +295,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No hay subcategorías en esta categoría.
+        /// </summary>
+        internal static string NoHayCategorias {
+            get {
+                return ResourceManager.GetString("NoHayCategorias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Número de respuestas.
         /// </summary>
         internal static string NRespuestas {
             get {
                 return ResourceManager.GetString("NRespuestas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ordenar por.
+        /// </summary>
+        internal static string OrdenarPor {
+            get {
+                return ResourceManager.GetString("OrdenarPor", resourceCulture);
             }
         }
         
@@ -277,6 +367,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a número de respuestas.
+        /// </summary>
+        internal static string respuestasminusculas {
+            get {
+                return ResourceManager.GetString("respuestasminusculas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Siguiente.
+        /// </summary>
+        internal static string Siguiente {
+            get {
+                return ResourceManager.GetString("Siguiente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Texto.
         /// </summary>
         internal static string Texto {
@@ -300,6 +408,15 @@ namespace Resources {
         internal static string Titulo {
             get {
                 return ResourceManager.GetString("Titulo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a título.
+        /// </summary>
+        internal static string titulominusculas {
+            get {
+                return ResourceManager.GetString("titulominusculas", resourceCulture);
             }
         }
         
@@ -336,6 +453,15 @@ namespace Resources {
         internal static string Visitas {
             get {
                 return ResourceManager.GetString("Visitas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a número de visitas.
+        /// </summary>
+        internal static string visitasminusculas {
+            get {
+                return ResourceManager.GetString("visitasminusculas", resourceCulture);
             }
         }
     }

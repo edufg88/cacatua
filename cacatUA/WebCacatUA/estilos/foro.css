@@ -2,11 +2,24 @@
 {
     float: left;
     width: 15%;
+    padding: 2%;
+    border-bottom: 1px solid #999999;
+    border-right: 1px solid #aaaaaa;
+    border-left: 1px solid #bbbbbb;
+    border-top: 1px solid #cccccc;
+    background-color: #ffffff;
+}
+
+#nombreCategoriasForo
+{
+    padding-bottom: 20px;
+    font-weight: bold;
 }
 
 .categoriaForo
 {
-    display: block;   
+    display: block;
+    font-size: small; 
 }
 
 #migasForo
@@ -22,12 +35,20 @@
 #contenidoForo
 {
     float: right;
-    width: 85%;
+    width: 78%;
 }
 
 #mostrandoForo
 {
+    position: relative;
     margin-top: 20px;   
+}
+
+#crearHiloForo
+{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #hilosForo
@@ -39,6 +60,8 @@
     padding: 4px 4px 4px 4px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
 }
 
 .tablaHilosForo

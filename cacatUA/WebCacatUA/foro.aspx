@@ -15,7 +15,9 @@
 </div>
             
 <div id="navegacionForo">
-    <div id="nombreCategoriasForo">Categorías</div>
+    <div id="nombreCategoriasForo">
+        <asp:Label ID="Label_categorias" runat="server" Text="<%$ Resources: I18N, Categorias %>"></asp:Label>
+    </div>
     <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
 </div>
 
@@ -23,25 +25,28 @@
     <div id="busquedaForo">
 
         <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="40%"></asp:TextBox>
-        <asp:Button ID="Button_buscar" runat="server" Text="<%$ Resources: I18N, Buscar %>" Width="10%"/>
+        <asp:Button ID="Button_buscar" runat="server" 
+            Text="<%$ Resources: I18N, Buscar %>" Width="10%" 
+            onclick="Button_buscar_Click"/>
 
-        <asp:Label ID="Label_ordenarPor" runat="server" Text="Ordenar por:"></asp:Label>
-        <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%">
-            <asp:ListItem Value="titulo">título</asp:ListItem>
-            <asp:ListItem Value="fechacreacion">fecha de creación</asp:ListItem>
-            <asp:ListItem Selected="True" Value="fecharespuesta">fecha de última respuesta</asp:ListItem>
-            <asp:ListItem Value="respuestas">número de respuestas</asp:ListItem>
-            <asp:ListItem Value="visitas">número de visitas</asp:ListItem>
+        <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
+        <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%" 
+            AutoPostBack="True" 
+            onselectedindexchanged="DropDownList_ordenar_SelectedIndexChanged">
         </asp:DropDownList>
-        <asp:DropDownList ID="DropDownList_orden" runat="server" Width="12%">
-            <asp:ListItem Value="ascendente">ascendente</asp:ListItem>
-            <asp:ListItem Value="descendente">descendente</asp:ListItem>
+        <asp:DropDownList ID="DropDownList_orden" runat="server" Width="12%" 
+            AutoPostBack="True" 
+            onselectedindexchanged="DropDownList_orden_SelectedIndexChanged">
         </asp:DropDownList>
 
     </div>
     
     <div id="mostrandoForo">
         <asp:Label ID="Label_mostrandoForo" runat="server" Text=""></asp:Label>
+        <div id="crearHiloForo">
+            <asp:Button ID="Button_crearHiloForo" runat="server" Text="<%$ Resources: I18N, CrearNuevoHilo %>" />
+        </div>
+        
     </div>
     
     <div id="hilosForo">
@@ -52,7 +57,9 @@
     <div id="paginacionForo">
         <div id="cantidadPaginaForo">
             <asp:Label ID="Label_cantidadPagina" runat="server" Text="Cantidad por página: "></asp:Label>
-            <asp:DropDownList ID="DropDownList_cantidadPagina" runat="server" Width="40px">
+            <asp:DropDownList ID="DropDownList_cantidadPagina" runat="server" Width="50px" 
+                AutoPostBack="True" 
+                onselectedindexchanged="DropDownList_cantidadPagina_SelectedIndexChanged">
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
                 <asp:ListItem>3</asp:ListItem>
@@ -71,12 +78,12 @@
             </asp:DropDownList>
         </div>
         <div id="paginasForo">
-            <asp:Button ID="Button_paginaAnterior" runat="server" Text="Anterior" 
+            <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
                 onclick="Button_paginaAnterior_Click" />
             <asp:DropDownList ID="DropDownList_pagina" runat="server" Width="40px" 
                 onselectedindexchanged="DropDownList_pagina_SelectedIndexChanged" 
                 AutoPostBack="True"></asp:DropDownList>
-            <asp:Button ID="Button_paginaSiguiente" runat="server" Text="Siguiente" 
+            <asp:Button ID="Button_paginaSiguiente" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
                 onclick="Button_paginaSiguiente_Click" />
         </div>
     </div>
