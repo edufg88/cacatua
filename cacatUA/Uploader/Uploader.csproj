@@ -53,6 +53,7 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CuteWebUI.AjaxUploader.dll" />
     <Content Include="FileUploader.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CuteWebUI.AjaxUploader, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc00d4b0e43ec38d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Uploader\CuteWebUI.AjaxUploader.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -71,12 +75,40 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="comentarioMaterial.ascx.cs">
+      <DependentUpon>comentarioMaterial.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="comentarioMaterial.ascx.designer.cs">
+      <DependentUpon>comentarioMaterial.ascx</DependentUpon>
+    </Compile>
     <Compile Include="crearhilo.aspx.cs">
       <DependentUpon>crearhilo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="crearhilo.aspx.designer.cs">
       <DependentUpon>crearhilo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="materialBusqueda.ascx.cs">
+      <DependentUpon>materialBusqueda.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="materialBusqueda.ascx.designer.cs">
+      <DependentUpon>materialBusqueda.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="mostrarMaterial.aspx.cs">
+      <DependentUpon>mostrarMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mostrarMaterial.aspx.designer.cs">
+      <DependentUpon>mostrarMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nuevoMaterial.ascx.cs">
+      <DependentUpon>nuevoMaterial.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nuevoMaterial.ascx.designer.cs">
+      <DependentUpon>nuevoMaterial.ascx</DependentUpon>
     </Compile>
     <Compile Include="registroUsuario.aspx.cs">
       <DependentUpon>registroUsuario.aspx</DependentUpon>
@@ -232,9 +264,19 @@
       <Project>{CD721870-5DEA-4363-8DA3-0CA84C416EF1}</Project>
       <Name>Libreria</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpZipLib\ICSharpCode.SharpZLib.csproj">
+      <Project>{0E7413FF-EB9E-4714-ACF2-BE3A6A7B2FFD}</Project>
+      <Name>ICSharpCode.SharpZLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="comentarioMaterial.ascx" />
     <Content Include="crearhilo.aspx" />
+    <Content Include="imagenes\descargar.png" />
+    <Content Include="imagenes\sinImagen.png" />
+    <Content Include="materialBusqueda.ascx" />
+    <Content Include="mostrarMaterial.aspx" />
+    <Content Include="nuevoMaterial.ascx" />
     <Content Include="registroUsuario.aspx" />
     <Content Include="galeria.aspx" />
     <Content Include="enviarmensaje.aspx" />
