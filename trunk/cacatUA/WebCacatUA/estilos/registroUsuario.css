@@ -24,3 +24,9 @@
 	padding-left: 10px;
 	padding-bottom: 5px;
 }
+
+.infoError
+{
+	font-size: small;
+	color: red;
+}

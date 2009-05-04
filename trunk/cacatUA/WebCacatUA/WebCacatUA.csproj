@@ -78,6 +78,13 @@
     <Compile Include="crearhilo.aspx.designer.cs">
       <DependentUpon>crearhilo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="registroUsuario.aspx.cs">
+      <DependentUpon>registroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="registroUsuario.aspx.designer.cs">
+      <DependentUpon>registroUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="galeria.aspx.cs">
       <DependentUpon>galeria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -228,6 +235,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="crearhilo.aspx" />
+    <Content Include="registroUsuario.aspx" />
     <Content Include="galeria.aspx" />
     <Content Include="enviarmensaje.aspx" />
     <Content Include="estilos\crearhilo.css" />
