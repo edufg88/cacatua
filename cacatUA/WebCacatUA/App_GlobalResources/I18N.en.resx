@@ -252,6 +252,9 @@
   <data name="CrearNuevoHilo" xml:space="preserve">
     <value>New post</value>
   </data>
+  <data name="Enviar" xml:space="preserve">
+    <value>Send</value>
+  </data>
   <data name="autormensaje" xml:space="preserve">
     <value>From</value>
   </data>

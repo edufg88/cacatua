@@ -637,13 +637,14 @@ namespace Libreria
                     conexion = new SqlConnection(cadenaConexion);
                     conexion.Open();
 
-                    string sentencia = "update hilos set titulo = @titulo, texto = @texto, autor = @autor, categoria = @categoria where id = @id";
+                    string sentencia = "update hilos set titulo = @titulo, texto = @texto, autor = @autor, categoria = @categoria, visitas = @visitas where id = @id";
 
                     SqlCommand comando = new SqlCommand(sentencia, conexion);
                     comando.Parameters.AddWithValue("@titulo", hilo.Titulo);
                     comando.Parameters.AddWithValue("@texto", hilo.Texto);
                     comando.Parameters.AddWithValue("@autor", hilo.Autor.Id);
                     comando.Parameters.AddWithValue("@categoria", hilo.Categoria.Id);
+                    comando.Parameters.AddWithValue("@visitas", hilo.NumVisitas);
                     comando.Parameters.AddWithValue("@id", hilo.Id);
 
                     if (comando.ExecuteNonQuery() == 1)

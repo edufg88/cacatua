@@ -252,6 +252,9 @@
   <data name="CrearNuevoHilo" xml:space="preserve">
     <value>Crear nuevo hilo</value>
   </data>
+  <data name="Enviar" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
   <data name="autormensaje" xml:space="preserve">
     <value>De</value>
   </data>
