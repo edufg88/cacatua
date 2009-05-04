@@ -217,6 +217,16 @@ namespace Libreria
             return MensajeCAD.Instancia.BuscarMensaje(emisor, receptor, fecha);
         }
 
+        public static int Cantidad(string usuario)
+        {
+            return MensajeCAD.Instancia.Cantidad(usuario).Count;
+        }
+
+        public static ArrayList ObtenerMensajes(string usuario, bool orden, string ordenar, int pagina, int cantidad)
+        {
+            return MensajeCAD.Instancia.ObtenerMensajes(usuario, orden,ordenar,pagina,cantidad);
+        }
+
         public int Id
         {
             get { return id; }

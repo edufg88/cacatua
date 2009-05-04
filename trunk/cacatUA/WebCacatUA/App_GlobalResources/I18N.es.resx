@@ -120,6 +120,9 @@
   <data name="Autor" xml:space="preserve">
     <value>Autor</value>
   </data>
+  <data name="autormensaje" xml:space="preserve">
+    <value>De</value>
+  </data>
   <data name="Categoria" xml:space="preserve">
     <value>Categoría</value>
   </data>
@@ -128,6 +131,9 @@
   </data>
   <data name="Entrar" xml:space="preserve">
     <value>Entrar</value>
+  </data>
+  <data name="Fecha" xml:space="preserve">
+    <value>Fecha</value>
   </data>
   <data name="Foro" xml:space="preserve">
     <value>Foro</value>
@@ -182,5 +188,8 @@
   </data>
   <data name="Usuarios" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="Mensaje" xml:space="preserve">
+    <value>Mensaje</value>
   </data>
 </root>

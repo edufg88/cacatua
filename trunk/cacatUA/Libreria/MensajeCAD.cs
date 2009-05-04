@@ -120,6 +120,91 @@ namespace Libreria
             return mensaje;
         }
 
+        public ArrayList Cantidad(string nombre)
+        {
+            ArrayList mensajes = new ArrayList();
+
+            // Obtenemos el usuario por nombre para obtener su id
+            ENUsuario usuario = ENUsuario.Obtener(nombre);
+
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT * FROM mensajes where receptor = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                while (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENMensaje
+                    ENMensaje mensaje = null;
+                    mensaje = ObtenerDatos(dr);
+                    mensajes.Add(mensaje);
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener mensaje por nombre de usuario");
+            }
+
+            return mensajes;
+        }
+
+        public ArrayList ObtenerMensajes(string nombre, bool orden, string ordenar, int pagina, int cantidad)
+        {
+            bool existe = false;
+            ArrayList mensajes = new ArrayList();
+            // Obtenemos el usuario por nombre para obtener su id
+            ENUsuario usuario = ENUsuario.Obtener(nombre);
+
+            int filaInicio = (pagina - 1) * cantidad + 1;
+            int filaFinal = filaInicio - 1 + cantidad;
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT id,emisor,texto,fecha,receptor FROM (SELECT id,emisor,texto,fecha,receptor, ROW_NUMBER() OVER (ORDER BY " + ordenar;
+                if (orden == true)
+                    comando.CommandText += " ASC";
+                else
+                    comando.CommandText += " DESC";
+                comando.CommandText += ") as row FROM mensajes where receptor = @usuario) as alias WHERE row >= @filaInicio and row <= @filaFinal";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                while (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENMensaje
+                    ENMensaje mensaje = null;
+                    mensaje = ObtenerDatos(dr);
+                    mensajes.Add(mensaje);
+                    existe = true;
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener mensaje por nombre de usuario");
+            }
+            if (existe)
+                return mensajes;
+            else
+                return null;
+        }
+
         // Devuelve la lista de mensajes
         public ArrayList ObtenerMensajes()
         {

@@ -150,7 +150,7 @@ namespace Libreria
                 {
                     // Extraemos la información del DataReader y la almacenamos
                     // en un objeto ENFirma
-                    ENFirma firma;
+                    ENFirma firma=null;
                     firma = ObtenerDatos(dr);
                     firmas.Add(firma);
                 }
