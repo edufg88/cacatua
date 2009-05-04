@@ -252,6 +252,11 @@ namespace Libreria
             return MaterialCAD.Instancia.ObtenerComentarios(this);
         }
 
+        public ArrayList ObtenerComentarios(int pagina, int cantidadPorPagina)
+        {
+            return MaterialCAD.Instancia.ObtenerComentarios(this, pagina, cantidadPorPagina);
+        }
+
         /// <summary>
         /// Obtenemos el comentario que tenga esa id.
         /// </summary>

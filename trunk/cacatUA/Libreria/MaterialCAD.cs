@@ -529,6 +529,58 @@ namespace Libreria
             return comentarios;
         }
 
+
+        public ArrayList ObtenerComentarios(ENMaterial material, int pagina, int cantidadPorPagina)
+        {
+            ArrayList comentarios = new ArrayList();
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                // Cálculamos las filas de inicio y fin a partir de la página
+                int filaInicio = (pagina - 1) * cantidadPorPagina + 1;
+                int filaFinal = filaInicio - 1 + cantidadPorPagina;
+
+
+                string cadenaComando = "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY id DESC)"
+                    + " as row FROM materialescomentarios WHERE material = @material"
+                    + ") as alias WHERE row >= @filaInicio and row <= @filaFinal";
+
+                //string cadenaComando = "SELECT * FROM materialescomentarios WHERE material = @material";
+                comando.CommandText = cadenaComando;
+                comando.Parameters.AddWithValue("@material", material.Id);
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ComentarioMaterial comentario = ObtenerDatosComentario(reader);
+                    comentarios.Add(comentario);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::ObtenerComentarios> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return comentarios;
+        }
+
         /// <summary>
         /// Obtenemos el comentario a partir de la id.
         /// </summary>
