@@ -252,4 +252,13 @@
   <data name="CrearNuevoHilo" xml:space="preserve">
     <value>New post</value>
   </data>
+  <data name="autormensaje" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Fecha" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Mensaje" xml:space="preserve">
+    <value>Message</value>
+  </data>
 </root>
