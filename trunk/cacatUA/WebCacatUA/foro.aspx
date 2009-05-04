@@ -44,7 +44,9 @@
     <div id="mostrandoForo">
         <asp:Label ID="Label_mostrandoForo" runat="server" Text=""></asp:Label>
         <div id="crearHiloForo">
-            <asp:Button ID="Button_crearHiloForo" runat="server" Text="<%$ Resources: I18N, CrearNuevoHilo %>" />
+            <asp:Button ID="Button_crearHiloForo" runat="server" 
+                Text="<%$ Resources: I18N, CrearNuevoHilo %>" 
+                onclick="Button_crearHiloForo_Click" />
         </div>
         
     </div>

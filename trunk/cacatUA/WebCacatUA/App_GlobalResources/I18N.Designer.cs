@@ -178,6 +178,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Enviar.
+        /// </summary>
+        internal static string Enviar {
+            get {
+                return ResourceManager.GetString("Enviar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Estás aquí.
         /// </summary>
         internal static string EstasAqui {

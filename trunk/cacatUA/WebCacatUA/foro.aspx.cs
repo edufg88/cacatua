@@ -206,16 +206,6 @@ public partial class foro : WebCacatUA.InterfazWeb
     /// </summary>
     private void mostrarHilos()
     {
-        if (categoria != null)
-        {
-            Button_crearHiloForo.Enabled = true;
-            Button_crearHiloForo.PostBackUrl = "crearhilo.aspx?categoria=" + categoria.Id;
-        }
-        else
-        {
-            Button_crearHiloForo.Enabled = false;
-        }
-
         if (totalResultados > 0)
             Label_mostrandoForo.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " hilos encontrados.";
         else
@@ -518,5 +508,13 @@ public partial class foro : WebCacatUA.InterfazWeb
         pagina = 1;
         ordenar = DropDownList_ordenar.SelectedValue;
         Response.Redirect(calcularRuta());
+    }
+
+    protected void Button_crearHiloForo_Click(object sender, EventArgs e)
+    {
+        if (categoria != null)
+            Response.Redirect("crearhilo.aspx?categoria=" + categoria.Id);
+        else
+            Response.Redirect("crearhilo.aspx");
     }
 }
