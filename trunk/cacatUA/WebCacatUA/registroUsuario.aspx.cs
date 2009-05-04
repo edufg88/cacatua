@@ -16,11 +16,18 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        /*
+        foreach(ENUsuario us in ENUsuario.Obtener(1,20))
+        {
+            Response.Write(us.Usuario);
+            Response.Write("\n ");
+        }
+        */
     }
 
     protected void LimpiarErrores()
     {
+        Label_infoGeneral.Text = "";
         Label_infoUsuario.Text = "";
         Label_infoContrasena.Text = "";
         Label_infoConfContrasena.Text = "";
@@ -29,6 +36,18 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
         Label_infoDni.Text = "";
         Label_infoAdicional.Text = "";
     }
+
+    protected void LimpiarCampos()
+    {
+        TextBox_usuario.Text = "";
+        TextBox_contrasena.Text = "";
+        TextBox_confirmarContrasena.Text = "";
+        TextBox_nombre.Text = "";
+        TextBox_correo.Text = "";
+        TextBox_dni.Text = "";
+        TextBox_adicional.Text = "";
+    }
+
     protected bool ValidarCampos()
     {
         bool valido = true;
@@ -83,7 +102,13 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
                 us.Correo = TextBox_correo.Text;
                 us.Adicional = TextBox_adicional.Text;
 
-                us.Guardar();
+                if (us.Guardar())
+                {
+                    LimpiarErrores();
+                    LimpiarCampos();
+                    Label_infoGeneral.Text = "Usuario registrado correctamente";
+                    Label_infoGeneral.ForeColor = System.Drawing.Color.DarkGreen;
+                }
             }
             else // El usuario ya existe
             {
@@ -94,13 +119,8 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 
     protected void Button_limpiar_Click(object sender, EventArgs e)
     {
-        TextBox_usuario.Text = "";
-        TextBox_contrasena.Text = "";
-        TextBox_confirmarContrasena.Text = "";
-        TextBox_nombre.Text = "";
-        TextBox_correo.Text = "";
-        TextBox_dni.Text = "";
-        TextBox_adicional.Text = "";
+        LimpiarErrores();
+        LimpiarCampos();
     }
 }
 

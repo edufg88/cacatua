@@ -261,7 +261,7 @@ namespace Libreria
                 case "correo":
                     if (dato == "")
                     {
-                        error = campoEnBlanco1 + "correo" + campoEnBlanco2;
+                        error = campoEnBlanco1 + "'correo'" + campoEnBlanco2;
                     }
                     else
                     {
