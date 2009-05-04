@@ -210,4 +210,46 @@
   <data name="Visitas" xml:space="preserve">
     <value>Visitas</value>
   </data>
+  <data name="Categorias" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="NoHayCategorias" xml:space="preserve">
+    <value>No hay subcategorías en esta categoría</value>
+  </data>
+  <data name="Anterior" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="ascendente" xml:space="preserve">
+    <value>ascendente</value>
+  </data>
+  <data name="CantidadPorPagina" xml:space="preserve">
+    <value>Cantidad por página</value>
+  </data>
+  <data name="descendente" xml:space="preserve">
+    <value>descendente</value>
+  </data>
+  <data name="fechacreacion" xml:space="preserve">
+    <value>fecha de creación</value>
+  </data>
+  <data name="fecharespuesta" xml:space="preserve">
+    <value>fecha de última respuesta</value>
+  </data>
+  <data name="OrdenarPor" xml:space="preserve">
+    <value>Ordenar por</value>
+  </data>
+  <data name="respuestasminusculas" xml:space="preserve">
+    <value>número de respuestas</value>
+  </data>
+  <data name="Siguiente" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="titulominusculas" xml:space="preserve">
+    <value>título</value>
+  </data>
+  <data name="visitasminusculas" xml:space="preserve">
+    <value>número de visitas</value>
+  </data>
+  <data name="CrearNuevoHilo" xml:space="preserve">
+    <value>Crear nuevo hilo</value>
+  </data>
 </root>
