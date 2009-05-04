@@ -71,6 +71,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="galeria.aspx.cs">
+      <DependentUpon>galeria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galeria.aspx.designer.cs">
+      <DependentUpon>galeria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="registroUsuario.aspx.cs">
       <DependentUpon>registroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,9 +227,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="galeria.aspx" />
     <Content Include="enviarmensaje.aspx" />
     <Content Include="estilos\foro.css" />
     <Content Include="estilos\registroUsuario.css" />
+    <Content Include="estilos\galeria.css" />
     <Content Include="registroUsuario.aspx" />
     <Content Include="grupo.aspx" />
     <Content Include="firmas.aspx" />
