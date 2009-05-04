@@ -53,14 +53,16 @@
         <div id="encabezado">
             <div id="acceso">
                 <asp:Label ID="Label_iniciarSesion" runat="server" Text="<%$ Resources: I18N, IniciarSesion %>"></asp:Label>
+                <asp:Label ID="Label_infoLogin" runat="server" ForeColor="Red"></asp:Label>
                 
                 <!-- Validadores de login -->
+                <!--
                 <asp:CustomValidator 
                     ID="CustomValidator_usuario" 
                     runat="server"
                     ClientValidationFunction="ValidarUsuarioC"
                     ServerValidationFunction="ValidarUsuarioS"
-                    ControlToValidate="TextBox2"
+                    ControlToValidate="TextBox_usuario"
                     Display="Dynamic"
                     ErrorMessage="ErrorUsuario">
                 </asp:CustomValidator>
@@ -69,16 +71,22 @@
                     runat="server"
                     ClientValidationFunction="ValidarContrasenaC"
                     ServerValidationFunction="ValidarContrasenaS"
-                    ControlToValidate="TextBox1"
+                    ControlToValidate="TextBox_contrasena"
                     Display="Dynamic"
                     ErrorMessage="ErrorContrasena">
                 </asp:CustomValidator>
-                               
-                <asp:TextBox ID="TextBox2" runat="server" Width="100px"></asp:TextBox>
-                <asp:TextBox ID="TextBox1" runat="server" Width="100px" TextMode="Password"></asp:TextBox>
-                <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, Entrar %>" CausesValidation="true" />
-                <asp:Button ID="Button2" runat="server" 
-                    Text="<%$ Resources: I18N, Registrarse %>" onclick="Button2_Click" />
+                -->               
+                <asp:TextBox ID="TextBox_usuario" runat="server" Width="100px"></asp:TextBox>
+                <asp:TextBox ID="TextBox_contrasena" runat="server" Width="100px" 
+                    TextMode="Password"></asp:TextBox>
+                <asp:Button ID="Button_entrar" runat="server" 
+                    Text="<%$ Resources: I18N, Entrar %>" CausesValidation="true" 
+                    onclick="Button_entrar_Click" />
+                <asp:Button ID="Button_registrarse" runat="server" 
+                    Text="<%$ Resources: I18N, Registrarse %>" 
+                    onclick="Button_registrarse_Click" />
+                <asp:Button ID="Button_logout" runat="server" onclick="Button_logout_Click" 
+                    Text="Logout" Visible="False" />
             </div>
             
             <div id="internacionalizacion">

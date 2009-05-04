@@ -49,6 +49,15 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.Label Label_iniciarSesion;
     
     /// <summary>
+    /// Control Label_infoLogin.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_infoLogin;
+    
+    /// <summary>
     /// Control CustomValidator_usuario.
     /// </summary>
     /// <remarks>
@@ -67,40 +76,49 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.CustomValidator CustomValidator_contrasena;
     
     /// <summary>
-    /// Control TextBox2.
+    /// Control TextBox_usuario.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox2;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_usuario;
     
     /// <summary>
-    /// Control TextBox1.
+    /// Control TextBox_contrasena.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox1;
+    protected global::System.Web.UI.WebControls.TextBox TextBox_contrasena;
     
     /// <summary>
-    /// Control Button1.
+    /// Control Button_entrar.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button1;
+    protected global::System.Web.UI.WebControls.Button Button_entrar;
     
     /// <summary>
-    /// Control Button2.
+    /// Control Button_registrarse.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button2;
+    protected global::System.Web.UI.WebControls.Button Button_registrarse;
+    
+    /// <summary>
+    /// Control Button_logout.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_logout;
     
     /// <summary>
     /// Control ImageButton_Español.

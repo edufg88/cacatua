@@ -521,6 +521,28 @@ namespace Libreria
             return ImagenCAD.Instancia.CantidadImagenes(this.id);
         }
 
+        /// <summary>
+        /// Comprueba si existe un determinado usuario con una determinada contraseña
+        /// </summary>
+        /// <param name="usuario">Usuario</param>
+        /// <param name="contrasena">Contraseña</param>
+        /// <returns>Devuelve true si existe el par (usuario, contraseña), false en caso contrario</returns>
+        public static bool ComprobarUsuario(string usuario, string contrasena)
+        {
+            bool existe = false;
+            ENUsuario us = ENUsuario.Obtener(usuario);
+            
+            if (us != null)
+            {
+                if (contrasena == us.Contrasena)
+                {
+                    existe = true;
+                }
+            }
+
+            return existe;
+        }
+
         public int Id
         {
             get { return id; }
