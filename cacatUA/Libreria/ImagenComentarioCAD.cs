@@ -66,5 +66,56 @@ namespace Libreria
 
             return comentarios;
         }
+
+        public bool Guardar(ENImagenComentario comentario)
+        {
+            bool insertado = false;
+            int id = 0;
+
+            if (comentario.Imagen != null && comentario.Usuario != null)
+            {
+                SqlConnection conexion = null;
+                try
+                {
+                    conexion = new SqlConnection(cadenaConexion);
+                    conexion.Open();
+
+                    string cadena0 = "BEGIN TRAN";
+                    string cadena1 = "insert into imagenescomentarios (texto, fecha, usuario, imagen) values (@texto, @fecha, @usuario, @imagen);";
+                    string cadena2 = "select max(id) as id from imagenescomentarios;";
+                    string cadena3 = "COMMIT TRAN";
+
+                    string sentencia = cadena0 + " " + cadena1 + " " + cadena2 + " " + cadena3;
+
+                    SqlCommand comando = new SqlCommand(sentencia, conexion);
+                    comando.Parameters.AddWithValue("@texto", comentario.Texto);
+                    comando.Parameters.AddWithValue("@fecha", comentario.Fecha);
+                    comando.Parameters.AddWithValue("@usuario", comentario.Usuario.Id);
+                    comando.Parameters.AddWithValue("@imagen", comentario.Imagen.Id);
+
+                    SqlDataReader dataReader = comando.ExecuteReader();
+
+                    if (dataReader.Read())
+                    {
+                        insertado = true;
+                        id = int.Parse(dataReader["id"].ToString());
+                    }
+
+                    dataReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: void ImagenComentarioCAD.Guardar(ENImagenComentario) " + ex.Message);
+                }
+                finally
+                {
+                    if (conexion != null)
+                        conexion.Close();
+                }
+            }
+
+            return insertado;
+        
+        }
     }
 }

@@ -16,7 +16,7 @@
         <br />
         <br />
         <asp:Panel ID="panelImagen" runat="server">
-            <asp:Image ID="imagenPrincipal" runat="server" Width="600px" ImageUrl=""/>
+            <asp:Image ID="imagenPrincipal" runat="server" Width="90%" ImageUrl=""/>
         </asp:Panel>
         <br />
         <br />
@@ -27,6 +27,11 @@
         <br />
         <asp:Table ID="tablaComentarios" runat="server" Width="90%">
         </asp:Table>
+        <br />
+        <br />
+        <h3>Añadir comentario</h3>
+        <asp:TextBox ID="TextBoxComentario" runat="server" Rows="5" TextMode="MultiLine" Width="90%"></asp:TextBox>
+        <p style="width: 90%; text-align: center;"><asp:Button ID="botonComentar" runat="server" Text="Comentar" OnClick="guardarComentario" /></p>
    
    </div>
 </asp:Content>
