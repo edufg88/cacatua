@@ -26,7 +26,7 @@ namespace WebCacatUA
                 labelTitulo.Text = i.Titulo;
                 labelFecha.Text = "Imagen tomada el: " + i.Fecha;
                 labelUsuario.Text = "Imagen de: " + i.Usuario.Nombre;
-                imagenPrincipal.ImageUrl = "/imagenes/" + i.Id +".jpg";
+                imagenPrincipal.ImageUrl = "/galeria/" + i.Id +".jpg";
                 labelDescripcion.Text = i.Descripcion;
 
                 ArrayList comentarios = new ArrayList();

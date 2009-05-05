@@ -28,7 +28,7 @@
         
            
             var elemento = document.getElementById("imagenPrincipal")
-            elemento.setAttribute("src","/imagenes/" + archivo + ".jpg");
+            elemento.setAttribute("src","/galeria/" + archivo + ".jpg");
             var link = document.getElementById("verImagen");
             link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + archivo);           
         }

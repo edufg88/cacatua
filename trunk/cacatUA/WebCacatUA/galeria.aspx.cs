@@ -36,7 +36,7 @@ namespace WebCacatUA
                     imagen = i;
                 }                        
                 c = new TableCell();
-                c.Controls.Add(new LiteralControl("<img onclick=\"funcion(" + i.Id + ")\" height=\"38px\" src=\"/imagenes/"+ i.Id +".jpg\" alt=\"" + i.Titulo + "\" />"));
+                c.Controls.Add(new LiteralControl("<img onclick=\"funcion(" + i.Id + ")\" height=\"38px\" src=\"/galeria/"+ i.Id +".jpg\" alt=\"" + i.Titulo + "\" />"));
                 r.Controls.Add(c);
 
                 if(cont%10==0)
