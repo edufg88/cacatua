@@ -7,8 +7,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
 
+    <p style="text-align:right;width:90%;" ><a href="" id="verImagen" >Ver Imagen</a></p>
+
     <asp:Panel ID="Panel1" runat="server">
-        <img id="imagenPrincipal" width="600px" src="/imagenes/1.jpg" alt=""/>
+        <img id="imagenPrincipal" width="600px" src="" alt=""/>
     </asp:Panel>
     
     <asp:Table ID="Table1" runat="server">
@@ -19,12 +21,20 @@
     
     <script type="text/javascript" language="javascript">
 
-        function funcion(foto){
         
+        
+
+        function funcion(archivo){
+        
+           
             var elemento = document.getElementById("imagenPrincipal")
-            elemento.setAttribute("src","/imagenes/" + foto + ".jpg");
-            
+            elemento.setAttribute("src","/imagenes/" + archivo + ".jpg");
+            var link = document.getElementById("verImagen");
+            link.setAttribute("href","/detalleFoto.aspx?imagen=" + archivo);           
         }
         
+        funcion(id);
+                
    </script>
+      
 </asp:Content>
