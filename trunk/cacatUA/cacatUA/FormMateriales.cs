@@ -15,8 +15,8 @@ namespace cacatUA
 {
     public partial class FormMateriales : InterfazForm
     {
-        private string servidor = cacatUA.Properties.Settings.Default.cacatUA_Uploader_FileUploader;
-        
+        //private string servidor = cacatUA.Properties.Settings.Default.cacatUA_Uploader_FileUploader;
+        private string servidor = "http://localhost:2592";
         public FormMaterialesEdicion formEditarMateriales = null;
         public FormMaterialesBusqueda formMaterialesBusqueda = null;
         private int cantidadPorPagina;
@@ -149,7 +149,7 @@ namespace cacatUA
             // Por defecto se muestra el formulario de búsqueda 
             // NOTA: Es importante de que esto se ponga al final del constructor
             estadoAnterior = estados.INICIAL;
-            servidor = servidor.Remove(servidor.LastIndexOf(@"/"));
+            //servidor = servidor.Remove(servidor.LastIndexOf(@"/"));
             //Console.WriteLine(servidor);
         }
 
@@ -275,7 +275,8 @@ namespace cacatUA
 
         private void borrarMaterial(object sender, EventArgs e)
         {
-            Uploader.FileUploader fileUploader = new Uploader.FileUploader();
+
+            WebCacatUA.servicioUploader.Uploader fileUploader = new WebCacatUA.servicioUploader.Uploader();
             // Comprobamos que haya algún material seleccionado
             DataGridViewSelectedRowCollection filas = dataGridView_materiales.SelectedRows;
             if (filas.Count == 0)
@@ -439,7 +440,7 @@ namespace cacatUA
                         {
                             WebClient cliente = new WebClient();
                             descargas.Add(material.Id, cliente);
-                            Uri uri = new Uri(servidor + "/materiales/" + material.Archivo);
+                            Uri uri = new Uri("http://localhost:2592" + "/materiales/" + material.Archivo);
                             cliente.DownloadFileCompleted += new AsyncCompletedEventHandler(archivoDescargado);
                             cliente.DownloadProgressChanged += new DownloadProgressChangedEventHandler(cambioPorcentaje);
                             cliente.DownloadFileAsync(uri, saveFileDialog.FileName);

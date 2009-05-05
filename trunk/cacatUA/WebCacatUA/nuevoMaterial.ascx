@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="nuevoMaterial.ascx.cs" Inherits="WebCacatUA.nuevoMaterial1" %>
-<%@ Register assembly="CuteWebUI.AjaxUploader" namespace="CuteWebUI" tagprefix="cc1" %>
 
 <style type="text/css">
     
@@ -103,11 +102,7 @@ hr {
     
     <div id="archivo_materiales">
         <asp:Label ID="Label3" runat="server" Text="Archivo:"></asp:Label>
-        <asp:TextBox ID="TextBox_archivo" class="boton_nuevoMaterial" runat="server"></asp:TextBox>  
-        <cc1:Uploader ID="Uploader1" runat="server" InsertText="Seleccionar" 
-            onfileuploaded="Uploader1_FileUploaded" MaxFilesLimit="1" 
-            NumFilesShowCancelAll="0">
-        </cc1:Uploader>  
+        <asp:FileUpload ID="FileUpload1" runat="server" Width="215px" />
     </div>
     
     <div id="botonCrearMaterial_materiales">

@@ -48,7 +48,9 @@ namespace cacatUA
             try
             {
                 // Creamos una instancia del servicio web que nos permite subir el archivo
-                Uploader.FileUploader fileUploader = new Uploader.FileUploader();
+                WebCacatUA.servicioUploader.Uploader fileUploader = new WebCacatUA.servicioUploader.Uploader();
+
+                
 
                 // Obtenemos la ruta del archivo
                 string rutaArchivo = material.Archivo;

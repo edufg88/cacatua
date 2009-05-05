@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CuteWebUI.AjaxUploader, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc00d4b0e43ec38d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Uploader\CuteWebUI.AjaxUploader.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -117,6 +113,11 @@
     <Compile Include="nuevoMaterial.ascx.designer.cs">
       <DependentUpon>nuevoMaterial.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="registroUsuario.aspx.cs">
       <DependentUpon>registroUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +192,10 @@
       <DependentUpon>PaginaMaestraUsuario.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uploader.asmx.cs">
+      <DependentUpon>Uploader.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="usuario.aspx.cs">
       <DependentUpon>usuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -211,6 +216,11 @@
     </Compile>
     <Compile Include="firmas.aspx.designer.cs">
       <DependentUpon>firmas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\servicioUploader\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -263,10 +273,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\cacatUA\cacatUA.csproj">
-      <Project>{3018E7D2-3E10-4183-9931-67C1E9D73602}</Project>
-      <Name>cacatUA</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Libreria\Libreria.csproj">
       <Project>{CD721870-5DEA-4363-8DA3-0CA84C416EF1}</Project>
       <Name>Libreria</Name>
@@ -309,6 +315,33 @@
     <Content Include="grupo.aspx" />
     <Content Include="firmas.aspx" />
     <Content Include="mensajes.aspx" />
+    <Content Include="Uploader.asmx" />
+    <None Include="Web References\servicioUploader\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\servicioUploader\Uploader.disco" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\servicioUploader\Uploader.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:2592/Uploader.asmx%3fop=subirArchivo">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\servicioUploader\</RelPath>
+      <UpdateFromURL>http://localhost:2592/Uploader.asmx%3fop=subirArchivo</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebCacatUA_servicioUploader_Uploader</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />

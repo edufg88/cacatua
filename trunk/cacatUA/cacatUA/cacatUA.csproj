@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -361,11 +361,6 @@
     <Compile Include="FormMateriales.Designer.cs">
       <DependentUpon>FormMateriales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Web References\Uploader\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="datos\cacatuap.jpg" />
@@ -410,19 +405,17 @@
     <Content Include="datos\salir.png" />
     <Content Include="datos\seleccionar.png" />
     <Content Include="datos\tool.png" />
-    <None Include="Web References\Uploader\FileUploader.disco" />
     <None Include="datos\volver.png" />
     <None Include="datos\flecha.png" />
-    <None Include="Web References\Uploader\FileUploader.wsdl" />
-    <None Include="Web References\Uploader\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Libreria\Libreria.csproj">
       <Project>{CD721870-5DEA-4363-8DA3-0CA84C416EF1}</Project>
       <Name>Libreria</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebCacatUA\WebCacatUA.csproj">
+      <Project>{9D13C5CC-7B0C-45D1-A248-37EDDB545667}</Project>
+      <Name>WebCacatUA</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -467,19 +460,6 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:2086/FileUploader.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\Uploader\</RelPath>
-      <UpdateFromURL>http://localhost:2086/FileUploader.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>cacatUA_Uploader_FileUploader</CachedSettingsPropName>
-    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
