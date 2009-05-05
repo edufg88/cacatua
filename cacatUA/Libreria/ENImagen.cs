@@ -121,6 +121,11 @@ namespace Libreria
             return ImagenCAD.Instancia.ObtenerImagenes();
         }
 
+        public static ArrayList ObtenerPorUsuario(int id)
+        {
+            return ImagenCAD.Instancia.ObtenerPorUsuario(id);
+        }
+
         /*
         public bool Obtener(int id)
         {
