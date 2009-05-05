@@ -9,7 +9,7 @@
 
 #descripcion_material
 {
-	margin-top:5px;
+	margin-top:10px;
 }
 
 #categoria
@@ -43,6 +43,7 @@
 	margin-top:10px;
 	font-size:small;
 	font-weight:bold;
+	margin-bottom:5px;
 }
 
 #fecha_material
@@ -72,7 +73,7 @@
 #columna2
 {
 	float: right;
-	width: 200px;        
+	width: 130px;        
 	text-align:center;
 }
 
