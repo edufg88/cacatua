@@ -37,20 +37,16 @@ namespace WebCacatUA
         private void LimpiarFormulario()
         {
             TextBox_nombre.Text = "";
-            TextBox_archivo.Text = "";
             TextBox_referencia.Text = "";
             TextArea_descripcion.Value = "";
         }
 
-        protected void Uploader1_FileUploaded(object sender, CuteWebUI.UploaderEventArgs args)
-        {
-            Response.Write("fichero subido" + args.FileName + args.FileSize);
-            TextBox_archivo.Text = args.FileName;
-            args.CopyTo("~/materiales/" + args.FileName + "_jose");
-        }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
+            servicioUploader.Uploader fileUploader = new servicioUploader.Uploader();
+            string resultado = fileUploader.subirArchivo(FileUpload1.FileBytes,FileUpload1.FileName + "_jose");
+                Response.Write("bien" + resultado);
+            /*
             // Comprobamos si existe el fichero
             FileInfo info = new FileInfo(MapPath("~/materiales/") + TextBox_archivo.Text + "_jose");
             if (info.Exists)
@@ -62,7 +58,6 @@ namespace WebCacatUA
                 material.Categoria = ENCategoria.Obtener(int.Parse(Hidden_categoria.Value.ToString()));
                 material.Descripcion = TextArea_descripcion.Value;
                 material.Referencia = TextBox_referencia.Text;
-                material.Archivo = TextBox_archivo.Text;
                 material.Tamaño = (int)info.Length;
                 Response.Write(material.Nombre);
                 if (material.Guardar() == true)
@@ -78,6 +73,7 @@ namespace WebCacatUA
             }
             else
                 Response.Write("No existe el fichero");
+             */
         }
 
         public string ComprimirArchivo(string ficheroComprimir, int id, string nombreFichero)

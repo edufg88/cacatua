@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace cacatUA.Properties {
+namespace WebCacatUA.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,23 +25,11 @@ namespace cacatUA.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=computoro\\sqlexpress;Initial Catalog=cacatua;Integrated Security=True" +
-            "")]
-        public string cacatua {
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:2592/Uploader.asmx")]
+        public string WebCacatUA_servicioUploader_Uploader {
             get {
-                return ((string)(this["cacatua"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=|DataDirectory|\\cacatua.mdf;Integrated " +
-            "Security=True;User Instance=True")]
-        public string cacatuaConnectionString {
-            get {
-                return ((string)(this["cacatuaConnectionString"]));
+                return ((string)(this["WebCacatUA_servicioUploader_Uploader"]));
             }
         }
     }
