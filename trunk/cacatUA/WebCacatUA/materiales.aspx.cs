@@ -244,7 +244,6 @@ public partial class materiales : WebCacatUA.InterfazWeb
                 control_material.inicializar(material);
                 celda.Controls.Add(control_material);
                 fila.Cells.Add(celda);
-
                 // Cambiamos el color de la fila
                 if (tabla.Rows.Count % 2 == 0)
                     fila.BgColor = "#dcd9cd";
@@ -329,7 +328,12 @@ public partial class materiales : WebCacatUA.InterfazWeb
             link.NavigateUrl = "materiales.aspx?categoria=" + categoria.Id.ToString();
             link.CssClass = "linkCategoria";
             celda.Controls.Add(link);
-            fila.Cells.Add(celda);      
+            fila.Cells.Add(celda);
+            if (tabla.Rows.Count % 2 == 0)
+                fila.BgColor = "#dcd9cd";
+            else
+                fila.BgColor = Color.White.Name;
+
             tabla.Rows.Add(fila);
         }
         Panel_categorias.Controls.Add(tabla);

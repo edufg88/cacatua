@@ -133,17 +133,8 @@ hr {
 
 #textBox_buscar_materiales
 {
-	/* margin-left:6px;	*/
-}
-
-#tabla_buscar_materiales
-{
-	width:100%;
-}
-
-#tabla_buscar_materiales td
-{
-	width:33%;
+	padding-bottom:5px;
+	padding-top:5px;
 }
 
 #boton_buscar_materiales
@@ -167,11 +158,6 @@ hr {
 	
 	width:100%;
 }
-
-
-
-
-
 
 #ordenar_materiales
 {
@@ -218,13 +204,10 @@ hr {
 
 #tabla_paginacion_materiales
 {
+	color:White;
+	margin-top:10px;
 	text-align:left;
 	width:100%;
-}
-
-#cantidad_paginacion_materiales
-{
-	text-align:right;
 }
 
 #botones_paginacion_materiales
@@ -258,6 +241,29 @@ hr {
 	margin-top:5px;	
 }
 
+#tabla_paginacion_materiales
+{
+	padding:5px;
+    background-color:#1e6393;	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#ctl00_ContentPlaceHolder_contenido_tabla_materiales
+{
+    
+}
+
+/*
+-moz-border-radius-bottomleft:5px;
+-moz-border-radius-bottomright:5px;
+-moz-border-radius-topleft:5px;
+-moz-border-radius-topright:5px;
+background-color:#777777;
+border:1px solid #888888;
+margin-bottom:20px;
+margin-top:5px;
+padding:4px;*/
    
 </style>
 
@@ -282,17 +288,8 @@ hr {
     
         <div id="buscar">
             <div id="textBox_buscar_materiales">
-                <table id="tabla_buscar_materiales">
-                    <tr>
-                        <td></td>
-                        <td>
-                            <asp:TextBox ID="TextBox_buscar" runat="server" Width="100%"></asp:TextBox>                   
-                        </td>
-                        <td style="text-align:left;padding-left:10px;">
-                            <input id="Button1" type="button" value="Buscar" onclick="realizarBusqueda()"/>
-                        </td>
-                    </tr>
-                </table>
+                    <asp:TextBox ID="TextBox_buscar" runat="server" Width="80%"></asp:TextBox> 
+                    <input id="Button1" type="button" value="Buscar" onclick="realizarBusqueda()"/>
             </div>
 
             <div id="opcionesBusqueda">
@@ -341,47 +338,41 @@ hr {
                 <tr>  
                     <td>
                         <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Cantidad por página:"></asp:Label>
+                        <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
+                        AutoPostBack="True">
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem Selected="True">5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                            <asp:ListItem>30</asp:ListItem>
+                            <asp:ListItem>40</asp:ListItem>
+                            <asp:ListItem>50</asp:ListItem>
+                            <asp:ListItem>60</asp:ListItem>
+                            <asp:ListItem>70</asp:ListItem>
+                            <asp:ListItem>80</asp:ListItem>
+                            <asp:ListItem>90</asp:ListItem>
+                            <asp:ListItem>100</asp:ListItem>
+                        </asp:DropDownList>       
                     </td>
                     <td>
-                        <div id="cantidad_paginacion_materiales">
-                            <asp:Label ID="Label2" runat="server" Text="Cantidad por página:"></asp:Label>
-                            <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
-                                AutoPostBack="True">
-                                <asp:ListItem>1</asp:ListItem>
-                                <asp:ListItem>2</asp:ListItem>
-                                <asp:ListItem>3</asp:ListItem>
-                                <asp:ListItem>4</asp:ListItem>
-                                <asp:ListItem Selected="True">5</asp:ListItem>
-                                <asp:ListItem>10</asp:ListItem>
-                                <asp:ListItem>20</asp:ListItem>
-                                <asp:ListItem>30</asp:ListItem>
-                                <asp:ListItem>40</asp:ListItem>
-                                <asp:ListItem>50</asp:ListItem>
-                                <asp:ListItem>60</asp:ListItem>
-                                <asp:ListItem>70</asp:ListItem>
-                                <asp:ListItem>80</asp:ListItem>
-                                <asp:ListItem>90</asp:ListItem>
-                                <asp:ListItem>100</asp:ListItem>
-                            </asp:DropDownList>       
-                                    
-                            <span id="botones_paginacion_materiales">
-                                <asp:Button ID="Button_anterior" runat="server" OnClientClick="decrementarCantidad()" Text="Anterior" />
-                                <asp:DropDownList ID="DropDownList_pagina" runat="server" AutoPostBack="True">
-                                    <asp:ListItem Selected="True">1</asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:Button ID="Button_siguiente" runat="server" OnClientClick="incrementarCantidad()" Text="Siguiente"/>                       
-                            </span>             
-                        </div>                
+                        <div id="botones_paginacion_materiales">
+                            <asp:Button ID="Button_anterior" runat="server" OnClientClick="decrementarCantidad()" Text="Anterior" />
+                            <asp:DropDownList ID="DropDownList_pagina" runat="server" AutoPostBack="True">
+                                <asp:ListItem Selected="True">1</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Button ID="Button_siguiente" runat="server" OnClientClick="incrementarCantidad()" Text="Siguiente"/>                       
+                        </div>                          
                     </td>
                 </tr>
             </table>
         </div>
         
         <div id="panel_nuevoMaterial_materiales">
-        
-            <asp:Panel ID="Panel_nuevoMaterial" runat="server">
-            </asp:Panel>
-        
+            <asp:Panel ID="Panel_nuevoMaterial" runat="server"></asp:Panel>   
         </div>
 
     </div>
