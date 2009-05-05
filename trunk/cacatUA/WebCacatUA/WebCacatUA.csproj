@@ -89,6 +89,13 @@
     <Compile Include="crearhilo.aspx.designer.cs">
       <DependentUpon>crearhilo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="galeriaDetalle.aspx.cs">
+      <DependentUpon>galeriaDetalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galeriaDetalle.aspx.designer.cs">
+      <DependentUpon>galeriaDetalle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="materialBusqueda.ascx.cs">
       <DependentUpon>materialBusqueda.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -272,6 +279,7 @@
   <ItemGroup>
     <Content Include="comentarioMaterial.ascx" />
     <Content Include="crearhilo.aspx" />
+    <Content Include="galeriaDetalle.aspx" />
     <Content Include="imagenes\descargar.png" />
     <Content Include="imagenes\sinImagen.png" />
     <Content Include="materialBusqueda.ascx" />

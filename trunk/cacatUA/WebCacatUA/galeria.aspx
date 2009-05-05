@@ -8,7 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
 
     <p style="text-align:right;width:90%;" ><a href="" id="verImagen" >Ver Imagen</a></p>
-
+    <br />
     <asp:Panel ID="Panel1" runat="server">
         <img id="imagenPrincipal" width="600px" src="" alt=""/>
     </asp:Panel>
@@ -30,7 +30,7 @@
             var elemento = document.getElementById("imagenPrincipal")
             elemento.setAttribute("src","/imagenes/" + archivo + ".jpg");
             var link = document.getElementById("verImagen");
-            link.setAttribute("href","/detalleFoto.aspx?imagen=" + archivo);           
+            link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + archivo);           
         }
         
         funcion(id);
