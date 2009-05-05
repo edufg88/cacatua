@@ -26,7 +26,7 @@ namespace WebCacatUA
                 labelTitulo.Text = i.Titulo;
                 labelFecha.Text = "Imagen tomada el: " + i.Fecha;
                 labelUsuario.Text = "Imagen de: " + i.Usuario.Nombre;
-                imagenPrincipal.ImageUrl = "/galeria/" + i.Id +".jpg";
+                imagenPrincipal.ImageUrl = "/galeria/" + i.Id + ".jpg";
                 labelDescripcion.Text = i.Descripcion;
 
                 ArrayList comentarios = new ArrayList();
@@ -39,7 +39,7 @@ namespace WebCacatUA
 
                 for (int j = 0; j < comentarios.Count; j++)
                 {
-                    comen= (ENImagenComentario)comentarios[j];
+                    comen = (ENImagenComentario)comentarios[j];
 
                     c.Controls.Add(new LiteralControl(comen.Usuario.Usuario));
                     r.Controls.Add(c);
@@ -53,7 +53,7 @@ namespace WebCacatUA
                     c.Controls.Add(new LiteralControl(comen.Texto));
                     r.Controls.Add(c);
                     tablaComentarios.Controls.Add(r);
-                    c = new TableCell(); 
+                    c = new TableCell();
                     r = new TableRow();
                     r = new TableRow();
                     c.Controls.Add(new LiteralControl("<br/>"));
@@ -64,6 +64,20 @@ namespace WebCacatUA
 
 
                 }
+
+                if (Session["usuario"] == null)
+                {
+                    TextBoxComentario.Enabled = false;
+                    botonComentar.Enabled = false;
+                }
+                {
+                    TextBoxComentario.Enabled = true;
+                    botonComentar.Enabled = true;
+                }
+            }
+            else
+            {
+                Response.Redirect("/galeria.aspx");
             }
 
         }

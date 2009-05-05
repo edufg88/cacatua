@@ -138,6 +138,35 @@ namespace Libreria
             return imagenes;
         }
 
+        public ArrayList ObtenerPorUsuario(int id)
+        {
+            ArrayList imagenes = new ArrayList();
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM imagenes WHERE usuario=" + id;
+                SqlDataReader dr = comando.ExecuteReader();
+                // Generamos el ArrayList a partir del DataReader
+                while (dr.Read())
+                {
+                    ENImagen imagen = ObtenerDatos(dr);
+                    imagenes.Add(imagen);
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepción obtener imagenes");
+            }
+
+            return imagenes;
+        }
+
         // Borra todas las imagenes
         public void BorrarImagenes()
         {
@@ -156,6 +185,9 @@ namespace Libreria
                 Console.Write("Excepción borrando todas las imagenes");
             }
         }
+
+
+
 
         // Borra una imagen dado un determinado id
         public bool BorrarImagen(int id)

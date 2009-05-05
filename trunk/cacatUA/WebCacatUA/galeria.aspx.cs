@@ -20,9 +20,18 @@ namespace WebCacatUA
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             ArrayList fotos = new ArrayList();
-            fotos = ENImagen.Obtener();
+
+            if (Request.Params["usuario"] != null)
+            {
+                ENUsuario us = ENUsuario.Obtener(Request.Params["usuario"]);
+                Label_nombreUsuario.Text = "Galeria de fotos de " + Request.Params["usuario"];
+                fotos = ENImagen.ObtenerPorUsuario(us.Id);
+            }
+            else
+            {
+                fotos = ENImagen.Obtener();
+            }
 
             Table1.Attributes.Add("widht", "90%");
             TableRow r = new TableRow();
@@ -52,10 +61,19 @@ namespace WebCacatUA
             r.Controls.Add(c);
 
             Table1.Controls.Add(r);
+            if (fotos.Count > 0)
+            {
+                ENImagen img = (ENImagen)fotos[0];
+                Response.Write("<script type=\"text/javascript\" language=\"javascript\">var id=" + img.Id + ";</script>");
+            }
+            else{
+                Label lab = new Label();
+                lab.Text = "No hay imagenes";
+                Panel1.Controls.Add(lab);
+                
+            }
 
-            ENImagen img = (ENImagen)fotos[0];
-
-            Response.Write("<script type=\"text/javascript\" language=\"javascript\">var id=" + img.Id + ";</script>");
+            
 
         }
 
