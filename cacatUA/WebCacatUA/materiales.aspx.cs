@@ -39,18 +39,46 @@ public partial class materiales : WebCacatUA.InterfazWeb
     private void Inicializar()
     {
         Label_cantidadPorPaginaAnterior.Visible = false;
-        cantidadPorPagina = int.Parse(DropDownList_cantidadPorPagina.Text.ToString());
+        int cantidadPorPaginaSuperior = int.Parse(DropDownList_cantidadPorPaginaSuperior.Text.ToString());
+        int cantidadPorPaginaInferior = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
         propiedadOrdenar = DropDownList_propiedadesOrdenar.Text;
-        pagina = int.Parse(DropDownList_pagina.Text.ToString());
+        int paginaInferior = int.Parse(DropDownList_paginaInferior.Text.ToString());
+        int paginaSuperior = int.Parse(DropDownList_paginaSuperior.Text.ToString());
 
-        // Comprobamos si ha cambiado la cantidad por página
-        if (int.Parse(Label_cantidadPorPaginaAnterior.Text) != cantidadPorPagina)
+
+        // Comprobamos si ha cambiado la página
+        if (paginaInferior != paginaSuperior)
         {
             // Ha cambiado
-            Label_cantidadPorPaginaAnterior.Text = cantidadPorPagina.ToString();
-            pagina = 1;
-            DropDownList_pagina.Text = "1";
+            if (int.Parse(Hidden_paginaAnterior.Value.ToString()) == paginaSuperior)
+                pagina = paginaInferior;
+            else
+                pagina = paginaSuperior;
         }
+        else
+            pagina = paginaSuperior;
+        Hidden_paginaAnterior.Value = pagina.ToString();
+
+        // Comprobamos si ha cambiado la cantidad por página
+        if (cantidadPorPaginaInferior != cantidadPorPaginaSuperior)
+        {
+            // Ha cambiado
+            pagina = 1;
+            DropDownList_paginaInferior.Text = "1";
+            DropDownList_paginaSuperior.Text = "1";
+            if (int.Parse(Label_cantidadPorPaginaAnterior.Text) == cantidadPorPaginaSuperior)
+                cantidadPorPagina = cantidadPorPaginaInferior;
+            else
+                cantidadPorPagina = cantidadPorPaginaSuperior;   
+        }
+        else
+            cantidadPorPagina = cantidadPorPaginaSuperior;
+
+        Label_cantidadPorPaginaAnterior.Text = cantidadPorPagina.ToString();
+        DropDownList_cantidadPorPaginaInferior.Text = cantidadPorPagina.ToString();
+        DropDownList_cantidadPorPaginaSuperior.Text = cantidadPorPagina.ToString();
+
+
 
     }
 
@@ -258,7 +286,8 @@ public partial class materiales : WebCacatUA.InterfazWeb
         {
             Label_resultados.Text = "No hay ningún resultado";
             ordenar_materiales.Visible = false;
-            paginacion_materiales.Visible = false;
+            paginacionInferior_materiales.Visible = false;
+            paginacionSuperior_materiales.Visible = false;
         }
     }
 
@@ -291,10 +320,16 @@ public partial class materiales : WebCacatUA.InterfazWeb
             int paginas = (int)Math.Ceiling(totalResultados / (float)CantidadPorPagina);
             // Añadimos las páginas al combo box
             string paginaActual = pagina.ToString();
-            DropDownList_pagina.Items.Clear();
+            DropDownList_paginaInferior.Items.Clear();
+            DropDownList_paginaSuperior.Items.Clear();
+
             for (int i = 1; i <= paginas; i++)
-                DropDownList_pagina.Items.Add(i.ToString());
-            DropDownList_pagina.Text = paginaActual;
+            {
+                DropDownList_paginaInferior.Items.Add(i.ToString());
+                DropDownList_paginaSuperior.Items.Add(i.ToString());
+            }
+            DropDownList_paginaInferior.Text = paginaActual;
+            DropDownList_paginaSuperior.Text = paginaActual;
 
             int inicial = (pagina - 1) * CantidadPorPagina + 1;
             int final = inicial - 1 + CantidadPorPagina;
@@ -302,15 +337,18 @@ public partial class materiales : WebCacatUA.InterfazWeb
 
             Label_resultados.Text = "Resultados " + inicial + " a " + final + " de " + totalResultados;
 
-            if (DropDownList_pagina.Text == "1")
-                Button_anterior.Enabled = false;
+            if (DropDownList_paginaInferior.Text == "1")
+                Button_anteriorInferior.Enabled = false;
             else
-                Button_anterior.Enabled = true;
+                Button_anteriorInferior.Enabled = true;
 
-            if (DropDownList_pagina.Text == paginas.ToString())
-                Button_siguiente.Enabled = false;
+            if (DropDownList_paginaInferior.Text == paginas.ToString())
+                Button_siguienteInferior.Enabled = false;
             else
-                Button_siguiente.Enabled = true;
+                Button_siguienteInferior.Enabled = true;
+
+            Button_anteriorSuperior.Enabled = Button_anteriorInferior.Enabled;
+            Button_siguienteSuperior.Enabled = Button_siguienteInferior.Enabled;
         }
     }
 

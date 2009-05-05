@@ -13,20 +13,20 @@
 
 <script  type="text/javascript">
 
-function decrementarCantidad()
+function decrementarCantidadInferior()
 {
-    var cantidad = document.getElementById("<%= DropDownList_pagina.ClientID %>").value;
+    var cantidad = document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value;
     cantidad = parseInt(cantidad);
     cantidad = cantidad-1;
-    document.getElementById("<%= DropDownList_pagina.ClientID %>").value = cantidad;
+    document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value = cantidad;
 }
 
-function incrementarCantidad()
+function incrementarCantidadInferior()
 {
-    var cantidad = document.getElementById("<%= DropDownList_pagina.ClientID %>").value;
+    var cantidad = document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value;
     cantidad = parseInt(cantidad);
     cantidad = cantidad+1;
-    document.getElementById("<%= DropDownList_pagina.ClientID %>").value = cantidad;
+    document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value = cantidad;
 }
 
 function realizarBusqueda()
@@ -254,6 +254,30 @@ hr {
     
 }
 
+/****************************************************
+#####################################################
+#####################################################
+****************************************************/
+
+.tablaPaginacion_materiales
+{
+	color:White;
+	margin-top:10px;
+	text-align:left;
+	width:100%;
+	padding:5px;
+    background-color:#1e6393;	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.botonesPaginacion_materiales
+{
+	text-align:right;
+}
+
+
+
 /*
 -moz-border-radius-bottomleft:5px;
 -moz-border-radius-bottomright:5px;
@@ -301,7 +325,7 @@ padding:4px;*/
                 <input id="Hidden_opcionBusqueda" type="hidden" runat="server"/>  
             </div>
         </div>
-
+        
         <div id="resultados_materiales">
             <table id="tabla_resultados_materiales">
                 <tr>
@@ -330,16 +354,13 @@ padding:4px;*/
                 </tr>
             </table>
         </div>
-        <hr />
-        <asp:Panel ID="Panel_contenido" runat="server"></asp:Panel>
-
-        <div id="paginacion_materiales" runat="server">
-            <table id="tabla_paginacion_materiales">
+        
+       <div id="paginacionSuperior_materiales" runat="server">
+            <table class="tablaPaginacion_materiales">
                 <tr>  
                     <td>
-                        <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
-                        <asp:Label ID="Label2" runat="server" Text="Cantidad por página:"></asp:Label>
-                        <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
+                        <asp:Label ID="Label5" runat="server" Text="Cantidad por página:"></asp:Label>
+                        <asp:DropDownList ID="DropDownList_cantidadPorPaginaSuperior" runat="server" 
                         AutoPostBack="True">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
@@ -359,12 +380,53 @@ padding:4px;*/
                         </asp:DropDownList>       
                     </td>
                     <td>
-                        <div id="botones_paginacion_materiales">
-                            <asp:Button ID="Button_anterior" runat="server" OnClientClick="decrementarCantidad()" Text="Anterior" />
-                            <asp:DropDownList ID="DropDownList_pagina" runat="server" AutoPostBack="True">
+                        <div class="botonesPaginacion_materiales">
+                            <input id="Hidden_paginaAnterior" type="hidden" runat="server" />
+                            <asp:Button ID="Button_anteriorSuperior" runat="server" OnClientClick="decrementarCantidadInferior()" Text="Anterior" />
+                            <asp:DropDownList ID="DropDownList_paginaSuperior" runat="server" AutoPostBack="True">
                                 <asp:ListItem Selected="True">1</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:Button ID="Button_siguiente" runat="server" OnClientClick="incrementarCantidad()" Text="Siguiente"/>                       
+                            <asp:Button ID="Button_siguienteSuperior" runat="server" OnClientClick="incrementarCantidadInferior()" Text="Siguiente"/>                       
+                        </div>                          
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <asp:Panel ID="Panel_contenido" runat="server"></asp:Panel>
+
+        <div id="paginacionInferior_materiales" runat="server">
+            <table class="tablaPaginacion_materiales">
+                <tr>  
+                    <td>
+                        <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="Cantidad por página:"></asp:Label>
+                        <asp:DropDownList ID="DropDownList_cantidadPorPaginaInferior" runat="server" 
+                        AutoPostBack="True">
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem Selected="True">5</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                            <asp:ListItem>20</asp:ListItem>
+                            <asp:ListItem>30</asp:ListItem>
+                            <asp:ListItem>40</asp:ListItem>
+                            <asp:ListItem>50</asp:ListItem>
+                            <asp:ListItem>60</asp:ListItem>
+                            <asp:ListItem>70</asp:ListItem>
+                            <asp:ListItem>80</asp:ListItem>
+                            <asp:ListItem>90</asp:ListItem>
+                            <asp:ListItem>100</asp:ListItem>
+                        </asp:DropDownList>       
+                    </td>
+                    <td>
+                        <div class="botonesPaginacion_materiales">
+                            <asp:Button ID="Button_anteriorInferior" runat="server" OnClientClick="decrementarCantidadInferior()" Text="Anterior" />
+                            <asp:DropDownList ID="DropDownList_paginaInferior" runat="server" AutoPostBack="True">
+                                <asp:ListItem Selected="True">1</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Button ID="Button_siguienteInferior" runat="server" OnClientClick="incrementarCantidadInferior()" Text="Siguiente"/>                       
                         </div>                          
                     </td>
                 </tr>
