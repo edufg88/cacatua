@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace Libreria
 {
-    class ENImagenComentario
+    public class ENImagenComentario
     {
         private int id;
         private string texto;

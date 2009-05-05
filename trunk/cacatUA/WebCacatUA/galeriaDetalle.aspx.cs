@@ -31,8 +31,39 @@ namespace WebCacatUA
 
                 ArrayList comentarios = new ArrayList();
 
-                
-                
+                comentarios = ENImagenComentario.Obtener(i.Id);
+
+                TableRow r = new TableRow();
+                TableCell c = new TableCell();
+                ENImagenComentario comen = new ENImagenComentario();
+
+                for (int j = 0; j < comentarios.Count; j++)
+                {
+                    comen= (ENImagenComentario)comentarios[j];
+
+                    c.Controls.Add(new LiteralControl(comen.Usuario.Usuario));
+                    r.Controls.Add(c);
+                    c = new TableCell();
+                    c.Controls.Add(new LiteralControl(comen.Fecha.ToString()));
+                    c.Attributes.Add("align", "right");
+                    r.Controls.Add(c);
+                    tablaComentarios.Controls.Add(r);
+                    c = new TableCell();
+                    r = new TableRow();
+                    c.Controls.Add(new LiteralControl(comen.Texto));
+                    r.Controls.Add(c);
+                    tablaComentarios.Controls.Add(r);
+                    c = new TableCell(); 
+                    r = new TableRow();
+                    r = new TableRow();
+                    c.Controls.Add(new LiteralControl("<br/>"));
+                    r.Controls.Add(c);
+                    tablaComentarios.Controls.Add(r);
+                    c = new TableCell();
+                    r = new TableRow();
+
+
+                }
             }
 
         }
