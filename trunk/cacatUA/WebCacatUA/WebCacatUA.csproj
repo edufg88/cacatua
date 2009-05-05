@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9D13C5CC-7B0C-45D1-A248-37EDDB545667}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -77,6 +77,13 @@
     </Compile>
     <Compile Include="comentarioMaterial.ascx.designer.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="hilo.aspx.cs">
+      <DependentUpon>hilo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="hilo.aspx.designer.cs">
+      <DependentUpon>hilo.aspx</DependentUpon>
     </Compile>
     <Compile Include="crearhilo.aspx.cs">
       <DependentUpon>crearhilo.aspx</DependentUpon>
@@ -291,9 +298,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="comentarioMaterial.ascx" />
+    <Content Include="estilos\hilo.css" />
+    <Content Include="hilo.aspx" />
     <Content Include="crearhilo.aspx" />
     <Content Include="descargar.aspx" />
     <Content Include="galeriaDetalle.aspx" />
+    <Content Include="imagenes\cacatua.ico" />
     <Content Include="galeria\1.jpg" />
     <Content Include="galeria\10.jpg" />
     <Content Include="galeria\11.jpg" />
@@ -374,6 +384,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

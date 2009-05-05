@@ -1,0 +1,107 @@
+﻿#migasRespuestasHilo
+{
+    margin-bottom: 10px;
+}
+
+
+
+/********************************************
+********************************************/
+
+#contenidoRespuestasHilo
+{
+
+}
+
+#mostrandoRespuestasHilo
+{
+    position: relative;
+    margin-top: 20px;   
+}
+
+#crearRespuesta
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#respuestasHilo
+{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+.tablaRespuestasHilo
+{
+    width: 100%;
+    background-color: #fff;
+}
+
+.respuestaHilo
+{
+    font-size: small;
+}
+
+.enlaceRespuestaHilo
+{
+    font-weight: bold;
+    text-decoration: none;
+    color: #777;
+}
+
+.enlaceRespuestaHilo:hover
+{
+    color: #000;   
+}
+
+.columna1RespuestaHilo
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    width: 25%;
+}
+
+.columna2RespuestaHilo
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.filaImparRespuestaHilo
+{
+    background-color: #f5f5f5;
+}
+
+.cabeceraRespuestasHilo
+{
+    border: 0;
+    background-color: #777;
+    color: #eee;
+    font-size: small;
+}
+
+/********************************************
+********************************************/
+
+#paginacionRespuestasHilo
+{
+    clear: both;
+}
+
+#cantidadPaginaRespuestasHilo
+{
+    float: left;
+}
+
+#paginasRespuestasHilo
+{
+    float: right;
+}

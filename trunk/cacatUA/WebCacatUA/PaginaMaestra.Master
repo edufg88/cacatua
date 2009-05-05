@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="estilos/PaginaMaestra.css" media="screen" />
-    
+    <link rel="shortcut icon" href="imagenes/cacatua.ico">
     <script runat="server">
          
         /// <summary>
