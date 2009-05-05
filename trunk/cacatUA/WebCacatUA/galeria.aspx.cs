@@ -16,6 +16,8 @@ namespace WebCacatUA
 {
     public partial class Formulario_web11 : System.Web.UI.Page
     {
+        private ENImagen imagen = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,32 +28,36 @@ namespace WebCacatUA
             TableRow r = new TableRow();
             TableCell c = new TableCell();
 
-            c.Controls.Add(new LiteralControl("<img src=\"/imagenes/botonanterioresfotos.png\" alt=\"\" />"));
-            r.Controls.Add(c);
             int cont=1;
             foreach(ENImagen i in fotos)
             {
-            
+                if (cont == 1)
+                {
+                    imagen = i;
+                }                        
                 c = new TableCell();
-                c.Controls.Add(new LiteralControl("<img onclick=\"funcion(" + i.Id + ")\" height=\"38px\" src=\""+ i.Archivo +"\".jpg\" alt=\"" + i.Titulo + "\" />"));
+                c.Controls.Add(new LiteralControl("<img onclick=\"funcion(" + i.Id + ")\" height=\"38px\" src=\"/imagenes/"+ i.Id +".jpg\" alt=\"" + i.Titulo + "\" />"));
                 r.Controls.Add(c);
 
                 if(cont%10==0)
                 {
                     Table1.Controls.Add(r);
-                r = new TableRow();
+                    r = new TableRow();
                 }
 
                 cont++;
                 
             }
             
-            //c = new TableCell();
-            //c.Controls.Add(new LiteralControl("<td><img src=\"/imagenes/botonsiguientesfotos.png\" alt=\"\" /></td>"));
             r.Controls.Add(c);
 
             Table1.Controls.Add(r);
 
+            ENImagen img = (ENImagen)fotos[0];
+
+            Response.Write("<script type=\"text/javascript\" language=\"javascript\">var id=" + img.Id + ";</script>");
+
         }
+
     }
 }
