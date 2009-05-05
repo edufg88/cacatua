@@ -31,7 +31,7 @@ namespace Libreria
 
             comentario.Id = int.Parse(dr["id"].ToString());
             comentario.Texto = dr["texto"].ToString();
-            comentario.Imagen = ENImagen.Obtener(dr["imagen"].ToString());
+            comentario.Imagen = ENImagen.Obtener(int.Parse(dr["imagen"].ToString()));
             comentario.Usuario = ENUsuario.Obtener(int.Parse(dr["usuario"].ToString()));
             comentario.Fecha = DateTime.Parse(dr["fecha"].ToString());
 

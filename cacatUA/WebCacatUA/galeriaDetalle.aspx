@@ -25,7 +25,7 @@
         <br />
         <h2>Comentarios</h2>
         <br />
-        <asp:Table ID="tablaComentarios" runat="server">
+        <asp:Table ID="tablaComentarios" runat="server" Width="90%">
         </asp:Table>
    
    </div>
