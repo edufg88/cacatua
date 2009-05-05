@@ -45,11 +45,7 @@ namespace WebCacatUA
         {
             servicioUploader.Uploader fileUploader = new servicioUploader.Uploader();
             string resultado = fileUploader.subirArchivo(FileUpload1.FileBytes,FileUpload1.FileName + "_jose");
-                Response.Write("bien" + resultado);
-            /*
-            // Comprobamos si existe el fichero
-            FileInfo info = new FileInfo(MapPath("~/materiales/") + TextBox_archivo.Text + "_jose");
-            if (info.Exists)
+            if (resultado == "OK")
             {
                 // Creamos el material en la base de datos para obtener el id
                 ENMaterial material = new ENMaterial();
@@ -58,66 +54,20 @@ namespace WebCacatUA
                 material.Categoria = ENCategoria.Obtener(int.Parse(Hidden_categoria.Value.ToString()));
                 material.Descripcion = TextArea_descripcion.Value;
                 material.Referencia = TextBox_referencia.Text;
-                material.Tamaño = (int)info.Length;
-                Response.Write(material.Nombre);
+                material.Tamaño = (int)FileUpload1.FileBytes.Length;
                 if (material.Guardar() == true)
                 {
                     int id = material.CompletarGuardar();
                     // Comprimimos el archivo con la id
-                    ComprimirArchivo(material.Archivo + "_jose", id, material.Archivo);
+                    fileUploader.ComprimirArchivo(material.Archivo + "_jose", id, material.Archivo);
                     // Borramos el fichero temporal
-                    info.Delete();
+                    fileUploader.BorrarFichero(FileUpload1.FileName + "_jose");
                     // Recargamos la página
                     Response.Redirect("materiales.aspx?categoria=" + material.Categoria.Id.ToString());
                 }
             }
             else
-                Response.Write("No existe el fichero");
-             */
-        }
-
-        public string ComprimirArchivo(string ficheroComprimir, int id, string nombreFichero)
-        {
-            string directorioFicheros = MapPath("~/materiales/");
-            string error = "OK";
-            ZipOutputStream zipOutputStream = null;
-            try
-            {
-                // Obtenemos la ruta completa que va a tener el nuevo fichero
-                string rutaZip = directorioFicheros + id.ToString() + ".zip";
-                // Creamos el zip
-                zipOutputStream = new ZipOutputStream(File.Create(rutaZip));
-                // Especificamos el nivel de compresión (entre 0 - 9(máxima compresión))
-                zipOutputStream.SetLevel(6);
-
-                // Abrimos el fichero que vamos a comprimir
-                FileStream fileStream = File.OpenRead(directorioFicheros + ficheroComprimir);
-                // Creamos un buffer donde vamos a guardar el contenido del fichero
-                byte[] buffer = new byte[(Convert.ToInt32(fileStream.Length))];
-                // Cargamos el fichero en el buffer
-                fileStream.Read(buffer, 0, buffer.Length);
-                // Cerramos el fichero
-                fileStream.Close();
-
-                // Añadimos el fichero al zip con el nombre que se pasa por parámetro
-                ZipEntry theEntry = new ZipEntry(nombreFichero);
-                theEntry.DateTime = DateTime.Now;
-                zipOutputStream.PutNextEntry(theEntry);
-                zipOutputStream.Write(buffer, 0, buffer.Length);
-            }
-            catch (Exception ex)
-            {
-                error = ex.ToString();
-            }
-            finally
-            {
-                if (zipOutputStream != null)
-                {
-                    zipOutputStream.Finish();
-                    zipOutputStream.Close();
-                }
-            }
-            return error;
+                Response.Write(resultado);
         }
     }
 }
