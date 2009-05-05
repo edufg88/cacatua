@@ -67,39 +67,55 @@ hr {
 #navegacion_materiales
 {
 	margin-top: 5px;
+	margin-bottom: 10px;
 }
 
 #categorias_materiales
 {
+	float:left;
+    width: 15%;
+    padding: 2%;
+    border-bottom: 1px solid #999999;
+    border-right: 1px solid #aaaaaa;
+    border-left: 1px solid #bbbbbb;
+    border-top: 1px solid #cccccc;
+	background-color: #ffffff;
+	font-weight: bold;
+}
 
-	background-color:#1e6393;
-	position:absolute;
-	width:300px;
-	margin-top:10px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	color:White;	
+#tituloCategorias_materiales
+{
+    padding-bottom: 20px;
+    font-weight: bold;	
+}
+
+#contenidoCategorias_materiales
+{
+	margin:0px;
+    font-size: small; 
+    
+}
+
+
+#contenido_materiales
+{
+	float:right;
+	width:79%;
 	text-align:center;
 }
 
 .linkCategoria
 {
-	color:White;
+	color:Black;
 	text-decoration:none;
 }
 
 .linkCategoria:hover
 {
-	color:Black;
+	color:#1e6393;
 }
 
-#contenido_materiales
-{
-	text-align: center;
-	margin-left:320px;
-	margin-top:10px;  
-	min-width:700px;	
-}
+
 
 #buscar
 {
@@ -254,9 +270,12 @@ hr {
     </div>
 
     <div id="categorias_materiales">
-        <asp:Label ID="Label_categoria" runat="server" Text="Categorías"></asp:Label>
-        <hr />
-        <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>       
+        <div id="tituloCategorias_materiales">
+            <asp:Label ID="Label_categoria" runat="server" Text="Categorías"></asp:Label>
+        </div>
+        <div id="contenidoCategorias_materiales">
+            <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
+        </div>   
     </div>
     
     <div id="contenido_materiales">
@@ -266,7 +285,9 @@ hr {
                 <table id="tabla_buscar_materiales">
                     <tr>
                         <td></td>
-                        <td><asp:TextBox ID="TextBox_buscar" runat="server" Width="100%"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="TextBox_buscar" runat="server" Width="100%"></asp:TextBox>                   
+                        </td>
                         <td style="text-align:left;padding-left:10px;">
                             <input id="Button1" type="button" value="Buscar" onclick="realizarBusqueda()"/>
                         </td>
