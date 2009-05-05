@@ -148,6 +148,69 @@ public partial class materiales {
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_propiedadesOrdenar;
     
     /// <summary>
+    /// paginacionSuperior_materiales control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl paginacionSuperior_materiales;
+    
+    /// <summary>
+    /// Label5 control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label5;
+    
+    /// <summary>
+    /// DropDownList_cantidadPorPaginaSuperior control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList DropDownList_cantidadPorPaginaSuperior;
+    
+    /// <summary>
+    /// Hidden_paginaAnterior control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden_paginaAnterior;
+    
+    /// <summary>
+    /// Button_anteriorSuperior control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_anteriorSuperior;
+    
+    /// <summary>
+    /// DropDownList_paginaSuperior control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList DropDownList_paginaSuperior;
+    
+    /// <summary>
+    /// Button_siguienteSuperior control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_siguienteSuperior;
+    
+    /// <summary>
     /// Panel_contenido control.
     /// </summary>
     /// <remarks>
@@ -157,13 +220,13 @@ public partial class materiales {
     protected global::System.Web.UI.WebControls.Panel Panel_contenido;
     
     /// <summary>
-    /// paginacion_materiales control.
+    /// paginacionInferior_materiales control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.HtmlControls.HtmlGenericControl paginacion_materiales;
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl paginacionInferior_materiales;
     
     /// <summary>
     /// Label_cantidadPorPaginaAnterior control.
@@ -184,40 +247,40 @@ public partial class materiales {
     protected global::System.Web.UI.WebControls.Label Label2;
     
     /// <summary>
-    /// DropDownList_cantidadPorPagina control.
+    /// DropDownList_cantidadPorPaginaInferior control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownList_cantidadPorPagina;
+    protected global::System.Web.UI.WebControls.DropDownList DropDownList_cantidadPorPaginaInferior;
     
     /// <summary>
-    /// Button_anterior control.
+    /// Button_anteriorInferior control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_anterior;
+    protected global::System.Web.UI.WebControls.Button Button_anteriorInferior;
     
     /// <summary>
-    /// DropDownList_pagina control.
+    /// DropDownList_paginaInferior control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownList_pagina;
+    protected global::System.Web.UI.WebControls.DropDownList DropDownList_paginaInferior;
     
     /// <summary>
-    /// Button_siguiente control.
+    /// Button_siguienteInferior control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_siguiente;
+    protected global::System.Web.UI.WebControls.Button Button_siguienteInferior;
     
     /// <summary>
     /// Panel_nuevoMaterial control.
