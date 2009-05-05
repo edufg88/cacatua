@@ -198,11 +198,11 @@ namespace WebCacatUA
         {
             ComentarioMaterial comentario = new ComentarioMaterial();
             comentario.Usuario = ENUsuario.Obtener("jose");
-            comentario.Material = ENMaterial.Obtener(19);
+            comentario.Material = material;
             comentario.Texto = TextArea1.Value;
             material.GuardarComentario(comentario);
             TextArea1.Value = "";
-
+            MostrarComentarios();
         }
 
         private void actualizarNavegacion(ENCategoria categoria)

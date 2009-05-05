@@ -640,10 +640,9 @@ namespace Libreria
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
                 comando.CommandText = "INSERT INTO " +
-                    "materialescomentarios(texto,fecha,usuario,material) " +
-                    "VALUES (@texto,@fecha,@usuario,@material)";
+                    "materialescomentarios(texto,usuario,material) " +
+                    "VALUES (@texto,@usuario,@material)";
                 comando.Parameters.AddWithValue("@texto", comentario.Texto);
-                comando.Parameters.AddWithValue("@fecha", comentario.Fecha);
                 comando.Parameters.AddWithValue("@usuario", comentario.Usuario.Id);
                 comando.Parameters.AddWithValue("@material", comentario.Material.Id);
                 if (comando.ExecuteNonQuery() == 1)
