@@ -45,9 +45,9 @@ namespace Libreria
 
         }
 
-        public ENImagenComentario(int i,string t,DateTime f,ENUsuario u,ENImagen img)
+        public ENImagenComentario(string t,DateTime f,ENUsuario u,ENImagen img)
         {
-            id = i;
+           
             texto = t;
             fecha = f;
             usuario = u;
@@ -57,6 +57,11 @@ namespace Libreria
         public static ArrayList Obtener(int imagen)
         {
             return ImagenComentarioCAD.Instancia.Obtener(imagen);
+        }
+
+        public static bool Guardar(ENImagenComentario comentario)
+        {
+            return ImagenComentarioCAD.Instancia.Guardar(comentario);
         }
     }
 }

@@ -67,5 +67,16 @@ namespace WebCacatUA
             }
 
         }
+
+        public void guardarComentario(Object sender, EventArgs e)
+        {
+
+            ENImagenComentario com = new ENImagenComentario(TextBoxComentario.Text, DateTime.Now, ENUsuario.Obtener(6), ENImagen.Obtener(int.Parse(Request.Params["imagen"].ToString())));
+
+            ENImagenComentario.Guardar(com);
+
+            Response.Redirect("/galeriaDetalle.aspx?imagen=" + Request.Params["imagen"]);
+
+        }
     }
 }
