@@ -11,6 +11,7 @@
     
 #navegacion_mostrarMaterial
 {
+	font-size:small;
     padding-bottom:10px;	
 }
 
