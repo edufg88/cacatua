@@ -21,7 +21,7 @@
             <div id="datosUsuario" class="botonUsuario"><a href="usuario.aspx?usuario=antonio">Datos del usuario</a></div>
             <div id="firmasUsuario" class="botonUsuario"><a href="firmas.aspx?usuario=antonio">Firmas (13)</a></div>
             <div id="mensajesUsuario" class="botonUsuario"><a href="mensajes.aspx?usuario=antonio">Mensajes privados (79) (sólo sale si eres tú mismo)</a></div>
-            <div id="galeriaUsuario" class="botonUsuario"><a href="galeria.aspx?usuario=antonio">Galería de fotos (43)</a></div>
+            <div id="galeriaUsuario" class="botonUsuario"><a href="galeria.aspx?usuario=edu">Galería de fotos (43)</a></div>
             <div id="encuestasUsuario" class="botonUsuario"><a href="encuestas.aspx?usuario=antonio">Encuestas (13) (si eres tu mismo, podrás editarlas al entrar)</a></div>
             <div id="enviarMensajeUsuario" class="botonUsuario"><a href="enviarmensaje.aspx?usuario=antonio">Enviar mensaje (sólo sale si no eres tu mismo)</a></div>
         </div>
