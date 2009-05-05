@@ -436,7 +436,7 @@ public partial class foro : WebCacatUA.InterfazWeb
     {
         string ruta = "";
 
-        // Comprobamos el valor de cara parámetro y lo introducimos si no es su valor por defecto.
+        // Comprobamos el valor de cada parámetro y lo introducimos si no es su valor por defecto.
         if (pagina != 1)
             ruta += "&pagina=" + pagina;
         if (cantidad != 10)
