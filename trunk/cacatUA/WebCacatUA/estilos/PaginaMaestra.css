@@ -15,7 +15,8 @@ body
 #contenedor
 {
     text-align: center;
-    width: 1000px;
+    min-width: 990px;
+    max-width: 1240px;
     margin: auto;
 }
 
@@ -35,24 +36,24 @@ a
 {
     position: relative;
     margin: auto;
-    height: 210px;
-    width: 1000px;
+    height: 170px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #acceso
 {
     position: absolute;
-    right: 0;
-    top: 15px;
+    left: 325px;
+    top: 10px;
     font-size: 10pt;
 }
 
 #internacionalizacion
 {
     position: absolute;
-    top: 180px;
-    left: 20px;
-    
+    top: 10px;
+    right: 0;
 }
 
 #cabecera
@@ -62,8 +63,8 @@ a
 
 #menu
 {
-    float: left;
-    margin-top: 140px;
+    float: right;
+    margin-top: 90px;
 }
 
 #menu .boton
@@ -99,7 +100,7 @@ a
     font-size: 18pt;
     clear: both;
     text-align: left;
-    margin: 30px 50px;
+    margin: 20px 20px;
     color: #555555;
     font-weight: bold;
 }
@@ -109,7 +110,7 @@ a
     position: relative;
     clear: both;
     text-align: left;
-    margin: 10px 30px;
+    margin: 10px 20px;
 }
 
 #auxiliar
