@@ -71,6 +71,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="categoriasUsuario.aspx.cs">
+      <DependentUpon>categoriasUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categoriasUsuario.aspx.designer.cs">
+      <DependentUpon>categoriasUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="comentarioMaterial.ascx.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,8 +311,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="categoriasUsuario.aspx" />
     <Content Include="comentarioMaterial.ascx" />
     <Content Include="encuestasEdicion.aspx" />
+    <Content Include="estilos\categoriasUsuario.css" />
+    <Content Include="estilos\encuestasEdicion.css" />
     <Content Include="estilos\hilo.css" />
     <Content Include="hilo.aspx" />
     <Content Include="crearhilo.aspx" />
