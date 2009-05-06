@@ -54,8 +54,9 @@ namespace Libreria
             usuario.Dni = dr["dni"].ToString();
             usuario.Correo = dr["correo"].ToString();
             usuario.Adicional = dr["adicional"].ToString();
-
             usuario.Fechaingreso = DateTime.Parse(dr["fechaingreso"].ToString());
+            usuario.Hilos = ENHilo.Cantidad(usuario, (ENCategoria)null);
+            usuario.Respuestas = ENRespuesta.Cantidad(usuario);
 
             if (int.Parse(dr["activo"].ToString()) == 0)
             {

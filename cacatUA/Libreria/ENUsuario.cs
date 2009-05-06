@@ -64,6 +64,14 @@ namespace Libreria
         /// Indica si el usuario está activo o no
         /// </summary>
         private bool activo;
+        /// <summary>
+        /// Número de respuestas que ha hecho el usuario.
+        /// </summary>
+        private int respuestas;
+        /// <summary>
+        /// Cantidad de hilos que ha abierto el usuario.
+        /// </summary>
+        private int hilos;
 
         /// <summary>
         /// Constructor por defecto de la clase. Crea un usuario vacío
@@ -587,6 +595,22 @@ namespace Libreria
         {
             get { return activo; }
             set { activo = value; }
+        }
+        /// <summary>
+        /// Cantidad de respuestas que ha hecho el usuario.
+        /// </summary>
+        public int Respuestas
+        {
+            get { return respuestas; }
+            set { respuestas = value; }
+        }
+        /// <summary>
+        /// Cantidad de hilos que ha abierto el usuario.
+        /// </summary>
+        public int Hilos
+        {
+            get { return hilos; }
+            set { hilos = value; }
         }
     }
 }

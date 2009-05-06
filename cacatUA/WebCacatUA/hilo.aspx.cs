@@ -176,7 +176,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 l1.Text = "<a href=\"usuario.aspx?=" + i.Autor.Id + "\">" + i.Autor.Usuario + "</a>";
                 l1.Text += "<br />";
                 l1.Text += "<br />";
-                l1.Text += "Número de respuestas: " + 666;
+                l1.Text += "Número de respuestas: " + (i.Autor.Respuestas + i.Autor.Hilos);
                 l1.Text += "<br />";
                 l1.Text += "Fecha de ingreso: " + i.Autor.Fechaingreso;
                 l1.Text += "<br />";

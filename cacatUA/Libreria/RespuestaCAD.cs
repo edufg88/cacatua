@@ -150,6 +150,59 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene las respuestas de un hilo. Si el hilo no tiene respuestas, se obtiene una lista
+        /// de longitud 0. Si ocurre un error, devuelve una lista nula.
+        /// </summary>
+        /// <param name="hilo">Hilo del que se van a obtener sus respuestas.</param>
+        /// <returns>
+        /// Devuelve una lista de respuestas (ArrayList de ENRespuesta). Si ocurre un error, esta
+        /// lista es null; si no, es una lista con 0 o más elementos.
+        /// </returns>
+        public ArrayList Obtener(int cantidad, int pagina, ref ENHilo hilo)
+        {
+            ArrayList respuestas = null;
+
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "select * from (select *, ROW_NUMBER() OVER (ORDER BY id DESC) as filas from respuestas where hilo = @id)";
+                sentencia += "as alias where filas > @filaInicio and filas <= @filaFin \n";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@id", hilo.Id);
+                comando.Parameters.AddWithValue("@filaInicio", (pagina - 1) * cantidad);
+                comando.Parameters.AddWithValue("@filaFin", pagina * cantidad);
+
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                respuestas = new ArrayList();
+
+                // Insertamos todas las filas extraidas en el vector.
+                while (dataReader.Read())
+                {
+                    respuestas.Add(obtenerDatos(dataReader));
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: ArrayList RespuestaCAD.Obtener(int cantidad, int pagina, ENHilo hilo) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return respuestas;
+        }
+
+        /// <summary>
         /// Guarda una nueva respuesta en la base de datos. Se supone que esta respuesta no existe en la base de datos.
         /// </summary>
         /// <param name="respuesta">Respuesta que se va a insertar.</param>
@@ -331,6 +384,51 @@ namespace Libreria
             catch (Exception ex)
             {
                 Console.WriteLine("ERROR: int RespuestaCAD.Cantidad(ENHilo) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
+        /// <summary>
+        /// Realiza una consulta a la base de datos para extraer las respuestas totales
+        /// que ha hecho un usuario.
+        /// </summary>
+        /// <param name="usuario">Usuario del que se van a conocer sus respuestas.</param>
+        /// <returns>Devuelve un valor entero con la cantidad de respuestas.</returns>
+        public int Cantidad(ENUsuario usuario)
+        {
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "select count(*) as cantidad from respuestas where 1=1";
+                if (usuario != null)
+                    sentencia += " and autor = @autor";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                if (usuario != null)
+                    comando.Parameters.AddWithValue("@autor", usuario.Id);
+
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: int RespuestaCAD.Cantidad(ENUsuario) " + ex.Message);
             }
             finally
             {

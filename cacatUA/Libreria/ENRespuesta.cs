@@ -38,6 +38,20 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene las respuestas de un hilo. Si el hilo no tiene respuestas, se obtiene una lista
+        /// de longitud 0. Si ocurre un error, devuelve una lista nula.
+        /// </summary>
+        /// <param name="hilo">Hilo del que se van a obtener sus respuestas.</param>
+        /// <returns>
+        /// Devuelve una lista de respuestas (ArrayList de ENRespuesta). Si ocurre un error, esta
+        /// lista es null; si no, es una lista con 0 o más elementos.
+        /// </returns>
+        public static ArrayList Obtener(int cantidad, int pagina, ref ENHilo hilo)
+        {
+            return RespuestaCAD.Instancia.Obtener(cantidad, pagina, ref hilo);
+        }
+
+        /// <summary>
         /// Obtiene una respuesta según el identificador indicado.
         /// </summary>
         /// <param name="id">Identificador de la respuesta que se va a obtener.</param>
@@ -124,6 +138,17 @@ namespace Libreria
         public static int Cantidad(ENHilo hilo)
         {
             return RespuestaCAD.Instancia.Cantidad(hilo);
+        }
+
+        /// <summary>
+        /// Realiza una consulta a la base de datos para extraer las respuestas totales
+        /// que ha hecho un usuario.
+        /// </summary>
+        /// <param name="usuario">Usuario del que se van a conocer sus respuestas.</param>
+        /// <returns>Devuelve un valor entero con la cantidad de respuestas.</returns>
+        public static int Cantidad(ENUsuario usuario)
+        {
+            return RespuestaCAD.Instancia.Cantidad(usuario);
         }
 
         /// <summary>
