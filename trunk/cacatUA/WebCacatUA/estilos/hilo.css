@@ -55,6 +55,7 @@
     font-weight: bold;
     text-decoration: none;
     color: #777;
+    font-size: 14pt;
 }
 
 .enlaceRespuestaHilo:hover
@@ -73,6 +74,7 @@
 {
     border: 1px solid #ddd;
     padding: 10px 15px;
+    vertical-align: top;
 }
 
 .filaImparRespuestaHilo
@@ -86,6 +88,32 @@
     background-color: #777;
     color: #eee;
     font-size: small;
+}
+
+.informacionUsuarioRespuestaHilo
+{
+    font-size: smaller;
+}
+
+.imagenUsuarioRespuestaHilo
+{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.textoRespuestaHilo
+{
+    vertical-align: top;   
+}
+
+.fechaRespuestaHilo
+{
+    display: block;
+    margin-bottom: 15px;
+    font-size: smaller;
 }
 
 /********************************************

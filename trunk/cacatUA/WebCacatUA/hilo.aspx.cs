@@ -152,18 +152,25 @@ public partial class hilo : WebCacatUA.InterfazWeb
         if (totalResultados > 0)
             Label_mostrandoRespuestasHilo.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " respuestas.";
         else
-            Label_mostrandoRespuestasHilo.Text = "No hay resultados con estas condiciones de búsqueda.";
+            Label_mostrandoRespuestasHilo.Text = "";
 
         Table_respuestasHilo.Controls.Clear();
         insertarCabecera();
 
+        ArrayList respuestas = new ArrayList();
+
         if (pagina == 1)
         {
-            //  Inserto el primer enlace.
+            ENRespuesta r = new ENRespuesta();
+            r.Autor = h.Autor;
+            r.Texto = h.Texto;
+            r.Fecha = h.Fecha;
+
+            respuestas.Add(r);
         }
 
-        //ArrayList hilos = ENHilo.Obtener(cantidad, pagina, ordenar, orden, busqueda, busqueda, ref usuario, ref fechaInicio, ref fechaFin, ref categoria);
-        ArrayList respuestas = ENRespuesta.Obtener(cantidad, pagina, ref h);
+        respuestas.AddRange(ENRespuesta.Obtener(cantidad, pagina, ref h));
+
         if (respuestas != null)
         {
             int contador = 0;
@@ -172,10 +179,19 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 // Columna del título y del creado.
                 TableCell c1 = new TableCell();
                 c1.CssClass = "columna1RespuestaHilo cabeceraRespuestaHilo";
+
+                HyperLink h1 = new HyperLink();
+                h1.Text = "<a href=\"usuario.aspx?=" + i.Autor.Id + "\">" + i.Autor.Usuario + "</a><br />";
+
+                Image i1 = new Image();
+                if (i.Autor.Imagen != -1)
+                    i1.ImageUrl = "galeria/" + i.Autor.Imagen + ".jpg";
+                else
+                    i1.ImageUrl = "imagenes/sinImagen.png";
+                i1.CssClass = "imagenUsuarioRespuestaHilo";
+
                 Label l1 = new Label();
-                l1.Text = "<a href=\"usuario.aspx?=" + i.Autor.Id + "\">" + i.Autor.Usuario + "</a>";
-                l1.Text += "<br />";
-                l1.Text += "<br />";
+                l1.CssClass = "informacionUsuarioRespuestaHilo";
                 l1.Text += "Número de respuestas: " + (i.Autor.Respuestas + i.Autor.Hilos);
                 l1.Text += "<br />";
                 l1.Text += "Fecha de ingreso: " + i.Autor.Fechaingreso;
@@ -185,17 +201,36 @@ public partial class hilo : WebCacatUA.InterfazWeb
 
                 Panel p1 = new Panel();
                 p1.CssClass = "usuarioRespuestaHilo";
+                p1.Controls.Add(h1);
+                p1.Controls.Add(i1);
                 p1.Controls.Add(l1);
                 c1.Controls.Add(p1);
 
                 // Columna del número de respuestas.
                 TableCell c2 = new TableCell();
                 c2.CssClass = "columna2RespuestaHilo cabeceraRespuestaHilo";
+
+                Label l4 = new Label();
+                l4.Text = i.Fecha.ToString();
+                l4.CssClass = "fechaRespuestaHilo";
+
                 Label l3 = new Label();
                 l3.Text = i.Texto;
+
                 Panel p3 = new Panel();
                 p3.CssClass = "textoRespuestaHilo";
+                p3.Controls.Add(l4);
                 p3.Controls.Add(l3);
+
+                if (contador == 0 && pagina == 1)
+                {
+                    HyperLink h2 = new HyperLink();
+                    h2.Text = h.Titulo;
+                    h2.NavigateUrl = calcularRuta();
+                    h2.CssClass = "enlaceRespuestaHilo";
+                    p3.Controls.AddAt(0, h2);
+                }
+
                 c2.Controls.Add(p3);
 
                 // Insertamos las columnas en la fila e insertamos la fila en la tabla.
