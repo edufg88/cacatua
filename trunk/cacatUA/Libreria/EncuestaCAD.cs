@@ -396,7 +396,7 @@ namespace Libreria
             return cantidad;
         }
 
-        public ENEncuesta ObtenerDatosOpcion(SqlDataReader dr)
+        public OpcionEncuesta ObtenerDatosOpcion(SqlDataReader dr)
         {
             int id = int.Parse(dr["id"].ToString());
             String opcion  = dr["opcion"].ToString();
@@ -407,15 +407,14 @@ namespace Libreria
         public OpcionEncuesta ObtenerOpcion(int id) 
         {
             SqlConnection conexion = null;
-            int cantidad = 0;
-            OpcionEncuesta opcion = new OpcionEncuesta();
+            OpcionEncuesta opcion = null;
 
             try {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
                 string sentencia = "SELECT * FROM opciones WHERE id = @id";
-                comando.Parameters.AddWithValue("@id", id);
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = comando.ExecuteReader();
                 // Recorremos el reader y vamos insertando en el array list
                 while (reader.Read())
