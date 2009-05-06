@@ -47,23 +47,6 @@ namespace Libreria
             activa = false;
         }
 
-        /*
-        public ENEncuesta(int id)
-        {
-            ENEncuesta aux = EncuestaCAD.Instancia.ObtenerEncuesta(id);
-
-            if (aux == null)
-            {
-                aux = new ENEncuesta();
-            }
-
-            this.id = aux.id;
-            this.pregunta = aux.pregunta;
-            this.usuario = aux.usuario;
-            this.fecha = aux.fecha;
-            this.activa = aux.activa;
-        }*/
-
 
         /// <summary>
         /// Constructor sobrecargado de la clase
@@ -103,28 +86,6 @@ namespace Libreria
         {
             return EncuestaCAD.Instancia.ObtenerEncuestas();
         }
-
-        /*
-        public bool Obtener(int id)
-        {
-            ENEncuesta aux = new ENEncuesta();
-            aux = EncuestaCAD.Instancia.ObtenerEncuesta(id);
-
-            if (aux != null)
-            {
-                this.id = aux.id;
-                this.pregunta = aux.pregunta;
-                this.usuario = aux.usuario;
-                this.fecha = aux.fecha;
-                this.activa = aux.activa;
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }*/
 
         /// <summary>
         /// Actualiza la BD con la encuesta actual
@@ -192,6 +153,30 @@ namespace Libreria
             return EncuestaCAD.Instancia.BuscarEncuesta(usuario);
         }
 
+        public static OpcionEncuesta ObtenerOpcion(int id) {
+            return EncuestaCAD.Instancia.ObtenerOpcion(id);
+        }
+
+        public static bool CrearOpcion(OpcionEncuesta opcion)
+        {
+            return EncuestaCAD.Instancia.CrearOpcion(opcion);
+        }
+
+        public static bool ActualizarOpcion(OpcionEncuesta opcion)
+        {
+            return EncuestaCAD.Instancia.ActualizarOpcion(opcion);
+        }
+
+        public static bool BorrarOpcion(OpcionEncuesta opcion) 
+        {
+            return EncuestaCAD.Instancia.BorrarOpcion(opcion);
+        }
+
+        public static bool Votar(ENUsuario usuario, OpcionEncuesta opcion)
+        {
+            return EncuestaCAD.Instancia.VotarOpcion(usuario,opcion);
+        }
+
         public int Id
         {
             get { return id; }
@@ -218,5 +203,54 @@ namespace Libreria
             set { activa = value; }
         }
 
+    }
+
+    /// <summary>
+    /// Clase que representa una opción de encuesta.
+    /// </summary>
+    public class OpcionEncuesta
+    {
+            
+        int id;
+        String opcion;
+        ENEncuesta encuesta;
+
+        public OpcionEncuesta(int id, String opcion, ENEncuesta encuesta)
+        {
+            this.id = id;
+            this.opcion = opcion;
+            this.encuesta = encuesta;
+        }
+
+        public OpcionEncuesta(String opcion, ENEncuesta encuesta)
+        {
+            this.opcion = opcion;
+            this.encuesta = encuesta;
+        }
+
+        public OpcionEncuesta()
+        {
+            id = 0;
+            opcion = "";
+            encuesta = null;
+        }
+
+        public int Id 
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public String Opcion
+        {
+            get { return opcion; }
+            set { opcion = value; }
+        }
+
+        public ENEncuesta Encuesta
+        {
+            get { return encuesta; }
+            set { encuesta = value; }
+        }            
     }
 }
