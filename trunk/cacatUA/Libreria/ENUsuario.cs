@@ -65,6 +65,10 @@ namespace Libreria
         /// </summary>
         private bool activo;
         /// <summary>
+        /// Id de la imagen activa del usuario.
+        /// </summary>
+        private int imagen;
+        /// <summary>
         /// Número de respuestas que ha hecho el usuario.
         /// </summary>
         private int respuestas;
@@ -86,7 +90,10 @@ namespace Libreria
             correo = "";
             adicional = "";
             activo = false;
-            fechaingreso = DateTime.Now; 
+            imagen = -1;
+            fechaingreso = DateTime.Now;
+            respuestas = 0;
+            hilos = 0;
         }
 
         /// <summary>
@@ -595,6 +602,15 @@ namespace Libreria
         {
             get { return activo; }
             set { activo = value; }
+        }
+        /// <summary>
+        /// Indica el ID de la imagen activa del usuario.
+        /// Si no tiene imagen, su valor es -1.
+        /// </summary>
+        public int Imagen
+        {
+            get { return imagen; }
+            set { imagen = value; }
         }
         /// <summary>
         /// Cantidad de respuestas que ha hecho el usuario.

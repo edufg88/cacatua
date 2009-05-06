@@ -54,6 +54,14 @@ namespace Libreria
             usuario.Dni = dr["dni"].ToString();
             usuario.Correo = dr["correo"].ToString();
             usuario.Adicional = dr["adicional"].ToString();
+            try
+            {
+                usuario.Imagen = int.Parse(dr["imagen"].ToString());
+            }
+            catch (Exception)
+            {
+                usuario.Imagen = -1;
+            }
             usuario.Fechaingreso = DateTime.Parse(dr["fechaingreso"].ToString());
             usuario.Hilos = ENHilo.Cantidad(usuario, (ENCategoria)null);
             usuario.Respuestas = ENRespuesta.Cantidad(usuario);
@@ -257,7 +265,7 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "update usuarios set usuario = @usuario, contrasena = @contrasena, nombre = @nombre, correo = @correo, dni = @dni, adicional = @adicional, fechaingreso = @fechaingreso, activo = @activo where id = @id";
+                string sentencia = "update usuarios set usuario = @usuario, contrasena = @contrasena, nombre = @nombre, correo = @correo, dni = @dni, adicional = @adicional, fechaingreso = @fechaingreso, activo = @activo, imagen = @imagen where id = @id";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@usuario", usuario.Usuario);
@@ -268,6 +276,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@fechaingreso", usuario.Fechaingreso);
                 comando.Parameters.AddWithValue("@adicional", usuario.Adicional);
                 comando.Parameters.AddWithValue("@activo", usuario.Activo);
+                comando.Parameters.AddWithValue("@imagen", usuario.Imagen);
                 comando.Parameters.AddWithValue("@id", usuario.Id);
 
                 if (comando.ExecuteNonQuery() == 1)
