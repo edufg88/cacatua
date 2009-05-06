@@ -10,5 +10,5 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
     <asp:Label ID="Label_Texto" runat="server" Text=""></asp:Label>       
-</asp:ContentPlaceHolder>
+</asp:Content>
 
