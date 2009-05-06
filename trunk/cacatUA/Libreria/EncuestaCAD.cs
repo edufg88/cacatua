@@ -113,6 +113,36 @@ namespace Libreria
             return encuestas;
         }
 
+        public ArrayList EncuestasDe(ENUsuario u)
+        {
+            ArrayList encuestas = new ArrayList();
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM encuestas where usuario = @usuario";
+                comando.Parameters.AddWithValue("@id", u.Id);
+                SqlDataReader dr = comando.ExecuteReader();
+                // Generamos el ArrayList a partir del DataReader
+                while (dr.Read())
+                {
+                    ENEncuesta encuesta = ObtenerDatos(dr);
+                    encuestas.Add(encuesta);
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepción obtener encuestas de");
+            }
+
+            return encuestas;
+        }
+
         // Borra todas las encuestas
         public void BorrarEncuestas()
         {
@@ -365,5 +395,223 @@ namespace Libreria
 
             return cantidad;
         }
+
+        public ENEncuesta ObtenerDatosOpcion(SqlDataReader dr)
+        {
+            int id = int.Parse(dr["id"].ToString());
+            String opcion  = dr["opcion"].ToString();
+            ENEncuesta encuesta = ENEncuesta.Obtener(int.Parse(dr["encuesta"].ToString()));
+            return (new OpcionEncuesta(id,opcion,encuesta));
+        }
+
+        public OpcionEncuesta ObtenerOpcion(int id) 
+        {
+            SqlConnection conexion = null;
+            int cantidad = 0;
+            OpcionEncuesta opcion = new OpcionEncuesta();
+
+            try {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string sentencia = "SELECT * FROM opciones WHERE id = @id";
+                comando.Parameters.AddWithValue("@id", id);
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    opcion = ObtenerDatosOpcion(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ObtenerOpcion(int): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return opcion;
+        }
+
+        public bool CrearOpcion(OpcionEncuesta opcion) 
+        {
+            bool creada = false;
+            SqlConnection conexion = null;
+            try
+            {
+
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+
+                comando.CommandText = "BEGIN TRAN " +
+                                      "INSERT INTO " +
+                                      "OPCIONES (opcion,encuesta) " +
+                                      "VALUES (@opcion,@encuesta); " +
+                                      "select max(id) as id from OPCIONES; " +
+                                      "COMMIT TRAN";
+                comando.Parameters.AddWithValue("@opcion", opcion.Opcion);
+                comando.Parameters.AddWithValue("@encuesta", opcion.Encuesta.Id);
+
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    creada = true;
+                    opcion.Id = int.Parse(reader["id"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método Crear(opcion): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return creada;
+        }
+
+        public bool ActualizarOpcion(OpcionEncuesta opcion)
+        {
+            int resultado = 0;
+            bool actualizada = false;
+            SqlConnection conexion = null;
+
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "UPDATE OPCIONES " +
+                    "SET opcion = @opcion " +
+                    "WHERE id = @id";
+                comando.Parameters.AddWithValue("@opcion", opcion.Opcion);
+                comando.Parameters.AddWithValue("@id", opcion.Id);
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    actualizada = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método Actualizar(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return actualizada;
+        }
+   
+        public bool BorrarOpcion(OpcionEncuesta opcion) 
+        {
+            int resultado = 0;
+            bool borrada = false;
+            SqlConnection conexion = null;
+
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "DELETE FROM OPCIONES " +
+                    "WHERE id = @id";
+                comando.Parameters.AddWithValue("@id", opcion.Id);
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    borrada = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método Borrar(opcion): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return borrada;
+        }
+
+        public bool VotarOpcion(ENUsuario usuario, OpcionEncuesta opcion) 
+        {
+            bool votada = false;
+            SqlConnection conexion = null;
+            try
+            {
+
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+
+                comando.CommandText = "INSERT INTO " +
+                                      "OPCIONESVOTOS (usuario,opcion) " +
+                                      "VALUES (@usuario,@opcion); ";
+                comando.Parameters.AddWithValue("@opcion", opcion.Id);
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+
+                SqlDataReader reader = comando.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    votada = true;
+                    opcion.Id = int.Parse(reader["id"].ToString());
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método Crear(opcion): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return votada;
+        }
+        
     }
 }

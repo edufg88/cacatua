@@ -536,6 +536,11 @@ namespace Libreria
             return ImagenCAD.Instancia.CantidadImagenes(this.id);
         }
 
+        public ArrayList Encuestas()
+        {
+            return EncuestaCAD.Instancia.EncuestasDe(this);
+        }
+
         /// <summary>
         /// Comprueba si existe un determinado usuario con una determinada contraseña
         /// </summary>
