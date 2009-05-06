@@ -49,7 +49,7 @@
 #fecha_material
 {
 	font-weight:normal;
-	font-size:medium;
+	font-size:small;
 }
 
 #descargas

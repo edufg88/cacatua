@@ -301,14 +301,18 @@ public partial class materiales : WebCacatUA.InterfazWeb
     {
         if (categoria != null)
         {
-            // Comprobamos si tiene descendientes
-            if (categoria.ObtenerHijos().Count == 0)
+            // Comprobamos si el usuario está logueado
+            if (Session["usuario"] != null)
             {
-                // Establecemos la url cuando se pulse el botón
-                //Button_nuevoMaterial.PostBackUrl = "nuevoMaterial.aspx?categoria=" + categoria.Id;
-                Control control = Page.LoadControl("nuevoMaterial.ascx");
-                WebCacatUA.nuevoMaterial1 control_material = (WebCacatUA.nuevoMaterial1)control;
-                Panel_nuevoMaterial.Controls.Add(control_material);
+                // Comprobamos si tiene descendientes
+                if (categoria.ObtenerHijos().Count == 0)
+                {
+                    // Establecemos la url cuando se pulse el botón
+                    //Button_nuevoMaterial.PostBackUrl = "nuevoMaterial.aspx?categoria=" + categoria.Id;
+                    Control control = Page.LoadControl("nuevoMaterial.ascx");
+                    WebCacatUA.nuevoMaterial1 control_material = (WebCacatUA.nuevoMaterial1)control;
+                    Panel_nuevoMaterial.Controls.Add(control_material);
+                }
             }
         }
     }
