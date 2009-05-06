@@ -14,40 +14,13 @@ namespace WebCacatUA {
     public partial class encuestasEdicion {
         
         /// <summary>
-        /// Control ContentPlaceHolder_headUsuario.
+        /// Control Label_nombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_headUsuario;
-        
-        /// <summary>
-        /// Control ContentPlaceHolder_tituloUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_tituloUsuario;
-        
-        /// <summary>
-        /// Control Label_Titulo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Titulo;
-        
-        /// <summary>
-        /// Control ContentPlaceHolder_contenidoUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_contenidoUsuario;
+        protected global::System.Web.UI.WebControls.Label Label_nombreUsuario;
         
         /// <summary>
         /// Control Label_Texto.
