@@ -36,7 +36,6 @@ namespace WebCacatUA
         {
             try
             {
-
                 material = null;
                 // Recibimos el id del material que hay que mostrar
                 if (Request.Params["id"] != null)
@@ -44,11 +43,29 @@ namespace WebCacatUA
                     int id = int.Parse(Request.Params["id"].ToString());
                     material = ENMaterial.Obtener(id);
                 }
+                else
+                {
+                    // Volvemos a la página de materiales
+                    Response.Redirect("materiales.aspx?categoria=0");
+                }
+
                 // Obtenemos la página selecciona
                 pagina = int.Parse(DropDownList_pagina.Text.ToString());
                 cantidadPorPagina = int.Parse(DropDownList_cantidadPorPagina.Text.ToString());
 
                 MostrarMaterial();
+
+                // Comprobamos si el usuario está logueado
+                if (Session["usuario"] != null)
+                {
+                    nuevoComentario_mostrarMaterial.Visible = true;
+                    botonNuevoComentarioAux_mostrarMaterial.Visible = true;
+                }
+                else
+                {
+                    nuevoComentario_mostrarMaterial.Visible = false;
+                    botonNuevoComentarioAux_mostrarMaterial.Visible = false;
+                }
             }
             catch (Exception ex)
             {
@@ -104,20 +121,6 @@ namespace WebCacatUA
 
             HtmlTable tabla = new HtmlTable();
             tabla.ID = "tabla_mostrarComentatios";
-            /*
-            //tabla.ID = "tabla_materiales";
-            // Obtenemos todos los materiales
-            //ArrayList materiales = ENMaterial.Obtener();
-            // Tipo de orden (ascendente o descendente)
-            //SortOrder orden = formularioPadre.Orden();
-            bool ascendente = false;
-            //if (orden == SortOrder.Ascending)
-            //    ascendente = true;
-            Response.Write(pagina.ToString());
-            BusquedaMaterial busquedaActual = new BusquedaMaterial();
-            busquedaActual.Categoria = categoria;
-            ArrayList materiales = ENMaterial.Obtener(propiedadOrdenar, ascendente,
-                pagina, cantidadPorPagina, busquedaActual);*/
 
             ActualizarPaginacion(material.NumComentarios);
 
@@ -140,10 +143,6 @@ namespace WebCacatUA
                 tabla.Rows.Add(fila);
             }
             Panel_comentarios.Controls.Add(tabla);
-
-            // Actualizamos la paginación
-
-            
         }
 
         public void ActualizarPaginacion(int totalResultados)
@@ -188,9 +187,6 @@ namespace WebCacatUA
             {
                 paginacion_mostrarMaterial.Visible = false;
                 resultados_mostrarMaterial.Visible = false;
-                //label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
-                //button_paginaAnterior.Enabled = false;
-                //button_paginaSiguiente.Enabled = false;
             }
         }
 
@@ -241,12 +237,5 @@ namespace WebCacatUA
             link.NavigateUrl = "materiales.aspx?categoria=" + categoria.Id.ToString();
             Label_ruta.Controls.Add(link);
         }
-
-        protected void DropDownList_cantidadPorPagina_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //DropDownList_pagina.Text = "1";
-            //Page_Load(sender,e);
-        }
-
     }
 }

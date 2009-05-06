@@ -203,6 +203,15 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_resultados;
         
         /// <summary>
+        /// botonNuevoComentarioAux_mostrarMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl botonNuevoComentarioAux_mostrarMaterial;
+        
+        /// <summary>
         /// Button_nuevoMaterial control.
         /// </summary>
         /// <remarks>
@@ -273,6 +282,15 @@ namespace WebCacatUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_siguiente;
+        
+        /// <summary>
+        /// nuevoComentario_mostrarMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nuevoComentario_mostrarMaterial;
         
         /// <summary>
         /// Label4 control.

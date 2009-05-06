@@ -8,66 +8,50 @@ hr {
     margin:5px;
 }
 
-#ctl00_ContentPlaceHolder_contenido_Panel_nuevoMaterial
+#tabla_nuevoMaterial
 {
-    width:730px;	
+    color:White;
+    font-size:normal;
+    width:100%;
+    padding:5px;
 }
 
-.boton_nuevoMaterial
+#tabla_nuevoMaterial tr
 {
-	background-color:White;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	width: 500px;
+    padding:5px;
+}
+
+.columna1_nuevoMaterial
+{
+	padding-left:10px;
+	vertical-align:super;
+    width:120px;	
+}
+
+.columna2_nuevoMaterial
+{
+	text-align:left;
+	padding-right:15px;
 }
 
 #contenido_nuevoMaterial
 {
 	margin-top:20px;
 	background-color:#1e6393;
+	width:100%;
 	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
+	-webkit-border-radius: 5px;		
 }
 
 #titulo_nuevoMaterial
 {
 	color:White;
 	margin-left:10px;
-	padding-top:10px;
-}
-
-#nombre_nuevoMaterial
-{
-	color:White;
-	margin-left:10px;
-	padding-top:10px;
-}
-
-#descripcion_nuevoMaterial
-{
-	color:White;
-	margin-left:10px;
-	padding-top:10px;
-	width:100%;
-}
-
-#referencia_nuevoMaterial
-{
-	color:White;
-	margin-left:10px;
-	padding-top:10px;	
-}
-
-#archivo_materiales
-{
-	color:White;
-	margin-left:10px;
-	padding-top:10px;		
+	padding-top:8px;
 }
 
 #botonCrearMaterial_materiales
-{
-	padding-top:10px;		
+{	
 	margin-left:10px;
 	padding-bottom:10px;	
 }
@@ -76,34 +60,32 @@ hr {
 
 
 <div id="contenido_nuevoMaterial">
+
     <div id="titulo_nuevoMaterial">
         <asp:Label ID="Label4" runat="server" Text="Subir un material"></asp:Label>
         <input id="Hidden_categoria" type="hidden" runat="server" />
-        <a name="marcadorNuevoMaterial"></a>
     </div>
     <hr />
-    <div id="nombre_nuevoMaterial">
-        <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
-        <asp:TextBox ID="TextBox_nombre" class="boton_nuevoMaterial" runat="server" Width="500px"></asp:TextBox>
-    </div>
     
-    <div id="descripcion_nuevoMaterial">
-        <asp:Label ID="Label2" runat="server" Text="Descripción:"></asp:Label>
-        <div id="contenidoDescripcion_nuevoMaterial">
-            <textarea id="TextArea_descripcion" style="width:580px;" class="boton_nuevoMaterial" runat="server" 
-                name="S1" rows="5"></textarea>
-        </div>
-    </div>
-        
-    <div id="referencia_nuevoMaterial">
-        <asp:Label ID="Label_referencia" runat="server" Text="Referencia:"></asp:Label>
-        <asp:TextBox ID="TextBox_referencia" runat="server" class="boton_nuevoMaterial" Width="480px"></asp:TextBox>   
-    </div>
-    
-    <div id="archivo_materiales">
-        <asp:Label ID="Label3" runat="server" Text="Archivo:"></asp:Label>
-        <asp:FileUpload ID="FileUpload1" runat="server" Width="215px" />
-    </div>
+    <table cellpadding="5px" id="tabla_nuevoMaterial">
+        <tr>
+            <td class="columna1_nuevoMaterial"><asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label></td>
+            <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_nombre" runat="server" Width="100%"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td class="columna1_nuevoMaterial"><asp:Label ID="Label2" runat="server" Text="Descripción:"></asp:Label></td>
+            <td class="columna2_nuevoMaterial"><textarea id="TextArea_descripcion" style="width:100%" runat="server" 
+                name="S1" cols="5" rows="5"></textarea></td>
+        </tr>
+        <tr>
+            <td class="columna1_nuevoMaterial"><asp:Label ID="Label_referencia" runat="server" Text="Referencia:"></asp:Label></td>
+            <td class="columna2_nuevoMaterial"> <asp:TextBox ID="TextBox_referencia" runat="server" Width="100%"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td class="columna1_nuevoMaterial"><asp:Label ID="Label3" runat="server" Text="Archivo:"></asp:Label></td>
+            <td class="columna2_nuevoMaterial"><asp:FileUpload ID="FileUpload1" runat="server" Width="100%" size="84%" /></td>
+        </tr>
+    </table>
     
     <div id="botonCrearMaterial_materiales">
         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Crear material" />

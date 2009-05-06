@@ -105,6 +105,14 @@
 	background-color:#1e6393;
 }
 
+#nuevoComentarioAux_mostrarMaterial
+{
+	margin-top:15px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color:#1e6393;	
+}
+
 hr {
     color: #000000;
     font-size: 10px;
@@ -317,10 +325,12 @@ function prueba()
                         </div>
                     </td>
                     <td>
-                        <div id="botonNuevoComentario_mostrarMaterial">
-                            <asp:Button ID="Button_nuevoMaterial" runat="server" Text="Nuevo comentario" 
-                                PostBackUrl="#marcadorComentario" />
-                        </div> 
+                        <div id="botonNuevoComentarioAux_mostrarMaterial" runat="server">
+                            <div id="botonNuevoComentario_mostrarMaterial">
+                                <asp:Button ID="Button_nuevoMaterial" runat="server" Text="Nuevo comentario" 
+                                    PostBackUrl="#nuevoComentario" />
+                            </div> 
+                        </div>
                     </td>
                 </tr>
             </table>
@@ -335,17 +345,19 @@ function prueba()
             <table id="tabla_paginacion_mostrarMaterial">
                 <tr> 
                     <td>
+                       <asp:Label ID="Label8" runat="server" Text="Cantidad por página:"></asp:Label>
+                    <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
+                        AutoPostBack="True">
+                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem Selected="True">4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                    </asp:DropDownList>                       
+                    </td>
+                    <td>
                         <div id="cantidad_paginacion_mostrarMaterial">
-                            <asp:Label ID="Label8" runat="server" Text="Cantidad por página:"></asp:Label>
-                            <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
-                                AutoPostBack="True" 
-                                onselectedindexchanged="DropDownList_cantidadPorPagina_SelectedIndexChanged">
-                                <asp:ListItem>1</asp:ListItem>
-                                <asp:ListItem>2</asp:ListItem>
-                                <asp:ListItem>3</asp:ListItem>
-                                <asp:ListItem Selected="True">4</asp:ListItem>
-                                <asp:ListItem>5</asp:ListItem>
-                            </asp:DropDownList>       
+ 
                                     
                             <span id="botones_paginacion_mostrarMaterial">
                                 <asp:Button ID="Button_anterior" runat="server" Text="Anterior" OnClientClick='decrementarCantidad()' />
@@ -360,22 +372,22 @@ function prueba()
             </table>
         </div>
   
-<div id="nuevoComentario_mostrarMaterial">
-    <div id="tituloComentario_mostrarMaterial">
-        <asp:Label ID="Label4" runat="server" Text="Escribir un comentario"></asp:Label>
+
+    <div id="nuevoComentario_mostrarMaterial" runat="server">
+        <div id="nuevoComentarioAux_mostrarMaterial">
+             <div id="tituloComentario_mostrarMaterial">
+                <asp:Label ID="Label4" runat="server" Text="Escribir un comentario"></asp:Label>
+            </div>
+            <hr />
+            <div id="comentario_mostrarMaterial">
+                <a name="nuevoComentario"></a>
+                <textarea id="TextArea1" style="width:100%;" cols="20" runat="server" rows="2"></textarea>
+            </div>
+            <div id="enviarComentario_mostrarMaterial">
+                <asp:Button ID="Button1" runat="server" Text="Enviar comentario" 
+                    onclick="Button1_Click" />
+            </div>       
+        </div>
     </div>
-    
-    <hr />
-    <div id="comentario_mostrarMaterial">
-        <a name="marcadorComentario"></a>
-        <textarea id="TextArea1" style="width:100%;" cols="20" runat="server" rows="2"></textarea>
-    </div>
-    <div id="enviarComentario_mostrarMaterial">
-        <asp:Button ID="Button1" runat="server" Text="Enviar comentario" 
-            onclick="Button1_Click" />
-    </div>
-        
-    
-    
-</div>
+
 </asp:Content>

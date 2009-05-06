@@ -221,7 +221,6 @@ hr {
 #panel_nuevoMaterial_materiales
 {
 	text-align:left;	
-	
 }
 
 
