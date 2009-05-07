@@ -115,6 +115,19 @@ public partial class foro : WebCacatUA.InterfazWeb
     private void actualizarBusqueda()
     {
         TextBox_filtroBusqueda.Text = busqueda;
+        if (categoria != null)
+        {
+            RadioButton_todasCategorias.Enabled = true;
+            RadioButton_categoriaActual.Enabled = true;
+        }
+        else
+        {
+            RadioButton_todasCategorias.Checked = true;
+            RadioButton_categoriaActual.Checked = false;
+
+            RadioButton_todasCategorias.Enabled = false;
+            RadioButton_categoriaActual.Enabled = false;
+        }
     }
 
     /// <summary>
@@ -465,6 +478,8 @@ public partial class foro : WebCacatUA.InterfazWeb
     protected void Button_buscar_Click(object sender, EventArgs e)
     {
         busqueda = TextBox_filtroBusqueda.Text;
+        if (RadioButton_todasCategorias.Checked)
+            categoria = null;
         Response.Redirect(calcularRuta());
     }
 

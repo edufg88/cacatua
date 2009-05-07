@@ -94,6 +94,24 @@ public partial class foro {
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_orden;
     
     /// <summary>
+    /// Control RadioButton_todasCategorias.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButton RadioButton_todasCategorias;
+    
+    /// <summary>
+    /// Control RadioButton_categoriaActual.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.RadioButton RadioButton_categoriaActual;
+    
+    /// <summary>
     /// Control Label_mostrandoForo.
     /// </summary>
     /// <remarks>

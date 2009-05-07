@@ -181,7 +181,9 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 c1.CssClass = "columna1RespuestaHilo cabeceraRespuestaHilo";
 
                 HyperLink h1 = new HyperLink();
-                h1.Text = "<a href=\"usuario.aspx?=" + i.Autor.Id + "\">" + i.Autor.Usuario + "</a><br />";
+                if (contador == respuestas.Count-1)
+                    h1.Text = "<div id=\"ultima\"></div>";
+                h1.Text += "<a href=\"usuario.aspx?=" + i.Autor.Id + "\">" + i.Autor.Usuario + "</a><br />";
 
                 Image i1 = new Image();
                 if (i.Autor.Imagen != -1)
@@ -192,9 +194,9 @@ public partial class hilo : WebCacatUA.InterfazWeb
 
                 Label l1 = new Label();
                 l1.CssClass = "informacionUsuarioRespuestaHilo";
-                l1.Text += "Número de respuestas: " + (i.Autor.Respuestas + i.Autor.Hilos);
+                l1.Text += Resources.I18N.NumeroRespuestas + ": " + (i.Autor.Respuestas + i.Autor.Hilos);
                 l1.Text += "<br />";
-                l1.Text += "Fecha de ingreso: " + i.Autor.Fechaingreso;
+                l1.Text += Resources.I18N.FechaIngreso + ": " + i.Autor.Fechaingreso;
                 l1.Text += "<br />";
                 l1.Text += "<br />";
                 l1.Text += "<a href=\"enviarmensaje.aspx?usuario=" + i.Autor.Usuario + "\">[sobre]</a>";
@@ -320,6 +322,22 @@ public partial class hilo : WebCacatUA.InterfazWeb
         Table_respuestasHilo.Controls.Add(fila);
     }
 
+    private string calcularRuta()
+    {
+        string ruta = "";
+
+        // Comprobamos el valor de cada parámetro y lo introducimos si no es su valor por defecto.
+        if (pagina != 1)
+            ruta += "&pagina=" + pagina;
+        if (cantidad != 10)
+            ruta += "&cantidad=" + cantidad;
+
+        // Por último, introducimos el nombre del fichero al comienzo.
+        ruta = "hilo.aspx?id=" + h.Id + ruta;
+
+        return ruta;
+    }
+
     protected void Button_paginaAnterior_Click(object sender, EventArgs e)
     {
         pagina--;
@@ -345,27 +363,23 @@ public partial class hilo : WebCacatUA.InterfazWeb
         Response.Redirect(calcularRuta());
     }
 
-    protected void Button_crearRespuesta_Click(object sender, EventArgs e)
+    protected void Button_anadirRespusta_Click(object sender, EventArgs e)
     {
-        /*if (categoria != null)
-            Response.Redirect("crearhilo.aspx?categoria=" + categoria.Id);
-        else
-            Response.Redirect("crearhilo.aspx");*/
-    }
-
-    private string calcularRuta()
-    {
-        string ruta = "";
-
-        // Comprobamos el valor de cada parámetro y lo introducimos si no es su valor por defecto.
-        if (pagina != 1)
-            ruta += "&pagina=" + pagina;
-        if (cantidad != 10)
-            ruta += "&cantidad=" + cantidad;
-
-        // Por último, introducimos el nombre del fichero al comienzo.
-        ruta = "hilo.aspx?id=" + h.Id + ruta;
-
-        return ruta;
+        if (TextBox_anadirRespuesta.Text != "")
+        {
+            ENRespuesta respuesta = new ENRespuesta();
+            respuesta.Texto = TextBox_anadirRespuesta.Text;
+            respuesta.Autor = ENUsuario.Obtener ((DateTime.Now.Millisecond % 7) + 1);
+            respuesta.Hilo = h;
+            respuesta.Fecha = DateTime.Now;
+            if (respuesta.Guardar())
+            {
+                if (totalResultados > 0 && cantidad > 0)
+                    pagina = (int)Math.Ceiling(totalResultados / (float)cantidad);
+                else
+                    pagina = 1;
+                Response.Redirect(calcularRuta() + "#ultima");
+            }
+        }
     }
 }
