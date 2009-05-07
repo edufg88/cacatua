@@ -285,4 +285,10 @@
   <data name="NumeroRespuestas" xml:space="preserve">
     <value>Número de respuestas</value>
   </data>
+  <data name="CabeceraEdicionEncuestasFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="CabeceraEdicionEncuestasPregunta" xml:space="preserve">
+    <value>Pregunta</value>
+  </data>
 </root>
