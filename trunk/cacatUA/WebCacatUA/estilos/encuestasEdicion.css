@@ -1,16 +1,27 @@
-﻿body
+﻿#div_encuestas
 {
+
 }
 
 .tabla_encuestas
 {
 	border: solid 1px;
+	background-color: black;
 	border-color: black;
-	padding-top: 3px;
-	padding-left: 3px;
+	margin-top: 20px;
+	align: center;
 }
 
 .celda_encuestas
 {
-	padding: 2px 2px 2px 2px;
+	padding: 4px 10px 4px 10px;
+	background-color: White;
+	border: solid 1px;
+}
+
+.celda_cabecera
+{
+	padding: 4px 10px 4px 10px;
+	background-color: gray;
+	border: solid 1px;
 }

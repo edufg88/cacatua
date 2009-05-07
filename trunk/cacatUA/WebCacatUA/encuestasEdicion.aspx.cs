@@ -24,7 +24,7 @@ namespace WebCacatUA
             if (u != null)
             {
                 usuario = ENUsuario.Obtener(u);
-                Label_Texto.Text = "· Bienvenido " + usuario.Usuario + ", estas son tus encuestas:";
+                Label_Texto.Text = Resources.I18N.BienvenidaEdicionEncuestas.ToString();
                 CargarEncuestas();
             }
             else
@@ -35,8 +35,47 @@ namespace WebCacatUA
 
         private void CargarEncuestas()
         {
-            ENEncuesta aux = new ENEncuesta();
-            foreach (ENEncuesta enc in aux.Buscar(usuario.Id))
+
+            TableRow cabeceras = new TableRow();
+
+            TableCell cab1 = new TableCell();
+            cab1.CssClass = "celda_cabecera";
+            Label label_cab1 = new Label();
+            label_cab1.Text = Resources.I18N.CabeceraEdicionEncuestasPregunta.ToString();
+            cab1.Controls.Add(label_cab1);
+
+            TableCell cab2 = new TableCell();
+            cab2.CssClass = "celda_cabecera";
+            Label label_cab2 = new Label();
+            label_cab2.Text = "";
+            cab2.Controls.Add(label_cab2);
+
+            TableCell cab3 = new TableCell();
+            cab3.CssClass = "celda_cabecera";
+            Label label_cab3 = new Label();
+            label_cab3.Text = "";
+            cab3.Controls.Add(label_cab3);
+
+            TableCell cab4 = new TableCell();
+            cab4.CssClass = "celda_cabecera";
+            Label label_cab4 = new Label();
+            label_cab4.Text = "";
+            cab4.Controls.Add(label_cab4);
+
+            TableCell cab5 = new TableCell();
+            cab5.CssClass = "celda_cabecera";
+            Label label_cab5 = new Label();
+            label_cab5.Text = Resources.I18N.CabeceraEdicionEncuestasFecha.ToString();
+            cab5.Controls.Add(label_cab5);
+
+            cabeceras.Controls.Add(cab1);
+            cabeceras.Controls.Add(cab2);
+            cabeceras.Controls.Add(cab3);
+            cabeceras.Controls.Add(cab4);
+            cabeceras.Controls.Add(cab5);
+            Table_encuestas.Controls.Add(cabeceras);
+
+            foreach (ENEncuesta enc in (new ENEncuesta()).Buscar(usuario.Id))
             {
                 TableRow fila = new TableRow();
 
@@ -58,9 +97,26 @@ namespace WebCacatUA
                 b2.Text = "Editar";
                 c3.Controls.Add(b2);
 
+                TableCell c4 = new TableCell();
+                c4.CssClass = "celda_encuestas";
+                Button b3 = new Button();
+                if (enc.Activa)
+                    b3.Text = "Desactivar";
+                else
+                    b3.Text = "Activar";
+                c4.Controls.Add(b3);
+
+                TableCell c5 = new TableCell();
+                c5.CssClass = "celda_encuestas";
+                Label l2 = new Label();
+                l2.Text = enc.Fecha.ToShortDateString();
+                c5.Controls.Add(l2);
+
                 fila.Controls.Add(c1);
                 fila.Controls.Add(c2);
                 fila.Controls.Add(c3);
+                fila.Controls.Add(c4);
+                fila.Controls.Add(c5);
 
                 Table_encuestas.Controls.Add(fila);
             }
