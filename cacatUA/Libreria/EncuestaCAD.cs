@@ -113,36 +113,6 @@ namespace Libreria
             return encuestas;
         }
 
-        public ArrayList EncuestasDe(ENUsuario u)
-        {
-            ArrayList encuestas = new ArrayList();
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-
-            try
-            {
-                conexion.Open();
-                SqlCommand comando = new SqlCommand();
-                comando.Connection = conexion;
-                comando.CommandText = "SELECT * FROM encuestas where usuario = @usuario";
-                comando.Parameters.AddWithValue("@id", u.Id);
-                SqlDataReader dr = comando.ExecuteReader();
-                // Generamos el ArrayList a partir del DataReader
-                while (dr.Read())
-                {
-                    ENEncuesta encuesta = ObtenerDatos(dr);
-                    encuestas.Add(encuesta);
-                }
-
-                conexion.Close();
-            }
-            catch (SqlException)
-            {
-                Console.Write("Excepción obtener encuestas de");
-            }
-
-            return encuestas;
-        }
-
         // Borra todas las encuestas
         public void BorrarEncuestas()
         {

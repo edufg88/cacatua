@@ -1,3 +1,16 @@
 ﻿body
 {
 }
+
+.tabla_encuestas
+{
+	border: solid 1px;
+	border-color: black;
+	padding-top: 3px;
+	padding-left: 3px;
+}
+
+.celda_encuestas
+{
+	padding: 2px 2px 2px 2px;
+}
