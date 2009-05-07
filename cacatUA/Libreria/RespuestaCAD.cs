@@ -169,7 +169,7 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "select * from (select *, ROW_NUMBER() OVER (ORDER BY id DESC) as filas from respuestas where hilo = @id)";
+                string sentencia = "select * from (select *, ROW_NUMBER() OVER (ORDER BY id ASC) as filas from respuestas where hilo = @id)";
                 sentencia += "as alias where filas > @filaInicio and filas <= @filaFin \n";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);

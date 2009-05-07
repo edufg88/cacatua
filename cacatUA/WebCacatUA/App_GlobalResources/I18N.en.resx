@@ -264,4 +264,25 @@
   <data name="Mensaje" xml:space="preserve">
     <value>Message</value>
   </data>
+  <data name="AnadirRespuesta" xml:space="preserve">
+    <value>Add reply</value>
+  </data>
+  <data name="AnadirUnaRespuesta" xml:space="preserve">
+    <value>Add a reply</value>
+  </data>
+  <data name="EnCategoriaActual" xml:space="preserve">
+    <value>Current category</value>
+  </data>
+  <data name="EnTodasCategorias" xml:space="preserve">
+    <value>All categories</value>
+  </data>
+  <data name="EnviarRespuesta" xml:space="preserve">
+    <value>Send reply</value>
+  </data>
+  <data name="FechaIngreso" xml:space="preserve">
+    <value>Joined</value>
+  </data>
+  <data name="NumeroRespuestas" xml:space="preserve">
+    <value>Posts</value>
+  </data>
 </root>

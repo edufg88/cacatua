@@ -20,8 +20,7 @@
         <asp:Label ID="Label_mostrandoRespuestasHilo" runat="server" Text=""></asp:Label>
         <div id="crearRespuesta">
             <asp:Button ID="Button_crearRespuesta" runat="server" 
-                Text="<%$ Resources: I18N, CrearNuevoHilo %>" 
-                onclick="Button_crearRespuesta_Click" />
+                Text="<%$ Resources: I18N, AnadirRespuesta %>" PostBackUrl="#anadirRespuesta" />
         </div>
     </div>
     
@@ -64,6 +63,17 @@
         </div>
     </div>
     
+    <asp:Panel ID="Panel_anadirRespuesta" runat="server">
+        <div id="anadirRespuesta">
+            <asp:Label ID="Label_anadirRespuesta" runat="server" Text="<%$ Resources: I18N, AnadirUnaRespuesta %>"></asp:Label>
+            <div id="barraAnadirRespuesta"></div>
+            <div id="textareaAnadirRespuesta">
+                <asp:TextBox ID="TextBox_anadirRespuesta" runat="server" Rows="4" TextMode="MultiLine" Width="100%"></asp:TextBox>
+            </div>
+            <asp:Button ID="Button_anadirRespusta" runat="server" Text="<%$ Resources: I18N, EnviarRespuesta %>" 
+                onclick="Button_anadirRespusta_Click" />
+        </div>
+    </asp:Panel>    
 </div>
 
 </asp:Content>
