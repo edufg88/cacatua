@@ -14,13 +14,13 @@ namespace WebCacatUA {
     public partial class encuestasEdicion {
         
         /// <summary>
-        /// Control Label_nombreUsuario.
+        /// Control Label_nombreSeccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_nombreUsuario;
+        protected global::System.Web.UI.WebControls.Label Label_nombreSeccion;
         
         /// <summary>
         /// Control Label_Texto.
@@ -30,5 +30,14 @@ namespace WebCacatUA {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_Texto;
+        
+        /// <summary>
+        /// Control Table_encuestas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table_encuestas;
     }
 }
