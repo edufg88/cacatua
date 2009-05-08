@@ -232,6 +232,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Debes identificarte para crear hilos.
+        /// </summary>
+        internal static string DebesIdentificarteCrearHilos {
+            get {
+                return ResourceManager.GetString("DebesIdentificarteCrearHilos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debes seleccionar una categoría.
+        /// </summary>
+        internal static string DebesSeleccionarCategoria {
+            get {
+                return ResourceManager.GetString("DebesSeleccionarCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Desapuntarse.
         /// </summary>
         internal static string Desapuntarse {
@@ -358,7 +376,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fecha.
+        ///   Busca una cadena traducida similar a Fallo al crear el hilo.
+        /// </summary>
+        internal static string FalloCrearHilo {
+            get {
+                return ResourceManager.GetString("FalloCrearHilo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha.
         /// </summary>
         internal static string Fecha {
             get {
@@ -430,7 +457,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hilos.
+        ///   Busca una cadena traducida similar a Hilo creado correctamente.
+        /// </summary>
+        internal static string HiloCreadoCorrectamente {
+            get {
+                return ResourceManager.GetString("HiloCreadoCorrectamente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hilos.
         /// </summary>
         internal static string Hilos {
             get {
@@ -439,7 +475,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Idioma.
+        ///   Busca una cadena traducida similar a Identifícate para añadir una respuesta.
+        /// </summary>
+        internal static string IdentificateAnadirRespuesta {
+            get {
+                return ResourceManager.GetString("IdentificateAnadirRespuesta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Idioma.
         /// </summary>
         internal static string Idioma {
             get {
@@ -637,7 +682,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Siguiente.
+        ///   Busca una cadena traducida similar a Selecciona una categoría para crear un hilo.
+        /// </summary>
+        internal static string SeleccionaCategoriaCrearHilo {
+            get {
+                return ResourceManager.GetString("SeleccionaCategoriaCrearHilo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Siguiente.
         /// </summary>
         internal static string Siguiente {
             get {
@@ -718,7 +772,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visitas.
+        ///   Busca una cadena traducida similar a Ver el hilo.
+        /// </summary>
+        internal static string VerHilo {
+            get {
+                return ResourceManager.GetString("VerHilo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Visitas.
         /// </summary>
         internal static string Visitas {
             get {
@@ -732,6 +795,15 @@ namespace Resources {
         internal static string visitasminusculas {
             get {
                 return ResourceManager.GetString("visitasminusculas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Volver al foro.
+        /// </summary>
+        internal static string VolverForo {
+            get {
+                return ResourceManager.GetString("VolverForo", resourceCulture);
             }
         }
         

@@ -31,6 +31,15 @@ public partial class crearhilo {
     protected global::System.Web.UI.WebControls.Panel Panel_contenidoCrearHilo;
     
     /// <summary>
+    /// Control Label_tituloError.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_tituloError;
+    
+    /// <summary>
     /// Control Label_titulo.
     /// </summary>
     /// <remarks>
@@ -47,6 +56,15 @@ public partial class crearhilo {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox TextBox_titulo;
+    
+    /// <summary>
+    /// Control Label_textoError.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_textoError;
     
     /// <summary>
     /// Control Label_texto.
@@ -76,15 +94,6 @@ public partial class crearhilo {
     protected global::System.Web.UI.WebControls.Button Button_enviar;
     
     /// <summary>
-    /// Control Panel_sinCategoria.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel_sinCategoria;
-    
-    /// <summary>
     /// Control Panel_creadoCorrectamente.
     /// </summary>
     /// <remarks>
@@ -92,6 +101,15 @@ public partial class crearhilo {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Panel Panel_creadoCorrectamente;
+    
+    /// <summary>
+    /// Control HyperLink_verHilo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.HyperLink HyperLink_verHilo;
     
     /// <summary>
     /// Control Panel_noCreado.

@@ -31,22 +31,27 @@ public partial class hilo : WebCacatUA.InterfazWeb
     {
         extraerParametros();
 
-        if (!Page.IsPostBack)
-        {
-            actualizarPaginacion();
-
-            // Si es la primera vez que entra, incrementamos el número de visitas.
-            if (pagina == 1 && cantidad == 10 && h != null)
-            {
-                h.NumVisitas++;
-                h.Actualizar();
-            }
-        }
-
         if (h != null)
         {
+            if (!Page.IsPostBack)
+            {
+                actualizarPaginacion();
+                actualizarAnadirRespuesta();
+
+                // Si es la primera vez que entra, incrementamos el número de visitas.
+                if (pagina == 1 && cantidad == 10)
+                {
+                    h.NumVisitas++;
+                    h.Actualizar();
+                }
+            }
+
             mostrarRespuestas();
             mostrarMigas();
+        }
+        else
+        {
+            Response.Redirect("foro.aspx");
         }
     }
 
@@ -90,6 +95,16 @@ public partial class hilo : WebCacatUA.InterfazWeb
                     break;
                 }
             }
+        }
+    }
+
+    private void actualizarAnadirRespuesta()
+    {
+        if (Session["usuario"] == null)
+        {
+            Button_anadirRespuesta.Enabled = false;
+            TextBox_anadirRespuesta.Enabled = false;
+            Label_anadirRespuesta.Text = Resources.I18N.IdentificateAnadirRespuesta;
         }
     }
 
@@ -152,7 +167,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
         if (totalResultados > 0)
             Label_mostrandoRespuestasHilo.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " respuestas.";
         else
-            Label_mostrandoRespuestasHilo.Text = "";
+            Label_mostrandoRespuestasHilo.Text = "&nbsp;";
 
         Table_respuestasHilo.Controls.Clear();
         insertarCabecera();
@@ -199,7 +214,9 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 l1.Text += Resources.I18N.FechaIngreso + ": " + i.Autor.Fechaingreso;
                 l1.Text += "<br />";
                 l1.Text += "<br />";
-                l1.Text += "<a href=\"enviarmensaje.aspx?usuario=" + i.Autor.Usuario + "\">[sobre]</a>";
+
+                string sobre = "<img src=\"imagenes/sobre.png\" alt=\"" + Resources.I18N.Enviar + "\" />";
+                l1.Text += "<a href=\"enviarmensaje.aspx?usuario=" + i.Autor.Usuario + "\">"+sobre+"</a>";
 
                 Panel p1 = new Panel();
                 p1.CssClass = "usuarioRespuestaHilo";
@@ -363,23 +380,42 @@ public partial class hilo : WebCacatUA.InterfazWeb
         Response.Redirect(calcularRuta());
     }
 
-    protected void Button_anadirRespusta_Click(object sender, EventArgs e)
+    protected void Button_anadirRespuesta_Click(object sender, EventArgs e)
     {
-        if (TextBox_anadirRespuesta.Text != "")
+        TextBox_anadirRespuesta.Text = filtrarCadena(TextBox_anadirRespuesta.Text);
+        if (validarFormulario())
         {
-            ENRespuesta respuesta = new ENRespuesta();
-            respuesta.Texto = TextBox_anadirRespuesta.Text;
-            respuesta.Autor = ENUsuario.Obtener ((DateTime.Now.Millisecond % 7) + 1);
-            respuesta.Hilo = h;
-            respuesta.Fecha = DateTime.Now;
-            if (respuesta.Guardar())
+            if (Session["usuario"] != null)
             {
-                if (totalResultados > 0 && cantidad > 0)
-                    pagina = (int)Math.Ceiling(totalResultados / (float)cantidad);
-                else
-                    pagina = 1;
-                Response.Redirect(calcularRuta() + "#ultima");
+                ENRespuesta respuesta = new ENRespuesta();
+                respuesta.Texto = TextBox_anadirRespuesta.Text;
+                respuesta.Autor = ENUsuario.Obtener((DateTime.Now.Millisecond % 7) + 1);
+                respuesta.Hilo = h;
+                respuesta.Fecha = DateTime.Now;
+                if (respuesta.Guardar())
+                {
+                    if (totalResultados > 0 && cantidad > 0)
+                        pagina = (int)Math.Ceiling(totalResultados / (float)cantidad);
+                    else
+                        pagina = 1;
+                    Response.Redirect(calcularRuta() + "#ultima");
+                }
             }
         }
+    }
+
+    private bool validarFormulario()
+    {
+        bool correcto = true;
+
+        Label_anadirRespuestaError.Text = "";
+        if (TextBox_anadirRespuesta.Text.Length <= 0 || TextBox_anadirRespuesta.Text.Length >= 5000)
+        {
+            correcto = false;
+            Label_anadirRespuestaError.Text = "El número de caracteres debe estar entre 1 y 5000.";
+            TextBox_anadirRespuesta.Focus();
+        }
+
+        return correcto;
     }
 }

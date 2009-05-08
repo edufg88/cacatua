@@ -2,13 +2,13 @@
 {
     width: 70%;
     margin: auto;
-    -moz-border-radius: 5px;
 }
 
 .columna1CrearHilo
 {
     text-align: right;
     padding-right: 10px;
+    width: 15%;
 }
 
 .columna2CrearHilo textarea

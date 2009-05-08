@@ -294,6 +294,30 @@
   <data name="DebesIdentificarte" xml:space="preserve">
     <value>You must login</value>
   </data>
+  <data name="DebesSeleccionarCategoria" xml:space="preserve">
+    <value>You must select a category</value>
+  </data>
+  <data name="IdentificateAnadirRespuesta" xml:space="preserve">
+    <value>Log in to add a reply</value>
+  </data>
+  <data name="FalloCrearHilo" xml:space="preserve">
+    <value>Error occured while saving post</value>
+  </data>
+  <data name="HiloCreadoCorrectamente" xml:space="preserve">
+    <value>Post created</value>
+  </data>
+  <data name="VerHilo" xml:space="preserve">
+    <value>Open post now</value>
+  </data>
+  <data name="VolverForo" xml:space="preserve">
+    <value>Back to the forum</value>
+  </data>
+  <data name="DebesIdentificarteCrearHilos" xml:space="preserve">
+    <value>You must log in to open new posts</value>
+  </data>
+  <data name="SeleccionaCategoriaCrearHilo" xml:space="preserve">
+    <value>Select a category to open a new post</value>
+  </data>
   <data name="Limpiar" xml:space="preserve">
     <value>Clean</value>
   </data>

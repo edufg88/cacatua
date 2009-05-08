@@ -12,9 +12,23 @@
 
 <asp:Panel ID="Panel_contenidoCrearHilo" runat="server">
     <table id="tablaCrearHilo">
+        <tr>
+            <td class="columna1CrearHilo"><span>&nbsp;</span></td>
+            <td class="columna2CrearHilo">
+                <asp:Label ID="Label_tituloError" runat="server" ForeColor="Red" Text="El número de caracteres debe estar entre 1 y 100." Visible="False"></asp:Label>
+            </td>
+        </tr>
         <tr id="filaTituloCrearHilo">
             <td class="columna1CrearHilo"><asp:Label ID="Label_titulo" runat="server" Text="<%$ Resources: I18N, Titulo %>"></asp:Label></td>
-            <td class="columna2CrearHilo"><asp:TextBox ID="TextBox_titulo" runat="server" Width="100%"></asp:TextBox></td>
+            <td class="columna2CrearHilo">
+                <asp:TextBox ID="TextBox_titulo" runat="server" Width="100%"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="columna1CrearHilo"><span>&nbsp;</span></td>
+            <td class="columna2CrearHilo">
+                <asp:Label ID="Label_textoError" runat="server" ForeColor="Red" Text="El número de caracteres debe estar entre 1 y 5000." Visible="False"></asp:Label>
+            </td>
         </tr>
         <tr id="filaTextoCrearHilo">
             <td class="columna1CrearHilo"><asp:Label ID="Label_texto" runat="server" Text="<%$ Resources: I18N, Texto %>"></asp:Label></td>
@@ -28,16 +42,14 @@
     </table>
 </asp:Panel>
 
-<asp:Panel ID="Panel_sinCategoria" runat="server" Visible="False">
-    <p>Para crear un hilo debe estar dentro de alguna categoría.</p>
-</asp:Panel>
-
 <asp:Panel ID="Panel_creadoCorrectamente" runat="server" Visible="False">
-    <p>Hilo creado correctamente.</p>
+    <p><%= Resources.I18N.HiloCreadoCorrectamente %>.</p>
+    <asp:HyperLink ID="HyperLink_verHilo" runat="server"><%= Resources.I18N.VerHilo %></asp:HyperLink>
 </asp:Panel>
 
 <asp:Panel ID="Panel_noCreado" runat="server" Visible="False">
-    <p>Fallo al crear el hilo.</p>
+    <p><%= Resources.I18N.FalloCrearHilo %>.</p>
+    <a href="foro.aspx"><%= Resources.I18N.VolverForo %></a>
 </asp:Panel>
 
 </asp:Content>
