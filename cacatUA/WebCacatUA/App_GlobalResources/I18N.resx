@@ -312,4 +312,16 @@
   <data name="Enviarmensaje" xml:space="preserve">
     <value>Enviar Mensaje</value>
   </data>
+  <data name="Descargar" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="Descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Tamaño" xml:space="preserve">
+    <value>Tamaño</value>
+  </data>
+  <data name="Votos" xml:space="preserve">
+    <value>votes</value>
+  </data>
 </root>
