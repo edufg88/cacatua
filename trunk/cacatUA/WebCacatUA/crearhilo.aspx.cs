@@ -26,8 +26,11 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        Panel_sinCategoria.Visible = false;
-        Panel_contenidoCrearHilo.Visible = false;
+        if (Session["usuario"] == null)
+        {
+            Response.Redirect("foro.aspx");
+        }
+
         Panel_creadoCorrectamente.Visible = false;
         Panel_noCreado.Visible = false;
 
@@ -36,31 +39,56 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
         {
             categoria = ENCategoria.Obtener(int.Parse(Request["categoria"].ToString()));
             
-            if (!Page.IsPostBack)
+            if (Page.IsPostBack)
             {
-                Panel_contenidoCrearHilo.Visible = true;
-            }
-            else
-            {
-                ENHilo hilo = new ENHilo();
-                hilo.Texto = TextBox_texto.Text;
-                hilo.Titulo = TextBox_titulo.Text;
-                hilo.Categoria = categoria;
+                TextBox_titulo.Text = filtrarCadena(TextBox_titulo.Text);
+                TextBox_texto.Text = filtrarCadena(TextBox_texto.Text);
+                if (validarFormulario())
+                {
+                    ENHilo hilo = new ENHilo();
+                    hilo.Texto = TextBox_texto.Text;
+                    hilo.Titulo = TextBox_titulo.Text;
+                    hilo.Categoria = categoria;
 
-                hilo.Autor = ENUsuario.Obtener((DateTime.Now.Millisecond % 7)+1);
-                if (hilo.Guardar())
-                {
-                    Panel_creadoCorrectamente.Visible = true;
-                }
-                else
-                {
-                    Panel_noCreado.Visible = true;
+                    hilo.Autor = ENUsuario.Obtener((DateTime.Now.Millisecond % 7) + 1);
+                    if (hilo.Guardar())
+                    {
+                        Panel_contenidoCrearHilo.Visible = false;
+                        Panel_creadoCorrectamente.Visible = true;
+                        HyperLink_verHilo.NavigateUrl = "hilo.aspx?id=" + hilo.Id;
+                    }
+                    else
+                    {
+                        Panel_noCreado.Visible = true;
+                    }
                 }
             }
         }
         catch (Exception)
         {
-            Panel_sinCategoria.Visible = true;
+            Response.Redirect("foro.aspx");
         }
+    }
+
+    private bool validarFormulario()
+    {
+        bool correcto = true;
+
+        Label_tituloError.Visible = false;
+        Label_textoError.Visible = false;
+
+        if (TextBox_titulo.Text.Length <= 0 || TextBox_titulo.Text.Length >= 200)
+        {
+            Label_tituloError.Visible = true;
+            correcto = false;
+        }
+
+        if (TextBox_texto.Text.Length <= 0 || TextBox_texto.Text.Length >= 5000)
+        {
+            Label_textoError.Visible = true;
+            correcto = false;
+        }
+
+        return correcto;
     }
 }

@@ -300,6 +300,30 @@
   <data name="DebesIdentificarte" xml:space="preserve">
     <value>Debes identificarte</value>
   </data>
+  <data name="DebesSeleccionarCategoria" xml:space="preserve">
+    <value>Debes seleccionar una categoría</value>
+  </data>
+  <data name="IdentificateAnadirRespuesta" xml:space="preserve">
+    <value>Identifícate para añadir una respuesta</value>
+  </data>
+  <data name="FalloCrearHilo" xml:space="preserve">
+    <value>Fallo al crear el hilo</value>
+  </data>
+  <data name="HiloCreadoCorrectamente" xml:space="preserve">
+    <value>Hilo creado correctamente</value>
+  </data>
+  <data name="VerHilo" xml:space="preserve">
+    <value>Ver el hilo</value>
+  </data>
+  <data name="VolverForo" xml:space="preserve">
+    <value>Volver al foro</value>
+  </data>
+  <data name="DebesIdentificarteCrearHilos" xml:space="preserve">
+    <value>Debes identificarte para crear hilos</value>
+  </data>
+  <data name="SeleccionaCategoriaCrearHilo" xml:space="preserve">
+    <value>Selecciona una categoría para crear un hilo</value>
+  </data>
   <data name="Limpiar" xml:space="preserve">
     <value>Limpiar</value>
   </data>

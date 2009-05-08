@@ -114,6 +114,26 @@ public partial class foro : WebCacatUA.InterfazWeb
 
     private void actualizarBusqueda()
     {
+        Button_crearHiloForo.Visible = false;
+        Label_crearHiloForo.Text = "";
+        if (Session["usuario"] == null)
+        {
+            Label_crearHiloForo.Text = Resources.I18N.DebesIdentificarteCrearHilos + ".";
+        }
+        else
+        {
+            if (categoria == null)
+            {
+                Label_crearHiloForo.Text = Resources.I18N.SeleccionaCategoriaCrearHilo + ".";
+            }
+            else
+            {
+                Button_crearHiloForo.Visible = true;
+                Button_crearHiloForo.OnClientClick = "window.location='crearhilo.aspx?id=" + categoria.Id + "';";
+            }
+        }
+
+
         TextBox_filtroBusqueda.Text = busqueda;
         if (categoria != null)
         {
@@ -477,7 +497,7 @@ public partial class foro : WebCacatUA.InterfazWeb
 
     protected void Button_buscar_Click(object sender, EventArgs e)
     {
-        busqueda = TextBox_filtroBusqueda.Text;
+        busqueda = filtrarCadena(TextBox_filtroBusqueda.Text);
         if (RadioButton_todasCategorias.Checked)
             categoria = null;
         Response.Redirect(calcularRuta());

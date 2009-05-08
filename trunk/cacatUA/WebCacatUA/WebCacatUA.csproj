@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9D13C5CC-7B0C-45D1-A248-37EDDB545667}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -353,6 +353,7 @@
     <Content Include="galeria\9.jpg" />
     <Content Include="imagenes\descargar.png" />
     <Content Include="imagenes\sinImagen.png" />
+    <Content Include="imagenes\sobre.png" />
     <Content Include="materialBusqueda.ascx" />
     <Content Include="mostrarMaterial.aspx" />
     <Content Include="nuevoMaterial.ascx" />
@@ -418,6 +419,9 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

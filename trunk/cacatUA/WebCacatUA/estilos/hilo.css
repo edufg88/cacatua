@@ -143,6 +143,11 @@
     -moz-border-radius: 5px;
 }
 
+.mensajeIdentificate
+{
+    color: #fff !important;
+}
+
 #anadirRespuesta span
 {
     display: block;

@@ -88,18 +88,21 @@ namespace WebCacatUA
                 TableCell c2 = new TableCell();
                 c2.CssClass = "celda_encuestas";
                 Button b1 = new Button();
+                //b1.Click += new System.EventHandler(button_navegacion_Click);
                 b1.Text = "Editar";
                 c2.Controls.Add(b1);
 
                 TableCell c3 = new TableCell();
                 c3.CssClass = "celda_encuestas";
                 Button b2 = new Button();
+                //b1.Click += new System.EventHandler(button_navegacion_Click);
                 b2.Text = "Editar";
                 c3.Controls.Add(b2);
 
                 TableCell c4 = new TableCell();
                 c4.CssClass = "celda_encuestas";
                 Button b3 = new Button();
+                //b1.Click += new System.EventHandler(button_navegacion_Click);
                 if (enc.Activa)
                     b3.Text = "Desactivar";
                 else

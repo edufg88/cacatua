@@ -28,5 +28,20 @@ namespace WebCacatUA
                 base.InitializeCulture();
             }
         }
+
+        /// <summary>
+        /// Dado un string, elimina todos sus caracteres peligrosos: <, >, =, /, \, etc.
+        /// </summary>
+        /// <param name="cadena">Cadena que se va a filtrar.</param>
+        /// <returns>Devuelve la cadena ya filtrada.</returns>
+        public string filtrarCadena(string cadena)
+        {
+            cadena = cadena.Replace("<", "");
+            cadena = cadena.Replace(">", "");
+            cadena = cadena.Replace("=", "");
+            cadena = cadena.Replace("/", "");
+            cadena = cadena.Replace("\\", "");
+            return cadena;
+        }
     }
 }

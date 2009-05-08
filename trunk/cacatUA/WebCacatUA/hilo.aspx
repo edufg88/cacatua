@@ -17,10 +17,9 @@
     </div>
 
     <div id="mostrandoRespuestasHilo">
-        <asp:Label ID="Label_mostrandoRespuestasHilo" runat="server" Text=""></asp:Label>
+        <asp:Label ID="Label_mostrandoRespuestasHilo" runat="server" Text=" "></asp:Label>
         <div id="crearRespuesta">
-            <asp:Button ID="Button_crearRespuesta" runat="server" 
-                Text="<%$ Resources: I18N, AnadirRespuesta %>" PostBackUrl="#anadirRespuesta" />
+            <input id="Button_crearRespuesta" type="button" value="<%= Resources.I18N.AnadirRespuesta %>" onclick="window.location='#anadirRespuesta'"/>
         </div>
     </div>
     
@@ -68,10 +67,11 @@
             <asp:Label ID="Label_anadirRespuesta" runat="server" Text="<%$ Resources: I18N, AnadirUnaRespuesta %>"></asp:Label>
             <div id="barraAnadirRespuesta"></div>
             <div id="textareaAnadirRespuesta">
+                <asp:Label ID="Label_anadirRespuestaError" ForeColor="Red" runat="server" Text="" BackColor="White"></asp:Label>
                 <asp:TextBox ID="TextBox_anadirRespuesta" runat="server" Rows="4" TextMode="MultiLine" Width="100%"></asp:TextBox>
             </div>
-            <asp:Button ID="Button_anadirRespusta" runat="server" Text="<%$ Resources: I18N, EnviarRespuesta %>" 
-                onclick="Button_anadirRespusta_Click" />
+            <asp:Button ID="Button_anadirRespuesta" runat="server" Text="<%$ Resources: I18N, EnviarRespuesta %>" 
+                onclick="Button_anadirRespuesta_Click" />
         </div>
     </asp:Panel>    
 </div>

@@ -23,10 +23,18 @@
 
 <div id="contenidoForo">
     <div id="busquedaForo">
-        <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="85%"></asp:TextBox>
-        <asp:Button ID="Button_buscar" runat="server" 
-            Text="<%$ Resources: I18N, Buscar %>" Width="10%"
-            onclick="Button_buscar_Click"/>
+        <table style="width: 100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%"></asp:TextBox>
+                </td>
+                <td style="width: 90px;">
+                    <asp:Button ID="Button_buscar" runat="server" 
+                        Text="<%$ Resources: I18N, Buscar %>" Width="100%"
+                        onclick="Button_buscar_Click"/>
+                </td>
+            </tr>
+        </table>
         <div id="criteriosBusquedaForo">
             <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
             <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%" 
@@ -46,6 +54,7 @@
     <div id="mostrandoForo">
         <asp:Label ID="Label_mostrandoForo" runat="server" Text=""></asp:Label>
         <div id="crearHiloForo">
+            <asp:Label ID="Label_crearHiloForo" runat="server" Text="CrearHiloForo"></asp:Label>
             <asp:Button ID="Button_crearHiloForo" runat="server" 
                 Text="<%$ Resources: I18N, CrearNuevoHilo %>" 
                 onclick="Button_crearHiloForo_Click" />

@@ -40,15 +40,6 @@ public partial class hilo {
     protected global::System.Web.UI.WebControls.Label Label_mostrandoRespuestasHilo;
     
     /// <summary>
-    /// Control Button_crearRespuesta.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_crearRespuesta;
-    
-    /// <summary>
     /// Control Table_respuestasHilo.
     /// </summary>
     /// <remarks>
@@ -121,6 +112,15 @@ public partial class hilo {
     protected global::System.Web.UI.WebControls.Label Label_anadirRespuesta;
     
     /// <summary>
+    /// Control Label_anadirRespuestaError.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_anadirRespuestaError;
+    
+    /// <summary>
     /// Control TextBox_anadirRespuesta.
     /// </summary>
     /// <remarks>
@@ -130,11 +130,11 @@ public partial class hilo {
     protected global::System.Web.UI.WebControls.TextBox TextBox_anadirRespuesta;
     
     /// <summary>
-    /// Control Button_anadirRespusta.
+    /// Control Button_anadirRespuesta.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_anadirRespusta;
+    protected global::System.Web.UI.WebControls.Button Button_anadirRespuesta;
 }
