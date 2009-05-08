@@ -13,15 +13,6 @@
 public partial class materiales {
     
     /// <summary>
-    /// Label1 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label1;
-    
-    /// <summary>
     /// Label_ruta control.
     /// </summary>
     /// <remarks>
@@ -38,15 +29,6 @@ public partial class materiales {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden_idCategoria;
-    
-    /// <summary>
-    /// Label_categoria control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_categoria;
     
     /// <summary>
     /// Panel_categorias control.
@@ -157,13 +139,13 @@ public partial class materiales {
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl paginacionSuperior_materiales;
     
     /// <summary>
-    /// Label5 control.
+    /// Panel_cantidadPorPaginaSuperior control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label5;
+    protected global::System.Web.UI.WebControls.Panel Panel_cantidadPorPaginaSuperior;
     
     /// <summary>
     /// DropDownList_cantidadPorPaginaSuperior control.
@@ -236,15 +218,6 @@ public partial class materiales {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_cantidadPorPaginaAnterior;
-    
-    /// <summary>
-    /// Label2 control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label2;
     
     /// <summary>
     /// DropDownList_cantidadPorPaginaInferior control.

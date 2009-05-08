@@ -38,6 +38,8 @@ public partial class materiales : WebCacatUA.InterfazWeb
 
     private void Inicializar()
     {
+        Panel_cantidadPorPaginaSuperior.Visible = false;
+
         Label_cantidadPorPaginaAnterior.Visible = false;
         int cantidadPorPaginaSuperior = int.Parse(DropDownList_cantidadPorPaginaSuperior.Text.ToString());
         int cantidadPorPaginaInferior = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
@@ -213,7 +215,7 @@ public partial class materiales : WebCacatUA.InterfazWeb
     {
         Label_ruta.Controls.Clear();
         HyperLink link = new HyperLink();
-        link.Text = "materiales";
+        link.Text = Resources.I18N.Materiales;
         link.NavigateUrl = "materiales.aspx?categoria=0";
         Label_ruta.Controls.Add(link);
         if (categoria != null)
@@ -301,19 +303,9 @@ public partial class materiales : WebCacatUA.InterfazWeb
     {
         if (categoria != null)
         {
-            // Comprobamos si el usuario está logueado
-            if (Session["usuario"] != null)
-            {
-                // Comprobamos si tiene descendientes
-                if (categoria.ObtenerHijos().Count == 0)
-                {
-                    // Establecemos la url cuando se pulse el botón
-                    //Button_nuevoMaterial.PostBackUrl = "nuevoMaterial.aspx?categoria=" + categoria.Id;
-                    Control control = Page.LoadControl("nuevoMaterial.ascx");
-                    WebCacatUA.nuevoMaterial1 control_material = (WebCacatUA.nuevoMaterial1)control;
-                    Panel_nuevoMaterial.Controls.Add(control_material);
-                }
-            }
+            Control control = Page.LoadControl("nuevoMaterial.ascx");
+            WebCacatUA.nuevoMaterial1 control_material = (WebCacatUA.nuevoMaterial1)control;
+            Panel_nuevoMaterial.Controls.Add(control_material);
         }
     }
 

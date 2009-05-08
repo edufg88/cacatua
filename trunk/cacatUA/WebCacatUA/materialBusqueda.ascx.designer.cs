@@ -32,15 +32,6 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_descripcion;
         
         /// <summary>
-        /// Label24 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label24;
-        
-        /// <summary>
         /// HyperLink_categoria control.
         /// </summary>
         /// <remarks>
@@ -50,15 +41,6 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink_categoria;
         
         /// <summary>
-        /// Label3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-        
-        /// <summary>
         /// Label_usuario control.
         /// </summary>
         /// <remarks>
@@ -66,15 +48,6 @@ namespace WebCacatUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_usuario;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
         /// Label_fecha control.

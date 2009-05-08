@@ -64,6 +64,7 @@ hr {
     <div id="titulo_nuevoMaterial">
         <asp:Label ID="Label4" runat="server" Text="Subir un material"></asp:Label>
         <input id="Hidden_categoria" type="hidden" runat="server" />
+        <asp:Label ID="Label_registrado" runat="server" Text="Tienes que estar registrado"></asp:Label>
     </div>
     <hr />
     

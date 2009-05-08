@@ -14,7 +14,7 @@ using System.Xml.Linq;
 using Libreria;
 namespace WebCacatUA
 {
-    public partial class mostrarMaterial : System.Web.UI.Page
+    public partial class mostrarMaterial : WebCacatUA.InterfazWeb
     {
         private ENMaterial material;
 
@@ -58,13 +58,11 @@ namespace WebCacatUA
                 // Comprobamos si el usuario está logueado
                 if (Session["usuario"] != null)
                 {
-                    nuevoComentario_mostrarMaterial.Visible = true;
-                    botonNuevoComentarioAux_mostrarMaterial.Visible = true;
+                   
                 }
                 else
                 {
-                    nuevoComentario_mostrarMaterial.Visible = false;
-                    botonNuevoComentarioAux_mostrarMaterial.Visible = false;
+                   
                 }
             }
             catch (Exception ex)
