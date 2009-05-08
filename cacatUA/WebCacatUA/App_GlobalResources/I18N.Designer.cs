@@ -97,6 +97,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Archivo.
+        /// </summary>
+        internal static string Archivo {
+            get {
+                return ResourceManager.GetString("Archivo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ascendente.
         /// </summary>
         internal static string ascendente {
@@ -120,6 +129,24 @@ namespace Resources {
         internal static string autormensaje {
             get {
                 return ResourceManager.GetString("autormensaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Añadir comentario.
+        /// </summary>
+        internal static string AñadirComentario {
+            get {
+                return ResourceManager.GetString("AñadirComentario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Añadir un comentario.
+        /// </summary>
+        internal static string AñadirUnComentario {
+            get {
+                return ResourceManager.GetString("AñadirUnComentario", resourceCulture);
             }
         }
         
@@ -282,6 +309,15 @@ namespace Resources {
         internal static string Enviar {
             get {
                 return ResourceManager.GetString("Enviar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enviar comentario.
+        /// </summary>
+        internal static string EnviarComentario {
+            get {
+                return ResourceManager.GetString("EnviarComentario", resourceCulture);
             }
         }
         
@@ -489,6 +525,15 @@ namespace Resources {
         internal static string NRespuestas {
             get {
                 return ResourceManager.GetString("NRespuestas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nuevo material.
+        /// </summary>
+        internal static string NuevoMaterial {
+            get {
+                return ResourceManager.GetString("NuevoMaterial", resourceCulture);
             }
         }
         
