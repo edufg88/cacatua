@@ -297,11 +297,26 @@
   <data name="Limpiar" xml:space="preserve">
     <value>Clean</value>
   </data>
+  <data name="Archivo" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="AñadirComentario" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="AñadirUnComentario" xml:space="preserve">
+    <value>Add a comment</value>
+  </data>
   <data name="Descargar" xml:space="preserve">
     <value>Download</value>
   </data>
   <data name="Descripion" xml:space="preserve">
     <value>Description</value>
+  </data>
+  <data name="EnviarComentario" xml:space="preserve">
+    <value>Send comment</value>
+  </data>
+  <data name="NuevoMaterial" xml:space="preserve">
+    <value>New material</value>
   </data>
   <data name="Tamaño" xml:space="preserve">
     <value>Size</value>
