@@ -11,10 +11,12 @@
     <br />
     <br />
     Mensaje:<br />
-    <asp:TextBox ID="TextBox_mensaje" runat="server" Height="187px" Width="589px"></asp:TextBox>
+    <asp:TextBox ID="TextBox_mensaje" runat="server" Height="187px" Width="589px" 
+        MaxLength="5000"></asp:TextBox>
     <br />
-    <asp:Button ID="Button3" runat="server" onclick="Button3_Click" Text="Enviar" />
-    <asp:Button ID="Button_borrar" runat="server" onclick="Button_borar_Click" 
-        Text="Limpiar" />
+    <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click" 
+        Text="<%$ Resources: I18N, Enviar %>" />
+    <asp:Button ID="Button_borrar" runat="server" onclick="Button_borrar_Click" 
+        Text="<%$  Resources: I18N, Limpiar %>" />
 &nbsp;
 </asp:Content>

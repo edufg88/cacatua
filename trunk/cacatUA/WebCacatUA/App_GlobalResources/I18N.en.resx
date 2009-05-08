@@ -294,4 +294,7 @@
   <data name="DebesIdentificarte" xml:space="preserve">
     <value>You must login</value>
   </data>
+  <data name="Limpiar" xml:space="preserve">
+    <value>Clean</value>
+  </data>
 </root>

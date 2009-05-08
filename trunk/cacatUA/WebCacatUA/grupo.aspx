@@ -19,5 +19,16 @@
 <div id="miembros"> 
     <div id="miembrosTitulo">Miembros:</div>    
     <asp:Panel ID="Panel_miembros" runat="server"><br /></asp:Panel>
-</div>   
+</div> 
+<div>
+    <asp:Button ID="Button_apuntarse" runat="server" 
+        Text= "<%$ Resources: I18N, Apuntarse %>" onclick="Button_apuntarse_Click" 
+        Visible="False" />
+    <asp:Button ID="Button_desapuntarse" runat="server" 
+        Text= "<%$ Resources: I18N, Desapuntarse %>" 
+        onclick="Button_desapuntarse_Click" Visible="False" />
+    <asp:Button ID="Button_enviarmensaje" runat="server" 
+        Text= "<%$ Resources: I18N, Enviarmensaje %>" 
+        onclick="Button_enviarmensaje_Click" />
+    </div>  
 </asp:Content>
