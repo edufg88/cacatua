@@ -257,6 +257,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="confirmacion.aspx.cs">
+      <DependentUpon>confirmacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confirmacion.aspx.designer.cs">
+      <DependentUpon>confirmacion.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="foro.aspx" />
@@ -360,6 +367,7 @@
     <Content Include="firmas.aspx" />
     <Content Include="mensajes.aspx" />
     <Content Include="Uploader.asmx" />
+    <Content Include="confirmacion.aspx" />
     <None Include="Web References\servicioUploader\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -405,7 +413,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>2592</DevelopmentServerPort>
+          <DevelopmentServerPort>3365</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

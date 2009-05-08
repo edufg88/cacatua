@@ -300,4 +300,16 @@
   <data name="DebesIdentificarte" xml:space="preserve">
     <value>Debes identificarte</value>
   </data>
+  <data name="Limpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Apuntarse" xml:space="preserve">
+    <value>Apuntarse</value>
+  </data>
+  <data name="Desapuntarse" xml:space="preserve">
+    <value>Desapuntarse</value>
+  </data>
+  <data name="Enviarmensaje" xml:space="preserve">
+    <value>Enviar Mensaje</value>
+  </data>
 </root>

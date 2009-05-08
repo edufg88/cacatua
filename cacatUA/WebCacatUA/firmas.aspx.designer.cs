@@ -22,6 +22,33 @@ public partial class firmas {
     protected global::System.Web.UI.WebControls.Label Label_usuario;
     
     /// <summary>
+    /// Control Button_paginaAnterior2.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_paginaAnterior2;
+    
+    /// <summary>
+    /// Control DropDownList_pagina2.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList DropDownList_pagina2;
+    
+    /// <summary>
+    /// Control Button_paginaSiguiente2.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente2;
+    
+    /// <summary>
     /// Control Panel_firmas.
     /// </summary>
     /// <remarks>
@@ -47,6 +74,33 @@ public partial class firmas {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button Button_firmar;
+    
+    /// <summary>
+    /// Control Button_paginaAnterior.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_paginaAnterior;
+    
+    /// <summary>
+    /// Control DropDownList_pagina.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.DropDownList DropDownList_pagina;
+    
+    /// <summary>
+    /// Control Button_paginaSiguiente.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente;
     
     /// <summary>
     /// Control Panel_firmar.

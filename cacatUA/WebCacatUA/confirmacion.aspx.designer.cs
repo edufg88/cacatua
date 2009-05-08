@@ -10,41 +10,23 @@
 
 
 
-public partial class enviarmensaje {
+public partial class confirmacion {
     
     /// <summary>
-    /// Control Label_para.
+    /// Control Label_confirmacion.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_para;
+    protected global::System.Web.UI.WebControls.Label Label_confirmacion;
     
     /// <summary>
-    /// Control TextBox_mensaje.
+    /// Control HyperLink_confirmacion.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.TextBox TextBox_mensaje;
-    
-    /// <summary>
-    /// Control Button_enviar.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_enviar;
-    
-    /// <summary>
-    /// Control Button_borrar.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_borrar;
+    protected global::System.Web.UI.WebControls.HyperLink HyperLink_confirmacion;
 }
