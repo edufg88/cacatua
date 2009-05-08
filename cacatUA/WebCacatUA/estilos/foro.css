@@ -22,6 +22,11 @@
     font-size: small; 
 }
 
+.suscribirse, .dessuscribirse
+{
+    padding-top: 15px;   
+}
+
 #migasForo
 {
     margin-bottom: 10px;

@@ -19,6 +19,12 @@
         <asp:Label ID="Label_categorias" runat="server" Text="<%$ Resources: I18N, Categorias %>"></asp:Label>
     </div>
     <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
+    <asp:Panel ID="Panel_suscribirse" runat="server" CssClass="suscribirse">
+        <asp:LinkButton ID="LinkButton_suscribirse" runat="server" ForeColor="Green"
+            onclick="LinkButton_suscribirse_Click">Suscribirse a la categoría actual</asp:LinkButton>
+        <asp:LinkButton ID="LinkButton_dessuscribirse" runat="server"  ForeColor="Red"
+            onclick="LinkButton_dessuscribirse_Click">Salirse a la categoría actual</asp:LinkButton>
+    </asp:Panel>
 </div>
 
 <div id="contenidoForo">
@@ -28,6 +34,7 @@
                 <td>
                     <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%"></asp:TextBox>
                 </td>
+                <td style="width: 2px"></td>
                 <td style="width: 90px;">
                     <asp:Button ID="Button_buscar" runat="server" 
                         Text="<%$ Resources: I18N, Buscar %>" Width="100%"

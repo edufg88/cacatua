@@ -50,7 +50,7 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
                     hilo.Titulo = TextBox_titulo.Text;
                     hilo.Categoria = categoria;
 
-                    hilo.Autor = ENUsuario.Obtener((DateTime.Now.Millisecond % 7) + 1);
+                    hilo.Autor = ENUsuario.Obtener(Session["usuario"].ToString());
                     if (hilo.Guardar())
                     {
                         Panel_contenidoCrearHilo.Visible = false;
