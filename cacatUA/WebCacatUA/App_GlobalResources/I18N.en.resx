@@ -285,4 +285,13 @@
   <data name="NumeroRespuestas" xml:space="preserve">
     <value>Posts</value>
   </data>
+  <data name="Descargas" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Puntuacion" xml:space="preserve">
+    <value>Score</value>
+  </data>
 </root>
