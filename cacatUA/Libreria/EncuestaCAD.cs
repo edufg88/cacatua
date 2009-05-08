@@ -366,6 +366,40 @@ namespace Libreria
             return cantidad;
         }
 
+        public ArrayList OpcionesDe(ENEncuesta encuesta)
+        {
+            SqlConnection conexion = null;
+            ArrayList opciones = new ArrayList();
+
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string sentencia = "SELECT * FROM opciones WHERE encuesta = @encuesta";
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@encuesta",encuesta.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    OpcionEncuesta opcion;
+                    opcion = ObtenerDatosOpcion(reader);
+                    opciones.Add(opcion);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("OpcionesDe(encuesta): " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return opciones;
+        }
+
         public OpcionEncuesta ObtenerDatosOpcion(SqlDataReader dr)
         {
             int id = int.Parse(dr["id"].ToString());

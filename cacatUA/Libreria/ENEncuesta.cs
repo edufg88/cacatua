@@ -177,6 +177,11 @@ namespace Libreria
             return EncuestaCAD.Instancia.VotarOpcion(usuario,opcion);
         }
 
+        public ArrayList Opciones()
+        {
+            return EncuestaCAD.Instancia.OpcionesDe(this);
+        }
+
         public int Id
         {
             get { return id; }

@@ -24,7 +24,7 @@ namespace WebCacatUA
             if (u != null)
             {
                 usuario = ENUsuario.Obtener(u);
-                Label_Texto.Text = Resources.I18N.BienvenidaEdicionEncuestas.ToString();
+                Label_Texto.Text = "Estas son tus encuestas.´En tu página sólo se mostrará la encuesta activa más reciente.";
                 CargarEncuestas();
             }
             else
