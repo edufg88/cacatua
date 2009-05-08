@@ -86,7 +86,7 @@ namespace WebCacatUA
                 HyperLink_usuario.NavigateUrl = "usuario.aspx?id=" + material.Usuario.Id.ToString();
                 Label_descargas.Text = material.Descargas.ToString();
                 Label_valoracion.Text = material.Puntuacion.ToString();
-                Label_votos.Text = " (" + material.Votos.ToString() + " votos)";
+                Label_votos.Text = " (" + material.Votos.ToString() + " " + Resources.I18N.Votos + ")";
                 HyperLink_descargar.NavigateUrl = "descargar.aspx?id=" + material.Id;
 
                 // Comprobamos si ese usuario tiene otros materiales
@@ -203,7 +203,7 @@ namespace WebCacatUA
         {
             Label_ruta.Controls.Clear();
             HyperLink link = new HyperLink();
-            link.Text = "materiales";
+            link.Text = Resources.I18N.Materiales;
             link.NavigateUrl = "materiales.aspx?categoria=0";
             Label_ruta.Controls.Add(link);
             if (categoria != null)

@@ -286,7 +286,7 @@ function prueba()
     <tr>
         <td class="titulo_mostrarMaterial">
             <div id="tamaño_mostrarMaterial">
-                <asp:Label ID="Label2" runat="server" Text="Tamaño:"></asp:Label>
+                <%= Resources.I18N.Tamaño + ":"%>  
             </div>
         </td>
         <td class="columnaContenido_mostrarMaterial">
@@ -307,7 +307,7 @@ function prueba()
     <tr>
         <td class="titulo_mostrarMaterial">
             <div id="descripcion_mostrarMaterial">
-                <asp:Label ID="Label7" runat="server" Text="Descripcion:"></asp:Label>
+                <%= Resources.I18N.Descripcion + ":"%>  
             </div>            
         </td>
         <td class="columnaContenido_mostrarMaterial">
@@ -318,7 +318,7 @@ function prueba()
 
 <div id="descargar_mostrarMaterial">
     <asp:ImageButton ID="ImageButton1" ImageUrl="~/imagenes/descargar.png" runat="server" />
-    <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="Descargar"></asp:HyperLink>
+    <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>
 </div>
 
 </div>
@@ -335,7 +335,7 @@ function prueba()
                     <td>
                         <div id="botonNuevoComentarioAux_mostrarMaterial" runat="server">
                             <div id="botonNuevoComentario_mostrarMaterial">
-                                <input id="Button_nuevoMaterial" type="button" value="Nuevo comentario" onclick="window.location = '#nuevoComentario';" />
+                                <input id="Button_nuevoMaterial" type="button" value="<%= Resources.I18N.AñadirComentario %>" onclick="window.location = '#nuevoComentario';" />
                             </div> 
                         </div>
                     </td>
@@ -379,7 +379,7 @@ function prueba()
     <div id="nuevoComentario_mostrarMaterial" runat="server">
         <div id="nuevoComentarioAux_mostrarMaterial">
              <div id="tituloComentario_mostrarMaterial">
-                <asp:Label ID="Label4" runat="server" Text="Escribir un comentario"></asp:Label>
+                <asp:Label ID="Label4" runat="server" Text="<%$ Resources: I18N, AñadirUnComentario %>"></asp:Label>
             </div>
             <hr />
             <div id="comentario_mostrarMaterial">
@@ -387,7 +387,7 @@ function prueba()
                 <textarea id="TextArea1" style="width:100%;" cols="20" runat="server" rows="2"></textarea>
             </div>
             <div id="enviarComentario_mostrarMaterial">
-                <asp:Button ID="Button1" runat="server" Text="Enviar comentario" onclick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, EnviarComentario %>" onclick="Button1_Click" />
             </div>       
         </div>
     </div>

@@ -62,7 +62,7 @@ hr {
 <div id="contenido_nuevoMaterial">
 
     <div id="titulo_nuevoMaterial">
-        <asp:Label ID="Label4" runat="server" Text="Subir un material"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="<%$ Resources: I18N, NuevoMaterial %>"></asp:Label>
         <input id="Hidden_categoria" type="hidden" runat="server" />
         <asp:Label ID="Label_registrado" runat="server" Text="Tienes que estar registrado"></asp:Label>
     </div>
@@ -70,25 +70,25 @@ hr {
     
     <table cellpadding="5px" id="tabla_nuevoMaterial">
         <tr>
-            <td class="columna1_nuevoMaterial"><asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label></td>
+            <td class="columna1_nuevoMaterial"> <%= Resources.I18N.Nombre + ":" %> </td>
             <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_nombre" runat="server" Width="100%"></asp:TextBox></td>
         </tr>
         <tr>
-            <td class="columna1_nuevoMaterial"><asp:Label ID="Label2" runat="server" Text="Descripción:"></asp:Label></td>
+            <td class="columna1_nuevoMaterial"><%= Resources.I18N.Descripcion + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"><textarea id="TextArea_descripcion" style="width:100%" runat="server" 
                 name="S1" cols="5" rows="5"></textarea></td>
         </tr>
         <tr>
-            <td class="columna1_nuevoMaterial"><asp:Label ID="Label_referencia" runat="server" Text="Referencia:"></asp:Label></td>
+            <td class="columna1_nuevoMaterial"><%= Resources.I18N.Referencia + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"> <asp:TextBox ID="TextBox_referencia" runat="server" Width="100%"></asp:TextBox></td>
         </tr>
         <tr>
-            <td class="columna1_nuevoMaterial"><asp:Label ID="Label3" runat="server" Text="Archivo:"></asp:Label></td>
+            <td class="columna1_nuevoMaterial"><%= Resources.I18N.Archivo + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"><asp:FileUpload ID="FileUpload1" runat="server" Width="100%" size="84%" /></td>
         </tr>
     </table>
     
     <div id="botonCrearMaterial_materiales">
-        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Crear material" />
+        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="<%$ Resources: I18N, EnviarMaterial %>" />
     </div>
 </div>
