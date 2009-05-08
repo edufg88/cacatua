@@ -3,6 +3,15 @@
 	text-align:center;
 }
 
+#contenidoGaleriaDetalle
+{
+	width:90%;
+	margin: 0 auto;
+		
+}
+
+
+
 #imagenSeleccionada
 {
 	
@@ -22,4 +31,49 @@
 {
 	font-size:2em;
 	text-align:center;
+}
+
+#divContenidoGaleria
+{
+	text-align:center;
+}
+
+#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_tablaImagenes,#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_tablaNavegarImagenes
+{
+	margin: 0 auto;
+	text-align:center;
+}
+
+#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_tablaPaginacion
+{
+	width:600px;
+	margin: 0 auto;
+	text-align:center;
+}
+
+#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_siguientePagina,#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_anteriorPagina,#verImagen
+{
+	color:#555555;
+	text-decoration:none;
+	
+}
+
+td
+{
+	vertical-align:top;
+}
+
+#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_panelImagen
+{
+	text-align:center;
+}
+
+#botonesPaginacionSuperior,#divBotonesPaginacionInferior
+{
+	text-align:right;
+}
+
+#tablaPaginacionSuperior,#tablaPaginacionInferior
+{
+	width:100%;
 }
