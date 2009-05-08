@@ -107,9 +107,14 @@ namespace Libreria
             return aux;
         }
 
-        public static ArrayList ObtenerFirmas(string usuario, bool emisor)
+        public static ArrayList ObtenerFirmas(string usuario, int pagina, int cantidad)
         {
-            return FirmaCAD.Instancia.ObtenerFirmas(usuario, emisor);
+            return FirmaCAD.Instancia.ObtenerFirmas(usuario, pagina,cantidad);
+        }
+
+        public static int Cantidad(string usuario)
+        {
+            return FirmaCAD.Instancia.Cantidad(usuario).Count;
         }
 
         /// <summary>

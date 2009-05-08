@@ -96,7 +96,7 @@ namespace Libreria
                 }
                 else 
                 {
-                    comando.CommandText = "SELECT * FROM firmas where receptor = @usuario order";
+                    comando.CommandText = "SELECT * FROM firmas where receptor = @usuario";
                 }
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
 
@@ -119,12 +119,14 @@ namespace Libreria
             return firma;
         }
 
-        public ArrayList ObtenerFirmas(string nombre, bool emisor)
+        public ArrayList ObtenerFirmas(string nombre, int pagina, int cantidad)
         {
             ArrayList firmas = new ArrayList();
 
             // Obtenemos el usuario por nombre para obtener su id
             ENUsuario usuario = ENUsuario.Obtener(nombre);
+            int filaInicio = (pagina - 1) * cantidad + 1;
+            int filaFinal = filaInicio - 1 + cantidad;
 
             try
             {
@@ -132,17 +134,11 @@ namespace Libreria
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
-
-                // Asignamos la sentencia SQL
-                if (emisor)
-                {
-                    comando.CommandText = "SELECT * FROM firmas where emisor = @usuario";
-                }
-                else
-                {
-                    comando.CommandText = "SELECT * FROM firmas where receptor = @usuario order by fecha DESC";
-                }
+                comando.CommandText = "SELECT id,emisor,texto,fecha,receptor FROM (SELECT id,emisor,texto,fecha,receptor, ROW_NUMBER() OVER (ORDER BY fecha DESC"; 
+                comando.CommandText += ") as row FROM mensajes where receptor = @usuario) as alias WHERE row >= @filaInicio and row <= @filaFinal";
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
 
                 // Creamo un objeto DataReader
                 SqlDataReader dr = comando.ExecuteReader();
@@ -160,6 +156,43 @@ namespace Libreria
             catch (SqlException)
             {
                 Console.Write("Excepcion obtener firma por nombre de usuario");
+            }
+
+            return firmas;
+        }
+
+        public ArrayList Cantidad(string nombre)
+        {
+            ArrayList firmas = new ArrayList();
+
+            // Obtenemos el usuario por nombre para obtener su id
+            ENUsuario usuario = ENUsuario.Obtener(nombre);
+
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT * FROM firmas where receptor = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                while (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENFirma
+                    ENFirma firma = null;
+                    firma = ObtenerDatos(dr);
+                    firmas.Add(firma);
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion cantidad firma por nombre de usuario");
             }
 
             return firmas;
