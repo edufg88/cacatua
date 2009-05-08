@@ -40,6 +40,7 @@ public partial class foro : WebCacatUA.InterfazWeb
             actualizarPaginacion();
             actualizarOrdenacion();
             actualizarBusqueda();
+            actualizarSuscripcion();
         }
 
         mostrarHilos();
@@ -132,7 +133,6 @@ public partial class foro : WebCacatUA.InterfazWeb
                 Button_crearHiloForo.OnClientClick = "window.location='crearhilo.aspx?id=" + categoria.Id + "';";
             }
         }
-
 
         TextBox_filtroBusqueda.Text = busqueda;
         if (categoria != null)
@@ -551,5 +551,61 @@ public partial class foro : WebCacatUA.InterfazWeb
             Response.Redirect("crearhilo.aspx?categoria=" + categoria.Id);
         else
             Response.Redirect("crearhilo.aspx");
+    }
+
+    protected void LinkButton_suscribirse_Click(object sender, EventArgs e)
+    {
+        if (Session["usuario"] != null && categoria != null)
+        {
+            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+
+            if (usuario != null)
+            {
+                categoria.SuscribirUsuario(usuario);
+            }
+        }
+
+        actualizarSuscripcion();
+    }
+
+    protected void LinkButton_dessuscribirse_Click(object sender, EventArgs e)
+    {
+        if (Session["usuario"] != null && categoria != null)
+        {
+            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+
+            if (usuario != null)
+            {
+                categoria.InsuscribirUsuario(usuario);
+            }
+        }
+
+        actualizarSuscripcion();
+    }
+
+    private void actualizarSuscripcion()
+    {
+        try
+        {
+            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+
+            //if (categoria.EstaSuscrito(usuario))
+            if (true)
+            {
+                LinkButton_suscribirse.Visible = true;
+                LinkButton_dessuscribirse.Visible = false;
+            }
+            else
+            {
+                LinkButton_suscribirse.Visible = false;
+                LinkButton_dessuscribirse.Visible = true;
+            }
+
+            Panel_suscribirse.Visible = true;
+        }
+        catch (Exception)
+        {
+            Panel_suscribirse.Visible = false;
+        }
     }
 }

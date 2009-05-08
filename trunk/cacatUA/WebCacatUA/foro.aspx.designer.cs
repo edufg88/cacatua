@@ -49,6 +49,33 @@ public partial class foro {
     protected global::System.Web.UI.WebControls.Panel Panel_categorias;
     
     /// <summary>
+    /// Control Panel_suscribirse.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_suscribirse;
+    
+    /// <summary>
+    /// Control LinkButton_suscribirse.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LinkButton_suscribirse;
+    
+    /// <summary>
+    /// Control LinkButton_dessuscribirse.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.LinkButton LinkButton_dessuscribirse;
+    
+    /// <summary>
     /// Control TextBox_filtroBusqueda.
     /// </summary>
     /// <remarks>

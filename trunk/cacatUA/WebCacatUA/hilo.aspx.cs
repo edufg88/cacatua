@@ -389,7 +389,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
             {
                 ENRespuesta respuesta = new ENRespuesta();
                 respuesta.Texto = TextBox_anadirRespuesta.Text;
-                respuesta.Autor = ENUsuario.Obtener((DateTime.Now.Millisecond % 7) + 1);
+                respuesta.Autor = ENUsuario.Obtener(Session["usuario"].ToString());
                 respuesta.Hilo = h;
                 respuesta.Fecha = DateTime.Now;
                 if (respuesta.Guardar())
