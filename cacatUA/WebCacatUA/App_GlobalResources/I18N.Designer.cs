@@ -322,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enviar material.
+        /// </summary>
+        internal static string EnviarMaterial {
+            get {
+                return ResourceManager.GetString("EnviarMaterial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enviar Mensaje.
         /// </summary>
         internal static string Enviarmensaje {
@@ -579,6 +588,15 @@ namespace Resources {
         internal static string Puntuacion {
             get {
                 return ResourceManager.GetString("Puntuacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Referencia.
+        /// </summary>
+        internal static string Referencia {
+            get {
+                return ResourceManager.GetString("Referencia", resourceCulture);
             }
         }
         
