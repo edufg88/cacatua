@@ -17,25 +17,82 @@ namespace WebCacatUA
     public partial class Formulario_web11 : System.Web.UI.Page
     {
         private ENImagen imagen = null;
+        private int pagina = 1;
+        private int numPaginas = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ArrayList fotos = new ArrayList();
+            int n = ENImagen.ObtenerNumeroImagenes(ENUsuario.Obtener(Request.Params["usuario"]).Id);
+            if ( n % 4 == 0)
+            {
+                numPaginas = n / 4;
+            }
+            else
+            {
+                numPaginas = (n / 4) + 1;
+            }
 
             if (Request.Params["usuario"] != null)
             {
                 ENUsuario us = ENUsuario.Obtener(Request.Params["usuario"]);
                 Label_nombreUsuario.Text = "Galeria de fotos de " + Request.Params["usuario"];
-                fotos = ENImagen.ObtenerPorUsuario(us.Id);
+
+                if (Request.Params["pag"] != null)
+                {
+                    pagina = int.Parse(Request.Params["pag"]);
+                    fotos = ENImagen.Obtener(us.Id, int.Parse(Request.Params["pag"]), 4);
+                }
+                else
+                {
+                    fotos = ENImagen.Obtener(us.Id, 1, 4);
+                }
             }
             else
             {
                 fotos = ENImagen.Obtener();
             }
 
-            Table1.Attributes.Add("widht", "90%");
+            tablaImagenes.Attributes.Add("widht", "100%");
             TableRow r = new TableRow();
             TableCell c = new TableCell();
+
+
+            tablaImagenes.Attributes.Add("text-align", "left;");
+            LinkButton ant = new LinkButton();
+            ant.Text = "Anteriores";
+            if (pagina == 1)
+            {
+                ant.Visible = false;
+            }
+            else
+            {
+                ant.Visible = true;
+            }
+            ant.PostBackUrl = "/galeria.aspx?usuario=" + Request.Params["usuario"] + "&pag=" + (pagina-1) + "#comienzoGaleria";
+            ant.ID = "anteriorPagina";
+            c.Controls.Add(ant);
+            c.Attributes.Add("align", "left");
+            r.Controls.Add(c);
+            c = new TableCell();
+            LinkButton sig = new LinkButton();
+            sig.Text = "Siguientes";
+            if (pagina == numPaginas || numPaginas==0)
+            {
+                sig.Visible = false;
+            }
+            else
+            {
+                sig.Visible = true;
+            }
+            sig.PostBackUrl = "/galeria.aspx?usuario=" + Request.Params["usuario"] + "&pag=" + (pagina + 1) + "#comienzoGaleria";
+            sig.ID = "siguientePagina";
+            c.Controls.Add(sig);
+            c.Attributes.Add("align", "right");
+            r.Controls.Add(c);
+            tablaPaginacion.Controls.Add(r);
+            c = new TableCell();
+            r = new TableRow();
 
             int cont=1;
             foreach(ENImagen i in fotos)
@@ -50,7 +107,7 @@ namespace WebCacatUA
 
                 if(cont%10==0)
                 {
-                    Table1.Controls.Add(r);
+                    tablaImagenes.Controls.Add(r);
                     r = new TableRow();
                 }
 
@@ -60,7 +117,7 @@ namespace WebCacatUA
             
             r.Controls.Add(c);
 
-            Table1.Controls.Add(r);
+            tablaImagenes.Controls.Add(r);
             if (fotos.Count > 0)
             {
                 ENImagen img = (ENImagen)fotos[0];
@@ -69,13 +126,21 @@ namespace WebCacatUA
             else{
                 Label lab = new Label();
                 lab.Text = "No hay imagenes";
-                Panel1.Controls.Add(lab);
+                panelImagenPrincipal.Controls.Add(lab);
                 
             }
 
             
 
         }
+
+        void siguiente(object sender, EventArgs e)
+        {
+            pagina++;
+            Response.Redirect("/galeria.aspx?usuario=" + Request.Params["usuario"] + "&pag=" + pagina);
+
+        }
+
 
     }
 }

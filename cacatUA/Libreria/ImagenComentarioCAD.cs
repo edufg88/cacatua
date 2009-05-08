@@ -117,5 +117,110 @@ namespace Libreria
             return insertado;
         
         }
+
+        public ArrayList Obtener(int imagen, int pagina, int cantidadPorPagina)
+        {
+            ArrayList comentarios = new ArrayList();
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                // Cálculamos las filas de inicio y fin a partir de la página
+                int filaInicio = (pagina - 1) * cantidadPorPagina + 1;
+                int filaFinal = filaInicio - 1 + cantidadPorPagina;
+
+                // Formamos dos comandos, uno para obtener el número de resultados total sin paginación y
+                // otro para obtener los materiales paginados con toda la información
+
+                string comandoConPaginacion = "";
+                string cadenaComun = "";
+
+                comandoConPaginacion += "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY " + "fecha DESC";
+
+                comandoConPaginacion += ") as row FROM imagenescomentarios";
+
+                if (imagen != 0)
+                {
+                    if (cadenaComun == "")
+                    {
+                        cadenaComun += " where imagen=" + @imagen;
+                    }
+                    else
+                    {
+                        cadenaComun += " and imagen=" + @imagen;
+                    }
+                }
+
+
+                comandoConPaginacion += cadenaComun;
+                comandoConPaginacion += " ) as alias WHERE row >= @filaInicio and row <= @filaFinal";
+
+                // Obtenemos los resultados con paginación
+                comando.CommandText = comandoConPaginacion;
+
+
+                comando.Parameters.AddWithValue("@filaInicio", filaInicio);
+                comando.Parameters.AddWithValue("@filaFinal", filaFinal);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENImagenComentario comentario = ObtenerDatos(reader);
+                    comentarios.Add(comentario);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENImagenComentario::Obtener> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return comentarios;
+        }
+
+        public int ObtenerNumeroComentarios(int imagen)
+        {
+            int num = 0;
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT count(*) numero FROM imagenescomentarios where imagen=" + imagen; // Asignamos la sentencia SQL
+
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    num = int.Parse(dr["numero"].ToString());
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener imagen por titulo");
+            }
+
+            return num;
+        }
     }
 }

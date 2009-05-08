@@ -23,22 +23,31 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_nombreUsuario;
         
         /// <summary>
-        /// Control Panel1.
+        /// Control panelImagenPrincipal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Panel panelImagenPrincipal;
         
         /// <summary>
-        /// Control Table1.
+        /// Control tablaPaginacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.Table tablaPaginacion;
+        
+        /// <summary>
+        /// Control tablaImagenes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tablaImagenes;
         
         /// <summary>
         /// Control Table2.
