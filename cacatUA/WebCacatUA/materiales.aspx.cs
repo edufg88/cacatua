@@ -47,7 +47,6 @@ public partial class materiales : WebCacatUA.InterfazWeb
         int paginaInferior = int.Parse(DropDownList_paginaInferior.Text.ToString());
         int paginaSuperior = int.Parse(DropDownList_paginaSuperior.Text.ToString());
 
-
         // Comprobamos si ha cambiado la página
         if (paginaInferior != paginaSuperior)
         {
@@ -79,9 +78,6 @@ public partial class materiales : WebCacatUA.InterfazWeb
         Label_cantidadPorPaginaAnterior.Text = cantidadPorPagina.ToString();
         DropDownList_cantidadPorPaginaInferior.Text = cantidadPorPagina.ToString();
         DropDownList_cantidadPorPaginaSuperior.Text = cantidadPorPagina.ToString();
-
-
-
     }
 
     /// <summary>

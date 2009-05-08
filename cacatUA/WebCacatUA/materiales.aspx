@@ -292,7 +292,7 @@ function cambiarOpcionCategoria()
             <div id="opcionesBusqueda">
                 <input id="Radio_materiales" name="opciones" runat="server" type="radio" 
                     onclick="cambiarOpcionMateriales()" value="Materiales"/>
-                <asp:Label ID="Label_radioMateriales" runat="server" Text="Materiales"></asp:Label>
+                <asp:Label ID="Label_radioMateriales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label>
                 <input id="Radio_categoria" name="opciones" runat="server" checked="true" type="radio" onclick="cambiarOpcionCategoria()"/>        
                 <asp:Label ID="Label_radioCategorias" runat="server" Text="categoria"></asp:Label>
                 <input id="Hidden_opcionBusqueda" type="hidden" runat="server"/>  
@@ -356,7 +356,7 @@ function cambiarOpcionCategoria()
                                 <asp:ListItem>100</asp:ListItem>
                             </asp:DropDownList> 
                          </asp:Panel>   
-                         <input id="Button_nuevoMaterial" type="button" value="Nuevo material" onclick="window.location = '#nuevoMaterial';" />
+                         <input id="Button_nuevoMaterial" type="button" value="<%= Resources.I18N.NuevoMaterial %>" onclick="window.location = '#nuevoMaterial';" />
                     </td>
                     <td>
                         <div class="botonesPaginacion_materiales">
