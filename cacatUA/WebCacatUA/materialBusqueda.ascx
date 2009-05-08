@@ -116,21 +116,21 @@
         </div>
         
         <div id="categoria">
-            <asp:Label ID="Label24" runat="server" Text="Categoria: "></asp:Label>
+            <%= Resources.I18N.Categoria + ":" %>
             <span id = "categoria_material">
             <asp:HyperLink ID="HyperLink_categoria" runat="server" Text="categoria_material"></asp:HyperLink>
             </span>
         </div>
         
         <div id = "usuario">
-            <asp:Label ID="Label3" runat="server" Text="Usuario:"></asp:Label>
+            <%= Resources.I18N.Usuario + ":" %>
             <span id = "nombre_usuario">
                 <asp:Label ID="Label_usuario" runat="server" Text="nombre_usuario"></asp:Label>
             </span>
         </div>
         
         <div id = "fecha">
-            <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
+            <%= Resources.I18N.Fecha + ":" %>
             <span id = "fecha_material">
                 <asp:Label ID="Label_fecha" runat="server" Text="fecha"></asp:Label>
             </span>

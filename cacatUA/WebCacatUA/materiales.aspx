@@ -1,55 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeFile="materiales.aspx.cs" Inherits="materiales" Title="Materiales - CacatUA" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_titulo" Runat="Server">
-    <p>Materiales</p>
-</asp:Content>
-
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">
-
-<script  type="text/javascript">
-
-function decrementarCantidadInferior()
-{
-    var cantidad = document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value;
-    cantidad = parseInt(cantidad);
-    cantidad = cantidad-1;
-    document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value = cantidad;
-}
-
-function incrementarCantidadInferior()
-{
-    var cantidad = document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value;
-    cantidad = parseInt(cantidad);
-    cantidad = cantidad+1;
-    document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value = cantidad;
-}
-
-function realizarBusqueda()
-{
-    var texto = document.getElementById("<%= TextBox_buscar.ClientID %>").value;
-    var id = document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value;
-    var busqueda = "materiales.aspx?categoria=" + id + "&buscar=" + texto; 
-    window.location=busqueda;
-}
-
-function cambiarOpcionMateriales()
-{
-    document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value = "0";
-}
-
-function cambiarOpcionCategoria()
-{
-    var aux = document.getElementById("<%= Hidden_idCategoria.ClientID %>").value;
-    document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value = aux;
-}
-
-</script>
-
 <style type="text/css">
     
 
@@ -96,7 +47,6 @@ hr {
     
 }
 
-
 #contenido_materiales
 {
 	float:right;
@@ -114,8 +64,6 @@ hr {
 {
 	color:#1e6393;
 }
-
-
 
 #buscar
 {
@@ -200,8 +148,6 @@ hr {
 	width:100%;
 }
 
-
-
 #tabla_paginacion_materiales
 {
 	color:White;
@@ -215,8 +161,6 @@ hr {
 	text-align:right;
 	
 }
-
-
 
 #panel_nuevoMaterial_materiales
 {
@@ -248,11 +192,6 @@ hr {
 	-webkit-border-radius: 5px;
 }
 
-#ctl00_ContentPlaceHolder_contenido_tabla_materiales
-{
-    
-}
-
 /****************************************************
 #####################################################
 #####################################################
@@ -274,33 +213,68 @@ hr {
 {
 	text-align:right;
 }
-
-
-
-/*
--moz-border-radius-bottomleft:5px;
--moz-border-radius-bottomright:5px;
--moz-border-radius-topleft:5px;
--moz-border-radius-topright:5px;
-background-color:#777777;
-border:1px solid #888888;
-margin-bottom:20px;
-margin-top:5px;
-padding:4px;*/
    
 </style>
+
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_titulo" Runat="Server">
+    <p><%= Resources.I18N.Materiales %></p>
+</asp:Content>
+
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">
+
+<script  type="text/javascript">
+
+function decrementarCantidadInferior()
+{
+    var cantidad = document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value;
+    cantidad = parseInt(cantidad);
+    cantidad = cantidad-1;
+    document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value = cantidad;
+}
+
+function incrementarCantidadInferior()
+{
+    var cantidad = document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value;
+    cantidad = parseInt(cantidad);
+    cantidad = cantidad+1;
+    document.getElementById("<%= DropDownList_paginaInferior.ClientID %>").value = cantidad;
+}
+
+function realizarBusqueda()
+{
+    var texto = document.getElementById("<%= TextBox_buscar.ClientID %>").value;
+    var id = document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value;
+    var busqueda = "materiales.aspx?categoria=" + id + "&buscar=" + texto; 
+    window.location=busqueda;
+}
+
+function cambiarOpcionMateriales()
+{
+    document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value = "0";
+}
+
+function cambiarOpcionCategoria()
+{
+    var aux = document.getElementById("<%= Hidden_idCategoria.ClientID %>").value;
+    document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value = aux;
+}
+
+</script>
 
 <div id="contenedor_materiales">
 
     <div id="navegacion_materiales">
-        <asp:Label ID="Label1" runat="server" Text="Estás aquí:"></asp:Label>
+        <%= Resources.I18N.EstasAqui + ":" %>
         <asp:Label ID="Label_ruta" runat="server" Text="Label"></asp:Label>
         <input id="Hidden_idCategoria" type="hidden" runat="server" />
     </div>
 
     <div id="categorias_materiales">
         <div id="tituloCategorias_materiales">
-            <asp:Label ID="Label_categoria" runat="server" Text="Categorías"></asp:Label>
+            <%= Resources.I18N.Categorias %>
         </div>
         <div id="contenidoCategorias_materiales">
             <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
@@ -312,7 +286,7 @@ padding:4px;*/
         <div id="buscar">
             <div id="textBox_buscar_materiales">
                     <asp:TextBox ID="TextBox_buscar" runat="server" Width="80%"></asp:TextBox> 
-                    <input id="Button1" type="button" value="Buscar" onclick="realizarBusqueda()"/>
+                    <input id="Button1" type="button" value="<%= Resources.I18N.Buscar %>" onclick="realizarBusqueda()"/>
             </div>
 
             <div id="opcionesBusqueda">
@@ -336,7 +310,10 @@ padding:4px;*/
                     <td>
                          <div id="ordenar_materiales" runat="server">
                             <span id="titulo_ordenar_materiales">
-                                <asp:Label ID="Label3" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
+                              
+                                <asp:Label ID="Label3" runat="server">
+                                    <%= Resources.I18N.OrdenarPor %>:
+                                </asp:Label>
                             </span>
                             <span id="propiedades_ordenar_materiales">
                                 <asp:DropDownList ID="DropDownList_propiedadesOrdenar" runat="server" 
@@ -358,25 +335,28 @@ padding:4px;*/
             <table class="tablaPaginacion_materiales">
                 <tr>  
                     <td>
-                        <asp:Label ID="Label5" runat="server" Text="<%$ Resources: I18N, CantidadPorPagina %>"></asp:Label>
-                        <asp:DropDownList ID="DropDownList_cantidadPorPaginaSuperior" runat="server" 
-                        AutoPostBack="True">
-                            <asp:ListItem>1</asp:ListItem>
-                            <asp:ListItem>2</asp:ListItem>
-                            <asp:ListItem>3</asp:ListItem>
-                            <asp:ListItem>4</asp:ListItem>
-                            <asp:ListItem Selected="True">5</asp:ListItem>
-                            <asp:ListItem>10</asp:ListItem>
-                            <asp:ListItem>20</asp:ListItem>
-                            <asp:ListItem>30</asp:ListItem>
-                            <asp:ListItem>40</asp:ListItem>
-                            <asp:ListItem>50</asp:ListItem>
-                            <asp:ListItem>60</asp:ListItem>
-                            <asp:ListItem>70</asp:ListItem>
-                            <asp:ListItem>80</asp:ListItem>
-                            <asp:ListItem>90</asp:ListItem>
-                            <asp:ListItem>100</asp:ListItem>
-                        </asp:DropDownList>       
+                        <asp:Panel ID="Panel_cantidadPorPaginaSuperior" runat="server">
+                            <%= Resources.I18N.CantidadPorPagina + ":" %>
+                            <asp:DropDownList ID="DropDownList_cantidadPorPaginaSuperior" runat="server" 
+                            AutoPostBack="True">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem Selected="True">5</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>20</asp:ListItem>
+                                <asp:ListItem>30</asp:ListItem>
+                                <asp:ListItem>40</asp:ListItem>
+                                <asp:ListItem>50</asp:ListItem>
+                                <asp:ListItem>60</asp:ListItem>
+                                <asp:ListItem>70</asp:ListItem>
+                                <asp:ListItem>80</asp:ListItem>
+                                <asp:ListItem>90</asp:ListItem>
+                                <asp:ListItem>100</asp:ListItem>
+                            </asp:DropDownList> 
+                         </asp:Panel>   
+                         <input id="Button_nuevoMaterial" type="button" value="Nuevo material" onclick="window.location = '#nuevoMaterial';" />
                     </td>
                     <td>
                         <div class="botonesPaginacion_materiales">
@@ -399,7 +379,7 @@ padding:4px;*/
                 <tr>  
                     <td>
                         <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
-                        <asp:Label ID="Label2" runat="server" Text="<%$ Resources: I18N, CantidadPorPagina %>"></asp:Label>
+                        <%= Resources.I18N.CantidadPorPagina + ":" %>
                         <asp:DropDownList ID="DropDownList_cantidadPorPaginaInferior" runat="server" 
                         AutoPostBack="True">
                             <asp:ListItem>1</asp:ListItem>
@@ -432,6 +412,7 @@ padding:4px;*/
             </table>
         </div>
         
+        <a name="nuevoMaterial"></a>
         <div id="panel_nuevoMaterial_materiales">
             <asp:Panel ID="Panel_nuevoMaterial" runat="server"></asp:Panel>   
         </div>

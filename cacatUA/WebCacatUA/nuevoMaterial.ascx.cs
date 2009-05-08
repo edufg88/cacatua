@@ -27,6 +27,20 @@ namespace WebCacatUA
                     int idCategoria = int.Parse(Request.Params["categoria"].ToString());
                     Hidden_categoria.Value = idCategoria.ToString();
                 }
+
+                // Comprobamos si el usuario no está logueado
+                if (Session["usuario"] == null)
+                {
+                    // Desactivamos todo
+                    Button1.Enabled = false;
+                    TextBox_nombre.Enabled = false;
+                    TextBox_referencia.Enabled = false;
+                    FileUpload1.Enabled = false;
+                }
+                else
+                {
+                    Label_registrado.Visible = false;
+                }
             }
             catch (Exception ex)
             {

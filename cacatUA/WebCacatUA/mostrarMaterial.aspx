@@ -1,12 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="mostrarMaterial.aspx.cs" Inherits="WebCacatUA.mostrarMaterial" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
-<p>Materiales</p>
-</asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
-
 <style type="text/css">
     
 #navegacion_mostrarMaterial
@@ -194,7 +187,31 @@ hr {
     text-align:right;	
 }
 
+.botonesPaginacion_mostrarMaterial
+{
+	text-align:right;
+}
+
+.tablaPaginacion_mostrarMaterial
+{
+	color:White;
+	margin-top:10px;
+	text-align:left;
+	width:100%;
+	padding:5px;
+    background-color:#1e6393;	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
 </style>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
+    <p><%= Resources.I18N.Materiales %></p>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
     
 <script  type="text/javascript">
 
@@ -226,28 +243,19 @@ function prueba()
 
 
 <div id="navegacion_mostrarMaterial">
-    <asp:Label ID="Label6" runat="server" Text="Estas aquí: "></asp:Label>
+    <%= Resources.I18N.EstasAqui + ":"%>
     <asp:Label ID="Label_ruta" runat="server" Text="ruta"></asp:Label>
 </div>
 
 <div id="nombreMaterial_mostrarMaterial">
-    <table id="tabla_nombreMaterial">
-        <tr>
-            <td id="columna_titulo">
-                <asp:Label ID="Label_nombre" runat="server" Text="nombre_material"></asp:Label>
-            </td>
-        </tr>
-    </table>
-    
+    <asp:Label ID="Label_nombre" runat="server" Text="nombre_material"></asp:Label>
 </div>   
-
-
     
 <table id="tabla_mostrarMaterial">
     <tr>
         <td class="titulo_mostrarMaterial">
             <div id="usuario_mostrarMaterial">
-                <asp:Label ID="Label5" runat="server" Text="Usuario:"></asp:Label>               
+                <%= Resources.I18N.Usuario + ":"%>             
             </div>
         </td>
         <td class="columnaContenido_mostrarMaterial">
@@ -258,7 +266,7 @@ function prueba()
     <tr>
         <td class="titulo_mostrarMaterial">
             <div id="fecha_mostrarMaterial">
-                <asp:Label ID="Label1" runat="server" Text="Fecha:"></asp:Label>
+                <%= Resources.I18N.Fecha + ":"%>  
             </div>
         </td>
         <td class="columnaContenido_mostrarMaterial">
@@ -268,7 +276,7 @@ function prueba()
     <tr>
         <td class="titulo_mostrarMaterial">
             <div id="descargas_mostrarMaterial">
-                <asp:Label ID="Label3" runat="server" Text="Descargas:"></asp:Label>
+                <%= Resources.I18N.Descargas + ":"%>  
             </div>
         </td>
         <td class="columnaContenido_mostrarMaterial">
@@ -288,7 +296,7 @@ function prueba()
     <tr>
         <td class="titulo_mostrarMaterial">
             <div id="valoracion_mostrarMaterial">
-                <asp:Label ID="Label9" runat="server" Text="Valoración:"></asp:Label>
+                <%= Resources.I18N.Puntuacion + ":"%>  
             </div>
         </td>
         <td class="columnaContenido_mostrarMaterial">
@@ -327,8 +335,7 @@ function prueba()
                     <td>
                         <div id="botonNuevoComentarioAux_mostrarMaterial" runat="server">
                             <div id="botonNuevoComentario_mostrarMaterial">
-                                <asp:Button ID="Button_nuevoMaterial" runat="server" Text="Nuevo comentario" 
-                                    PostBackUrl="#nuevoComentario" />
+                                <input id="Button_nuevoMaterial" type="button" value="Nuevo comentario" onclick="window.location = '#nuevoComentario';" />
                             </div> 
                         </div>
                     </td>
@@ -342,30 +349,26 @@ function prueba()
         
         
         <div id="paginacion_mostrarMaterial" runat="server">
-            <table id="tabla_paginacion_mostrarMaterial">
+            <table class="tablaPaginacion_mostrarMaterial">
                 <tr> 
                     <td>
-                       <asp:Label ID="Label8" runat="server" Text="Cantidad por página:"></asp:Label>
-                    <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
-                        AutoPostBack="True">
-                        <asp:ListItem>1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem Selected="True">4</asp:ListItem>
-                        <asp:ListItem>5</asp:ListItem>
-                    </asp:DropDownList>                       
+                        <%= Resources.I18N.CantidadPorPagina + ":" %>
+                        <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
+                            AutoPostBack="True">
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem Selected="True">4</asp:ListItem>
+                            <asp:ListItem>5</asp:ListItem>
+                        </asp:DropDownList>                       
                     </td>
                     <td>
-                        <div id="cantidad_paginacion_mostrarMaterial">
- 
-                                    
-                            <span id="botones_paginacion_mostrarMaterial">
-                                <asp:Button ID="Button_anterior" runat="server" Text="Anterior" OnClientClick='decrementarCantidad()' />
-                                <asp:DropDownList ID="DropDownList_pagina" runat="server" AutoPostBack="True">
-                                    <asp:ListItem Selected="True">1</asp:ListItem>
-                                </asp:DropDownList>
-                                <asp:Button ID="Button_siguiente" Text="Siguiente" OnClientClick="incrementarCantidad()" runat="server" />                       
-                            </span>             
+                        <div class="botonesPaginacion_mostrarMaterial">     
+                            <asp:Button ID="Button_anterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" OnClientClick='decrementarCantidad()' />
+                            <asp:DropDownList ID="DropDownList_pagina" runat="server" AutoPostBack="True">
+                                <asp:ListItem Selected="True">1</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Button ID="Button_siguiente" Text="<%$ Resources: I18N, Siguiente %>" OnClientClick="incrementarCantidad()" runat="server" />                                
                         </div>                
                     </td>
                 </tr>
@@ -384,8 +387,7 @@ function prueba()
                 <textarea id="TextArea1" style="width:100%;" cols="20" runat="server" rows="2"></textarea>
             </div>
             <div id="enviarComentario_mostrarMaterial">
-                <asp:Button ID="Button1" runat="server" Text="Enviar comentario" 
-                    onclick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Enviar comentario" onclick="Button1_Click" />
             </div>       
         </div>
     </div>

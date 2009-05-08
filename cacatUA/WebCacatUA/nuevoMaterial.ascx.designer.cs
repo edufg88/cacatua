@@ -32,6 +32,15 @@ namespace WebCacatUA {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden_categoria;
         
         /// <summary>
+        /// Label_registrado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_registrado;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
