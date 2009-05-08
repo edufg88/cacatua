@@ -330,8 +330,14 @@
   <data name="EnviarComentario" xml:space="preserve">
     <value>Enviar comentario</value>
   </data>
+  <data name="EnviarMaterial" xml:space="preserve">
+    <value>Enviar material</value>
+  </data>
   <data name="NuevoMaterial" xml:space="preserve">
     <value>Nuevo material</value>
+  </data>
+  <data name="Referencia" xml:space="preserve">
+    <value>Referencia</value>
   </data>
   <data name="Tamaño" xml:space="preserve">
     <value>Tamaño</value>

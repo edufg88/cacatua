@@ -315,8 +315,14 @@
   <data name="EnviarComentario" xml:space="preserve">
     <value>Send comment</value>
   </data>
+  <data name="EnviarMaterial" xml:space="preserve">
+    <value>Send material</value>
+  </data>
   <data name="NuevoMaterial" xml:space="preserve">
     <value>New material</value>
+  </data>
+  <data name="Referencia" xml:space="preserve">
+    <value>Reference</value>
   </data>
   <data name="Tamaño" xml:space="preserve">
     <value>Size</value>
