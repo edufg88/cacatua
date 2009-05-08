@@ -232,7 +232,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Debes identificarte para crear hilos.
+        ///   Looks up a localized string similar to Debes identificarte para crear hilos.
         /// </summary>
         internal static string DebesIdentificarteCrearHilos {
             get {
@@ -241,7 +241,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Debes seleccionar una categoría.
+        ///   Looks up a localized string similar to Debes seleccionar una categoría.
         /// </summary>
         internal static string DebesSeleccionarCategoria {
             get {
@@ -376,7 +376,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fallo al crear el hilo.
+        ///   Looks up a localized string similar to Fallo al crear el hilo.
         /// </summary>
         internal static string FalloCrearHilo {
             get {
@@ -385,7 +385,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Fecha.
+        ///   Looks up a localized string similar to Fecha.
         /// </summary>
         internal static string Fecha {
             get {
@@ -457,7 +457,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Hilo creado correctamente.
+        ///   Looks up a localized string similar to Hilo creado correctamente.
         /// </summary>
         internal static string HiloCreadoCorrectamente {
             get {
@@ -466,7 +466,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Hilos.
+        ///   Looks up a localized string similar to Hilos.
         /// </summary>
         internal static string Hilos {
             get {
@@ -475,7 +475,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Identifícate para añadir una respuesta.
+        ///   Looks up a localized string similar to Identifícate para añadir una respuesta.
         /// </summary>
         internal static string IdentificateAnadirRespuesta {
             get {
@@ -484,7 +484,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Idioma.
+        ///   Looks up a localized string similar to Idioma.
         /// </summary>
         internal static string Idioma {
             get {
@@ -682,7 +682,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Selecciona una categoría para crear un hilo.
+        ///   Looks up a localized string similar to Selecciona una categoría para crear un hilo.
         /// </summary>
         internal static string SeleccionaCategoriaCrearHilo {
             get {
@@ -691,7 +691,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Siguiente.
+        ///   Looks up a localized string similar to Siguiente.
         /// </summary>
         internal static string Siguiente {
             get {
@@ -772,7 +772,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Ver el hilo.
+        ///   Looks up a localized string similar to Ver el hilo.
         /// </summary>
         internal static string VerHilo {
             get {
@@ -781,7 +781,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Visitas.
+        ///   Looks up a localized string similar to Visitas.
         /// </summary>
         internal static string Visitas {
             get {
@@ -799,7 +799,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Volver al foro.
+        ///   Looks up a localized string similar to Volver al foro.
         /// </summary>
         internal static string VolverForo {
             get {
@@ -808,7 +808,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to votes.
+        ///   Looks up a localized string similar to votos.
         /// </summary>
         internal static string Votos {
             get {
