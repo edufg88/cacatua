@@ -85,6 +85,13 @@
     <Compile Include="comentarioMaterial.ascx.designer.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
     </Compile>
+    <Compile Include="editarEncuesta.aspx.cs">
+      <DependentUpon>editarEncuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editarEncuesta.aspx.designer.cs">
+      <DependentUpon>editarEncuesta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="encuestasEdicion.aspx.cs">
       <DependentUpon>encuestasEdicion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,6 +320,7 @@
   <ItemGroup>
     <Content Include="categoriasUsuario.aspx" />
     <Content Include="comentarioMaterial.ascx" />
+    <Content Include="editarEncuesta.aspx" />
     <Content Include="encuestasEdicion.aspx" />
     <Content Include="estilos\categoriasUsuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />
