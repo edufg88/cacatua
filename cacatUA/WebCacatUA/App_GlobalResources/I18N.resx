@@ -126,9 +126,6 @@
   <data name="Categoria" xml:space="preserve">
     <value>Categoría</value>
   </data>
-  <data name="Categorías" xml:space="preserve">
-    <value>Categorías</value>
-  </data>
   <data name="creadoPor" xml:space="preserve">
     <value>creado por</value>
   </data>
@@ -299,5 +296,8 @@
   </data>
   <data name="Puntuacion" xml:space="preserve">
     <value>Puntuación</value>
+  </data>
+  <data name="DebesIdentificarte" xml:space="preserve">
+    <value>Debes identificarte</value>
   </data>
 </root>

@@ -124,10 +124,7 @@
     <value>Search</value>
   </data>
   <data name="Categoria" xml:space="preserve">
-    <value>Categoría</value>
-  </data>
-  <data name="Categorías" xml:space="preserve">
-    <value>Categorías</value>
+    <value>Category</value>
   </data>
   <data name="creadoPor" xml:space="preserve">
     <value>posted by</value>
@@ -181,7 +178,7 @@
     <value>by</value>
   </data>
   <data name="Registrarse" xml:space="preserve">
-    <value>Join in</value>
+    <value>Register</value>
   </data>
   <data name="Respuesta" xml:space="preserve">
     <value>Reply</value>
@@ -293,5 +290,8 @@
   </data>
   <data name="Puntuacion" xml:space="preserve">
     <value>Score</value>
+  </data>
+  <data name="DebesIdentificarte" xml:space="preserve">
+    <value>You must login</value>
   </data>
 </root>
