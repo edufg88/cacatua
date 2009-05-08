@@ -291,4 +291,13 @@
   <data name="CabeceraEdicionEncuestasPregunta" xml:space="preserve">
     <value>Pregunta</value>
   </data>
+  <data name="Descargas" xml:space="preserve">
+    <value>Descargas</value>
+  </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Puntuacion" xml:space="preserve">
+    <value>Puntuación</value>
+  </data>
 </root>

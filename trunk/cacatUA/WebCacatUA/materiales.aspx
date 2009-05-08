@@ -336,16 +336,16 @@ padding:4px;*/
                     <td>
                          <div id="ordenar_materiales" runat="server">
                             <span id="titulo_ordenar_materiales">
-                                <asp:Label ID="Label3" runat="server" Text="Ordenar por:"></asp:Label>
+                                <asp:Label ID="Label3" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
                             </span>
                             <span id="propiedades_ordenar_materiales">
                                 <asp:DropDownList ID="DropDownList_propiedadesOrdenar" runat="server" 
                                  AutoPostBack="True">
-                                    <asp:ListItem Selected="True">fecha</asp:ListItem>
-                                    <asp:ListItem>nombre</asp:ListItem>
-                                    <asp:ListItem>descargas</asp:ListItem>
-                                    <asp:ListItem>usuario</asp:ListItem>
-                                    <asp:ListItem>puntuacion</asp:ListItem>
+                                    <asp:ListItem Value="fecha" Text="<%$ Resources: I18N, Fecha %>" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Value="nombre" Text="<%$ Resources: I18N, Nombre %>"></asp:ListItem>
+                                    <asp:ListItem Value="descargas" Text="<%$ Resources: I18N, Descargas %>"></asp:ListItem>
+                                    <asp:ListItem Value="usuario" Text="<%$ Resources: I18N, Usuario %>"></asp:ListItem>
+                                    <asp:ListItem Value="puntuacion" Text="<%$ Resources: I18N, Puntuacion %>"></asp:ListItem>
                              </asp:DropDownList>        
                             </span>
                         </div>                     
@@ -358,7 +358,7 @@ padding:4px;*/
             <table class="tablaPaginacion_materiales">
                 <tr>  
                     <td>
-                        <asp:Label ID="Label5" runat="server" Text="Cantidad por página:"></asp:Label>
+                        <asp:Label ID="Label5" runat="server" Text="<%$ Resources: I18N, CantidadPorPagina %>"></asp:Label>
                         <asp:DropDownList ID="DropDownList_cantidadPorPaginaSuperior" runat="server" 
                         AutoPostBack="True">
                             <asp:ListItem>1</asp:ListItem>
@@ -381,11 +381,11 @@ padding:4px;*/
                     <td>
                         <div class="botonesPaginacion_materiales">
                             <input id="Hidden_paginaAnterior" type="hidden" runat="server" />
-                            <asp:Button ID="Button_anteriorSuperior" runat="server" OnClientClick="decrementarCantidadInferior()" Text="Anterior" />
+                            <asp:Button ID="Button_anteriorSuperior" runat="server" OnClientClick="decrementarCantidadInferior()" Text="<%$ Resources: I18N, Anterior %>" />
                             <asp:DropDownList ID="DropDownList_paginaSuperior" runat="server" AutoPostBack="True">
                                 <asp:ListItem Selected="True">1</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:Button ID="Button_siguienteSuperior" runat="server" OnClientClick="incrementarCantidadInferior()" Text="Siguiente"/>                       
+                            <asp:Button ID="Button_siguienteSuperior" runat="server" OnClientClick="incrementarCantidadInferior()" Text="<%$ Resources: I18N, Siguiente %>"/>                       
                         </div>                          
                     </td>
                 </tr>
@@ -399,7 +399,7 @@ padding:4px;*/
                 <tr>  
                     <td>
                         <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
-                        <asp:Label ID="Label2" runat="server" Text="Cantidad por página:"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text="<%$ Resources: I18N, CantidadPorPagina %>"></asp:Label>
                         <asp:DropDownList ID="DropDownList_cantidadPorPaginaInferior" runat="server" 
                         AutoPostBack="True">
                             <asp:ListItem>1</asp:ListItem>
@@ -421,11 +421,11 @@ padding:4px;*/
                     </td>
                     <td>
                         <div class="botonesPaginacion_materiales">
-                            <asp:Button ID="Button_anteriorInferior" runat="server" OnClientClick="decrementarCantidadInferior()" Text="Anterior" />
+                            <asp:Button ID="Button_anteriorInferior" runat="server" OnClientClick="decrementarCantidadInferior()" Text="<%$ Resources: I18N, Anterior %>" />
                             <asp:DropDownList ID="DropDownList_paginaInferior" runat="server" AutoPostBack="True">
                                 <asp:ListItem Selected="True">1</asp:ListItem>
                             </asp:DropDownList>
-                            <asp:Button ID="Button_siguienteInferior" runat="server" OnClientClick="incrementarCantidadInferior()" Text="Siguiente"/>                       
+                            <asp:Button ID="Button_siguienteInferior" runat="server" OnClientClick="incrementarCantidadInferior()" Text="<%$ Resources: I18N, Siguiente %>"/>                       
                         </div>                          
                     </td>
                 </tr>

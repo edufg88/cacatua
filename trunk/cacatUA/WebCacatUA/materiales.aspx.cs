@@ -41,7 +41,7 @@ public partial class materiales : WebCacatUA.InterfazWeb
         Label_cantidadPorPaginaAnterior.Visible = false;
         int cantidadPorPaginaSuperior = int.Parse(DropDownList_cantidadPorPaginaSuperior.Text.ToString());
         int cantidadPorPaginaInferior = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
-        propiedadOrdenar = DropDownList_propiedadesOrdenar.Text;
+        propiedadOrdenar = DropDownList_propiedadesOrdenar.SelectedValue;
         int paginaInferior = int.Parse(DropDownList_paginaInferior.Text.ToString());
         int paginaSuperior = int.Parse(DropDownList_paginaSuperior.Text.ToString());
 
