@@ -14,7 +14,7 @@ using Libreria;
 
 namespace WebCacatUA
 {
-    public partial class encuestasEdicion : System.Web.UI.Page
+    public partial class encuestas : InterfazWeb
     {
         ENUsuario usuario;
 

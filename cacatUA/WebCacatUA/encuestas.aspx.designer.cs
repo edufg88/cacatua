@@ -11,7 +11,7 @@
 namespace WebCacatUA {
     
     
-    public partial class encuestasEdicion {
+    public partial class encuestas {
         
         /// <summary>
         /// Control Label_nombreSeccion.
