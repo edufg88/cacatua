@@ -1,0 +1,74 @@
+﻿#contenidoIndex
+{
+    position: relative; 
+    margin-top: 20px;  
+}
+
+#ultimosMateriales, #ultimosHilos
+{
+    background-color: #777;
+    border: 1px solid #888;
+    -moz-border-radius: 5px;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    color: #fff;
+    width: 77%;
+}
+
+#ultimosUsuarios
+{
+    position: absolute;
+    background-color: #fff;
+    border-bottom: 1px solid #999999;
+    border-right: 1px solid #aaaaaa;
+    border-left: 1px solid #bbbbbb;
+    border-top: 1px solid #cccccc;
+    top: 0;
+    right: 0;
+    width: 20%;
+}
+
+.contenidoIndex
+{
+    background-color: #fff;
+    color: #000;
+    padding: 30px;
+    padding-top: 0px;
+    line-height: 30px;
+}
+
+#ultimosMateriales .contenidoIndex, #ultimosHilos .contenidoIndex
+{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #000;
+    padding: 10px;
+    line-height: 30px;
+}
+
+#ultimosMateriales .contenidoIndex a, #ultimosHilos .contenidoIndex a
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: #777;   
+}
+
+#ultimosMateriales .contenidoIndex a:hover, #ultimosHilos .contenidoIndex a:hover
+{
+    color: #000;
+}
+
+.cabeceraIndex
+{
+    display: block;
+    padding: 12px;
+}
+
+.cabeceraIndexUsuarios
+{
+    display: block;
+    padding: 12px;
+    font-weight: bold;
+}

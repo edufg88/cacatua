@@ -979,6 +979,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Últimos hilos.
+        /// </summary>
+        internal static string UltimosHilos {
+            get {
+                return ResourceManager.GetString("UltimosHilos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Últimos materiales.
+        /// </summary>
+        internal static string UltimosMateriales {
+            get {
+                return ResourceManager.GetString("UltimosMateriales", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Últimos usuarios registrados.
+        /// </summary>
+        internal static string UltimosUsuarios {
+            get {
+                return ResourceManager.GetString("UltimosUsuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Usuario.
         /// </summary>
         internal static string Usuario {

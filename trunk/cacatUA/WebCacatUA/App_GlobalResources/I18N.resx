@@ -438,6 +438,15 @@
   <data name="NuevaContraseña" xml:space="preserve">
     <value>Nueva contraseña</value>
   </data>
+  <data name="UltimosHilos" xml:space="preserve">
+    <value>Últimos hilos</value>
+  </data>
+  <data name="UltimosMateriales" xml:space="preserve">
+    <value>Últimos materiales</value>
+  </data>
+  <data name="UltimosUsuarios" xml:space="preserve">
+    <value>Últimos usuarios registrados</value>
+  </data>
   <data name="Crear" xml:space="preserve">
     <value>Crear</value>
   </data>
@@ -447,4 +456,5 @@
   <data name="NUsuarios" xml:space="preserve">
     <value>Número de Usuarios</value>
   </data>
+>>>>>>> .r528
 </root>
