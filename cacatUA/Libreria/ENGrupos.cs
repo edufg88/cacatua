@@ -111,6 +111,17 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene los grupos a los que pertenece un usuario.
+        /// Realiza una consulta a la base de datos.
+        /// </summary>
+        /// <param name="usuario">Usuario del que se van a obtener los grupos.</param>
+        /// <returns>Devuelve una lista de grupos.</returns>
+        public static ArrayList Obtener(ENUsuario usuario)
+        {
+            return GruposCAD.Instancia.Obtener(usuario);
+        }
+
+        /// <summary>
         /// Borra un usuario miembro de un grupo.
         /// </summary>
         /// <param name="usuario">id del usuario a borrar.</param>

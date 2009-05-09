@@ -130,6 +130,52 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene los grupos a los que pertenece un usuario.
+        /// </summary>
+        /// <param name="usuario">Usuario del que se van a obtener los grupos.</param>
+        /// <returns>Devuelve una lista de grupos.</returns>
+        public ArrayList Obtener(ENUsuario usuario)
+        {
+            ArrayList grupos = new ArrayList();
+            ArrayList usuarios = new ArrayList();
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos y abrimos la conexión.
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM grupos, miembros where id = grupo and usuario = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list objetos del tipo ENgruposCRUD
+                while (reader.Read())
+                {
+                    ENGrupos grupo = obtenerDatos(reader);
+                    usuarios = buscarUsuarios(grupo.Id);
+                    foreach (string ob in usuarios)
+                    {
+                        obtenerUsuario(ob, grupo);
+                    }
+                    grupos.Add(grupo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en ENGrupos.ObtenerTodos():" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return grupos;
+        }
+
+        /// <summary>
         /// Devuelve todos los grupos que hay en la base de datos
         /// </summary>
         /// <returns>ArrayList con todos los grupos de la DB</returns>

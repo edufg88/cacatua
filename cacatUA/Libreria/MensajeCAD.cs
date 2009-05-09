@@ -443,7 +443,7 @@ namespace Libreria
             return actualizado;
         }
 
-        public int CantidadMensajes(int emisor)
+        public int CantidadMensajes(int receptor)
         {
             SqlConnection conexion = null;
             int cantidad = 0;
@@ -452,7 +452,36 @@ namespace Libreria
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string sentencia = "SELECT COUNT(*) FROM mensajes WHERE emisor = @emisor";           
+                string sentencia = "SELECT COUNT(*) FROM mensajes WHERE receptor = @receptor";           
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@receptor", receptor);
+
+                cantidad = int.Parse(comando.ExecuteScalar().ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al contar mensajes " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
+        public int CantidadMensajesEnviados(int emisor)
+        {
+            SqlConnection conexion = null;
+            int cantidad = 0;
+
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                string sentencia = "SELECT COUNT(*) FROM mensajes WHERE emisor = @emisor";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@emisor", emisor);
