@@ -356,7 +356,9 @@ function cambiarOpcionCategoria()
                                 <asp:ListItem>100</asp:ListItem>
                             </asp:DropDownList> 
                          </asp:Panel>   
-                         <input id="Button_nuevoMaterial" type="button" value="<%= Resources.I18N.NuevoMaterial %>" onclick="window.location = '#nuevoMaterial';" />
+                        <asp:Panel ID="Panel_botonNuevoMaterial" runat="server">
+                            <input id="Button_nuevoMaterial" type="button" value="<%= Resources.I18N.NuevoMaterial %>" onclick="window.location = '#nuevoMaterial';" />
+                        </asp:Panel>
                     </td>
                     <td>
                         <div class="botonesPaginacion_materiales">

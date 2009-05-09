@@ -52,8 +52,12 @@ hr {
 
 #botonCrearMaterial_materiales
 {	
-	margin-left:10px;
-	padding-bottom:10px;	
+
+}
+
+#mensajeError_nuevoMaterial
+{
+    color:Red;
 }
 
 </style>
@@ -64,7 +68,6 @@ hr {
     <div id="titulo_nuevoMaterial">
         <asp:Label ID="Label4" runat="server" Text="<%$ Resources: I18N, NuevoMaterial %>"></asp:Label>
         <input id="Hidden_categoria" type="hidden" runat="server" />
-        <asp:Label ID="Label_registrado" runat="server" Text="Tienes que estar registrado"></asp:Label>
     </div>
     <hr />
     
@@ -75,8 +78,7 @@ hr {
         </tr>
         <tr>
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Descripcion + ":" %></asp:Label></td>
-            <td class="columna2_nuevoMaterial"><textarea id="TextArea_descripcion" style="width:100%" runat="server" 
-                name="S1" cols="5" rows="5"></textarea></td>
+            <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_descripcion" TextMode="MultiLine" Rows=4 Width="100%" runat="server"></asp:TextBox></td>
         </tr>
         <tr>
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Referencia + ":" %></asp:Label></td>
@@ -86,9 +88,20 @@ hr {
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Archivo + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"><asp:FileUpload ID="FileUpload1" runat="server" Width="100%" size="84%" /></td>
         </tr>
-    </table>
     
-    <div id="botonCrearMaterial_materiales">
-        <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="<%$ Resources: I18N, EnviarMaterial %>" />
-    </div>
+        <tr>
+            <td>
+                <div id="botonCrearMaterial_materiales">
+                    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="<%$ Resources: I18N, EnviarMaterial %>" />
+                </div>
+            </td>
+            <td>
+               <div id="mensajeError_nuevoMaterial">
+                   <asp:Panel ID="Panel_mensajeError" runat="server" Visible="false">
+                        <%= Resources.I18N.DebesIdentificarte %>
+                   </asp:Panel>
+               </div>         
+            </td>
+        </tr>
+    </table>
 </div>

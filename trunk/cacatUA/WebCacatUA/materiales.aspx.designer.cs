@@ -157,6 +157,15 @@ public partial class materiales {
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_cantidadPorPaginaSuperior;
     
     /// <summary>
+    /// Panel_botonNuevoMaterial control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_botonNuevoMaterial;
+    
+    /// <summary>
     /// Hidden_paginaAnterior control.
     /// </summary>
     /// <remarks>
