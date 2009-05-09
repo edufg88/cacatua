@@ -567,6 +567,11 @@ namespace Libreria
             return existe;
         }
 
+        public ArrayList Categorias()
+        {
+            CategoriaCAD.Instancia.CategoriasDe(this);
+        }
+
         public int Id
         {
             get { return id; }
