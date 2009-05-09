@@ -14,14 +14,14 @@ namespace Libreria
     /// </remarks>
     public class ENMaterial : InterfazEN
     {
-        const int maxTamNombre = 50;
-        const int minTamNombre = 2;
-        const int maxTamArchivo = 100;
-        const int minTamArchivo = 5;
-        const int maxTamReferencia = 50;
-        const int minTamReferencia = 2;
-        const int maxTamDescripcion = 5000;
-        const int minTamDescripcion = 2;
+        public const int maxTamNombre = 50;
+        public const int minTamNombre = 2;
+        public const int maxTamArchivo = 100;
+        public const int minTamArchivo = 5;
+        public const int maxTamReferencia = 50;
+        public const int minTamReferencia = 2;
+        public const int maxTamDescripcion = 5000;
+        public const int minTamDescripcion = 2;
 
         private int id;
         private string nombre;

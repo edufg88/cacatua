@@ -41,6 +41,24 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.TextBox TextBox_nombre;
         
         /// <summary>
+        /// Panel_errorNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_errorNombre;
+        
+        /// <summary>
+        /// Label_errorNombre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_errorNombre;
+        
+        /// <summary>
         /// TextBox_descripcion control.
         /// </summary>
         /// <remarks>

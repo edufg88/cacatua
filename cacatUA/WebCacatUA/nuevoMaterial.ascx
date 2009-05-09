@@ -55,9 +55,15 @@ hr {
 
 }
 
-#mensajeError_nuevoMaterial
+.mensajeError_nuevoMaterial
 {
     color:Red;
+}
+
+.filaMensajeError
+{
+	padding:0px;
+	margin:0px;
 }
 
 </style>
@@ -76,6 +82,18 @@ hr {
             <td class="columna1_nuevoMaterial"> <%= Resources.I18N.Nombre + ":" %> </td>
             <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_nombre" runat="server" Width="100%"></asp:TextBox></td>
         </tr>
+        
+        <tr class="filaMensajeError">
+            <asp:Panel ID="Panel_errorNombre" runat="server">
+            <td></td>
+            <td>
+                <div class="mensajeError_nuevoMaterial">
+                    <asp:Label ID="Label_errorNombre" runat="server" Text="error_nombre"></asp:Label>
+                </div>
+            </td>
+            </asp:Panel>
+        </tr>
+        
         <tr>
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Descripcion + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_descripcion" TextMode="MultiLine" Rows=4 Width="100%" runat="server"></asp:TextBox></td>
@@ -96,7 +114,7 @@ hr {
                 </div>
             </td>
             <td>
-               <div id="mensajeError_nuevoMaterial">
+               <div class="mensajeError_nuevoMaterial">
                    <asp:Panel ID="Panel_mensajeError" runat="server" Visible="false">
                         <%= Resources.I18N.DebesIdentificarte %>
                    </asp:Panel>

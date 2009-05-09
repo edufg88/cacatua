@@ -346,7 +346,7 @@ function incrementarCantidad()
             <td class="columnaPuntuacion">
                 <asp:Panel ID="Panel_votar" runat="server">            
                     <div id="votar_mostrarMaterial">
-                        <asp:Label ID="Label1" runat="server" Text="Puntuación: "></asp:Label>
+                        <%= Resources.I18N.Puntuacion + ":"%> 
                         <asp:DropDownList ID="DropDownList_votar" runat="server">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
@@ -359,7 +359,7 @@ function incrementarCantidad()
                             <asp:ListItem>9</asp:ListItem>
                             <asp:ListItem>10</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Button ID="Button_votar" runat="server" Text="Votar" onclick="Button_votar_Click" />
+                        <asp:Button ID="Button_votar" runat="server" Text="<%$ Resources: I18N, Votar %>" onclick="Button_votar_Click" />
                     </div>   
                 </asp:Panel>    
             </td>
