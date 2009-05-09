@@ -438,4 +438,13 @@
   <data name="NuevaContraseña" xml:space="preserve">
     <value>Nueva contraseña</value>
   </data>
+  <data name="Crear" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="CrearGrupo" xml:space="preserve">
+    <value>Crear nuevo grupo</value>
+  </data>
+  <data name="NUsuarios" xml:space="preserve">
+    <value>Número de Usuarios</value>
+  </data>
 </root>
