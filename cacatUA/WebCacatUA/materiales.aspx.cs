@@ -215,12 +215,16 @@ public partial class materiales : WebCacatUA.InterfazWeb
         link.NavigateUrl = "materiales.aspx?categoria=0";
         Label_ruta.Controls.Add(link);
         if (categoria != null)
+        {
             añadirRuta(categoria);
-
-        if (categoria == null)
-            Hidden_idCategoria.Value = "0";
-        else
             Hidden_idCategoria.Value = categoria.Id.ToString();
+        }
+        else
+        {
+            Hidden_idCategoria.Value = "0";
+            // No se puede crear un material en la categoria "Materiales"
+            Panel_botonNuevoMaterial.Visible = false;
+        }
     }
 
     protected void Page_Load(object sender, EventArgs e)

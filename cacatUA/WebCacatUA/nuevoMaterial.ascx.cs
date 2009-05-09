@@ -36,10 +36,8 @@ namespace WebCacatUA
                     TextBox_nombre.Enabled = false;
                     TextBox_referencia.Enabled = false;
                     FileUpload1.Enabled = false;
-                }
-                else
-                {
-                    Label_registrado.Visible = false;
+                    TextBox_descripcion.Enabled = false;
+                    Panel_mensajeError.Visible = true;
                 }
             }
             catch (Exception ex)
@@ -52,7 +50,7 @@ namespace WebCacatUA
         {
             TextBox_nombre.Text = "";
             TextBox_referencia.Text = "";
-            TextArea_descripcion.Value = "";
+            TextBox_descripcion.Text = "";
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -66,7 +64,7 @@ namespace WebCacatUA
                 material.Nombre = TextBox_nombre.Text;
                 material.Usuario = ENUsuario.Obtener("jose");
                 material.Categoria = ENCategoria.Obtener(int.Parse(Hidden_categoria.Value.ToString()));
-                material.Descripcion = TextArea_descripcion.Value;
+                material.Descripcion = TextBox_descripcion.Text;
                 material.Referencia = TextBox_referencia.Text;
                 material.Tamaño = (int)FileUpload1.FileBytes.Length;
                 if (material.Guardar() == true)

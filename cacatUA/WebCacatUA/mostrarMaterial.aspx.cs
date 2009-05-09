@@ -17,6 +17,7 @@ namespace WebCacatUA
     public partial class mostrarMaterial : WebCacatUA.InterfazWeb
     {
         private ENMaterial material;
+        private ENUsuario usuario;
 
         private int cantidadPorPagina;
         public int CantidadPorPagina
@@ -56,13 +57,26 @@ namespace WebCacatUA
                 MostrarMaterial();
 
                 // Comprobamos si el usuario está logueado
-                if (Session["usuario"] != null)
+                if (Session["usuario"] == null)
                 {
-                   
+                    // No está logueado
+                    TextBox_comentario.Enabled = false;
+                    Button1.Enabled = false;
+                    Panel_mensajeError.Visible = true;
+                    Panel_votar.Visible = false;
                 }
                 else
+                    usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+
+                // Comprobamos si el usuario puede votar
+                if (Panel_votar.Visible == true)
                 {
-                   
+                    int puntuacion = material.PuntuacionUsuario(usuario);
+                    if (puntuacion != -1)
+                    {  
+                        // No Puede votar
+                        Panel_votar.Visible = false;
+                    }
                 }
             }
             catch (Exception ex)
@@ -168,7 +182,6 @@ namespace WebCacatUA
                 int final = inicial - 1 + CantidadPorPagina;
                 if (final > totalResultados) final = totalResultados;
 
-                //Label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " materiales encontrados)";
                 Label_resultados.Text = "Resultados " + inicial + " a " + final + " de " + totalResultados;
 
                 if (DropDownList_pagina.Text == "1")
@@ -191,11 +204,11 @@ namespace WebCacatUA
         protected void Button1_Click(object sender, EventArgs e)
         {
             ComentarioMaterial comentario = new ComentarioMaterial();
-            comentario.Usuario = ENUsuario.Obtener("jose");
+            comentario.Usuario = ENUsuario.Obtener(Session["usuario"].ToString());
             comentario.Material = material;
-            comentario.Texto = TextArea1.Value;
+            comentario.Texto = TextBox_comentario.Text;
             material.GuardarComentario(comentario);
-            TextArea1.Value = "";
+            TextBox_comentario.Text = "";
             MostrarComentarios();
         }
 
@@ -234,6 +247,20 @@ namespace WebCacatUA
             link.Text = categoria.Nombre;
             link.NavigateUrl = "materiales.aspx?categoria=" + categoria.Id.ToString();
             Label_ruta.Controls.Add(link);
+        }
+
+        protected void Button_votar_Click(object sender, EventArgs e)
+        {
+            int puntuacion = int.Parse(DropDownList_votar.SelectedValue);
+            // Obtenemos el usuario que vota
+            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+            if(usuario != null)
+            {
+                // Guardamos el voto en la base de datos
+                material.Votar(usuario, puntuacion);
+                // Ocultamos el panel de votación
+                Panel_votar.Visible = false;
+            }
         }
     }
 }

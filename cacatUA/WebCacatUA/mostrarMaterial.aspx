@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="mostrarMaterial.aspx.cs" Inherits="WebCacatUA.mostrarMaterial" Title="Untitled Page" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<style type="text/css">
+    <style type="text/css">
     
 #navegacion_mostrarMaterial
 {
@@ -88,14 +88,6 @@
 #descargar_mostrarMaterial
 {
 	font-size:x-large;
-}
-
-#nuevoComentario_mostrarMaterial
-{
-	margin-top:15px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	background-color:#1e6393;
 }
 
 #nuevoComentarioAux_mostrarMaterial
@@ -204,6 +196,24 @@ hr {
 	-webkit-border-radius: 5px;
 }
 
+#mensajeError_mostrarMaterial
+{   
+	color:Red;
+	margin-left:5px;
+}
+
+#votar_mostrarMaterial
+{
+    font-weight:normal;
+    font-size:large;
+}
+
+.columnaPuntuacion
+{
+	padding-left:15px;
+    padding-top:10px;
+}
+
 </style>
 </asp:Content>
 
@@ -229,11 +239,6 @@ function incrementarCantidad()
     cantidad = parseInt(cantidad);
     cantidad = cantidad+1;
     document.getElementById("<%= DropDownList_pagina.ClientID %>").value = cantidad;
-}
-
-function prueba()
-{
-    alert("hola");
 }
 
 </script>
@@ -317,8 +322,35 @@ function prueba()
 </table>
 
 <div id="descargar_mostrarMaterial">
-    <asp:ImageButton ID="ImageButton1" ImageUrl="~/imagenes/descargar.png" runat="server" />
-    <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>
+    <table id="tablaDescargar_mostrarMaterial">
+        <tr>
+            <td>
+                <asp:ImageButton ID="ImageButton1" ImageUrl="~/imagenes/descargar.png" runat="server" />
+                <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>  
+            </td>
+            <td class="columnaPuntuacion">
+                <asp:Panel ID="Panel_votar" runat="server">            
+                    <div id="votar_mostrarMaterial">
+                        <asp:Label ID="Label1" runat="server" Text="Puntuación: "></asp:Label>
+                        <asp:DropDownList ID="DropDownList_votar" runat="server">
+                            <asp:ListItem>1</asp:ListItem>
+                            <asp:ListItem>2</asp:ListItem>
+                            <asp:ListItem>3</asp:ListItem>
+                            <asp:ListItem>4</asp:ListItem>
+                            <asp:ListItem Selected="True">5</asp:ListItem>
+                            <asp:ListItem>6</asp:ListItem>
+                            <asp:ListItem>7</asp:ListItem>
+                            <asp:ListItem>8</asp:ListItem>
+                            <asp:ListItem>9</asp:ListItem>
+                            <asp:ListItem>10</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Button ID="Button_votar" runat="server" Text="Votar" onclick="Button_votar_Click" />
+                    </div>   
+                </asp:Panel>    
+            </td>
+        </tr>
+    </table>
+
 </div>
 
 </div>
@@ -375,21 +407,34 @@ function prueba()
             </table>
         </div>
   
-
-    <div id="nuevoComentario_mostrarMaterial" runat="server">
-        <div id="nuevoComentarioAux_mostrarMaterial">
-             <div id="tituloComentario_mostrarMaterial">
-                <asp:Label ID="Label4" runat="server" Text="<%$ Resources: I18N, AñadirUnComentario %>"></asp:Label>
+    <asp:Panel ID="Panel_nuevoComentario" runat="server">
+        <div id="nuevoComentario_mostrarMaterial" runat="server">
+            <div id="nuevoComentarioAux_mostrarMaterial">
+                 <div id="tituloComentario_mostrarMaterial">
+                    <asp:Label ID="Label4" runat="server" Text="<%$ Resources: I18N, AñadirUnComentario %>"></asp:Label>
+                </div>
+                <hr />
+                <div id="comentario_mostrarMaterial">
+                    <a name="nuevoComentario"></a>
+                    <asp:TextBox ID="TextBox_comentario" TextMode="MultiLine" Rows="2" Width="100%" runat="server"></asp:TextBox>
+                </div>
+                <div id="enviarComentario_mostrarMaterial">
+                    <table>
+                        <tr>
+                            <td>
+                                <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, EnviarComentario %>" onclick="Button1_Click" />
+                            </td>
+                            <td>
+                                <asp:Panel ID="Panel_mensajeError" runat="server" Visible="false">
+                                    <div id="mensajeError_mostrarMaterial">     
+                                            <%= Resources.I18N.DebesIdentificarte %>                             
+                                    </div>     
+                                </asp:Panel>               
+                            </td>
+                        </tr>
+                    </table>
+                </div>       
             </div>
-            <hr />
-            <div id="comentario_mostrarMaterial">
-                <a name="nuevoComentario"></a>
-                <textarea id="TextArea1" style="width:100%;" cols="20" runat="server" rows="2"></textarea>
-            </div>
-            <div id="enviarComentario_mostrarMaterial">
-                <asp:Button ID="Button1" runat="server" Text="<%$ Resources: I18N, EnviarComentario %>" onclick="Button1_Click" />
-            </div>       
         </div>
-    </div>
-
+    </asp:Panel>
 </asp:Content>

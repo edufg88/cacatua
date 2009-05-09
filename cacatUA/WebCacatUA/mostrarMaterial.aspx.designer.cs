@@ -68,15 +68,6 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_descargas;
         
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
         /// Label_tamaño control.
         /// </summary>
         /// <remarks>
@@ -104,15 +95,6 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_votos;
         
         /// <summary>
-        /// Label7 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
-        
-        /// <summary>
         /// Label_descripcion control.
         /// </summary>
         /// <remarks>
@@ -138,6 +120,42 @@ namespace WebCacatUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink_descargar;
+        
+        /// <summary>
+        /// Panel_votar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_votar;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// DropDownList_votar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList_votar;
+        
+        /// <summary>
+        /// Button_votar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_votar;
         
         /// <summary>
         /// resultados_mostrarMaterial control.
@@ -221,6 +239,15 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Button Button_siguiente;
         
         /// <summary>
+        /// Panel_nuevoComentario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_nuevoComentario;
+        
+        /// <summary>
         /// nuevoComentario_mostrarMaterial control.
         /// </summary>
         /// <remarks>
@@ -239,13 +266,13 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// TextArea1 control.
+        /// TextBox_comentario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea TextArea1;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_comentario;
         
         /// <summary>
         /// Button1 control.
@@ -255,5 +282,14 @@ namespace WebCacatUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Panel_mensajeError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_mensajeError;
     }
 }
