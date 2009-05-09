@@ -185,9 +185,24 @@ namespace Libreria
             return EncuestaCAD.Instancia.OpcionesDe(this);
         }
 
+        /// <summary>
+        /// Devuelve si la encuesta es de un determinado usuario.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public bool DeUsuario(ENUsuario usuario)
         {
             return EncuestaCAD.Instancia.EsEncuestaDeUsuario(usuario, this);
+        }
+
+        /// <summary>
+        /// Devuelve si cierto usuario ya ha votado en esta encuesta.
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
+        public bool HaVotado(ENUsuario usuario)
+        {
+            return EncuestaCAD.Instancia.HaVotadoEncuesta(usuario, this);
         }
 
         public int Id

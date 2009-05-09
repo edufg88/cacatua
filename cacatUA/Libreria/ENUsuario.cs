@@ -572,6 +572,11 @@ namespace Libreria
             return CategoriaCAD.Instancia.CategoriasDe(this);
         }
 
+        public ENEncuesta EncuestaActiva()
+        {
+            return EncuestaCAD.Instancia.UltimaActivaDe(this);
+        }
+
         public int Id
         {
             get { return id; }

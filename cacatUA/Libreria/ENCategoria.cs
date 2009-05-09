@@ -142,7 +142,7 @@ namespace Libreria
 
         public bool EsSuperior()
         {
-            if (padre != null && padre > 0)
+            if (padre > 0)
                 return false;
             else
                 return true;
