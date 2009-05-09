@@ -68,6 +68,24 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.TextBox TextBox_descripcion;
         
         /// <summary>
+        /// Panel_errorDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_errorDescripcion;
+        
+        /// <summary>
+        /// Label_errorDescripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_errorDescripcion;
+        
+        /// <summary>
         /// TextBox_referencia control.
         /// </summary>
         /// <remarks>
@@ -77,6 +95,24 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.TextBox TextBox_referencia;
         
         /// <summary>
+        /// Panel_errorReferencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_errorReferencia;
+        
+        /// <summary>
+        /// Label_errorReferencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_errorReferencia;
+        
+        /// <summary>
         /// FileUpload1 control.
         /// </summary>
         /// <remarks>
@@ -84,6 +120,24 @@ namespace WebCacatUA {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
+        /// Panel_errorArchivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_errorArchivo;
+        
+        /// <summary>
+        /// Label_errorArchivo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_errorArchivo;
         
         /// <summary>
         /// Button1 control.
