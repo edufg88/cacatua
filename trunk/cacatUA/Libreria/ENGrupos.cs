@@ -189,6 +189,11 @@ namespace Libreria
             return Cantidad.Count;
         }
 
+        public bool Existe()
+        {
+            return GruposCAD.Instancia.Existe(nombre);
+        }
+
         /// <summary>
         /// Nombre del grupo.
         /// </summary>
