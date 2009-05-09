@@ -13,6 +13,12 @@
      <div id="div_encuestas">
         <asp:Table ID="Table_encuesta" runat="server" CssClass="tabla_encuestas" 
             CellPadding="0" CellSpacing="0"></asp:Table>        
+    </div>
+    <div id="div_opciones">
+        Nueva opción:
+        <asp:TextBox ID="TextBox_crearopcion" runat="server" />
+        <asp:Button ID="Button_crearopcion" runat="server" Text="Añadir" 
+            onclick="Button_crearopcion_Click" />
     </div>     
 </asp:Content>
 
