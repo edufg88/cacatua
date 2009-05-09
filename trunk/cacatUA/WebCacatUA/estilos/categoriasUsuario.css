@@ -1,3 +1,26 @@
-﻿body
+﻿#div_encuestas
 {
+
+}
+
+.tabla_categorias
+{
+	border: solid 1px;
+	background-color: black;
+	border-color: black;
+	margin-top: 20px;
+}
+
+.celda_categoriaSuperior
+{
+	padding: 4px 10px 4px 10px;
+	background-color: #CCC;
+	border: solid 1px;
+}
+
+.celda_categorias
+{
+	padding: 4px 10px 4px 10px;
+	background-color: White;
+	border: solid 1px;
 }

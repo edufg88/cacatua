@@ -41,14 +41,19 @@ namespace WebCacatUA
             {
                 TableRow fila = new TableRow();
 
+                String cssclass = "celda_categorias";
+                if (cat.EsSuperior())
+                {
+                    cssclass = "celda_categoriaSuperior";
+                }
                 TableCell c1 = new TableCell();
-                c1.CssClass = "celda_categoria";
+                c1.CssClass = cssclass;
                 Label l1 = new Label();
                 l1.Text = cat.NombreCompleto();
                 c1.Controls.Add(l1);
 
                 TableCell c2 = new TableCell();
-                c2.CssClass = "celda_categoria";
+                c2.CssClass = cssclass;
                 Button b1 = new Button();
                 //b1.ID = opc.Id.ToString();
                 b1.Text = "Insuscribirse";

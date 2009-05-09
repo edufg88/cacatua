@@ -71,6 +71,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
+    <Compile Include="borrarencuesta.aspx.cs">
+      <DependentUpon>borrarencuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="borrarencuesta.aspx.designer.cs">
+      <DependentUpon>borrarencuesta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="categorias.aspx.cs">
       <DependentUpon>categorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,6 +105,13 @@
     </Compile>
     <Compile Include="encuestas.aspx.designer.cs">
       <DependentUpon>encuestas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="estadoencuesta.aspx.cs">
+      <DependentUpon>estadoencuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="estadoencuesta.aspx.designer.cs">
+      <DependentUpon>estadoencuesta.aspx</DependentUpon>
     </Compile>
     <Compile Include="hilo.aspx.cs">
       <DependentUpon>hilo.aspx</DependentUpon>
@@ -325,10 +339,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="borrarencuesta.aspx" />
     <Content Include="categorias.aspx" />
     <Content Include="comentarioMaterial.ascx" />
     <Content Include="edicionencuesta.aspx" />
     <Content Include="encuestas.aspx" />
+    <Content Include="estadoencuesta.aspx" />
     <Content Include="estilos\categoriasUsuario.css" />
     <Content Include="estilos\usuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />

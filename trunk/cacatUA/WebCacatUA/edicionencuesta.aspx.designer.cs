@@ -23,13 +23,22 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_nombreSeccion;
         
         /// <summary>
-        /// Control Label_Texto.
+        /// Control TextBox_Pregunta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Texto;
+        protected global::System.Web.UI.WebControls.TextBox TextBox_Pregunta;
+        
+        /// <summary>
+        /// Control Button_cambiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_cambiar;
         
         /// <summary>
         /// Control Table_encuesta.
@@ -39,15 +48,6 @@ namespace WebCacatUA {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Table Table_encuesta;
-        
-        /// <summary>
-        /// Control Button_guardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_guardar;
         
         /// <summary>
         /// Control TextBox_crearopcion.

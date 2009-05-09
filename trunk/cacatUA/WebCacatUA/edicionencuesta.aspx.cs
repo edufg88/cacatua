@@ -21,21 +21,44 @@ namespace WebCacatUA
         protected void Page_Load(object sender, EventArgs e)
         {
             String id = (String)Request["id"];
-            if (id != null)
+            String u = (String)Session["usuario"];
+
+            if (id != null && u != null)
             {
                 int idEnc = int.Parse(id);
-                CargarEncuesta(ENEncuesta.Obtener(idEnc));
+                encuesta = ENEncuesta.Obtener(idEnc);
+
+                if (encuesta.DeUsuario(ENUsuario.Obtener(u)))
+                {
+                    if (!Page.IsPostBack)
+                    {
+                        CargarEncuesta();
+                    }
+                }
+                else
+                {
+                    Response.Redirect("encuestas.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("index.aspx");
             }
         }
 
-        private void CargarEncuesta(ENEncuesta e)
+        private void escribir(string cadena)
         {
-            encuesta = e;
-            String codigo;
+            const string fic = @"C:\log.txt";
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
+            sw.WriteLine(cadena);
+            sw.Close();
+        }
+
+        private void CargarEncuesta()
+        {
             int i = 0;
 
-            codigo = "Editando encuesta: <br/>";
-            codigo += "Pregunta: " + encuesta.Pregunta;
+            TextBox_Pregunta.Text = encuesta.Pregunta;
 
             foreach (OpcionEncuesta opc in encuesta.Opciones())
             {
@@ -72,10 +95,8 @@ namespace WebCacatUA
 
             if (i > 0)
             {
-                Button_guardar.Visible = true;
+                //Button_guardar.Visible = true;
             }
-
-            Label_Texto.Text = codigo;
 
         }
 
@@ -91,7 +112,7 @@ namespace WebCacatUA
                 nOpcion.Opcion = TextBox_crearopcion.Text;
                 nOpcion.Encuesta = encuesta;
                 ENEncuesta.CrearOpcion(nOpcion);
-                Response.Redirect("editarencuesta.aspx?id=" + encuesta.Id);
+                Response.Redirect("edicionencuesta.aspx?id=" + encuesta.Id);
             }
         }
 
@@ -102,16 +123,19 @@ namespace WebCacatUA
             {
                 int idopcion = int.Parse(pulsado.ID.ToString());
                 ENEncuesta.BorrarOpcion(ENEncuesta.ObtenerOpcion(idopcion));
-
             }
             catch (Exception) { }
-
-            Response.Redirect("editarencuesta.aspx?id=" + encuesta.Id);
+            Response.Redirect("edicionencuesta.aspx?id=" + encuesta.Id);
         }
 
-        protected void Button_guardar_Click(object sender, EventArgs e)
+        protected void Button_cambiar_Click(object sender, EventArgs e)
         {
-
+            if (TextBox_Pregunta.Text != encuesta.Pregunta)
+            {
+                encuesta.Pregunta = TextBox_Pregunta.Text;
+                encuesta.Actualizar();
+                Response.Redirect("edicionencuesta.aspx?id=" + encuesta.Id);
+            }
         }
     }
 }
