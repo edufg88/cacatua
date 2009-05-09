@@ -580,6 +580,49 @@ namespace Libreria
             return n;
         }
 
+        public bool EstaSuscritoA(ENUsuario usuario, ENCategoria categoria)
+        {
+            int resultado = 0;
+            bool retorno = false;
+            SqlConnection conexion = null;
+
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) FROM SUSCRIPCIONES " +
+                    "WHERE categoria = @categoria and usuario = @usuario";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                comando.Parameters.AddWithValue("@categoria", categoria.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    resultado = int.Parse(reader["numero"].ToString());
+                }
+                if (resultado == 1)
+                    retorno = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método EstaSuscritoA(usuario,categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return retorno;
+        }
+
         /// <summary>
         /// Suscribe un usuario a una categoria.
         /// </summary>
