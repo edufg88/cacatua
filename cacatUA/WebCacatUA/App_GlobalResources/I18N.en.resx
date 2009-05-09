@@ -357,4 +357,55 @@
   <data name="Votar" xml:space="preserve">
     <value>Vote</value>
   </data>
+  <data name="Cancelar" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Contrasena" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="CorreoElectronico" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="DatosUsuario" xml:space="preserve">
+    <value>User profile</value>
+  </data>
+  <data name="DNI" xml:space="preserve">
+    <value>DNI</value>
+  </data>
+  <data name="EditarDatos" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="Encuestas" xml:space="preserve">
+    <value>Polls</value>
+  </data>
+  <data name="Firmas" xml:space="preserve">
+    <value>Signatures</value>
+  </data>
+  <data name="GaleriaFotos" xml:space="preserve">
+    <value>Photo gallery</value>
+  </data>
+  <data name="GruposUsuario" xml:space="preserve">
+    <value>User groups</value>
+  </data>
+  <data name="GuardarCambios" xml:space="preserve">
+    <value>Save changes</value>
+  </data>
+  <data name="InformacionAdicional" xml:space="preserve">
+    <value>Aditional information</value>
+  </data>
+  <data name="MensajesPrivados" xml:space="preserve">
+    <value>Private messages</value>
+  </data>
+  <data name="miembros" xml:space="preserve">
+    <value>members</value>
+  </data>
+  <data name="NoEstaApuntadoNingunGrupo" xml:space="preserve">
+    <value>Without groups</value>
+  </data>
+  <data name="NombreCompleto" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="NombreUsuario" xml:space="preserve">
+    <value>User name</value>
+  </data>
 </root>
