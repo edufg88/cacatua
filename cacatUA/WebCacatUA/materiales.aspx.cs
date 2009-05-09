@@ -351,26 +351,14 @@ public partial class materiales : WebCacatUA.InterfazWeb
     private void mostrarCategorias(ArrayList categorias)
     {
         Panel_categorias.Controls.Clear();
-        HtmlTable tabla = new HtmlTable();
         foreach (ENCategoria categoria in categorias)
         {
-            HtmlTableRow fila = new HtmlTableRow();
-            fila.Align = "left";
-            HtmlTableCell celda = new HtmlTableCell();
             HyperLink link = new HyperLink();
             link.Text = categoria.Nombre;
             link.NavigateUrl = "materiales.aspx?categoria=" + categoria.Id.ToString();
-            link.CssClass = "linkCategoria";
-            celda.Controls.Add(link);
-            fila.Cells.Add(celda);
-            if (tabla.Rows.Count % 2 == 0)
-                fila.BgColor = "#dcd9cd";
-            else
-                fila.BgColor = Color.White.Name;
-
-            tabla.Rows.Add(fila);
+            link.CssClass = "categoria_materiales";
+            Panel_categorias.Controls.Add(link);
         }
-        Panel_categorias.Controls.Add(tabla);
     }
 
     private void añadirRuta(ENCategoria categoria)
