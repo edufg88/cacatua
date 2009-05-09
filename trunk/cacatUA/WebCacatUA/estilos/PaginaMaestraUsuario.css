@@ -26,6 +26,11 @@
     color: #BBBBFE; 
 }
 
+.enviarMensajeUsuario
+{
+    padding-top: 15px;   
+}
+
 #nombreUsuario
 {
     font-size: 16pt;
