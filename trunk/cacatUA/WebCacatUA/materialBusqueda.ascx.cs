@@ -30,7 +30,7 @@ namespace WebCacatUA
             Label_usuario.Text = material.Usuario.Usuario;
             Label_descargas.Text = material.Descargas.ToString();
             Label_puntuacion.Text = material.Puntuacion.ToString();
-            Label_votos.Text = material.Votos.ToString() + " votos";
+            Label_votos.Text = material.Votos.ToString() + " " + Resources.I18N.Votos;
             HyperLink_categoria.Text = material.Categoria.Nombre;
             HyperLink_categoria.NavigateUrl = "materiales.aspx?categoria=" + material.Categoria.Id;
         }

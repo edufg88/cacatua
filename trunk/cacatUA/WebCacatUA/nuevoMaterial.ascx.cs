@@ -22,6 +22,8 @@ namespace WebCacatUA
         {
             try
             {
+                Panel_errorNombre.Visible = false;
+
                 if (Request.Params["categoria"] != null)
                 {
                     int idCategoria = int.Parse(Request.Params["categoria"].ToString());
@@ -67,19 +69,35 @@ namespace WebCacatUA
                 material.Descripcion = TextBox_descripcion.Text;
                 material.Referencia = TextBox_referencia.Text;
                 material.Tamaño = (int)FileUpload1.FileBytes.Length;
-                if (material.Guardar() == true)
+
+                // Validamos el material
+                if (validarMaterial(material) == true)
                 {
-                    int id = material.CompletarGuardar();
-                    // Comprimimos el archivo con la id
-                    fileUploader.ComprimirArchivo(material.Archivo + "_jose", id, material.Archivo);
-                    // Borramos el fichero temporal
-                    fileUploader.BorrarFichero(FileUpload1.FileName + "_jose");
-                    // Recargamos la página
-                    Response.Redirect("materiales.aspx?categoria=" + material.Categoria.Id.ToString());
+                    if (material.Guardar() == true)
+                    {
+                        int id = material.CompletarGuardar();
+                        // Comprimimos el archivo con la id
+                        fileUploader.ComprimirArchivo(material.Archivo + "_jose", id, material.Archivo);
+                        // Borramos el fichero temporal
+                        fileUploader.BorrarFichero(FileUpload1.FileName + "_jose");
+                        // Recargamos la página
+                        Response.Redirect("materiales.aspx?categoria=" + material.Categoria.Id.ToString());
+                    }
                 }
             }
             else
                 Response.Write(resultado);
+        }
+
+        private bool validarMaterial(ENMaterial material)
+        {
+            // Validamos el nombre
+            if (material.Nombre.Length > ENMaterial.maxTamNombre || material.Nombre.Length < ENMaterial.minTamNombre)
+            {
+                Panel_errorNombre.Visible = true;
+                Label_errorNombre.Text = "Nombre: Debe tener entre " + ENMaterial.minTamNombre.ToString() + " y " + ENMaterial.maxTamNombre + " caracteres";
+            }
+            return false;
         }
     }
 }

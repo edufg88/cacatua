@@ -140,7 +140,7 @@
     <div id = "columna2">
     
         <div id="titulo_puntuacion_materiales">
-            <asp:Label ID="Label1" runat="server" Text="Puntuación"></asp:Label>
+            <%= Resources.I18N.Puntuacion + ":" %>
         </div>
         <div id="contenido_puntuacion_materiales">
             <asp:Label ID="Label_puntuacion" runat="server" Text="puntuacion"></asp:Label>
@@ -151,7 +151,7 @@
         </div>
     
         <div id = "titulo_descargas_materiales">
-            <asp:Label ID="Label5" runat="server" Text="Descargas"></asp:Label>
+            <%= Resources.I18N.Descargas + ":" %>
             <div id="numero_descargas_materiales">
                 <asp:Label ID="Label_descargas" runat="server" Text="descargas"></asp:Label>
             </div>
