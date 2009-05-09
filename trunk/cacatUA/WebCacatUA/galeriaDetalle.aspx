@@ -8,8 +8,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
 
     <div id="contenidoGaleriaDetalle">
-        <p id="tituloImagen"><asp:Label ID="labelTitulo" runat="server" Text="Titulo"></asp:Label></p><br />
-        <br />
+        <p id="tituloImagen"><a name="tituloImagen"><asp:Label ID="labelTitulo" runat="server" Text="Titulo"></asp:Label></a></p><br />
         <br />
         <asp:Label ID="labelFecha" runat="server" Text="Fecha"></asp:Label><br />
         <asp:Label ID="labelUsuario" runat="server" Text="Usuario"></asp:Label><br />

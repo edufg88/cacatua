@@ -29,7 +29,14 @@ namespace WebCacatUA
 
                 cantidad = cantidadPorPaginaSuperior;
 
-                pagina = int.Parse(DropDownList_paginaSuperior.Text);
+                if (DropDownList_cantidadPorPaginaSuperior.Text == null)
+                {
+                    pagina = 1;
+                }
+                else
+                {
+                    pagina = int.Parse(DropDownList_paginaSuperior.Text);
+                }
 
                 numComentarios = ENImagenComentario.ObtenerNumeroImagenes(int.Parse(Request.Params["imagen"]));
 
@@ -45,7 +52,7 @@ namespace WebCacatUA
                 ListItem item = new ListItem();
                 DropDownList_paginaSuperior.Items.Clear();
 
-                for (int k = 1; k <= cantidadPaginas; k++)
+                for (int k = 1; k <= cantidadPaginas || k==1; k++)
                 {
                     DropDownList_paginaInferior.Items.Add(k.ToString());
                     DropDownList_paginaSuperior.Items.Add(k.ToString());
@@ -81,7 +88,7 @@ namespace WebCacatUA
 
                 LinkButton enlace1 = new LinkButton();
                 enlace1.Text = "Anterior";
-                enlace1.PostBackUrl = "";
+                enlace1.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Siguiente(i.Id,i.Usuario.Id) + "#tituloImagen";
 
                 LinkButton enlace2 = new LinkButton();
                 enlace2.Text = "Borrar";
@@ -89,7 +96,7 @@ namespace WebCacatUA
 
                 LinkButton enlace3 = new LinkButton();
                 enlace3.Text = "Siguiente";
-                enlace3.PostBackUrl = "";
+                enlace3.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Anterior(i.Id, i.Usuario.Id) + "#tituloImagen";
 
                 TableCell a1 = new TableCell();
                 //TableCell a2 = new TableCell();
