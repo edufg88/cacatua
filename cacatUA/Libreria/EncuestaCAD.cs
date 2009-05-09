@@ -535,7 +535,6 @@ namespace Libreria
                 comando.CommandText = "SELECT * FROM encuestas WHERE usuario = @usuario and activa = 1 ORDER BY fecha desc";
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
                 SqlDataReader dr = comando.ExecuteReader();
-                // Generamos el ArrayList a partir del DataReader
                 if (dr.Read())
                 {
                     encuesta = ObtenerDatos(dr);
