@@ -464,6 +464,90 @@ namespace Libreria
             return borrado;
         }
 
+        /// <sumary>
+        /// Votamos el material
+        /// </sumary>
+        public bool Votar(ENMaterial material, ENUsuario usuario, int puntuacion)
+        {
+            bool votado = false;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                string cadenaComando = "INSERT INTO materialesvotos(material,usuario,puntuacion) "
+                    + "VALUES(@material,@usuario,@puntuacion)";
+
+                comando.CommandText = cadenaComando;
+                comando.Parameters.AddWithValue("@material", material.Id);
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                comando.Parameters.AddWithValue("@puntuacion", puntuacion);
+
+                if (comando.ExecuteNonQuery() == 1)
+                    votado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::Votar> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return votado;
+        }
+
+        /// <summary>
+        /// Devuelve la puntuación que le ha dado un determinado usuario a un material.
+        /// Si no ha votado al material, devuelve 0.
+        /// </summary>
+        public int PuntuacionUsuario(ENMaterial material, ENUsuario usuario)
+        {
+            int puntuacion = -1;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión.
+                conexion.Open();
+
+                // Creamos el comando.
+                SqlCommand comando = new SqlCommand();
+
+                // Le asignamos la conexión al comando.
+                comando.Connection = conexion;
+
+                string cadenaComando = "SELECT * FROM materialesvotos WHERE material = @material AND usuario = @usuario";
+
+                comando.CommandText = cadenaComando;
+                comando.Parameters.AddWithValue("@material", material.Id);
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                    puntuacion = int.Parse(reader["puntuacion"].ToString());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("<ENMaterial::PuntuacionUsuario> " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return puntuacion;
+        }
+
         /// <summary>
         /// Inicializamos un comentario a partir del reader
         /// </summary>
