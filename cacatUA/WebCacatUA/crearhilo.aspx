@@ -42,11 +42,6 @@
     </table>
 </asp:Panel>
 
-<asp:Panel ID="Panel_creadoCorrectamente" runat="server" Visible="False">
-    <p><%= Resources.I18N.HiloCreadoCorrectamente %>.</p>
-    <asp:HyperLink ID="HyperLink_verHilo" runat="server"><%= Resources.I18N.VerHilo %></asp:HyperLink>
-</asp:Panel>
-
 <asp:Panel ID="Panel_noCreado" runat="server" Visible="False">
     <p><%= Resources.I18N.FalloCrearHilo %>.</p>
     <a href="foro.aspx"><%= Resources.I18N.VolverForo %></a>

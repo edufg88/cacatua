@@ -31,14 +31,14 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
             Response.Redirect("foro.aspx");
         }
 
-        Panel_creadoCorrectamente.Visible = false;
-        Panel_noCreado.Visible = false;
+        string rutaRedireccion = "";
 
         categoria = null;
         try
         {
             categoria = ENCategoria.Obtener(int.Parse(Request["categoria"].ToString()));
-            
+
+            // Comprobamos si se ha pulsado el botón "Enviar".
             if (Page.IsPostBack)
             {
                 TextBox_titulo.Text = filtrarCadena(TextBox_titulo.Text);
@@ -53,13 +53,12 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
                     hilo.Autor = ENUsuario.Obtener(Session["usuario"].ToString());
                     if (hilo.Guardar())
                     {
-                        Panel_contenidoCrearHilo.Visible = false;
-                        Panel_creadoCorrectamente.Visible = true;
-                        HyperLink_verHilo.NavigateUrl = "hilo.aspx?id=" + hilo.Id;
+                        rutaRedireccion = "hilo.aspx?id=" + hilo.Id;
                     }
                     else
                     {
                         Panel_noCreado.Visible = true;
+                        Panel_contenidoCrearHilo.Visible = false;
                     }
                 }
             }
@@ -67,6 +66,11 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
         catch (Exception)
         {
             Response.Redirect("foro.aspx");
+        }
+        finally
+        {
+            if (rutaRedireccion != "")
+                Response.Redirect(rutaRedireccion);
         }
     }
 

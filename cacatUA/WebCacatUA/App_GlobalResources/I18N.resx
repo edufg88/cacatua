@@ -429,4 +429,13 @@
   <data name="SuscribirseCategoriaActual" xml:space="preserve">
     <value>Suscribirse a la categoría actual</value>
   </data>
+  <data name="ContraseñaActual" xml:space="preserve">
+    <value>Contraseña actual</value>
+  </data>
+  <data name="ContraseñaAnterior" xml:space="preserve">
+    <value>Contraseña anterior</value>
+  </data>
+  <data name="NuevaContraseña" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
 </root>

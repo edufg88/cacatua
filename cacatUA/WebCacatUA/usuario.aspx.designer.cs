@@ -58,6 +58,24 @@ public partial class usuario {
     protected global::System.Web.UI.WebControls.TextBox TextBox_nombreCompleto;
     
     /// <summary>
+    /// Control Label_contrasenaAnteriorError.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_contrasenaAnteriorError;
+    
+    /// <summary>
+    /// Control TextBox_contrasenaAnterior.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.TextBox TextBox_contrasenaAnterior;
+    
+    /// <summary>
     /// Control Label_contrasenaError.
     /// </summary>
     /// <remarks>
