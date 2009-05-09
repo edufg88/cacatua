@@ -1,0 +1,22 @@
+﻿#tablaDatosUsuario
+{
+    width: 80%;
+    margin: auto;
+}
+
+.columna1DatosUsuario
+{
+    width: 25%;
+    text-align: right;
+    padding-right: 15px;
+}
+
+.columna2DatosUsuario
+{
+   
+}
+
+.ultimaFilaDatosUsuario
+{
+    text-align: right;   
+}

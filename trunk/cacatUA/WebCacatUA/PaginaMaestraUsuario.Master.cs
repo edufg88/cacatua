@@ -28,26 +28,24 @@ namespace WebCacatUA
             }            
         }
 
-        private void actualizarSeccionEncuestas()
+        private void actualizarSeccionGrupos()
         {
             ArrayList grupos = ENGrupos.Obtener(usuario);
 
             Label label = new Label();
-            label.Text = "No está apuntado a ningún grupo.";
+            label.Text = Resources.I18N.NoEstaApuntadoNingunGrupo + ".";
             label.CssClass = "ya veremos que class";
-
             Panel_gruposUsuario.Controls.Add(label);
+
             if (grupos != null)
             {
                 if (grupos.Count > 0)
                 {
-                    label.CssClass = "ya veremos que class";
-
                     Panel_gruposUsuario.Controls.Clear();
                     foreach (ENGrupos i in grupos)
                     {
                         HyperLink enlace = new HyperLink();
-                        enlace.Text = i.Nombre + " (" + i.NumUsuarios + " " + "miembros" + ")";
+                        enlace.Text = i.Nombre + " (" + i.NumUsuarios + " " + Resources.I18N.miembros + ")<br />";
                         enlace.NavigateUrl = "grupo.aspx?id=" + i.Id;
                         Panel_gruposUsuario.Controls.Add(enlace);
                     }
@@ -55,7 +53,7 @@ namespace WebCacatUA
             }
         }
 
-        private void actualizarSeccionGrupos()
+        private void actualizarSeccionEncuestas()
         {
 
         }
@@ -68,17 +66,20 @@ namespace WebCacatUA
         {
             Label_nombreUsuario.Text = usuario.Usuario;
 
+            if (usuario.Imagen != -1)
+                Image_fotoUsuario.ImageUrl = "galeria/" + usuario.Imagen + ".jpg";
+
             HyperLink_datosUsuario.NavigateUrl = "usuario.aspx?usuario=" + usuario.Usuario;
-            HyperLink_datosUsuario.Text = "Datos del usuario";
+            HyperLink_datosUsuario.Text = Resources.I18N.DatosUsuario;
 
             HyperLink_encuestasUsuario.NavigateUrl = "encuestas.aspx?usuario=" + usuario.Usuario;
-            HyperLink_encuestasUsuario.Text = "Encuestas" + " (" + usuario.CantidadEncuestas() + ")";
+            HyperLink_encuestasUsuario.Text = Resources.I18N.Encuestas + " (" + usuario.CantidadEncuestas() + ")";
 
             HyperLink_firmasUsuario.NavigateUrl = "firmas.aspx?usuario=" + usuario.Usuario;
-            HyperLink_firmasUsuario.Text = "Firmas" + " (" + usuario.CantidadFirmas() + ")";
+            HyperLink_firmasUsuario.Text = Resources.I18N.Firmas + " (" + usuario.CantidadFirmas() + ")";
 
             HyperLink_galeriaUsuario.NavigateUrl = "galeria.aspx?usuario=" + usuario.Usuario;
-            HyperLink_galeriaUsuario.Text = "Galería de fotos" + " (" + usuario.CantidadImagenes() + ")";
+            HyperLink_galeriaUsuario.Text = Resources.I18N.GaleriaFotos + " (" + usuario.CantidadImagenes() + ")";
 
             // Sólo mostramos el enlace a los mensajes privados si hay un usuario en la sessión
             // y coincide con el usuario que se está visualizando.
@@ -88,7 +89,7 @@ namespace WebCacatUA
                 if (ENUsuario.Obtener(Session["usuario"].ToString()).Id == usuario.Id)
                 {
                     HyperLink_mensajesUsuario.NavigateUrl = "mensajes.aspx?usuario=" + usuario.Usuario;
-                    HyperLink_mensajesUsuario.Text = "Mensajes privados " + " (" + usuario.CantidadMensajes() + ")";
+                    HyperLink_mensajesUsuario.Text = Resources.I18N.MensajesPrivados + " (" + usuario.CantidadMensajes() + ")";
                     HyperLink_mensajesUsuario.Visible = true;
                 }
             }
@@ -114,16 +115,6 @@ namespace WebCacatUA
                 usuario = ENUsuario.Obtener(Request["usuario"].ToString());
             }
             catch (Exception) { }
-
-            // Si no hemos extraido ninguno, lo intentamos extraer según el id.
-            if (usuario == null)
-            {
-                try
-                {
-                    usuario = ENUsuario.Obtener(int.Parse(Request["id"].ToString()));
-                }
-                catch (Exception) { }
-            }
 
             // Si no lo hemos extraido de ninguna forma, lo intentamos desde la sessión.
             if (usuario == null)

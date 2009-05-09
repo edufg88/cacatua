@@ -41,6 +41,15 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_nombreUsuario;
         
         /// <summary>
+        /// Control Image_fotoUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image_fotoUsuario;
+        
+        /// <summary>
         /// Control HyperLink_datosUsuario.
         /// </summary>
         /// <remarks>

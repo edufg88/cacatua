@@ -16,7 +16,7 @@
     <div id="navegacionUsuario">
         <div id="menuUsuario">
             <div id="nombreUsuario"><asp:Label ID="Label_nombreUsuario" runat="server" Text="Nombre usuario"></asp:Label></div>
-            <div id="fotoUsuario"><div id="sinImagen">Sin imagen</div></div>
+            <div id="fotoUsuario"><asp:Image ID="Image_fotoUsuario" runat="server" ImageUrl="imagenes/sinImagen.png" /></div>
             
             <div id="datosUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_datosUsuario" runat="server">Datos del usuario</asp:HyperLink></div>
             <div id="firmasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_firmasUsuario" runat="server">Firmas (13)</asp:HyperLink></div>
@@ -26,7 +26,7 @@
             <div id="enviarMensajeUsuario" class="botonUsuario enviarMensajeUsuario"><asp:HyperLink ID="HyperLink_enviarMensajeUsuario" runat="server"><asp:Image ID="Image_enviarMensajeUsuario" runat="server" ImageUrl="imagenes/sobre.png" /></asp:HyperLink></div>
         </div>
         <div id="gruposUsuario">
-            <div id="grupoUsuario">Grupos del usuario</div>
+            <div id="grupoUsuario"><%= Resources.I18N.GruposUsuario %></div>
             <asp:Panel ID="Panel_gruposUsuario" runat="server"></asp:Panel>
         </div>
         <div id="encuestaUsuario">
