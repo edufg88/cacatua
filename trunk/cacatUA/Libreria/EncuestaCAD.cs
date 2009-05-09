@@ -479,6 +479,83 @@ namespace Libreria
             return retorno;
         }
 
+        public bool HaVotadoEncuesta(ENUsuario usuario, ENEncuesta encuesta)
+        {
+            int resultado = 0;
+            bool votado = false;
+            SqlConnection conexion = null;
+
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM OPCIONES opc, OPCIONESVOTOS opv " +
+                    "WHERE opc.id = opv.opcion and opv.usuario = @usuario and opc.encuesta = @encuesta";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                comando.Parameters.AddWithValue("@encuesta", encuesta.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    resultado = int.Parse(reader["numero"].ToString());
+                }
+                if (resultado == 1)
+                    votado = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método HaVotadoEncuesta(usuario,categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return votado;
+        }
+
+        public ENEncuesta UltimaActivaDe(ENUsuario usuario) 
+        {
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            ENEncuesta encuesta = null;
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT * FROM encuestas WHERE usuario = @usuario and activa = 1 ORDER BY fecha desc";
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                SqlDataReader dr = comando.ExecuteReader();
+                // Generamos el ArrayList a partir del DataReader
+                if (dr.Read())
+                {
+                    encuesta = ObtenerDatos(dr);
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.Write("Error al buscar UltimaActivaDe: " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return (encuesta);
+        }
+
         public OpcionEncuesta ObtenerDatosOpcion(SqlDataReader dr)
         {
             int id = int.Parse(dr["id"].ToString());
