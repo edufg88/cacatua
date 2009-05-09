@@ -58,6 +58,27 @@
     padding-bottom: 10px;   
 }
 
+.grupoUsuario
+{
+    display: block;
+    font-size: small;
+    background: url(../imagenes/lista.png) no-repeat top left;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.grupoUsuario:hover
+{
+    background: url(../imagenes/listaencima.png) no-repeat top left;
+}
+
+.noGrupoUsuario
+{
+    display: block;
+    font-size: small;
+    margin-bottom: 10px;
+}
+
 #accionesEncuesta
 {
     padding-top: 10px;   

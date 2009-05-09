@@ -19,7 +19,22 @@
 .categoriaForo
 {
     display: block;
-    font-size: small; 
+    font-size: small;
+    background: url(../imagenes/lista.png) no-repeat top left;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.categoriaForo:hover
+{
+    background: url(../imagenes/listaencima.png) no-repeat top left;
+}
+
+.noCategoriaForo
+{
+    display: block;
+    font-size: small;
+    margin-bottom: 10px;
 }
 
 .suscribirse
