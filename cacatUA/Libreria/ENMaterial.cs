@@ -308,6 +308,23 @@ namespace Libreria
             return MaterialCAD.Instancia.Ultimo();
         }
 
+        /// <sumary>
+        /// Votamos el material
+        /// </sumary>
+        public bool Votar(ENUsuario usuario, int puntuacion)
+        {
+            return MaterialCAD.Instancia.Votar(this, usuario, puntuacion);
+        }
+
+        /// <summary>
+        /// Devuelve la puntuación que le ha dado un determinado usuario a un material.
+        /// Si no ha votado al material, devuelve 0.
+        /// </summary>
+        public int PuntuacionUsuario(ENUsuario usuario)
+        {
+            return MaterialCAD.Instancia.PuntuacionUsuario(this, usuario);
+        }
+
         /// <summary>
         /// Identificador único del material.
         /// </summary>
