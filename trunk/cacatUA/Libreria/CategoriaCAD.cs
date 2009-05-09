@@ -596,7 +596,7 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand();
                 // Le asignamos la conexión al comando
                 comando.Connection = conexion;
-                comando.CommandText = "SELECT count(*) FROM SUSCRIPCIONES " +
+                comando.CommandText = "SELECT count(*) numero FROM SUSCRIPCIONES " +
                     "WHERE categoria = @categoria and usuario = @usuario";
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
                 comando.Parameters.AddWithValue("@categoria", categoria.Id);
