@@ -34,6 +34,21 @@ hr {
 	font-weight: bold;
 }
 
+.categoria_materiales
+{
+    display: block;
+    font-size: small;
+    background: url(../imagenes/lista.png) no-repeat top left;
+    padding-left: 25px;
+    margin-bottom: 10px;	
+    font-weight: normal;
+}
+
+.categoria_materiales:hover
+{
+    background: url(../imagenes/listaencima.png) no-repeat top left;
+}
+
 #tituloCategorias_materiales
 {
     padding-bottom: 20px;
