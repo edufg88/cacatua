@@ -94,24 +94,6 @@ public partial class crearhilo {
     protected global::System.Web.UI.WebControls.Button Button_enviar;
     
     /// <summary>
-    /// Control Panel_creadoCorrectamente.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel_creadoCorrectamente;
-    
-    /// <summary>
-    /// Control HyperLink_verHilo.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.HyperLink HyperLink_verHilo;
-    
-    /// <summary>
     /// Control Panel_noCreado.
     /// </summary>
     /// <remarks>

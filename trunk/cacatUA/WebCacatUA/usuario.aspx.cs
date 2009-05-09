@@ -11,11 +11,14 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using Libreria;
+using System.Text.RegularExpressions;
+
 
 public partial class usuario : WebCacatUA.InterfazWeb
 {
     private ENUsuario u;
     private bool editar;
+    public string ocultar = "style=\"display: none\"";
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -23,6 +26,7 @@ public partial class usuario : WebCacatUA.InterfazWeb
 
         if (u != null)
         {
+            // Comprobamos si es una petición nueva o el resultado de un evento del usuario.
             if (!Page.IsPostBack)
             {
                 mostrarUsuario();
@@ -47,6 +51,7 @@ public partial class usuario : WebCacatUA.InterfazWeb
     private void limpiarErrores()
     {
         Label_contrasenaError.Text = "";
+        Label_contrasenaAnteriorError.Text = "";
         Label_correoElectronicoError.Text = "";
         Label_dniError.Text = "";
         Label_informacionAdicionalError.Text = "";
@@ -59,10 +64,12 @@ public partial class usuario : WebCacatUA.InterfazWeb
     /// </summary>
     private void modoEditar()
     {
+        ocultar = "";
         HyperLink_editar.Visible = false;
         Button_cancelar.OnClientClick = "window.location='usuario.aspx?usuario=" + u.Usuario + "'; return false;";
         TextBox_contrasena.ReadOnly = false;
         TextBox_contrasena2.ReadOnly = false;
+        TextBox_contrasenaAnterior.ReadOnly = false;
         TextBox_correoElectronico.ReadOnly = false;
         TextBox_dni.ReadOnly = false;
         TextBox_informacionAdicional.ReadOnly = false;
@@ -74,7 +81,6 @@ public partial class usuario : WebCacatUA.InterfazWeb
     /// </summary>
     private void modoNormal()
     {
-        TextBox_contrasena2.Visible = false;
         Button_cancelar.Visible = false;
         Button_guardar.Visible = false;
 
@@ -148,19 +154,96 @@ public partial class usuario : WebCacatUA.InterfazWeb
     /// <returns></returns>
     private bool validarFormulario()
     {
-        return true;
+        bool correcto = true;
+
+        // Nombre completo.
+        if (TextBox_nombreCompleto.Text.Length < 3 || TextBox_nombreCompleto.Text.Length >= 50)
+        {
+            Label_nombreCompletoError.Text = "El nombre completo debe tener una cantidad de caracteres entre 3 y 50.";
+            correcto = false;
+        }
+
+        // Información adicional.
+        if (TextBox_informacionAdicional.Text.Length >= 5000)
+        {
+            Label_informacionAdicionalError.Text = "La información adicional debe tener una cantidad de caracteres menor a 5000.";
+            correcto = false;
+        }
+
+        // Información adicional.
+        if (TextBox_dni.Text.Length >= 50)
+        {
+            Label_dniError.Text = "El DNI debe tener una cantidad de caracteres menor a 50.";
+            correcto = false;
+        }
+
+        // Correo electrónico.
+        Regex email = new Regex(@"^[a-zA-Z0-9_-]{2,}@[a-zA-Z0-9_-]{2,}\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2,4})?$");
+        if (!email.IsMatch(TextBox_correoElectronico.Text) && TextBox_correoElectronico.Text.Length > 0)
+        {
+            Label_correoElectronicoError.Text = "No es una dirección de correo válida.";
+            correcto = false;
+        }
+
+        // Contraseña.
+        if (TextBox_contrasenaAnterior.Text != "" || TextBox_contrasena.Text != "" || TextBox_contrasena2.Text != "")
+        {
+            if (TextBox_contrasenaAnterior.Text != u.Contrasena)
+            {
+                Label_contrasenaAnteriorError.Text = "La contraseña introducida no coincide con la contraseña actual.";
+                correcto = false;
+            }
+            else
+            {
+                if (TextBox_contrasena.Text != TextBox_contrasena2.Text)
+                {
+                    Label_contrasenaError.Text = "Las contraseñas no coinciden.";
+                    correcto = false;
+                }
+                else
+                {
+                    if (TextBox_contrasena.Text != "")
+                    {
+                        if (TextBox_contrasena.Text != filtrarCadena(TextBox_contrasena.Text))
+                        {
+                            Label_contrasenaError.Text = "Sólo se permiten letras y números para la contraseña.";
+                            correcto = false;
+                        }
+                        else
+                        {
+                            if (TextBox_contrasena.Text.Length < 1 || TextBox_contrasena.Text.Length >= 20)
+                            {
+                                Label_contrasenaError.Text = "La contraseña debe tener una cantidad de caracteres entre 1 y 20.";
+                                correcto = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return correcto;
     }
 
     protected void Button_guardar_Click(object sender, EventArgs e)
     {
         if (editar)
         {
+            limpiarErrores();
+
+            TextBox_nombreCompleto.Text = filtrarCadena(TextBox_nombreCompleto.Text);
+            TextBox_informacionAdicional.Text = filtrarCadena(TextBox_informacionAdicional.Text);
+            TextBox_dni.Text = filtrarCadena(TextBox_dni.Text);
+            TextBox_correoElectronico.Text = filtrarCadena(TextBox_correoElectronico.Text);
+
             if (validarFormulario())
             {
                 u.Nombre = TextBox_nombreCompleto.Text;
                 u.Correo = TextBox_correoElectronico.Text;
                 u.Dni = TextBox_dni.Text;
                 u.Adicional = TextBox_informacionAdicional.Text;
+                if (TextBox_contrasena.Text != "")
+                    u.Contrasena = TextBox_contrasena.Text;
 
                 if (u.Actualizar())
                 {

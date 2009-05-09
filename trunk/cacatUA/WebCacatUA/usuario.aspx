@@ -11,7 +11,7 @@
         <table id="tablaDatosUsuario" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="columna1DatosUsuario">&nbsp;</td>
-                <td class="columna2DatosUsuario"><asp:Label ID="Label_nombreUsuarioError" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_nombreUsuarioError" CssClass="errorUsuario" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
             </tr>
             <tr>
                 <td class="columna1DatosUsuario"><%= Resources.I18N.NombreUsuario %>:</td>
@@ -19,18 +19,28 @@
             </tr>
             <tr>
                 <td class="columna1DatosUsuario">&nbsp;</td>
-                <td class="columna2DatosUsuario"><asp:Label ID="Label_nombreCompletoError" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_nombreCompletoError" CssClass="errorUsuario" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
             </tr>
             <tr>
                 <td class="columna1DatosUsuario"><%= Resources.I18N.NombreCompleto %>:</td>
                 <td class="columna2DatosUsuario"><asp:TextBox ID="TextBox_nombreCompleto" runat="server" ReadOnly="True" Width="100%"></asp:TextBox></td>
             </tr>
-            <tr>
+            <tr <%= ocultar %>>
                 <td class="columna1DatosUsuario">&nbsp;</td>
-                <td class="columna2DatosUsuario"><asp:Label ID="Label_contrasenaError" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_contrasenaAnteriorError" CssClass="errorUsuario" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
             </tr>
-            <tr>
-                <td class="columna1DatosUsuario"><%= Resources.I18N.Contrasena %>:</td>
+            <tr <%= ocultar %>>
+                <td class="columna1DatosUsuario"><%= Resources.I18N.ContraseñaActual %>:</td>
+                <td class="columna2DatosUsuario">
+                    <asp:TextBox ID="TextBox_contrasenaAnterior" runat="server" ReadOnly="True"></asp:TextBox>
+                </td>
+            </tr>
+            <tr <%= ocultar %>>
+                <td class="columna1DatosUsuario">&nbsp;</td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_contrasenaError" CssClass="errorUsuario" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+            </tr>
+            <tr <%= ocultar %>>
+                <td class="columna1DatosUsuario"><%= Resources.I18N.NuevaContraseña %>:</td>
                 <td class="columna2DatosUsuario">
                     <asp:TextBox ID="TextBox_contrasena" runat="server" ReadOnly="True"></asp:TextBox>
                     <asp:TextBox ID="TextBox_contrasena2" runat="server" ReadOnly="True"></asp:TextBox>
@@ -38,7 +48,7 @@
             </tr>
             <tr>
                 <td class="columna1DatosUsuario">&nbsp;</td>
-                <td class="columna2DatosUsuario"><asp:Label ID="Label_correoElectronicoError" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_correoElectronicoError" CssClass="errorUsuario" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
             </tr>
             <tr>
                 <td class="columna1DatosUsuario"><%= Resources.I18N.CorreoElectronico %>:</td>
@@ -46,7 +56,7 @@
             </tr>
             <tr>
                 <td class="columna1DatosUsuario">&nbsp;</td>
-                <td class="columna2DatosUsuario"><asp:Label ID="Label_dniError" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_dniError" runat="server" CssClass="errorUsuario" Text="Label" ForeColor="Red"></asp:Label></td>
             </tr>
             <tr>
                 <td class="columna1DatosUsuario"><%= Resources.I18N.DNI %>:</td>
@@ -54,12 +64,12 @@
             </tr>
             <tr>
                 <td class="columna1DatosUsuario">&nbsp;</td>
-                <td class="columna2DatosUsuario"><asp:Label ID="Label_informacionAdicionalError" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_informacionAdicionalError" CssClass="errorUsuario" runat="server" Text="Label" ForeColor="Red"></asp:Label></td>
             </tr>
             <tr>
                 <td class="columna1DatosUsuario"><%= Resources.I18N.InformacionAdicional %>:</td>
                 <td class="columna2DatosUsuario"><asp:TextBox ID="TextBox_informacionAdicional" runat="server" TextMode="MultiLine" Rows="4" ReadOnly="True" Width="100%"></asp:TextBox></td>
-            </tr>
+            </tr>            
             <tr>
                 <td class="columna1DatosUsuario">&nbsp;</td>
                 <td class="columna2DatosUsuario">&nbsp;</td>

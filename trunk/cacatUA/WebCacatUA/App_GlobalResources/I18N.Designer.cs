@@ -223,6 +223,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña actual.
+        /// </summary>
+        internal static string ContraseñaActual {
+            get {
+                return ResourceManager.GetString("ContraseñaActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contraseña anterior.
+        /// </summary>
+        internal static string ContraseñaAnterior {
+            get {
+                return ResourceManager.GetString("ContraseñaAnterior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Correo electrónico.
         /// </summary>
         internal static string CorreoElectronico {
@@ -741,6 +759,15 @@ namespace Resources {
         internal static string NRespuestas {
             get {
                 return ResourceManager.GetString("NRespuestas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nueva contraseña.
+        /// </summary>
+        internal static string NuevaContraseña {
+            get {
+                return ResourceManager.GetString("NuevaContraseña", resourceCulture);
             }
         }
         
