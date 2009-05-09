@@ -13,13 +13,13 @@
 public partial class index {
     
     /// <summary>
-    /// Control Label1.
+    /// Control Label_paginaInicio.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label1;
+    protected global::System.Web.UI.WebControls.Label Label_paginaInicio;
     
     /// <summary>
     /// Control Label_TextoInicial.
@@ -29,4 +29,58 @@ public partial class index {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_TextoInicial;
+    
+    /// <summary>
+    /// Control Label_ultimosMateriales2.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_ultimosMateriales2;
+    
+    /// <summary>
+    /// Control Label_ultimosMateriales.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_ultimosMateriales;
+    
+    /// <summary>
+    /// Control Label_ultimosHilos2.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_ultimosHilos2;
+    
+    /// <summary>
+    /// Control Label_ultimosHilos.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_ultimosHilos;
+    
+    /// <summary>
+    /// Control Label_ultimosUsuarios2.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_ultimosUsuarios2;
+    
+    /// <summary>
+    /// Control Label_ultimosUsuarios.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_ultimosUsuarios;
 }
