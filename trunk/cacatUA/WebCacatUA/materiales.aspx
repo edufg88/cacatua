@@ -207,6 +207,7 @@ hr {
 	-webkit-border-radius: 5px;
 }
 
+
 /****************************************************
 #####################################################
 #####################################################
@@ -228,6 +229,13 @@ hr {
 {
 	text-align:right;
 }
+
+.suscribirse
+{
+    padding-top: 15px;   
+    font-weight:normal;
+}
+
    
 </style>
 
@@ -294,6 +302,13 @@ function cambiarOpcionCategoria()
         <div id="contenidoCategorias_materiales">
             <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
         </div>   
+        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+        <asp:Panel ID="Panel_suscribirse" runat="server" CssClass="suscribirse">
+            <asp:LinkButton ID="LinkButton_suscribirse" runat="server" ForeColor="Green"
+                onclick="LinkButton_suscribirse_Click"><%= Resources.I18N.SuscribirseCategoriaActual %></asp:LinkButton>
+            <asp:LinkButton ID="LinkButton_dessuscribirse" runat="server"  ForeColor="Red"
+                onclick="LinkButton_dessuscribirse_Click"><%= Resources.I18N.InsuscribirseCategoriaActual %></asp:LinkButton>
+        </asp:Panel>        
     </div>
     
     <div id="contenido_materiales">
