@@ -30,11 +30,7 @@
             <asp:Panel ID="Panel_gruposUsuario" runat="server"></asp:Panel>
         </div>
         <div id="encuestaUsuario">
-            <div id="preguntaEncuesta">¿Qué tal estáis?</div>
-            <div class="opcionEncuesta">Bien</div>
-            <div class="opcionEncuesta">Mal</div>
-            <div class="opcionEncuesta">Regular</div>
-            <div id="accionesEncuesta"><a href="encuestas.aspx?usuario=antonio">Ver otras encuestas del usuario (si eres tú mismo, el mensaje será "Editar tus encuestas")</a></div>
+            <asp:Panel ID="Panel_encuesta" runat="server"></asp:Panel>
         </div>
     </div>
     

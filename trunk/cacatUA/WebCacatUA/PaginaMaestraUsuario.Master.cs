@@ -56,6 +56,29 @@ namespace WebCacatUA
 
         private void actualizarSeccionEncuestas()
         {
+            ENEncuesta mostrar = usuario.EncuestaActiva();
+
+            if (mostrar != null)
+            {
+                Label l1 = new Label();
+                l1.Text = mostrar.Pregunta;
+                Panel_encuesta.Controls.Add(l1);
+
+                foreach (OpcionEncuesta opc in mostrar.Opciones())
+                {
+                    Label br = new Label();
+                    br.Text = "<br/>";
+                    Panel_encuesta.Controls.Add(br);
+                    RadioButton rb1 = new RadioButton();
+                    rb1.Text = opc.Opcion;
+                    Panel_encuesta.Controls.Add(rb1);
+                }
+            }
+            else
+            {
+                Label l1 = new Label();
+                l1.Text = "No hay encuestas activas.";
+            }
 
         }
 
