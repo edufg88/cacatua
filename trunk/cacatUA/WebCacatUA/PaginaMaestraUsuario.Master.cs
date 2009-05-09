@@ -34,7 +34,7 @@ namespace WebCacatUA
 
             Label label = new Label();
             label.Text = Resources.I18N.NoEstaApuntadoNingunGrupo + ".";
-            label.CssClass = "ya veremos que class";
+            label.CssClass = "noGrupoUsuario";
             Panel_gruposUsuario.Controls.Add(label);
 
             if (grupos != null)
@@ -45,8 +45,9 @@ namespace WebCacatUA
                     foreach (ENGrupos i in grupos)
                     {
                         HyperLink enlace = new HyperLink();
-                        enlace.Text = i.Nombre + " (" + i.NumUsuarios + " " + Resources.I18N.miembros + ")<br />";
-                        enlace.NavigateUrl = "grupo.aspx?id=" + i.Id;
+                        enlace.Text = i.Nombre + " (" + i.NumUsuarios + " " + Resources.I18N.miembros + ")";
+                        enlace.NavigateUrl = "grupo.aspx?usuario="+usuario.Usuario+"&id=" + i.Id;
+                        enlace.CssClass = "grupoUsuario";
                         Panel_gruposUsuario.Controls.Add(enlace);
                     }
                 }

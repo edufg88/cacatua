@@ -353,6 +353,8 @@
     <Content Include="galeria\8.jpg" />
     <Content Include="galeria\9.jpg" />
     <Content Include="imagenes\descargar.png" />
+    <Content Include="imagenes\lista.png" />
+    <Content Include="imagenes\listaencima.png" />
     <Content Include="imagenes\sinImagen.png" />
     <Content Include="imagenes\sobre.png" />
     <Content Include="materialBusqueda.ascx" />

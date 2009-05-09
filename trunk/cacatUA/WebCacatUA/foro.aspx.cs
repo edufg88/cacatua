@@ -181,7 +181,7 @@ public partial class foro : WebCacatUA.InterfazWeb
         {
             Label sinCategorias = new Label();
             sinCategorias.Text = Resources.I18N.NoHayCategorias;
-            sinCategorias.CssClass = "categoriaForo";
+            sinCategorias.CssClass = "noCategoriaForo";
             Panel_categorias.Controls.Add(sinCategorias);
         }
     }
