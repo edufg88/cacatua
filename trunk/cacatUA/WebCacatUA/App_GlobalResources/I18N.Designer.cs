@@ -808,6 +808,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Votar.
+        /// </summary>
+        internal static string Votar {
+            get {
+                return ResourceManager.GetString("Votar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to votos.
         /// </summary>
         internal static string Votos {

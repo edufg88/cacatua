@@ -369,4 +369,7 @@
   <data name="Votos" xml:space="preserve">
     <value>votos</value>
   </data>
+  <data name="Votar" xml:space="preserve">
+    <value>Votar</value>
+  </data>
 </root>
