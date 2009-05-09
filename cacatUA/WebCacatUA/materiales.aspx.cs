@@ -36,10 +36,27 @@ public partial class materiales : WebCacatUA.InterfazWeb
         set { pagina = value; }
     }
 
+    ENCategoria categoria = null;
+    ENUsuario usuarioSesion = null;
+
     private void Inicializar()
     {
-        Panel_cantidadPorPaginaSuperior.Visible = false;
+        if (Request.Params["categoria"] != null)
+        {
+            int idCategoria = int.Parse(Request.Params["categoria"].ToString());
+            categoria = ENCategoria.Obtener(idCategoria);
+        }
 
+        if (Session["usuario"] != null)
+        {
+            // Obtenemos el usuario de la sesión
+            usuarioSesion = ENUsuario.Obtener(Session["usuario"].ToString());
+        }
+
+        // Actualizamos la suscripción
+        ActualizarSuscripcion();
+
+        Panel_cantidadPorPaginaSuperior.Visible = false;
         Label_cantidadPorPaginaAnterior.Visible = false;
         int cantidadPorPaginaSuperior = int.Parse(DropDownList_cantidadPorPaginaSuperior.Text.ToString());
         int cantidadPorPaginaInferior = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
@@ -378,5 +395,46 @@ public partial class materiales : WebCacatUA.InterfazWeb
         link.Text = categoria.Nombre;
         link.NavigateUrl = "materiales.aspx?categoria=" + categoria.Id.ToString();
         Label_ruta.Controls.Add(link);
+    }
+
+    protected void LinkButton_suscribirse_Click(object sender, EventArgs e)
+    {
+        if (usuarioSesion != null && categoria != null)
+        {
+            categoria.SuscribirUsuario(usuarioSesion);
+            ActualizarSuscripcion();
+        }
+    }
+
+    protected void LinkButton_dessuscribirse_Click(object sender, EventArgs e)
+    {
+        if (usuarioSesion != null && categoria != null)
+        {
+            categoria.InsuscribirUsuario(usuarioSesion);
+            ActualizarSuscripcion();
+        }
+    }
+
+    private void ActualizarSuscripcion()
+    {
+        // Comprobamos si el usuario está logueado y la categoría es válida
+        if (categoria != null && usuarioSesion != null)
+        {
+            if (!categoria.EstaSuscrito(usuarioSesion))
+            {
+                LinkButton_suscribirse.Visible = true;
+                LinkButton_dessuscribirse.Visible = false;
+            }
+            else
+            {
+                LinkButton_suscribirse.Visible = false;
+                LinkButton_dessuscribirse.Visible = true;
+            }
+            Panel_suscribirse.Visible = true;
+        }
+        else
+        {
+            Panel_suscribirse.Visible = false;
+        }
     }
 }
