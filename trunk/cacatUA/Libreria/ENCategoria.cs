@@ -335,4 +335,17 @@ namespace Libreria
             set { padre = value; }
         }
     }
+
+    public class ENCategoriaComparer : IComparer
+    {
+        int IComparer.Compare(object x, object y)
+        {
+
+            ENCategoria catX = (ENCategoria)x;
+            ENCategoria catY = (ENCategoria)y;
+
+            return (String.Compare(catX.NombreCompleto(),catY.NombreCompleto()));
+            
+        }
+    }
 }

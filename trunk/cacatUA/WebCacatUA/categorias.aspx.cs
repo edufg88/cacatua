@@ -37,6 +37,9 @@ namespace WebCacatUA
         {
             ArrayList categoriasusuario = usuario.Categorias();
 
+            //Ordenamos el ArrayList
+            categoriasusuario.Sort(new ENCategoriaComparer());
+
             foreach (ENCategoria cat in categoriasusuario)
             {
                 TableRow fila = new TableRow();
