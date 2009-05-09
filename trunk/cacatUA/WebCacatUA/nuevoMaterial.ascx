@@ -82,7 +82,6 @@ hr {
             <td class="columna1_nuevoMaterial"> <%= Resources.I18N.Nombre + ":" %> </td>
             <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_nombre" runat="server" Width="100%"></asp:TextBox></td>
         </tr>
-        
         <tr class="filaMensajeError">
             <asp:Panel ID="Panel_errorNombre" runat="server">
             <td></td>
@@ -98,15 +97,48 @@ hr {
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Descripcion + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"><asp:TextBox ID="TextBox_descripcion" TextMode="MultiLine" Rows=4 Width="100%" runat="server"></asp:TextBox></td>
         </tr>
+        
+        <asp:Panel ID="Panel_errorDescripcion" runat="server">
+        <tr class="filaMensajeError">
+            <td></td>
+            <td>
+                <div class="mensajeError_nuevoMaterial">
+                    <asp:Label ID="Label_errorDescripcion" runat="server" Text="error_descripcion"></asp:Label>
+                </div>
+            </td>
+        </tr>   
+        </asp:Panel>
+        
         <tr>
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Referencia + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"> <asp:TextBox ID="TextBox_referencia" runat="server" Width="100%"></asp:TextBox></td>
         </tr>
+        <asp:Panel ID="Panel_errorReferencia" runat="server">
+            <tr class="filaMensajeError">
+                <td></td>
+                <td>
+                    <div class="mensajeError_nuevoMaterial">
+                        <asp:Label ID="Label_errorReferencia" runat="server" Text="error_referencia"></asp:Label>
+                    </div>
+                </td>
+            </tr>     
+        </asp:Panel>        
+        
         <tr>
             <td class="columna1_nuevoMaterial"><%= Resources.I18N.Archivo + ":" %></asp:Label></td>
             <td class="columna2_nuevoMaterial"><asp:FileUpload ID="FileUpload1" runat="server" Width="100%" size="84%" /></td>
         </tr>
-    
+        <asp:Panel ID="Panel_errorArchivo" runat="server">
+            <tr class="filaMensajeError">
+                <td></td>
+                <td>
+                    <div class="mensajeError_nuevoMaterial">
+                        <asp:Label ID="Label_errorArchivo" runat="server" Text="error_archivo"></asp:Label>
+                    </div>
+                </td>
+            </tr>     
+        </asp:Panel> 
+            
         <tr>
             <td>
                 <div id="botonCrearMaterial_materiales">
