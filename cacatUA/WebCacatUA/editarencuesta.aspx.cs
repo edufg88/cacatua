@@ -70,6 +70,11 @@ namespace WebCacatUA
                 Table_encuesta.Controls.Add(fila);
             }
 
+            if (i > 0)
+            {
+                Button_guardar.Visible = true;
+            }
+
             Label_Texto.Text = codigo;
 
         }
@@ -102,6 +107,11 @@ namespace WebCacatUA
             catch (Exception) { }
 
             Response.Redirect("editarencuesta.aspx?id=" + encuesta.Id);
+        }
+
+        protected void Button_guardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

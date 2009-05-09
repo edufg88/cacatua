@@ -153,6 +153,11 @@ namespace Libreria
             return EncuestaCAD.Instancia.BuscarEncuesta(usuario);
         }
 
+        public bool CambiarEstado(bool activar)
+        {
+            return EncuestaCAD.Instancia.CambiarEstado(this,activar);
+        }
+
         public static OpcionEncuesta ObtenerOpcion(int id) {
             return EncuestaCAD.Instancia.ObtenerOpcion(id);
         }

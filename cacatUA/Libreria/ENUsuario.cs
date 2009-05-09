@@ -569,7 +569,7 @@ namespace Libreria
 
         public ArrayList Categorias()
         {
-            CategoriaCAD.Instancia.CategoriasDe(this);
+            return CategoriaCAD.Instancia.CategoriasDe(this);
         }
 
         public int Id

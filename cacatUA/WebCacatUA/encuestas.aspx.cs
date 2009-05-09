@@ -96,7 +96,7 @@ namespace WebCacatUA
                 c3.CssClass = "celda_encuestas";
                 Button b2 = new Button();
                 //b1.Click += new System.EventHandler(button_navegacion_Click);
-                b2.Text = "Editar";
+                b2.Text = "Borrar";
                 c3.Controls.Add(b2);
 
                 TableCell c4 = new TableCell();
@@ -123,7 +123,15 @@ namespace WebCacatUA
 
                 Table_encuestas.Controls.Add(fila);
             }
-            
         }
+            
+        protected void Button_editarencuesta_Click(object sender, EventArgs e)
+        { 
+        }
+
+        protected void Button_borrarencuesta_Click(object sender, EventArgs e)
+        { 
+        }
+
     }
 }

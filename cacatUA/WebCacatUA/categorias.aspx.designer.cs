@@ -11,7 +11,7 @@
 namespace WebCacatUA {
     
     
-    public partial class editarencuesta {
+    public partial class categorias {
         
         /// <summary>
         /// Control Label_nombreSeccion.
@@ -32,39 +32,12 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_Texto;
         
         /// <summary>
-        /// Control Table_encuesta.
+        /// Control Table_categorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table_encuesta;
-        
-        /// <summary>
-        /// Control Button_guardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_guardar;
-        
-        /// <summary>
-        /// Control TextBox_crearopcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_crearopcion;
-        
-        /// <summary>
-        /// Control Button_crearopcion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_crearopcion;
+        protected global::System.Web.UI.WebControls.Table Table_categorias;
     }
 }
