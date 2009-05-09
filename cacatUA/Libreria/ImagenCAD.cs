@@ -445,7 +445,7 @@ namespace Libreria
                 string comandoConPaginacion = "";
                 string cadenaComun = "";
 
-                comandoConPaginacion += "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY " + "fecha DESC";
+                comandoConPaginacion += "SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY " + "id DESC";
                 
                 comandoConPaginacion += ") as row FROM imagenes";
 
@@ -519,6 +519,68 @@ namespace Libreria
             catch (SqlException)
             {
                 Console.Write("Excepcion obtener imagen por titulo");
+            }
+
+            return num;
+        }
+
+        public int Siguiente(int id,int usuario)
+        {
+            int num = -1;
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT TOP 1 id FROM imagenes where id>" + id + "AND usuario=" + usuario; // Asignamos la sentencia SQL
+                
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                if (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENImagen
+                    num = int.Parse(dr["id"].ToString());
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener siguiente imagen");
+            }
+
+            return num;
+        }
+
+        public int Anterior(int id, int usuario)
+        {
+            int num = -1;
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+                comando.CommandText = "SELECT TOP 1 id FROM imagenes where id<" + id + "AND usuario=" + usuario + " ORDER BY id DESC"; // Asignamos la sentencia SQL
+
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                if (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENImagen
+                    num = int.Parse(dr["id"].ToString());
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener siguiente imagen");
             }
 
             return num;

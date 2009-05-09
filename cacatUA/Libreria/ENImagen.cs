@@ -248,6 +248,36 @@ namespace Libreria
             return ImagenCAD.Instancia.ObtenerNumeroImagenes(usuario);
         }
 
+        public static int Siguiente(int id,int usuario)
+        {
+
+            int resultado = ImagenCAD.Instancia.Siguiente(id, usuario);
+
+            if (resultado == -1)
+            {
+                return id;
+            }
+            else
+            {
+                return resultado;
+            }
+
+        }
+
+        public static int Anterior(int id, int usuario)
+        {
+            int resultado = ImagenCAD.Instancia.Anterior(id, usuario);
+
+            if (resultado == -1)
+            {
+                return id;
+            }
+            else
+            {
+                return resultado;
+            }
+        }
+
         public int Id
         {
             get { return id; }
