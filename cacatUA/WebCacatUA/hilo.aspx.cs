@@ -198,7 +198,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 HyperLink h1 = new HyperLink();
                 if (contador == respuestas.Count-1)
                     h1.Text = "<div id=\"ultima\"></div>";
-                h1.Text += "<a href=\"usuario.aspx?=" + i.Autor.Id + "\">" + i.Autor.Usuario + "</a><br />";
+                h1.Text += "<a href=\"usuario.aspx?usuario=" + i.Autor.Usuario + "\">" + i.Autor.Usuario + "</a><br />";
 
                 Image i1 = new Image();
                 if (i.Autor.Imagen != -1)
