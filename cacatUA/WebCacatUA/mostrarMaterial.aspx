@@ -442,7 +442,7 @@ function incrementarCantidad()
                             <td>
                                 <asp:Panel ID="Panel_mensajeError" runat="server" Visible="false">
                                     <div id="mensajeError_mostrarMaterial">     
-                                            <%= Resources.I18N.DebesIdentificarte %>                             
+                                        <asp:Label ID="Label_mensajeError" runat="server" Text="mensaje_error"></asp:Label>                             
                                     </div>     
                                 </asp:Panel>               
                             </td>
