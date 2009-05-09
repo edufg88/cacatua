@@ -460,8 +460,8 @@ namespace Libreria
         private ENUsuario usuario;
         private ENMaterial material;
 
-        static int minTamTexto = 1;
-        static int maxTamTexto = 5000;
+        public static int minTamTexto = 1;
+        public static int maxTamTexto = 5000;
 
         /// <summary>
         /// Identificador único del comentario.

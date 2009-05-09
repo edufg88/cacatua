@@ -63,6 +63,7 @@ namespace WebCacatUA
                     TextBox_comentario.Enabled = false;
                     Button1.Enabled = false;
                     Panel_mensajeError.Visible = true;
+                    Label_mensajeError.Text = Resources.I18N.DebesIdentificarte;
                     Panel_votar.Visible = false;
                 }
                 else
@@ -203,13 +204,25 @@ namespace WebCacatUA
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            //<%= Resources.I18N.DebesIdentificarte %>  
+            // Validamos el comentario
             ComentarioMaterial comentario = new ComentarioMaterial();
-            comentario.Usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+            comentario.Usuario = usuario;
             comentario.Material = material;
             comentario.Texto = TextBox_comentario.Text;
-            material.GuardarComentario(comentario);
-            TextBox_comentario.Text = "";
-            MostrarComentarios();
+            if (comentario.Texto.Length > ComentarioMaterial.maxTamTexto || comentario.Texto.Length < ComentarioMaterial.minTamTexto)
+            {
+                Panel_mensajeError.Visible = true;
+                Label_mensajeError.Text = "Debe tener entre " + ComentarioMaterial.minTamTexto + " y " + ComentarioMaterial.maxTamTexto + " caracteres";
+                Button1.Focus();
+            }
+            else
+            {
+                Panel_mensajeError.Visible = false;
+                material.GuardarComentario(comentario);
+                TextBox_comentario.Text = "";
+                MostrarComentarios();
+            }
         }
 
         private void actualizarNavegacion(ENCategoria categoria)
