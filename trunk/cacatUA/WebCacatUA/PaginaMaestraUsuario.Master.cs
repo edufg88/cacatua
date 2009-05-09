@@ -66,11 +66,15 @@ namespace WebCacatUA
 
                 foreach (OpcionEncuesta opc in mostrar.Opciones())
                 {
+                    //Salto de linea (si, es lo peor)
                     Label br = new Label();
                     br.Text = "<br/>";
                     Panel_encuesta.Controls.Add(br);
+
+
                     RadioButton rb1 = new RadioButton();
                     rb1.Text = opc.Opcion;
+                    rb1.GroupName = "Encuesta";
                     Panel_encuesta.Controls.Add(rb1);
                 }
             }
