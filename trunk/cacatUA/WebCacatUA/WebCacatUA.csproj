@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{9D13C5CC-7B0C-45D1-A248-37EDDB545667}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -85,19 +85,19 @@
     <Compile Include="comentarioMaterial.ascx.designer.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
     </Compile>
-    <Compile Include="editarEncuesta.aspx.cs">
-      <DependentUpon>editarEncuesta.aspx</DependentUpon>
+    <Compile Include="editarencuesta.aspx.cs">
+      <DependentUpon>editarencuesta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="editarEncuesta.aspx.designer.cs">
-      <DependentUpon>editarEncuesta.aspx</DependentUpon>
+    <Compile Include="editarencuesta.aspx.designer.cs">
+      <DependentUpon>editarencuesta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="encuestasEdicion.aspx.cs">
-      <DependentUpon>encuestasEdicion.aspx</DependentUpon>
+    <Compile Include="encuestas.aspx.cs">
+      <DependentUpon>encuestas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="encuestasEdicion.aspx.designer.cs">
-      <DependentUpon>encuestasEdicion.aspx</DependentUpon>
+    <Compile Include="encuestas.aspx.designer.cs">
+      <DependentUpon>encuestas.aspx</DependentUpon>
     </Compile>
     <Compile Include="hilo.aspx.cs">
       <DependentUpon>hilo.aspx</DependentUpon>
@@ -327,8 +327,8 @@
   <ItemGroup>
     <Content Include="categoriasUsuario.aspx" />
     <Content Include="comentarioMaterial.ascx" />
-    <Content Include="editarEncuesta.aspx" />
-    <Content Include="encuestasEdicion.aspx" />
+    <Content Include="editarencuesta.aspx" />
+    <Content Include="encuestas.aspx" />
     <Content Include="estilos\categoriasUsuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />
     <Content Include="estilos\hilo.css" />
@@ -419,9 +419,6 @@
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
