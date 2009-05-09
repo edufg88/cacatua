@@ -293,7 +293,17 @@ namespace Libreria
         public static int NumCategorias()
         {
             return CategoriaCAD.Instancia.NumCategorias();
-        } 
+        }
+
+        /// <summary>
+        /// Comprueba si un usuario esta suscrito a una categoria.
+        /// </summary>
+        /// <param name="usuario">Usuario a comprobar</param>
+        /// <returns></returns>
+        public bool EstaSuscrito(ENUsuario usuario)
+        {
+            return CategoriaCAD.Instancia.EstaSuscritoA(usuario, this);
+        }
 
         /// <summary>
         /// Identificador de la categoria.
