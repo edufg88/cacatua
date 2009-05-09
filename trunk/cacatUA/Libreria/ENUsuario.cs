@@ -528,6 +528,15 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Devuelve el número de mensajes del usuario actual
+        /// </summary>
+        /// <returns>Devuelve el número de mensajes</returns>
+        public int CantidadMensajesEnviados()
+        {
+            return MensajeCAD.Instancia.CantidadMensajesEnviados(this.id);
+        }
+
+        /// <summary>
         /// Devuelve el número de imágenes del usuario actual
         /// </summary>
         /// <returns>Devuelve el número de imágenes</returns>
