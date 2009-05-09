@@ -45,6 +45,11 @@
 	font-weight:bold;
 }
 
+#referencia_mostrarMaterial
+{
+	font-weight:bold;
+}
+
 .columnaContenido_mostrarMaterial
 {
     
@@ -317,6 +322,16 @@ function incrementarCantidad()
         </td>
         <td class="columnaContenido_mostrarMaterial">
             <asp:Label ID="Label_descripcion" runat="server" Text="descripcion_material"></asp:Label>
+        </td>
+    </tr>
+    <tr>
+        <td class="titulo_mostrarMaterial">
+            <div id="referencia_mostrarMaterial">
+                <%= Resources.I18N.Referencia + ":"%> 
+            </div>
+        </td>
+        <td class="columnaContenido_mostrarMaterial">
+            <asp:Label ID="Label_referencia" runat="server" Text="referencia_material"></asp:Label>   
         </td>
     </tr>
 </table>

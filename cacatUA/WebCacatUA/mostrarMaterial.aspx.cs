@@ -102,7 +102,7 @@ namespace WebCacatUA
                 Label_valoracion.Text = material.Puntuacion.ToString();
                 Label_votos.Text = " (" + material.Votos.ToString() + " " + Resources.I18N.Votos + ")";
                 HyperLink_descargar.NavigateUrl = "descargar.aspx?id=" + material.Id;
-
+                Label_referencia.Text = material.Referencia;
                 // Comprobamos si ese usuario tiene otros materiales
 
                 BusquedaMaterial busqueda = new BusquedaMaterial();
