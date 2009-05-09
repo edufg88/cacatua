@@ -140,6 +140,14 @@ namespace Libreria
                 return "";
         }
 
+        public bool EsSuperior()
+        {
+            if (padre != null && padre > 0)
+                return false;
+            else
+                return true;
+        }
+
         /// <summary>
         /// Metodo que obtiene una lista compuesta por todos los hijos de esta categoria.
         /// </summary>
@@ -239,21 +247,7 @@ namespace Libreria
         /// <returns>Devuelve 'true' si el usuario ha sido insuscrito correctamente.</returns>
         public bool InsuscribirUsuario(ENUsuario usuario)
         {
-            if (CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario))
-            {
-                foreach (ENCategoria c in ObtenerHijos())
-                {
-                    if (!c.InsuscribirUsuario(usuario))
-                    {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
         }
 
 

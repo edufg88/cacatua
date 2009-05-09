@@ -10,7 +10,7 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
     <asp:Label ID="Label_Texto" runat="server" Text=""></asp:Label>
-     <div id="div_encuestas">
+     <div id="div_categorias">
         <asp:Table ID="Table_categorias" runat="server" CssClass="tabla_categorias" 
             CellPadding="0" CellSpacing="0"></asp:Table>        
     </div>         

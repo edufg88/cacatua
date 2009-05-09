@@ -9,15 +9,18 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-    <a href="encuestas.aspx">Volver a encuestas</a>
-    <asp:Label ID="Label_Texto" runat="server" Text=""></asp:Label>
-     <div id="div_encuestas">
-        <asp:Table ID="Table_encuesta" runat="server" CssClass="tabla_encuestas" 
-            CellPadding="0" CellSpacing="0"></asp:Table>  
-            <asp:Button ID="Button_guardar" runat="server" Text="Guardar cambios" 
-            onclick="Button_guardar_Click" Visible="false"/>     
-    </div>
+    <a href="encuestas.aspx">Volver a encuestas</a> 
+     <div id="div_nuevapregunta">
+     Pregunta: 
+         <asp:TextBox ID="TextBox_Pregunta" runat="server"></asp:TextBox>
+        <asp:Button ID="Button_cambiar" runat="server" Text="Cambiar" 
+            onclick="Button_cambiar_Click" />  
+     </div>
     <div id="div_opciones">
+        <asp:Table ID="Table_encuesta" runat="server" CssClass="tabla_encuestas" 
+            CellPadding="0" CellSpacing="0"></asp:Table>     
+    </div>
+    <div id="div_nuevaopcion">
         Nueva opción:
         <asp:TextBox ID="TextBox_crearopcion" runat="server" />
         <asp:Button ID="Button_crearopcion" runat="server" Text="Añadir" 

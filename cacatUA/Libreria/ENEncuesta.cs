@@ -36,7 +36,6 @@ namespace Libreria
         /// </summary>
         private bool activa;
 
-
         /// <summary>
         /// Constructor por defecto de la clase
         /// </summary>
@@ -74,7 +73,6 @@ namespace Libreria
         {
             ENEncuesta aux = null;
             aux = EncuestaCAD.Instancia.ObtenerEncuesta(id);
-
             return aux;
         }
 
@@ -180,11 +178,16 @@ namespace Libreria
         public static bool Votar(ENUsuario usuario, OpcionEncuesta opcion)
         {
             return EncuestaCAD.Instancia.VotarOpcion(usuario,opcion);
-        }
-
+        }       
+        
         public ArrayList Opciones()
         {
             return EncuestaCAD.Instancia.OpcionesDe(this);
+        }
+
+        public bool DeUsuario(ENUsuario usuario)
+        {
+            return EncuestaCAD.Instancia.EsEncuestaDeUsuario(usuario, this);
         }
 
         public int Id
@@ -212,7 +215,6 @@ namespace Libreria
             get { return activa; }
             set { activa = value; }
         }
-
     }
 
     /// <summary>
