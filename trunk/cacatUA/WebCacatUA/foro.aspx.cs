@@ -265,7 +265,7 @@ public partial class foro : WebCacatUA.InterfazWeb
                 p1.Controls.Add(l1);
                 c1.Controls.Add(p1);
                 Label l2 = new Label();
-                l2.Text = Resources.I18N.creadoPor +" <a href=\"usuario.aspx?id=" + i.Autor.Id + "\" class=\"autorForo\">" + i.Autor.Usuario + "</a>, " + i.Fecha;
+                l2.Text = Resources.I18N.creadoPor +" <a href=\"usuario.aspx?usuario=" + i.Autor.Usuario + "\" class=\"autorForo\">" + i.Autor.Usuario + "</a>, " + i.Fecha;
                 Panel p2 = new Panel();
                 p2.CssClass = "creadoHiloForo";
                 p2.Controls.Add(l2);
@@ -296,7 +296,7 @@ public partial class foro : WebCacatUA.InterfazWeb
                 c4.CssClass = "columna4HiloForo";
                 Label l5 = new Label();
                 if (i.NumRespuestas > 0)
-                    l5.Text = Resources.I18N.por + " <a href=\"usuario.aspx?id=" + i.AutorUltimaRespuesta.Id + "\" class=\"autorRespuesta\">" + i.AutorUltimaRespuesta.Usuario + "</a><br />" + i.FechaUltimaRespuesta;
+                    l5.Text = Resources.I18N.por + " <a href=\"usuario.aspx?usuario=" + i.AutorUltimaRespuesta.Usuario + "\" class=\"autorRespuesta\">" + i.AutorUltimaRespuesta.Usuario + "</a><br />" + i.FechaUltimaRespuesta;
                 else
                     l5.Text = Resources.I18N.nadie;
                 Panel p5 = new Panel();
