@@ -71,12 +71,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>I18N.es.resx</DependentUpon>
     </Compile>
-    <Compile Include="categoriasUsuario.aspx.cs">
-      <DependentUpon>categoriasUsuario.aspx</DependentUpon>
+    <Compile Include="categorias.aspx.cs">
+      <DependentUpon>categorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="categoriasUsuario.aspx.designer.cs">
-      <DependentUpon>categoriasUsuario.aspx</DependentUpon>
+    <Compile Include="categorias.aspx.designer.cs">
+      <DependentUpon>categorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="comentarioMaterial.ascx.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
@@ -325,7 +325,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="categoriasUsuario.aspx" />
+    <Content Include="categorias.aspx" />
     <Content Include="comentarioMaterial.ascx" />
     <Content Include="editarencuesta.aspx" />
     <Content Include="encuestas.aspx" />

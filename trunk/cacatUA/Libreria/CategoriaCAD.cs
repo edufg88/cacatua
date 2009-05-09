@@ -669,5 +669,43 @@ namespace Libreria
 
             return quitado;
         }
+
+        public ArrayList CategoriasDe(ENUsuario usuario)
+        {
+            ArrayList categorias = new ArrayList();
+            
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                string  cadenaComando = "SELECT * FROM CATEGORIAS where id IN (";
+                        cadenaComando += "SELECT categoria FROM SUSCRIPCIONES where usuario = @usuario";
+                        cadenaComando += ")";
+                SqlCommand comando = new SqlCommand(cadenaComando, conexion);
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENCategoria categoria = obtenerDatos(reader);
+                    categorias.Add(categoria);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método CategoriasDe(usuario): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return categorias;
+        }
     }
 }

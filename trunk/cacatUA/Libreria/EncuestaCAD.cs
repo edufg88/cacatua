@@ -337,6 +337,40 @@ namespace Libreria
             return actualizado;
         }
 
+        public bool CambiarEstado(ENEncuesta encuesta, bool activar)
+        {
+            bool cambiado = false;
+
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "update encuestas set activa = @activa where id = @id";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                comando.Parameters.AddWithValue("@activa", activar);
+                comando.Parameters.AddWithValue("@id", encuesta.Id);
+
+                if (comando.ExecuteNonQuery() == 1)
+                {
+                    cambiado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al activar/desactivar una encuesta" + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cambiado;
+        }
+
         public int CantidadEncuestas(int usuario)
         {
             SqlConnection conexion = null;
