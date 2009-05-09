@@ -408,6 +408,9 @@
   <data name="InformacionAdicional" xml:space="preserve">
     <value>Información adicional</value>
   </data>
+  <data name="InsuscribirseCategoriaActual" xml:space="preserve">
+    <value>Insuscribirse de la categoría actual</value>
+  </data>
   <data name="MensajesPrivados" xml:space="preserve">
     <value>Mensajes privados</value>
   </data>
@@ -422,5 +425,8 @@
   </data>
   <data name="NombreUsuario" xml:space="preserve">
     <value>Nombre de usuario</value>
+  </data>
+  <data name="SuscribirseCategoriaActual" xml:space="preserve">
+    <value>Suscribirse a la categoría actual</value>
   </data>
 </root>

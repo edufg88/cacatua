@@ -21,9 +21,9 @@
     <asp:Panel ID="Panel_categorias" runat="server"></asp:Panel>
     <asp:Panel ID="Panel_suscribirse" runat="server" CssClass="suscribirse">
         <asp:LinkButton ID="LinkButton_suscribirse" runat="server" ForeColor="Green"
-            onclick="LinkButton_suscribirse_Click">Suscribirse a la categoría actual</asp:LinkButton>
+            onclick="LinkButton_suscribirse_Click"><%= Resources.I18N.SuscribirseCategoriaActual %></asp:LinkButton>
         <asp:LinkButton ID="LinkButton_dessuscribirse" runat="server"  ForeColor="Red"
-            onclick="LinkButton_dessuscribirse_Click">Salirse a la categoría actual</asp:LinkButton>
+            onclick="LinkButton_dessuscribirse_Click"><%= Resources.I18N.InsuscribirseCategoriaActual %></asp:LinkButton>
     </asp:Panel>
 </div>
 

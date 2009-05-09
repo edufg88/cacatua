@@ -619,6 +619,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Insuscribirse de la categoría actual.
+        /// </summary>
+        internal static string InsuscribirseCategoriaActual {
+            get {
+                return ResourceManager.GetString("InsuscribirseCategoriaActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Limpiar.
         /// </summary>
         internal static string Limpiar {
@@ -849,6 +858,15 @@ namespace Resources {
         internal static string Siguiente {
             get {
                 return ResourceManager.GetString("Siguiente", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Suscribirse a la categoría actual.
+        /// </summary>
+        internal static string SuscribirseCategoriaActual {
+            get {
+                return ResourceManager.GetString("SuscribirseCategoriaActual", resourceCulture);
             }
         }
         
