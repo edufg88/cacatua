@@ -589,8 +589,7 @@ public partial class foro : WebCacatUA.InterfazWeb
         {
             ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
 
-            //if (categoria.EstaSuscrito(usuario))
-            if (true)
+            if (!categoria.EstaSuscrito(usuario))
             {
                 LinkButton_suscribirse.Visible = true;
                 LinkButton_dessuscribirse.Visible = false;
