@@ -104,6 +104,7 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
             CargarFormaLogout();
            
             //Aquí vamos a la página de inicio del usuario que ha hecho login
+            Response.Redirect("index.aspx");
         }
         else
         {
@@ -124,6 +125,6 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         // Habilitamos los formularios para login
         CargarFormaLogin();
 
-        RefrescarPagina();
+        Response.Redirect("index.aspx");
     }
 }

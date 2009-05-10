@@ -83,9 +83,9 @@
         </p>
     
         <p class="pie">       
-            <asp:Button ID="Button_confirmar" runat="server" Text="Confirmar" 
+            <asp:Button ID="Button_confirmar" runat="server" Text="Confirmar" CausesValidation="true"
                 onclick="Button_confirmar_Click" />
-            <asp:Button ID="Button_limpiar" runat="server" Text="Limpiar" 
+            <asp:Button ID="Button_limpiar" runat="server" Text="Limpiar" CausesValidation="false" 
                 onclick="Button_limpiar_Click" />   
         </p>
     </div>

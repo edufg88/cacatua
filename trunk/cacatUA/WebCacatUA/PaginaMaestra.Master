@@ -60,11 +60,15 @@
                     TextMode="Password"></asp:TextBox>
                 <asp:Button ID="Button_entrar" runat="server" 
                     Text="<%$ Resources: I18N, Entrar %>" 
+                    CausesValidation="false"
                     onclick="Button_entrar_Click" />
                 <asp:Button ID="Button_registrarse" runat="server" 
                     Text="<%$ Resources: I18N, Registrarse %>" 
+                    CausesValidation="false"
                     onclick="Button_registrarse_Click" />
-                <asp:Button ID="Button_logout" runat="server" onclick="Button_logout_Click" 
+                <asp:Button ID="Button_logout" runat="server" 
+                    CausesValidation="false"
+                    onclick="Button_logout_Click" 
                     Text="Logout" Visible="False" />
             </div>
             
