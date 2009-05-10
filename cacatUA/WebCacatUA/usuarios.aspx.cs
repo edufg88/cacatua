@@ -23,7 +23,7 @@ public partial class usuarios : WebCacatUA.InterfazWeb
     {
         mostrarUsuarios();
     }
-
+    /*
     private void insertarCabecera()
     {
         // Columna del usuario
@@ -69,6 +69,7 @@ public partial class usuarios : WebCacatUA.InterfazWeb
         Table_usuarios.Controls.Add(fila);
         
     }
+    */
 
     private void mostrarUsuarios()
     {
@@ -96,19 +97,19 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 TableCell c2 = new TableCell();
                 c2.CssClass = "columna2Usuarios";
                 Label l2 = new Label();
-                l2.Text = "<p><span class=\"tituloDato\">Usuario: </span>" + us.Usuario + "</p>";
+                l2.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.Usuario + ": </span><a href=\"usuario.aspx?usuario=" + us.Usuario + "\" class=\"usuario\">" + us.Usuario + "</a></p>";
                 l2.CssClass = "usuario";
                 Label l3 = new Label();
-                l3.Text = "<p><span class=\"tituloDato\">Nombre: </span>" + us.Nombre + "</p>";
+                l3.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.Nombre + ": </span>" + us.Nombre + "</p>";
                 l3.CssClass = "datoMenor";
                 Label l4 = new Label();
-                l4.Text = "<p><span class=\"tituloDato\">Email: </span>" + us.Correo + "</p>";
+                l4.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.CorreoElectronico + ": </span>" + us.Correo + "</p>";
                 l4.CssClass = "datoMenor";
                 Label l5 = new Label();
-                l5.Text = "<p><span class=\"tituloDato\">Fecha de ingreso: </span>" + us.Fechaingreso.Day.ToString()+ "/" + us.Fechaingreso.Month.ToString() + "/" + us.Fechaingreso.Year.ToString() + "</p>";
+                l5.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.FechaIngreso + ": </span>" + us.Fechaingreso.Day.ToString() + "/" + us.Fechaingreso.Month.ToString() + "/" + us.Fechaingreso.Year.ToString() + "</p>";
                 l5.CssClass = "datoMenor";
                 Label l6 = new Label();
-                l6.Text = "<p><span class=\"tituloDato\">Info. adicional: </span>" + us.Adicional + "</p>";
+                l6.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.InformacionAdicional + ": </span>" + us.Adicional + "</p>";
                 l6.CssClass = "datoMenor";
                 Panel p2 = new Panel();
                 p2.Controls.Add(l2);
@@ -122,18 +123,21 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 TableCell c3 = new TableCell();
                 c3.CssClass = "columna3Usuarios";
                 Label l7 = new Label();
-                l7.Text = "<p><span class=\"tituloDato\">Cantidad de imágenes: </span>" + us.CantidadImagenes().ToString() + "</p>";
+                l7.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.CantidadImagenes + ": </span>" + us.CantidadImagenes().ToString() + "</p>";
                 l7.CssClass = "datoMenor";
                 Label l8 = new Label();
-                l8.Text = "<p><span class=\"tituloDato\">Cantidad de firmas: </span>" + us.CantidadFirmas().ToString() + "</p>";
+                l8.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.CantidadFirmas + ": </span>" + us.CantidadFirmas().ToString() + "</p>";
                 l8.CssClass = "datoMenor";
                 Label l9 = new Label();
-                l9.Text = "<p><span class=\"tituloDato\">Cantidad de encuestas: </span>" + us.CantidadEncuestas().ToString() + "</p>";
+                l9.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.CantidadEncuestas + ": </span>" + us.CantidadEncuestas().ToString() + "</p><br/>";
                 l9.CssClass = "datoMenor";
+                Label l10 = new Label();
+                l10.Text = "<a href=\"\" class=\"enlaceMenor\">" + Resources.I18N.MensajePrivado + "</a>";
                 Panel p3 = new Panel();
                 p3.Controls.Add(l7);
                 p3.Controls.Add(l8);
                 p3.Controls.Add(l9);
+                p3.Controls.Add(l10);
                 c3.Controls.Add(p3);
 
                 // Insertamos las columnas en la fila e insertamos la fila en la tabla.

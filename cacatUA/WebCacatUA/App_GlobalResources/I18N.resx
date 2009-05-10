@@ -459,4 +459,16 @@
   <data name="NumeroImagenes" xml:space="preserve">
     <value>Imágenes</value>
   </data>
+  <data name="CantidadEncuestas" xml:space="preserve">
+    <value>Encuestas</value>
+  </data>
+  <data name="CantidadFirmas" xml:space="preserve">
+    <value>Firmas</value>
+  </data>
+  <data name="CantidadImagenes" xml:space="preserve">
+    <value>Imágenes</value>
+  </data>
+  <data name="MensajePrivado" xml:space="preserve">
+    <value>Mensaje privado</value>
+  </data>
 </root>

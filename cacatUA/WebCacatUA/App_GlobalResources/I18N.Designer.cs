@@ -187,6 +187,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Encuestas.
+        /// </summary>
+        internal static string CantidadEncuestas {
+            get {
+                return ResourceManager.GetString("CantidadEncuestas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Firmas.
+        /// </summary>
+        internal static string CantidadFirmas {
+            get {
+                return ResourceManager.GetString("CantidadFirmas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imágenes.
+        /// </summary>
+        internal static string CantidadImagenes {
+            get {
+                return ResourceManager.GetString("CantidadImagenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Cantidad por página.
         /// </summary>
         internal static string CantidadPorPagina {
@@ -696,6 +723,15 @@ namespace Resources {
         internal static string Mensaje {
             get {
                 return ResourceManager.GetString("Mensaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mensaje privado.
+        /// </summary>
+        internal static string MensajePrivado {
+            get {
+                return ResourceManager.GetString("MensajePrivado", resourceCulture);
             }
         }
         
