@@ -46,14 +46,6 @@ namespace WebCacatUA
             }
         }
 
-        private void escribir(string cadena)
-        {
-            const string fic = @"C:\log.txt";
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
-            sw.WriteLine(cadena);
-            sw.Close();
-        }
-
         private void CargarEncuesta()
         {
             int i = 0;

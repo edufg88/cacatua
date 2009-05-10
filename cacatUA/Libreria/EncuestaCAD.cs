@@ -770,6 +770,84 @@ namespace Libreria
 
             return votada;
         }
+
+        public int NumVotos(ENEncuesta encuesta)
+        {
+            int resultado = 0;
+            SqlConnection conexion = null;
+
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM OPCIONES opc, OPCIONESVOTOS opv " +
+                    "WHERE opc.id = opv.opcion and opc.encuesta = @encuesta";
+                comando.Parameters.AddWithValue("@encuesta", encuesta.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    resultado = int.Parse(reader["numero"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método NumVotos(encuesta): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return resultado;
+        }
+
+        public int NumVotos(OpcionEncuesta opcion)
+        {
+            int resultado = 0;
+            SqlConnection conexion = null;
+
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT count(*) numero FROM OPCIONESVOTOS " +
+                    "WHERE opcion = @opcion";
+                comando.Parameters.AddWithValue("@opcion", opcion.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.Read())
+                {
+                    resultado = int.Parse(reader["numero"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método NumVotos(opcion): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return resultado;
+        }
         
     }
 }
