@@ -9,4 +9,10 @@
 </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
+<div id="contenido">
+    
+    <asp:LinkButton ID="LinkButton_volverInicio" runat="server" 
+        onclick="LinkButton_volverInicio_Click">Volver a la página de inicio</asp:LinkButton>
+    
+</div>
 </asp:Content>
