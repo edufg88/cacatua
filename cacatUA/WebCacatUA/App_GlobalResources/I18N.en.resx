@@ -432,4 +432,7 @@
   <data name="UltimosUsuarios" xml:space="preserve">
     <value>Last users registered</value>
   </data>
+  <data name="NumeroImagenes" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
 </root>

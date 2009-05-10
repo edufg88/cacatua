@@ -456,5 +456,7 @@
   <data name="NUsuarios" xml:space="preserve">
     <value>Número de Usuarios</value>
   </data>
->>>>>>> .r528
+  <data name="NumeroImagenes" xml:space="preserve">
+    <value>Imágenes</value>
+  </data>
 </root>
