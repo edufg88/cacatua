@@ -76,10 +76,15 @@
                 <asp:ImageButton ID="ImageButton_Español" runat="server" AlternateText="es" 
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
                     ImageUrl="imagenes/banderas/español.png" 
-                    onclick="ImageButton_Español_Click" />
+                    onclick="ImageButton_Español_Click" 
+                    CausesValidation="false"
+                    />
                 <asp:ImageButton ID="ImageButton_Ingles" runat="server" AlternateText="en" 
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
-                    ImageUrl="imagenes/banderas/english.png" onclick="ImageButton_Ingles_Click" />
+                    ImageUrl="imagenes/banderas/english.png"
+                    onclick="ImageButton_Ingles_Click"
+                    CausesValidation="false"
+                    />
             </div>
             
             <div id="cabecera">

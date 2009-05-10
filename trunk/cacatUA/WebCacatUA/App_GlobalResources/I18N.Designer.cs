@@ -799,6 +799,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Imágenes.
+        /// </summary>
+        internal static string NumeroImagenes {
+            get {
+                return ResourceManager.GetString("NumeroImagenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Número de respuestas.
         /// </summary>
         internal static string NumeroRespuestas {

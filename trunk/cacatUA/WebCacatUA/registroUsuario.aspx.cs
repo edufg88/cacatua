@@ -16,13 +16,7 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        /*
-        foreach(ENUsuario us in ENUsuario.Obtener(1,20))
-        {
-            Response.Write(us.Usuario);
-            Response.Write("\n ");
-        }
-        */
+       
     }
 
     protected void LimpiarErrores()

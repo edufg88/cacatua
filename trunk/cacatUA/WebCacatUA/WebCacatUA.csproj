@@ -368,6 +368,7 @@
     <Content Include="estadoencuesta.aspx" />
     <Content Include="estilos\categoriasUsuario.css" />
     <Content Include="estilos\index.css" />
+    <Content Include="estilos\usuarios.css" />
     <Content Include="estilos\usuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />
     <Content Include="estilos\hilo.css" />

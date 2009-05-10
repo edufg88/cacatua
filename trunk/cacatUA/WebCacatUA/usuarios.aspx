@@ -1,12 +1,43 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeFile="usuarios.aspx.cs" Inherits="usuarios" Title="Usuarios - CacatUA" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <link rel="stylesheet" type="text/css" href="estilos/usuarios.css" media="screen" />
+</asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_titulo" Runat="Server">
-<p>Usuarios</p>
+    <div id="cabeceraUsuarios">
+        
+        <asp:Label ID="Label_usuarios" runat="server" Text="Usuarios"></asp:Label>
+        
+    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">
-<p>Se muestra el listado de usuarios, con buscador, para poder seleccionar uno de ellos. Cuando se seleccione se podrá ver al usuario en detalle (se redireccionará, por ejemplo, a usuario.aspx?id=1255). Desde usuario.aspx?id=1255 se ve la información del usuario, con la posiblidad de ver sus fotos, grupos, o lo que sea.
-<a href="usuario.aspx">Ver usuario de prueba</a>
-</p>
+    <div id="migasUsuarios">
+    
+    </div>
+    <div id="navegacionUsuarios">
+    
+    </div>
+    <div id="contenidoUsuarios">
+        <div id="busquedaUsuarios">
+        
+            <div id="criteriosBusquedaUsuarios">
+            
+            </div>
+        </div>
+        <div id="mostrarUsuarios">
+        </div>
+        <div id="usuarios">
+            <asp:Table ID="Table_usuarios" runat="server" CssClass="tablaUsuarios" 
+                CellPadding="0" CellSpacing="0"></asp:Table>
+        </div>
+        <div id="paginacionUsuarios">
+            <div id="cantidadPaginasUsuarios">
+            </div>
+            <div id="paginasUsuarios">
+            </div>
+        </div>
+    </div>
+    
+<p>&nbsp;</p>
 </asp:Content>
 
