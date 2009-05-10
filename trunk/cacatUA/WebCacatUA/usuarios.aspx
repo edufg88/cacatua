@@ -5,9 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_titulo" Runat="Server">
     <div id="cabeceraUsuarios">
-        
-        <asp:Label ID="Label_usuarios" runat="server" Text="Usuarios"></asp:Label>
-        
+        <asp:Label ID="Label_usuarios" runat="server" Text="<%$ Resources: I18N, Usuarios %>"></asp:Label>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_contenido" Runat="Server">

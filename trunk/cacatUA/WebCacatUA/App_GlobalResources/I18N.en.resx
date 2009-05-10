@@ -391,7 +391,7 @@
     <value>Save changes</value>
   </data>
   <data name="InformacionAdicional" xml:space="preserve">
-    <value>Aditional information</value>
+    <value>Additional information</value>
   </data>
   <data name="InsuscribirseCategoriaActual" xml:space="preserve">
     <value>Unsuscribirse from the current category</value>
@@ -434,5 +434,17 @@
   </data>
   <data name="NumeroImagenes" xml:space="preserve">
     <value>Pictures</value>
+  </data>
+  <data name="CantidadEncuestas" xml:space="preserve">
+    <value>Surveys</value>
+  </data>
+  <data name="CantidadFirmas" xml:space="preserve">
+    <value>Signatures</value>
+  </data>
+  <data name="CantidadImagenes" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
+  <data name="MensajePrivado" xml:space="preserve">
+    <value>Private message</value>
   </data>
 </root>
