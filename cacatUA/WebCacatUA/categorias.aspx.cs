@@ -58,9 +58,9 @@ namespace WebCacatUA
                 TableCell c2 = new TableCell();
                 c2.CssClass = cssclass;
                 Button b1 = new Button();
-                //b1.ID = opc.Id.ToString();
+                b1.ID = cat.Id.ToString();
                 b1.Text = "Insuscribirse";
-                //b1.Click += new System.EventHandler(Button_borraropcion_Click);
+                b1.Click += new System.EventHandler(Button_borrarsuscripcion_Click);
                 c2.Controls.Add(b1);
 
                 fila.Controls.Add(c1);
@@ -68,6 +68,18 @@ namespace WebCacatUA
 
                 Table_categorias.Controls.Add(fila);
             }
+        }
+
+        protected void Button_borrarsuscripcion_Click(object sender, EventArgs e)
+        {
+            Button pulsado = (Button)sender;
+            try
+            {
+                int idopcion = int.Parse(pulsado.ID.ToString());
+                ENCategoria.Obtener(idopcion).InsuscribirUsuario(usuario);
+            }
+            catch (Exception) { }
+            Response.Redirect("categorias.aspx");
         }
     }
 }
