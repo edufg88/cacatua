@@ -11,6 +11,7 @@ namespace WebCacatUA
     public partial class PaginaMaestraUsuario : System.Web.UI.MasterPage
     {
         private ENUsuario usuario;
+        private ENUsuario uSesion;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,30 +61,84 @@ namespace WebCacatUA
 
             if (mostrar != null)
             {
-                Label l1 = new Label();
-                l1.Text = mostrar.Pregunta;
-                Panel_encuesta.Controls.Add(l1);
-
-                foreach (OpcionEncuesta opc in mostrar.Opciones())
+                if (mostrar.HaVotado(uSesion))
                 {
-                    //Salto de linea (si, es lo peor)
-                    Label br = new Label();
-                    br.Text = "<br/>";
-                    Panel_encuesta.Controls.Add(br);
+                    Label l1 = new Label();
+                    l1.Text = mostrar.Pregunta;
+                    Panel_encuesta.Controls.Add(l1);
+                    int totalVotos = mostrar.NumVotos();
+
+                    foreach (OpcionEncuesta opc in mostrar.Opciones())
+                    {
+                        //Salto de linea (si, es lo peor)
+                        Label br = new Label();
+                        br.Text = "<br/>";
+                        Panel_encuesta.Controls.Add(br);
+
+                        int opcionVotos = opc.NumVotos();
+
+                        Label l2 = new Label();
+                        l2.Text = opc.Opcion + ": " + opcionVotos.ToString() + " (" + ((opcionVotos * 100)/totalVotos).ToString() + "%)";
+                        Panel_encuesta.Controls.Add(l2);
+                    }
+
+                    Label l3 = new Label();
+                    l3.Text = "<br/>Total votos: " + totalVotos.ToString();
+                    Panel_encuesta.Controls.Add(l3);
+                }
+                else
+                {
+                    Label l1 = new Label();
+                    l1.Text = mostrar.Pregunta;
+                    Panel_encuesta.Controls.Add(l1);
+
+                    foreach (OpcionEncuesta opc in mostrar.Opciones())
+                    {
+                        //Salto de linea (si, es lo peor)
+                        Label br = new Label();
+                        br.Text = "<br/>";
+                        Panel_encuesta.Controls.Add(br);
 
 
-                    RadioButton rb1 = new RadioButton();
-                    rb1.Text = opc.Opcion;
-                    rb1.GroupName = "Encuesta";
-                    Panel_encuesta.Controls.Add(rb1);
+                        RadioButton rb1 = new RadioButton();
+                        rb1.Text = opc.Opcion;
+                        rb1.ID = opc.Id.ToString();
+                        rb1.GroupName = "Encuesta";
+                        rb1.CheckedChanged += new System.EventHandler(CheckBox_votaropcion_Click);
+                        rb1.AutoPostBack = true;
+                        if (uSesion == null)
+                            rb1.Enabled = false;
+                        Panel_encuesta.Controls.Add(rb1);
+                    }
+                    if (uSesion == null)
+                    {
+                        Label l3 = new Label();
+                        l3.Text = "<br/>Necesitas estar registrado para votar.";
+                        Panel_encuesta.Controls.Add(l3);
+                    }
                 }
             }
             else
             {
                 Label l1 = new Label();
                 l1.Text = "No hay encuestas activas.";
+                Panel_encuesta.Controls.Add(l1);
             }
 
+        }
+
+        protected void CheckBox_votaropcion_Click(object sender, EventArgs e)
+        {
+
+            CheckBox pulsado = (CheckBox)sender;
+            try
+            {
+                int idopcion = int.Parse(pulsado.ID.ToString());
+                ENEncuesta.Votar(uSesion, ENEncuesta.ObtenerOpcion(idopcion));
+            }
+            catch (Exception) { }
+
+            Response.Redirect(Request.Url.ToString());
         }
 
         /// <summary>
@@ -136,6 +191,15 @@ namespace WebCacatUA
 
         private void extraerParametros()
         {
+
+            // Extraemoe el usuario de la sesion
+            uSesion = null;
+            try
+            {
+                uSesion = ENUsuario.Obtener(Session["usuario"].ToString());
+            }
+            catch (Exception) { }
+
             // Intentamos extraer el usuario según el nombre recibido en los parámetros.
             usuario = null;
             try
@@ -144,12 +208,12 @@ namespace WebCacatUA
             }
             catch (Exception) { }
 
-            // Si no lo hemos extraido de ninguna forma, lo intentamos desde la sessión.
+            // Si no esta en el request, usamos el de sesion
             if (usuario == null)
             {
                 try
                 {
-                    usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+                    usuario = uSesion;
                 }
                 catch (Exception) { }
             }

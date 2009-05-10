@@ -205,6 +205,11 @@ namespace Libreria
             return EncuestaCAD.Instancia.HaVotadoEncuesta(usuario, this);
         }
 
+        public int NumVotos()
+        {
+            return EncuestaCAD.Instancia.NumVotos(this);
+        }
+
         public int Id
         {
             get { return id; }
@@ -278,6 +283,11 @@ namespace Libreria
         {
             get { return encuesta; }
             set { encuesta = value; }
-        }            
+        }
+
+        public int NumVotos()
+        {
+            return EncuestaCAD.Instancia.NumVotos(this);
+        }
     }
 }
