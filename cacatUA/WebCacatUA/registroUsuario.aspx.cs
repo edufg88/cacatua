@@ -104,10 +104,13 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 
                 if (us.Guardar())
                 {
+                    /*
                     LimpiarErrores();
                     LimpiarCampos();
                     Label_infoGeneral.Text = "Usuario registrado correctamente";
                     Label_infoGeneral.ForeColor = System.Drawing.Color.DarkGreen;
+                     */
+                    Response.Redirect("usuarioRegistrado.aspx");
                 }
             }
             else // El usuario ya existe

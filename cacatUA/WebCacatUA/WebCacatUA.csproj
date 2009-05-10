@@ -127,6 +127,13 @@
     <Compile Include="crearhilo.aspx.designer.cs">
       <DependentUpon>crearhilo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="usuarioRegistrado.aspx.cs">
+      <DependentUpon>usuarioRegistrado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuarioRegistrado.aspx.designer.cs">
+      <DependentUpon>usuarioRegistrado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="descargar.aspx.cs">
       <DependentUpon>descargar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -366,6 +373,7 @@
     <Content Include="estilos\hilo.css" />
     <Content Include="hilo.aspx" />
     <Content Include="crearhilo.aspx" />
+    <Content Include="usuarioRegistrado.aspx" />
     <Content Include="descargar.aspx" />
     <Content Include="galeriaDetalle.aspx" />
     <Content Include="imagenes\cacatua.ico" />
