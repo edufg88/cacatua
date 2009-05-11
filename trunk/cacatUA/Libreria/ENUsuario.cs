@@ -591,6 +591,11 @@ namespace Libreria
             return EncuestaCAD.Instancia.UltimaActivaDe(this);
         }
 
+        public static int Cantidad(string texto, string tipo, string ordenar, bool orden)
+        {
+            return UsuarioCAD.Instancia.Cantidad(texto, tipo, ordenar, orden);
+        }
+
         public int Id
         {
             get { return id; }

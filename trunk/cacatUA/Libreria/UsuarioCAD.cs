@@ -487,6 +487,62 @@ namespace Libreria
             return usuarios;
         }
 
+
+        public int Cantidad(string texto, string tipo, string ordenar, bool orden)
+        {
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = conexion;
+
+                comando.CommandText = "SELECT count(*) cantidad FROM usuarios WHERE ";
+
+                if (tipo == "usuario")
+                {
+                    comando.CommandText += "(usuario LIKE @usuario) ";
+                    comando.Parameters.AddWithValue("@usuario", "%" + texto + "%");
+                }
+                else if (tipo == "nombre")
+                {
+                    comando.CommandText += "(nombre LIKE @nombre) ";
+                    comando.Parameters.AddWithValue("@nombre", "%" + texto + "%");
+                }
+                else // if (tipo == "email")
+                {
+                    comando.CommandText += "(correo LIKE @correo) ";
+                    comando.Parameters.AddWithValue("@correo", "%" + texto + "%");
+                }
+
+                // Realizamos la consulta.
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                // Extraemos el valor.
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                // Cerramos la consulta.
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepcion NumUsuarios(<parametros>) " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
         public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso, int pagina, int tamaño)
         {
             bool usarUsuario = false;

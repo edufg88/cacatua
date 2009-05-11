@@ -29,6 +29,7 @@ public partial class usuarios : WebCacatUA.InterfazWeb
 
         if (!Page.IsPostBack)
         {
+            actualizarPaginacion();
             actualizarOrdenar();
             actualizarOrden();
             actualizarBuscar();
@@ -37,6 +38,9 @@ public partial class usuarios : WebCacatUA.InterfazWeb
         mostrarUsuarios();
     }
 
+    /// <summary>
+    /// Actualiza el valor de la variable ordenar
+    /// </summary>
     private void actualizarOrdenar()
     {
         if (DropDownList_ordenar.Items.Count == 0)
@@ -55,6 +59,9 @@ public partial class usuarios : WebCacatUA.InterfazWeb
 
     }
 
+    /// <summary>
+    /// Actualiza el valor de la variable orden
+    /// </summary>
     private void actualizarOrden()
     {
         if (DropDownList_orden.Items.Count == 0)
@@ -70,6 +77,9 @@ public partial class usuarios : WebCacatUA.InterfazWeb
   
     }
 
+    /// <summary>
+    /// Actualiza el valor de la variable buscar
+    /// </summary>
     private void actualizarBuscar()
     {
         if (buscar == "usuario")
@@ -83,6 +93,49 @@ public partial class usuarios : WebCacatUA.InterfazWeb
         else //if (buscar == "email")
         {
             RadioButton_correo.Checked = true;
+        }
+    }
+
+    /// <summary>
+    /// Calcula la cantidad de páginas según la cantidad de resultados que se están mostrando
+    /// y los resultados totales y actualiza los ComboBox para que muestre la cantidad correcta.
+    /// También marca la página actual como seleccionada.
+    /// </summary>
+    private void actualizarPaginacion()
+    {
+        Label_cantidadPagina.Text = Resources.I18N.CantidadPorPagina + ": ";
+
+        Button_paginaAnterior.Enabled = false;
+        Button_paginaSiguiente.Enabled = false;
+        if (cantidad > 0)
+        {
+            // Calculamos la cantidad de páginas y la insertamos en el ComboBox.
+            DropDownList_pagina.Items.Clear();
+            int cantidadPaginas = (int)Math.Ceiling(totalResultados / (float)cantidad);
+            for (int i = 1; i < cantidadPaginas + 1; i++)
+            {
+                ListItem p = new ListItem(i.ToString(), i.ToString());
+                DropDownList_pagina.Items.Add(p);
+            }
+
+            // Comprobamos que la página no se exceda del rango y la marcamos como seleccionada.
+            if (pagina > cantidadPaginas) pagina = cantidadPaginas;
+            if (pagina < 1) pagina = 1;
+            DropDownList_pagina.SelectedIndex = pagina - 1;
+
+            // Según los límites de la página actual, habilitamos o no los botones de navegación.
+            if (cantidadPaginas > pagina) Button_paginaSiguiente.Enabled = true;
+            if (pagina > 1) Button_paginaAnterior.Enabled = true;
+
+            // Seleccionamos la cantidad de resultados por página que haya marcada.
+            for (int i = 0; i < DropDownList_cantidadPagina.Items.Count; i++)
+            {
+                if (DropDownList_cantidadPagina.Items[i].Value == cantidad.ToString())
+                {
+                    DropDownList_cantidadPagina.SelectedIndex = i;
+                    break;
+                }
+            }
         }
     }
 
@@ -189,8 +242,13 @@ public partial class usuarios : WebCacatUA.InterfazWeb
             busqueda = Request["busqueda"].ToString();
         }
         catch (Exception) { }
+
+        totalResultados = ENUsuario.Cantidad(busqueda, buscar, ordenar, orden);
     }
 
+    /// <summary>
+    /// Muestra en una tabla la información de los usuarios
+    /// </summary>
     private void mostrarUsuarios()
     {
         resultado = ENUsuario.BuscarWeb(busqueda, buscar, ordenar, orden, pagina, cantidad);
@@ -272,6 +330,9 @@ public partial class usuarios : WebCacatUA.InterfazWeb
         }
     }
 
+    /// <summary>
+    /// Analiza los formularios extrayendo los datos de búsqueda
+    /// </summary>
     private void obtenerDatosBusqueda()
     { 
         busqueda = TextBox_filtroBusqueda.Text;
@@ -292,7 +353,6 @@ public partial class usuarios : WebCacatUA.InterfazWeb
             orden = true;
         else
             orden = false;
-        //Faltan pagina y tamaño (obtener de dropdownlist)
     }
 
     protected void Button_buscar_Click(object sender, EventArgs e)
@@ -317,6 +377,27 @@ public partial class usuarios : WebCacatUA.InterfazWeb
         Response.Redirect(calcularRuta());
     }
 
+    protected void DropDownList_cantidadPagina_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        cantidad = int.Parse(DropDownList_cantidadPagina.SelectedValue);
+        pagina = 1;
+        Response.Redirect(calcularRuta());
+    }
+    protected void Button_paginaAnterior_Click(object sender, EventArgs e)
+    {
+        pagina--;
+        Response.Redirect(calcularRuta());
+    }
+    protected void DropDownList_pagina_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        pagina = int.Parse(DropDownList_pagina.SelectedValue);
+        Response.Redirect(calcularRuta());
+    }
+    protected void Button_paginaSiguiente_Click(object sender, EventArgs e)
+    {
+        pagina++;
+        Response.Redirect(calcularRuta());
+    }
 
     public int Pagina
     {
