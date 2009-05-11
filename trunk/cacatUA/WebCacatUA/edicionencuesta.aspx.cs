@@ -167,7 +167,6 @@ namespace WebCacatUA
 
         protected void Button_borraropcion_Click(object sender, EventArgs e)
         {
-            escribir("Ni hasta aqui?");
             Button pulsado = (Button)sender;
             try
             {
