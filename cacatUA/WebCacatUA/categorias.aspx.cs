@@ -45,12 +45,15 @@ namespace WebCacatUA
                 TableRow fila = new TableRow();
 
                 String cssclass = "celda_categorias";
+                String cssnombreclass = "celda_categoriasnombre";
+
                 if (cat.EsSuperior())
                 {
                     cssclass = "celda_categoriaSuperior";
+                    cssnombreclass = "celda_categoriasnombresuperior";
                 }
                 TableCell c1 = new TableCell();
-                c1.CssClass = cssclass;
+                c1.CssClass = cssnombreclass;
                 Label l1 = new Label();
                 l1.Text = cat.NombreCompleto();
                 c1.Controls.Add(l1);
@@ -59,6 +62,7 @@ namespace WebCacatUA
                 c2.CssClass = cssclass;
                 Button b1 = new Button();
                 b1.ID = cat.Id.ToString();
+                b1.CssClass = "boton_categorias";
                 b1.Text = "Insuscribirse";
                 b1.Click += new System.EventHandler(Button_borrarsuscripcion_Click);
                 c2.Controls.Add(b1);

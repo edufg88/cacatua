@@ -5,22 +5,59 @@
 
 .tabla_categorias
 {
-	border: solid 1px;
-	background-color: black;
-	border-color: black;
+	border: solid 2px;
+	border-color: #777;
 	margin-top: 20px;
+	width: 100%;
+    background-color: #777;
 }
 
 .celda_categoriaSuperior
 {
-	padding: 4px 10px 4px 10px;
-	background-color: #CCC;
+	padding: 5px 10px 5px 15px;
+	background-color: #ddd;
 	border: solid 1px;
+	border-color: #ddd;
+	vertical-align: middle;
+	text-align: center;
+	font-size: small;
+}
+
+.celda_categoriasnombresuperior
+{
+	padding: 5px 10px 5px 15px;
+	background-color: #ddd;
+	border: solid 1px;
+	border-color: #ddd;
+	vertical-align: middle;
+	text-align: left;
+	font-size: small;
 }
 
 .celda_categorias
 {
-	padding: 4px 10px 4px 10px;
+	padding: 5px 10px 5px 15px;
 	background-color: White;
 	border: solid 1px;
+	border-color: #ddd;
+	vertical-align: middle;
+	text-align: center;
+	font-size: small;
+}
+
+.celda_categoriasnombre
+{
+	padding: 5px 10px 5px 15px;
+	background-color: White;
+	border: solid 1px;
+	border-color: #ddd;
+	vertical-align: middle;
+	text-align: left;
+	font-size: small;
+}
+
+.boton_categorias 
+{
+	border: 1px solid #777;
+	background: #ddd;
 }
