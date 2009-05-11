@@ -9,7 +9,9 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-    <a href="encuestas.aspx">Volver a encuestas</a> 
+    <div id="div_volver">
+        <a href="encuestas.aspx">Volver a encuestas</a>
+    </div>
      <div id="div_nuevapregunta">
      Pregunta: 
          <asp:TextBox ID="TextBox_Pregunta" runat="server"></asp:TextBox>

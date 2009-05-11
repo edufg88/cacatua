@@ -51,45 +51,95 @@ namespace WebCacatUA
             int i = 0;
 
             TextBox_Pregunta.Text = encuesta.Pregunta;
+            ArrayList opcArray = encuesta.Opciones();
 
-            foreach (OpcionEncuesta opc in encuesta.Opciones())
+            if (opcArray.Count > 0)
             {
-                i++;
-                TableRow fila = new TableRow();
+                TableRow cabeceras = new TableRow();
 
-                TableCell c1 = new TableCell();
-                c1.CssClass = "celda_encuestas";
-                Label l1 = new Label();
-                l1.Text = "Opcion " + i.ToString() + ": ";
-                c1.Controls.Add(l1);
+                TableCell cab1 = new TableCell();
+                cab1.CssClass = "celda_cabecera";
+                Label label_cab1 = new Label();
+                label_cab1.Text = "#";
+                cab1.Controls.Add(label_cab1);
 
-                TableCell c2 = new TableCell();
-                c2.CssClass = "celda_encuestas";
-                TextBox t1 = new TextBox();
-                t1.Text = opc.Opcion;
-                c2.Controls.Add(t1);
+                TableCell cab2 = new TableCell();
+                cab2.CssClass = "celda_cabecera";
+                Label label_cab2 = new Label();
+                label_cab2.Text = "Opcion";
+                cab2.Controls.Add(label_cab2);
 
-                TableCell c3 = new TableCell();
-                c3.CssClass = "celda_encuestas";
-                Button b1 = new Button();
-                b1.ID = opc.Id.ToString();
-                b1.Text = "Quitar";
-                b1.Click += new System.EventHandler(Button_borraropcion_Click);
-                c3.Controls.Add(b1);
+                TableCell cab3 = new TableCell();
+                cab3.CssClass = "celda_cabecera";
+                Label label_cab3 = new Label();
+                label_cab3.Text = "Votos";
+                cab3.Controls.Add(label_cab3);
 
-                fila.Controls.Add(c1);
-                fila.Controls.Add(c2);
-                fila.Controls.Add(c3);
+                TableCell cab4 = new TableCell();
+                cab4.CssClass = "celda_cabecera";
+                Label label_cab4 = new Label();
+                label_cab4.Text = "";
+                cab4.Controls.Add(label_cab4);
+
+                cabeceras.Controls.Add(cab1);
+                cabeceras.Controls.Add(cab2);
+                cabeceras.Controls.Add(cab3);
+                cabeceras.Controls.Add(cab4);
+                Table_encuesta.Controls.Add(cabeceras);
+
+                foreach (OpcionEncuesta opc in encuesta.Opciones())
+                {
+                    String textoAux;
+
+                    i++;
+                    TableRow fila = new TableRow();
+
+                    TableCell c1 = new TableCell();
+                    c1.CssClass = "celda_encuestas";
+                    Label l1 = new Label();
+                    l1.Text = "Opcion " + i.ToString();
+                    c1.Controls.Add(l1);
+
+                    TableCell c2 = new TableCell();
+                    c2.CssClass = "celda_encuestas";
+                    Label l2 = new Label();
+                    l2.Text = opc.Opcion;
+                    c2.Controls.Add(l2);
+
+                    TableCell c3 = new TableCell();
+                    c3.CssClass = "celda_encuestas";
+                    Label l3 = new Label();
+                    if (encuesta.NumVotos() > 0)
+                    {
+                        int opcNumVotos = opc.NumVotos();
+                        textoAux = opcNumVotos.ToString() + " (" + ((opcNumVotos * 100) / encuesta.NumVotos()).ToString() + "%)";
+                    }
+                    else
+                    {
+                        textoAux = "~";
+                    }
+                    l3.Text = textoAux;
+                    c3.Controls.Add(l3);
 
 
-                Table_encuesta.Controls.Add(fila);
+                    TableCell c4 = new TableCell();
+                    c4.CssClass = "celda_encuestas";
+                    Button b1 = new Button();
+                    b1.CssClass = "boton_encuestas";
+                    b1.ID = opc.Id.ToString();
+                    b1.Text = "Quitar";
+                    b1.Click += new System.EventHandler(Button_borraropcion_Click);
+                    c4.Controls.Add(b1);
+
+                    fila.Controls.Add(c1);
+                    fila.Controls.Add(c2);
+                    fila.Controls.Add(c3);
+                    fila.Controls.Add(c4);
+
+
+                    Table_encuesta.Controls.Add(fila);
+                }
             }
-
-            if (i > 0)
-            {
-                //Button_guardar.Visible = true;
-            }
-
         }
 
         protected void Button_crearopcion_Click(object sender, EventArgs e)
