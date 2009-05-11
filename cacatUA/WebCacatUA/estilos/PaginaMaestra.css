@@ -95,6 +95,11 @@ img
     background: url(../imagenes/boton_encima.png) no-repeat center;
 }
 
+#mensajes
+{
+	text-align:right;
+	color:Red;	
+}
 
 
 /**********************************************************

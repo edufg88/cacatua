@@ -51,6 +51,7 @@
     <div id="contenedor">
     
         <div id="encabezado">
+            
             <div id="acceso">
                 <asp:Label ID="Label_iniciarSesion" runat="server" Text="<%$ Resources: I18N, IniciarSesion %>"></asp:Label>
                 <asp:Label ID="Label_infoLogin" runat="server" ForeColor="Red"></asp:Label>
@@ -97,6 +98,18 @@
                 <div id="boton_materiales" class="boton"><a href="materiales.aspx"><asp:Label ID="Label_materiales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label></a></div>
                 <div id="boton_foro" class="boton"><a href="foro.aspx"><asp:Label ID="Label_foro" runat="server" Text="<%$ Resources: I18N, Foro %>"></asp:Label></a></div>
             </div>
+        </div>
+        
+        <div id="mensajes">
+            <asp:Label ID="Label_numeroMensajes" Visible=false runat="server" Text="numero_mensajes"></asp:Label>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server">
+                    </asp:ScriptManager>
+                    <asp:Timer ID="Timer1" runat="server" interval="2000" ontick="actualizarMensajes" /></asp:Timer>
+                        <asp:Label ID="Label_mensajes" Visible=false runat="server" Text="No tiene mensajes"></asp:Label>
+                </ContentTemplate> 
+            </asp:UpdatePanel>
         </div>
         
         <div id="titulo">

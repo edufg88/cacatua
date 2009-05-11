@@ -17,10 +17,19 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         Label_infoLogin.Text = "";
 
         if (Session["usuario"] != null)
         {
+            // Mensajes 
+            if (!Page.IsPostBack)
+            {
+                ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+                ArrayList mensajes = ENMensaje.Obtener(usuario.Usuario, false);
+                Label_numeroMensajes.Text = mensajes.Count.ToString();
+            }
+
             CargarFormaLogout();
         }
         else
@@ -127,4 +136,21 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
 
         Response.Redirect("index.aspx");
     }
+
+    protected void actualizarMensajes(object sender, EventArgs e)
+    {
+        // Comprobamos si tiene algún mensaje nuevo
+        if (Session["usuario"] != null)
+        {
+            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+            ArrayList mensajes = ENMensaje.Obtener(usuario.Usuario, false);
+            if (mensajes.Count > int.Parse(Label_numeroMensajes.Text))
+            {
+                Label_mensajes.Visible = true;
+                ENMensaje mensaje = (ENMensaje)mensajes[mensajes.Count - 1];
+                Label_mensajes.Text = DateTime.Now.ToString() + ": Has recibido un nuevo mensaje de " + mensaje.Emisor.Usuario;
+            }
+        }
+    }
+
 }

@@ -76,13 +76,13 @@ namespace Libreria
             return mensaje;
         }
 
-        public ENMensaje ObtenerMensaje(string nombre, bool emisor)
+        public ArrayList ObtenerMensajes(string nombre, bool emisor)
         {
             ENMensaje mensaje = null;
 
             // Obtenemos el usuario por nombre para obtener su id
             ENUsuario usuario = ENUsuario.Obtener(nombre);
-
+            ArrayList mensajes = new ArrayList();
             try
             {
                 SqlConnection conexion = new SqlConnection(cadenaConexion);
@@ -103,11 +103,12 @@ namespace Libreria
 
                 // Creamo un objeto DataReader
                 SqlDataReader dr = comando.ExecuteReader();
-                if (dr.Read())
+                while (dr.Read())
                 {
                     // Extraemos la información del DataReader y la almacenamos
                     // en un objeto ENMensaje
                     mensaje = ObtenerDatos(dr);
+                    mensajes.Add(mensaje);
                 }
 
                 conexion.Close();
@@ -117,7 +118,7 @@ namespace Libreria
                 Console.Write("Excepcion obtener mensaje por nombre de usuario");
             }
 
-            return mensaje;
+            return mensajes;
         }
 
         public ArrayList Cantidad(string nombre)

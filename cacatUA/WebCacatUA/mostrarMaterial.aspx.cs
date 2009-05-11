@@ -98,14 +98,13 @@ namespace WebCacatUA
                 Label_fecha.Text = material.Fecha.ToString();
                 Label_tamaño.Text = ENMaterial.convertirTamaño(material.Tamaño);
                 HyperLink_usuario.Text = material.Usuario.Usuario;
-                HyperLink_usuario.NavigateUrl = "usuario.aspx?id=" + material.Usuario.Id.ToString();
+                HyperLink_usuario.NavigateUrl = "usuario.aspx?usuario=" + material.Usuario.Usuario;
                 Label_descargas.Text = material.Descargas.ToString();
                 Label_valoracion.Text = material.Puntuacion.ToString();
                 Label_votos.Text = " (" + material.Votos.ToString() + " " + Resources.I18N.Votos + ")";
                 HyperLink_descargar.NavigateUrl = "descargar.aspx?id=" + material.Id;
                 Label_referencia.Text = material.Referencia;
                 // Comprobamos si ese usuario tiene otros materiales
-
                 BusquedaMaterial busqueda = new BusquedaMaterial();
                 busqueda.Usuario = material.Usuario;
                 ArrayList materiales = ENMaterial.Obtener("fecha", true, 1, 1, busqueda);
