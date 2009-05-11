@@ -29,14 +29,6 @@ namespace WebCacatUA
             }
         }
 
-        protected void escribir(string cadena)
-        {
-            const string fic = @"C:\log.txt";
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
-            sw.WriteLine(cadena);
-            sw.Close();
-        }
-
         /// <summary>
         /// Dado un string, elimina todos sus caracteres peligrosos: <, >, =, /, \, etc.
         /// </summary>

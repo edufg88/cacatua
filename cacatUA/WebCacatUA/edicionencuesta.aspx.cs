@@ -32,7 +32,11 @@ namespace WebCacatUA
                 {
                     if (!Page.IsPostBack)
                     {
-                        CargarEncuesta();
+                        CargarEncuesta(false);
+                    }
+                    else
+                    {
+                        CargarEncuesta(true);
                     }
                 }
                 else
@@ -46,11 +50,14 @@ namespace WebCacatUA
             }
         }
 
-        private void CargarEncuesta()
+        private void CargarEncuesta(bool postback)
         {
             int i = 0;
 
-            TextBox_Pregunta.Text = encuesta.Pregunta;
+            if (!postback)
+            {
+                TextBox_Pregunta.Text = encuesta.Pregunta;
+            }
             ArrayList opcArray = encuesta.Opciones();
 
             if (opcArray.Count > 0)
@@ -128,7 +135,7 @@ namespace WebCacatUA
                     b1.CssClass = "boton_encuestas";
                     b1.ID = opc.Id.ToString();
                     b1.Text = "Quitar";
-                    b1.Click += new System.EventHandler(Button_borraropcion_Click);
+                    b1.Click += new System.EventHandler(this.Button_borraropcion_Click);
                     c4.Controls.Add(b1);
 
                     fila.Controls.Add(c1);
@@ -160,6 +167,7 @@ namespace WebCacatUA
 
         protected void Button_borraropcion_Click(object sender, EventArgs e)
         {
+            escribir("Ni hasta aqui?");
             Button pulsado = (Button)sender;
             try
             {
