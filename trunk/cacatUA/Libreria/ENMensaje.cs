@@ -100,12 +100,9 @@ namespace Libreria
         /// <param name="usuario">Usuario del mensaje</param>
         /// <param name="emisor">Indica si es emisor o no</param>
         /// <returns>Devuelve el mensaje</returns>
-        public static ENMensaje Obtener(string usuario, bool emisor)
+        public static ArrayList Obtener(string usuario, bool emisor)
         {
-            ENMensaje aux = null;
-            aux = MensajeCAD.Instancia.ObtenerMensaje(usuario, emisor);
-
-            return aux;
+            return MensajeCAD.Instancia.ObtenerMensajes(usuario, emisor);
         }
 
         /// <summary>
