@@ -18,62 +18,184 @@ public partial class usuarios : WebCacatUA.InterfazWeb
     private int cantidad;
     private int totalResultados;   
     private string busqueda;
+    private string buscar;
+    private string ordenar;
+    bool orden;
+    ArrayList resultado;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        extraerParametros();
+
+        if (!Page.IsPostBack)
+        {
+            actualizarOrdenar();
+            actualizarOrden();
+            actualizarBuscar();
+        }
+        
         mostrarUsuarios();
     }
-    /*
-    private void insertarCabecera()
+
+    private void actualizarOrdenar()
     {
-        // Columna del usuario
-        TableCell c1 = new TableCell();
-        //c1.CssClass = "";
-        Label l1 = new Label();
-        l1.Text = Resources.I18N.Usuario;
-        Panel p1 = new Panel();
-        p1.Controls.Add(l1);
-        c1.Controls.Add(p1);
+        if (DropDownList_ordenar.Items.Count == 0)
+        {
+            DropDownList_ordenar.Items.Add(new ListItem(Resources.I18N.Usuario, "usuario"));
+            DropDownList_ordenar.Items.Add(new ListItem(Resources.I18N.Nombre, "nombre"));
+            DropDownList_ordenar.Items.Add(new ListItem(Resources.I18N.FechaIngreso, "fechaIngreso"));
+        }
 
-        // Columna del nombre
-        TableCell c2 = new TableCell();
-        Label l3 = new Label();
-        l3.Text = Resources.I18N.Nombre;
-        Panel p3 = new Panel();
-        p3.Controls.Add(l3);
-        c2.Controls.Add(p3);
+        if (ordenar == "usuario")
+            DropDownList_ordenar.SelectedValue = "usuario";
+        else if (ordenar == "nombre")
+            DropDownList_ordenar.SelectedValue = "nombre";
+        else //if (ordenar == "fechaIngreso")
+            DropDownList_ordenar.SelectedValue = "fechaIngreso";
 
-        // Columna del email
-        TableCell c3 = new TableCell();
-        Label l4 = new Label();
-        l4.Text = Resources.I18N.CorreoElectronico;
-        Panel p4 = new Panel();
-        p4.Controls.Add(l4);
-        c3.Controls.Add(p4);
-
-        // Columna con cantidad de imagenes
-        TableCell c4 = new TableCell();
-        Label l5 = new Label();
-        l5.Text = Resources.I18N.NumeroImagenes;
-        Panel p5 = new Panel();
-        p5.Controls.Add(l5);
-        c4.Controls.Add(p5);
-
-        // Insertamos las columnas en la fila e insertamos la fila en la tabla.
-        TableRow fila = new TableRow();
-        fila.CssClass = "hiloForo";
-        fila.Controls.Add(c1);
-        fila.Controls.Add(c2);
-        fila.Controls.Add(c3);
-        fila.Controls.Add(c4);
-        Table_usuarios.Controls.Add(fila);
-        
     }
-    */
+
+    private void actualizarOrden()
+    {
+        if (DropDownList_orden.Items.Count == 0)
+        {
+            DropDownList_orden.Items.Add(new ListItem(Resources.I18N.ascendente, "ascendente"));
+            DropDownList_orden.Items.Add(new ListItem(Resources.I18N.descendente, "descendente"));
+        }
+
+        if (orden)
+            DropDownList_orden.SelectedValue = "ascendente";
+        else
+            DropDownList_orden.SelectedValue = "descendente";
+  
+    }
+
+    private void actualizarBuscar()
+    {
+        if (buscar == "usuario")
+        {
+            RadioButton_usuario.Checked = true;
+        }
+        else if (buscar == "nombre")
+        {
+            RadioButton_nombre.Checked = true;
+        }
+        else //if (buscar == "email")
+        {
+            RadioButton_correo.Checked = true;
+        }
+    }
+
+    /// <summary>
+    /// Calcula la ruta de parámetros para introducir en un enlace.
+    /// Los parámetros que se procesan son los propios atributos de la clase, por lo
+    /// que no es necesario pasarle atributos al método.
+    /// </summary>
+    /// <returns></returns>
+    private string calcularRuta()
+    {
+        return calcularRuta(pagina, cantidad, busqueda, ordenar, orden);
+    }
+
+    /// <summary>
+    /// Calcula la ruta de parámetros para introducir en un enlace.
+    /// Si los parámetros toman valores por defecto, no los añade.
+    /// </summary>
+    /// <param name="pagina">Número de página.</param>
+    /// <param name="cantidad">Cantidad de resultados por página.</param>
+    /// <param name="busqueda">Filtro de búsqueda.</param>
+    /// <param name="ordenar">Campo por el que se ordena.</param>
+    /// <param name="ascendente">Indica si es un orden ascendente o descendente.</param>
+    /// <param name="usuario">Usuario que es autor del hilo.</param>
+    /// <param name="Categoria">Categoría a la que pertenecen los hilos</param>
+    /// <returns>Devuelve la cadena de caracteres.</returns>
+    private string calcularRuta(int pagina, int cantidad, string busqueda, string ordenar, bool orden)
+    {
+        string ruta = "";
+
+        // Comprobamos el valor de cada parámetro y lo introducimos si no es su valor por defecto.
+        if (pagina != 1)
+            ruta += "&pagina=" + pagina;
+        if (cantidad != 10)
+            ruta += "&cantidad=" + cantidad;
+        if (busqueda != "")
+            ruta += "&busqueda=" + busqueda;
+        if (buscar != "" && buscar != "usuario")
+            ruta += "&buscar=" + buscar;
+        if (ordenar != "" && ordenar != "usuario")
+            ruta += "&ordenar=" + ordenar;
+        if (!orden)
+            ruta += "&orden=descendente";
+
+        // Si hemos insertado algún parámetro, introducimos un "?" y quitamos el primer "&".
+        if (ruta != "")
+            ruta = "?" + ruta.Substring(1);
+
+        // Por último, introducimos el nombre del fichero al comienzo.
+        ruta = "usuarios.aspx" + ruta;
+
+        return ruta;
+    }
+
+    /// <summary>
+    /// Extramos los parámetros de la URL.
+    /// La página actual, la columna de ordenación, si es ascendente o descendente, el filtro de búsqueda ...
+    /// </summary>
+    private void extraerParametros()
+    {
+        pagina = 1;
+        try
+        {
+            pagina = int.Parse(Request["pagina"].ToString());
+            if (pagina < 1)
+                pagina = 1;
+        }
+        catch (Exception) { }
+
+        cantidad = 10; 
+        try
+        {
+            cantidad = int.Parse(Request["cantidad"].ToString());
+            if (cantidad < 1)
+                cantidad = 1;
+        }
+        catch (Exception) { }
+
+        orden = true;
+        try
+        {
+            if (Request["orden"].ToString() == "descendente")
+                orden = false;
+        }
+        catch (Exception) { }
+
+        buscar = "usuario";
+        try
+        {
+            buscar = Request["buscar"].ToString();
+        }
+        catch (Exception) { }
+
+        ordenar = "usuario";
+        try
+        {
+            ordenar = Request["ordenar"].ToString();
+        }
+        catch (Exception) { }
+
+        busqueda = "";
+        try
+        {
+            busqueda = Request["busqueda"].ToString();
+        }
+        catch (Exception) { }
+    }
 
     private void mostrarUsuarios()
     {
-        foreach (ENUsuario us in ENUsuario.Obtener(1, 20))
+        resultado = ENUsuario.BuscarWeb(busqueda, buscar, ordenar, orden, pagina, cantidad);
+
+        foreach (ENUsuario us in resultado)
         {
             if (us != null)
             {
@@ -149,6 +271,52 @@ public partial class usuarios : WebCacatUA.InterfazWeb
             }
         }
     }
+
+    private void obtenerDatosBusqueda()
+    { 
+        busqueda = TextBox_filtroBusqueda.Text;
+        if (RadioButton_usuario.Checked == true)
+        {
+            buscar = "usuario";
+        }
+        else if (RadioButton_nombre.Checked == true)
+        {
+            buscar = "nombre";
+        }
+        else
+        {
+            buscar = "email";
+        }
+        ordenar = DropDownList_ordenar.SelectedValue;
+        if (DropDownList_orden.SelectedValue == "ascendente")
+            orden = true;
+        else
+            orden = false;
+        //Faltan pagina y tamaño (obtener de dropdownlist)
+    }
+
+    protected void Button_buscar_Click(object sender, EventArgs e)
+    {
+        obtenerDatosBusqueda();
+        Response.Redirect(calcularRuta());
+    }
+    protected void DropDownList_ordenar_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        pagina = 1;
+        ordenar = DropDownList_ordenar.SelectedValue;
+        Response.Redirect(calcularRuta());
+    }
+    protected void DropDownList_orden_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        pagina = 1;
+        if (DropDownList_orden.SelectedValue == "ascendente")
+            orden = true;
+        else
+            orden = false;
+         
+        Response.Redirect(calcularRuta());
+    }
+
 
     public int Pagina
     {

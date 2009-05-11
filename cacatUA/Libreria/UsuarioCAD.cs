@@ -405,6 +405,88 @@ namespace Libreria
             return (creado);
         }
 
+        public ArrayList BuscarUsuarios(string texto, string tipo, string ordenar, bool orden, int pagina, int tamaño)
+        {
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            ArrayList usuarios = new ArrayList();
+
+            try
+            {
+                int desde = ((pagina - 1) * tamaño) + 1;
+                int hasta = pagina * tamaño;
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+
+                comando.Connection = conexion;
+
+                comando.CommandText = "SELECT * FROM (" +
+                                     "SELECT *, ROW_NUMBER() OVER "; 
+
+                if (ordenar == "usuario")
+                {
+                    comando.CommandText += "(order by usuario ";
+                }
+                else if (ordenar == "nombre")
+                {
+                    comando.CommandText += "(order by nombre ";
+                }
+                else //(ordenar == "fechaIngreso")
+                {
+                    comando.CommandText += "(order by fechaIngreso ";
+                }
+
+                if (orden)
+                    comando.CommandText += "asc) ";
+                else
+                    comando.CommandText += "desc) ";
+
+                comando.CommandText += "as fila FROM usuarios ";
+                
+                if (texto != "")
+                {
+                    comando.CommandText += "WHERE ";
+
+                    if (tipo == "usuario")
+                    {
+                        comando.CommandText += "(usuario LIKE @usuario) ";
+                        comando.Parameters.AddWithValue("@usuario", "%" + texto + "%");
+                    }
+                    else if (tipo == "nombre")
+                    {
+                        comando.CommandText += "(nombre LIKE @nombre) ";
+                        comando.Parameters.AddWithValue("@nombre", "%" + texto + "%");
+                    }
+                    else //if (tipo == "email")
+                    {
+                        comando.CommandText += "(correo LIKE @correo) ";
+                        comando.Parameters.AddWithValue("@correo", "%" + texto + "%");
+                    }
+                }
+                comando.CommandText += ") as alias WHERE fila >= " + desde.ToString() + " and fila <= " + hasta.ToString();
+
+                SqlDataReader dr = comando.ExecuteReader();
+                // Generamos el ArrayList a partir del DataReader
+                while (dr.Read())
+                {
+                    ENUsuario usuario = ObtenerDatos(dr);
+                    usuarios.Add(usuario);
+                }
+            }
+            catch (SqlException sqlex)
+            {
+                Console.Write("Excepcion buscar" + sqlex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                {
+                    conexion.Close();
+                }
+            }
+
+            return usuarios;
+        }
+
         public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso, int pagina, int tamaño)
         {
             bool usarUsuario = false;

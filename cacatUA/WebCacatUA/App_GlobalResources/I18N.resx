@@ -471,4 +471,7 @@
   <data name="MensajePrivado" xml:space="preserve">
     <value>Mensaje privado</value>
   </data>
+  <data name="BuscarPor" xml:space="preserve">
+    <value>Buscar por</value>
+  </data>
 </root>

@@ -467,6 +467,20 @@ namespace Libreria
             return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso,pagina,tamaño);
         }
 
+        /// <summary>
+        /// Busca una lista de usuarios para la web
+        /// </summary>
+        /// <param name="texto">Valor de la cadena a buscar</param>
+        /// <param name="tipo">Qué buscamos</param>
+        /// <param name="ordenar">Criterio de ordenación</param>
+        /// <param name="orden">Ascendente o descendente</param>
+        /// <param name="pagina">Número de página</param>
+        /// <param name="tamaño">Tamaño de la página</param>
+        /// <returns>Devuelve un ArrayList con el resultado</returns>
+        public static ArrayList BuscarWeb(string texto, string tipo, string ordenar, bool orden, int pagina, int tamaño)
+        {
+            return UsuarioCAD.Instancia.BuscarUsuarios(texto, tipo, ordenar, orden, pagina, tamaño);
+        }
 
         public static int NumUsuarios(string nombreUsuario, string email, DateTime fechaIngreso)
         {

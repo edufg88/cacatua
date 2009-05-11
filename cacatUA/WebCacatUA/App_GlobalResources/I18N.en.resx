@@ -447,4 +447,7 @@
   <data name="MensajePrivado" xml:space="preserve">
     <value>Private message</value>
   </data>
+  <data name="BuscarPor" xml:space="preserve">
+    <value>Search by</value>
+  </data>
 </root>
