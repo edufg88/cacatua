@@ -92,6 +92,7 @@ namespace WebCacatUA
                     c2.CssClass = "celda_encuestas";
                     Button b1 = new Button();
                     b1.PostBackUrl = "edicionencuesta.aspx?id=" + enc.Id.ToString();
+                    b1.CssClass = "boton_encuestas";
                     b1.Text = "Editar";
                     c2.Controls.Add(b1);
 
@@ -99,12 +100,14 @@ namespace WebCacatUA
                     c3.CssClass = "celda_encuestas";
                     Button b2 = new Button();
                     b2.PostBackUrl = "borrarencuesta.aspx?id=" + enc.Id.ToString();
+                    b2.CssClass = "boton_encuestas";
                     b2.Text = "Borrar";
                     c3.Controls.Add(b2);
 
                     TableCell c4 = new TableCell();
                     c4.CssClass = "celda_encuestas";
                     Button b3 = new Button();
+                    b3.CssClass = "boton_encuestas";
                     b3.PostBackUrl = "estadoencuesta.aspx?id=" + enc.Id.ToString();
                     if (enc.Activa)
                         b3.Text = "Desactivar";

@@ -1,26 +1,81 @@
-﻿#div_encuestas
-{
+﻿/*
+	DIV CSS
+*/
 
+#div_crearencuesta 
+{
+	padding: 10px 0px 10px 0px;
 }
+
+#div_opciones
+{
+	padding: 0px 0px 10px 0px;
+}
+
+#div_volver
+{
+	display: block;
+    background: url(../imagenes/lista.png) no-repeat left;
+    padding-left: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#div_volver:hover
+{
+    background: url(../imagenes/listaencima.png) no-repeat left;
+}
+
+/*
+	Clase CSS
+*/
 
 .tabla_encuestas
 {
-	border: solid 1px;
-	background-color: black;
-	border-color: black;
+	border: solid 2px;
+	border-color: #777;
 	margin-top: 20px;
+	width: 100%;
+    background-color: #777;
 }
 
 .celda_encuestas
 {
-	padding: 4px 10px 4px 10px;
+	padding: 5px 10px 5px 5px;
 	background-color: White;
 	border: solid 1px;
+	border-color: #ddd;
+	vertical-align: middle;
+	text-align: center;
+	font-size: small;
 }
 
 .celda_cabecera
 {
 	padding: 4px 10px 4px 10px;
-	background-color: gray;
-	border: solid 1px;
+	background-color: #777;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+}
+
+.boton_encuestas
+{
+	border: 1px solid #777;
+	background: #ddd;
+}
+
+/*
+	Elementos HTML
+*/
+
+a 
+{
+	text-decoration: none;
+	color: Black;
+}
+
+a:hover 
+{
+	color: #777;
 }
