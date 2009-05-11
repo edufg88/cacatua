@@ -69,7 +69,7 @@
                 <asp:Button ID="Button_logout" runat="server" 
                     CausesValidation="false"
                     onclick="Button_logout_Click" 
-                    Text="Logout" Visible="False" />
+                    Text="<%$ Resources: I18N, Salir %>" Visible="False" />
             </div>
             
             <div id="internacionalizacion">

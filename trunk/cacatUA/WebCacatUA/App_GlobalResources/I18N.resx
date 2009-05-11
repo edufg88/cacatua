@@ -474,4 +474,7 @@
   <data name="BuscarPor" xml:space="preserve">
     <value>Buscar por</value>
   </data>
+  <data name="Salir" xml:space="preserve">
+    <value>Salir</value>
+  </data>
 </root>

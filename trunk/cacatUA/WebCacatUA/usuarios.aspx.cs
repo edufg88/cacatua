@@ -263,11 +263,11 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 Label l1 = new Label();
                 if (us.Imagen == -1) // Comprobamos si tiene imagen activa el usuario
                 {
-                    l1.Text = "<img src=\"imagenes/sinImagen.png\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
+                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\"/>";
                 }
                 else
                 {
-                    l1.Text = "<img src=\"galeria/1.png\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
+                    l1.Text = "<img src=\"galeria/" + us.Imagen.ToString() + ".jpg\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
                 }
                 Panel p1 = new Panel();
                 p1.Controls.Add(l1);
