@@ -952,6 +952,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Salir.
+        /// </summary>
+        internal static string Salir {
+            get {
+                return ResourceManager.GetString("Salir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Selecciona una categoría para crear un hilo.
         /// </summary>
         internal static string SeleccionaCategoriaCrearHilo {

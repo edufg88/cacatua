@@ -49,17 +49,11 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 
         LimpiarErrores();
 
-        error = ENUsuario.ValidarFormulario("usuario", TextBox_usuario.Text);
         Label_infoUsuario.Text = ENUsuario.ValidarFormulario("usuario", TextBox_usuario.Text);
-        error = ENUsuario.ValidarFormulario("contrasena", TextBox_contrasena.Text);
         Label_infoContrasena.Text = ENUsuario.ValidarFormulario("contrasena", TextBox_contrasena.Text);
-        error = ENUsuario.ValidarFormulario("nombre", TextBox_nombre.Text); 
         Label_infoNombre.Text = ENUsuario.ValidarFormulario("nombre", TextBox_nombre.Text);
-        error = ENUsuario.ValidarFormulario("correo", TextBox_correo.Text);
         Label_infoCorreo.Text = ENUsuario.ValidarFormulario("correo", TextBox_correo.Text);
-        error = ENUsuario.ValidarFormulario("dni", TextBox_dni.Text);
         Label_infoDni.Text = ENUsuario.ValidarFormulario("dni", TextBox_dni.Text);
-        error = ENUsuario.ValidarFormulario("adicional", TextBox_adicional.Text);
         Label_infoAdicional.Text = ENUsuario.ValidarFormulario("adicional", TextBox_adicional.Text);
 
         // Comprobamos que la confirmación de la contraseña está bien
@@ -68,12 +62,9 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
             Label_infoConfContrasena.Text = "La contraseña y su confirmación no coinciden";
             valido = false;
         }
-        else
+        if (Label_infoUsuario.Text != "" || Label_infoContrasena.Text != "" || Label_infoNombre.Text != "" || Label_infoCorreo.Text != "" || Label_infoDni.Text != "" || Label_infoAdicional.Text != "")
         {
-            if (error != "")
-            {
-                valido = false;
-            }
+            valido = false;
         }
 
         return valido;
@@ -98,12 +89,6 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 
                 if (us.Guardar())
                 {
-                    /*
-                    LimpiarErrores();
-                    LimpiarCampos();
-                    Label_infoGeneral.Text = "Usuario registrado correctamente";
-                    Label_infoGeneral.ForeColor = System.Drawing.Color.DarkGreen;
-                     */
                     Response.Redirect("usuarioRegistrado.aspx");
                 }
             }
