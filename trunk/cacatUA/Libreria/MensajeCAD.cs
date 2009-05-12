@@ -40,6 +40,7 @@ namespace Libreria
             mensaje.Receptor = usuarioCAD.ObtenerUsuario(int.Parse(dr["receptor"].ToString()));
             mensaje.Texto = dr["texto"].ToString();
             mensaje.Fecha = DateTime.Parse(dr["fecha"].ToString());
+            mensaje.Leido = int.Parse(dr["leido"].ToString()); ;
 
             return (mensaje);
         }
@@ -175,7 +176,7 @@ namespace Libreria
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
-                comando.CommandText = "SELECT id,emisor,texto,fecha,receptor FROM (SELECT id,emisor,texto,fecha,receptor, ROW_NUMBER() OVER (ORDER BY " + ordenar;
+                comando.CommandText = "SELECT * FROM (SELECT id,emisor,texto,fecha,receptor, ROW_NUMBER() OVER (ORDER BY " + ordenar;
                 if (orden == true)
                     comando.CommandText += " ASC";
                 else
@@ -419,7 +420,7 @@ namespace Libreria
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "update mensajes set emisor = @emisor, receptor = @receptor, texto = @texto, fecha = @fecha  where id = @id";
+                string sentencia = "update mensajes set emisor = @emisor, receptor = @receptor, texto = @texto, fecha = @fecha, leido = @leido where id = @id";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@emisor", mensaje.Emisor.Id);
@@ -427,6 +428,7 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@texto", mensaje.Texto);
                 comando.Parameters.AddWithValue("@fecha", mensaje.Fecha);
                 comando.Parameters.AddWithValue("@id", mensaje.Id);
+                comando.Parameters.AddWithValue("@leido", mensaje.Leido);
 
                 if (comando.ExecuteNonQuery() == 1)
                 {
