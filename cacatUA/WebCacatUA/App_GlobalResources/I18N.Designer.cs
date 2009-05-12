@@ -331,6 +331,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a de.
+        /// </summary>
+        internal static string De {
+            get {
+                return ResourceManager.GetString("De", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Debes identificarte.
         /// </summary>
         internal static string DebesIdentificarte {
@@ -583,6 +592,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a firmas.
+        /// </summary>
+        internal static string FirmasMin {
+            get {
+                return ResourceManager.GetString("FirmasMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Foro.
         /// </summary>
         internal static string Foro {
@@ -772,6 +790,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a mensajes.
+        /// </summary>
+        internal static string MensajesMin {
+            get {
+                return ResourceManager.GetString("MensajesMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Mensajes privados.
         /// </summary>
         internal static string MensajesPrivados {
@@ -817,6 +844,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Este usuario no tiene firmas.
+        /// </summary>
+        internal static string NoFirmas {
+            get {
+                return ResourceManager.GetString("NoFirmas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No hay subcategorías en esta categoría.
         /// </summary>
         internal static string NoHayCategorias {
@@ -849,6 +885,15 @@ namespace Resources {
         internal static string NombreUsuario {
             get {
                 return ResourceManager.GetString("NombreUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No tengo mensajes privados.
+        /// </summary>
+        internal static string NoMensajes {
+            get {
+                return ResourceManager.GetString("NoMensajes", resourceCulture);
             }
         }
         
@@ -1137,6 +1182,15 @@ namespace Resources {
         internal static string VerHilo {
             get {
                 return ResourceManager.GetString("VerHilo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Viendo.
+        /// </summary>
+        internal static string Viendo {
+            get {
+                return ResourceManager.GetString("Viendo", resourceCulture);
             }
         }
         

@@ -101,7 +101,7 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         Table_mensajes.Controls.Add(fila);
         if (totalResultados > 1)
         {
-            Label_mostrandoMensajes.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " mensajes privados.";
+            Label_mostrandoMensajes.Text = Resources.I18N.Viendo + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.De + totalResultados + " " + Resources.I18N.MensajesMin;
             foreach (ENMensaje mensaje in mensajes)
             {
                 TableRow fila2 = new TableRow();
@@ -130,7 +130,7 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         }
         else
         {
-            Label_mostrandoMensajes.Text = "No tengo mensajes privados";
+            Label_mostrandoMensajes.Text = Resources.I18N.NoMensajes;
         }
     }
 

@@ -50,9 +50,9 @@ public partial class firmas : WebCacatUA.InterfazWeb
         Label firm = new Label();
         Label fech = new Label();
         Label usuarios = new Label();
-        firm.Text = Resources.I18N.Texto;
-        fech.Text = "Fecha";
-        usuarios.Text = "Usuarios";
+        firm.Text = Resources.I18N.autormensaje;
+        fech.Text = Resources.I18N.Fecha;
+        usuarios.Text = Resources.I18N.Usuarios;
         celdax.Controls.Add(usuarios);
         celday.Controls.Add(fech);
         celdaz.Controls.Add(firm);
@@ -62,11 +62,11 @@ public partial class firmas : WebCacatUA.InterfazWeb
         Table_firmas.Rows.Add(fila);
         if (totalResultados < 1)
         {
-            Label_mostrandoFirmas.Text = "Este usuario no tiene firmas";
+            Label_mostrandoFirmas.Text = Resources.I18N.NoFirmas;
         }
         else
         {
-            Label_mostrandoFirmas.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " firmas.";
+            Label_mostrandoFirmas.Text = Resources.I18N.Viendo + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.De + totalResultados + " " + Resources.I18N.FirmasMin + ".";
             foreach (ENFirma firma in Firmas)
             {
                 TableRow fila2 = new TableRow();
