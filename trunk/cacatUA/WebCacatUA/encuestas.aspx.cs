@@ -24,7 +24,6 @@ namespace WebCacatUA
             if (u != null)
             {
                 usuario = ENUsuario.Obtener(u);
-                Label_Texto.Text = "En tu página sólo se mostrará la encuesta activa más reciente.";
                 CargarEncuestas();
             }
             else

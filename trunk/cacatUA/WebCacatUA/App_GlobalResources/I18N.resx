@@ -531,4 +531,7 @@
   <data name="UsuarioRegistrado" xml:space="preserve">
     <value>Usuario registrado correctamente</value>
   </data>
+  <data name="InfoEncuestas" xml:space="preserve">
+    <value>En tu página sólo se mostrará la encuesta activa más reciente</value>
+  </data>
 </root>

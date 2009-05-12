@@ -5,11 +5,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_tituloUsuario" runat="server">
-    <p><asp:Label ID="Label_nombreSeccion" runat="server" Text="Encuestas"></asp:Label></p>
+    <p><asp:Label ID="Label_nombreSeccion" runat="server" Text="<%$ Resources: I18N, Encuestas %>"></asp:Label></p>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-    <asp:Label ID="Label_Texto" runat="server" Text=""></asp:Label>
+    <%= Resources.I18N.InfoEncuestas %>
      <div id="div_encuestas">
         <asp:Table ID="Table_encuestas" runat="server" CssClass="tabla_encuestas" 
             CellPadding="0" CellSpacing="0"></asp:Table>        

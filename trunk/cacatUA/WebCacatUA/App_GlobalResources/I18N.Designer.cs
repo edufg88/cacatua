@@ -718,6 +718,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a En tu página sólo se mostrará la encuesta activa más reciente.
+        /// </summary>
+        internal static string InfoEncuestas {
+            get {
+                return ResourceManager.GetString("InfoEncuestas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Información adicional.
         /// </summary>
         internal static string InformacionAdicional {
