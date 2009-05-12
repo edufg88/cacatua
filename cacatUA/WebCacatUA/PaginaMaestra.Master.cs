@@ -49,7 +49,7 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         Button_registrarse.Visible = false;
 
         // Mostramos el boton de logout y la información del login
-        Label_infoLogin.Text = "Usuario conectado:  " + Session["usuario"];
+        Label_infoLogin.Text = "Usuario conectado:  " + "<a href=\"usuario.aspx?usuario=" + Session["usuario"] + "\">" + Session["usuario"] + "</a>";
         Label_infoLogin.ForeColor = System.Drawing.Color.Chocolate;
         Label_iniciarSesion.Visible = false;
         Button_logout.Visible = true;
@@ -113,7 +113,8 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
             CargarFormaLogout();
            
             //Aquí vamos a la página de inicio del usuario que ha hecho login
-            Response.Redirect("index.aspx");
+            string direccion = "usuario.aspx?usuario=" + Session["usuario"];
+            Response.Redirect(direccion);
         }
         else
         {
