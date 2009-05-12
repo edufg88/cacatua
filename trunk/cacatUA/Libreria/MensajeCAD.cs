@@ -176,7 +176,7 @@ namespace Libreria
                 conexion.Open(); // Abrimos la conexión
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
-                comando.CommandText = "SELECT * FROM (SELECT id,emisor,texto,fecha,receptor, ROW_NUMBER() OVER (ORDER BY " + ordenar;
+                comando.CommandText = "SELECT * FROM (SELECT *, ROW_NUMBER() OVER (ORDER BY " + ordenar;
                 if (orden == true)
                     comando.CommandText += " ASC";
                 else
