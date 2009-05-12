@@ -31,6 +31,10 @@ namespace Libreria
         /// Receptor del mensaje
         /// </summary>
         private ENUsuario receptor;
+        /// <summary>
+        /// Indica si el mensaje está leido o no
+        /// </summary>
+        private int leido;
 
         /// <summary>
         /// Constructor por defecto de la clase
@@ -42,6 +46,7 @@ namespace Libreria
             receptor = new ENUsuario();
             fecha = DateTime.Now;
             texto = "";
+            leido = 0;
         }
 
         /*
@@ -249,5 +254,12 @@ namespace Libreria
             get { return receptor; }
             set { receptor = value; }
         }
+
+        public int Leido
+        {
+            get { return leido; }
+            set { leido = value; }
+        }
+
     }
 }
