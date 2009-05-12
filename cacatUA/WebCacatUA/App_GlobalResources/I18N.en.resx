@@ -456,4 +456,10 @@
   <data name="InfoEncuestas" xml:space="preserve">
     <value>Only the active poll more reciently will be displayed in your page.</value>
   </data>
+  <data name="InfoCategorias" xml:space="preserve">
+    <value>Categories that you are susbscribed</value>
+  </data>
+  <data name="Insuscribirse" xml:space="preserve">
+    <value>Remove</value>
+  </data>
 </root>

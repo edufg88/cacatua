@@ -718,6 +718,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Categorias a las que estas suscrito.
+        /// </summary>
+        internal static string InfoCategorias {
+            get {
+                return ResourceManager.GetString("InfoCategorias", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a En tu página sólo se mostrará la encuesta activa más reciente.
         /// </summary>
         internal static string InfoEncuestas {
@@ -759,6 +768,15 @@ namespace Resources {
         internal static string InscribirGrupo {
             get {
                 return ResourceManager.GetString("InscribirGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Insuscribirse.
+        /// </summary>
+        internal static string Insuscribirse {
+            get {
+                return ResourceManager.GetString("Insuscribirse", resourceCulture);
             }
         }
         
