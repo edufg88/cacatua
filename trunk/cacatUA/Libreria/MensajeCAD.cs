@@ -8,21 +8,14 @@ using System.Configuration;
 
 namespace Libreria
 {
-    // Clase singleton
-    // Componente de Acceso a Datos para relacionarse con la BD 'mensaje'
-    sealed class MensajeCAD
+    class MensajeCAD
     {
-        private static readonly MensajeCAD instancia = new MensajeCAD();
         private String cadenaConexion;
 
-        // Devuelve la instancia única de la clase
-        public static MensajeCAD Instancia
-        {
-            get { return(instancia); }
-        }
-
-        // El constructor privado crea la cadena de conexión
-        private MensajeCAD()
+        /// <summary>
+        /// Constructor por defecto.
+        /// </summary>
+        public MensajeCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }

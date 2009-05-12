@@ -367,6 +367,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Se ha desapuntado correctamente del grupo.
+        /// </summary>
+        internal static string DesapuntarGrupo {
+            get {
+                return ResourceManager.GetString("DesapuntarGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Desapuntarse.
         /// </summary>
         internal static string Desapuntarse {
@@ -628,6 +637,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Grupo creado correctamente.
+        /// </summary>
+        internal static string GrupoCreado {
+            get {
+                return ResourceManager.GetString("GrupoCreado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grupos.
         /// </summary>
         internal static string Grupos {
@@ -727,6 +745,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Se ha inscrito correctamente al grupo.
+        /// </summary>
+        internal static string InscribirGrupo {
+            get {
+                return ResourceManager.GetString("InscribirGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Insuscribirse de la categoría actual.
         /// </summary>
         internal static string InsuscribirseCategoriaActual {
@@ -777,6 +804,24 @@ namespace Resources {
         internal static string Mensaje {
             get {
                 return ResourceManager.GetString("Mensaje", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha enviado el mensaje correctamente al grupo.
+        /// </summary>
+        internal static string MensajeEnviadoGrupo {
+            get {
+                return ResourceManager.GetString("MensajeEnviadoGrupo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha enviado el mensaje correctamente al usuario.
+        /// </summary>
+        internal static string MensajeEnviadoUsuario {
+            get {
+                return ResourceManager.GetString("MensajeEnviadoUsuario", resourceCulture);
             }
         }
         
@@ -988,6 +1033,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Pulse aquí para volver.
+        /// </summary>
+        internal static string PulsarVolver {
+            get {
+                return ResourceManager.GetString("PulsarVolver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Puntuación.
         /// </summary>
         internal static string Puntuacion {
@@ -1164,6 +1218,15 @@ namespace Resources {
         internal static string Usuario {
             get {
                 return ResourceManager.GetString("Usuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Usuario registrado correctamente.
+        /// </summary>
+        internal static string UsuarioRegistrado {
+            get {
+                return ResourceManager.GetString("UsuarioRegistrado", resourceCulture);
             }
         }
         

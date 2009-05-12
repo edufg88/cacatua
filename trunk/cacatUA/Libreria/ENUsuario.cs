@@ -550,7 +550,8 @@ namespace Libreria
         /// <returns>Devuelve el número de mensajes</returns>
         public int CantidadMensajes()
         {
-            return MensajeCAD.Instancia.CantidadMensajes(this.id);
+            ENMensaje auxmensaje = new ENMensaje();
+            return auxmensaje.CantidadMensajes(this.id);
         }
 
         /// <summary>
@@ -559,7 +560,8 @@ namespace Libreria
         /// <returns>Devuelve el número de mensajes</returns>
         public int CantidadMensajesEnviados()
         {
-            return MensajeCAD.Instancia.CantidadMensajesEnviados(this.id);
+            ENMensaje auxmensaje = new ENMensaje();
+            return auxmensaje.CantidadMensajesEnviados(this.id);
         }
 
         /// <summary>

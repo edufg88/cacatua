@@ -510,4 +510,25 @@
   <data name="Viendo" xml:space="preserve">
     <value>Viendo</value>
   </data>
+  <data name="DesapuntarGrupo" xml:space="preserve">
+    <value>Se ha desapuntado correctamente del grupo</value>
+  </data>
+  <data name="GrupoCreado" xml:space="preserve">
+    <value>Grupo creado correctamente</value>
+  </data>
+  <data name="InscribirGrupo" xml:space="preserve">
+    <value>Se ha inscrito correctamente al grupo</value>
+  </data>
+  <data name="MensajeEnviadoGrupo" xml:space="preserve">
+    <value>Se ha enviado el mensaje correctamente al grupo</value>
+  </data>
+  <data name="MensajeEnviadoUsuario" xml:space="preserve">
+    <value>Se ha enviado el mensaje correctamente al usuario</value>
+  </data>
+  <data name="PulsarVolver" xml:space="preserve">
+    <value>Pulse aquí para volver</value>
+  </data>
+  <data name="UsuarioRegistrado" xml:space="preserve">
+    <value>Usuario registrado correctamente</value>
+  </data>
 </root>

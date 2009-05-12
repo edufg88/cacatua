@@ -11,6 +11,7 @@ namespace Libreria
     /// </summary>
     public class ENMensaje : InterfazEN
     {
+        private MensajeCAD mensajeCAD;
         /// <summary>
         /// Id del mensaje
         /// </summary>
@@ -41,6 +42,7 @@ namespace Libreria
         /// </summary>
         public ENMensaje()
         {
+            mensajeCAD = new MensajeCAD();
             id = 0;
             emisor = new ENUsuario();
             receptor = new ENUsuario();
@@ -78,6 +80,7 @@ namespace Libreria
         {
             ENUsuario em = ENUsuario.Obtener(emisor);
             ENUsuario rec = ENUsuario.Obtener(receptor);
+            mensajeCAD = new MensajeCAD();
 
             this.id = 0;
             this.emisor = em;
@@ -94,7 +97,8 @@ namespace Libreria
         public static ENMensaje Obtener(int id)
         {
             ENMensaje aux = null;
-            aux = MensajeCAD.Instancia.ObtenerMensaje(id);
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            aux = mensajeCAD.ObtenerMensaje(id);
 
             return aux;
         }
@@ -107,7 +111,8 @@ namespace Libreria
         /// <returns>Devuelve el mensaje</returns>
         public static ArrayList Obtener(string usuario, bool emisor)
         {
-            return MensajeCAD.Instancia.ObtenerMensajes(usuario, emisor);
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            return mensajeCAD.ObtenerMensajes(usuario, emisor);
         }
 
         /// <summary>
@@ -116,7 +121,8 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado</returns>
         public static ArrayList Obtener()
         {
-            return MensajeCAD.Instancia.ObtenerMensajes();
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            return mensajeCAD.ObtenerMensajes();
         }
 
         /*
@@ -168,7 +174,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
-            return MensajeCAD.Instancia.Actualizar(this);
+            return mensajeCAD.Actualizar(this);
         }
 
         /// <summary>
@@ -177,7 +183,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return MensajeCAD.Instancia.GuardarMensaje(emisor.Usuario, texto, receptor.Usuario);
+            return mensajeCAD.GuardarMensaje(emisor.Usuario, texto, receptor.Usuario);
         }
 
         /// <summary>
@@ -186,7 +192,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
-            return MensajeCAD.Instancia.BorrarMensaje(id);
+            return mensajeCAD.BorrarMensaje(id);
         }
 
         /// <summary>
@@ -196,15 +202,16 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public static bool Borrar(int pid)
         {
-            return MensajeCAD.Instancia.BorrarMensaje(pid);
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            return mensajeCAD.BorrarMensaje(pid);
         }
 
         /// <summary>
-        /// Borra todas las firmas de la BD
+        /// Borra todos los mensajes de la BD
         /// </summary>
-        public void BorrarFirmas()
+        public void BorrarMensajes()
         {
-            MensajeCAD.Instancia.BorrarMensajes();
+            mensajeCAD.BorrarMensajes();
         }
 
         /// <summary>
@@ -216,17 +223,29 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado</returns>
         public ArrayList Buscar(string emisor, string receptor, DateTime fecha)
         {
-            return MensajeCAD.Instancia.BuscarMensaje(emisor, receptor, fecha);
+            return mensajeCAD.BuscarMensaje(emisor, receptor, fecha);
         }
 
         public static int Cantidad(string usuario)
         {
-            return MensajeCAD.Instancia.Cantidad(usuario).Count;
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            return mensajeCAD.Cantidad(usuario).Count;
         }
 
         public static ArrayList ObtenerMensajes(string usuario, bool orden, string ordenar, int pagina, int cantidad)
         {
-            return MensajeCAD.Instancia.ObtenerMensajes(usuario, orden,ordenar,pagina,cantidad);
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            return mensajeCAD.ObtenerMensajes(usuario, orden, ordenar, pagina, cantidad);
+        }
+
+        public int CantidadMensajes(int id)
+        {
+            return mensajeCAD.CantidadMensajes(id);
+        }
+
+        public int CantidadMensajesEnviados(int id)
+        {
+            return mensajeCAD.CantidadMensajesEnviados(id);
         }
 
         public int Id
