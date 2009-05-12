@@ -23,7 +23,7 @@ public partial class index : WebCacatUA.InterfazWeb
         {
             foreach (ENMaterial i in materiales)
             {
-                Label_ultimosMateriales.Text += "<a href=\"hilo.aspx?id=" + i.Id + "\">" + i.Nombre + "</a><br />";
+                Label_ultimosMateriales.Text += "<a href=\"mostrarMaterial.aspx?id=" + i.Id + "\">" + i.Nombre + "</a><br />";
             }
         }
 
@@ -59,7 +59,7 @@ public partial class index : WebCacatUA.InterfazWeb
         {
             foreach (ENUsuario i in usuarios)
             {
-                Label_ultimosUsuarios.Text += "<a href=\"hilo.aspx?id=" + i.Id + "\">" + i.Usuario + "</a><br />";
+                Label_ultimosUsuarios.Text += "<a href=\"usuario.aspx?id=" + i.Id + "\">" + i.Usuario + "</a><br />";
             }
         }
 
