@@ -288,15 +288,11 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 Label l5 = new Label();
                 l5.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.FechaIngreso + ": </span>" + us.Fechaingreso.Day.ToString() + "/" + us.Fechaingreso.Month.ToString() + "/" + us.Fechaingreso.Year.ToString() + "</p>";
                 l5.CssClass = "datoMenor";
-                Label l6 = new Label();
-                l6.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.InformacionAdicional + ": </span>" + us.Adicional + "</p>";
-                l6.CssClass = "datoMenor";
                 Panel p2 = new Panel();
                 p2.Controls.Add(l2);
                 p2.Controls.Add(l3);
                 p2.Controls.Add(l4);
                 p2.Controls.Add(l5);
-                p2.Controls.Add(l6);
                 c2.Controls.Add(p2);
 
                 // Columna de información adicional
@@ -312,7 +308,7 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 l9.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.CantidadEncuestas + ": </span>" + us.CantidadEncuestas().ToString() + "</p><br/>";
                 l9.CssClass = "datoMenor";
                 Label l10 = new Label();
-                l10.Text = "<a href=\"\" class=\"enlaceMenor\">" + Resources.I18N.MensajePrivado + "</a>";
+                l10.Text = "<a href=\"enviarmensaje.aspx?usuario=" + us.Usuario + "\"class=\"enlaceMenor\">" + Resources.I18N.MensajePrivado + "</a>";
                 Panel p3 = new Panel();
                 p3.Controls.Add(l7);
                 p3.Controls.Add(l8);
