@@ -17,24 +17,22 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        Label_infoLogin.Text = "";
-
-        if (Session["usuario"] != null)
+        try
         {
-            // Mensajes 
-            if (!Page.IsPostBack)
+            Label_infoLogin.Text = "";
+            if (Session["usuario"] != null)
             {
-                ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
-                ArrayList mensajes = ENMensaje.Obtener(usuario.Usuario, false);
-                Label_numeroMensajes.Text = mensajes.Count.ToString();
+                ActualizarMensajes();
+                CargarFormaLogout();
             }
-
-            CargarFormaLogout();
+            else
+            {
+                CargarFormaLogin();
+            }
         }
-        else
+        catch (Exception ex)
         {
-            CargarFormaLogin();
+            Response.Write(ex.ToString());
         }
     }
 
@@ -138,20 +136,30 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         Response.Redirect("index.aspx");
     }
 
-    protected void actualizarMensajes(object sender, EventArgs e)
+    private void ActualizarMensajes()
     {
-        // Comprobamos si tiene algún mensaje nuevo
+        // Comprobamos si el usuario está logueado
         if (Session["usuario"] != null)
         {
             ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
-            ArrayList mensajes = ENMensaje.Obtener(usuario.Usuario, false);
-            if (mensajes.Count > int.Parse(Label_numeroMensajes.Text))
+            // Obtenemos los mensajes que no han sido leidos
+            ArrayList mensajes = ENMensaje.Obtener(usuario.Usuario, false, false);
+            if (mensajes.Count > 0)
             {
-                Label_mensajes.Visible = true;
-                ENMensaje mensaje = (ENMensaje)mensajes[mensajes.Count - 1];
-                Label_mensajes.Text = DateTime.Now.ToString() + ": Has recibido un nuevo mensaje de " + mensaje.Emisor.Usuario;
+                HyperLink_mensajes.Visible = true;
+                HyperLink_mensajes.Text = "Tienes mensajes nuevos (" + mensajes.Count + ")";
+                HyperLink_mensajes.NavigateUrl = "mensajes.aspx?usuario=" + usuario.Usuario;
+            }
+            else
+            {
+                HyperLink_mensajes.Visible = false;
             }
         }
+    }
+
+    protected void actualizarMensajes(object sender, EventArgs e)
+    {
+        ActualizarMensajes();
     }
 
 }

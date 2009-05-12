@@ -72,6 +72,61 @@ namespace Libreria
             return mensaje;
         }
 
+        public ArrayList ObtenerMensajes(string nombre, bool emisor, bool leidos)
+        {
+            ENMensaje mensaje = null;
+
+            // Obtenemos el usuario por nombre para obtener su id
+            ENUsuario usuario = ENUsuario.Obtener(nombre);
+            ArrayList mensajes = new ArrayList();
+            try
+            {
+                SqlConnection conexion = new SqlConnection(cadenaConexion);
+                conexion.Open(); // Abrimos la conexión
+                SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
+                comando.Connection = conexion; // Asignamos la cadena de conexión
+
+                // Asignamos la sentencia SQL
+                if (emisor)
+                {
+                    comando.CommandText = "SELECT * FROM mensajes where emisor = @usuario";
+                }
+                else
+                {
+                    comando.CommandText = "SELECT * FROM mensajes where receptor = @usuario";
+                }
+                if (leidos == true)
+                {
+                    comando.CommandText += " and leido = 1";
+                }
+                else
+                {
+                    comando.CommandText += " and leido = 0";
+                }
+
+
+                comando.Parameters.AddWithValue("@usuario", usuario.Id);
+
+                // Creamo un objeto DataReader
+                SqlDataReader dr = comando.ExecuteReader();
+                while (dr.Read())
+                {
+                    // Extraemos la información del DataReader y la almacenamos
+                    // en un objeto ENMensaje
+                    mensaje = ObtenerDatos(dr);
+                    mensajes.Add(mensaje);
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepcion obtener mensaje por nombre de usuario");
+            }
+
+            return mensajes;
+        }
+
         public ArrayList ObtenerMensajes(string nombre, bool emisor)
         {
             ENMensaje mensaje = null;
@@ -95,6 +150,8 @@ namespace Libreria
                 {
                     comando.CommandText = "SELECT * FROM mensajes where receptor = @usuario";
                 }
+
+
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
 
                 // Creamo un objeto DataReader

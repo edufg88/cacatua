@@ -107,8 +107,8 @@
                 <ContentTemplate>
                     <asp:ScriptManager ID="ScriptManager1" runat="server">
                     </asp:ScriptManager>
-                    <asp:Timer ID="Timer1" runat="server" interval="2000" ontick="actualizarMensajes" /></asp:Timer>
-                        <asp:Label ID="Label_mensajes" Visible=false runat="server" Text="No tiene mensajes"></asp:Label>
+                    <asp:Timer ID="Timer1" runat="server" interval="1000" ontick="actualizarMensajes" /></asp:Timer>
+                        <asp:HyperLink ID="HyperLink_mensajes" runat="server" Visible="false"></asp:HyperLink>
                 </ContentTemplate> 
             </asp:UpdatePanel>
         </div>

@@ -116,6 +116,19 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Obtiene los mensajes leidos / no leidos a partir de su emisor o receptor
+        /// </summary>
+        /// <param name="usuario">Usuario del mensaje</param>
+        /// <param name="emisor">Indica si es emisor o no</param>
+        /// <param name="leidos">Indica si se devuelven los leidos o los no leidos</param>
+        /// <returns>Devuelve el mensaje</returns>
+        public static ArrayList Obtener(string usuario, bool emisor, bool leidos)
+        {
+            MensajeCAD mensajeCAD = new MensajeCAD();
+            return mensajeCAD.ObtenerMensajes(usuario, emisor, leidos);
+        }
+
+        /// <summary>
         /// Obtiene todos los mensajes de la BD
         /// </summary>
         /// <returns>Devuelve un ArrayList con el resultado</returns>
