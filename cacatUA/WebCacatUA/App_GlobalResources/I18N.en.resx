@@ -453,4 +453,7 @@
   <data name="Salir" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="InfoEncuestas" xml:space="preserve">
+    <value>Only the active poll more reciently will be displayed in your page.</value>
+  </data>
 </root>
