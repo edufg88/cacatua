@@ -135,7 +135,7 @@ namespace Libreria
                 SqlCommand comando = new SqlCommand(); // Creamos un SqlCommand
                 comando.Connection = conexion; // Asignamos la cadena de conexión
                 comando.CommandText = "SELECT id,emisor,texto,fecha,receptor FROM (SELECT id,emisor,texto,fecha,receptor, ROW_NUMBER() OVER (ORDER BY fecha DESC"; 
-                comando.CommandText += ") as row FROM mensajes where receptor = @usuario) as alias WHERE row >= @filaInicio and row <= @filaFinal";
+                comando.CommandText += ") as row FROM firmas where receptor = @usuario) as alias WHERE row >= @filaInicio and row <= @filaFinal";
                 comando.Parameters.AddWithValue("@usuario", usuario.Id);
                 comando.Parameters.AddWithValue("@filaInicio", filaInicio);
                 comando.Parameters.AddWithValue("@filaFinal", filaFinal);

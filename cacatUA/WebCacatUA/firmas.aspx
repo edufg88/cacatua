@@ -9,6 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
     <div>
+    <asp:Label ID="Label_mostrandoFirmas" runat="server" Text=""></asp:Label>
     <asp:Button ID="Button_paginaAnterior2" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
                 onclick="Button_paginaAnterior_Click" />
             <asp:DropDownList ID="DropDownList_pagina2" runat="server" Width="40px" 
@@ -23,7 +24,6 @@
         <asp:Panel ID="Panel1" runat="server">
             <asp:Button ID="Button_firmar" runat="server" Text="Firmar" 
     onclick="Button_firmar_Click"/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
                 onclick="Button_paginaAnterior_Click" />
             <asp:DropDownList ID="DropDownList_pagina" runat="server" Width="40px" 
