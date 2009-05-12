@@ -25,7 +25,6 @@ public partial class firmas : WebCacatUA.InterfazWeb
         {
             cantidad = 5;
             string usuario = Request.QueryString["usuario"];
-            Label_usuario.Text = usuario;
             user = ENUsuario.Obtener(usuario);
             extraerParametros();
             if (!Page.IsPostBack)
@@ -43,16 +42,15 @@ public partial class firmas : WebCacatUA.InterfazWeb
     public void ObtenerFirmas()
     {
         ArrayList Firmas = ENFirma.ObtenerFirmas(user.Usuario, pagina, cantidad);
-        Panel_firmas.Controls.Clear();
-        HtmlTable tabla = new HtmlTable();
-        HtmlTableRow fila = new HtmlTableRow();
-        HtmlTableCell celdax = new HtmlTableCell();
-        HtmlTableCell celday = new HtmlTableCell();
-        HtmlTableCell celdaz = new HtmlTableCell();
+        Table_firmas.Controls.Clear();
+        TableRow fila = new TableRow();
+        TableCell celdax = new TableCell();
+        TableCell celday = new TableCell();
+        TableCell celdaz = new TableCell();
         Label firm = new Label();
         Label fech = new Label();
         Label usuarios = new Label();
-        firm.Text = "Firma";
+        firm.Text = Resources.I18N.Texto;
         fech.Text = "Fecha";
         usuarios.Text = "Usuarios";
         celdax.Controls.Add(usuarios);
@@ -61,7 +59,7 @@ public partial class firmas : WebCacatUA.InterfazWeb
         fila.Cells.Add(celdax);
         fila.Cells.Add(celday);
         fila.Cells.Add(celdaz);
-        tabla.Rows.Add(fila);
+        Table_firmas.Rows.Add(fila);
         if (totalResultados < 1)
         {
             Label_mostrandoFirmas.Text = "Este usuario no tiene firmas";
@@ -71,10 +69,10 @@ public partial class firmas : WebCacatUA.InterfazWeb
             Label_mostrandoFirmas.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " firmas.";
             foreach (ENFirma firma in Firmas)
             {
-                HtmlTableRow fila2 = new HtmlTableRow();
-                HtmlTableCell celda1 = new HtmlTableCell();
-                HtmlTableCell celda2 = new HtmlTableCell();
-                HtmlTableCell celda3 = new HtmlTableCell();
+                TableRow fila2 = new TableRow();
+                TableCell celda1 = new TableCell();
+                TableCell celda2 = new TableCell();
+                TableCell celda3 = new TableCell();
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();
@@ -88,10 +86,9 @@ public partial class firmas : WebCacatUA.InterfazWeb
                 fila2.Cells.Add(celda1);
                 fila2.Cells.Add(celda2);
                 fila2.Cells.Add(celda3);
-                tabla.Rows.Add(fila2);
+                Table_firmas.Rows.Add(fila2);
             }
         }
-        Panel_firmas.Controls.Add(tabla);
     }
 
     protected void Button_firmar_Click(object sender, EventArgs e)

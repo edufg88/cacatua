@@ -46,9 +46,15 @@ public partial class confirmacion : WebCacatUA.InterfazWeb
         }
         else if (Request.QueryString["creargrupo"] != null)
         {
-            Label_confirmacion.Text = "El grupo se ha creado correctamente";
+            Label_confirmacion.Text = "Grupo creado correctamente";
             HyperLink_confirmacion.Text = "Pulse aquí para volver";
             HyperLink_confirmacion.NavigateUrl = "grupos.aspx";
+        }
+        else if (Request.QueryString["registrousuario"] != null)
+        {
+            Label_confirmacion.Text = "Usuario registrado correctamente";
+            HyperLink_confirmacion.Text = "Pulse aquí para volver";
+            HyperLink_confirmacion.NavigateUrl = "index.aspx";
         }
     }
 }

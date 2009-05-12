@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
         <asp:Label ID="Label_creandoGrupo" runat="server" Text="<%$ Resources: I18N, CrearGrupo %>"></asp:Label>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
     <div id="Nombre">
         <asp:Label ID="Label_Nombre" runat="server" Text="<%$ Resources: I18N, Nombre %>"></asp:Label>
@@ -27,7 +28,7 @@
                     ErrorMessage="El campo 'descipción' no se puede dejar en blanco"
                     runat="server"/> 
     </div>
-    <div>
+    <div id="botones">
         <asp:Button ID="Button_crear" runat="server" 
             Text="<%$ Resources: I18N, Crear %>" onclick="Button_crear_Click" />
         <asp:Button ID="Button_limpiar" runat="server" 

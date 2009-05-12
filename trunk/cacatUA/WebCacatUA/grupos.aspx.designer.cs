@@ -13,6 +13,15 @@
 public partial class grupos {
     
     /// <summary>
+    /// Control Label_titulo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_titulo;
+    
+    /// <summary>
     /// Control Button_crearGrupos.
     /// </summary>
     /// <remarks>
@@ -121,13 +130,13 @@ public partial class grupos {
     protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente;
     
     /// <summary>
-    /// Control Panel_contenido.
+    /// Control Table_grupos.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel_contenido;
+    protected global::System.Web.UI.WebControls.Table Table_grupos;
     
     /// <summary>
     /// Control Label_cantidadPagina2.

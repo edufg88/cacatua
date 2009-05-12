@@ -13,13 +13,13 @@
 public partial class firmas {
     
     /// <summary>
-    /// Control Label_usuario.
+    /// Control Label_titulo.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_usuario;
+    protected global::System.Web.UI.WebControls.Label Label_titulo;
     
     /// <summary>
     /// Control Label_mostrandoFirmas.
@@ -58,22 +58,13 @@ public partial class firmas {
     protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente2;
     
     /// <summary>
-    /// Control Panel_firmas.
+    /// Control Table_firmas.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel_firmas;
-    
-    /// <summary>
-    /// Control Panel1.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel1;
+    protected global::System.Web.UI.WebControls.Table Table_firmas;
     
     /// <summary>
     /// Control Button_firmar.
