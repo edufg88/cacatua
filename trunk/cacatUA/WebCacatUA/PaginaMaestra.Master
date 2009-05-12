@@ -95,6 +95,7 @@
             <div id="menu">
                 <div id="boton_inicio" class="boton"><a href="index.aspx"><asp:Label ID="Label_inicio" runat="server" Text="<%$ Resources: I18N, Inicio %>"></asp:Label></a></div>
                 <div id="boton_usuarios" class="boton"><a href="usuarios.aspx"><asp:Label ID="Label_usuarios" runat="server" Text="<%$ Resources: I18N, Usuarios %>"></asp:Label></a></div>
+                <div id="boton_grupos" class="boton"><a href="grupos.aspx"><asp:Label ID="Label_grupos" runat="server" Text="<%$ Resources: I18N, Grupos %>"></asp:Label></a></div>
                 <div id="boton_materiales" class="boton"><a href="materiales.aspx"><asp:Label ID="Label_materiales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label></a></div>
                 <div id="boton_foro" class="boton"><a href="foro.aspx"><asp:Label ID="Label_foro" runat="server" Text="<%$ Resources: I18N, Foro %>"></asp:Label></a></div>
             </div>
