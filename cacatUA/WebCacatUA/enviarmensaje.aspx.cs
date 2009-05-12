@@ -19,7 +19,7 @@ public partial class enviarmensaje : WebCacatUA.InterfazWeb
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["usuario"] != null)
+        if (Session["usuario"] != null && Request.QueryString["usuario"].ToString()!=Session["usuario"].ToString())
         {
             if (Request.QueryString["usuario"] != null)
             {
@@ -31,9 +31,13 @@ public partial class enviarmensaje : WebCacatUA.InterfazWeb
                 usuario = false;
             }
         }
+        else if (Session["usuario"] == null)
+        {
+            Response.Redirect("confirmacion.aspx?mensajeerror=1");
+        }
         else
         {
-            Response.Redirect("index.aspx");            
+            Response.Redirect("confirmacion.aspx?mensajeerror=2");
         }
     }
 
