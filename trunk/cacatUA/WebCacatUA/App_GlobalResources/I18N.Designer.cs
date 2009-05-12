@@ -853,6 +853,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Debe haber iniciado sesion para mandar un mensaje.
+        /// </summary>
+        internal static string MensajeErrorLogeado {
+            get {
+                return ResourceManager.GetString("MensajeErrorLogeado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No puede mandarse un mensaje a si mismo.
+        /// </summary>
+        internal static string MensajeErrorMismoUsuario {
+            get {
+                return ResourceManager.GetString("MensajeErrorMismoUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Mensaje privado.
         /// </summary>
         internal static string MensajePrivado {

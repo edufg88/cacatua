@@ -540,4 +540,10 @@
   <data name="Insuscribirse" xml:space="preserve">
     <value>Insuscribirse</value>
   </data>
+  <data name="MensajeErrorLogeado" xml:space="preserve">
+    <value>Debe haber iniciado sesion para mandar un mensaje</value>
+  </data>
+  <data name="MensajeErrorMismoUsuario" xml:space="preserve">
+    <value>No puede mandarse un mensaje a si mismo</value>
+  </data>
 </root>
