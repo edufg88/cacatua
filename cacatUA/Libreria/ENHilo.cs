@@ -8,6 +8,7 @@ namespace Libreria
 {
     public class ENHilo : InterfazEN
     {
+        private HiloCAD hiloCAD;
         private int id;
 	    private String titulo;
 	    private String texto;
@@ -24,6 +25,7 @@ namespace Libreria
         /// </summary>
         public ENHilo ()
         {
+            hiloCAD = new HiloCAD();
             id = 0;
             titulo = "";
             texto = "";
@@ -44,6 +46,7 @@ namespace Libreria
         /// <param name="categoria">Categoría del hilo.</param>
         public ENHilo(String titulo, String texto, ENUsuario autor, ENCategoria categoria)
         {
+            hiloCAD = new HiloCAD();
             id = 0;
             this.titulo = titulo;
             this.texto = texto;
@@ -60,7 +63,8 @@ namespace Libreria
         /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
         public static ArrayList Obtener()
         {
-            return HiloCAD.Instancia.Obtener();
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Obtener();
         }
 
         /// <summary>
@@ -75,7 +79,8 @@ namespace Libreria
         /// <returns>Devuelve una lista de hilos (ArrayList de ENHilo).</returns>
         public static ArrayList Obtener(int cantidad, ENHilo ultimo, string ordenar, bool ascendente)
         {
-            return HiloCAD.Instancia.Obtener(cantidad, ultimo, ordenar, ascendente);
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Obtener(cantidad, ultimo, ordenar, ascendente);
         }
 
         /// <summary>
@@ -99,7 +104,8 @@ namespace Libreria
         public static ArrayList Obtener(int cantidad, ENHilo ultimo, string ordenar, bool ascendente, String titulo, String texto
             , ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
-            return HiloCAD.Instancia.Obtener(cantidad, ultimo, ordenar, ascendente, titulo, texto, ref autor,
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Obtener(cantidad, ultimo, ordenar, ascendente, titulo, texto, ref autor,
                 ref fechaInicio, ref fechaFin, ref categoria);
         }
 
@@ -121,7 +127,8 @@ namespace Libreria
         public static ArrayList Obtener(int cantidad, int pagina, string ordenar, bool ascendente, string titulo, string texto,
             ref ENUsuario autor, ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
-            return HiloCAD.Instancia.Obtener(cantidad, pagina, ordenar, ascendente, titulo, texto, ref autor,
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Obtener(cantidad, pagina, ordenar, ascendente, titulo, texto, ref autor,
                 ref fechaInicio, ref fechaFin, ref categoria);
         }
 
@@ -140,7 +147,8 @@ namespace Libreria
         public static int Cantidad(String titulo, String texto, ref ENUsuario autor,
             ref DateTime fechaInicio, ref DateTime fechaFin, ref ENCategoria categoria)
         {
-            return HiloCAD.Instancia.Cantidad(titulo, texto, ref autor, ref fechaInicio, ref fechaFin, ref categoria);
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Cantidad(titulo, texto, ref autor, ref fechaInicio, ref fechaFin, ref categoria);
         }
 
         /// <summary>
@@ -151,7 +159,8 @@ namespace Libreria
         /// <returns>Devuelve un hilo si existe, o un valor nulo (null) si no existe.</returns>
         public static ENHilo Obtener(int id)
         {
-            return HiloCAD.Instancia.Obtener(id);
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Obtener(id);
         }
 
         /// <summary>
@@ -163,7 +172,7 @@ namespace Libreria
         override public bool Guardar()
         {
             int id = 0;
-            if (HiloCAD.Instancia.Guardar(this, out id))
+            if (hiloCAD.Guardar(this, out id))
             {
                 this.id = id;
                 return true;
@@ -178,7 +187,7 @@ namespace Libreria
         /// <returns>Devuelve verdadero si se ha borrado correctamente.</returns>
         override public bool Borrar()
         {
-            if (HiloCAD.Instancia.Borrar(id))
+            if (hiloCAD.Borrar(id))
             {
                 id = 0;
                 return true;
@@ -193,7 +202,8 @@ namespace Libreria
         /// <returns>Devuelve verdadero si se ha borrado correctamente.</returns>
         public static bool Borrar(int id)
         {
-            if (HiloCAD.Instancia.Borrar(id))
+            HiloCAD hiloCAD = new HiloCAD();
+            if (hiloCAD.Borrar(id))
             {
                 id = 0;
                 return true;
@@ -207,7 +217,7 @@ namespace Libreria
         /// <returns>Devuelve verdadero si se ha actualizado correctamente.</returns>
         override public bool Actualizar()
         {
-            return HiloCAD.Instancia.Actualizar(this);
+            return hiloCAD.Actualizar(this);
         }
 
         /// <summary>
@@ -217,7 +227,8 @@ namespace Libreria
         /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
         public static int Cantidad()
         {
-            return HiloCAD.Instancia.Cantidad();
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Cantidad();
         }
 
         /// <summary>
@@ -238,7 +249,8 @@ namespace Libreria
         /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
         public static int Cantidad(ENUsuario usuario, ENCategoria categoria)
         {
-            return HiloCAD.Instancia.Cantidad(usuario, categoria);
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Cantidad(usuario, categoria);
         }
 
         /// <summary>
@@ -247,7 +259,8 @@ namespace Libreria
         /// <returns>Devuelve el último hilo insertado en la base de datos. Si falla, devuelve null.</returns>
         public static ENHilo Ultimo()
         {
-            return HiloCAD.Instancia.Ultimo();
+            HiloCAD hiloCAD = new HiloCAD();
+            return hiloCAD.Ultimo();
         }
 
         public int Id
@@ -303,7 +316,11 @@ namespace Libreria
         /// </summary>
         public ArrayList Respuestas
         {
-            get { return RespuestaCAD.Instancia.Obtener(this); }
+            get
+            {
+                RespuestaCAD respuestaCAD = new RespuestaCAD();
+                return respuestaCAD.Obtener(this);
+            }
         }
 
         public int NumRespuestas

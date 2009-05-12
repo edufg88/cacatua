@@ -11,6 +11,7 @@ namespace Libreria
     /// </summary>
     public class ENFirma : InterfazEN
     {
+        private FirmaCAD firmaCAD;
         /// <summary>
         /// ID de la firma
         /// </summary>
@@ -37,6 +38,7 @@ namespace Libreria
         /// </summary>
         public ENFirma()
         {
+            firmaCAD = new FirmaCAD();
             id = 0;
             emisor = new ENUsuario();
             receptor = new ENUsuario();
@@ -47,7 +49,7 @@ namespace Libreria
         /*
         public ENFirma(int id)
         {
-            ENFirma aux = FirmaCAD.Instancia.ObtenerFirma(id);
+            ENFirma aux = firmaCAD.ObtenerFirma(id);
 
             if (aux == null)
             {
@@ -87,8 +89,9 @@ namespace Libreria
         /// <returns>Devuelve una firma si existe el id, null en caso contrario</returns>
         public static ENFirma Obtener(int id)
         {
+            FirmaCAD firmaCAD = new FirmaCAD();
             ENFirma aux = null;
-            aux = FirmaCAD.Instancia.ObtenerFirma(id);
+            aux = firmaCAD.ObtenerFirma(id);
 
             return aux;
         }
@@ -101,20 +104,23 @@ namespace Libreria
         /// <returns>Devuelve una firma si existe una firma con el usuario recibido, null en caso contrario</returns>
         public static ENFirma Obtener(string usuario, bool emisor)
         {
+            FirmaCAD firmaCAD = new FirmaCAD();
             ENFirma aux = null;
-            aux = FirmaCAD.Instancia.ObtenerFirma(usuario, emisor);
+            aux = firmaCAD.ObtenerFirma(usuario, emisor);
 
             return aux;
         }
 
         public static ArrayList ObtenerFirmas(string usuario, int pagina, int cantidad)
         {
-            return FirmaCAD.Instancia.ObtenerFirmas(usuario, pagina,cantidad);
+            FirmaCAD firmaCAD = new FirmaCAD();
+            return firmaCAD.ObtenerFirmas(usuario, pagina,cantidad);
         }
 
         public static int Cantidad(string usuario)
         {
-            return FirmaCAD.Instancia.Cantidad(usuario).Count;
+            FirmaCAD firmaCAD = new FirmaCAD();
+            return firmaCAD.Cantidad(usuario).Count;
         }
 
         /// <summary>
@@ -123,14 +129,15 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con todas las firmas</returns>
         public static ArrayList Obtener()
         {
-            return FirmaCAD.Instancia.ObtenerFirmas();
+            FirmaCAD firmaCAD = new FirmaCAD();
+            return firmaCAD.ObtenerFirmas();
         }
 
         /*
         public bool Obtener(int id)
         {
             ENFirma aux = new ENFirma();
-            aux = FirmaCAD.Instancia.ObtenerFirma(id);
+            aux = firmaCAD.ObtenerFirma(id);
 
             if (aux != null)
             {
@@ -152,7 +159,7 @@ namespace Libreria
         public bool Obtener(string nombre, bool emisor)
         {
             ENFirma aux = null;
-            aux = FirmaCAD.Instancia.ObtenerFirma(nombre, emisor);
+            aux = firmaCAD.ObtenerFirma(nombre, emisor);
 
             this.id = aux.id;
             this.emisor = aux.emisor;
@@ -176,7 +183,7 @@ namespace Libreria
         /// <returns>Devuelve true si se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
-            return FirmaCAD.Instancia.Actualizar(this);
+            return firmaCAD.Actualizar(this);
         }
 
         /// <summary>
@@ -185,7 +192,7 @@ namespace Libreria
         /// <returns>Devuelve true si se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return FirmaCAD.Instancia.GuardarFirma(emisor.Usuario, texto, receptor.Usuario);
+            return firmaCAD.GuardarFirma(emisor.Usuario, texto, receptor.Usuario);
         }
 
         /// <summary>
@@ -194,7 +201,7 @@ namespace Libreria
         /// <returns>Devuelve true si se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
-            return FirmaCAD.Instancia.BorrarFirma(id);
+            return firmaCAD.BorrarFirma(id);
         }
 
         /// <summary>
@@ -204,7 +211,8 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public static bool Borrar(int pid)
         {
-            return FirmaCAD.Instancia.BorrarFirma(pid);
+            FirmaCAD firmaCAD = new FirmaCAD();
+            return firmaCAD.BorrarFirma(pid);
         }
 
         /// <summary>
@@ -212,7 +220,7 @@ namespace Libreria
         /// </summary>
         public void BorrarFirmas()
         {
-            FirmaCAD.Instancia.BorrarFirmas();
+            firmaCAD.BorrarFirmas();
         }
 
         /// <summary>
@@ -224,7 +232,7 @@ namespace Libreria
         /// <returns></returns>
         public ArrayList Buscar(string emisor, string receptor, DateTime fecha)
         {
-            return FirmaCAD.Instancia.BuscarFirma(emisor, receptor, fecha);
+            return firmaCAD.BuscarFirma(emisor, receptor, fecha);
         }
 
         public int Id
