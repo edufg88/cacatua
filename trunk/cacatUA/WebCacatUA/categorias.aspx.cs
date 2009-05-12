@@ -24,7 +24,6 @@ namespace WebCacatUA
             if (u != null)
             {
                 usuario = ENUsuario.Obtener(u);
-                Label_Texto.Text = "Categorias a las que estas suscrito:";
                 CargarCategorias();
             }
             else
@@ -63,7 +62,7 @@ namespace WebCacatUA
                 Button b1 = new Button();
                 b1.ID = cat.Id.ToString();
                 b1.CssClass = "boton_categorias";
-                b1.Text = "Insuscribirse";
+                b1.Text = Resources.I18N.Insuscribirse;
                 b1.Click += new System.EventHandler(Button_borrarsuscripcion_Click);
                 c2.Controls.Add(b1);
 
