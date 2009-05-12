@@ -492,4 +492,22 @@
   <data name="Para" xml:space="preserve">
     <value>Para</value>
   </data>
+  <data name="De" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="FirmasMin" xml:space="preserve">
+    <value>firmas</value>
+  </data>
+  <data name="MensajesMin" xml:space="preserve">
+    <value>mensajes</value>
+  </data>
+  <data name="NoFirmas" xml:space="preserve">
+    <value>Este usuario no tiene firmas</value>
+  </data>
+  <data name="NoMensajes" xml:space="preserve">
+    <value>No tengo mensajes privados</value>
+  </data>
+  <data name="Viendo" xml:space="preserve">
+    <value>Viendo</value>
+  </data>
 </root>

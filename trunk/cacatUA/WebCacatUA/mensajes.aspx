@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
 
-<div id="cabecera">
+<div id="mostrandoOrdenar">
     <asp:Label ID="Label_mostrandoMensajes" runat="server" Text=""></asp:Label>
     <div id="ordenar">
         <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
