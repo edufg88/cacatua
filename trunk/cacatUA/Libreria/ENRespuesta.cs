@@ -8,6 +8,7 @@ namespace Libreria
 {
     public class ENRespuesta : InterfazEN
     {
+        private RespuestaCAD respuestaCAD;
         private int id;
         private String texto;
         private ENUsuario autor;
@@ -16,6 +17,7 @@ namespace Libreria
 
         public ENRespuesta()
         {
+            respuestaCAD = new RespuestaCAD();
             id = 0;
             texto = "";
             autor = null;
@@ -34,7 +36,8 @@ namespace Libreria
         /// </returns>
         public static ArrayList Obtener(ENHilo hilo)
         {
-            return RespuestaCAD.Instancia.Obtener(hilo);
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Obtener(hilo);
         }
 
         /// <summary>
@@ -48,7 +51,8 @@ namespace Libreria
         /// </returns>
         public static ArrayList Obtener(int cantidad, int pagina, ref ENHilo hilo)
         {
-            return RespuestaCAD.Instancia.Obtener(cantidad, pagina, ref hilo);
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Obtener(cantidad, pagina, ref hilo);
         }
 
         /// <summary>
@@ -58,7 +62,8 @@ namespace Libreria
         /// <returns>Devuelve la respuesta del identificador seleccionado. Si falla, devuelve null.</returns>
         public static ENRespuesta Obtener(int id)
         {
-            return RespuestaCAD.Instancia.Obtener(id);
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Obtener(id);
         }
 
         /// <summary>
@@ -68,7 +73,7 @@ namespace Libreria
         override public bool Guardar()
         {
             int id = 0;
-            if (RespuestaCAD.Instancia.Guardar(this, out id))
+            if (respuestaCAD.Guardar(this, out id))
             {
                 this.id = id;
                 return true;
@@ -85,7 +90,7 @@ namespace Libreria
         /// </returns>
         override public bool Borrar()
         {
-            if (RespuestaCAD.Instancia.Borrar(id))
+            if (respuestaCAD.Borrar(id))
             {
                 id = 0;
                 return true;
@@ -103,7 +108,8 @@ namespace Libreria
         /// </returns>
         public static bool Borrar(int id)
         {
-            if (RespuestaCAD.Instancia.Borrar(id))
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            if (respuestaCAD.Borrar(id))
             {
                 id = 0;
                 return true;
@@ -117,7 +123,7 @@ namespace Libreria
         /// <returns>Devuelve verdadero si la respuesta ya existía y ha sido actualizada correctamente. Falso en caso contrario.</returns>
         override public bool Actualizar()
         {
-            return RespuestaCAD.Instancia.Actualizar(this);
+            return respuestaCAD.Actualizar(this);
         }
 
         /// <summary>
@@ -127,7 +133,8 @@ namespace Libreria
         /// <returns>Devuelve un valor entero con la cantidad de hilos del foro.</returns>
         public static int Cantidad()
         {
-            return RespuestaCAD.Instancia.Cantidad();
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Cantidad();
         }
 
         /// <summary>
@@ -137,7 +144,8 @@ namespace Libreria
         /// <returns>Devuelve un valor entero con la cantidad de respuestas del hilo.</returns>
         public static int Cantidad(ENHilo hilo)
         {
-            return RespuestaCAD.Instancia.Cantidad(hilo);
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Cantidad(hilo);
         }
 
         /// <summary>
@@ -148,7 +156,8 @@ namespace Libreria
         /// <returns>Devuelve un valor entero con la cantidad de respuestas.</returns>
         public static int Cantidad(ENUsuario usuario)
         {
-            return RespuestaCAD.Instancia.Cantidad(usuario);
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Cantidad(usuario);
         }
 
         /// <summary>
@@ -157,12 +166,13 @@ namespace Libreria
         /// <returns>Devuelve la última respuesta insertada en la base de datos. Si falla, devuelve null.</returns>
         public static ENRespuesta Ultimo()
         {
-            return RespuestaCAD.Instancia.Ultimo();
+            RespuestaCAD respuestaCAD = new RespuestaCAD();
+            return respuestaCAD.Ultimo();
         }
 
         public ENRespuesta Ultimo(ENHilo hilo)
         {
-            return RespuestaCAD.Instancia.Ultimo(hilo);
+            return respuestaCAD.Ultimo(hilo);
         }
 
         public int Id

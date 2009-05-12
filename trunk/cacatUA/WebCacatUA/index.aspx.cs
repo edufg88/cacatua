@@ -59,7 +59,7 @@ public partial class index : WebCacatUA.InterfazWeb
         {
             foreach (ENUsuario i in usuarios)
             {
-                Label_ultimosUsuarios.Text += "<a href=\"usuario.aspx?id=" + i.Id + "\">" + i.Usuario + "</a><br />";
+                Label_ultimosUsuarios.Text += "<a href=\"usuario.aspx?usuario=" + i.Usuario + "\">" + i.Usuario + "</a><br />";
             }
         }
 

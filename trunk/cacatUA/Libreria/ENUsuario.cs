@@ -28,6 +28,7 @@ namespace Libreria
         const int maxTamTituloImagen = 20;
         const int maxTamDescripcionImagen = 50;
 
+        private UsuarioCAD usuarioCAD;
         /// <summary>
         /// Id del usuario
         /// </summary>
@@ -82,6 +83,7 @@ namespace Libreria
         /// </summary>
         public ENUsuario()
         {
+            usuarioCAD = new UsuarioCAD();
             id = 0;
             usuario = "";
             contrasena = "";
@@ -102,7 +104,8 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado</returns>
         public static ArrayList Obtener(int numPagina,int tamPagina)
         {
-            return UsuarioCAD.Instancia.ObtenerUsuarios(numPagina,tamPagina);
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.ObtenerUsuarios(numPagina,tamPagina);
         }
 
         /// <summary>
@@ -112,8 +115,9 @@ namespace Libreria
         /// <returns>Devuelve el usuario con el id recibido</returns>
         public static ENUsuario Obtener(int id)
         {
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
             ENUsuario aux = null;
-            aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
+            aux = usuarioCAD.ObtenerUsuario(id);
 
             return aux;
         }
@@ -125,8 +129,9 @@ namespace Libreria
         /// <returns>Devuelve el usuario con el nombre de usuario recibido</returns>
         public static ENUsuario Obtener(string us)
         {
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
             ENUsuario aux = null;
-            aux = UsuarioCAD.Instancia.ObtenerUsuario(us);
+            aux = usuarioCAD.ObtenerUsuario(us);
 
             return aux;
         }
@@ -135,7 +140,7 @@ namespace Libreria
         /*
         public ENUsuario(int id)
         {
-            ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(id);
+            ENUsuario aux = usuarioCAD.ObtenerUsuario(id);
 
             if (aux == null)
             {
@@ -155,7 +160,7 @@ namespace Libreria
         // Constructor sobrecargado. Sólo con el nombre de usuario.
         public ENUsuario(string usuario)
         {
-            ENUsuario aux = UsuarioCAD.Instancia.ObtenerUsuario(usuario);
+            ENUsuario aux = usuarioCAD.ObtenerUsuario(usuario);
 
             if (aux == null)
             {
@@ -344,7 +349,7 @@ namespace Libreria
         public bool Obtener(int id)
         {
             ENUsuario aux = new ENUsuario();
-            UsuarioCAD.Instancia.ObtenerUsuario(id);
+            usuarioCAD.ObtenerUsuario(id);
 
             if (aux != null)
             {
@@ -370,7 +375,7 @@ namespace Libreria
         public bool Obtener(string nombre)
         {
             ENUsuario aux = null;
-            aux = UsuarioCAD.Instancia.ObtenerUsuario(nombre);
+            aux = usuarioCAD.ObtenerUsuario(nombre);
 
             this.id = aux.id;
             this.usuario = aux.usuario;
@@ -398,7 +403,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
-            return UsuarioCAD.Instancia.Actualizar(this);
+            return usuarioCAD.Actualizar(this);
         }
 
         /// <summary>
@@ -407,7 +412,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return UsuarioCAD.Instancia.CrearUsuario(usuario, contrasena, nombre, dni, correo, activo, adicional);
+            return usuarioCAD.CrearUsuario(usuario, contrasena, nombre, dni, correo, activo, adicional);
         }
 
         /// <summary>
@@ -416,7 +421,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public bool GuardarAdmin()
         {
-            return UsuarioCAD.Instancia.CrearAdmin(id);
+            return usuarioCAD.CrearAdmin(id);
         }
 
         /// <summary>
@@ -425,7 +430,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
-            return UsuarioCAD.Instancia.BorrarUsuario(id);
+            return usuarioCAD.BorrarUsuario(id);
         }
 
         /// <summary>
@@ -434,7 +439,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public bool BorrarAdmin()
         {
-            return UsuarioCAD.Instancia.BorrarAdmin(id);
+            return usuarioCAD.BorrarAdmin(id);
         }
 
         /// <summary>
@@ -444,7 +449,8 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public static bool Borrar(int pid)
         {
-            return UsuarioCAD.Instancia.BorrarUsuario(pid);
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.BorrarUsuario(pid);
         }
 
         /// <summary>
@@ -452,7 +458,7 @@ namespace Libreria
         /// </summary>
         public void BorrarUsuarios()
         {
-            UsuarioCAD.Instancia.BorrarUsuarios();
+            usuarioCAD.BorrarUsuarios();
         }
 
         /// <summary>
@@ -464,7 +470,8 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado de la búsqueda</returns>
         public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso, int pagina, int tamaño)
         {
-            return UsuarioCAD.Instancia.BuscarUsuario(nombreUsuario, email, fechaIngreso,pagina,tamaño);
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.BuscarUsuario(nombreUsuario, email, fechaIngreso,pagina,tamaño);
         }
 
         /// <summary>
@@ -479,12 +486,14 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado</returns>
         public static ArrayList BuscarWeb(string texto, string tipo, string ordenar, bool orden, int pagina, int tamaño)
         {
-            return UsuarioCAD.Instancia.BuscarUsuarios(texto, tipo, ordenar, orden, pagina, tamaño);
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.BuscarUsuarios(texto, tipo, ordenar, orden, pagina, tamaño);
         }
 
         public static int NumUsuarios(string nombreUsuario, string email, DateTime fechaIngreso)
         {
-            return UsuarioCAD.Instancia.NumUsuarios(nombreUsuario, email, fechaIngreso);
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.NumUsuarios(nombreUsuario, email, fechaIngreso);
         }
 
         /// <summary>
@@ -493,7 +502,7 @@ namespace Libreria
         /// <returns>Devuelve true si es administrador, false en caso contrario</returns>
         public bool EsAdministrador()
         {
-            return UsuarioCAD.Instancia.EsAdministrador(this.id);
+            return usuarioCAD.EsAdministrador(this.id);
         }
 
         /// <summary>
@@ -502,7 +511,8 @@ namespace Libreria
         /// <returns>Devuelve la cantidad de usuarios totales que hay en la base de datos.</returns>
         public static int NumUsuarios()
         {
-            return UsuarioCAD.Instancia.NumUsuarios();
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.NumUsuarios();
         }
 
         /// <summary>
@@ -511,7 +521,8 @@ namespace Libreria
         /// <returns>Devuelve la entidad de negocio del último usuario registrado en la base de datos.</returns>
         public static ENUsuario Ultimo()
         {
-            return UsuarioCAD.Instancia.Ultimo();
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.Ultimo();
         }
 
         /// <summary>
@@ -529,7 +540,8 @@ namespace Libreria
         /// <returns>Devuelve el número de firmas</returns>
         public int CantidadFirmas()
         {
-            return FirmaCAD.Instancia.CantidadFirmas(this.id);
+            FirmaCAD firmaCAD = new FirmaCAD();
+            return firmaCAD.CantidadFirmas(this.id);
         }
 
         /// <summary>
@@ -593,7 +605,8 @@ namespace Libreria
 
         public static int Cantidad(string texto, string tipo, string ordenar, bool orden)
         {
-            return UsuarioCAD.Instancia.Cantidad(texto, tipo, ordenar, orden);
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.Cantidad(texto, tipo, ordenar, orden);
         }
 
         public int Id

@@ -8,21 +8,13 @@ using System.Configuration;
 
 namespace Libreria
 {
-    // Clase singleton
     // Componente de Acceso a Datos para relacionarse con la BD 'firmas'
-    sealed class FirmaCAD
+    class FirmaCAD
     {
-        private static readonly FirmaCAD instancia = new FirmaCAD();
         private String cadenaConexion;
 
-        // Devuelve la instancia única de la clase
-        public static FirmaCAD Instancia
-        {
-            get { return(instancia); }
-        }
-
-        // El constructor privado crea la cadena de conexión
-        private FirmaCAD()
+        // Constructor por defecto
+        public FirmaCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
@@ -34,8 +26,10 @@ namespace Libreria
             ENFirma firma = new ENFirma();
 
             firma.Id = int.Parse(dr["id"].ToString());
-            firma.Emisor = UsuarioCAD.Instancia.ObtenerUsuario(int.Parse(dr["emisor"].ToString()));
-            firma.Receptor = UsuarioCAD.Instancia.ObtenerUsuario(int.Parse(dr["receptor"].ToString()));
+
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            firma.Emisor = usuarioCAD.ObtenerUsuario(int.Parse(dr["emisor"].ToString()));
+            firma.Receptor = usuarioCAD.ObtenerUsuario(int.Parse(dr["receptor"].ToString()));
             firma.Texto = dr["texto"].ToString();
             firma.Fecha = DateTime.Parse(dr["fecha"].ToString());
 

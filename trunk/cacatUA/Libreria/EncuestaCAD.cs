@@ -35,7 +35,8 @@ namespace Libreria
 
             encuesta.Id = int.Parse(dr["id"].ToString());
             encuesta.Pregunta = dr["pregunta"].ToString();
-            encuesta.Usuario = UsuarioCAD.Instancia.ObtenerUsuario(int.Parse(dr["usuario"].ToString()));
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            encuesta.Usuario = usuarioCAD.ObtenerUsuario(int.Parse(dr["usuario"].ToString()));
             encuesta.Fecha = DateTime.Parse(dr["fecha"].ToString());
 
             if (int.Parse(dr["activa"].ToString()) == 0)

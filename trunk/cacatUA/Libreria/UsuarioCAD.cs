@@ -12,31 +12,19 @@ using System.Configuration;
 namespace Libreria
 {
     /// <summary>
-    /// Clase singleton. Componente de Acceso a Datos para la tabla 'usuarios'
+    /// Componente de Acceso a Datos para la tabla 'usuarios'
     /// </summary>
-    sealed class UsuarioCAD
+    class UsuarioCAD
     {
-        /// <summary>
-        /// Instancia única de la clase
-        /// </summary>
-        private static readonly UsuarioCAD instancia = new UsuarioCAD();
         /// <summary>
         /// Cadena de conexión con la BD
         /// </summary>
         private String cadenaConexion;
-        
-        /// <summary>
-        /// Devuelve una instancia única de la clase
-        /// </summary>
-        public static UsuarioCAD Instancia
-        {
-            get { return(instancia); }
-        }
 
         /// <summary>
-        /// Constructor privado
+        /// Constructor por defecto
         /// </summary>
-        private UsuarioCAD()
+        public UsuarioCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }

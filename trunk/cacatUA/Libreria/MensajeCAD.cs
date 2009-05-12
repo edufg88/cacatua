@@ -34,8 +34,10 @@ namespace Libreria
             ENMensaje mensaje = new ENMensaje();
 
             mensaje.Id = int.Parse(dr["id"].ToString());
-            mensaje.Emisor = UsuarioCAD.Instancia.ObtenerUsuario(int.Parse(dr["emisor"].ToString()));
-            mensaje.Receptor = UsuarioCAD.Instancia.ObtenerUsuario(int.Parse(dr["receptor"].ToString()));
+
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            mensaje.Emisor = usuarioCAD.ObtenerUsuario(int.Parse(dr["emisor"].ToString()));
+            mensaje.Receptor = usuarioCAD.ObtenerUsuario(int.Parse(dr["receptor"].ToString()));
             mensaje.Texto = dr["texto"].ToString();
             mensaje.Fecha = DateTime.Parse(dr["fecha"].ToString());
 
