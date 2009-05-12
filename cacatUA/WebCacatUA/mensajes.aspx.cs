@@ -23,19 +23,26 @@ public partial class mensajes : WebCacatUA.InterfazWeb
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["usuario"].ToString() != "")
+        if (Session["usuario"] != null && Session["usuario"].ToString() == Request.QueryString["usuario"].ToString())
         {
-            string usuario = Request.QueryString["usuario"].ToString();
-            user = ENUsuario.Obtener(usuario);
-        }
+            if (Request.QueryString["usuario"].ToString() != "")
+            {
+                string usuario = Request.QueryString["usuario"].ToString();
+                user = ENUsuario.Obtener(usuario);
+            }
 
-        extraerParametros();
-        if (!Page.IsPostBack)
-        {
-            actualizarPaginacion();
-            actualizarOrdenacion();
+            extraerParametros();
+            if (!Page.IsPostBack)
+            {
+                actualizarPaginacion();
+                actualizarOrdenacion();
+            }
+            ObtenerMensajes();
         }
-        ObtenerMensajes();
+        else
+        {
+            Response.Redirect("index.aspx");
+        }
     }
 
     private void actualizarOrdenacion()
@@ -69,34 +76,40 @@ public partial class mensajes : WebCacatUA.InterfazWeb
             ordenarpor = ordenar;
         }
         ArrayList mensajes = ENMensaje.ObtenerMensajes(user.Usuario, orden,ordenarpor,pagina,cantidad);
-        Panel_mensajes.Controls.Clear();
-        HtmlTable tabla = new HtmlTable();
-        HtmlTableRow fila = new HtmlTableRow();
-        HtmlTableCell celdax = new HtmlTableCell();
-        HtmlTableCell celday = new HtmlTableCell();
-        HtmlTableCell celdaz = new HtmlTableCell();
+        Table_mensajes.Controls.Clear();
+        TableRow fila = new TableRow();
+        TableCell celdax = new TableCell();
+        TableCell celday = new TableCell();
+        TableCell celdaz = new TableCell();
+        TableCell celdaw = new TableCell();
         Label men = new Label();
         Label fech = new Label();
         Label usuarios = new Label();
+        Label leido = new Label();
         men.Text = Resources.I18N.Mensaje;
         fech.Text = Resources.I18N.Fecha;
         usuarios.Text = Resources.I18N.autormensaje;
+        leido.Text = Resources.I18N.Leido;
         celdax.Controls.Add(usuarios);
         celday.Controls.Add(fech);
         celdaz.Controls.Add(men);
+        celdaw.Controls.Add(leido);
+        fila.Cells.Add(celdaw);
         fila.Cells.Add(celdax);
         fila.Cells.Add(celday);
         fila.Cells.Add(celdaz);
-        tabla.Rows.Add(fila);
+        Table_mensajes.Controls.Add(fila);
         if (totalResultados > 1)
         {
             Label_mostrandoMensajes.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " mensajes privados.";
             foreach (ENMensaje mensaje in mensajes)
             {
-                HtmlTableRow fila2 = new HtmlTableRow();
-                HtmlTableCell celda1 = new HtmlTableCell();
-                HtmlTableCell celda2 = new HtmlTableCell();
-                HtmlTableCell celda3 = new HtmlTableCell();
+                TableRow fila2 = new TableRow();
+                TableCell celda1 = new TableCell();
+                TableCell celda2 = new TableCell();
+                TableCell celda3 = new TableCell();
+                TableCell celda4 = new TableCell();
+                CheckBox leer = new CheckBox();
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();
@@ -107,17 +120,18 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                 celda1.Controls.Add(link);
                 celda2.Controls.Add(fecha);
                 celda3.Controls.Add(texto);
+                celda4.Controls.Add(leer);
+                fila2.Cells.Add(celda4);
                 fila2.Cells.Add(celda1);
                 fila2.Cells.Add(celda2);
                 fila2.Cells.Add(celda3);
-                tabla.Rows.Add(fila2);
+                Table_mensajes.Controls.Add(fila2);
             }
         }
         else
         {
             Label_mostrandoMensajes.Text = "No tengo mensajes privados";
         }
-        Panel_mensajes.Controls.Add(tabla);
     }
 
     private void actualizarPaginacion()

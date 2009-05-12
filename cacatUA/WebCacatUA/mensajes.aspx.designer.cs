@@ -13,6 +13,15 @@
 public partial class mensajes {
     
     /// <summary>
+    /// Control Label_titulo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_titulo;
+    
+    /// <summary>
     /// Control Label_mostrandoMensajes.
     /// </summary>
     /// <remarks>
@@ -94,13 +103,13 @@ public partial class mensajes {
     protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente2;
     
     /// <summary>
-    /// Control Panel_mensajes.
+    /// Control Table_mensajes.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel_mensajes;
+    protected global::System.Web.UI.WebControls.Table Table_mensajes;
     
     /// <summary>
     /// Control Label_cantidadPagina.
