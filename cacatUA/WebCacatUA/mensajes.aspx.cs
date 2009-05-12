@@ -21,6 +21,14 @@ public partial class mensajes : WebCacatUA.InterfazWeb
     private string ordenar;
     private ENUsuario user;
 
+    private void escribir(string cadena)
+    {
+        const string fic = @"C:\log.txt";
+        System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
+        sw.WriteLine(cadena);
+        sw.Close();
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["usuario"] != null && Session["usuario"].ToString() == Request.QueryString["usuario"].ToString())
@@ -109,7 +117,21 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                 TableCell celda2 = new TableCell();
                 TableCell celda3 = new TableCell();
                 TableCell celda4 = new TableCell();
+
                 CheckBox leer = new CheckBox();
+                leer.AutoPostBack = true;
+                leer.CheckedChanged += new EventHandler(ComentarioLeido);
+                leer.Attributes["id_mensaje"] = mensaje.Id.ToString();
+                //CheckBox1_CheckedChanged
+                //leer 
+                // Activamos o desactivamos según este leido
+                if (mensaje.Leido == 1)
+                {
+                    // Desactivamos
+                    leer.Checked = true;
+                    leer.Enabled = false;
+                }
+
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();
@@ -131,6 +153,19 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         else
         {
             Label_mostrandoMensajes.Text = Resources.I18N.NoMensajes;
+        }
+    }
+
+    protected void ComentarioLeido(object sender, EventArgs e)
+    {
+        if (sender is CheckBox)
+        {
+            CheckBox aux = (CheckBox)sender;
+            aux.Enabled = false;
+            // Guardamos en la base de datos que ha leido el material
+            ENMensaje mensaje = ENMensaje.Obtener(int.Parse(aux.Attributes["id_mensaje"]));
+            mensaje.Leido = 1;
+            mensaje.Actualizar();
         }
     }
 
