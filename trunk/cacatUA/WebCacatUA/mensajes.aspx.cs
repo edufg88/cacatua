@@ -60,7 +60,6 @@ public partial class mensajes : WebCacatUA.InterfazWeb
     private void ObtenerMensajes()
     {
         string ordenarpor = "";
-        Label_mostrandoMensajes.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " mensajes privados.";
         if (ordenar == "De")
         {
             ordenarpor = "emisor";
@@ -72,36 +71,26 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         ArrayList mensajes = ENMensaje.ObtenerMensajes(user.Usuario, orden,ordenarpor,pagina,cantidad);
         Panel_mensajes.Controls.Clear();
         HtmlTable tabla = new HtmlTable();
-        if (mensajes == null)
+        HtmlTableRow fila = new HtmlTableRow();
+        HtmlTableCell celdax = new HtmlTableCell();
+        HtmlTableCell celday = new HtmlTableCell();
+        HtmlTableCell celdaz = new HtmlTableCell();
+        Label men = new Label();
+        Label fech = new Label();
+        Label usuarios = new Label();
+        men.Text = Resources.I18N.Mensaje;
+        fech.Text = Resources.I18N.Fecha;
+        usuarios.Text = Resources.I18N.autormensaje;
+        celdax.Controls.Add(usuarios);
+        celday.Controls.Add(fech);
+        celdaz.Controls.Add(men);
+        fila.Cells.Add(celdax);
+        fila.Cells.Add(celday);
+        fila.Cells.Add(celdaz);
+        tabla.Rows.Add(fila);
+        if (totalResultados > 1)
         {
-            HtmlTableRow fila1 = new HtmlTableRow();
-            HtmlTableCell celda = new HtmlTableCell();
-            Label nofirmas = new Label();
-            nofirmas.Text = "No tengo mensajes privados";
-            celda.Controls.Add(nofirmas);
-            fila1.Cells.Add(celda);
-            tabla.Rows.Add(fila1);
-            Panel_mensajes.Controls.Add(tabla);
-        }
-        else
-        {
-            HtmlTableRow fila = new HtmlTableRow();
-            HtmlTableCell celdax = new HtmlTableCell();
-            HtmlTableCell celday = new HtmlTableCell();
-            HtmlTableCell celdaz = new HtmlTableCell();
-            Label men = new Label();
-            Label fech = new Label();
-            Label usuarios = new Label();
-            men.Text = Resources.I18N.Mensaje;
-            fech.Text = Resources.I18N.Fecha;
-            usuarios.Text = Resources.I18N.autormensaje;
-            celdax.Controls.Add(usuarios);
-            celday.Controls.Add(fech);
-            celdaz.Controls.Add(men);
-            fila.Cells.Add(celdax);
-            fila.Cells.Add(celday);
-            fila.Cells.Add(celdaz);
-            tabla.Rows.Add(fila);
+            Label_mostrandoMensajes.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " mensajes privados.";
             foreach (ENMensaje mensaje in mensajes)
             {
                 HtmlTableRow fila2 = new HtmlTableRow();
@@ -123,8 +112,12 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                 fila2.Cells.Add(celda3);
                 tabla.Rows.Add(fila2);
             }
-            Panel_mensajes.Controls.Add(tabla);
         }
+        else
+        {
+            Label_mostrandoMensajes.Text = "No tengo mensajes privados";
+        }
+        Panel_mensajes.Controls.Add(tabla);
     }
 
     private void actualizarPaginacion()

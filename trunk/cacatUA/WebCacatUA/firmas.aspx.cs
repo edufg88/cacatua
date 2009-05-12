@@ -62,18 +62,13 @@ public partial class firmas : WebCacatUA.InterfazWeb
         fila.Cells.Add(celday);
         fila.Cells.Add(celdaz);
         tabla.Rows.Add(fila);
-        if (Firmas == null)
+        if (totalResultados < 1)
         {
-            HtmlTableRow fila1 = new HtmlTableRow();
-            HtmlTableCell celda = new HtmlTableCell();
-            Label nofirmas = new Label();
-            nofirmas.Text="Este usuario no tiene firmas";
-            celda.Controls.Add(nofirmas);
-            fila.Cells.Add(celda);
-            tabla.Rows.Add(fila1);
+            Label_mostrandoFirmas.Text = "Este usuario no tiene firmas";
         }
         else
         {
+            Label_mostrandoFirmas.Text = "Viendo " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " firmas.";
             foreach (ENFirma firma in Firmas)
             {
                 HtmlTableRow fila2 = new HtmlTableRow();
@@ -95,8 +90,8 @@ public partial class firmas : WebCacatUA.InterfazWeb
                 fila2.Cells.Add(celda3);
                 tabla.Rows.Add(fila2);
             }
-            Panel_firmas.Controls.Add(tabla);
         }
+        Panel_firmas.Controls.Add(tabla);
     }
 
     protected void Button_firmar_Click(object sender, EventArgs e)

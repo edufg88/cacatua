@@ -22,6 +22,15 @@ public partial class firmas {
     protected global::System.Web.UI.WebControls.Label Label_usuario;
     
     /// <summary>
+    /// Control Label_mostrandoFirmas.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_mostrandoFirmas;
+    
+    /// <summary>
     /// Control Button_paginaAnterior2.
     /// </summary>
     /// <remarks>
