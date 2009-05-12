@@ -58,20 +58,18 @@ public partial class grupo : WebCacatUA.InterfazWeb
         Label_nombre.Text = group.Nombre;
         Label_Desc.Text = group.Descripcion;
 
-        Panel_miembros.Controls.Clear();
-        HtmlTable tabla = new HtmlTable();
+        Table_miembros.Controls.Clear();
         foreach (ENUsuario usuario in group.Usuarios)
         {
-            HtmlTableRow fila = new HtmlTableRow();
-            HtmlTableCell celda = new HtmlTableCell();
+            TableRow fila = new TableRow();
+            TableCell celda = new TableCell();
             HyperLink link = new HyperLink();
             link.Text = usuario.Usuario;
             link.NavigateUrl = "usuario.aspx?usuario=" + usuario.Usuario;
             celda.Controls.Add(link);
             fila.Cells.Add(celda);
-            tabla.Rows.Add(fila);
+            Table_miembros.Rows.Add(fila);
         }
-        Panel_miembros.Controls.Add(tabla);
     }
 
     protected void Button_apuntarse_Click(object sender, EventArgs e)

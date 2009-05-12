@@ -13,6 +13,15 @@
 public partial class grupo {
     
     /// <summary>
+    /// Control Label_grupo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_grupo;
+    
+    /// <summary>
     /// Control Label_nombre.
     /// </summary>
     /// <remarks>
@@ -20,6 +29,15 @@ public partial class grupo {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_nombre;
+    
+    /// <summary>
+    /// Control Label_tituloDesc.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_tituloDesc;
     
     /// <summary>
     /// Control Label_Desc.
@@ -31,13 +49,22 @@ public partial class grupo {
     protected global::System.Web.UI.WebControls.Label Label_Desc;
     
     /// <summary>
-    /// Control Panel_miembros.
+    /// Control Label_miembros.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel Panel_miembros;
+    protected global::System.Web.UI.WebControls.Label Label_miembros;
+    
+    /// <summary>
+    /// Control Table_miembros.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Table Table_miembros;
     
     /// <summary>
     /// Control Button_apuntarse.

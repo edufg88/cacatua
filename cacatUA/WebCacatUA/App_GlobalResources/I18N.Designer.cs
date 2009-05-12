@@ -556,6 +556,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Firma.
+        /// </summary>
+        internal static string Firma {
+            get {
+                return ResourceManager.GetString("Firma", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Firmar.
+        /// </summary>
+        internal static string Firmar {
+            get {
+                return ResourceManager.GetString("Firmar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Firmas.
         /// </summary>
         internal static string Firmas {
@@ -700,6 +718,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Leido.
+        /// </summary>
+        internal static string Leido {
+            get {
+                return ResourceManager.GetString("Leido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Limpiar.
         /// </summary>
         internal static string Limpiar {
@@ -759,6 +786,15 @@ namespace Resources {
         internal static string miembros {
             get {
                 return ResourceManager.GetString("miembros", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Miembros.
+        /// </summary>
+        internal static string MiembrosMayus {
+            get {
+                return ResourceManager.GetString("MiembrosMayus", resourceCulture);
             }
         }
         
@@ -885,6 +921,15 @@ namespace Resources {
         internal static string PaginaInicio {
             get {
                 return ResourceManager.GetString("PaginaInicio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Para.
+        /// </summary>
+        internal static string Para {
+            get {
+                return ResourceManager.GetString("Para", resourceCulture);
             }
         }
         

@@ -16,15 +16,24 @@ using Libreria;
 public partial class enviarmensaje : WebCacatUA.InterfazWeb
 {
     bool usuario = true;
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["usuario"] != null)
+        if (Session["usuario"] != null)
         {
-            Label_para.Text = Request.QueryString["usuario"];
+            if (Request.QueryString["usuario"] != null)
+            {
+                Label_para.Text = Request.QueryString["usuario"];
+            }
+            else
+            {
+                Label_para.Text = Request.QueryString["grupo"];
+                usuario = false;
+            }
         }
-        else {
-            Label_para.Text = Request.QueryString["grupo"];
-            usuario = false;
+        else
+        {
+            Response.Redirect("index.aspx");            
         }
     }
 

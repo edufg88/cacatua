@@ -47,29 +47,23 @@ public partial class grupos : WebCacatUA.InterfazWeb
 
     private void mostrarGrupos()
     {
-        if (totalResultados > 0)
-            Label_mostrandoGrupos.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " grupos encontrados.";
-        else
-            Label_mostrandoGrupos.Text = "No hay resultados con estas condiciones de búsqueda.";
-
         if (ordenar == "Número de Usuarios")
             ordenar = "numUsuarios";
         ArrayList Grupos = grupo.Buscar(ordenar,pagina,cantidad,orden,0,0,fechaFin,ref usuario);
-        Panel_contenido.Controls.Clear();
-        HtmlTable tabla = new HtmlTable();
-        HtmlTableRow fila = new HtmlTableRow();
-        HtmlTableCell celdax = new HtmlTableCell();
-        HtmlTableCell celday = new HtmlTableCell();
-        HtmlTableCell celdaz = new HtmlTableCell();
-        HtmlTableCell celdaw = new HtmlTableCell();
+        Table_grupos.Controls.Clear();
+        TableRow fila = new TableRow();
+        TableCell celdax = new TableCell();
+        TableCell celday = new TableCell();
+        TableCell celdaz = new TableCell();
+        TableCell celdaw = new TableCell();
         Label grup = new Label();
         Label desc = new Label();
         Label fech = new Label();
         Label usuarios = new Label();
-        grup.Text = "Nombre";
-        desc.Text = "Descripción";
-        fech.Text = "Fecha";
-        usuarios.Text = "Número de Usuarios";
+        grup.Text = Resources.I18N.Nombre;
+        desc.Text = Resources.I18N.Descripcion;
+        fech.Text = Resources.I18N.Fecha;
+        usuarios.Text = Resources.I18N.NUsuarios;
         celdax.Controls.Add(grup);
         celday.Controls.Add(desc);
         celdaz.Controls.Add(fech);
@@ -78,26 +72,17 @@ public partial class grupos : WebCacatUA.InterfazWeb
         fila.Cells.Add(celday);
         fila.Cells.Add(celdaz);
         fila.Cells.Add(celdaw);
-        tabla.Rows.Add(fila);
-        if (Grupos == null)
+        Table_grupos.Rows.Add(fila);
+        if (totalResultados > 0)
         {
-            HtmlTableRow fila1 = new HtmlTableRow();
-            HtmlTableCell celda = new HtmlTableCell();
-            Label nogrupos = new Label();
-            nogrupos.Text="No existen grupos creados";
-            celda.Controls.Add(nogrupos);
-            fila.Cells.Add(celda);
-            tabla.Rows.Add(fila1);
-        }
-        else
-        {
+            Label_mostrandoGrupos.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " grupos encontrados.";
             foreach (ENGrupos group in Grupos)
             {
-                HtmlTableRow fila2 = new HtmlTableRow();
-                HtmlTableCell celda1 = new HtmlTableCell();
-                HtmlTableCell celda2 = new HtmlTableCell();
-                HtmlTableCell celda3 = new HtmlTableCell();
-                HtmlTableCell celda4 = new HtmlTableCell();
+                TableRow fila2 = new TableRow();
+                TableCell celda1 = new TableCell();
+                TableCell celda2 = new TableCell();
+                TableCell celda3 = new TableCell();
+                TableCell celda4 = new TableCell();
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();
@@ -115,9 +100,12 @@ public partial class grupos : WebCacatUA.InterfazWeb
                 fila2.Cells.Add(celda2);
                 fila2.Cells.Add(celda3);
                 fila2.Cells.Add(celda4);
-                tabla.Rows.Add(fila2);
+                Table_grupos.Rows.Add(fila2);
             }
-            Panel_contenido.Controls.Add(tabla);
+        }
+        else
+        {
+           Label_mostrandoGrupos.Text = "No hay resultados con estas condiciones de búsqueda.";
         }
     }
 

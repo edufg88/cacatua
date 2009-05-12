@@ -89,7 +89,7 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
 
                 if (us.Guardar())
                 {
-                    Response.Redirect("usuarioRegistrado.aspx");
+                    Response.Redirect("confirmacion.aspx?registrousuario=1");
                 }
             }
             else // El usuario ya existe

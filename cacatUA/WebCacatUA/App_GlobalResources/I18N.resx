@@ -477,4 +477,19 @@
   <data name="Salir" xml:space="preserve">
     <value>Salir</value>
   </data>
+  <data name="Firma" xml:space="preserve">
+    <value>Firma</value>
+  </data>
+  <data name="Firmar" xml:space="preserve">
+    <value>Firmar</value>
+  </data>
+  <data name="Leido" xml:space="preserve">
+    <value>Leido</value>
+  </data>
+  <data name="MiembrosMayus" xml:space="preserve">
+    <value>Miembros</value>
+  </data>
+  <data name="Para" xml:space="preserve">
+    <value>Para</value>
+  </data>
 </root>

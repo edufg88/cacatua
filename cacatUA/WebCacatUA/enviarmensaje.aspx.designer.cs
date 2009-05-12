@@ -13,6 +13,24 @@
 public partial class enviarmensaje {
     
     /// <summary>
+    /// Control Label_enviarMensaje.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_enviarMensaje;
+    
+    /// <summary>
+    /// Control Label_paratext.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_paratext;
+    
+    /// <summary>
     /// Control Label_para.
     /// </summary>
     /// <remarks>
@@ -20,6 +38,15 @@ public partial class enviarmensaje {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_para;
+    
+    /// <summary>
+    /// Control Label1.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label1;
     
     /// <summary>
     /// Control TextBox_mensaje.

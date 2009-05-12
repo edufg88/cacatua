@@ -439,7 +439,7 @@ namespace Libreria
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
-                string sentencia = "SELECT COUNT(*) FROM firmas WHERE emisor = @emisor";
+                string sentencia = "SELECT COUNT(*) FROM firmas WHERE receptor = @emisor";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@emisor", emisor);
