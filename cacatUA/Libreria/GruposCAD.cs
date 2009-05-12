@@ -11,27 +11,14 @@ using System.Configuration;
 
 namespace Libreria
 {
-    sealed class GruposCAD
+    class GruposCAD
     {
-        private static readonly GruposCAD instancia = new GruposCAD();
         private String cadenaConexion;
 
         /// <summary>
-        /// Obtiene la única instancia de la clase GruposCAD. Si es la primera vez
-        /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
-        /// al objeto que ya fue creado anteriormente.
+        /// Constructor por defecto
         /// </summary>
-        /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
-        public static GruposCAD Instancia
-        {
-            get { return instancia; }
-        }
-
-        /// <summary>
-        /// Constructor en el ámbito privado de la clase para no permitir más
-        /// de una instancia.
-        /// </summary>
-        private GruposCAD()
+        public GruposCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }

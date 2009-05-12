@@ -19,41 +19,41 @@ public partial class confirmacion : WebCacatUA.InterfazWeb
         if (Request.QueryString["inscribir"] != null)
         {
             ENGrupos grupo = ENGrupos.Obtener(int.Parse(Request.QueryString["inscribir"]));
-            Label_confirmacion.Text = "Se ha inscrito correctamente al grupo " + grupo.Nombre;
-            HyperLink_confirmacion.Text="Pulse aquí para volver";
+            Label_confirmacion.Text = Resources.I18N.InscribirGrupo + " " + grupo.Nombre;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "grupo.aspx?id=" + grupo.Id;
         }
         else if (Request.QueryString["desapuntar"] != null)
         {
             ENGrupos grupo = ENGrupos.Obtener(int.Parse(Request.QueryString["desapuntar"]));
-            Label_confirmacion.Text = "Se ha desapuntado correctamente del grupo " + grupo.Nombre;
-            HyperLink_confirmacion.Text = "Pulse aquí para volver";
+            Label_confirmacion.Text = Resources.I18N.DesapuntarGrupo + " " + grupo.Nombre;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "grupo.aspx?id=" + grupo.Id;
         }
         else if (Request.QueryString["mensajegrupo"] != null)
         {
             ENGrupos grupo = ENGrupos.Obtener(int.Parse(Request.QueryString["mensajegrupo"]));
-            Label_confirmacion.Text = "Se ha enviado el mensaje correctamente al grupo " + grupo.Nombre;
-            HyperLink_confirmacion.Text = "Pulse aquí para volver";
+            Label_confirmacion.Text = Resources.I18N.MensajeEnviadoGrupo + " " + grupo.Nombre;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "grupo.aspx?id=" + grupo.Id;
         }
         else if (Request.QueryString["mensajeusuario"] != null)
         {
             ENUsuario usuario = ENUsuario.Obtener(Request.QueryString["mensajeusuario"].ToString());
-            Label_confirmacion.Text = "Se ha enviado el mensaje correctamente al usuario " + usuario.Usuario;
-            HyperLink_confirmacion.Text = "Pulse aquí para volver";
+            Label_confirmacion.Text = Resources.I18N.MensajeEnviadoUsuario + " " + usuario.Usuario;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "usuario.aspx?usuario=" + usuario.Usuario;
         }
         else if (Request.QueryString["creargrupo"] != null)
         {
-            Label_confirmacion.Text = "Grupo creado correctamente";
-            HyperLink_confirmacion.Text = "Pulse aquí para volver";
+            Label_confirmacion.Text = Resources.I18N.GrupoCreado;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "grupos.aspx";
         }
         else if (Request.QueryString["registrousuario"] != null)
         {
-            Label_confirmacion.Text = "Usuario registrado correctamente";
-            HyperLink_confirmacion.Text = "Pulse aquí para volver";
+            Label_confirmacion.Text = Resources.I18N.UsuarioRegistrado;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "index.aspx";
         }
     }

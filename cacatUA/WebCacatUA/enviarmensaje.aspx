@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_headUsuario" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_tituloUsuario" runat="server">
-        <asp:Label ID="Label_enviarMensaje" runat="server"></asp:Label>
+        <asp:Label ID="Label_enviarMensaje" runat="server" Text="<%$ Resources: I18N, EnviarMensaje %> "></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
     <div id="para">
