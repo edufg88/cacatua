@@ -465,4 +465,16 @@
   <data name="GaleriaUsuario" xml:space="preserve">
     <value>User Galleries</value>
   </data>
+  <data name="Activar" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="Desactivar" xml:space="preserve">
+    <value>Desactivate</value>
+  </data>
+  <data name="Pregunta" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Quitar" xml:space="preserve">
+    <value>Remove</value>
+  </data>
 </root>
