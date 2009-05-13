@@ -480,8 +480,14 @@
   <data name="Editar" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="LoginParaVotar" xml:space="preserve">
+    <value>You must be logged to vote</value>
+  </data>
   <data name="MVotos" xml:space="preserve">
     <value>Votes</value>
+  </data>
+  <data name="NoEncuestasActivas" xml:space="preserve">
+    <value>No active polls</value>
   </data>
   <data name="NuevaEncuesta" xml:space="preserve">
     <value>New poll</value>
@@ -497,6 +503,9 @@
   </data>
   <data name="Quitar" xml:space="preserve">
     <value>Remove</value>
+  </data>
+  <data name="TotalVotos" xml:space="preserve">
+    <value>Total votes</value>
   </data>
   <data name="VolverEncuestas" xml:space="preserve">
     <value>Back to the polls</value>

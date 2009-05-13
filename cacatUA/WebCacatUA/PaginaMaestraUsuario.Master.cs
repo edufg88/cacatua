@@ -83,7 +83,7 @@ namespace WebCacatUA
                     }
 
                     Label l3 = new Label();
-                    l3.Text = "<br/>Total votos: " + totalVotos.ToString();
+                    l3.Text = "<br/>" + Resources.I18N.TotalVotos + ": " + totalVotos.ToString();
                     Panel_encuesta.Controls.Add(l3);
                 }
                 else
@@ -113,7 +113,7 @@ namespace WebCacatUA
                     if (uSesion == null)
                     {
                         Label l3 = new Label();
-                        l3.Text = "<br/>Necesitas estar registrado para votar.";
+                        l3.Text = "<br/>" + Resources.I18N.LoginParaVotar;
                         Panel_encuesta.Controls.Add(l3);
                     }
                 }
@@ -121,7 +121,7 @@ namespace WebCacatUA
             else
             {
                 Label l1 = new Label();
-                l1.Text = "No hay encuestas activas.";
+                l1.Text = Resources.I18N.NoEncuestasActivas;
                 Panel_encuesta.Controls.Add(l1);
             }
 
