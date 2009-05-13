@@ -38,6 +38,7 @@ public partial class materiales : WebCacatUA.InterfazWeb
 
     ENCategoria categoria = null;
     ENUsuario usuarioSesion = null;
+    HtmlTable tabla = null;
 
     private void Inicializar()
     {
@@ -273,8 +274,9 @@ public partial class materiales : WebCacatUA.InterfazWeb
     private void RealizarBusqueda(BusquedaMaterial busqueda)
     {
         Panel_contenido.Controls.Clear();
-        HtmlTable tabla = new HtmlTable();
-        tabla.ID = "tabla_materiales";
+        tabla = new HtmlTable();
+        tabla.Attributes.Add("class", "tabla_materiales");
+
         bool ascendente = false;
 
         ArrayList materiales = ENMaterial.Obtener(propiedadOrdenar, ascendente,
@@ -286,6 +288,7 @@ public partial class materiales : WebCacatUA.InterfazWeb
             {
                 HtmlTableRow fila = new HtmlTableRow();
                 HtmlTableCell celda = new HtmlTableCell();
+                celda.Attributes.Add("class", "columnaTabla_materiales");
                 Control control = Page.LoadControl("materialBusqueda.ascx");
                 WebCacatUA.materialBusqueda control_material = (WebCacatUA.materialBusqueda)control;
                 control_material.inicializar(material);
@@ -293,9 +296,11 @@ public partial class materiales : WebCacatUA.InterfazWeb
                 fila.Cells.Add(celda);
                 // Cambiamos el color de la fila
                 if (tabla.Rows.Count % 2 == 0)
-                    fila.BgColor = "#dcd9cd";
+                    fila.BgColor = "#f5f5f5";
                 else
-                    fila.BgColor = Color.White.Name;
+                    fila.BgColor = Color.White.ToString();
+                //else
+                //    fila.BgColor = "#fff";
                 tabla.Rows.Add(fila);
             }
             Panel_contenido.Controls.Add(tabla);
