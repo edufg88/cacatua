@@ -10,6 +10,7 @@
 #descripcion_material
 {
 	margin-top:10px;
+	margin-bottom:20px;
 }
 
 #categoria
@@ -22,7 +23,6 @@
 #categoria_material
 {
 	font-weight:normal;
-	font-size:medium;	
 }
 
 #usuario
@@ -49,7 +49,6 @@
 #fecha_material
 {
 	font-weight:normal;
-	font-size:small;
 }
 
 #descargas
