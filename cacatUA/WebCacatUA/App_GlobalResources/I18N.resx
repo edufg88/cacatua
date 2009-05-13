@@ -549,10 +549,34 @@
   <data name="Activar" xml:space="preserve">
     <value>Activar</value>
   </data>
+  <data name="AñadirOpcion" xml:space="preserve">
+    <value>Añadir opción</value>
+  </data>
+  <data name="Cambiar" xml:space="preserve">
+    <value>Cambiar</value>
+  </data>
   <data name="Desactivar" xml:space="preserve">
     <value>Desactivar</value>
   </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="MVotos" xml:space="preserve">
+    <value>Votos</value>
+  </data>
+  <data name="NuevaEncuesta" xml:space="preserve">
+    <value>Nueva encuesta</value>
+  </data>
+  <data name="NuevaOpcion" xml:space="preserve">
+    <value>Nueva opción</value>
+  </data>
+  <data name="Opcion" xml:space="preserve">
+    <value>Opcion</value>
+  </data>
   <data name="Quitar" xml:space="preserve">
     <value>Quitar</value>
+  </data>
+  <data name="VolverEncuestas" xml:space="preserve">
+    <value>Volver a encuestas</value>
   </data>
 </root>

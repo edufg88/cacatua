@@ -5,17 +5,17 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_tituloUsuario" runat="server">
-    <p><asp:Label ID="Label_nombreSeccion" runat="server" Text="Encuestas"></asp:Label></p>
+    <p><asp:Label ID="Label_nombreSeccion" runat="server" Text="<%$ Resources: I18N, Encuestas %>"></asp:Label></p>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
     <div id="div_volver">
-        <a href="encuestas.aspx">Volver a encuestas</a>
+        <a href="encuestas.aspx"><%= Resources.I18N.VolverEncuestas %></a>
     </div>
      <div id="div_nuevapregunta">
-     Pregunta: 
+     <%= Resources.I18N.Question %><
          <asp:TextBox ID="TextBox_Pregunta" runat="server"></asp:TextBox>
-        <asp:Button ID="Button_cambiar" runat="server" Text="Cambiar" 
+        <asp:Button ID="Button_cambiar" runat="server" Text="<%$ Resources: I18N, Cambiar %>" 
             onclick="Button_cambiar_Click" />  
      </div>
     <div id="div_opciones">
@@ -25,7 +25,7 @@
     <div id="div_nuevaopcion">
         Nueva opción:
         <asp:TextBox ID="TextBox_crearopcion" runat="server" />
-        <asp:Button ID="Button_crearopcion" runat="server" Text="Añadir" 
+        <asp:Button ID="Button_crearopcion" runat="server" Text="<%$ Resources: I18N, AñadirOpcion %>" 
             onclick="Button_crearopcion_Click" />
     </div>     
 </asp:Content>

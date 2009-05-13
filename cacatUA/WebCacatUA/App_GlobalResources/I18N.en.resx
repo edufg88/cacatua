@@ -454,7 +454,7 @@
     <value>Logout</value>
   </data>
   <data name="InfoEncuestas" xml:space="preserve">
-    <value>Only the active poll more reciently will be displayed in your page.</value>
+    <value>Only the more reciently active poll will be displayed in your page.</value>
   </data>
   <data name="InfoCategorias" xml:space="preserve">
     <value>Categories that you are susbscribed</value>
@@ -468,13 +468,34 @@
   <data name="Activar" xml:space="preserve">
     <value>Activate</value>
   </data>
+  <data name="AñadirOpcion" xml:space="preserve">
+    <value>Add option</value>
+  </data>
+  <data name="Cambiar" xml:space="preserve">
+    <value>Change</value>
+  </data>
   <data name="Desactivar" xml:space="preserve">
     <value>Desactivate</value>
+  </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="MVotos" xml:space="preserve">
+    <value>Votes</value>
+  </data>
+  <data name="NuevaEncuesta" xml:space="preserve">
+    <value>New poll</value>
+  </data>
+  <data name="NuevaOpcion" xml:space="preserve">
+    <value>New option</value>
   </data>
   <data name="Pregunta" xml:space="preserve">
     <value>Question</value>
   </data>
   <data name="Quitar" xml:space="preserve">
     <value>Remove</value>
+  </data>
+  <data name="VolverEncuestas" xml:space="preserve">
+    <value>Back to the polls</value>
   </data>
 </root>

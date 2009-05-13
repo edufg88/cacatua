@@ -73,13 +73,13 @@ namespace WebCacatUA
                 TableCell cab2 = new TableCell();
                 cab2.CssClass = "celda_cabecera";
                 Label label_cab2 = new Label();
-                label_cab2.Text = "Opcion";
+                label_cab2.Text = Resources.I18N.Opcion;
                 cab2.Controls.Add(label_cab2);
 
                 TableCell cab3 = new TableCell();
                 cab3.CssClass = "celda_cabecera";
                 Label label_cab3 = new Label();
-                label_cab3.Text = "Votos";
+                label_cab3.Text = Resources.I18N.MVotos;
                 cab3.Controls.Add(label_cab3);
 
                 TableCell cab4 = new TableCell();
@@ -104,7 +104,7 @@ namespace WebCacatUA
                     TableCell c1 = new TableCell();
                     c1.CssClass = "celda_encuestas";
                     Label l1 = new Label();
-                    l1.Text = "Opcion " + i.ToString();
+                    l1.Text = Resources.I18N.Opcion + " " + i.ToString();
                     c1.Controls.Add(l1);
 
                     TableCell c2 = new TableCell();
@@ -134,7 +134,7 @@ namespace WebCacatUA
                     Button b1 = new Button();
                     b1.CssClass = "boton_encuestas";
                     b1.ID = opc.Id.ToString();
-                    b1.Text = "Quitar";
+                    b1.Text = Resources.I18N.Quitar;
                     b1.Click += new System.EventHandler(this.Button_borraropcion_Click);
                     c4.Controls.Add(b1);
 
