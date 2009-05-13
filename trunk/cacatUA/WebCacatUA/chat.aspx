@@ -28,12 +28,17 @@
                     <div id="mensajesChat">
                         <asp:Panel ID="Panel_mensajes" runat="server"></asp:Panel>
                     </div>
-                    
-                    <asp:TextBox ID="TextBox_mensaje" Width="100%" runat="server" TextMode="MultiLine"></asp:TextBox>
-                    <asp:Button ID="Button_enviar" runat="server" Text="Button" 
-                        onclick="Button_enviar_Click" />
                 </asp:Panel>
-            </ContentTemplate> 
+            </ContentTemplate>
+             
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Button_enviar" EventName="click" /> 
+            </Triggers> 
+           
         </asp:UpdatePanel>   
-
+        <asp:TextBox ID="TextBox_mensaje" Width="100%" runat="server" TextMode="MultiLine"></asp:TextBox>
+                         <asp:Button ID="Button_enviar" runat="server" Text="Button" 
+                        onclick="Button_enviar_Click" />
+        
+        
 </asp:Content>
