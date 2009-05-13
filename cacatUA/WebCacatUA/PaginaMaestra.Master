@@ -89,11 +89,11 @@
             </div>
             
             <div id="cabecera">
-                <img alt="CacatUA" src="imagenes/cabecera.png" />
+                <a href="index.aspx"><img alt="CacatUA" src="imagenes/cabecera.png" /></a>
             </div>
             
             <div id="menu">
-                <div id="boton_inicio" class="boton"><a href="index.aspx"><asp:Label ID="Label_inicio" runat="server" Text="<%$ Resources: I18N, Inicio %>"></asp:Label></a></div>
+                <div id="boton_chat" class="boton"><a href="chat.aspx"><asp:Label ID="Label_chat" runat="server" Text="Chat"></asp:Label></a></div>
                 <div id="boton_usuarios" class="boton"><a href="usuarios.aspx"><asp:Label ID="Label_usuarios" runat="server" Text="<%$ Resources: I18N, Usuarios %>"></asp:Label></a></div>
                 <div id="boton_grupos" class="boton"><a href="grupos.aspx"><asp:Label ID="Label_grupos" runat="server" Text="<%$ Resources: I18N, Grupos %>"></asp:Label></a></div>
                 <div id="boton_materiales" class="boton"><a href="materiales.aspx"><asp:Label ID="Label_materiales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label></a></div>
@@ -120,7 +120,7 @@
             <ContentTemplate>
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
-                <asp:Timer ID="Timer1" runat="server" interval="2000" ontick="actualizarMensajes" /></asp:Timer>
+                <asp:Timer ID="Timer1" runat="server" interval="3000" ontick="actualizarMensajes" /></asp:Timer>
                 <asp:Panel ID="Panel_mensajes" CssClass="mensajes" runat="server" Visible="false">
                     <asp:HyperLink ID="HyperLink_mensajes" runat="server"></asp:HyperLink>
                 </asp:Panel>
