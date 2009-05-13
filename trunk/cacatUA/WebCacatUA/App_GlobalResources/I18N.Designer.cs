@@ -844,6 +844,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Debes hacer login para votar.
+        /// </summary>
+        internal static string LoginParaVotar {
+            get {
+                return ResourceManager.GetString("LoginParaVotar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Material.
         /// </summary>
         internal static string Material {
@@ -966,6 +975,15 @@ namespace Resources {
         internal static string nadie {
             get {
                 return ResourceManager.GetString("nadie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay encuestas activas.
+        /// </summary>
+        internal static string NoEncuestasActivas {
+            get {
+                return ResourceManager.GetString("NoEncuestasActivas", resourceCulture);
             }
         }
         
@@ -1308,6 +1326,15 @@ namespace Resources {
         internal static string titulominusculas {
             get {
                 return ResourceManager.GetString("titulominusculas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total votos.
+        /// </summary>
+        internal static string TotalVotos {
+            get {
+                return ResourceManager.GetString("TotalVotos", resourceCulture);
             }
         }
         
