@@ -69,12 +69,18 @@ namespace WebCacatUA
                 ArrayList mensajes = ENChatMensaje.Obtener(ultimoMensaje);
                 foreach (ENChatMensaje mensaje in mensajes)
                 {
+                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje;
                     Label label = new Label();
-                    label.Text = mensaje.Usuario.Usuario + ": ";
-                    label.Text += mensaje.Mensaje;
-                    label.Text += "<br />";
+                    label.Text = aux;
                     Panel_mensajes.Controls.Add(label);
-
+ 
+                    TextBox1.Text += aux;
+                    TextBox1.Text += DateTime.Now.ToString();
+                }
+                if (mensajes.Count > 0)
+                {
+                    ENChatMensaje mensaje = (ENChatMensaje)mensajes[mensajes.Count-1];
+                    Label_ultimoMensaje.Text = mensaje.Id.ToString();
                 }
             }
         }
