@@ -1,24 +1,31 @@
-﻿#usuariosConectados
+﻿#chat
 {
-    float: right;
-    width: 20%;
+    background-color: #777;
+    border: 1px solid #888;
+    -moz-border-radius: 5px;
+    padding: 10px;
+}
+
+#usuariosConectados
+{
+    position: absolute;
+    right: 0;
+    width: 200px;
+    margin-right: 10px;
+    height: 211px;
 }
 
 #mensajesChat
 {
-    float: left;
-    width: 78%;
-    height: 290px;
+    margin-right: 210px;
+    height: 200px;
+    padding: 5px;
+    
+    
     background-color: #fff;
     border: 1px solid #666;
     overflow: scroll;
     overflow-x: hidden;
-    padding: 5px;
-}
-
-.chat
-{
-  
 }
 
 .mensajeChat
@@ -30,4 +37,36 @@
 {
     font-weight: bold;
     padding-right: 5px;
+}
+
+.textoMensajeChat
+{
+       
+}
+
+#anadirMensaje
+{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.columna1AnadirMensaje
+{
+
+}
+
+.columna2AnadirMensaje
+{
+    width: 100px;
+    text-align: right;
+}
+
+.areaMensajeChat
+{
+    width: 100%;
+}
+
+.botonMensajeChat
+{
+    width: 95px;   
 }

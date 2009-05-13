@@ -1,44 +1,47 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="chat.aspx.cs" Inherits="WebCacatUA.chat" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="chat.aspx.cs" Inherits="WebCacatUA.chat" Title="Chat - CacatUA" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<style type="text/css">
-#mensajesChat
-{
-	width:100%;
-	height:300px;
-	padding:10px;
-	background-color:White;
-}
-
-
-</style>
+    <link rel="stylesheet" type="text/css" href="estilos/chat.css" media="screen" />
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
+    <p>Chat</p>
 </asp:Content>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
+
+    <div id="chat">
+    
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
-                <asp:Timer ID="Timer2" runat="server" interval="2000" ontick="actualizarChat" /></asp:Timer>
-                <asp:Panel ID="Panel_chat" CssClass="chat" runat="server" Visible="true">
-                    <asp:Label ID="Label_ultimoMensaje" runat="server" Visible=true Text="0"></asp:Label>
-                    <div id="usuariosConectados">
-                        <asp:ListBox ID="ListBox_usuarios" width="300px" Height="100px" runat="server"></asp:ListBox>
-                    </div>
-                    
-                    <asp:TextBox ID="TextBox1" Rows="15" Width="300px" TextMode="MultiLine" runat="server"></asp:TextBox>
-                    <div id="mensajesChat">
-                        <asp:Panel ID="Panel_mensajes" runat="server"></asp:Panel>
-                    </div>
-                </asp:Panel>
+
+                <asp:Timer ID="Timer2" runat="server" interval="500" ontick="actualizarChat" />
+                
+                <asp:Label ID="Label_ultimoMensaje" runat="server" Text="0"></asp:Label>
+                
+                <div id="usuariosConectados">
+                    <asp:ListBox ID="ListBox_usuarios" Width="100%" Height="100%" runat="server"></asp:ListBox>
+                </div>
+                
+                <div id="mensajesChat">
+                    <asp:Panel ID="Panel_mensajes" Width="100%" runat="server"></asp:Panel>
+                </div>
+                
             </ContentTemplate>
              
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="Button_enviar" EventName="click" /> 
             </Triggers> 
            
-        </asp:UpdatePanel>   
-        <asp:TextBox ID="TextBox_mensaje" Width="100%" runat="server" TextMode="MultiLine"></asp:TextBox>
-                         <asp:Button ID="Button_enviar" runat="server" Text="Button" 
-                        onclick="Button_enviar_Click" />
+        </asp:UpdatePanel>
+         
+        <table id="anadirMensaje" cellpadding="0" cellspacing="0">
+            <tr>
+                <td class="columna1AnadirMensaje"><asp:TextBox ID="TextBox_mensaje" CssClass="areaMensajeChat" runat="server"></asp:TextBox></td>
+                <td class="columna2AnadirMensaje"><asp:Button ID="Button_enviar" CssClass="botonMensajeChat" runat="server" Text="<%$ Resources: I18N, Enviar %>" onclick="Button_enviar_Click" /></td>
+            </tr>
+        </table>
         
+    </div>
         
 </asp:Content>
