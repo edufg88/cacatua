@@ -95,10 +95,30 @@ img
     background: url(../imagenes/boton_encima.png) no-repeat center;
 }
 
-#mensajes
+.mensajes
 {
-	text-align:right;
-	color:Red;	
+    font-size: small;
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+	right: 0;
+	margin: 10px;
+	padding: 10px;
+	background-color: #ededed;
+	border: 1px solid #000;
+}
+
+.mensajesNuevos
+{
+    font-size: small;
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+	right: 0;
+	margin: 10px;
+	padding: 10px;
+	background-color: #dd00bb;
+	border: 1px solid #000;
 }
 
 
