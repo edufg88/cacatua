@@ -66,6 +66,7 @@
 
 #columna1
 {
+	padding-left:10px;
 	float:left;
 	width: auto;
 }

@@ -111,16 +111,7 @@ hr {
 	width:100%;
 }
 
-#ctl00_ContentPlaceHolder_contenido_tabla_materiales
-{
-	
-	width:100%;
-}
-#ctl00_ContentPlaceHolder_contenido_tabla_materiales tr
-{
-	
-	width:100%;
-}
+
 
 #ordenar_materiales
 {
@@ -163,14 +154,6 @@ hr {
 	width:100%;
 }
 
-#tabla_paginacion_materiales
-{
-	color:White;
-	margin-top:10px;
-	text-align:left;
-	width:100%;
-}
-
 #botones_paginacion_materiales
 {
 	text-align:right;
@@ -199,13 +182,6 @@ hr {
 	margin-top:5px;	
 }
 
-#tabla_paginacion_materiales
-{
-	padding:5px;
-    background-color:#1e6393;	
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-}
 
 
 /****************************************************
@@ -213,14 +189,38 @@ hr {
 #####################################################
 ****************************************************/
 
-.tablaPaginacion_materiales
+.tablaPaginacionSuperior_materiales
 {
 	color:White;
-	margin-top:10px;
+	margin-top:5px;
+	margin-bottom:7px;
 	text-align:left;
 	width:100%;
-	padding:5px;
-    background-color:#1e6393;	
+	padding-left:5px;
+	padding-right:5px;
+    
+	/*
+    background-color:#1e6393;
+    */
+    background-color: #777;	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.tablaPaginacionInferior_materiales
+{
+	color:White;
+	margin-top:7px;
+	margin-bottom:5px;
+	text-align:left;
+	width:100%;
+	padding-left:5px;
+	padding-right:5px;
+    
+	/*
+    background-color:#1e6393;
+    */
+    background-color: #777;	
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
@@ -235,6 +235,34 @@ hr {
     padding-top: 15px;   
     font-weight:normal;
 }
+
+/****************************************************
+#####################################################
+#####################################################
+****************************************************/
+.tabla_materiales
+{
+    width: 100%;
+    background-color: #fff;
+}
+
+.columnaTabla_materiales
+{
+    border-bottom: 1px solid #ddd;	
+}
+
+#contenido_busquedaMateriales
+{
+    margin-top: 5px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
 
    
 </style>
@@ -361,8 +389,9 @@ function cambiarOpcionCategoria()
             </table>
         </div>
         
+       <div id="contenido_busquedaMateriales">
        <div id="paginacionSuperior_materiales" runat="server">
-            <table class="tablaPaginacion_materiales">
+            <table class="tablaPaginacionSuperior_materiales">
                 <tr>  
                     <td>
                         <asp:Panel ID="Panel_cantidadPorPaginaSuperior" runat="server">
@@ -407,7 +436,7 @@ function cambiarOpcionCategoria()
         <asp:Panel ID="Panel_contenido" runat="server"></asp:Panel>
 
         <div id="paginacionInferior_materiales" runat="server">
-            <table class="tablaPaginacion_materiales">
+            <table class="tablaPaginacionInferior_materiales">
                 <tr>  
                     <td>
                         <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
@@ -442,6 +471,7 @@ function cambiarOpcionCategoria()
                     </td>
                 </tr>
             </table>
+        </div>
         </div>
         
         <a name="nuevoMaterial"></a>
