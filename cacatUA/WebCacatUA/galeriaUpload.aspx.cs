@@ -38,13 +38,13 @@ namespace WebCacatUA
                                 DateTime dt = DateTime.Now;
                                 string fecha = dt.Day.ToString() + dt.Month.ToString() + dt.Year.ToString() + dt.Hour.ToString() + dt.Minute.ToString() + dt.Second.ToString();
 
-                                string fn = fecha + ".jpg";
+                                string fn = fecha + "_" + Session["usuario"].ToString() + ".jpg";
 
                                 string SaveLocation = Server.MapPath(@"~\galeria") + "\\" + fn;
                                 try
                                 {
 
-                                    ENImagen img = new ENImagen(TextBox_tituloNuevaImagen.Text, TextBox_descripcionNuevaImagen.Text, Session["usuario"].ToString(), fecha + ".jpg", DateTime.Now);
+                                    ENImagen img = new ENImagen(TextBox_tituloNuevaImagen.Text, TextBox_descripcionNuevaImagen.Text, Session["usuario"].ToString(), fn, DateTime.Now);
                                     img.Guardar();
                                     imagen.PostedFile.SaveAs(SaveLocation);
 
