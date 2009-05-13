@@ -462,4 +462,7 @@
   <data name="Insuscribirse" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="GaleriaUsuario" xml:space="preserve">
+    <value>User Galleries</value>
+  </data>
 </root>
