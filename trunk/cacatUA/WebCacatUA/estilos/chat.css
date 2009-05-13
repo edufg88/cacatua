@@ -1,0 +1,33 @@
+﻿#usuariosConectados
+{
+    float: right;
+    width: 20%;
+}
+
+#mensajesChat
+{
+    float: left;
+    width: 78%;
+    height: 290px;
+    background-color: #fff;
+    border: 1px solid #666;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+.chat
+{
+  
+}
+
+.mensajeChat
+{
+    margin-bottom: 10px;
+}
+
+.autorMensajeChat
+{
+    font-weight: bold;
+    padding-right: 5px;
+}

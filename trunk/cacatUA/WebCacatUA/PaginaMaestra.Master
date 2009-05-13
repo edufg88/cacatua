@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="estilos/PaginaMaestra.css" media="screen" />
-    <link rel="shortcut icon" href="imagenes/cacatua.ico">
+    <link rel="shortcut icon" href="imagenes/cacatua.ico" />
     <script runat="server">
          
         /// <summary>
@@ -105,7 +105,7 @@
             <ContentTemplate>
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
-                <asp:Timer ID="Timer1" runat="server" interval="3000" ontick="actualizarMensajes" /></asp:Timer>
+                <asp:Timer ID="Timer1" runat="server" interval="3000" ontick="actualizarMensajes" />
                 <asp:Panel ID="Panel_mensajes" CssClass="mensajes" runat="server" Visible="false">
                     <asp:HyperLink ID="HyperLink_mensajes" runat="server"></asp:HyperLink>
                 </asp:Panel>
