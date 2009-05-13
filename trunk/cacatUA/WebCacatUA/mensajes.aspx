@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="mensajes.aspx.cs" Inherits="mensajes" Title="CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_headUsuario" runat="server">
+    <link rel="stylesheet" type="text/css" href="estilos/mensajes.css" media="screen" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_tituloUsuario" runat="server">
     <asp:Label ID="Label_titulo" runat="server" Text="<%$ Resources: I18N, MensajesPrivados %>"></asp:Label>
@@ -20,6 +21,7 @@
         </asp:DropDownList>
     </div>
 </div>
+<!--
 <div id="paginacionSup">
     <div id="cantidadSup">
         <asp:Label ID="Label_cantidadPagina2" runat="server" Text="Cantidad por página: "></asp:Label>
@@ -54,8 +56,9 @@
             onclick="Button_paginaSiguiente_Click" />
     </div>
 </div>
+-->
 <div id="mostrandoMensajes">
-    <asp:Table ID="Table_mensajes" runat="server" CellPadding="0" CellSpacing="0"></asp:Table>
+    <asp:Table ID="Table_mensajes" runat="server" CellPadding="0" CellSpacing="0" CssClass="tablaMensajes"></asp:Table>
 </div>
 <div id="paginacionInf">
     <div id="cantidadInf">

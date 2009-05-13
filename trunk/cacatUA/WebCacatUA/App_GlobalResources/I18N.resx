@@ -490,7 +490,7 @@
     <value>Para</value>
   </data>
   <data name="De" xml:space="preserve">
-    <value>de</value>
+    <value>De</value>
   </data>
   <data name="FirmasMin" xml:space="preserve">
     <value>firmas</value>
@@ -587,5 +587,20 @@
   </data>
   <data name="VolverEncuestas" xml:space="preserve">
     <value>Volver a encuestas</value>
+  </data>
+  <data name="Deminuscula" xml:space="preserve">
+    <value>de</value>
+  </data>
+  <data name="EncontradosMin" xml:space="preserve">
+    <value>encontrados</value>
+  </data>
+  <data name="Leído" xml:space="preserve">
+    <value>Leído</value>
+  </data>
+  <data name="Resultados" xml:space="preserve">
+    <value>Resultados</value>
+  </data>
+  <data name="UsuariosMin" xml:space="preserve">
+    <value>usuarios</value>
   </data>
 </root>

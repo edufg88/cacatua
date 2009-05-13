@@ -39,40 +39,70 @@ public partial class firmas : WebCacatUA.InterfazWeb
             Button_firmar.Visible = true;
     }
 
+    /// <summary>
+    /// Inserta la primera fila de la tabla, que es la cabecera.
+    /// </summary>
+    private void insertarCabecera()
+    {
+        // Columna de usuarios
+        TableCell c1 = new TableCell();
+        c1.CssClass = "columna1Firmas cabeceraFirmas";
+        Label l1 = new Label();
+        l1.Text = Resources.I18N.Usuarios;
+        Panel p1 = new Panel();
+        p1.CssClass = "tituloGrupos";
+        p1.Controls.Add(l1);
+        c1.Controls.Add(p1);
+
+        // Columna de fecha
+        TableCell c2 = new TableCell();
+        c2.CssClass = "columna2Firmas cabeceraFirmas";
+        Label l3 = new Label();
+        l3.Text = Resources.I18N.Fecha;
+        Panel p3 = new Panel();
+        p3.Controls.Add(l3);
+        c2.Controls.Add(p3);
+
+        // Columna De
+        TableCell c3 = new TableCell();
+        c3.CssClass = "columna3Firmas cabeceraFirmas";
+        Label l4 = new Label();
+        l4.Text = Resources.I18N.De;
+        Panel p4 = new Panel();
+        p4.Controls.Add(l4);
+        c3.Controls.Add(p4);
+
+        // Insertamos las columnas en la fila e insertamos la fila en la tabla.
+        TableRow fila = new TableRow();
+        fila.Controls.Add(c1);
+        fila.Controls.Add(c2);
+        fila.Controls.Add(c3);
+        Table_firmas.Controls.Add(fila);
+    }
+
     public void ObtenerFirmas()
     {
         ArrayList Firmas = ENFirma.ObtenerFirmas(user.Usuario, pagina, cantidad);
         Table_firmas.Controls.Clear();
-        TableRow fila = new TableRow();
-        TableCell celdax = new TableCell();
-        TableCell celday = new TableCell();
-        TableCell celdaz = new TableCell();
-        Label firm = new Label();
-        Label fech = new Label();
-        Label usuarios = new Label();
-        firm.Text = Resources.I18N.autormensaje;
-        fech.Text = Resources.I18N.Fecha;
-        usuarios.Text = Resources.I18N.Usuarios;
-        celdax.Controls.Add(usuarios);
-        celday.Controls.Add(fech);
-        celdaz.Controls.Add(firm);
-        fila.Cells.Add(celdax);
-        fila.Cells.Add(celday);
-        fila.Cells.Add(celdaz);
-        Table_firmas.Rows.Add(fila);
+
+        insertarCabecera();
+
         if (totalResultados < 1)
         {
             Label_mostrandoFirmas.Text = Resources.I18N.NoFirmas;
         }
         else
         {
-            Label_mostrandoFirmas.Text = Resources.I18N.Viendo + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.De + totalResultados + " " + Resources.I18N.FirmasMin + ".";
+            Label_mostrandoFirmas.Text = Resources.I18N.Viendo + " " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.FirmasMin + ".";
             foreach (ENFirma firma in Firmas)
             {
                 TableRow fila2 = new TableRow();
                 TableCell celda1 = new TableCell();
+                celda1.CssClass = "columna1Firmas";
                 TableCell celda2 = new TableCell();
+                celda2.CssClass = "columna2Firmas";
                 TableCell celda3 = new TableCell();
+                celda3.CssClass = "columna3Firmas";
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();

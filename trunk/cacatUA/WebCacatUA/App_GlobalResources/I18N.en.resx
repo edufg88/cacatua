@@ -510,4 +510,28 @@
   <data name="VolverEncuestas" xml:space="preserve">
     <value>Back to the polls</value>
   </data>
+  <data name="De" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="Deminuscula" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="EncontradosMin" xml:space="preserve">
+    <value>found</value>
+  </data>
+  <data name="FirmasMin" xml:space="preserve">
+    <value>signatures</value>
+  </data>
+  <data name="Leído" xml:space="preserve">
+    <value>Read</value>
+  </data>
+  <data name="Resultados" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="UsuariosMin" xml:space="preserve">
+    <value>users</value>
+  </data>
+  <data name="Viendo" xml:space="preserve">
+    <value>Seeing</value>
+  </data>
 </root>

@@ -1,0 +1,75 @@
+﻿.tablaMensajes
+{
+    width: 100%;
+    background-color: #fff;	
+}
+
+.columna1Mensajes
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: small;
+}
+
+.columna2Mensajes
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: small;
+    width: 15%;
+}
+
+.columna3Mensajes
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: small;
+    width: 15%;
+}
+
+.columna4Mensajes
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: small;
+    width: 55%;
+}
+.cabeceraMensajes
+{
+    border: 0;
+    background-color: #777;
+    color: #eee;
+    font-size: small;
+}
+
+.tituloMensajes
+{
+	
+}
+
+#mostrandoMensajes
+{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+#paginasInf
+{
+    float: right;
+}
+
+#cantidadInf
+{
+    float: left;
+}
