@@ -120,6 +120,13 @@
     <Compile Include="estadoencuesta.aspx.designer.cs">
       <DependentUpon>estadoencuesta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="galeriaUpload.aspx.cs">
+      <DependentUpon>galeriaUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galeriaUpload.aspx.designer.cs">
+      <DependentUpon>galeriaUpload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hilo.aspx.cs">
       <DependentUpon>hilo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -373,6 +380,7 @@
     <Content Include="estilos\usuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />
     <Content Include="estilos\hilo.css" />
+    <Content Include="galeriaUpload.aspx" />
     <Content Include="hilo.aspx" />
     <Content Include="crearhilo.aspx" />
     <Content Include="descargar.aspx" />
