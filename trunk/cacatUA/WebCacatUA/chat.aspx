@@ -24,7 +24,7 @@
                         <asp:ListBox ID="ListBox_usuarios" width="300px" Height="100px" runat="server"></asp:ListBox>
                     </div>
                     
-                    
+                    <asp:TextBox ID="TextBox1" Rows="15" Width="300px" TextMode="MultiLine" runat="server"></asp:TextBox>
                     <div id="mensajesChat">
                         <asp:Panel ID="Panel_mensajes" runat="server"></asp:Panel>
                     </div>
