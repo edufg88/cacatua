@@ -61,6 +61,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Activar.
+        /// </summary>
+        internal static string Activar {
+            get {
+                return ResourceManager.GetString("Activar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Añadir respuesta.
         /// </summary>
         internal static string AnadirRespuesta {
@@ -165,24 +174,6 @@ namespace Resources {
         internal static string BuscarPor {
             get {
                 return ResourceManager.GetString("BuscarPor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Fecha.
-        /// </summary>
-        internal static string CabeceraEdicionEncuestasFecha {
-            get {
-                return ResourceManager.GetString("CabeceraEdicionEncuestasFecha", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Pregunta.
-        /// </summary>
-        internal static string CabeceraEdicionEncuestasPregunta {
-            get {
-                return ResourceManager.GetString("CabeceraEdicionEncuestasPregunta", resourceCulture);
             }
         }
         
@@ -363,6 +354,15 @@ namespace Resources {
         internal static string DebesSeleccionarCategoria {
             get {
                 return ResourceManager.GetString("DebesSeleccionarCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desactivar.
+        /// </summary>
+        internal static string Desactivar {
+            get {
+                return ResourceManager.GetString("Desactivar", resourceCulture);
             }
         }
         
@@ -1087,6 +1087,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Pregunta.
+        /// </summary>
+        internal static string Pregunta {
+            get {
+                return ResourceManager.GetString("Pregunta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Pulse aquí para volver.
         /// </summary>
         internal static string PulsarVolver {
@@ -1101,6 +1110,15 @@ namespace Resources {
         internal static string Puntuacion {
             get {
                 return ResourceManager.GetString("Puntuacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Quitar.
+        /// </summary>
+        internal static string Quitar {
+            get {
+                return ResourceManager.GetString("Quitar", resourceCulture);
             }
         }
         

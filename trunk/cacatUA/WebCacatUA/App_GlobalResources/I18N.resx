@@ -282,10 +282,7 @@
   <data name="NumeroRespuestas" xml:space="preserve">
     <value>Número de respuestas</value>
   </data>
-  <data name="CabeceraEdicionEncuestasFecha" xml:space="preserve">
-    <value>Fecha</value>
-  </data>
-  <data name="CabeceraEdicionEncuestasPregunta" xml:space="preserve">
+  <data name="Pregunta" xml:space="preserve">
     <value>Pregunta</value>
   </data>
   <data name="Descargas" xml:space="preserve">
@@ -548,5 +545,14 @@
   </data>
   <data name="GaleriaUsuario" xml:space="preserve">
     <value>Galeria de usuario</value>
+  </data>
+  <data name="Activar" xml:space="preserve">
+    <value>Activar</value>
+  </data>
+  <data name="Desactivar" xml:space="preserve">
+    <value>Desactivar</value>
+  </data>
+  <data name="Quitar" xml:space="preserve">
+    <value>Quitar</value>
   </data>
 </root>
