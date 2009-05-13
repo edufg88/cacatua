@@ -252,6 +252,7 @@ public partial class usuarios : WebCacatUA.InterfazWeb
     private void mostrarUsuarios()
     {
         resultado = ENUsuario.BuscarWeb(busqueda, buscar, ordenar, orden, pagina, cantidad);
+        Label_mostrandoUsuarios.Text = "Resultados " + (((pagina-1)*cantidad)+1).ToString() + " - " + (((pagina-1)*cantidad)+cantidad).ToString() + " de " + totalResultados + " usuarios encontrados"; 
 
         foreach (ENUsuario us in resultado)
         {

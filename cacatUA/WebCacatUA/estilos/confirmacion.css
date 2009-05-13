@@ -1,0 +1,14 @@
+﻿.mensaje
+{
+	color: InfoText;	
+}
+.enlace
+{
+	text-decoration: none;
+}
+.enlace:hover
+{
+	text-decoration: none;
+	color: Yellow;	
+}
+

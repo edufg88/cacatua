@@ -377,6 +377,8 @@
     <Content Include="estilos\categoriasUsuario.css" />
     <Content Include="estilos\chat.css" />
     <Content Include="estilos\index.css" />
+    <Content Include="estilos\confirmacion.css" />
+    <Content Include="estilos\grupos.css" />
     <Content Include="estilos\usuarios.css" />
     <Content Include="estilos\usuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />

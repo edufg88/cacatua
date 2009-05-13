@@ -1,0 +1,113 @@
+﻿#mostrarGrupos
+{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+.tablaGrupos
+{
+    width: 100%;
+    background-color: #fff;	
+}
+
+.columna1Grupos
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: small;
+}
+
+.columna2Grupos
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: small;
+    width: 25%;
+}
+
+.columna3Grupos
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: small;
+    width: 25%;
+}
+
+.columna4Grupos
+{
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: small;
+    width: 15%;
+}
+
+.cabeceraGrupos
+{
+    border: 0;
+    background-color: #777;
+    color: #eee;
+    font-size: small;
+}
+
+.tituloGrupos
+{
+	
+}
+
+#paginacionInf, paginacionSup
+{
+    clear: both;
+}
+
+#paginaInf, #paginaSup
+{
+    float: right;
+}
+
+#cantidadInf, #cantidadSup
+{
+    float: left;
+}
+
+#busquedaGrupos
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    text-align:center;	
+}
+
+.tablaBusqueda
+{
+    background-color: #fff;		
+}
+
+#filtroBusqueda
+{
+	background-color: #fff;
+	padding-top: 10px;	
+	padding-bottom: 3px;
+}
+
+#criteriosBusqueda
+{
+	background-color: #fff;	
+	padding-bottom: 10px;
+}

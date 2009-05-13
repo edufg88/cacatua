@@ -14,7 +14,6 @@ using Libreria;
 
 public partial class grupos : WebCacatUA.InterfazWeb
 {
-
     private int pagina;
     private int cantidad;
     private int totalResultados;
@@ -43,46 +42,82 @@ public partial class grupos : WebCacatUA.InterfazWeb
             Button_crearGrupos.Visible = true;
     }
 
+    /// <summary>
+    /// Inserta la primera fila de la tabla, que es la cabecera.
+    /// </summary>
+    private void insertarCabecera()
+    {
+        // Columna del título y del creado.
+        TableCell c1 = new TableCell();
+        c1.CssClass = "columna1Grupos cabeceraGrupos";
+        Label l1 = new Label();
+        l1.Text = Resources.I18N.Nombre;
+        Panel p1 = new Panel();
+        p1.CssClass = "tituloGrupos";
+        p1.Controls.Add(l1);
+        c1.Controls.Add(p1);
 
+        // Columna del número de respuestas.
+        TableCell c2 = new TableCell();
+        c2.CssClass = "columna2Grupos cabeceraGrupos";
+        Label l3 = new Label();
+        l3.Text = Resources.I18N.Descripcion;
+        Panel p3 = new Panel();
+        p3.Controls.Add(l3);
+        c2.Controls.Add(p3);
+
+        // Columna del número de visitas.
+        TableCell c3 = new TableCell();
+        c3.CssClass = "columna3Grupos cabeceraGrupos";
+        Label l4 = new Label();
+        l4.Text = Resources.I18N.Fecha;
+        Panel p4 = new Panel();
+        p4.Controls.Add(l4);
+        c3.Controls.Add(p4);
+
+        // Columna con la última respuesta.
+        TableCell c4 = new TableCell();
+        c4.CssClass = "columna4Grupos cabeceraGrupos";
+        Label l5 = new Label();
+        l5.Text = Resources.I18N.NUsuarios;
+        Panel p5 = new Panel();
+        p5.Controls.Add(l5);
+        c4.Controls.Add(p5);
+
+        // Insertamos las columnas en la fila e insertamos la fila en la tabla.
+        TableRow fila = new TableRow();
+        fila.CssClass = "hiloForo";
+        fila.Controls.Add(c1);
+        fila.Controls.Add(c2);
+        fila.Controls.Add(c3);
+        fila.Controls.Add(c4);
+        Table_grupos.Controls.Add(fila);
+    }
 
     private void mostrarGrupos()
     {
         if (ordenar == "Número de Usuarios")
             ordenar = "numUsuarios";
         ArrayList Grupos = grupo.Buscar(ordenar,pagina,cantidad,orden,0,0,fechaFin,ref usuario);
+        
         Table_grupos.Controls.Clear();
-        TableRow fila = new TableRow();
-        TableCell celdax = new TableCell();
-        TableCell celday = new TableCell();
-        TableCell celdaz = new TableCell();
-        TableCell celdaw = new TableCell();
-        Label grup = new Label();
-        Label desc = new Label();
-        Label fech = new Label();
-        Label usuarios = new Label();
-        grup.Text = Resources.I18N.Nombre;
-        desc.Text = Resources.I18N.Descripcion;
-        fech.Text = Resources.I18N.Fecha;
-        usuarios.Text = Resources.I18N.NUsuarios;
-        celdax.Controls.Add(grup);
-        celday.Controls.Add(desc);
-        celdaz.Controls.Add(fech);
-        celdaw.Controls.Add(usuarios);
-        fila.Cells.Add(celdax);
-        fila.Cells.Add(celday);
-        fila.Cells.Add(celdaz);
-        fila.Cells.Add(celdaw);
-        Table_grupos.Rows.Add(fila);
+        insertarCabecera();
+
         if (totalResultados > 0)
         {
             Label_mostrandoGrupos.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " grupos encontrados.";
+
             foreach (ENGrupos group in Grupos)
             {
                 TableRow fila2 = new TableRow();
                 TableCell celda1 = new TableCell();
+                celda1.CssClass = "columna1Grupos";
                 TableCell celda2 = new TableCell();
+                celda2.CssClass = "columna2Grupos";
                 TableCell celda3 = new TableCell();
+                celda3.CssClass = "columna3Grupos";
                 TableCell celda4 = new TableCell();
+                celda4.CssClass = "columna4Grupos";
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();
