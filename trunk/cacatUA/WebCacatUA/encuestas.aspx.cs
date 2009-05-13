@@ -43,7 +43,7 @@ namespace WebCacatUA
                 TableCell cab1 = new TableCell();
                 cab1.CssClass = "celda_cabecera";
                 Label label_cab1 = new Label();
-                label_cab1.Text = Resources.I18N.CabeceraEdicionEncuestasPregunta.ToString();
+                label_cab1.Text = Resources.I18N.Pregunta;
                 cab1.Controls.Add(label_cab1);
 
                 TableCell cab2 = new TableCell();
@@ -67,7 +67,7 @@ namespace WebCacatUA
                 TableCell cab5 = new TableCell();
                 cab5.CssClass = "celda_cabecera";
                 Label label_cab5 = new Label();
-                label_cab5.Text = Resources.I18N.CabeceraEdicionEncuestasFecha.ToString();
+                label_cab5.Text = Resources.I18N.Fecha;
                 cab5.Controls.Add(label_cab5);
 
                 cabeceras.Controls.Add(cab1);
@@ -92,7 +92,7 @@ namespace WebCacatUA
                     Button b1 = new Button();
                     b1.PostBackUrl = "edicionencuesta.aspx?id=" + enc.Id.ToString();
                     b1.CssClass = "boton_encuestas";
-                    b1.Text = "Editar";
+                    b1.Text = Resources.I18N.Editar;
                     c2.Controls.Add(b1);
 
                     TableCell c3 = new TableCell();
@@ -100,7 +100,7 @@ namespace WebCacatUA
                     Button b2 = new Button();
                     b2.PostBackUrl = "borrarencuesta.aspx?id=" + enc.Id.ToString();
                     b2.CssClass = "boton_encuestas";
-                    b2.Text = "Borrar";
+                    b2.Text = Resources.I18N.Quitar;
                     c3.Controls.Add(b2);
 
                     TableCell c4 = new TableCell();
@@ -109,15 +109,15 @@ namespace WebCacatUA
                     b3.CssClass = "boton_encuestas";
                     b3.PostBackUrl = "estadoencuesta.aspx?id=" + enc.Id.ToString();
                     if (enc.Activa)
-                        b3.Text = "Desactivar";
+                        b3.Text = Resources.I18N.Desactivar;
                     else
-                        b3.Text = "Activar";
+                        b3.Text = Resources.I18N.Activar;
                     c4.Controls.Add(b3);
 
                     TableCell c5 = new TableCell();
                     c5.CssClass = "celda_encuestas";
                     Label l2 = new Label();
-                    l2.Text = enc.Fecha.ToShortDateString();
+                    l2.Text = enc.Fecha.ToString();
                     c5.Controls.Add(l2);
 
                     fila.Controls.Add(c1);

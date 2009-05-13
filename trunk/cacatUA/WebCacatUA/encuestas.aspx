@@ -15,7 +15,7 @@
     </div>      
     <div id="div_crearencuesta">
         <asp:Button ID="Button_crearencuesta" runat="server" 
-        onclick="Button_crearencuesta_Click" Text="Nueva encuesta" />
+        onclick="Button_crearencuesta_Click" Text="<%$ Resources: I18N, NuevaEncuesta %>" />
     </div>   
 </asp:Content>
 

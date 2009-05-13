@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Añadir opción.
+        /// </summary>
+        internal static string AñadirOpcion {
+            get {
+                return ResourceManager.GetString("AñadirOpcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Añadir un comentario.
         /// </summary>
         internal static string AñadirUnComentario {
@@ -174,6 +183,15 @@ namespace Resources {
         internal static string BuscarPor {
             get {
                 return ResourceManager.GetString("BuscarPor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cambiar.
+        /// </summary>
+        internal static string Cambiar {
+            get {
+                return ResourceManager.GetString("Cambiar", resourceCulture);
             }
         }
         
@@ -426,6 +444,15 @@ namespace Resources {
         internal static string DNI {
             get {
                 return ResourceManager.GetString("DNI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Editar.
+        /// </summary>
+        internal static string Editar {
+            get {
+                return ResourceManager.GetString("Editar", resourceCulture);
             }
         }
         
@@ -925,6 +952,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Votos.
+        /// </summary>
+        internal static string MVotos {
+            get {
+                return ResourceManager.GetString("MVotos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a nadie.
         /// </summary>
         internal static string nadie {
@@ -1015,6 +1051,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Nueva encuesta.
+        /// </summary>
+        internal static string NuevaEncuesta {
+            get {
+                return ResourceManager.GetString("NuevaEncuesta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nueva opción.
+        /// </summary>
+        internal static string NuevaOpcion {
+            get {
+                return ResourceManager.GetString("NuevaOpcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nuevo material.
         /// </summary>
         internal static string NuevoMaterial {
@@ -1047,6 +1101,15 @@ namespace Resources {
         internal static string NUsuarios {
             get {
                 return ResourceManager.GetString("NUsuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Opcion.
+        /// </summary>
+        internal static string Opcion {
+            get {
+                return ResourceManager.GetString("Opcion", resourceCulture);
             }
         }
         
@@ -1344,6 +1407,15 @@ namespace Resources {
         internal static string visitasminusculas {
             get {
                 return ResourceManager.GetString("visitasminusculas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Volver a encuestas.
+        /// </summary>
+        internal static string VolverEncuestas {
+            get {
+                return ResourceManager.GetString("VolverEncuestas", resourceCulture);
             }
         }
         
