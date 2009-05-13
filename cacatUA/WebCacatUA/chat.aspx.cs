@@ -14,7 +14,7 @@ using Libreria;
 
 namespace WebCacatUA
 {
-    public partial class chat : System.Web.UI.Page
+    public partial class chat : InterfazWeb
     {
         private void escribir(string cadena)
         {
@@ -27,6 +27,14 @@ namespace WebCacatUA
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            TextBox_mensaje.Enabled = false;
+            Button_enviar.Enabled = false;
+            if (Session["usuario"] != null)
+            {
+                TextBox_mensaje.Enabled = true;
+                Button_enviar.Enabled = true;
+            }
+
             if (!Page.IsPostBack)
             {
                 // Nos logueamos en el chat
@@ -69,13 +77,10 @@ namespace WebCacatUA
                 ArrayList mensajes = ENChatMensaje.Obtener(ultimoMensaje);
                 foreach (ENChatMensaje mensaje in mensajes)
                 {
-                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje;
+                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje + "<br />";
                     Label label = new Label();
                     label.Text = aux;
                     Panel_mensajes.Controls.Add(label);
- 
-                    TextBox1.Text += aux;
-                    TextBox1.Text += DateTime.Now.ToString();
                 }
                 if (mensajes.Count > 0)
                 {
@@ -102,7 +107,6 @@ namespace WebCacatUA
                 mensaje.Mensaje = TextBox_mensaje.Text;
                 mensaje.Guardar();
                 TextBox_mensaje.Text = "";
-                
             }
         }
     }
