@@ -101,18 +101,6 @@
             </div>
         </div>
         
-        <div id="mensajes">
-            <asp:Label ID="Label_numeroMensajes" Visible=false runat="server" Text="numero_mensajes"></asp:Label>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <ContentTemplate>
-                    <asp:ScriptManager ID="ScriptManager1" runat="server">
-                    </asp:ScriptManager>
-                    <asp:Timer ID="Timer1" runat="server" interval="1000" ontick="actualizarMensajes" /></asp:Timer>
-                        <asp:HyperLink ID="HyperLink_mensajes" runat="server" Visible="false"></asp:HyperLink>
-                </ContentTemplate> 
-            </asp:UpdatePanel>
-        </div>
-        
         <div id="titulo">
             <asp:ContentPlaceHolder id="ContentPlaceHolder_titulo" runat="server">
             </asp:ContentPlaceHolder>
@@ -127,6 +115,18 @@
         <div id="pie">
             <p>CacatUA - Diseño y Programación Avanzada de Aplicaciones 2008/2009</p>
         </div>
+        
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+                <asp:Timer ID="Timer1" runat="server" interval="2000" ontick="actualizarMensajes" /></asp:Timer>
+                <asp:Panel ID="Panel_mensajes" CssClass="mensajes" runat="server" Visible="false">
+                    <asp:HyperLink ID="HyperLink_mensajes" runat="server"></asp:HyperLink>
+                </asp:Panel>
+            </ContentTemplate> 
+        </asp:UpdatePanel>
+        
     </div>
     </form>
 </body>

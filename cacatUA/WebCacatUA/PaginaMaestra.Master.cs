@@ -14,9 +14,16 @@ using Libreria;
 
 public partial class PaginaMaestra : System.Web.UI.MasterPage
 {
+    /// <summary>
+    /// Almacena la cantidad de mensajes en la última actualización de los mensajes.
+    /// </summary>
+    private int mensajesAnteriores;
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        // Inicializammos la cantidad de mensajes a -1 para indicar que todavía no hemos hecho ninguna actualización.
+        mensajesAnteriores = -1;
+
         try
         {
             Label_infoLogin.Text = "";
@@ -138,21 +145,33 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
 
     private void ActualizarMensajes()
     {
+        Panel_mensajes.Visible = false;
         // Comprobamos si el usuario está logueado
         if (Session["usuario"] != null)
         {
-            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
             // Obtenemos los mensajes que no han sido leidos
-            ArrayList mensajes = ENMensaje.Obtener(usuario.Usuario, false, false);
-            if (mensajes.Count > 0)
+            ArrayList mensajes = ENMensaje.Obtener(Session["usuario"].ToString(), false, false);
+            if (mensajes != null)
             {
-                HyperLink_mensajes.Visible = true;
-                HyperLink_mensajes.Text = "Tienes mensajes nuevos (" + mensajes.Count + ")";
-                HyperLink_mensajes.NavigateUrl = "mensajes.aspx?usuario=" + usuario.Usuario;
-            }
-            else
-            {
-                HyperLink_mensajes.Visible = false;
+                // Comprobamos si se ha incrementado la cantidad de mensajes.
+                if (mensajesAnteriores < mensajes.Count && mensajesAnteriores != -1)
+                {
+                    Panel_mensajes.CssClass = "mensajesNuevos";
+                }
+                else
+                {
+                    Panel_mensajes.CssClass = "mensajes";
+                }
+                mensajesAnteriores = mensajes.Count;
+
+                // Comprobamos la cantidad para mostrar el mensaje.
+                if (mensajes.Count > 0)
+                {
+                    Panel_mensajes.Visible = true;
+                    HyperLink_mensajes.Text = "Tienes mensajes nuevos (" + mensajes.Count + ")";
+                }
+
+                HyperLink_mensajes.NavigateUrl = "mensajes.aspx?usuario=" + Session["usuario"].ToString();
             }
         }
     }

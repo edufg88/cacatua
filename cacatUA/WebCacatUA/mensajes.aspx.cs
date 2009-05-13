@@ -107,7 +107,7 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         fila.Cells.Add(celday);
         fila.Cells.Add(celdaz);
         Table_mensajes.Controls.Add(fila);
-        if (totalResultados > 1)
+        if (totalResultados >= 1)
         {
             Label_mostrandoMensajes.Text = Resources.I18N.Viendo + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.De + totalResultados + " " + Resources.I18N.MensajesMin;
             foreach (ENMensaje mensaje in mensajes)
