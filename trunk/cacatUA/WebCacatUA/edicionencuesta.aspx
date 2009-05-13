@@ -13,7 +13,7 @@
         <a href="encuestas.aspx"><%= Resources.I18N.VolverEncuestas %></a>
     </div>
      <div id="div_nuevapregunta">
-     <%= Resources.I18N.Question %><
+     <%= Resources.I18N.Pregunta %>
          <asp:TextBox ID="TextBox_Pregunta" runat="server"></asp:TextBox>
         <asp:Button ID="Button_cambiar" runat="server" Text="<%$ Resources: I18N, Cambiar %>" 
             onclick="Button_cambiar_Click" />  
@@ -23,9 +23,9 @@
             CellPadding="0" CellSpacing="0"></asp:Table>     
     </div>
     <div id="div_nuevaopcion">
-        Nueva opción:
+        <%= Resources.I18N.NuevaOpcion %>
         <asp:TextBox ID="TextBox_crearopcion" runat="server" />
-        <asp:Button ID="Button_crearopcion" runat="server" Text="<%$ Resources: I18N, AñadirOpcion %>" 
+        <asp:Button ID="Button_crearopcion" runat="server" Text="<%$ Resources: I18N, Añadir %>" 
             onclick="Button_crearopcion_Click" />
     </div>     
 </asp:Content>

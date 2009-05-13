@@ -549,8 +549,8 @@
   <data name="Activar" xml:space="preserve">
     <value>Activar</value>
   </data>
-  <data name="AñadirOpcion" xml:space="preserve">
-    <value>Añadir opción</value>
+  <data name="Añadir" xml:space="preserve">
+    <value>Añadir</value>
   </data>
   <data name="Cambiar" xml:space="preserve">
     <value>Cambiar</value>

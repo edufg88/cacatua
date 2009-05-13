@@ -142,20 +142,20 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Añadir.
+        /// </summary>
+        internal static string Añadir {
+            get {
+                return ResourceManager.GetString("Añadir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Añadir comentario.
         /// </summary>
         internal static string AñadirComentario {
             get {
                 return ResourceManager.GetString("AñadirComentario", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Añadir opción.
-        /// </summary>
-        internal static string AñadirOpcion {
-            get {
-                return ResourceManager.GetString("AñadirOpcion", resourceCulture);
             }
         }
         
