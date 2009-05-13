@@ -18,21 +18,27 @@
     -->
     <div id="contenidoUsuarios">
         <div id="busquedaUsuarios">
-            <table style="width: 100%" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td style="width: 50%">
-                        <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%" 
-                            Height="18px"></asp:TextBox>
-                    </td>
-                    <td style="width: 5%"></td>
-                    <td style="width: 45%;">
-                        <asp:Button ID="Button_buscar" runat="server" 
-                            Text="<%$ Resources: I18N, Buscar %>" Width="20%"
-                            onclick="Button_buscar_Click"/>
-                    </td>
-                </tr>
-            </table>
-            <div id="criteriosBusquedaUsuarios">
+            <div id="campoBusqueda" class="tablaBusqueda">
+                
+                <table style="width: 100%" cellpadding="0" cellspacing="0" class="tablaBusqueda">              
+                    <tr>
+                        <td style="width: 35%"></td>
+                        <td style="width: 30%">
+                            <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%" 
+                                Height="18px"></asp:TextBox>
+                        </td>
+                        <td style="width: 2%">
+                        </td>
+                        <td style="width: 8%;">
+                            <asp:Button ID="Button_buscar" runat="server" align="left"
+                                Text="<%$ Resources: I18N, Buscar %>"
+                                onclick="Button_buscar_Click"/>
+                        </td>
+                        <td style="width: 25%"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="criteriosBusquedaUsuarios" class="tablaBusqueda" >
                 <asp:Label ID="Label_buscarPor" runat="server" Text="<%$ Resources: I18N, Buscar%>"></asp:Label>
                 :
                 <asp:RadioButton ID="RadioButton_usuario" runat="server" 
@@ -42,7 +48,7 @@
                 <asp:RadioButton ID="RadioButton_correo" runat="server" 
                     Text="<%$ Resources: I18N, CorreoElectronico %>" GroupName="busqueda"/>
             </div>
-            <div id="criteriosOrdenacionUsuarios">
+            <div id="criteriosOrdenacionUsuarios" class="tablaBusqueda">
                 <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
                 :
                 <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%" 
@@ -52,9 +58,9 @@
                 <asp:DropDownList ID="DropDownList_orden" runat="server" Width="12%" 
                     AutoPostBack="True" 
                     onselectedindexchanged="DropDownList_orden_SelectedIndexChanged">
-                </asp:DropDownList>    
+                </asp:DropDownList> 
+
             </div>
-            <br/>
         </div>
         <div id="mostrarUsuarios">
         </div>

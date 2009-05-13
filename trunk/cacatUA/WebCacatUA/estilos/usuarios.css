@@ -15,6 +15,41 @@
     -khtml-border-radius: 5px;
 }
 
+#busquedaUsuarios
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    text-align:center;	
+}
+
+#campoBusqueda
+{
+	padding-top: 10px;
+	padding-bottom: 3px;
+}
+
+#criteriosBusquedaUsuarios
+{
+	padding-bottom: 3px;
+}
+
+#criteriosOrdenacionUsuarios
+{
+	padding-bottom: 10px;
+}
+
+.tablaBusqueda
+{
+    background-color: #fff;		
+}
+
 .tablaUsuarios
 {
     width: 100%;
