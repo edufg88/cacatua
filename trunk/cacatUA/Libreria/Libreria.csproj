@@ -47,7 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaCAD.cs" />
+    <Compile Include="ChatConectadoCAD.cs" />
+    <Compile Include="ChatMensajeCAD.cs" />
     <Compile Include="ENCategoria.cs" />
+    <Compile Include="ENChatConectado.cs" />
+    <Compile Include="ENChatMensaje.cs" />
     <Compile Include="EncuestaCAD.cs" />
     <Compile Include="ENEncuesta.cs" />
     <Compile Include="ENFirma.cs" />
