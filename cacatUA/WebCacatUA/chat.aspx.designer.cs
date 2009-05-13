@@ -14,6 +14,42 @@ namespace WebCacatUA {
     public partial class chat {
         
         /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// Timer2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer2;
+        
+        /// <summary>
+        /// Panel_chat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_chat;
+        
+        /// <summary>
+        /// Label_ultimoMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_ultimoMensaje;
+        
+        /// <summary>
         /// ListBox_usuarios control.
         /// </summary>
         /// <remarks>
@@ -23,13 +59,13 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.ListBox ListBox_usuarios;
         
         /// <summary>
-        /// TextBox_chat control.
+        /// Panel_mensajes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_chat;
+        protected global::System.Web.UI.WebControls.Panel Panel_mensajes;
         
         /// <summary>
         /// TextBox_mensaje control.
