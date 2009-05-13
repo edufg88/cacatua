@@ -3,10 +3,10 @@
     <link rel="stylesheet" type="text/css" href="estilos/galeria.css" media="screen" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_tituloUsuario" runat="server">
-    <p><a name="comienzoGaleria"><asp:Label ID="Label_nombreUsuario" runat="server" Text="Galeria de fotos"></asp:Label></a></p>
+    <p><a name="comienzoGaleria"><asp:Label ID="Label_nombreUsuario" runat="server" Text="<%$ Resources: I18N, GaleriaUsuario %>"></asp:Label></a></p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-
+    
     <div id="divContenidoGaleria">
     
         <p style="text-align:center;width:100%;" ><a href="" id="verImagen" >Ver detalles</a></p>

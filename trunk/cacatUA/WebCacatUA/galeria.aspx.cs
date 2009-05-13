@@ -14,7 +14,7 @@ using Libreria;
 
 namespace WebCacatUA
 {
-    public partial class Formulario_web11 : System.Web.UI.Page
+    public partial class Formulario_web11 : InterfazWeb
     {
         private ENImagen imagen = null;
         private int pagina = 1;
@@ -40,7 +40,7 @@ namespace WebCacatUA
             if (Request.Params["usuario"] != null)
             {
                 ENUsuario us = ENUsuario.Obtener(Request.Params["usuario"]);
-                Label_nombreUsuario.Text = "Galeria de fotos de " + Request.Params["usuario"];
+                Label_nombreUsuario.Text += " " + Request.Params["usuario"];
 
                 if (Request.Params["pag"] != null)
                 {
