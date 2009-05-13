@@ -62,7 +62,8 @@
 
             </div>
         </div>
-        <div id="mostrarUsuarios">
+        <div id="mostrandoUsuarios">
+            <asp:Label ID="Label_mostrandoUsuarios" runat="server" Text=""></asp:Label>
         </div>
         <div id="usuarios">
             <asp:Table ID="Table_usuarios" runat="server" CssClass="tablaUsuarios" 

@@ -123,7 +123,7 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         }
         else
         {
-            Label_infoLogin.Text = "ERROR: usuario o contraseña incorrectos";
+            Label_infoLogin.Text = "ERROR de login";
             Label_infoLogin.ForeColor = System.Drawing.Color.Red;
         }
     }

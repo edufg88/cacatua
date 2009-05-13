@@ -45,6 +45,21 @@
 	padding-bottom: 10px;
 }
 
+#paginacionUsuarios
+{
+    clear: both;
+}
+
+#cantidadPaginaUsuarios
+{
+    float: left;
+}
+
+#paginasUsuarios
+{
+    float: right;
+}
+
 .tablaBusqueda
 {
     background-color: #fff;		
@@ -119,3 +134,4 @@
 	font-size: small;
 	color: Gray;	
 }
+

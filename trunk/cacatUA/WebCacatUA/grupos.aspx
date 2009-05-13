@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="grupos.aspx.cs" Inherits="grupos" Title="CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="estilos/grupos.css" media="screen" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
     <asp:Label ID="Label_titulo" runat="server" Text="<%$ Resources: I18N, Grupos %>"></asp:Label>
@@ -11,13 +12,25 @@
     
     <div id="busquedaGrupos">
         <div id="filtroBusqueda">
-            <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="85%"></asp:TextBox>
-            <asp:Button ID="Button_buscar" runat="server" 
-                Text="<%$ Resources: I18N, Buscar %>" Width="10%"
-                onclick="Button_buscar_Click"/>
+            <table style="width: 100%" cellpadding="0" cellspacing="0" class="tablaBusqueda">              
+                <tr>
+                    <td style="width: 35%"></td>
+                    <td style="width: 30%">
+                        <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%" 
+                            Height="18px"></asp:TextBox>
+                    </td>
+                    <td style="width: 2%">
+                    </td>
+                    <td style="width: 8%;">
+                        <asp:Button ID="Button_buscar" runat="server" align="left"
+                            Text="<%$ Resources: I18N, Buscar %>"
+                            onclick="Button_buscar_Click"/>
+                    </td>
+                    <td style="width: 25%"></td>
+                </tr>
+            </table>
         </div>
         <div id="criteriosBusqueda">
-            <asp:Label ID="Label_mostrandoGrupos" runat="server"></asp:Label>
             <div id="ordenar">
                 <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
                 <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%" 
@@ -31,6 +44,7 @@
             </div>
         </div>
     </div>
+    <!--
     <div id="paginacionSup">
         <div id="cantidadSup">
             <asp:Label ID="Label_cantidadPagina" runat="server" Text="Cantidad por página: "></asp:Label>
@@ -65,9 +79,12 @@
                 onclick="Button_paginaSiguiente_Click" />
         </div>
     </div>
-        
+    -->
+    <div id="mostrandoUsuarios">
+        <asp:Label ID="Label_mostrandoGrupos" runat="server" Text=""></asp:Label>
+    </div>
      <div id="mostrarGrupos">
-         <asp:Table ID="Table_grupos" runat="server" CellPadding="0" CellSpacing="0"></asp:Table>
+         <asp:Table ID="Table_grupos" runat="server" CellPadding="0" CellSpacing="0" CssClass="tablaGrupos"></asp:Table>
     </div>   
         
     <div id="paginacionInf">

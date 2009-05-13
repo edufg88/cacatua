@@ -112,6 +112,15 @@ public partial class usuarios {
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_orden;
     
     /// <summary>
+    /// Control Label_mostrandoUsuarios.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_mostrandoUsuarios;
+    
+    /// <summary>
     /// Control Table_usuarios.
     /// </summary>
     /// <remarks>

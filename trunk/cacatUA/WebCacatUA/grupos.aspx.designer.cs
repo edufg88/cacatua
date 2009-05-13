@@ -49,15 +49,6 @@ public partial class grupos {
     protected global::System.Web.UI.WebControls.Button Button_buscar;
     
     /// <summary>
-    /// Control Label_mostrandoGrupos.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_mostrandoGrupos;
-    
-    /// <summary>
     /// Control Label_ordenarPor.
     /// </summary>
     /// <remarks>
@@ -128,6 +119,15 @@ public partial class grupos {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente;
+    
+    /// <summary>
+    /// Control Label_mostrandoGrupos.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_mostrandoGrupos;
     
     /// <summary>
     /// Control Table_grupos.
