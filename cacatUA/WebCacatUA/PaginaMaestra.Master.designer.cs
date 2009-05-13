@@ -166,24 +166,6 @@ public partial class PaginaMaestra {
     protected global::System.Web.UI.WebControls.Label Label_foro;
     
     /// <summary>
-    /// Control ContentPlaceHolder_titulo.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_titulo;
-    
-    /// <summary>
-    /// Control ContentPlaceHolder_contenido.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_contenido;
-    
-    /// <summary>
     /// Control UpdatePanel1.
     /// </summary>
     /// <remarks>
@@ -227,4 +209,22 @@ public partial class PaginaMaestra {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.HyperLink HyperLink_mensajes;
+    
+    /// <summary>
+    /// Control ContentPlaceHolder_titulo.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_titulo;
+    
+    /// <summary>
+    /// Control ContentPlaceHolder_contenido.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_contenido;
 }
