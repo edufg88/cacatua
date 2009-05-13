@@ -628,6 +628,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Galeria de usuario.
+        /// </summary>
+        internal static string GaleriaUsuario {
+            get {
+                return ResourceManager.GetString("GaleriaUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grupo.
         /// </summary>
         internal static string Grupo {
