@@ -468,8 +468,8 @@
   <data name="Activar" xml:space="preserve">
     <value>Activate</value>
   </data>
-  <data name="AñadirOpcion" xml:space="preserve">
-    <value>Add option</value>
+  <data name="Añadir" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="Cambiar" xml:space="preserve">
     <value>Change</value>
@@ -488,6 +488,9 @@
   </data>
   <data name="NuevaOpcion" xml:space="preserve">
     <value>New option</value>
+  </data>
+  <data name="Opcion" xml:space="preserve">
+    <value>Option</value>
   </data>
   <data name="Pregunta" xml:space="preserve">
     <value>Question</value>
