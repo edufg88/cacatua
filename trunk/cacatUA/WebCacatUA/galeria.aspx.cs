@@ -23,6 +23,10 @@ namespace WebCacatUA
         protected void Page_Load(object sender, EventArgs e)
         {
             ArrayList fotos = new ArrayList();
+            if (Request.Params["usuario"] == null)
+            {
+                Response.Redirect("/index.aspx");
+            }
             int n = ENImagen.ObtenerNumeroImagenes(ENUsuario.Obtener(Request.Params["usuario"]).Id);
             if ( n % 4 == 0)
             {
@@ -102,7 +106,7 @@ namespace WebCacatUA
                     imagen = i;
                 }                        
                 c = new TableCell();
-                c.Controls.Add(new LiteralControl("<img onclick=\"funcion(" + i.Id + ")\" height=\"38px\" src=\"/galeria/"+ i.Id +".jpg\" alt=\"" + i.Titulo + "\" />"));
+                c.Controls.Add(new LiteralControl("<img onclick=\"funcion('" + i.Archivo + "'," + i.Id +")\" height=\"38px\" src=\"/galeria/"+ i.Archivo + "\" alt=\"" + i.Titulo + "\" />"));
                 r.Controls.Add(c);
 
                 if(cont%10==0)
@@ -122,6 +126,7 @@ namespace WebCacatUA
             {
                 ENImagen img = (ENImagen)fotos[0];
                 Response.Write("<script type=\"text/javascript\" language=\"javascript\">var id=" + img.Id + ";</script>");
+                Response.Write("<script type=\"text/javascript\" language=\"javascript\">var archivo='" + img.Archivo + "';</script>");
             }
             else{
                 Label lab = new Label();

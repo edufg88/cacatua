@@ -32,7 +32,7 @@
                     <td>
                         <asp:Label ID="Label5" runat="server" Text="Cantidad por página:"></asp:Label>
                         <asp:DropDownList ID="DropDownList_cantidadPorPaginaSuperior" runat="server" 
-                        AutoPostBack="True" >
+                        AutoPostBack="True" OnSelectedIndexChanged="cambioCantidadSuperior">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
@@ -67,9 +67,10 @@
         <table id="tablaPaginacionInferior">
                 <tr>  
                     <td>
+                        <asp:Label ID="Label_cantidadPorPaginaAnterior" runat="server" Text="5"></asp:Label>
                         <asp:Label ID="Label1" runat="server" Text="Cantidad por página:"></asp:Label>
                         <asp:DropDownList ID="DropDownList_cantidadPorPaginaInferior" runat="server" 
-                        AutoPostBack="True" >
+                        AutoPostBack="true" OnSelectedIndexChanged="cambioCantidadInferior">
                             <asp:ListItem>1</asp:ListItem>
                             <asp:ListItem>2</asp:ListItem>
                             <asp:ListItem>3</asp:ListItem>
@@ -124,6 +125,16 @@
             cantidad = cantidad+1;
             document.getElementById("<%= DropDownList_paginaSuperior.ClientID %>").value = cantidad;
         }
+        
+        function cambioCantidadSuperior()
+        {
+            var cantidad = document.getElementById("<%= DropDownList_cantidadPorPaginaSuperior.ClientID %>").value;
+            cantidad = parseInt(cantidad);
+            document.getElementById("<%= DropDownList_cantidadPorPaginaInferior.ClientID %>").value = cantidad;
+            
+        }
+
+        
 
     </script>
     

@@ -31,17 +31,19 @@
         
         
 
-        function funcion(archivo){
+        function funcion(archivo,id){
         
            
             var elemento = document.getElementById("imagenPrincipal")
-            elemento.setAttribute("src","/galeria/" + archivo + ".jpg");
+            elemento.setAttribute("src","/galeria/" + archivo);
             var link = document.getElementById("verImagen");
-            link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + archivo);           
+            link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + id);           
         }
         
-        funcion(id);
-                
+        
+        funcion(archivo,id);
+        
+                        
    </script>
       
 </asp:Content>

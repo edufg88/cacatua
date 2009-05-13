@@ -17,7 +17,7 @@ namespace WebCacatUA
     public partial class Formulario_web1 : System.Web.UI.Page
     {
         private int pagina = 1;
-        private int cantidad = 0;
+        private int cantidad = 5;
         private int numComentarios = 0;
         private int cantidadPaginas = 1;
 
@@ -25,18 +25,47 @@ namespace WebCacatUA
         {
             if (Request.Params["imagen"] != null)
             {
+                
+
+                Label_cantidadPorPaginaAnterior.Visible = false;
                 int cantidadPorPaginaSuperior = int.Parse(DropDownList_cantidadPorPaginaSuperior.Text.ToString());
+                int cantidadPorPaginaInferior = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
+                
+                int paginaInferior = int.Parse(DropDownList_paginaInferior.Text.ToString());
+                int paginaSuperior = int.Parse(DropDownList_paginaSuperior.Text.ToString());
 
-                cantidad = cantidadPorPaginaSuperior;
-
-                if (DropDownList_cantidadPorPaginaSuperior.Text == null)
+                // Comprobamos si ha cambiado la página
+                if (paginaInferior != paginaSuperior)
                 {
-                    pagina = 1;
+                    // Ha cambiado
+                    if (int.Parse(Hidden_paginaAnterior.Value.ToString()) == paginaSuperior)
+                        pagina = paginaInferior;
+                    else
+                        pagina = paginaSuperior;
                 }
                 else
+                    pagina = paginaSuperior;
+                Hidden_paginaAnterior.Value = pagina.ToString();
+
+                // Comprobamos si ha cambiado la cantidad por página
+                if (cantidadPorPaginaInferior != cantidadPorPaginaSuperior)
                 {
-                    pagina = int.Parse(DropDownList_paginaSuperior.Text);
+                    // Ha cambiado
+                    pagina = 1;
+                    DropDownList_paginaInferior.Text = "1";
+                    DropDownList_paginaSuperior.Text = "1";
+                    if (int.Parse(Label_cantidadPorPaginaAnterior.Text) == cantidadPorPaginaSuperior)
+                        cantidad = cantidadPorPaginaInferior;
+                    else
+                        cantidad = cantidadPorPaginaSuperior;
                 }
+                else
+                        cantidad = cantidadPorPaginaSuperior;
+
+                Label_cantidadPorPaginaAnterior.Text = cantidad.ToString();
+                DropDownList_cantidadPorPaginaInferior.Text = cantidad.ToString();
+                DropDownList_cantidadPorPaginaSuperior.Text = cantidad.ToString();
+
 
                 numComentarios = ENImagenComentario.ObtenerNumeroImagenes(int.Parse(Request.Params["imagen"]));
 
@@ -51,23 +80,28 @@ namespace WebCacatUA
 
                 ListItem item = new ListItem();
                 DropDownList_paginaSuperior.Items.Clear();
+                DropDownList_paginaInferior.Items.Clear();
 
                 for (int k = 1; k <= cantidadPaginas || k==1; k++)
                 {
                     DropDownList_paginaInferior.Items.Add(k.ToString());
                     DropDownList_paginaSuperior.Items.Add(k.ToString());
                 }
-                DropDownList_paginaInferior.Text = pagina.ToString(); ;
-                DropDownList_paginaSuperior.Text = pagina.ToString();
+                
 
                 int id = int.Parse(Request.Params["imagen"].ToString());
 
                 ENImagen i = ENImagen.Obtener(id);
+                ENUsuario us = null;
+                if (Session["usuario"] != null)
+                {
+                    us = ENUsuario.Obtener(Session["usuario"].ToString());
+                }
 
                 labelTitulo.Text = i.Titulo;
                 labelFecha.Text = "Imagen tomada el: " + i.Fecha;
-                labelUsuario.Text = "Imagen de: " + i.Usuario.Nombre;
-                imagenPrincipal.ImageUrl = "/galeria/" + i.Id + ".jpg";
+                labelUsuario.Text = "Imagen de: " + i.Usuario.Usuario;
+                imagenPrincipal.ImageUrl = "/galeria/" + i.Archivo;
                 labelDescripcion.Text = i.Descripcion;
 
                 
@@ -75,7 +109,13 @@ namespace WebCacatUA
 
                 
                 comentarios = ENImagenComentario.Obtener(i.Id,pagina,cantidad);
-                //comentarios = ENImagenComentario.Obtener(i.Id);
+                
+
+                if (comentarios.Count != 0)
+                {
+                    DropDownList_paginaInferior.Text = pagina.ToString();
+                    DropDownList_paginaSuperior.Text = pagina.ToString();
+                }
 
                 TableRow r = new TableRow();
                 TableRow r1 = new TableRow();
@@ -99,15 +139,22 @@ namespace WebCacatUA
                 enlace3.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Anterior(i.Id, i.Usuario.Id) + "#tituloImagen";
 
                 TableCell a1 = new TableCell();
-                //TableCell a2 = new TableCell();
+                TableCell a2 = new TableCell();
+                if (us != null && us.Id == i.Usuario.Id)
+                {
+                    a2 = new TableCell();
+                }
                 TableCell a3 = new TableCell();
 
                 a1.Controls.Add(enlace1);
                 a1.Attributes.Add("align", "left");
                 r.Controls.Add(a1);
-                //a2.Controls.Add(enlace2);
-                //a2.Attributes.Add("align", "center");
-                //r.Controls.Add(a2);
+                if (us != null && us.Id == i.Usuario.Id)
+                {
+                    a2.Controls.Add(enlace2);
+                    a2.Attributes.Add("align", "center");
+                    r.Controls.Add(a2);
+                }
                 a3.Controls.Add(enlace3);
                 a3.Attributes.Add("align", "right");
                 r.Controls.Add(a3);
@@ -186,12 +233,26 @@ namespace WebCacatUA
         public void guardarComentario(Object sender, EventArgs e)
         {
 
-            ENImagenComentario com = new ENImagenComentario(TextBoxComentario.Text, DateTime.Now, ENUsuario.Obtener(6), ENImagen.Obtener(int.Parse(Request.Params["imagen"].ToString())));
+            ENImagenComentario com = new ENImagenComentario(TextBoxComentario.Text, DateTime.Now, ENUsuario.Obtener(Session["usuario"].ToString()), ENImagen.Obtener(int.Parse(Request.Params["imagen"].ToString())));
 
             ENImagenComentario.Guardar(com);
 
             Response.Redirect("/galeriaDetalle.aspx?imagen=" + Request.Params["imagen"]);
 
         }
+
+        public void cambioCantidadSuperior(Object sender, EventArgs e)
+        {
+            int cantidad = int.Parse(DropDownList_cantidadPorPaginaSuperior.Text.ToString());
+            DropDownList_cantidadPorPaginaInferior.Text = cantidad.ToString();
+        }
+
+        public void cambioCantidadInferior(Object sender, EventArgs e)
+        {
+            int cant = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
+            cantidad = cant;
+            DropDownList_cantidadPorPaginaSuperior.Text = cant.ToString();
+        }
+
     }
 }
