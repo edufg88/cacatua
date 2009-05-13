@@ -31,21 +31,22 @@ public partial class mensajes : WebCacatUA.InterfazWeb
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["usuario"] != null && Session["usuario"].ToString() == Request.QueryString["usuario"].ToString())
+        if (Session["usuario"] != null && Request.QueryString["usuario"] != "")
         {
-            if (Request.QueryString["usuario"].ToString() != "")
-            {
+            if (Session["usuario"].ToString() == Request.QueryString["usuario"].ToString())
+            {            
                 string usuario = Request.QueryString["usuario"].ToString();
                 user = ENUsuario.Obtener(usuario);
-            }
 
-            extraerParametros();
-            if (!Page.IsPostBack)
-            {
-                actualizarPaginacion();
-                actualizarOrdenacion();
+                extraerParametros();
+                if (!Page.IsPostBack)
+                {
+                    actualizarPaginacion();
+                    actualizarOrdenacion();
+                }
+
+                ObtenerMensajes();
             }
-            ObtenerMensajes();
         }
         else
         {
@@ -72,6 +73,57 @@ public partial class mensajes : WebCacatUA.InterfazWeb
             DropDownList_orden.SelectedIndex = 1;
     }
 
+    /// <summary>
+    /// Inserta la primera fila de la tabla, que es la cabecera.
+    /// </summary>
+    private void insertarCabecera()
+    {
+        // Columna Leído
+        TableCell c1 = new TableCell();
+        c1.CssClass = "columna1Mensajes cabeceraMensajes";
+        Label l1 = new Label();
+        l1.Text = Resources.I18N.Leído;
+        Panel p1 = new Panel();
+        p1.CssClass = "tituloGrupos";
+        p1.Controls.Add(l1);
+        c1.Controls.Add(p1);
+
+        // Columna De
+        TableCell c2 = new TableCell();
+        c2.CssClass = "columna2Mensajes cabeceraMensajes";
+        Label l3 = new Label();
+        l3.Text = Resources.I18N.De;
+        Panel p3 = new Panel();
+        p3.Controls.Add(l3);
+        c2.Controls.Add(p3);
+
+        // Columna Fecha
+        TableCell c3 = new TableCell();
+        c3.CssClass = "columna3Mensajes cabeceraMensajes";
+        Label l4 = new Label();
+        l4.Text = Resources.I18N.Fecha;
+        Panel p4 = new Panel();
+        p4.Controls.Add(l4);
+        c3.Controls.Add(p4);
+
+        // Columna Mensaje
+        TableCell c4 = new TableCell();
+        c4.CssClass = "columna4Mensajes cabeceraMensajes";
+        Label l5 = new Label();
+        l5.Text = Resources.I18N.Mensaje;
+        Panel p5 = new Panel();
+        p5.Controls.Add(l5);
+        c4.Controls.Add(p5);
+
+        // Insertamos las columnas en la fila e insertamos la fila en la tabla.
+        TableRow fila = new TableRow();
+        fila.Controls.Add(c1);
+        fila.Controls.Add(c2);
+        fila.Controls.Add(c3);
+        fila.Controls.Add(c4);
+        Table_mensajes.Controls.Add(fila);
+    }
+
     private void ObtenerMensajes()
     {
         string ordenarpor = "";
@@ -85,31 +137,11 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         }
         ArrayList mensajes = ENMensaje.ObtenerMensajes(user.Usuario, orden,ordenarpor,pagina,cantidad);
         Table_mensajes.Controls.Clear();
-        TableRow fila = new TableRow();
-        TableCell celdax = new TableCell();
-        TableCell celday = new TableCell();
-        TableCell celdaz = new TableCell();
-        TableCell celdaw = new TableCell();
-        Label men = new Label();
-        Label fech = new Label();
-        Label usuarios = new Label();
-        Label leido = new Label();
-        men.Text = Resources.I18N.Mensaje;
-        fech.Text = Resources.I18N.Fecha;
-        usuarios.Text = Resources.I18N.autormensaje;
-        leido.Text = Resources.I18N.Leido;
-        celdax.Controls.Add(usuarios);
-        celday.Controls.Add(fech);
-        celdaz.Controls.Add(men);
-        celdaw.Controls.Add(leido);
-        fila.Cells.Add(celdaw);
-        fila.Cells.Add(celdax);
-        fila.Cells.Add(celday);
-        fila.Cells.Add(celdaz);
-        Table_mensajes.Controls.Add(fila);
+
+        insertarCabecera();
         if (totalResultados >= 1)
         {
-            Label_mostrandoMensajes.Text = Resources.I18N.Viendo + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.De + totalResultados + " " + Resources.I18N.MensajesMin;
+            Label_mostrandoMensajes.Text = Resources.I18N.Viendo + " " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.MensajesMin;
             foreach (ENMensaje mensaje in mensajes)
             {
                 TableRow fila2 = new TableRow();
@@ -139,14 +171,18 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                 link.NavigateUrl = "usuario.aspx?usuario=" + mensaje.Emisor.Usuario;
                 texto.Text = mensaje.Texto;
                 fecha.Text = mensaje.Fecha.ToString();
-                celda1.Controls.Add(link);
-                celda2.Controls.Add(fecha);
-                celda3.Controls.Add(texto);
-                celda4.Controls.Add(leer);
-                fila2.Cells.Add(celda4);
+                celda1.Controls.Add(leer);
+                celda1.CssClass = "columna1Mensajes";
+                celda2.Controls.Add(link);
+                celda2.CssClass = "columna2Mensajes";
+                celda3.Controls.Add(fecha);
+                celda3.CssClass = "columna3Mensajes";
+                celda4.Controls.Add(texto);
+                celda4.CssClass = "columna4Mensajes";
                 fila2.Cells.Add(celda1);
                 fila2.Cells.Add(celda2);
                 fila2.Cells.Add(celda3);
+                fila2.Cells.Add(celda4);
                 Table_mensajes.Controls.Add(fila2);
             }
         }

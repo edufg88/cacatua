@@ -86,7 +86,6 @@ public partial class grupos : WebCacatUA.InterfazWeb
 
         // Insertamos las columnas en la fila e insertamos la fila en la tabla.
         TableRow fila = new TableRow();
-        fila.CssClass = "hiloForo";
         fila.Controls.Add(c1);
         fila.Controls.Add(c2);
         fila.Controls.Add(c3);

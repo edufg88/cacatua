@@ -340,7 +340,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a de.
+        ///   Busca una cadena traducida similar a De.
         /// </summary>
         internal static string De {
             get {
@@ -372,6 +372,15 @@ namespace Resources {
         internal static string DebesSeleccionarCategoria {
             get {
                 return ResourceManager.GetString("DebesSeleccionarCategoria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a de.
+        /// </summary>
+        internal static string Deminuscula {
+            get {
+                return ResourceManager.GetString("Deminuscula", resourceCulture);
             }
         }
         
@@ -471,6 +480,15 @@ namespace Resources {
         internal static string EnCategoriaActual {
             get {
                 return ResourceManager.GetString("EnCategoriaActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a encontrados.
+        /// </summary>
+        internal static string EncontradosMin {
+            get {
+                return ResourceManager.GetString("EncontradosMin", resourceCulture);
             }
         }
         
@@ -831,6 +849,15 @@ namespace Resources {
         internal static string Leido {
             get {
                 return ResourceManager.GetString("Leido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Leído.
+        /// </summary>
+        internal static string Leído {
+            get {
+                return ResourceManager.GetString("Leído", resourceCulture);
             }
         }
         
@@ -1249,6 +1276,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Resultados.
+        /// </summary>
+        internal static string Resultados {
+            get {
+                return ResourceManager.GetString("Resultados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Salir.
         /// </summary>
         internal static string Salir {
@@ -1398,6 +1434,15 @@ namespace Resources {
         internal static string Usuarios {
             get {
                 return ResourceManager.GetString("Usuarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a usuarios.
+        /// </summary>
+        internal static string UsuariosMin {
+            get {
+                return ResourceManager.GetString("UsuariosMin", resourceCulture);
             }
         }
         
