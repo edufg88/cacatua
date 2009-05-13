@@ -85,6 +85,13 @@
     <Compile Include="categorias.aspx.designer.cs">
       <DependentUpon>categorias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="chat.aspx.cs">
+      <DependentUpon>chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="chat.aspx.designer.cs">
+      <DependentUpon>chat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="comentarioMaterial.ascx.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,6 +362,7 @@
   <ItemGroup>
     <Content Include="borrarencuesta.aspx" />
     <Content Include="categorias.aspx" />
+    <Content Include="chat.aspx" />
     <Content Include="comentarioMaterial.ascx" />
     <Content Include="edicionencuesta.aspx" />
     <Content Include="encuestas.aspx" />
