@@ -197,6 +197,7 @@ namespace Libreria
             }
             finally
             {
+                BorrarDesconectados();
                 if (conexion != null)
                     conexion.Close();
             }
