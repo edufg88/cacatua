@@ -99,6 +99,13 @@
     <Compile Include="comentarioMaterial.ascx.designer.cs">
       <DependentUpon>comentarioMaterial.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="edicionencuesta.aspx.cs">
       <DependentUpon>edicionencuesta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -392,6 +399,7 @@
     <Content Include="categorias.aspx" />
     <Content Include="chat.aspx" />
     <Content Include="comentarioMaterial.ascx" />
+    <Content Include="Default.aspx" />
     <Content Include="edicionencuesta.aspx" />
     <Content Include="encuestas.aspx" />
     <Content Include="estadoencuesta.aspx" />
