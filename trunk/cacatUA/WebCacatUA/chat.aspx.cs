@@ -24,9 +24,11 @@ namespace WebCacatUA
             sw.Close();
         }
 
+        public string NombreUsuario;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            NombreUsuario = "";
             TextBox_mensaje.Enabled = false;
             Button_enviar.Enabled = false;
             if (Session["usuario"] != null)
@@ -42,6 +44,7 @@ namespace WebCacatUA
                 {
                     // Obtenemos el usuario de la sesión
                     ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+                    NombreUsuario = usuario.Usuario;
                     // Nos logueamos 
                     ENChatConectado conectado = new ENChatConectado();
                     conectado.Usuario = usuario;
@@ -52,13 +55,24 @@ namespace WebCacatUA
 
         private void ActualizarChat()
         {
+            try
+            {
+                ENChatConectado conectado = new ENChatConectado();
+                conectado.Usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+                conectado.Actualizar();
+            }
+            catch (Exception)
+            {
+                escribir("actualizando en chat.aspx.cs");
+            }
+
             // Mostramos los usuarios que hay conectados
             ArrayList conectados = ENChatConectado.Obtener();
+            ListBox_usuarios.Items.Clear();
             foreach (ENChatConectado conectado in conectados)
             {
                 ListItem item = new ListItem(conectado.Usuario.Usuario);
-                if(ListBox_usuarios.Items.Contains(item) == false)
-                    ListBox_usuarios.Items.Add(conectado.Usuario.Usuario);
+                ListBox_usuarios.Items.Add(conectado.Usuario.Usuario);
             }
 
             // Comprobamos cual es el último mensaje
@@ -77,10 +91,25 @@ namespace WebCacatUA
                 ArrayList mensajes = ENChatMensaje.Obtener(ultimoMensaje);
                 foreach (ENChatMensaje mensaje in mensajes)
                 {
-                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje;
-                    Label label = new Label();
-                    label.Text = aux;
-                    Panel_mensajes.Controls.Add(label);
+                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje + "\n";
+
+                    if (Session["usuario"] != null)
+                    {
+                        ENUsuario u = ENUsuario.Obtener(Session["usuario"].ToString());
+                        if (u != null)
+                        {
+                            if (mensaje.Usuario.Id != u.Id)
+                                TextBox_mensajes.Text += aux;
+                        }
+                        else
+                        {
+                            TextBox_mensajes.Text += aux;
+                        }
+                    }
+                    else
+                    {
+                        TextBox_mensajes.Text += aux;
+                    }
                 }
                 if (mensajes.Count > 0)
                 {

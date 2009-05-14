@@ -18,7 +18,6 @@
 #mensajesChat
 {
     margin-right: 210px;
-    height: 200px;
     padding: 5px;
     
     
@@ -26,6 +25,13 @@
     border: 1px solid #666;
     overflow: scroll;
     overflow-x: hidden;
+}
+
+.mensajesChat
+{
+    border: 0;
+    background-color: Transparent;
+    height: 200px;
 }
 
 .mensajeChat

@@ -17,9 +17,8 @@ function limpiar()
     var mensaje = document.getElementById("<%= TextBox_mensaje.ClientID %>").value;
     document.getElementById("<%= TextBox_mensaje.ClientID %>").value = '';
     document.getElementById("<%= TextBox_textoEnviado.ClientID %>").value = mensaje;
+    document.getElementById("<%= TextBox_mensajes.ClientID %>").value += "<%= NombreUsuario %>: " + mensaje + "\n";
 }
-
-
 
 </script>
 
@@ -28,15 +27,15 @@ function limpiar()
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
 
-                <asp:Timer ID="Timer2" runat="server" interval="2000" ontick="actualizarChat" />
+                <asp:Timer ID="Timer2" runat="server" interval="1000" ontick="actualizarChat" />
                 <asp:TextBox ID="TextBox_textoEnviado" runat="server"></asp:TextBox>
                 <asp:Label ID="Label_ultimoMensaje" runat="server" Text="0"></asp:Label>
                 <div id="usuariosConectados">
                     <asp:ListBox ID="ListBox_usuarios" Width="100%" Height="100%" runat="server"></asp:ListBox>
                 </div>
-                
+
                 <div id="mensajesChat">
-                    <asp:Panel ID="Panel_mensajes" Width="100%" runat="server"></asp:Panel>
+                    <asp:TextBox ID="TextBox_mensajes" CssClass="mensajesChat" Width="100%" runat="server" TextMode="MultiLine"></asp:TextBox>
                 </div>
                 
             </ContentTemplate>

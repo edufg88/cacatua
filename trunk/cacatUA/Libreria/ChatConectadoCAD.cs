@@ -22,6 +22,14 @@ namespace Libreria
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
 
+        private void escribir(string cadena)
+        {
+            const string fic = @"C:\log.txt";
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
+            sw.WriteLine(cadena);
+            sw.Close();
+        }
+
         public bool Guardar(ENChatConectado conectado)
         {
             bool correcto = false;
@@ -70,11 +78,13 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
-                comando.CommandText = "UPDATE conectados SET fecha = GETDATE() WHERE usuario = @usuario)";
+                comando.CommandText = "UPDATE conectados SET fecha = GETDATE() WHERE usuario = @usuario";
                 comando.Parameters.AddWithValue("@usuario", conectado.Usuario.Id);
 
                 if (comando.ExecuteNonQuery() == 1)
+                {
                     correcto = true;
+                }
             }
             catch (Exception ex)
             {
@@ -187,7 +197,6 @@ namespace Libreria
             }
             finally
             {
-                //BorrarDesconectados();
                 if (conexion != null)
                     conexion.Close();
             }
@@ -224,9 +233,10 @@ namespace Libreria
 
                 // Le asignamos la conexión al comando.
                 comando.Connection = conexion;
-                comando.CommandText = "DELETE FROM conectados WHERE fecha < GETDATE()";
+                comando.CommandText = "DELETE FROM conectados where DATEDIFF(ss, fecha, GETDATE()) > 10;";
 
-                comando.ExecuteNonQuery();
+                int cantidadBorrados = comando.ExecuteNonQuery();
+                escribir("cantidad borrados: " + cantidadBorrados);
             }
             catch (Exception ex)
             {
@@ -234,6 +244,7 @@ namespace Libreria
             }
             finally
             {
+                escribir("acabo de borrar");
                 if (conexion != null)
                     conexion.Close();
             }
