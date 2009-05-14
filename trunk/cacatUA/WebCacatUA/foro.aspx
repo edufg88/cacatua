@@ -29,19 +29,21 @@
 
 <div id="contenidoForo">
     <div id="busquedaForo">
-        <table style="width: 100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td>
-                    <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%"></asp:TextBox>
-                </td>
-                <td style="width: 2px"></td>
-                <td style="width: 90px;">
-                    <asp:Button ID="Button_buscar" runat="server" 
-                        Text="<%$ Resources: I18N, Buscar %>" Width="100%"
-                        onclick="Button_buscar_Click"/>
-                </td>
-            </tr>
-        </table>
+        <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_buscar">
+            <table style="width: 100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td>
+                        <asp:TextBox ID="TextBox_filtroBusqueda" runat="server" Width="100%"></asp:TextBox>
+                    </td>
+                    <td style="width: 2px"></td>
+                    <td style="width: 90px;">
+                        <asp:Button ID="Button_buscar" runat="server" 
+                            Text="<%$ Resources: I18N, Buscar %>" Width="100%"
+                            onclick="Button_buscar_Click"/>
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
         <div id="criteriosBusquedaForo">
             <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
             <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="22%" 

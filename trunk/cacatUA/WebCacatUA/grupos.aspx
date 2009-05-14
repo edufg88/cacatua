@@ -12,7 +12,8 @@
     
     <div id="busquedaGrupos">
         <div id="filtroBusqueda">
-            <table style="width: 100%" cellpadding="0" cellspacing="0" class="tablaBusqueda">              
+        <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_buscar">              
+            <table style="width: 100%" cellpadding="0" cellspacing="0" class="tablaBusqueda">
                 <tr>
                     <td style="width: 35%"></td>
                     <td style="width: 30%">
@@ -29,6 +30,7 @@
                     <td style="width: 25%"></td>
                 </tr>
             </table>
+        </asp:Panel>    
         </div>
         <div id="criteriosBusqueda">
             <div id="ordenar">

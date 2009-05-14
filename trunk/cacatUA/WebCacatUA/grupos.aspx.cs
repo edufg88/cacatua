@@ -34,6 +34,7 @@ public partial class grupos : WebCacatUA.InterfazWeb
             actualizarPaginacion();
             actualizarOrdenacion();
             actualizarBusqueda();
+            TextBox_filtroBusqueda.Focus();
         }
         mostrarGrupos();
         if (Session["usuario"] == null)
