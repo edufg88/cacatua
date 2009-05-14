@@ -21,6 +21,7 @@ namespace cacatUA
         private String bNombre = "";
         private String bEmail = "";
         private DateTime bFecha;
+        private DateTime bFechaFin;
 
         /// <summary>
         /// Constructor del formulario de búsqueda
@@ -40,6 +41,7 @@ namespace cacatUA
             bNombre = textBox_nombreUsuario.Text;
             bEmail = textBox_email.Text;
             bFecha = dateTimePicker_fechaIngreso.Value;
+            bFechaFin = dateTimePicker_fechafin.Value;
             BuscarUsuarios();
         }
 
@@ -50,7 +52,7 @@ namespace cacatUA
             {
                 padre.TotalBusqueda = ENUsuario.NumUsuarios(bNombre, bEmail,bFecha);
                 padre.TotalPaginas = ((padre.TotalBusqueda - 1) / padre.TamañoPagina) + 1;
-                usuarios = ENUsuario.Buscar(bNombre, bEmail, bFecha, padre.NumeroPagina, padre.TamañoPagina);
+                usuarios = ENUsuario.Buscar(bNombre, bEmail, bFecha, bFechaFin, padre.NumeroPagina, padre.TamañoPagina);
                     
             }
             else
@@ -66,16 +68,25 @@ namespace cacatUA
 
         private void FormUsuarioBusqueda_Load(object sender, EventArgs e)
         {
-            textBox_nombreUsuario.Text = "";
-            textBox_email.Text = "";
-            dateTimePicker_fechaIngreso.Value = DateTime.Now;
+            inicio();
         }
 
         private void button_limpiar_Click(object sender, EventArgs e)
         {
+            inicio();
+        }
+
+        public void inicio()
+        {
             textBox_nombreUsuario.Text = "";
             textBox_email.Text = "";
-            dateTimePicker_fechaIngreso.Value = DateTime.Now;
+            DateTime inicio = new DateTime(2006, 01, 01);
+            dateTimePicker_fechaIngreso.Value = inicio;
+            dateTimePicker_fechafin.Value = DateTime.Now;
+            bNombre = textBox_nombreUsuario.Text;
+            bEmail = textBox_email.Text;
+            bFecha = dateTimePicker_fechaIngreso.Value;
+            bFechaFin = dateTimePicker_fechafin.Value;
         }
     }
 }

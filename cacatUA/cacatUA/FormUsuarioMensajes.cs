@@ -42,7 +42,7 @@ namespace cacatUA
         public void CargarMensajes()
         {
             ArrayList datos = new ArrayList();
-            datos = mensaje.Buscar(usuario.Usuario, "", DateTime.Now);
+            datos = mensaje.Buscar("", usuario.Usuario, DateTime.Now);
             cargarDatos(datos);
         }
 

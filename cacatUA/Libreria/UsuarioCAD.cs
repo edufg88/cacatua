@@ -531,12 +531,10 @@ namespace Libreria
             return cantidad;
         }
 
-        public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso, int pagina, int tamaño)
+        public ArrayList BuscarUsuario(string nombreUsuario, string correo, DateTime fechaIngreso,DateTime fechaFin, int pagina, int tamaño)
         {
             bool usarUsuario = false;
             bool usarCorreo = false;
-            bool usarFecha = false;
-            string cadenaFecha = "";
 
             if (nombreUsuario != "")
             {
@@ -546,17 +544,6 @@ namespace Libreria
             {
                 usarCorreo = true;
             }            
-            if (fechaIngreso.Date != DateTime.Now.Date)
-            {
-                usarFecha = true;
-
-                // Generamos una cadena a partir de la fecha
-                cadenaFecha += fechaIngreso.Day;
-                cadenaFecha += "/";
-                cadenaFecha += fechaIngreso.Month;
-                cadenaFecha += "/";
-                cadenaFecha += fechaIngreso.Year;
-            }
 
             SqlConnection conexion = new SqlConnection(cadenaConexion);
             ArrayList usuarios = new ArrayList();
@@ -573,32 +560,22 @@ namespace Libreria
 
                 comando.CommandText = "SELECT * FROM (" +
                                      "SELECT *, ROW_NUMBER() OVER (ORDER BY id asc) " +
-                                     "as fila FROM usuarios WHERE ";
+                                     "as fila FROM usuarios WHERE fechaingreso between @fechaingreso and @fechafin ";
 
                 if (usarUsuario)
                 {
-                    comando.CommandText += "(usuario LIKE @usuario) ";
+                    comando.CommandText += "AND (usuario LIKE @usuario) ";
                     comando.Parameters.AddWithValue("@usuario", "%" + nombreUsuario + "%");
                 }
                 if (usarCorreo)
                 {
-                    if (usarUsuario)
-                    {
-                        comando.CommandText += "AND ";
-                    }
-                    comando.CommandText += "(correo LIKE @correo) ";
+                    comando.CommandText += "AND (correo LIKE @correo) ";
                     comando.Parameters.AddWithValue("@correo", "%" + correo + "%");
                 }
 
-                if (usarFecha)
-                {
-                    if (usarUsuario || usarCorreo)
-                    {
-                        comando.CommandText += "AND ";
-                    }
-                    comando.CommandText += "(fechaingreso = @fechaingreso) ";
-                    comando.Parameters.AddWithValue("@fechaingreso", cadenaFecha);
-                }
+
+                comando.Parameters.AddWithValue("@fechaingreso", fechaIngreso);
+                comando.Parameters.AddWithValue("@fechafin", fechaFin);
 
                 comando.CommandText += ") as alias WHERE fila >= " + desde.ToString() + " and fila <= " + hasta.ToString();
 

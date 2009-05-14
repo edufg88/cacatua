@@ -197,139 +197,19 @@ namespace cacatUA
                 formEdicion.Editar(int.Parse(dataGridView_resultados.SelectedRows[0].Cells[0].Value.ToString()));
             }
         }
-
-
-        /*
-        public void ActualizarPaginacion()
-        {
-            if (totalResultados > 0)
-            {
-                int paginas = (int)Math.Ceiling(totalResultados / (float)CantidadPorPagina);
-                int pagina = 0;
-
-                try
-                {
-                    pagina = int.Parse(comboBox_pagina.Text);
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("ERROR: void FormForo.ActualizarPaginacion()");
-                }
-
-                int inicial = (pagina - 1) * CantidadPorPagina + 1;
-                int final = inicial - 1 + CantidadPorPagina;
-                if (final > totalResultados) final = totalResultados;
-
-                label_resultados.Text = "(mostrando " + inicial + " - " + final + " de " + totalResultados + " grupos encontrados)";
-            }
-            else
-            {
-                label_resultados.Text = "(no hay resultados con este criterio de búsqueda)";
-            }
-        }*/
-
-        /*public int TotalResultados
-        {
-            get
-            {
-                return totalResultados;
-            }
-
-            set
-            {
-                totalResultados = value;
-                comboBox_pagina.Items.Clear();
-                totalPaginas = (int)Math.Ceiling(totalResultados / (float)CantidadPorPagina);
-                for (int i = 0; i < totalPaginas; i++)
-                {
-                    comboBox_pagina.Items.Add(i + 1);
-                }
-                if (totalPaginas > 0)
-                {
-                    comboBox_pagina.SelectedItem = comboBox_pagina.Items[0];
-                    PaginaActual = 1;
-                }
-
-                ActualizarPaginacion();
-            }
-        }
-
-        public ENGrupos UltimoGrupo
-        {
-            get
-            {
-                if (dataGridView_resultados.Rows.Count > 0)
-                    return ENGrupos.Obtener(int.Parse(dataGridView_resultados.Rows[dataGridView_resultados.Rows.Count - 1].Cells[0].Value.ToString()));
-                else
-                    return null;
-            }
-        }
-
-        public ENGrupos PrimerGrupo
-        {
-            get
-            {
-                if (dataGridView_resultados.Rows.Count > 0)
-                    return ENGrupos.Obtener(int.Parse(dataGridView_resultados.Rows[0].Cells[0].Value.ToString()));
-                else
-                    return null;
-            }
-        }*/
+        
         public int CantidadPorPagina
         {
             get { return cantidadPorPagina; }
             set { cantidadPorPagina = value; }
         }
 
-        /*public bool Orden
-        {
-            get { return dataGridView_resultados.SortOrder == SortOrder.Ascending; }
-        }*/
-
         public int PaginaActual
         {
             get { return paginaActual; }
             set { paginaActual = value; }
         }
-        /*
-        private void button_paginaSiguiente_Click(object sender, EventArgs e)
-        {
-            PaginaActual++;
-            comboBox_pagina.SelectedItem = comboBox_pagina.Items[PaginaActual - 1];
-            formBusqueda.Siguiente();
-        }
-
-        private void button_paginaAnterior_Click(object sender, EventArgs e)
-        {
-            PaginaActual--;
-            if (PaginaActual > 0)
-                comboBox_pagina.SelectedItem = comboBox_pagina.Items[PaginaActual - 1];
-            formBusqueda.Anterior();
-        }
-
-        private void comboBox_cantidadPorPagina_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            TotalResultados = TotalResultados;
-            formBusqueda.Buscar(false);
-        }
-
-        private void comboBox_pagina_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            int paginaFinal = int.Parse(comboBox_pagina.SelectedItem.ToString());
-
-            while (paginaFinal > PaginaActual)
-            {
-                PaginaActual++;
-                formBusqueda.Siguiente();
-            }
-
-            while (paginaFinal < PaginaActual)
-            {
-                PaginaActual--;
-                formBusqueda.Anterior();
-            }
-        }*/
-
+        
         private void dataGridView_resultados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -337,27 +217,6 @@ namespace cacatUA
                 ordenModificado(e.ColumnIndex);
             }
         }
-
-        /*private void dataGridView_resultados_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.ColumnIndex == 0)
-            {
-                if (dataGridView_resultados.SortedColumn != null)
-                {
-                    dataGridView_resultados.SortedColumn.HeaderCell.SortGlyphDirection = SortOrder.None;
-                }
-
-                ListSortDirection orden;
-                if (dataGridView_resultados.SortOrder == SortOrder.Ascending)
-                    orden = ListSortDirection.Descending;
-                else
-                    orden = ListSortDirection.Ascending;
-
-                dataGridView_resultados.Sort(dataGridView_resultados.Columns[0], orden);
-
-                formBusqueda.Buscar(false);
-            }
-        }*/
 
         private void ordenModificado(int numColumna)
         {
