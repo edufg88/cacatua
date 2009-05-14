@@ -201,8 +201,9 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 h1.Text += "<a href=\"usuario.aspx?usuario=" + i.Autor.Usuario + "\">" + i.Autor.Usuario + "</a><br />";
 
                 Image i1 = new Image();
-                if (i.Autor.Imagen != -1)
-                    i1.ImageUrl = "galeria/" + i.Autor.Imagen + ".jpg";
+                ENImagen imagenUsuario = ENImagen.Obtener(i.Autor.Imagen);
+                if (imagenUsuario != null)
+                    i1.ImageUrl = "galeria/" + imagenUsuario.Archivo;
                 else
                     i1.ImageUrl = "imagenes/sinImagen.png";
                 i1.CssClass = "imagenUsuarioRespuestaHilo";

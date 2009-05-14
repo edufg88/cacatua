@@ -39,6 +39,7 @@ namespace WebCacatUA
 
             if (!Page.IsPostBack)
             {
+                ActualizarChat();
                 // Nos logueamos en el chat
                 if (Session["usuario"] != null)
                 {

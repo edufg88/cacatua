@@ -422,20 +422,6 @@
     <Content Include="descargar.aspx" />
     <Content Include="galeriaDetalle.aspx" />
     <Content Include="imagenes\cacatua.ico" />
-    <Content Include="galeria\1.jpg" />
-    <Content Include="galeria\10.jpg" />
-    <Content Include="galeria\11.jpg" />
-    <Content Include="galeria\12.jpg" />
-    <Content Include="galeria\13.jpg" />
-    <Content Include="galeria\14.jpg" />
-    <Content Include="galeria\2.jpg" />
-    <Content Include="galeria\3.jpg" />
-    <Content Include="galeria\4.jpg" />
-    <Content Include="galeria\5.jpg" />
-    <Content Include="galeria\6.jpg" />
-    <Content Include="galeria\7.jpg" />
-    <Content Include="galeria\8.jpg" />
-    <Content Include="galeria\9.jpg" />
     <Content Include="creargrupo.aspx" />
     <Content Include="imagenes\descargar.png" />
     <Content Include="grupos.aspx" />
@@ -488,6 +474,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
+    <Folder Include="galeria\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
