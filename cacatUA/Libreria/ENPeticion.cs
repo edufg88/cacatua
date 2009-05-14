@@ -14,6 +14,7 @@ namespace Libreria
         private ENUsuario usuario;
         private DateTime fecha;
         private bool contestada;
+        private PeticionCAD cad = new PeticionCAD();
 
         public ENPeticion()
         {
@@ -90,7 +91,7 @@ namespace Libreria
 
         override public bool Actualizar()
         {
-            return PeticionCAD.Instancia.ActualizarPeticion(this);
+            return cad.ActualizarPeticion(this);
         }
 
         override public bool Guardar()
@@ -100,7 +101,7 @@ namespace Libreria
 
         override public bool Borrar()
         {
-            return PeticionCAD.Instancia.BorrarPeticion(this.id);
+            return cad.BorrarPeticion(this.id);
         }
 
         public static ArrayList Obtener(string asunto, string texto, int usuario,int mostrar, ref DateTime inicio,ref DateTime final,bool porFecha,string orden,bool ascendente,int numeroDePagina,int cantidad,ref int resultados)

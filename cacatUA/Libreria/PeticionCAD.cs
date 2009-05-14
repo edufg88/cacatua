@@ -10,19 +10,18 @@ using System.Configuration;
 
 namespace Libreria
 {
-    sealed class PeticionCAD
+    class PeticionCAD
     {
 
-        private static readonly PeticionCAD instancia = new PeticionCAD();
         static string cadenaConexion;
 
         public static PeticionCAD Instancia
         {
-            get { return instancia; }
+            get { return new PeticionCAD(); }
         }
 
 
-        private PeticionCAD()
+        public PeticionCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }

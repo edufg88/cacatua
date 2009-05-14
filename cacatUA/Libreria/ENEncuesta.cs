@@ -36,6 +36,8 @@ namespace Libreria
         /// </summary>
         private bool activa;
 
+        private EncuestaCAD cad = new EncuestaCAD();
+
         /// <summary>
         /// Constructor por defecto de la clase
         /// </summary>
@@ -91,7 +93,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
-            return EncuestaCAD.Instancia.Actualizar(this);
+            return cad.Actualizar(this);
         }
 
         /// <summary>
@@ -100,7 +102,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return EncuestaCAD.Instancia.GuardarEncuesta(pregunta, usuario.Usuario, activa);
+            return cad.GuardarEncuesta(pregunta, usuario.Usuario, activa);
         }
 
         /// <summary>
@@ -109,7 +111,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
-            return EncuestaCAD.Instancia.BorrarEncuesta(id);
+            return cad.BorrarEncuesta(id);
         }
 
         /// <summary>
@@ -127,7 +129,7 @@ namespace Libreria
         /// </summary>
         public void BorrarEncuestas()
         {
-            EncuestaCAD.Instancia.BorrarEncuestas();
+            cad.BorrarEncuestas();
         }
 
         /// <summary>
@@ -138,7 +140,7 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado de la búsqueda</returns>
         public ArrayList Buscar(string asunto, DateTime fecha)
         {
-            return EncuestaCAD.Instancia.BuscarEncuesta(asunto, fecha);
+            return cad.BuscarEncuesta(asunto, fecha);
         }
 
         /// <summary>
@@ -148,12 +150,12 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado de la búsqueda</returns>
         public ArrayList Buscar(int usuario)
         {
-            return EncuestaCAD.Instancia.BuscarEncuesta(usuario);
+            return cad.BuscarEncuesta(usuario);
         }
 
         public bool CambiarEstado(bool activar)
         {
-            return EncuestaCAD.Instancia.CambiarEstado(this,activar);
+            return cad.CambiarEstado(this,activar);
         }
 
         public static OpcionEncuesta ObtenerOpcion(int id) {
@@ -182,7 +184,7 @@ namespace Libreria
         
         public ArrayList Opciones()
         {
-            return EncuestaCAD.Instancia.OpcionesDe(this);
+            return cad.OpcionesDe(this);
         }
 
         /// <summary>
@@ -192,7 +194,7 @@ namespace Libreria
         /// <returns></returns>
         public bool DeUsuario(ENUsuario usuario)
         {
-            return EncuestaCAD.Instancia.EsEncuestaDeUsuario(usuario, this);
+            return cad.EsEncuestaDeUsuario(usuario, this);
         }
 
         /// <summary>
@@ -202,12 +204,12 @@ namespace Libreria
         /// <returns></returns>
         public bool HaVotado(ENUsuario usuario)
         {
-            return EncuestaCAD.Instancia.HaVotadoEncuesta(usuario, this);
+            return cad.HaVotadoEncuesta(usuario, this);
         }
 
         public int NumVotos()
         {
-            return EncuestaCAD.Instancia.NumVotos(this);
+            return cad.NumVotos(this);
         }
 
         public int Id
