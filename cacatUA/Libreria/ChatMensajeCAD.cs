@@ -14,6 +14,14 @@ namespace Libreria
     {
         private String cadenaConexion;
 
+        private void escribir(string cadena)
+        {
+            const string fic = @"C:\log.txt";
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
+            sw.WriteLine(cadena);
+            sw.Close();
+        }
+
         /// <summary>
         /// Constructor por defecto.
         /// </summary>
@@ -42,7 +50,10 @@ namespace Libreria
                 comando.Parameters.AddWithValue("@mensaje", chat.Mensaje);
 
                 if (comando.ExecuteNonQuery() == 1)
+                {
                     correcto = true;
+                    BorrarMensajesAntiguos(500, 20);
+                }
             }
             catch (Exception ex)
             {
@@ -80,7 +91,10 @@ namespace Libreria
                     // Le asignamos la conexión al comando.
                     comando.Connection = conexion;
                     comando.CommandText = "DELETE FROM chat WHERE id < @id";
-                    comando.Parameters.AddWithValue("@id", id);                
+                    comando.Parameters.AddWithValue("@id", id);
+
+                    if (comando.ExecuteNonQuery() > 0)
+                        correcto = true;
                 }
             }
             catch (Exception ex)
@@ -92,6 +106,7 @@ namespace Libreria
                 if (conexion != null)
                     conexion.Close();
             }
+
             return correcto;
         }
 
@@ -264,7 +279,7 @@ namespace Libreria
 
         public ENChatMensaje Ultimo()
         {
-            ENChatMensaje chat = new ENChatMensaje();
+            ENChatMensaje chat = null;
             SqlConnection conexion = null;
             try
             {

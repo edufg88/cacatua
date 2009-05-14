@@ -16,7 +16,7 @@
     <div id="navegacionUsuario">
         <div id="menuUsuario">
             <div id="nombreUsuario"><asp:Label ID="Label_nombreUsuario" runat="server" Text="Nombre usuario"></asp:Label></div>
-            <div id="fotoUsuario"><asp:Image ID="Image_fotoUsuario" runat="server" ImageUrl="imagenes/sinImagen.png" /></div>
+            <div id="fotoUsuario"><asp:Image ID="Image_fotoUsuario" CssClass="imagenUsuario" runat="server" ImageUrl="imagenes/sinImagen.png" /></div>
             
             <div id="datosUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_datosUsuario" runat="server">Datos del usuario</asp:HyperLink></div>
             <div id="firmasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_firmasUsuario" runat="server">Firmas (13)</asp:HyperLink></div>
