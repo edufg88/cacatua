@@ -190,6 +190,7 @@ namespace Libreria
                     ENChatConectado conectado = ObtenerDatos(reader);
                     conectados.Add(conectado);
                 }
+                BorrarDesconectados();
             }
             catch (Exception ex)
             {
@@ -197,7 +198,6 @@ namespace Libreria
             }
             finally
             {
-                BorrarDesconectados();
                 if (conexion != null)
                     conexion.Close();
             }
