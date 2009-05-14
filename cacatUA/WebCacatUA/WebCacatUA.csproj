@@ -204,6 +204,13 @@
     <Compile Include="nuevoMaterial.ascx.designer.cs">
       <DependentUpon>nuevoMaterial.ascx</DependentUpon>
     </Compile>
+    <Compile Include="peticion.aspx.cs">
+      <DependentUpon>peticion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="peticion.aspx.designer.cs">
+      <DependentUpon>peticion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -431,6 +438,7 @@
     <Content Include="materialBusqueda.ascx" />
     <Content Include="mostrarMaterial.aspx" />
     <Content Include="nuevoMaterial.ascx" />
+    <Content Include="peticion.aspx" />
     <Content Include="registroUsuario.aspx" />
     <Content Include="galeria.aspx" />
     <Content Include="enviarmensaje.aspx" />
