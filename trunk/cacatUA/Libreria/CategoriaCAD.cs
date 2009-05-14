@@ -13,26 +13,22 @@ namespace Libreria
     /// <summary>
     /// Clase singleton que realiza el acceso a la base de datos para manipular las categorias.
     /// </summary>
-    sealed class CategoriaCAD
+    class CategoriaCAD
     {        
         private String cadenaConexion;        
-        private static readonly CategoriaCAD instancia = new CategoriaCAD();
 
         /// <summary>
-        /// Obtiene la única instancia de la clase CategoriasCAD. Si es la primera vez
-        /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
-        /// al objeto que ya fue creado anteriormente.
+        /// Devuelve una instancia de la clase.
         /// </summary>
-        /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
         public static CategoriaCAD Instancia
         {
-            get { return instancia; }
+            get { return new CategoriaCAD(); }
         }
         /// <summary>
         /// Constructor en el ámbito privado de la clase para no permitir 
         /// más de una instancia.
         /// </summary>
-        private CategoriaCAD()
+        public CategoriaCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }

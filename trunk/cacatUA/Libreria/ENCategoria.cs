@@ -11,6 +11,7 @@ namespace Libreria
         private String nombre;
         private String descripcion;
         private int padre;
+        private CategoriaCAD cad = new CategoriaCAD();
 
 
         /// <summary>
@@ -76,7 +77,7 @@ namespace Libreria
 
         override public bool Guardar()
         {
-            return CategoriaCAD.Instancia.Crear(this,out id);
+            return cad.Crear(this,out id);
         }
 
         /// <summary>
@@ -85,7 +86,7 @@ namespace Libreria
         /// <returns>Devuelve 'true' si el objeto se ha actualizado correctamente.</returns>
         override public bool Actualizar()
         {
-            return CategoriaCAD.Instancia.Actualizar(this);
+            return cad.Actualizar(this);
         }
 
         /// <summary>
@@ -100,7 +101,7 @@ namespace Libreria
                     return false;
                 }
             }
-            return CategoriaCAD.Instancia.Borrar(this);
+            return cad.Borrar(this);
         }
 
         /// <summary>
@@ -154,7 +155,7 @@ namespace Libreria
         /// <returns>Devuelve la lista de ENCategoria hijos.</returns>
         public ArrayList ObtenerHijos()
         {
-            return CategoriaCAD.Instancia.HijosDe(this);
+            return cad.HijosDe(this);
         }
 
         /// <summary>
@@ -164,7 +165,7 @@ namespace Libreria
         /// <returns>Devuelve una lista de ENCategoria que son descendientes de la categoría padre.</returns>
         public ArrayList ObtenerDescendencia()
         {
-            return CategoriaCAD.Instancia.DescendenciaDe(this);
+            return cad.DescendenciaDe(this);
         }
 
         /// <summary>
@@ -173,7 +174,7 @@ namespace Libreria
         /// <returns>Devuelve la lista de ENUsuario suscritos.</returns>
         public ArrayList UsuariosSuscritos(int numPagina)
         {
-            return CategoriaCAD.Instancia.UsuariosSuscritosA(this,numPagina);
+            return cad.UsuariosSuscritosA(this,numPagina);
         }
 
         /// <summary>
@@ -182,7 +183,7 @@ namespace Libreria
         /// <returns>Entero que indica el número de materiales.</returns>
         public int NumMateriales()
         {
-            return CategoriaCAD.Instancia.NumMaterialesEn(this);
+            return cad.NumMaterialesEn(this);
         }
 
 
@@ -192,7 +193,7 @@ namespace Libreria
         /// <returns>Entero que indica el número de hilos.</returns>
         public int NumHilos()
         {
-            return CategoriaCAD.Instancia.NumHilosEn(this);
+            return cad.NumHilosEn(this);
         }
 
         /// <summary>
@@ -223,7 +224,7 @@ namespace Libreria
         /// <returns>Devuelve 'true' si el usuario ha sido suscrito correctamente.</returns>
         public bool SuscribirUsuario(ENUsuario usuario)
         {
-            if (CategoriaCAD.Instancia.AñadirSuscripcion(this, usuario))
+            if (cad.AñadirSuscripcion(this, usuario))
             {
                 foreach (ENCategoria c in ObtenerHijos())
                 {
@@ -247,7 +248,7 @@ namespace Libreria
         /// <returns>Devuelve 'true' si el usuario ha sido insuscrito correctamente.</returns>
         public bool InsuscribirUsuario(ENUsuario usuario)
         {
-            return CategoriaCAD.Instancia.QuitarSuscripcion(this, usuario);
+            return cad.QuitarSuscripcion(this, usuario);
         }
 
 
@@ -257,7 +258,7 @@ namespace Libreria
         /// <returns>Entero que indica el número de usuarios suscritos.</returns>
         public int NumSuscritos()
         {
-            return CategoriaCAD.Instancia.NumSuscritos(this);
+            return cad.NumSuscritos(this);
         }
 
         /// <summary>
@@ -296,7 +297,7 @@ namespace Libreria
         /// <returns></returns>
         public bool EstaSuscrito(ENUsuario usuario)
         {
-            return CategoriaCAD.Instancia.EstaSuscritoA(usuario, this);
+            return cad.EstaSuscritoA(usuario, this);
         }
 
         /// <summary>

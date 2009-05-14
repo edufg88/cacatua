@@ -8,21 +8,19 @@ using System.Configuration;
 
 namespace Libreria
 {
-    // Clase singleton
     // Componente de Acceso a Datos para relacionarse con la BD 'encuestas'
-    sealed class EncuestaCAD
+    class EncuestaCAD
     {
-        private static readonly EncuestaCAD instancia = new EncuestaCAD();
         private String cadenaConexion;
 
         // Devuelve la instancia única de la clase
         public static EncuestaCAD Instancia
         {
-            get { return(instancia); }
+            get { return new EncuestaCAD(); }
         }
 
         // El constructor privado crea la cadena de conexión
-        private EncuestaCAD()
+        public EncuestaCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
