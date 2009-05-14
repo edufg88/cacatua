@@ -534,4 +534,10 @@
   <data name="Viendo" xml:space="preserve">
     <value>Seeing</value>
   </data>
+  <data name="MensajesMin" xml:space="preserve">
+    <value>messages</value>
+  </data>
+  <data name="SinResultados" xml:space="preserve">
+    <value>There are no results to be shown</value>
+  </data>
 </root>

@@ -31,6 +31,7 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
             {
                 ActualizarMensajes();
                 CargarFormaLogout();
+                Panel_panelSup.Visible = true;
             }
             else
             {
@@ -181,4 +182,20 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         ActualizarMensajes();
     }
 
+    protected void LinkButton_firmas_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("firmas.aspx?usuario=" + Session["usuario"]);
+    }
+    protected void LinkButton_mensajes_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("mensajes.aspx?usuario=" + Session["usuario"]);
+    }
+    protected void LinkButton_galeria_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("galeria.aspx?usuario=" + Session["usuario"]);
+    }
+    protected void LinkButton_encuestas_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("encuestas.aspx?usuario=" + Session["usuario"]);
+    }
 }

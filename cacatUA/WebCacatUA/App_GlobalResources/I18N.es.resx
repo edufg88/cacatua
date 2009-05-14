@@ -192,4 +192,7 @@
   <data name="Mensaje" xml:space="preserve">
     <value>Mensaje</value>
   </data>
+  <data name="SinResultados" xml:space="preserve">
+    <value>No hay resultados para mostrar</value>
+  </data>
 </root>

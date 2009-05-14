@@ -40,8 +40,6 @@ img
 /**********************************************************
 **********************************************************/
 
-
-
 #encabezado
 {
     position: relative;
@@ -74,7 +72,7 @@ img
 #menu
 {
     float: right;
-    margin-top: 100px;
+    margin-top: 85px;
 }
 
 #menu .boton
@@ -98,6 +96,41 @@ img
 #menu .boton a:hover
 {
     background: url(../imagenes/boton_encima.png) no-repeat center;
+}
+
+#menuPersonal
+{	
+	float: right;
+    margin-top: 8px;
+    margin-right: 5px;
+    background-color: #c6c6c6;
+    border: 1px solid #4f4e4e;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+.enlace
+{
+	text-decoration:none;
+	font-size:small;
+	color: ButtonText;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.enlace:hover
+{
+	text-decoration:none;
+	font-size:small;
+	color: Gray;	
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .mensajes

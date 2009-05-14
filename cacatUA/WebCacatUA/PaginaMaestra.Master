@@ -72,7 +72,6 @@
                     onclick="Button_logout_Click" 
                     Text="<%$ Resources: I18N, Salir %>" Visible="False" />
             </div>
-            
             <div id="internacionalizacion">
                 <asp:ImageButton ID="ImageButton_Español" runat="server" AlternateText="es" 
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
@@ -99,6 +98,18 @@
                 <div id="boton_materiales" class="boton"><a href="materiales.aspx"><asp:Label ID="Label_materiales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label></a></div>
                 <div id="boton_foro" class="boton"><a href="foro.aspx"><asp:Label ID="Label_foro" runat="server" Text="<%$ Resources: I18N, Foro %>"></asp:Label></a></div>
             </div>
+            <asp:Panel ID="Panel_panelSup" runat="server" Visible="false">
+                <div id="menuPersonal">    
+                        <asp:LinkButton ID="LinkButton_firmas" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_firmas_Click">Mis firmas</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_mensajes" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_mensajes_Click">Mis mensajes</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_galeria" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_galeria_Click">Mis fotos</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_encuestas" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_encuestas_Click">Mis encuestas</asp:LinkButton>       
+                </div>
+            </asp:Panel>
         </div>
         
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">

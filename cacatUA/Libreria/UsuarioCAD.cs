@@ -488,22 +488,29 @@ namespace Libreria
 
                 comando.Connection = conexion;
 
-                comando.CommandText = "SELECT count(*) cantidad FROM usuarios WHERE ";
+                if (texto == "")
+                {
+                    comando.CommandText = "SELECT count(*) cantidad FROM usuarios ";
+                }
+                else
+                {
+                    comando.CommandText = "SELECT count(*) cantidad FROM usuarios WHERE ";
 
-                if (tipo == "usuario")
-                {
-                    comando.CommandText += "(usuario LIKE @usuario) ";
-                    comando.Parameters.AddWithValue("@usuario", "%" + texto + "%");
-                }
-                else if (tipo == "nombre")
-                {
-                    comando.CommandText += "(nombre LIKE @nombre) ";
-                    comando.Parameters.AddWithValue("@nombre", "%" + texto + "%");
-                }
-                else // if (tipo == "email")
-                {
-                    comando.CommandText += "(correo LIKE @correo) ";
-                    comando.Parameters.AddWithValue("@correo", "%" + texto + "%");
+                    if (tipo == "usuario")
+                    {
+                        comando.CommandText += "(usuario LIKE @usuario) ";
+                        comando.Parameters.AddWithValue("@usuario", "%" + texto + "%");
+                    }
+                    else if (tipo == "nombre")
+                    {
+                        comando.CommandText += "(nombre LIKE @nombre) ";
+                        comando.Parameters.AddWithValue("@nombre", "%" + texto + "%");
+                    }
+                    else // if (tipo == "email")
+                    {
+                        comando.CommandText += "(correo LIKE @correo) ";
+                        comando.Parameters.AddWithValue("@correo", "%" + texto + "%");
+                    }
                 }
 
                 // Realizamos la consulta.
