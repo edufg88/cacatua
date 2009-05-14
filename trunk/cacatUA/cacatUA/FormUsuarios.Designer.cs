@@ -51,17 +51,16 @@
             this.button_paginaAnterior = new System.Windows.Forms.Button();
             this.comboBox_pagina = new System.Windows.Forms.ComboBox();
             this.dataGridView_usuarios = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contrasena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_contrasena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_dni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_adicional = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_fechaingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumn_activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button_editarUsuario = new System.Windows.Forms.Button();
-            this.button_borrarUsuario = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel_principal.SuspendLayout();
             this.panel_cabecera.SuspendLayout();
@@ -88,14 +87,13 @@
             this.tableLayoutPanel_principal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_principal.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_principal.Name = "tableLayoutPanel_principal";
-            this.tableLayoutPanel_principal.RowCount = 7;
+            this.tableLayoutPanel_principal.RowCount = 6;
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 240F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_principal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_principal.Size = new System.Drawing.Size(838, 500);
             this.tableLayoutPanel_principal.TabIndex = 0;
             // 
@@ -258,18 +256,17 @@
             this.panel_DataGridViewUsuarios.Controls.Add(this.comboBox_pagina);
             this.panel_DataGridViewUsuarios.Controls.Add(this.dataGridView_usuarios);
             this.panel_DataGridViewUsuarios.Controls.Add(this.button_editarUsuario);
-            this.panel_DataGridViewUsuarios.Controls.Add(this.button_borrarUsuario);
             this.panel_DataGridViewUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_DataGridViewUsuarios.Location = new System.Drawing.Point(3, 388);
             this.panel_DataGridViewUsuarios.Name = "panel_DataGridViewUsuarios";
-            this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 89);
+            this.panel_DataGridViewUsuarios.Size = new System.Drawing.Size(832, 109);
             this.panel_DataGridViewUsuarios.TabIndex = 36;
             // 
             // label_cantidadPagina
             // 
             this.label_cantidadPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_cantidadPagina.AutoSize = true;
-            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 62);
+            this.label_cantidadPagina.Location = new System.Drawing.Point(4, 82);
             this.label_cantidadPagina.Name = "label_cantidadPagina";
             this.label_cantidadPagina.Size = new System.Drawing.Size(105, 13);
             this.label_cantidadPagina.TabIndex = 13;
@@ -321,7 +318,7 @@
             "200",
             "250",
             "300"});
-            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 58);
+            this.comboBox_cantidadPorPagina.Location = new System.Drawing.Point(112, 78);
             this.comboBox_cantidadPorPagina.Name = "comboBox_cantidadPorPagina";
             this.comboBox_cantidadPorPagina.Size = new System.Drawing.Size(45, 21);
             this.comboBox_cantidadPorPagina.TabIndex = 14;
@@ -330,7 +327,7 @@
             // button_paginaSiguiente
             // 
             this.button_paginaSiguiente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 57);
+            this.button_paginaSiguiente.Location = new System.Drawing.Point(707, 77);
             this.button_paginaSiguiente.Name = "button_paginaSiguiente";
             this.button_paginaSiguiente.Size = new System.Drawing.Size(75, 23);
             this.button_paginaSiguiente.TabIndex = 17;
@@ -341,7 +338,7 @@
             // button_paginaAnterior
             // 
             this.button_paginaAnterior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 57);
+            this.button_paginaAnterior.Location = new System.Drawing.Point(574, 77);
             this.button_paginaAnterior.Name = "button_paginaAnterior";
             this.button_paginaAnterior.Size = new System.Drawing.Size(75, 23);
             this.button_paginaAnterior.TabIndex = 15;
@@ -384,7 +381,7 @@
             "28",
             "29",
             "30"});
-            this.comboBox_pagina.Location = new System.Drawing.Point(655, 58);
+            this.comboBox_pagina.Location = new System.Drawing.Point(655, 78);
             this.comboBox_pagina.Name = "comboBox_pagina";
             this.comboBox_pagina.Size = new System.Drawing.Size(46, 21);
             this.comboBox_pagina.TabIndex = 16;
@@ -393,83 +390,85 @@
             // dataGridView_usuarios
             // 
             this.dataGridView_usuarios.AllowUserToAddRows = false;
+            this.dataGridView_usuarios.AllowUserToDeleteRows = false;
+            this.dataGridView_usuarios.AllowUserToResizeRows = false;
             this.dataGridView_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_usuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.usuario,
-            this.contrasena,
-            this.nombre,
-            this.dni,
-            this.correo,
-            this.adicional,
-            this.fechaingreso,
-            this.activo});
+            this.DataGridViewTextBoxColumn_id,
+            this.DataGridViewTextBoxColumn_usuario,
+            this.DataGridViewTextBoxColumn_contrasena,
+            this.DataGridViewTextBoxColumn_nombre,
+            this.DataGridViewTextBoxColumn_dni,
+            this.DataGridViewTextBoxColumn_correo,
+            this.DataGridViewTextBoxColumn_adicional,
+            this.DataGridViewTextBoxColumn_fechaingreso,
+            this.DataGridViewTextBoxColumn_activo});
             this.dataGridView_usuarios.Location = new System.Drawing.Point(3, 3);
             this.dataGridView_usuarios.Name = "dataGridView_usuarios";
             this.dataGridView_usuarios.RowHeadersVisible = false;
             this.dataGridView_usuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 44);
+            this.dataGridView_usuarios.Size = new System.Drawing.Size(779, 64);
             this.dataGridView_usuarios.TabIndex = 2;
             this.dataGridView_usuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseClick);
             this.dataGridView_usuarios.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView_usuarios_CellMouseDoubleClick);
             // 
-            // id
+            // DataGridViewTextBoxColumn_id
             // 
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_id.HeaderText = "Id";
+            this.DataGridViewTextBoxColumn_id.Name = "DataGridViewTextBoxColumn_id";
+            this.DataGridViewTextBoxColumn_id.ReadOnly = true;
             // 
-            // usuario
+            // DataGridViewTextBoxColumn_usuario
             // 
-            this.usuario.HeaderText = "Usuario";
-            this.usuario.Name = "usuario";
-            this.usuario.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_usuario.HeaderText = "Usuario";
+            this.DataGridViewTextBoxColumn_usuario.Name = "DataGridViewTextBoxColumn_usuario";
+            this.DataGridViewTextBoxColumn_usuario.ReadOnly = true;
             // 
-            // contrasena
+            // DataGridViewTextBoxColumn_contrasena
             // 
-            this.contrasena.HeaderText = "Contraseña";
-            this.contrasena.Name = "contrasena";
-            this.contrasena.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_contrasena.HeaderText = "Contraseña";
+            this.DataGridViewTextBoxColumn_contrasena.Name = "DataGridViewTextBoxColumn_contrasena";
+            this.DataGridViewTextBoxColumn_contrasena.ReadOnly = true;
             // 
-            // nombre
+            // DataGridViewTextBoxColumn_nombre
             // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_nombre.HeaderText = "Nombre";
+            this.DataGridViewTextBoxColumn_nombre.Name = "DataGridViewTextBoxColumn_nombre";
+            this.DataGridViewTextBoxColumn_nombre.ReadOnly = true;
             // 
-            // dni
+            // DataGridViewTextBoxColumn_dni
             // 
-            this.dni.HeaderText = "DNI";
-            this.dni.Name = "dni";
-            this.dni.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_dni.HeaderText = "DNI";
+            this.DataGridViewTextBoxColumn_dni.Name = "DataGridViewTextBoxColumn_dni";
+            this.DataGridViewTextBoxColumn_dni.ReadOnly = true;
             // 
-            // correo
+            // DataGridViewTextBoxColumn_correo
             // 
-            this.correo.HeaderText = "Correo";
-            this.correo.Name = "correo";
-            this.correo.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_correo.HeaderText = "Correo";
+            this.DataGridViewTextBoxColumn_correo.Name = "DataGridViewTextBoxColumn_correo";
+            this.DataGridViewTextBoxColumn_correo.ReadOnly = true;
             // 
-            // adicional
+            // DataGridViewTextBoxColumn_adicional
             // 
-            this.adicional.HeaderText = "Adicional";
-            this.adicional.Name = "adicional";
-            this.adicional.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_adicional.HeaderText = "Adicional";
+            this.DataGridViewTextBoxColumn_adicional.Name = "DataGridViewTextBoxColumn_adicional";
+            this.DataGridViewTextBoxColumn_adicional.ReadOnly = true;
             // 
-            // fechaingreso
+            // DataGridViewTextBoxColumn_fechaingreso
             // 
-            this.fechaingreso.HeaderText = "Fecha de ingreso";
-            this.fechaingreso.Name = "fechaingreso";
-            this.fechaingreso.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_fechaingreso.HeaderText = "Fecha de ingreso";
+            this.DataGridViewTextBoxColumn_fechaingreso.Name = "DataGridViewTextBoxColumn_fechaingreso";
+            this.DataGridViewTextBoxColumn_fechaingreso.ReadOnly = true;
             // 
-            // activo
+            // DataGridViewTextBoxColumn_activo
             // 
-            this.activo.HeaderText = "Activo";
-            this.activo.Name = "activo";
-            this.activo.ReadOnly = true;
+            this.DataGridViewTextBoxColumn_activo.HeaderText = "Activo";
+            this.DataGridViewTextBoxColumn_activo.Name = "DataGridViewTextBoxColumn_activo";
+            this.DataGridViewTextBoxColumn_activo.ReadOnly = true;
             // 
             // button_editarUsuario
             // 
@@ -487,23 +486,6 @@
             this.toolTip1.SetToolTip(this.button_editarUsuario, "Editar el usuario seleccionado");
             this.button_editarUsuario.UseVisualStyleBackColor = true;
             this.button_editarUsuario.Click += new System.EventHandler(this.button_editarUsuario_Click);
-            // 
-            // button_borrarUsuario
-            // 
-            this.button_borrarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_borrarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_borrarUsuario.FlatAppearance.BorderSize = 0;
-            this.button_borrarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_borrarUsuario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button_borrarUsuario.Image = global::cacatUA.Properties.Resources.close;
-            this.button_borrarUsuario.Location = new System.Drawing.Point(788, 40);
-            this.button_borrarUsuario.Name = "button_borrarUsuario";
-            this.button_borrarUsuario.Size = new System.Drawing.Size(36, 36);
-            this.button_borrarUsuario.TabIndex = 11;
-            this.button_borrarUsuario.Tag = "Eliminar hilo seleccionado";
-            this.toolTip1.SetToolTip(this.button_borrarUsuario, "Borrar el usuario seleccionado");
-            this.button_borrarUsuario.UseVisualStyleBackColor = true;
-            this.button_borrarUsuario.Click += new System.EventHandler(this.button_borrarUsuario_Click);
             // 
             // FormUsuarios
             // 
@@ -548,17 +530,7 @@
         private System.Windows.Forms.DataGridView dataGridView_usuarios;
         private System.Windows.Forms.Panel panel_cabeceraSeccion2;
         private System.Windows.Forms.Label label_seccion2;
-        private System.Windows.Forms.Button button_borrarUsuario;
         private System.Windows.Forms.Button button_editarUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contrasena;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adicional;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaingreso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn activo;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label_cantidadPagina;
         private System.Windows.Forms.ComboBox comboBox_cantidadPorPagina;
@@ -566,5 +538,14 @@
         private System.Windows.Forms.Button button_paginaAnterior;
         private System.Windows.Forms.ComboBox comboBox_pagina;
         private System.Windows.Forms.Label label_resultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_contrasena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_dni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_adicional;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_fechaingreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumn_activo;
     }
 }

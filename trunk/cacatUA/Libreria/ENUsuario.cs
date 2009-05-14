@@ -468,10 +468,10 @@ namespace Libreria
         /// <param name="email">Email</param>
         /// <param name="fechaIngreso">Fecha de ingreso</param>
         /// <returns>Devuelve un ArrayList con el resultado de la búsqueda</returns>
-        public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso, int pagina, int tamaño)
+        public static ArrayList Buscar(string nombreUsuario, string email, DateTime fechaIngreso, DateTime fechaFin, int pagina, int tamaño)
         {
             UsuarioCAD usuarioCAD = new UsuarioCAD();
-            return usuarioCAD.BuscarUsuario(nombreUsuario, email, fechaIngreso,pagina,tamaño);
+            return usuarioCAD.BuscarUsuario(nombreUsuario, email, fechaIngreso,fechaFin,pagina,tamaño);
         }
 
         /// <summary>

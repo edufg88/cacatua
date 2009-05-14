@@ -105,6 +105,8 @@ namespace cacatUA
             panel_contenedor.Controls.Clear();
             panel_contenedor.Controls.Add(formBusqueda);
             tableLayoutPanel_principal.RowStyles[3].Height = formBusqueda.Height;
+            formBusqueda.inicio();
+            CargarUsuarios();
         }
 
         /// <summary>

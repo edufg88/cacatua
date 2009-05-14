@@ -40,9 +40,11 @@
             this.dateTimePicker_fechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label_fechaIngreso = new System.Windows.Forms.Label();
             this.panel_buscar = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button_limpiar = new System.Windows.Forms.Button();
             this.button_buscar = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker_fechafin = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel_buscar.SuspendLayout();
             this.panel_nombreUsuario.SuspendLayout();
             this.panel_email.SuspendLayout();
@@ -74,14 +76,15 @@
             this.panel_nombreUsuario.Controls.Add(this.textBox_nombreUsuario);
             this.panel_nombreUsuario.Controls.Add(this.label_nombreUsuario);
             this.panel_nombreUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_nombreUsuario.Location = new System.Drawing.Point(3, 3);
+            this.panel_nombreUsuario.Location = new System.Drawing.Point(0, 0);
+            this.panel_nombreUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.panel_nombreUsuario.Name = "panel_nombreUsuario";
-            this.panel_nombreUsuario.Size = new System.Drawing.Size(759, 24);
+            this.panel_nombreUsuario.Size = new System.Drawing.Size(765, 30);
             this.panel_nombreUsuario.TabIndex = 0;
             // 
             // textBox_nombreUsuario
             // 
-            this.textBox_nombreUsuario.Location = new System.Drawing.Point(147, 4);
+            this.textBox_nombreUsuario.Location = new System.Drawing.Point(111, 4);
             this.textBox_nombreUsuario.Name = "textBox_nombreUsuario";
             this.textBox_nombreUsuario.Size = new System.Drawing.Size(250, 20);
             this.textBox_nombreUsuario.TabIndex = 9;
@@ -95,11 +98,11 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label_nombreUsuario.AutoSize = true;
             this.label_nombreUsuario.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_nombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label_nombreUsuario.Location = new System.Drawing.Point(3, 4);
             this.label_nombreUsuario.Name = "label_nombreUsuario";
             this.label_nombreUsuario.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_nombreUsuario.Size = new System.Drawing.Size(138, 20);
+            this.label_nombreUsuario.Size = new System.Drawing.Size(102, 18);
             this.label_nombreUsuario.TabIndex = 8;
             this.label_nombreUsuario.Text = "Nombre de usuario: ";
             // 
@@ -108,14 +111,15 @@
             this.panel_email.Controls.Add(this.textBox_email);
             this.panel_email.Controls.Add(this.label_email);
             this.panel_email.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_email.Location = new System.Drawing.Point(3, 33);
+            this.panel_email.Location = new System.Drawing.Point(0, 30);
+            this.panel_email.Margin = new System.Windows.Forms.Padding(0);
             this.panel_email.Name = "panel_email";
-            this.panel_email.Size = new System.Drawing.Size(759, 24);
+            this.panel_email.Size = new System.Drawing.Size(765, 30);
             this.panel_email.TabIndex = 1;
             // 
             // textBox_email
             // 
-            this.textBox_email.Location = new System.Drawing.Point(147, 3);
+            this.textBox_email.Location = new System.Drawing.Point(111, 4);
             this.textBox_email.Name = "textBox_email";
             this.textBox_email.Size = new System.Drawing.Size(250, 20);
             this.textBox_email.TabIndex = 15;
@@ -129,29 +133,33 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label_email.AutoSize = true;
             this.label_email.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_email.Location = new System.Drawing.Point(3, 1);
+            this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_email.Location = new System.Drawing.Point(3, 4);
             this.label_email.Name = "label_email";
             this.label_email.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_email.Size = new System.Drawing.Size(57, 20);
+            this.label_email.Size = new System.Drawing.Size(41, 18);
             this.label_email.TabIndex = 14;
             this.label_email.Text = "E-mail: ";
             // 
             // panel_fechaIngreso
             // 
+            this.panel_fechaIngreso.Controls.Add(this.dateTimePicker_fechafin);
+            this.panel_fechaIngreso.Controls.Add(this.label1);
             this.panel_fechaIngreso.Controls.Add(this.dateTimePicker_fechaIngreso);
             this.panel_fechaIngreso.Controls.Add(this.label_fechaIngreso);
             this.panel_fechaIngreso.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_fechaIngreso.Location = new System.Drawing.Point(3, 63);
+            this.panel_fechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.panel_fechaIngreso.Location = new System.Drawing.Point(0, 60);
+            this.panel_fechaIngreso.Margin = new System.Windows.Forms.Padding(0);
             this.panel_fechaIngreso.Name = "panel_fechaIngreso";
-            this.panel_fechaIngreso.Size = new System.Drawing.Size(759, 24);
+            this.panel_fechaIngreso.Size = new System.Drawing.Size(765, 30);
             this.panel_fechaIngreso.TabIndex = 2;
             // 
             // dateTimePicker_fechaIngreso
             // 
             this.dateTimePicker_fechaIngreso.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
             this.dateTimePicker_fechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_fechaIngreso.Location = new System.Drawing.Point(147, 3);
+            this.dateTimePicker_fechaIngreso.Location = new System.Drawing.Point(111, 4);
             this.dateTimePicker_fechaIngreso.Name = "dateTimePicker_fechaIngreso";
             this.dateTimePicker_fechaIngreso.ShowUpDown = true;
             this.dateTimePicker_fechaIngreso.Size = new System.Drawing.Size(250, 20);
@@ -165,28 +173,29 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label_fechaIngreso.AutoSize = true;
             this.label_fechaIngreso.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label_fechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fechaIngreso.Location = new System.Drawing.Point(3, 0);
+            this.label_fechaIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label_fechaIngreso.Location = new System.Drawing.Point(3, 4);
             this.label_fechaIngreso.Name = "label_fechaIngreso";
             this.label_fechaIngreso.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.label_fechaIngreso.Size = new System.Drawing.Size(126, 20);
+            this.label_fechaIngreso.Size = new System.Drawing.Size(74, 18);
             this.label_fechaIngreso.TabIndex = 15;
-            this.label_fechaIngreso.Text = "Fecha de ingreso: ";
+            this.label_fechaIngreso.Text = "Mostrar desde";
             // 
             // panel_buscar
             // 
             this.panel_buscar.Controls.Add(this.button_limpiar);
             this.panel_buscar.Controls.Add(this.button_buscar);
             this.panel_buscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_buscar.Location = new System.Drawing.Point(3, 93);
+            this.panel_buscar.Location = new System.Drawing.Point(0, 90);
+            this.panel_buscar.Margin = new System.Windows.Forms.Padding(0);
             this.panel_buscar.Name = "panel_buscar";
-            this.panel_buscar.Size = new System.Drawing.Size(759, 54);
+            this.panel_buscar.Size = new System.Drawing.Size(765, 60);
             this.panel_buscar.TabIndex = 3;
             // 
             // button_limpiar
             // 
             this.button_limpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_limpiar.Location = new System.Drawing.Point(654, 24);
+            this.button_limpiar.Location = new System.Drawing.Point(660, 24);
             this.button_limpiar.Name = "button_limpiar";
             this.button_limpiar.Size = new System.Drawing.Size(75, 23);
             this.button_limpiar.TabIndex = 15;
@@ -197,13 +206,34 @@
             // button_buscar
             // 
             this.button_buscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_buscar.Location = new System.Drawing.Point(573, 24);
+            this.button_buscar.Location = new System.Drawing.Point(579, 24);
             this.button_buscar.Name = "button_buscar";
             this.button_buscar.Size = new System.Drawing.Size(75, 23);
             this.button_buscar.TabIndex = 14;
             this.button_buscar.Text = "Buscar";
             this.button_buscar.UseVisualStyleBackColor = true;
             this.button_buscar.Click += new System.EventHandler(this.button_buscar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(376, 4);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.label1.Size = new System.Drawing.Size(33, 18);
+            this.label1.TabIndex = 96;
+            this.label1.Text = "hasta";
+            // 
+            // dateTimePicker_fechafin
+            // 
+            this.dateTimePicker_fechafin.CustomFormat = "dddd, dd \'de\' MMMM \'de\' yyyy, H:mm:ss";
+            this.dateTimePicker_fechafin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker_fechafin.Location = new System.Drawing.Point(429, 4);
+            this.dateTimePicker_fechafin.Name = "dateTimePicker_fechafin";
+            this.dateTimePicker_fechafin.ShowUpDown = true;
+            this.dateTimePicker_fechafin.Size = new System.Drawing.Size(250, 20);
+            this.dateTimePicker_fechafin.TabIndex = 97;
+            this.toolTip1.SetToolTip(this.dateTimePicker_fechafin, "Fecha de creación de la encuesta");
             // 
             // FormUsuarioBusqueda
             // 
@@ -241,5 +271,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker_fechaIngreso;
         private System.Windows.Forms.Button button_limpiar;
         private System.Windows.Forms.Button button_buscar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_fechafin;
     }
 }

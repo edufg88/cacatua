@@ -40,7 +40,7 @@ namespace cacatUA
         public void CargarFirmas()
         {
             ArrayList datos = new ArrayList();
-            datos = firma.Buscar(usuario.Usuario, "", DateTime.Now);
+            datos = firma.Buscar("", usuario.Usuario, DateTime.Now);
             cargarDatos(datos);
         }
 
