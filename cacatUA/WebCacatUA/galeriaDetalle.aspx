@@ -9,10 +9,7 @@
 
     <div id="contenidoGaleriaDetalle">
         <p id="tituloImagen"><a name="tituloImagen"><asp:Label ID="labelTitulo" runat="server" Text="Titulo"></asp:Label></a></p><br />
-        <br />
-        <asp:Label ID="labelFecha" runat="server" Text="Fecha"></asp:Label><br />
-        <asp:Label ID="labelUsuario" runat="server" Text="Usuario"></asp:Label><br />
-        <br />
+        
         <br />
         <asp:Panel ID="panelImagen" runat="server" >
             <asp:Table ID="tablaNavegarImagenes" runat="server">
@@ -20,10 +17,31 @@
             <asp:Image ID="imagenPrincipal" runat="server" Width="600px" ImageUrl=""/>
         </asp:Panel>
         <br />
+        <asp:Label ID="labelFecha" runat="server" Text="Fecha"></asp:Label><br />
+        <asp:Label ID="labelUsuario" runat="server" Text="Usuario"></asp:Label><br />
+        <p>
+            <asp:Label ID="Label_valoracion" runat="server" Text="Valoracion: "></asp:Label>
+            <asp:DropDownList ID="DropDownList_valoracion" runat="server">
+                <asp:ListItem>1</asp:ListItem>
+                <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem Selected="True">5</asp:ListItem>
+            </asp:DropDownList>
+            <asp:Button ID="Boton_valorar" runat="server" Text="Valorar" />
+            </p>
         <br />
+        
         <asp:Label ID="labelDescripcion" runat="server" Text="Descripcion"></asp:Label>
         <br />
         <br />
+        
+        <asp:Button ID="Boton_seleccionarFoto" runat="server" Text="Utilizar como foto de usuario" OnClick="seleccionarFoto"/>
+        <br />
+        <br />
+        
+        <asp:Panel ID="Panel_comentarios" runat="server">
+        
         <h2><a name="comienzoComentariosImagenes">Comentarios</a></h2>
         <br />
         
@@ -100,8 +118,10 @@
                     </td>
                 </tr>
             </table>
+        </asp:Panel>
         <br />
         <br />
+        
         <h3>Añadir comentario</h3>
         <asp:TextBox ID="TextBoxComentario" runat="server" Rows="5" TextMode="MultiLine" Width="100%"></asp:TextBox>
         <p style="width: 100%; text-align: center;"><asp:Button ID="botonComentar" runat="server" Text="Comentar" OnClick="guardarComentario" /></p>

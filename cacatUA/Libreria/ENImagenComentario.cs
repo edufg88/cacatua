@@ -56,22 +56,26 @@ namespace Libreria
 
         public static ArrayList Obtener(int imagen)
         {
-            return ImagenComentarioCAD.Instancia.Obtener(imagen);
+            ImagenComentarioCAD i = new ImagenComentarioCAD();
+            return i.Obtener(imagen);
         }
 
         public static bool Guardar(ENImagenComentario comentario)
         {
-            return ImagenComentarioCAD.Instancia.Guardar(comentario);
+            ImagenComentarioCAD i = new ImagenComentarioCAD();
+            return i.Guardar(comentario);
         }
 
         public static ArrayList Obtener(int imagen, int pagina, int cantidad)
         {
-            return ImagenComentarioCAD.Instancia.Obtener(imagen, pagina, cantidad);
+            ImagenComentarioCAD i = new ImagenComentarioCAD();
+            return i.Obtener(imagen, pagina, cantidad);
         }
 
         public static int ObtenerNumeroImagenes(int imagen)
         {
-            return ImagenComentarioCAD.Instancia.ObtenerNumeroComentarios(imagen);
+            ImagenComentarioCAD i = new ImagenComentarioCAD();
+            return i.ObtenerNumeroComentarios(imagen);
         }
     }
 }
