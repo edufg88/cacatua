@@ -27,8 +27,13 @@
                 <asp:ListItem>3</asp:ListItem>
                 <asp:ListItem>4</asp:ListItem>
                 <asp:ListItem Selected="True">5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8</asp:ListItem>
+                <asp:ListItem>9</asp:ListItem>
+                <asp:ListItem>10</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="Boton_valorar" runat="server" Text="Valorar" />
+            <asp:Button ID="Boton_valorar" runat="server" Text="Valorar" OnClick="valorarFoto"/>
             </p>
         <br />
         
