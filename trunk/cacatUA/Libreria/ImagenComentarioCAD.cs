@@ -8,19 +8,13 @@ using System.Configuration;
 
 namespace Libreria
 {
-    sealed class ImagenComentarioCAD
+    public class ImagenComentarioCAD
     {
-        private static readonly ImagenComentarioCAD instancia = new ImagenComentarioCAD();
+        
         private String cadenaConexion;
 
-        // Devuelve la instancia única de la clase
-        public static ImagenComentarioCAD Instancia
-        {
-            get { return(instancia); }
-        }
-
         // El constructor privado crea la cadena de conexión
-        private ImagenComentarioCAD()
+        public ImagenComentarioCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }

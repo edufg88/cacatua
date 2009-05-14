@@ -32,24 +32,6 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label labelTitulo;
         
         /// <summary>
-        /// Control labelFecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelFecha;
-        
-        /// <summary>
-        /// Control labelUsuario.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelUsuario;
-        
-        /// <summary>
         /// Control panelImagen.
         /// </summary>
         /// <remarks>
@@ -77,6 +59,51 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Image imagenPrincipal;
         
         /// <summary>
+        /// Control labelFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelFecha;
+        
+        /// <summary>
+        /// Control labelUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labelUsuario;
+        
+        /// <summary>
+        /// Control Label_valoracion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_valoracion;
+        
+        /// <summary>
+        /// Control DropDownList_valoracion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList_valoracion;
+        
+        /// <summary>
+        /// Control Boton_valorar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Boton_valorar;
+        
+        /// <summary>
         /// Control labelDescripcion.
         /// </summary>
         /// <remarks>
@@ -84,6 +111,24 @@ namespace WebCacatUA {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label labelDescripcion;
+        
+        /// <summary>
+        /// Control Boton_seleccionarFoto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Boton_seleccionarFoto;
+        
+        /// <summary>
+        /// Control Panel_comentarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_comentarios;
         
         /// <summary>
         /// Control Label5.

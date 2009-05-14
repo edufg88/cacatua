@@ -66,6 +66,7 @@ namespace WebCacatUA
                 DropDownList_cantidadPorPaginaInferior.Text = cantidad.ToString();
                 DropDownList_cantidadPorPaginaSuperior.Text = cantidad.ToString();
 
+                   
 
                 numComentarios = ENImagenComentario.ObtenerNumeroImagenes(int.Parse(Request.Params["imagen"]));
 
@@ -96,6 +97,15 @@ namespace WebCacatUA
                 if (Session["usuario"] != null)
                 {
                     us = ENUsuario.Obtener(Session["usuario"].ToString());
+                    TextBoxComentario.Enabled = true;
+                    botonComentar.Enabled = true;
+
+                }
+                else
+                {
+                    TextBoxComentario.Enabled = false;
+                    botonComentar.Enabled = true;
+
                 }
 
                 labelTitulo.Text = i.Titulo;
@@ -133,16 +143,22 @@ namespace WebCacatUA
                 LinkButton enlace2 = new LinkButton();
                 enlace2.Text = "Borrar";
                 enlace2.PostBackUrl = "/galeriaBorrar.aspx?imagen=" + Request.Params["imagen"].ToString();
-                
+
+                LinkButton enlace4 = new LinkButton();
+                enlace4.Text = "Editar";
+                enlace4.PostBackUrl = "/galeriaEditar.aspx?imagen=" + Request.Params["imagen"].ToString();
+
                 LinkButton enlace3 = new LinkButton();
                 enlace3.Text = "Siguiente";
                 enlace3.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Anterior(i.Id, i.Usuario.Id) + "#tituloImagen";
 
                 TableCell a1 = new TableCell();
                 TableCell a2 = new TableCell();
+                TableCell a4 = new TableCell();
                 if (us != null && us.Id == i.Usuario.Id)
                 {
                     a2 = new TableCell();
+                    a4 = new TableCell();
                 }
                 TableCell a3 = new TableCell();
 
@@ -154,12 +170,33 @@ namespace WebCacatUA
                     a2.Controls.Add(enlace2);
                     a2.Attributes.Add("align", "center");
                     r.Controls.Add(a2);
+
+                    a4.Controls.Add(enlace4);
+                    a4.Attributes.Add("align", "center");
+                    r.Controls.Add(a4);
+
+                    Boton_seleccionarFoto.Visible = true;
+                }
+                else
+                {
+                    Boton_seleccionarFoto.Visible = false;
                 }
                 a3.Controls.Add(enlace3);
                 a3.Attributes.Add("align", "right");
                 r.Controls.Add(a3);
                 tablaNavegarImagenes.Attributes.Add("width", "600px");
                 tablaNavegarImagenes.Controls.Add(r);
+
+                if (comentarios.Count == 0)
+                {
+                    Panel_comentarios.Visible = false;
+                }
+                else
+                {
+                    Panel_comentarios.Visible = true;
+                }
+
+                ENImagen imagenusuario = new ENImagen();
 
                 for (int j = 0; j < comentarios.Count; j++)
                 {
@@ -172,9 +209,26 @@ namespace WebCacatUA
                     t1 = new Table();
                     
                     comen = (ENImagenComentario)comentarios[j];
+                    if (comen.Usuario.Imagen > 0)
+                    {
+                        imagenusuario = ENImagen.Obtener(comen.Usuario.Imagen);
+                        if (imagenusuario != null)
+                        {
+                            c1.Controls.Add(new LiteralControl("<img src=\"/galeria/" + imagenusuario.Archivo + "\" width=\"100px\"/>"));
+                            c1.Attributes.Add("width", "100px");
+                        }
+                        else
+                        {
+                            c1.Controls.Add(new LiteralControl("<img src=\"/imagenes/sinImagen.png\"/>"));
+                            c1.Attributes.Add("width", "100px");
+                        }
+                    }
+                    else
+                    {
+                        c1.Controls.Add(new LiteralControl("<img src=\"/imagenes/sinImagen.png\"/>"));
+                        c1.Attributes.Add("width", "100px");
+                    }
 
-                    c1.Controls.Add(new LiteralControl("<img src=\"/imagenes/sinImagen.png\"/>"));
-                    c1.Attributes.Add("width", "100px");
                     
                     c.Controls.Add(new LiteralControl(comen.Usuario.Usuario));
                     r.Controls.Add(c);
@@ -257,6 +311,21 @@ namespace WebCacatUA
         public void borrarImagen(Object sender, EventArgs e)
         {
             Response.Redirect("/galeriaUpload.aspx");
+        }
+
+        public void seleccionarFoto(Object sender, EventArgs e)
+        {
+            if (Session["usuario"] != null && Request.Params["imagen"] != null)
+            {
+                ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+                if (usuario != null)
+                {
+                    ENImagen imagen = ENImagen.Obtener(int.Parse(Request.Params["imagen"]));
+                    usuario.Imagen = imagen.Id;
+                    usuario.Actualizar();
+                    Response.Redirect("/galeriaDetalle.aspx?imagen=" + Request.Params["imagen"]);
+                }
+            }
         }
 
     }
