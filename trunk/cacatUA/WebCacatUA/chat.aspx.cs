@@ -24,22 +24,31 @@ namespace WebCacatUA
             sw.Close();
         }
 
+        /// <summary>
+        /// Almacena el nombre del usuario (ó "" si no está identificado). Cuando se reciben los mensajes
+        /// sólo se añaden los que no coincidan con el nombre del usuario.
+        /// </summary>
         public string NombreUsuario;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            NombreUsuario = "";
-            TextBox_mensaje.Enabled = false;
-            Button_enviar.Enabled = false;
-            if (Session["usuario"] != null)
-            {
-                TextBox_mensaje.Enabled = true;
-                Button_enviar.Enabled = true;
-            }
-
             if (!Page.IsPostBack)
             {
-                
+                // Inicializamos algunos controles y variables.
+                TextBox_mensajes.Attributes.Add("onchange", "return bajarScroll();");
+                TextBox_mensaje.Attributes.Add("onclick", "anadirMensaje('cristian: ', 'joder, este metodo va al pelo');");
+                //Button_enviar.Focus();
+                NombreUsuario = "";
+
+                // Deshabilitamoms la inserción si no está identificado.
+                TextBox_mensaje.Enabled = false;
+                Button_enviar.Enabled = false;
+                if (Session["usuario"] != null)
+                {
+                    TextBox_mensaje.Enabled = true;
+                    Button_enviar.Enabled = true;
+                }
+
                 // Nos logueamos en el chat
                 if (Session["usuario"] != null)
                 {
@@ -51,6 +60,7 @@ namespace WebCacatUA
                     conectado.Usuario = usuario;
                     conectado.Guardar();
                 }
+                ActualizarChat();
             }
         }
 
@@ -64,7 +74,7 @@ namespace WebCacatUA
             }
             catch (Exception)
             {
-                escribir("actualizando en chat.aspx.cs");
+                escribir("error actualizando en chat.aspx.cs");
             }
 
             // Mostramos los usuarios que hay conectados
@@ -93,7 +103,6 @@ namespace WebCacatUA
                 foreach (ENChatMensaje mensaje in mensajes)
                 {
                     string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje + "\n";
-
                     if (Session["usuario"] != null)
                     {
                         ENUsuario u = ENUsuario.Obtener(Session["usuario"].ToString());
