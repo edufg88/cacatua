@@ -25,8 +25,11 @@ namespace WebCacatUA
 
                 if (img.Usuario.Usuario == Session["usuario"].ToString())
                 {
-                    TextBox_tituloNuevaImagen.Text = img.Titulo;
-                    TextBox_descripcionNuevaImagen.Text = img.Descripcion;
+                    if(!Page.IsPostBack)
+                    {
+                        TextBox_tituloNuevaImagen.Text = img.Titulo;
+                        TextBox_descripcionNuevaImagen.Text = img.Descripcion;
+                    }
                 }
                 else
                 {
@@ -42,6 +45,24 @@ namespace WebCacatUA
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(Request.Params["imagen"].ToString());
+            ENImagen img = ENImagen.Obtener(id);
+
+            if (TextBox_tituloNuevaImagen.Text != "" && TextBox_descripcionNuevaImagen.Text != "" && img!=null)
+            {
+                img.Titulo = TextBox_tituloNuevaImagen.Text;
+                img.Descripcion = TextBox_descripcionNuevaImagen.Text;
+
+                img.Actualizar();
+
+                if (img.Titulo!=TextBox_tituloNuevaImagen.Text)
+                {
+                    Response.Redirect("/galeriaDetalle.aspx?imagen=" + Request.Params["imagen"].ToString());
+                }
+
+                Response.Redirect("/index.aspx");
+                
+            }
             
         }
 

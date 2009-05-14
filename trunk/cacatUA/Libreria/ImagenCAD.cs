@@ -352,20 +352,18 @@ namespace Libreria
         {
             bool actualizado = false;
 
+            
             SqlConnection conexion = null;
             try
             {
                 conexion = new SqlConnection(cadenaConexion);
                 conexion.Open();
 
-                string sentencia = "update imagenes set titulo = @titulo, descripcion = @descripcion, fecha = @fecha, usuario = @usuario, archivo = @archivo where id = @id";
+                string sentencia = "update imagenes set titulo = @titulo, descripcion = @descripcion where id = @id";
 
                 SqlCommand comando = new SqlCommand(sentencia, conexion);
                 comando.Parameters.AddWithValue("@titulo", imagen.Titulo);
                 comando.Parameters.AddWithValue("@descripcion", imagen.Descripcion);
-                comando.Parameters.AddWithValue("@fecha", imagen.Fecha);
-                comando.Parameters.AddWithValue("@usuario", imagen.Usuario.Id);
-                comando.Parameters.AddWithValue("@archivo", imagen.Archivo);
                 comando.Parameters.AddWithValue("@id", imagen.Id);
 
                 if (comando.ExecuteNonQuery() == 1)
@@ -375,13 +373,14 @@ namespace Libreria
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al actualizar una imagen" + ex.Message);
+                Console.WriteLine("ERROR: bool ImagenCAD.Actualizar(ENImagen) " + ex.Message);
             }
             finally
             {
                 if (conexion != null)
                     conexion.Close();
             }
+        
 
             return actualizado;
         }
