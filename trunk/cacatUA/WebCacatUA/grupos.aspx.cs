@@ -140,7 +140,7 @@ public partial class grupos : WebCacatUA.InterfazWeb
         }
         else
         {
-           Label_mostrandoGrupos.Text = "No hay resultados con estas condiciones de búsqueda.";
+           Label_mostrandoGrupos.Text = Resources.I18N.SinResultados;
         }
     }
 

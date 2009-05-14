@@ -603,4 +603,7 @@
   <data name="UsuariosMin" xml:space="preserve">
     <value>usuarios</value>
   </data>
+  <data name="SinResultados" xml:space="preserve">
+    <value>No hay resultados para mostrar</value>
+  </data>
 </root>

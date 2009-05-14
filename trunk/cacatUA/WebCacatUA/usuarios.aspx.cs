@@ -253,7 +253,14 @@ public partial class usuarios : WebCacatUA.InterfazWeb
     private void mostrarUsuarios()
     {
         resultado = ENUsuario.BuscarWeb(busqueda, buscar, ordenar, orden, pagina, cantidad);
-        Label_mostrandoUsuarios.Text = Resources.I18N.Resultados + " " + (((pagina-1)*cantidad)+1).ToString() + " - " + (((pagina-1)*cantidad)+cantidad).ToString() + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.UsuariosMin + " " + Resources.I18N.EncontradosMin; 
+        if (totalResultados == 0)
+        {
+            Label_mostrandoUsuarios.Text = Resources.I18N.SinResultados;
+        }
+        else
+        {
+            Label_mostrandoUsuarios.Text = Resources.I18N.Resultados + " " + (((pagina - 1) * cantidad) + 1).ToString() + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.UsuariosMin + " " + Resources.I18N.EncontradosMin;
+        }
 
         foreach (ENUsuario us in resultado)
         {

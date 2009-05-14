@@ -1312,6 +1312,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No hay resultados para mostrar.
+        /// </summary>
+        internal static string SinResultados {
+            get {
+                return ResourceManager.GetString("SinResultados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Suscribirse a la categoría actual.
         /// </summary>
         internal static string SuscribirseCategoriaActual {
