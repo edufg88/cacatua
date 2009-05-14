@@ -8,21 +8,16 @@ using System.Configuration;
 
 namespace Libreria
 {
-    // Clase singleton
+    
     // Componente de Acceso a Datos para relacionarse con la BD 'imagenes'
-    sealed class ImagenCAD
+    public class ImagenCAD
     {
-        private static readonly ImagenCAD instancia = new ImagenCAD();
+        
         private String cadenaConexion;
 
-        // Devuelve la instancia única de la clase
-        public static ImagenCAD Instancia
-        {
-            get { return(instancia); }
-        }
-
+        
         // El constructor privado crea la cadena de conexión
-        private ImagenCAD()
+        public ImagenCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
         }
@@ -46,6 +41,7 @@ namespace Libreria
         // Devuelve una determinada firma a partir de un id
         public ENImagen ObtenerImagen(int id)
         {
+           
             ENImagen imagen = null;
 
             try

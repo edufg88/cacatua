@@ -120,6 +120,20 @@
     <Compile Include="estadoencuesta.aspx.designer.cs">
       <DependentUpon>estadoencuesta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="galeriaEditar.aspx.cs">
+      <DependentUpon>galeriaEditar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galeriaEditar.aspx.designer.cs">
+      <DependentUpon>galeriaEditar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="galeriaBorrar.aspx.cs">
+      <DependentUpon>galeriaBorrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="galeriaBorrar.aspx.designer.cs">
+      <DependentUpon>galeriaBorrar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="galeriaUpload.aspx.cs">
       <DependentUpon>galeriaUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,6 +399,8 @@
     <Content Include="estilos\usuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />
     <Content Include="estilos\hilo.css" />
+    <Content Include="galeriaEditar.aspx" />
+    <Content Include="galeriaBorrar.aspx" />
     <Content Include="galeriaUpload.aspx" />
     <Content Include="hilo.aspx" />
     <Content Include="crearhilo.aspx" />

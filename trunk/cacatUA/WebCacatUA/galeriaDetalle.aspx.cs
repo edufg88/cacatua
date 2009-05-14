@@ -132,8 +132,8 @@ namespace WebCacatUA
 
                 LinkButton enlace2 = new LinkButton();
                 enlace2.Text = "Borrar";
-                enlace2.PostBackUrl = "";
-
+                enlace2.PostBackUrl = "/galeriaBorrar.aspx?imagen=" + Request.Params["imagen"].ToString();
+                
                 LinkButton enlace3 = new LinkButton();
                 enlace3.Text = "Siguiente";
                 enlace3.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Anterior(i.Id, i.Usuario.Id) + "#tituloImagen";
@@ -252,6 +252,11 @@ namespace WebCacatUA
             int cant = int.Parse(DropDownList_cantidadPorPaginaInferior.Text.ToString());
             cantidad = cant;
             DropDownList_cantidadPorPaginaSuperior.Text = cant.ToString();
+        }
+
+        public void borrarImagen(Object sender, EventArgs e)
+        {
+            Response.Redirect("/galeriaUpload.aspx");
         }
 
     }

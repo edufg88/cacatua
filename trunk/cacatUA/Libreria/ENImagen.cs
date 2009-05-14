@@ -11,6 +11,9 @@ namespace Libreria
     /// </summary>
     public class ENImagen : InterfazEN
     {
+
+        private ImagenCAD imagen = new ImagenCAD();
+
         /// <summary>
         /// Id de la imagen
         /// </summary>
@@ -93,8 +96,8 @@ namespace Libreria
         /// <returns>Devuelve la imagen del id recibido</returns>
         public static ENImagen Obtener(int id)
         {
-            ENImagen aux = null;
-            aux = ImagenCAD.Instancia.ObtenerImagen(id);
+            ImagenCAD i = new ImagenCAD();
+            ENImagen aux = i.ObtenerImagen(id);
 
             return aux;
         }
@@ -106,8 +109,8 @@ namespace Libreria
         /// <returns>Devuelve la imagen del titulo recibido</returns>
         public static ENImagen Obtener(string titulo)
         {
-            ENImagen aux = null;
-            aux = ImagenCAD.Instancia.ObtenerImagen(titulo);
+            ImagenCAD i = new ImagenCAD();
+            ENImagen aux = i.ObtenerImagen(titulo);
             
             return aux;
         }
@@ -118,12 +121,14 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado</returns>
         public static ArrayList Obtener()
         {
-            return ImagenCAD.Instancia.ObtenerImagenes();
+            ImagenCAD i = new ImagenCAD();
+            return i.ObtenerImagenes();
         }
 
         public static ArrayList ObtenerPorUsuario(int id)
         {
-            return ImagenCAD.Instancia.ObtenerPorUsuario(id);
+            ImagenCAD i = new ImagenCAD();
+            return i.ObtenerPorUsuario(id);
         }
 
         /*
@@ -178,7 +183,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Actualizar()
         {
-            return ImagenCAD.Instancia.Actualizar(this);
+            return imagen.Actualizar(this);
         }
 
         /// <summary>
@@ -187,7 +192,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Guardar()
         {
-            return ImagenCAD.Instancia.GuardarImagen(titulo, descripcion, usuario.Usuario, archivo);
+            return imagen.GuardarImagen(titulo, descripcion, usuario.Usuario, archivo);
         }
 
         /// <summary>
@@ -196,7 +201,7 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         override public bool Borrar()
         {
-            return ImagenCAD.Instancia.BorrarImagen(id);
+            return imagen.BorrarImagen(id);
         }
 
         /// <summary>
@@ -206,7 +211,8 @@ namespace Libreria
         /// <returns>Devuelve true si la operación se ha realizado correctamente, false en caso contrario</returns>
         public static bool Borrar(int pid)
         {
-            return ImagenCAD.Instancia.BorrarImagen(pid);
+            ImagenCAD i = new ImagenCAD();
+            return i.BorrarImagen(pid);
         }
 
         /// <summary>
@@ -214,7 +220,7 @@ namespace Libreria
         /// </summary>
         public void BorrarImagenes()
         {
-            ImagenCAD.Instancia.BorrarImagenes();
+            imagen.BorrarImagenes();
         }
 
         /// <summary>
@@ -225,7 +231,7 @@ namespace Libreria
         /// <returns>Devuelve el ArrayList con el resultado</returns>
         public ArrayList Buscar(string titulo, string usuario)
         {
-            return ImagenCAD.Instancia.BuscarImagen(titulo, usuario);
+            return imagen.BuscarImagen(titulo, usuario);
         }
         
         /// <summary>
@@ -235,23 +241,25 @@ namespace Libreria
         /// <returns>Devuelve un ArrayList con el resultado</returns>
         public ArrayList Buscar(int usuario)
         {
-            return ImagenCAD.Instancia.BuscarImagen(usuario);
+            return imagen.BuscarImagen(usuario);
         }
 
         public static ArrayList Obtener(int usuario,int pagina,int cantidad)
         {
-            return ImagenCAD.Instancia.Obtener(usuario,pagina,cantidad);
+            ImagenCAD i = new ImagenCAD();
+            return i.Obtener(usuario,pagina,cantidad);
         }
 
         public static int ObtenerNumeroImagenes(int usuario)
         {
-            return ImagenCAD.Instancia.ObtenerNumeroImagenes(usuario);
+            ImagenCAD i = new ImagenCAD();
+            return i.ObtenerNumeroImagenes(usuario);
         }
 
         public static int Siguiente(int id,int usuario)
         {
-
-            int resultado = ImagenCAD.Instancia.Siguiente(id, usuario);
+            ImagenCAD i = new ImagenCAD();
+            int resultado = i.Siguiente(id, usuario);
 
             if (resultado == -1)
             {
@@ -266,7 +274,8 @@ namespace Libreria
 
         public static int Anterior(int id, int usuario)
         {
-            int resultado = ImagenCAD.Instancia.Anterior(id, usuario);
+            ImagenCAD i = new ImagenCAD();
+            int resultado = i.Anterior(id, usuario);
 
             if (resultado == -1)
             {
