@@ -66,7 +66,30 @@ namespace WebCacatUA
                 DropDownList_cantidadPorPaginaInferior.Text = cantidad.ToString();
                 DropDownList_cantidadPorPaginaSuperior.Text = cantidad.ToString();
 
-                   
+                if(Session["usuario"]!=null){
+                    int votos = ENImagenVoto.ObtenerValoracion(int.Parse(Request.Params["imagen"]));
+                    if (votos < 0)
+                    {
+                        Label_valoracion.Text = "Sin valoracion";
+                    }
+                    else
+                    {
+                        Label_valoracion.Text = "Valoracion: " + votos;
+                    }
+
+                    int voto = ENImagenVoto.ObtenerValoracionUsuario(int.Parse(Request.Params["imagen"]), Session["usuario"].ToString());
+                    
+                    if (voto < 0)
+                    {
+                        Boton_valorar.Visible = true;
+                        DropDownList_valoracion.Visible = true;
+                    }
+                    else
+                    {
+                        Boton_valorar.Visible = false;
+                        DropDownList_valoracion.Visible = false;
+                    }
+                }
 
                 numComentarios = ENImagenComentario.ObtenerNumeroImagenes(int.Parse(Request.Params["imagen"]));
 
@@ -323,6 +346,24 @@ namespace WebCacatUA
                     ENImagen imagen = ENImagen.Obtener(int.Parse(Request.Params["imagen"]));
                     usuario.Imagen = imagen.Id;
                     usuario.Actualizar();
+                    Response.Redirect("/galeriaDetalle.aspx?imagen=" + Request.Params["imagen"]);
+                }
+            }
+        }
+
+        public void valorarFoto(Object sender, EventArgs e)
+        {
+            if (Session["usuario"] != null && Request.Params["imagen"] != null)
+            {
+                ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+                if (usuario != null){
+                
+                    int puntuacion = int.Parse(DropDownList_valoracion.Text);
+
+                    ENImagen imagen = ENImagen.Obtener(int.Parse(Request.Params["imagen"]));
+                    ENImagenVoto voto = new ENImagenVoto(usuario, imagen, puntuacion);
+                    voto.Guardar();
+                    
                     Response.Redirect("/galeriaDetalle.aspx?imagen=" + Request.Params["imagen"]);
                 }
             }

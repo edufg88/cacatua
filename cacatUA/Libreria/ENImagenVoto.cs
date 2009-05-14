@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Libreria
 {
-    class ENImagenVoto
+    public class ENImagenVoto
     {
         private ENUsuario usuario;
         private ENImagen imagen;
@@ -44,6 +44,18 @@ namespace Libreria
         {
             ImagenVotoCAD i = new ImagenVotoCAD();
             return i.ObtenerValoracion(imagen);
+        }
+        public static int ObtenerValoracionUsuario(int imagen,string usuario)
+        {
+            ImagenVotoCAD i = new ImagenVotoCAD();
+            ENUsuario us = ENUsuario.Obtener(usuario);
+            return i.ObtenerValoracionUsuario(imagen,us.Id);
+        }
+
+        public bool Guardar()
+        {
+            ImagenVotoCAD i = new ImagenVotoCAD();
+            return i.Guardar(this); ;
         }
 
     }

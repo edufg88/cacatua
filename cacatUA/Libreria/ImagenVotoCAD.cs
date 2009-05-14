@@ -56,5 +56,75 @@ namespace Libreria
 
             return total;
         }
+
+        public int ObtenerValoracionUsuario(int imagen, int usuario)
+        {
+            int total = -1;
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+
+            try
+            {
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT puntuacion FROM imagenesvotos where imagen=" + imagen + " and usuario=" + usuario;
+                SqlDataReader dr = comando.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    total = int.Parse(dr["puntuacion"].ToString());
+                }
+
+                conexion.Close();
+            }
+            catch (SqlException)
+            {
+                Console.Write("Excepción obtener votos imagenes");
+            }
+
+            return total;
+        }
+
+        public bool Guardar(ENImagenVoto voto)
+        {
+            bool insertado = false;
+           
+
+            if (voto.Imagen != null && voto.Usuario != null)
+            {
+                SqlConnection conexion = null;
+                try
+                {
+                    conexion = new SqlConnection(cadenaConexion);
+                    conexion.Open();
+
+                    
+                    string sentencia = "insert into imagenesvotos (usuario,imagen,puntuacion) values (@usuario, @imagen, @puntuacion);";
+                    
+                    SqlCommand comando = new SqlCommand(sentencia, conexion);
+                    comando.Parameters.AddWithValue("@usuario", voto.Usuario.Id);
+                    comando.Parameters.AddWithValue("@imagen", voto.Imagen.Id);
+                    comando.Parameters.AddWithValue("@puntuacion", voto.Valoracion);
+                    
+                    SqlDataReader dataReader = comando.ExecuteReader();
+
+                    insertado = true;
+
+                    dataReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("ERROR: void ImagenVotoCAD.Guardar(ENImagenVoto) " + ex.Message);
+                }
+                finally
+                {
+                    if (conexion != null)
+                        conexion.Close();
+                }
+            }
+
+            return insertado;
+
+        }
     }
 }
