@@ -32,7 +32,7 @@ namespace WebCacatUA
                     {
                         if (imagen.PostedFile.FileName.EndsWith(".JPG") || imagen.PostedFile.FileName.EndsWith(".jpg"))
                         {
-                            if (imagen.PostedFile.ContentLength <= 50000)
+                            if (imagen.PostedFile.ContentLength <= 3000000)
                             {
 
                                 DateTime dt = DateTime.Now;

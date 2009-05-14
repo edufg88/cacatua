@@ -28,13 +28,16 @@ namespace WebCacatUA
                 Response.Redirect("/index.aspx");
             }
             int n = ENImagen.ObtenerNumeroImagenes(ENUsuario.Obtener(Request.Params["usuario"]).Id);
-            if ( n % 4 == 0)
+
+            int paginacion = 10;
+
+            if ( n % paginacion == 0)
             {
-                numPaginas = n / 4;
+                numPaginas = n / paginacion;
             }
             else
             {
-                numPaginas = (n / 4) + 1;
+                numPaginas = (n / paginacion) + 1;
             }
 
             if (Request.Params["usuario"] != null)
@@ -45,11 +48,11 @@ namespace WebCacatUA
                 if (Request.Params["pag"] != null)
                 {
                     pagina = int.Parse(Request.Params["pag"]);
-                    fotos = ENImagen.Obtener(us.Id, int.Parse(Request.Params["pag"]), 4);
+                    fotos = ENImagen.Obtener(us.Id, int.Parse(Request.Params["pag"]), paginacion);
                 }
                 else
                 {
-                    fotos = ENImagen.Obtener(us.Id, 1, 4);
+                    fotos = ENImagen.Obtener(us.Id, 1, paginacion);
                 }
             }
             else
@@ -124,6 +127,7 @@ namespace WebCacatUA
             tablaImagenes.Controls.Add(r);
             if (fotos.Count > 0)
             {
+                
                 ENImagen img = (ENImagen)fotos[0];
                 Response.Write("<script type=\"text/javascript\" language=\"javascript\">var id=" + img.Id + ";</script>");
                 Response.Write("<script type=\"text/javascript\" language=\"javascript\">var archivo='" + img.Archivo + "';</script>");
@@ -132,6 +136,7 @@ namespace WebCacatUA
                 Label lab = new Label();
                 lab.Text = "No hay imagenes";
                 panelImagenPrincipal.Controls.Add(lab);
+
                 
             }
 
