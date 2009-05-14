@@ -570,7 +570,8 @@ namespace Libreria
         /// <returns>Devuelve el número de imágenes</returns>
         public int CantidadImagenes()
         {
-            return ImagenCAD.Instancia.CantidadImagenes(this.id);
+            ImagenCAD i = new ImagenCAD();
+            return i.CantidadImagenes(this.id);
         }
 
         /// <summary>
