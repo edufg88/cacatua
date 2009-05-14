@@ -149,8 +149,9 @@ namespace WebCacatUA
         {
             Label_nombreUsuario.Text = usuario.Usuario;
 
-            if (usuario.Imagen != -1)
-                Image_fotoUsuario.ImageUrl = "galeria/" + usuario.Imagen + ".jpg";
+            ENImagen imagenUsuario = ENImagen.Obtener(usuario.Imagen);
+            if (imagenUsuario != null)
+                Image_fotoUsuario.ImageUrl = "galeria/" + imagenUsuario.Archivo;
 
             HyperLink_datosUsuario.NavigateUrl = "usuario.aspx?usuario=" + usuario.Usuario;
             HyperLink_datosUsuario.Text = Resources.I18N.DatosUsuario;
