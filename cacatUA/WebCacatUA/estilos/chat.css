@@ -76,3 +76,8 @@
 {
     width: 95px;   
 }
+
+.ocultoChat
+{
+    display: none;   
+}
