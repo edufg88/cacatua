@@ -19,7 +19,7 @@
     <div id="contenidoUsuarios">
         <div id="busquedaUsuarios">
             <div id="campoBusqueda" class="tablaBusqueda">
-                
+                <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_buscar">
                 <table style="width: 100%" cellpadding="0" cellspacing="0" class="tablaBusqueda">              
                     <tr>
                         <td style="width: 35%"></td>
@@ -37,6 +37,7 @@
                         <td style="width: 25%"></td>
                     </tr>
                 </table>
+                </asp:Panel>
             </div>
             <div id="criteriosBusquedaUsuarios" class="tablaBusqueda" >
                 <asp:Label ID="Label_buscarPor" runat="server" Text="<%$ Resources: I18N, Buscar%>"></asp:Label>

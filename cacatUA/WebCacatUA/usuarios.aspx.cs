@@ -33,8 +33,9 @@ public partial class usuarios : WebCacatUA.InterfazWeb
             actualizarOrdenar();
             actualizarOrden();
             actualizarBuscar();
+            TextBox_filtroBusqueda.Focus();
         }
-        
+
         mostrarUsuarios();
     }
 

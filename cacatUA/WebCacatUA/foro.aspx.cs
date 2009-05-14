@@ -41,6 +41,7 @@ public partial class foro : WebCacatUA.InterfazWeb
             actualizarOrdenacion();
             actualizarBusqueda();
             actualizarSuscripcion();
+            TextBox_filtroBusqueda.Focus();
         }
 
         mostrarHilos();
