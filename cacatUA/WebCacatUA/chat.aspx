@@ -28,8 +28,8 @@ function limpiar()
             <ContentTemplate>
 
                 <asp:Timer ID="Timer2" runat="server" interval="1000" ontick="actualizarChat" />
-                <asp:TextBox ID="TextBox_textoEnviado" runat="server"></asp:TextBox>
-                <asp:Label ID="Label_ultimoMensaje" runat="server" Text="0"></asp:Label>
+                <asp:TextBox ID="TextBox_textoEnviado" runat="server" Visible="False"></asp:TextBox>
+                <asp:Label ID="Label_ultimoMensaje" runat="server" Text="0" Visible="False"></asp:Label>
                 <div id="usuariosConectados">
                     <asp:ListBox ID="ListBox_usuarios" Width="100%" Height="100%" runat="server"></asp:ListBox>
                 </div>
