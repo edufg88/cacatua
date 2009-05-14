@@ -10,6 +10,7 @@
     <div id="divContenidoGaleria">
     
         <p style="text-align:center;width:100%;" ><a href="" id="verImagen" >Ver detalles</a></p>
+        
         <br />
         <asp:Panel ID="panelImagenPrincipal" runat="server">
             <img id="imagenPrincipal" width="600px" src="" alt=""/>
@@ -20,7 +21,7 @@
         <asp:Table ID="tablaImagenes" runat="server" HorizontalAlign="Center">
         </asp:Table>
         </div>
-        
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/galeriaUpload.aspx" >Subir imagen</asp:HyperLink>
         <asp:Table ID="Table2" runat="server">
         </asp:Table>    
     

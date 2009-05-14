@@ -9,12 +9,11 @@
 
     <div id="contenidoGaleriaDetalle">
         <p id="tituloImagen"><a name="tituloImagen"><asp:Label ID="labelTitulo" runat="server" Text="Titulo"></asp:Label></a></p><br />
-        
-        <br />
+
         <asp:Panel ID="panelImagen" runat="server" >
+            <asp:Image ID="imagenPrincipal" runat="server" Width="600px" ImageUrl=""/>
             <asp:Table ID="tablaNavegarImagenes" runat="server">
             </asp:Table>
-            <asp:Image ID="imagenPrincipal" runat="server" Width="600px" ImageUrl=""/>
         </asp:Panel>
         <br />
         <asp:Label ID="labelFecha" runat="server" Text="Fecha"></asp:Label><br />
