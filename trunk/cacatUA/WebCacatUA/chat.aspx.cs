@@ -77,7 +77,7 @@ namespace WebCacatUA
                 ArrayList mensajes = ENChatMensaje.Obtener(ultimoMensaje);
                 foreach (ENChatMensaje mensaje in mensajes)
                 {
-                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje + "<br />";
+                    string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje;
                     Label label = new Label();
                     label.Text = aux;
                     Panel_mensajes.Controls.Add(label);
@@ -104,7 +104,7 @@ namespace WebCacatUA
                 // Enviamos el menaje
                 ENChatMensaje mensaje = new ENChatMensaje();
                 mensaje.Usuario = usuario;
-                mensaje.Mensaje = TextBox_mensaje.Text;
+                mensaje.Mensaje = TextBox_textoEnviado.Text;
                 mensaje.Guardar();
                 TextBox_mensaje.Text = "";
             }
