@@ -56,6 +56,17 @@
                 <asp:Label ID="Label_iniciarSesion" runat="server" Text="<%$ Resources: I18N, IniciarSesion %>"></asp:Label>
                 <asp:Label ID="Label_infoLogin" runat="server" ForeColor="Red"></asp:Label>
      
+                <asp:Panel ID="Panel_panelSup" CssClass="menuPersonal" runat="server" Visible="false">  
+                        <asp:LinkButton ID="LinkButton_firmas" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_firmas_Click"><%= Resources.I18N.Firmas %></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_mensajes" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_mensajes_Click"><%= Resources.I18N.MensajesPrivados%></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_galeria" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_galeria_Click"><%= Resources.I18N.GaleriaFotos%></asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton_encuestas" runat="server" CssClass="enlace" 
+                            onclick="LinkButton_encuestas_Click"><%= Resources.I18N.Encuestas%></asp:LinkButton>       
+                </asp:Panel>
+     
                 <asp:TextBox ID="TextBox_usuario" runat="server" Width="100px"></asp:TextBox>
                 <asp:TextBox ID="TextBox_contrasena" runat="server" Width="100px" 
                     TextMode="Password"></asp:TextBox>
@@ -88,28 +99,17 @@
             </div>
             
             <div id="cabecera">
-                <a href="index.aspx"><img alt="CacatUA" src="imagenes/cabecera.png" /></a>
+                <img alt="CacatUA" src="imagenes/cabecera.png" />
             </div>
             
             <div id="menu">
+                <div id="boton_inicio" class="boton"><a href="index.aspx"><asp:Label ID="Label_inicio" runat="server" Text="<%$ Resources: I18N, Inicio %>"></asp:Label></a></div>
                 <div id="boton_chat" class="boton"><a href="chat.aspx"><asp:Label ID="Label_chat" runat="server" Text="Chat"></asp:Label></a></div>
                 <div id="boton_usuarios" class="boton"><a href="usuarios.aspx"><asp:Label ID="Label_usuarios" runat="server" Text="<%$ Resources: I18N, Usuarios %>"></asp:Label></a></div>
                 <div id="boton_grupos" class="boton"><a href="grupos.aspx"><asp:Label ID="Label_grupos" runat="server" Text="<%$ Resources: I18N, Grupos %>"></asp:Label></a></div>
                 <div id="boton_materiales" class="boton"><a href="materiales.aspx"><asp:Label ID="Label_materiales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label></a></div>
                 <div id="boton_foro" class="boton"><a href="foro.aspx"><asp:Label ID="Label_foro" runat="server" Text="<%$ Resources: I18N, Foro %>"></asp:Label></a></div>
             </div>
-            <asp:Panel ID="Panel_panelSup" runat="server" Visible="false">
-                <div id="menuPersonal">    
-                        <asp:LinkButton ID="LinkButton_firmas" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_firmas_Click">Mis firmas</asp:LinkButton>
-                        <asp:LinkButton ID="LinkButton_mensajes" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_mensajes_Click">Mis mensajes</asp:LinkButton>
-                        <asp:LinkButton ID="LinkButton_galeria" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_galeria_Click">Mis fotos</asp:LinkButton>
-                        <asp:LinkButton ID="LinkButton_encuestas" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_encuestas_Click">Mis encuestas</asp:LinkButton>       
-                </div>
-            </asp:Panel>
         </div>
         
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">

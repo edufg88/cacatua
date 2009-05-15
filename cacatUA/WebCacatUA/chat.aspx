@@ -52,9 +52,6 @@ function anadirMensaje(autor, texto)
     
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
-
-                <asp:ScriptManager ID="ScriptManager1" runat="server">
-                </asp:ScriptManager>
                 
                 <asp:Timer ID="Timer2" runat="server" interval="1000" ontick="actualizarChat" />
                 <asp:TextBox ID="TextBox_textoEnviado" runat="server" CssClass="ocultoChat"></asp:TextBox>
