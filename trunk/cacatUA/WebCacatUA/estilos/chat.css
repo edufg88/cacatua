@@ -3,6 +3,9 @@
     background-color: #777;
     border: 1px solid #888;
     -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
     padding: 10px;
 }
 
@@ -17,6 +20,11 @@
 
 #mensajesChat
 {
+
+}
+
+.panelMensajesChat
+{
     margin-right: 210px;
     padding: 5px;
     height: 200px;
@@ -28,22 +36,14 @@
     overflow-x: hidden;
 }
 
-.mensajesChat
-{
-    border: 0;
-    background-color: Transparent;
-    height: 200px;
-}
-
 .mensajeChat
 {
-    margin-bottom: 10px;
+
 }
 
 .autorMensajeChat
 {
     font-weight: bold;
-    padding-right: 5px;
 }
 
 .textoMensajeChat

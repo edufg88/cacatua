@@ -237,7 +237,6 @@ namespace Libreria
                 comando.CommandText = "DELETE FROM conectados where DATEDIFF(ss, fecha, GETDATE()) > 10;";
 
                 int cantidadBorrados = comando.ExecuteNonQuery();
-                escribir("cantidad borrados: " + cantidadBorrados);
             }
             catch (Exception ex)
             {
@@ -245,7 +244,6 @@ namespace Libreria
             }
             finally
             {
-                escribir("acabo de borrar");
                 if (conexion != null)
                     conexion.Close();
             }

@@ -17,13 +17,15 @@ function limpiar()
     var mensaje = document.getElementById("<%= TextBox_mensaje.ClientID %>").value;
     document.getElementById("<%= TextBox_mensaje.ClientID %>").value = '';
     document.getElementById("<%= TextBox_textoEnviado.ClientID %>").value = mensaje;
-    document.getElementById("<%= TextBox_mensajes.ClientID %>").value += "<%= NombreUsuario %>: " + mensaje + "\n";
+    //document.getElementById("<%= TextBox_mensajes.ClientID %>").value += "<%= NombreUsuario %>: " + mensaje + "\n";
+    document.getElementById("<%= TextBox_mensaje.ClientID %>").focus();
+    anadirMensaje('<%= NombreUsuario %>: ', mensaje);
 }
 
 function bajarScroll()
 {
-    document.getElementById("<%= TextBox_mensajes.ClientID %>").scrollTop = document.getElementById("<%= TextBox_mensajes.ClientID %>").scrollHeight;
-    return false;
+    var mensajes = document.getElementById("<%= Panel_mensajes.ClientID %>");
+    mensajes.scrollTop = 999999;
 }
 
 function anadirMensaje(autor, texto)
@@ -40,11 +42,12 @@ function anadirMensaje(autor, texto)
     mensaje.setAttribute('class', 'mensajeChat');
     mensaje.appendChild(autorSpan);
     mensaje.appendChild(textoSpan);
-    
-    var mensajes = document.getElementById("mensajesChat");
+
+    var mensajes = document.getElementById("<%= Panel_mensajes.ClientID %>");
     mensajes.appendChild(mensaje);
-    mensajes.scrollTop = 999999;
 }
+
+Sys.WebForms.PageRequestManager.getInstance().add_endRequest(bajarScroll);
 
 </script>
 
@@ -55,12 +58,12 @@ function anadirMensaje(autor, texto)
                 
                 <asp:Timer ID="Timer2" runat="server" interval="1000" ontick="actualizarChat" />
                 <asp:TextBox ID="TextBox_textoEnviado" runat="server" CssClass="ocultoChat"></asp:TextBox>
-                <asp:Label ID="Label_ultimoMensaje" runat="server" Text="0" Visible="False"></asp:Label>
+                <asp:Label ID="Label_ultimoMensaje" runat="server" Text="0" CssClass="ocultoChat"></asp:Label>
                 <div id="usuariosConectados">
                     <asp:ListBox ID="ListBox_usuarios" Width="100%" Height="100%" runat="server"></asp:ListBox>
                 </div>
 
-                <asp:TextBox ID="TextBox_mensajes" CssClass="mensajesChat" Width="100%" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="TextBox_mensajes" Width="100%" runat="server" TextMode="MultiLine" CssClass="ocultoChat"></asp:TextBox>
                 
             </ContentTemplate>
              
@@ -70,14 +73,25 @@ function anadirMensaje(autor, texto)
            
         </asp:UpdatePanel>
         
-        <div id="mensajesChat"></div>
+        <div id="mensajeschat">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:Panel ID="Panel_mensajes" CssClass="panelMensajesChat" runat="server">
+                    </asp:Panel>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
                 
-        <table id="anadirMensaje" cellpadding="0" cellspacing="0">
-            <tr>
-                <td class="columna1AnadirMensaje"><asp:TextBox ID="TextBox_mensaje" CssClass="areaMensajeChat" runat="server"></asp:TextBox></td>
-                <td class="columna2AnadirMensaje"><asp:Button ID="Button_enviar" CssClass="botonMensajeChat" OnClientClick="limpiar()" runat="server" Text="<%$ Resources: I18N, Enviar %>" onclick="Button_enviar_Click" /></td>
-            </tr>
-        </table>
+        <asp:Panel ID="Panel1" runat="server" DefaultButton="Button_enviar">
+      
+            <table id="anadirMensaje" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td class="columna1AnadirMensaje"><asp:TextBox ID="TextBox_mensaje" CssClass="areaMensajeChat" runat="server"></asp:TextBox></td>
+                    <td class="columna2AnadirMensaje"><asp:Button ID="Button_enviar" CssClass="botonMensajeChat" OnClientClick="limpiar()" runat="server" Text="<%$ Resources: I18N, Enviar %>" onclick="Button_enviar_Click" /></td>
+                </tr>
+            </table>
+        
+        </asp:Panel>
         
     </div>
         

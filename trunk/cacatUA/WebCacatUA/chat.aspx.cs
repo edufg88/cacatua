@@ -35,10 +35,8 @@ namespace WebCacatUA
             if (!Page.IsPostBack)
             {
                 // Inicializamos algunos controles y variables.
-                TextBox_mensajes.Attributes.Add("onchange", "return bajarScroll();");
-                TextBox_mensaje.Attributes.Add("onclick", "anadirMensaje('cristian: ', 'joder, este metodo va al pelo');");
-                //Button_enviar.Focus();
                 NombreUsuario = "";
+                TextBox_mensaje.Focus();
 
                 // Deshabilitamoms la inserción si no está identificado.
                 TextBox_mensaje.Enabled = false;
@@ -72,19 +70,7 @@ namespace WebCacatUA
                 conectado.Usuario = ENUsuario.Obtener(Session["usuario"].ToString());
                 conectado.Actualizar();
             }
-            catch (Exception)
-            {
-                escribir("error actualizando en chat.aspx.cs");
-            }
-
-            // Mostramos los usuarios que hay conectados
-            ArrayList conectados = ENChatConectado.Obtener();
-            ListBox_usuarios.Items.Clear();
-            foreach (ENChatConectado conectado in conectados)
-            {
-                ListItem item = new ListItem(conectado.Usuario.Usuario);
-                ListBox_usuarios.Items.Add(conectado.Usuario.Usuario);
-            }
+            catch (Exception) { }
 
             // Comprobamos cual es el último mensaje
             ENChatMensaje ultimoMensaje = ENChatMensaje.Obtener(int.Parse(Label_ultimoMensaje.Text));
@@ -99,33 +85,40 @@ namespace WebCacatUA
             }
             else
             {
+                // Extraemos los últimos mensajes y los introducimos en el TextBox.
                 ArrayList mensajes = ENChatMensaje.Obtener(ultimoMensaje);
                 foreach (ENChatMensaje mensaje in mensajes)
                 {
                     string aux = mensaje.Usuario.Usuario + ": " + mensaje.Mensaje + "\n";
-                    if (Session["usuario"] != null)
-                    {
-                        ENUsuario u = ENUsuario.Obtener(Session["usuario"].ToString());
-                        if (u != null)
-                        {
-                            if (mensaje.Usuario.Id != u.Id)
-                                TextBox_mensajes.Text += aux;
-                        }
-                        else
-                        {
-                            TextBox_mensajes.Text += aux;
-                        }
-                    }
-                    else
-                    {
-                        TextBox_mensajes.Text += aux;
-                    }
+                    TextBox_mensajes.Text += aux;
                 }
+
+                // Si había mensajes nuevos, actualizamos cuál ha sido el último.
                 if (mensajes.Count > 0)
                 {
                     ENChatMensaje mensaje = (ENChatMensaje)mensajes[mensajes.Count-1];
                     Label_ultimoMensaje.Text = mensaje.Id.ToString();
                 }
+
+                // Copiamos el contenido del TextBox_mensajes al Panel_mensajes dándole formato.
+                Label label = new Label();
+                label.Text = "<div class=\"mensajeChat\"><span class=\"autorMensajeChat\">";
+                label.Text += TextBox_mensajes.Text.Replace("\n", "</span></div><div class=\"mensajeChat\"><span class=\"autorMensajeChat\">");
+                label.Text += "</span></div>";
+
+                label.Text = label.Text.Replace(":", ": </span><span class=\"textoMensajeChat\">");
+
+                Panel_mensajes.Controls.Add(label);
+                UpdatePanel1.Update();
+            }
+
+            // Mostramos los usuarios que hay conectados
+            ArrayList conectados = ENChatConectado.Obtener();
+            ListBox_usuarios.Items.Clear();
+            foreach (ENChatConectado conectado in conectados)
+            {
+                ListItem item = new ListItem(conectado.Usuario.Usuario);
+                ListBox_usuarios.Items.Add(conectado.Usuario.Usuario);
             }
         }
 
