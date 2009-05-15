@@ -93,23 +93,21 @@ namespace WebCacatUA
                     TextBox_mensajes.Text += aux;
                 }
 
-                // Si había mensajes nuevos, actualizamos cuál ha sido el último.
+                // Si había mensajes nuevos, nos guardamos el ID del último y
+                // Copiamos el contenido del TextBox_mensajes al Panel_mensajes dándole formato.
                 if (mensajes.Count > 0)
                 {
                     ENChatMensaje mensaje = (ENChatMensaje)mensajes[mensajes.Count-1];
                     Label_ultimoMensaje.Text = mensaje.Id.ToString();
+               
+                    Label label = new Label();
+                    label.Text = "<div class=\"mensajeChat\"><span class=\"autorMensajeChat\">";
+                    label.Text += TextBox_mensajes.Text.Replace("\n", "</span></div><div class=\"mensajeChat\"><span class=\"autorMensajeChat\">");
+                    label.Text += "</span></div>";
+                    label.Text = label.Text.Replace(":", ": </span><span class=\"textoMensajeChat\">");
+                    Panel_mensajes.Controls.Add(label);
+                    UpdatePanel1.Update();
                 }
-
-                // Copiamos el contenido del TextBox_mensajes al Panel_mensajes dándole formato.
-                Label label = new Label();
-                label.Text = "<div class=\"mensajeChat\"><span class=\"autorMensajeChat\">";
-                label.Text += TextBox_mensajes.Text.Replace("\n", "</span></div><div class=\"mensajeChat\"><span class=\"autorMensajeChat\">");
-                label.Text += "</span></div>";
-
-                label.Text = label.Text.Replace(":", ": </span><span class=\"textoMensajeChat\">");
-
-                Panel_mensajes.Controls.Add(label);
-                UpdatePanel1.Update();
             }
 
             // Mostramos los usuarios que hay conectados
@@ -136,9 +134,17 @@ namespace WebCacatUA
                 // Enviamos el menaje
                 ENChatMensaje mensaje = new ENChatMensaje();
                 mensaje.Usuario = usuario;
-                mensaje.Mensaje = TextBox_textoEnviado.Text;
-                mensaje.Guardar();
-                TextBox_mensaje.Text = "";
+                string msj = TextBox_textoEnviado.Text;
+                msj = msj.Replace("\n", "");
+                msj = msj.Replace(":", "");
+                msj = msj.Replace("\\", "");
+                msj = msj.Replace("<", "");
+                msj = msj.Replace("\"", "");
+                msj = msj.Replace("'", "");
+                msj = msj.Replace(">", "");
+                mensaje.Mensaje = msj;
+                if (msj != "")
+                    mensaje.Guardar();
             }
         }
     }

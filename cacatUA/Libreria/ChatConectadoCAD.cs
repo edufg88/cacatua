@@ -166,6 +166,7 @@ namespace Libreria
 
         public ArrayList Obtener()
         {
+            BorrarDesconectados();
             ArrayList conectados = new ArrayList();
             SqlConnection conexion = null;
             try
@@ -190,7 +191,6 @@ namespace Libreria
                     ENChatConectado conectado = ObtenerDatos(reader);
                     conectados.Add(conectado);
                 }
-                BorrarDesconectados();
             }
             catch (Exception ex)
             {
