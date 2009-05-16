@@ -1,0 +1,22 @@
+﻿#tablapeticion
+{
+    width: 50%;
+}
+
+.fila 
+{
+}
+
+.columna1
+{
+    width: 25%;
+    text-align: right;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.columna2
+{
+	
+}

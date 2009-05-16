@@ -56,6 +56,12 @@ public partial class confirmacion : WebCacatUA.InterfazWeb
             HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
             HyperLink_confirmacion.NavigateUrl = "index.aspx";
         }
+        else if (Request.QueryString["peticion"] != null)
+        {
+            Label_confirmacion.Text = Resources.I18N.PeticionOK;
+            HyperLink_confirmacion.Text = Resources.I18N.PulsarVolver;
+            HyperLink_confirmacion.NavigateUrl = "index.aspx";
+        }
         else if (Request.QueryString["mensajeerror"] != null)
         {
             if (int.Parse(Request.QueryString["mensajeerror"].ToString()) == 1)

@@ -96,7 +96,7 @@ namespace Libreria
 
         override public bool Guardar()
         {
-            return false;
+            return cad.GuardarPeticion(this);
         }
 
         override public bool Borrar()
@@ -110,7 +110,7 @@ namespace Libreria
             this.Actualizar();
 
             String mensaje = "Peticion de asunto: "  + this.asunto;
-            mensaje +=  ". Respuesta: " + this.respuesta;
+            mensaje +=  " - Respuesta: " + this.respuesta;
             ENMensaje contestar = new ENMensaje(usuario.Usuario, mensaje, DateTime.Now, usuario.Usuario);
             contestar.Guardar();
 
