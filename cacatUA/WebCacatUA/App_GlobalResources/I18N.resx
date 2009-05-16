@@ -609,4 +609,19 @@
   <data name="PeticionOK" xml:space="preserve">
     <value>Peticion enviada correctamente</value>
   </data>
+  <data name="Asunto" xml:space="preserve">
+    <value>Asunto</value>
+  </data>
+  <data name="Peticion" xml:space="preserve">
+    <value>Peticion</value>
+  </data>
+  <data name="PeticionError" xml:space="preserve">
+    <value>ERROR: Todos los campos son obligatorios</value>
+  </data>
+  <data name="Peticiones" xml:space="preserve">
+    <value>Peticiones</value>
+  </data>
+  <data name="PeticionInfo" xml:space="preserve">
+    <value>Si tienes un problema puedes exponerlo en este formulario</value>
+  </data>
 </root>

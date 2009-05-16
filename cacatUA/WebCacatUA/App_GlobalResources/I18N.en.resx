@@ -394,7 +394,7 @@
     <value>Additional information</value>
   </data>
   <data name="InsuscribirseCategoriaActual" xml:space="preserve">
-    <value>Unsuscribirse from the current category</value>
+    <value>Unsuscribe from the current category</value>
   </data>
   <data name="MensajesPrivados" xml:space="preserve">
     <value>Private messages</value>
@@ -542,5 +542,20 @@
   </data>
   <data name="PeticionOK" xml:space="preserve">
     <value>The petition has been correctly sent</value>
+  </data>
+  <data name="Asunto" xml:space="preserve">
+    <value>Matter</value>
+  </data>
+  <data name="Peticion" xml:space="preserve">
+    <value>Petition</value>
+  </data>
+  <data name="PeticionError" xml:space="preserve">
+    <value>ERROR: All fields are obligatory</value>
+  </data>
+  <data name="Peticiones" xml:space="preserve">
+    <value>Petitions</value>
+  </data>
+  <data name="PeticionInfo" xml:space="preserve">
+    <value>If you have a problem, you can use this form</value>
   </data>
 </root>

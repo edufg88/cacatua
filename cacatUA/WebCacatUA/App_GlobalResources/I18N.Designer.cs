@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Asunto.
+        /// </summary>
+        internal static string Asunto {
+            get {
+                return ResourceManager.GetString("Asunto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Autor.
         /// </summary>
         internal static string Autor {
@@ -1182,6 +1191,42 @@ namespace Resources {
         internal static string Para {
             get {
                 return ResourceManager.GetString("Para", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Peticion.
+        /// </summary>
+        internal static string Peticion {
+            get {
+                return ResourceManager.GetString("Peticion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ERROR: Todos los campos son obligatorios.
+        /// </summary>
+        internal static string PeticionError {
+            get {
+                return ResourceManager.GetString("PeticionError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Peticiones.
+        /// </summary>
+        internal static string Peticiones {
+            get {
+                return ResourceManager.GetString("Peticiones", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Si tienes un problema puedes exponerlo en este formulario.
+        /// </summary>
+        internal static string PeticionInfo {
+            get {
+                return ResourceManager.GetString("PeticionInfo", resourceCulture);
             }
         }
         

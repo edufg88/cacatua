@@ -14,7 +14,7 @@ using Libreria;
 
 namespace WebCacatUA
 {
-    public partial class peticion : System.Web.UI.Page
+    public partial class peticion : InterfazWeb
     {
         ENUsuario usuario;
 
@@ -41,7 +41,7 @@ namespace WebCacatUA
             else
             {
                 Label error = new Label();
-                error.Text = "ERROR: Todos los campos son obligatorios.";
+                error.Text = Resources.I18N.PeticionError;
                 error.ForeColor = System.Drawing.Color.Red;
                 Panel_mensaje.Controls.Add(error);
             }
