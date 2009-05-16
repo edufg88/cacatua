@@ -104,6 +104,18 @@ namespace Libreria
             return cad.BorrarPeticion(this.id);
         }
 
+        public void Responder(string respuesta)
+        {
+            this.respuesta = respuesta;
+            this.Actualizar();
+
+            String mensaje = "Peticion de asunto: "  + this.asunto;
+            mensaje +=  ". Respuesta: " + this.respuesta;
+            ENMensaje contestar = new ENMensaje(usuario.Usuario, mensaje, DateTime.Now, usuario.Usuario);
+            contestar.Guardar();
+
+        }
+
         public static ArrayList Obtener(string asunto, string texto, int usuario,int mostrar, ref DateTime inicio,ref DateTime final,bool porFecha,string orden,bool ascendente,int numeroDePagina,int cantidad,ref int resultados)
         {
           
