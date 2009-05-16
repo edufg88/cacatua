@@ -606,4 +606,7 @@
   <data name="SinResultados" xml:space="preserve">
     <value>No hay resultados para mostrar</value>
   </data>
+  <data name="PeticionOK" xml:space="preserve">
+    <value>Peticion enviada correctamente</value>
+  </data>
 </root>

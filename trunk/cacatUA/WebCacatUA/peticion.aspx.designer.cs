@@ -23,13 +23,13 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Label Label_paginaInicio;
         
         /// <summary>
-        /// Control TextBox_Usuario.
+        /// Control Panel_mensaje.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox_Usuario;
+        protected global::System.Web.UI.WebControls.Panel Panel_mensaje;
         
         /// <summary>
         /// Control TextBox_Asunto.

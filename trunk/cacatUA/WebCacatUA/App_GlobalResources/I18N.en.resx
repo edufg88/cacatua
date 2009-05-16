@@ -540,4 +540,7 @@
   <data name="SinResultados" xml:space="preserve">
     <value>There are no results to be shown</value>
   </data>
+  <data name="PeticionOK" xml:space="preserve">
+    <value>The petition has been correctly sent</value>
+  </data>
 </root>

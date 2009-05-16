@@ -121,6 +121,30 @@ namespace Libreria
             return peticion;
         }
 
+        public bool GuardarPeticion(ENPeticion peticion)
+        {
+            int resultado = 0;
+            bool guardada = false;
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                // Abrimos la conexión
+                conexion.Open();
+                // Creamos el comando
+                SqlCommand comando = new SqlCommand();
+                // Le asignamos la conexión al comando
+                comando.Connection = conexion;
+                comando.CommandText = "INSERT INTO peticiones (asunto,texto,usuario) " +
+                    "VALUES (@asunto,@texto,@usuario)";
+                comando.Parameters.AddWithValue("@asunto", peticion.Asunto);
+                comando.Parameters.AddWithValue("@texto", peticion.Texto);
+                comando.Parameters.AddWithValue("@usuario", peticion.Usuario.Id);
+                resultado = comando.ExecuteNonQuery();
+                if (resultado == 1)
+                    guardada = true;
+            }
+            return guardada;
+        }
+
         public bool ActualizarPeticion(ENPeticion peticion)
         {
             int resultado = 0;

@@ -1186,6 +1186,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Peticion enviada correctamente.
+        /// </summary>
+        internal static string PeticionOK {
+            get {
+                return ResourceManager.GetString("PeticionOK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a por.
         /// </summary>
         internal static string por {
