@@ -31,8 +31,7 @@ namespace cacatUA
         {
             if(validarRespuesta(richTextBox_envPetRespuesta.Text))
             {            
-                pet.Respuesta = richTextBox_envPetRespuesta.Text;
-                pet.Actualizar();
+                pet.Responder(richTextBox_envPetRespuesta.Text);                
                 peticiones.ActualizarPeticiones();
                 Close();
             }
