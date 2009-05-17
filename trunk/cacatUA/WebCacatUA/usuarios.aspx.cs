@@ -316,8 +316,24 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 Label l9 = new Label();
                 l9.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.CantidadEncuestas + ": </span>" + us.CantidadEncuestas().ToString() + "</p><br/>";
                 l9.CssClass = "datoMenor";
-                Label l10 = new Label();
-                l10.Text = "<a href=\"enviarmensaje.aspx?usuario=" + us.Usuario + "\"class=\"enlaceMenor\">" + Resources.I18N.MensajePrivado + "</a>";
+                Label l10 = new Label();                
+                l10.Text = "<a href=\"enviarmensaje.aspx?usuario=" + us.Usuario + "\"class=\"enlaceMenor\">" + "<img src=\"imagenes/sobre.png\" alt=\"mensaje privado\"/>" + "</a>";
+                if (Session["usuario"] == null)
+                {
+                    l10.Visible = false;
+                }
+                else
+                {
+                    if (Session["usuario"].ToString() == us.Usuario)
+                    {
+                        l10.Visible = false;
+                    }
+                    else
+                    {
+                        l10.Visible = true;
+                    }
+                }
+
                 Panel p3 = new Panel();
                 p3.Controls.Add(l7);
                 p3.Controls.Add(l8);
