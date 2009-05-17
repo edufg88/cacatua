@@ -687,4 +687,7 @@
   <data name="MensajeEnviarError" xml:space="preserve">
     <value>The text in message is required</value>
   </data>
+  <data name="masMateriales" xml:space="preserve">
+    <value>More materials</value>
+  </data>
 </root>
