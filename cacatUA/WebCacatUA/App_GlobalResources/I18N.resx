@@ -328,7 +328,7 @@
     <value>Apuntarse</value>
   </data>
   <data name="Desapuntarse" xml:space="preserve">
-    <value>Desapuntarse</value>
+    <value>Abandonar</value>
   </data>
   <data name="Enviarmensaje" xml:space="preserve">
     <value>Enviar Mensaje</value>
@@ -499,7 +499,7 @@
     <value>mensajes</value>
   </data>
   <data name="NoFirmas" xml:space="preserve">
-    <value>Este usuario no tiene firmas</value>
+    <value>No hay firmas para mostrar</value>
   </data>
   <data name="NoMensajes" xml:space="preserve">
     <value>No tengo mensajes privados</value>
@@ -508,7 +508,7 @@
     <value>Viendo</value>
   </data>
   <data name="DesapuntarGrupo" xml:space="preserve">
-    <value>Se ha desapuntado correctamente del grupo</value>
+    <value>Ha abandonado correctamente del grupo</value>
   </data>
   <data name="GrupoCreado" xml:space="preserve">
     <value>Grupo creado correctamente</value>
@@ -668,5 +668,8 @@
   </data>
   <data name="NumeroCaracteres1y5000" xml:space="preserve">
     <value>El número de caracteres debe estar entre 1 y 5000</value>
+  </data>
+  <data name="GruposMin" xml:space="preserve">
+    <value>grupos</value>
   </data>
 </root>

@@ -52,6 +52,9 @@ namespace cacatUA
 
             checkBox_administrador.Checked = false;
             checkBox_activo.Checked = false;
+
+            button_guardarCambios.Text = "Crear";
+            button_descartarCambios.Text = "Limpiar";
         }
 
         /// <summary>
@@ -83,6 +86,9 @@ namespace cacatUA
 
                 checkBox_administrador.Checked = usuario.EsAdministrador();
                 checkBox_activo.Checked = usuario.Activo;
+
+                button_guardarCambios.Text = "Guardar Cambios";
+                button_descartarCambios.Text = "Descartar Cambios";
             }
         }
         

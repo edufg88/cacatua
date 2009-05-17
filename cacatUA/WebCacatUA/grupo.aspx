@@ -26,7 +26,7 @@
             Text= "<%$ Resources: I18N, Desapuntarse %>" 
             onclick="Button_desapuntarse_Click" Visible="False" />
         <asp:Button ID="Button_enviarmensaje" runat="server" 
-            Text= "<%$ Resources: I18N, Enviarmensaje %>" 
-            onclick="Button_enviarmensaje_Click" /> 
+            Text= "<%$ Resources: I18N, Enviarmensaje %>"
+            onclick="Button_enviarmensaje_Click" />
     </div>
 </asp:Content>

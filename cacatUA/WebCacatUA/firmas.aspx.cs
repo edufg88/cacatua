@@ -14,25 +14,26 @@ using Libreria;
 
 public partial class firmas : WebCacatUA.InterfazWeb
 {
-    ENUsuario user = null;
+    private ENUsuario user = null;
     private int pagina;
     private int cantidad;
     private int totalResultados;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["usuario"] != null)
+        extraerParametros();
+        if (user != null)
         {
             cantidad = 5;
-            string usuario = Request.QueryString["usuario"];
-            user = ENUsuario.Obtener(usuario);
-            extraerParametros();
             if (!Page.IsPostBack)
             {
                 actualizarPaginacion();
             }
             ObtenerFirmas();
         }
+        else
+            Response.Redirect("usuarios.aspx");
+
         if (Session["usuario"] == null)
             Button_firmar.Visible = false;
         else
@@ -48,7 +49,7 @@ public partial class firmas : WebCacatUA.InterfazWeb
         TableCell c1 = new TableCell();
         c1.CssClass = "columna1Firmas cabeceraFirmas";
         Label l1 = new Label();
-        l1.Text = Resources.I18N.Usuarios;
+        l1.Text = Resources.I18N.De;
         Panel p1 = new Panel();
         p1.CssClass = "tituloGrupos";
         p1.Controls.Add(l1);
@@ -67,7 +68,7 @@ public partial class firmas : WebCacatUA.InterfazWeb
         TableCell c3 = new TableCell();
         c3.CssClass = "columna3Firmas cabeceraFirmas";
         Label l4 = new Label();
-        l4.Text = Resources.I18N.De;
+        l4.Text = Resources.I18N.Texto;
         Panel p4 = new Panel();
         p4.Controls.Add(l4);
         c3.Controls.Add(p4);
@@ -85,7 +86,7 @@ public partial class firmas : WebCacatUA.InterfazWeb
         ArrayList Firmas = ENFirma.ObtenerFirmas(user.Usuario, pagina, cantidad);
         Table_firmas.Controls.Clear();
 
-        insertarCabecera();
+        //insertarCabecera();
 
         if (totalResultados < 1)
         {
@@ -99,23 +100,35 @@ public partial class firmas : WebCacatUA.InterfazWeb
                 TableRow fila2 = new TableRow();
                 TableCell celda1 = new TableCell();
                 celda1.CssClass = "columna1Firmas";
+                Label l1 = new Label();
+                if (firma.Emisor.Imagen == -1) // Comprobamos si tiene imagen activa el usuario
+                {
+                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\"/>";
+                }
+                else
+                {
+                    l1.Text = "<img src=\"galeria/" + firma.Emisor.Imagen.ToString() + ".jpg\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
+                }
+                celda1.Controls.Add(l1);
                 TableCell celda2 = new TableCell();
                 celda2.CssClass = "columna2Firmas";
-                TableCell celda3 = new TableCell();
-                celda3.CssClass = "columna3Firmas";
+                /*TableCell celda3 = new TableCell();
+                celda3.CssClass = "columna3Firmas";*/
                 HyperLink link = new HyperLink();
                 Label texto = new Label();
                 Label fecha = new Label();
                 link.Text = firma.Emisor.Usuario;
                 link.NavigateUrl = "usuario.aspx?usuario=" + firma.Emisor.Usuario;
-                texto.Text = firma.Texto;
-                fecha.Text = firma.Fecha.ToString();
-                celda1.Controls.Add(link);
+                texto.Text = "<p>" + firma.Texto +"</p>";
+                fecha.Text = " @ " + firma.Fecha.ToString();
+                //celda1.Controls.Add(link);
+                celda2.Controls.Add(link);
                 celda2.Controls.Add(fecha);
-                celda3.Controls.Add(texto);
+                celda2.Controls.Add(texto);
+                //celda3.Controls.Add(texto);
                 fila2.Cells.Add(celda1);
                 fila2.Cells.Add(celda2);
-                fila2.Cells.Add(celda3);
+                //fila2.Cells.Add(celda3);
                 Table_firmas.Rows.Add(fila2);
             }
         }
@@ -197,7 +210,17 @@ public partial class firmas : WebCacatUA.InterfazWeb
         }
         catch (Exception) { }
 
-        totalResultados = ENFirma.Cantidad(user.Usuario);
+        user = null;
+        try
+        {
+            user = ENUsuario.Obtener(Request["usuario"].ToString());
+        }
+        catch (Exception) { }
+
+        if (user != null)
+            totalResultados = ENFirma.Cantidad(user.Usuario);
+        else
+            totalResultados = 0;
     }
 
     /// <summary>

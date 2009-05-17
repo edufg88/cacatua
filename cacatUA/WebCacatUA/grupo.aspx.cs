@@ -21,9 +21,16 @@ public partial class grupo : WebCacatUA.InterfazWeb
     protected void Page_Load(object sender, EventArgs e)
     {
         bool miembro = false;
-        if (Request.QueryString["id"] != "")
+
+        group = null;
+        try
         {
-            group = ENGrupos.Obtener(int.Parse(Request.QueryString["id"]));
+            group = ENGrupos.Obtener(int.Parse(Request["id"].ToString()));
+        }
+        catch (Exception) { }
+        
+        if (group != null)
+        {
             if (Session["usuario"] != null)
             {
                 user = ENUsuario.Obtener(Session["usuario"].ToString());
@@ -43,6 +50,11 @@ public partial class grupo : WebCacatUA.InterfazWeb
                 {
                     Button_apuntarse.Visible = true;
                 }
+
+                if (group.NumUsuarios == 0)
+                {
+                    Button_enviarmensaje.Visible = false;
+                }
             }
             else
             {
@@ -50,6 +62,10 @@ public partial class grupo : WebCacatUA.InterfazWeb
                 Button_apuntarse.Visible = false;
             }
             ObtenerDatos();
+        }
+        else
+        {
+            Response.Redirect("grupos.aspx");
         }
     }
 

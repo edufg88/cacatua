@@ -105,7 +105,7 @@ public partial class grupos : WebCacatUA.InterfazWeb
 
         if (totalResultados > 0)
         {
-            Label_mostrandoGrupos.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " grupos encontrados.";
+            Label_mostrandoGrupos.Text = Resources.I18N.Resultados + " " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.GruposMin + " " + Resources.I18N.EncontradosMin + ".";
 
             foreach (ENGrupos group in Grupos)
             {

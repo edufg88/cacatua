@@ -16,7 +16,8 @@ public partial class creargrupo : WebCacatUA.InterfazWeb
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Session["usuario"] == null)
+            Response.Redirect("grupos.aspx");
     }
 
     private void Limpiar()
