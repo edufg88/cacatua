@@ -353,7 +353,9 @@ public partial class materiales : WebCacatUA.InterfazWeb
             int final = inicial - 1 + CantidadPorPagina;
             if (final > totalResultados) final = totalResultados;
 
-            Label_resultados.Text = "Resultados " + inicial + " a " + final + " de " + totalResultados;
+            Label_resultados.Text = Resources.I18N.Resultados + " " + inicial + " - " + final
+                   + " " + Resources.I18N.Deminuscula + " " + totalResultados + " "
+                   + Resources.I18N.Materiales.ToLower() + " " + Resources.I18N.EncontradosMin;
 
             if (DropDownList_paginaInferior.Text == "1")
                 Button_anteriorInferior.Enabled = false;
