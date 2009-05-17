@@ -167,15 +167,19 @@ public partial class foro : WebCacatUA.InterfazWeb
         }
 
         Panel_categorias.Controls.Clear();
-        foreach (ENCategoria c in categorias)
-        {
-            HyperLink labelCategoria = new HyperLink();
-            labelCategoria.CssClass = "categoriaForo";
-            labelCategoria.Text = c.Nombre;
-            labelCategoria.ID = "categoria" + c.Id;
-            labelCategoria.NavigateUrl = calcularRuta(1, cantidad, busqueda, ordenar, orden, usuario, c);
 
-            Panel_categorias.Controls.Add(labelCategoria);
+        if (categorias != null)
+        {
+            foreach (ENCategoria c in categorias)
+            {
+                HyperLink labelCategoria = new HyperLink();
+                labelCategoria.CssClass = "categoriaForo";
+                labelCategoria.Text = c.Nombre;
+                labelCategoria.ID = "categoria" + c.Id;
+                labelCategoria.NavigateUrl = calcularRuta(1, cantidad, busqueda, ordenar, orden, usuario, c);
+
+                Panel_categorias.Controls.Add(labelCategoria);
+            }
         }
 
         if (Panel_categorias.Controls.Count == 0)
@@ -241,9 +245,9 @@ public partial class foro : WebCacatUA.InterfazWeb
     private void mostrarHilos()
     {
         if (totalResultados > 0)
-            Label_mostrandoForo.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " hilos encontrados.";
+            Label_mostrandoForo.Text = Resources.I18N.Resultados + ": " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " (" + totalResultados + ")";
         else
-            Label_mostrandoForo.Text = "No hay resultados con estas condiciones de búsqueda.";
+            Label_mostrandoForo.Text = Resources.I18N.NoHayResultados;
 
         Table_hilosForo.Controls.Clear();
         insertarCabecera();

@@ -165,7 +165,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
         Label_nombreHilo.Text = h.Titulo;
 
         if (totalResultados > 0)
-            Label_mostrandoRespuestasHilo.Text = "Resultados " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " de " + totalResultados + " respuestas.";
+            Label_mostrandoRespuestasHilo.Text = Resources.I18N.Resultados + ": " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " (" + totalResultados + ")";
         else
             Label_mostrandoRespuestasHilo.Text = "&nbsp;";
 
@@ -216,8 +216,17 @@ public partial class hilo : WebCacatUA.InterfazWeb
                 l1.Text += "<br />";
                 l1.Text += "<br />";
 
-                string sobre = "<img src=\"imagenes/sobre.png\" alt=\"" + Resources.I18N.Enviar + "\" />";
-                l1.Text += "<a href=\"enviarmensaje.aspx?usuario=" + i.Autor.Usuario + "\">"+sobre+"</a>";
+
+                try
+                {
+                    // Insertamos la posibilidad de enviar mensaje si no somos nosotros mismos.
+                    if (i.Autor.Usuario != ENUsuario.Obtener(Session["usuario"].ToString()).Usuario)
+                    {
+                        string sobre = "<img src=\"imagenes/sobre.png\" alt=\"" + Resources.I18N.Enviar + "\" />";
+                        l1.Text += "<a href=\"enviarmensaje.aspx?usuario=" + i.Autor.Usuario + "\">" + sobre + "</a>";
+                    }
+                }
+                catch (Exception) { }
 
                 Panel p1 = new Panel();
                 p1.CssClass = "usuarioRespuestaHilo";
@@ -413,7 +422,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
         if (TextBox_anadirRespuesta.Text.Length <= 0 || TextBox_anadirRespuesta.Text.Length >= 5000)
         {
             correcto = false;
-            Label_anadirRespuestaError.Text = "El número de caracteres debe estar entre 1 y 5000.";
+            Label_anadirRespuestaError.Text = Resources.I18N.NumeroCaracteres1y5000;
             TextBox_anadirRespuesta.Focus();
         }
 

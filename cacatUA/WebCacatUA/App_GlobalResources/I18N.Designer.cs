@@ -277,11 +277,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contacta con nosotros.
+        /// </summary>
+        internal static string Contacta {
+            get {
+                return ResourceManager.GetString("Contacta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contraseña.
         /// </summary>
         internal static string Contrasena {
             get {
                 return ResourceManager.GetString("Contrasena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña introducida no coincide con la contraseña actual.
+        /// </summary>
+        internal static string ContrasenaActualIncorrecta {
+            get {
+                return ResourceManager.GetString("ContrasenaActualIncorrecta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La contraseña debe tener una cantidad de caracteres entre 1 y 20.
+        /// </summary>
+        internal static string ContrasenaNumeroCaracteres {
+            get {
+                return ResourceManager.GetString("ContrasenaNumeroCaracteres", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sólo se permiten letras y números para la contraseña.
+        /// </summary>
+        internal static string ContrasenasLetrasNumero {
+            get {
+                return ResourceManager.GetString("ContrasenasLetrasNumero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Las contraseñas no coinciden.
+        /// </summary>
+        internal static string ContrasenasNoCoinciden {
+            get {
+                return ResourceManager.GetString("ContrasenasNoCoinciden", resourceCulture);
             }
         }
         
@@ -309,6 +354,15 @@ namespace Resources {
         internal static string CorreoElectronico {
             get {
                 return ResourceManager.GetString("CorreoElectronico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La dirección de correo no es válida.
+        /// </summary>
+        internal static string CorreoElectronicoNoValida {
+            get {
+                return ResourceManager.GetString("CorreoElectronicoNoValida", resourceCulture);
             }
         }
         
@@ -372,6 +426,15 @@ namespace Resources {
         internal static string DebesIdentificarte {
             get {
                 return ResourceManager.GetString("DebesIdentificarte", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Debes identificarte para contactar con nosotros.
+        /// </summary>
+        internal static string DebesIdentificarteContactar {
+            get {
+                return ResourceManager.GetString("DebesIdentificarteContactar", resourceCulture);
             }
         }
         
@@ -471,6 +534,15 @@ namespace Resources {
         internal static string DNI {
             get {
                 return ResourceManager.GetString("DNI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El DNI debe tener una cantidad de caracteres menor que 20.
+        /// </summary>
+        internal static string DNINumeroCaracteres {
+            get {
+                return ResourceManager.GetString("DNINumeroCaracteres", resourceCulture);
             }
         }
         
@@ -799,6 +871,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Sólo es necesario introducir la contraseña si quieres cambiarla.
+        /// </summary>
+        internal static string InfoContrasena {
+            get {
+                return ResourceManager.GetString("InfoContrasena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a En tu página sólo se mostrará la encuesta activa más reciente.
         /// </summary>
         internal static string InfoEncuestas {
@@ -813,6 +894,15 @@ namespace Resources {
         internal static string InformacionAdicional {
             get {
                 return ResourceManager.GetString("InformacionAdicional", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a La información adicional debe tener una cantidad de caracteres menor que 5000.
+        /// </summary>
+        internal static string InformacionAdicionalNumeroCaracteres {
+            get {
+                return ResourceManager.GetString("InformacionAdicionalNumeroCaracteres", resourceCulture);
             }
         }
         
@@ -1060,6 +1150,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No hay resultados.
+        /// </summary>
+        internal static string NoHayResultados {
+            get {
+                return ResourceManager.GetString("NoHayResultados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre.
         /// </summary>
         internal static string Nombre {
@@ -1074,6 +1173,15 @@ namespace Resources {
         internal static string NombreCompleto {
             get {
                 return ResourceManager.GetString("NombreCompleto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El nombre completo debe tener una cantidad de caracteres entre 3 y 50.
+        /// </summary>
+        internal static string NombreCompletoNumeroCaracteres {
+            get {
+                return ResourceManager.GetString("NombreCompletoNumeroCaracteres", resourceCulture);
             }
         }
         
@@ -1137,6 +1245,24 @@ namespace Resources {
         internal static string NuevoMaterial {
             get {
                 return ResourceManager.GetString("NuevoMaterial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El número de caracteres debe estar entre 1 y 100.
+        /// </summary>
+        internal static string NumeroCaracteres1y100 {
+            get {
+                return ResourceManager.GetString("NumeroCaracteres1y100", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El número de caracteres debe estar entre 1 y 5000.
+        /// </summary>
+        internal static string NumeroCaracteres1y5000 {
+            get {
+                return ResourceManager.GetString("NumeroCaracteres1y5000", resourceCulture);
             }
         }
         
