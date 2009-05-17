@@ -196,7 +196,7 @@ hr {
 	text-align:left;
 	width:100%;
 	padding:5px;
-    background-color:#1e6393;	
+    background-color:#777777;	
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
