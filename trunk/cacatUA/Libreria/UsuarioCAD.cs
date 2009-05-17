@@ -766,6 +766,40 @@ namespace Libreria
             return cantidad;
         }
 
+        public int NumAdministradores()
+        {
+            int cantidad = 0;
+            SqlConnection conexion = null;
+            try
+            {
+                conexion = new SqlConnection(cadenaConexion);
+                conexion.Open();
+
+                string sentencia = "select count(*) as cantidad from administradores";
+
+                SqlCommand comando = new SqlCommand(sentencia, conexion);
+                SqlDataReader dataReader = comando.ExecuteReader();
+
+                if (dataReader.Read())
+                {
+                    cantidad = int.Parse(dataReader["cantidad"].ToString());
+                }
+
+                dataReader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepcion NumAdministradores " + ex.Message);
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+            return cantidad;
+        }
+
         public ENUsuario Ultimo()
         {
             ENUsuario usuario = null;

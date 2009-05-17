@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Timers;
 using Libreria;
 
 namespace cacatUA
@@ -31,6 +32,9 @@ namespace cacatUA
         private FormPeticiones formPeticiones = null;
         private FormGeneral formGeneral = null;
 
+        private ENUsuario usuario = null;
+        private bool flechaIluminada;
+
         /// <summary>
         /// Permite obtener la única instancia de esta clase.
         /// </summary>
@@ -42,6 +46,17 @@ namespace cacatUA
         public FormMateriales InstanciaFormMateriales
         {
             get { return formMateriales; }
+        }
+
+        public ENUsuario Usuario
+        {
+            get { return usuario; }
+            set
+            {
+                usuario = value;
+                if (usuario != null)
+                    label_conectado.Text = "Conectado como " + usuario.Usuario;
+            }
         }
 
 
@@ -67,8 +82,16 @@ namespace cacatUA
             formPeticiones = new FormPeticiones();
             formGeneral = new FormGeneral();
 
+            flechaIluminada = false;
+            timer1.Tick += new EventHandler(alterna_flecha_Tick);
+
             DesapilarTodos();
             Apilar(formGeneral, "General", false, false, "", "");
+        }
+
+        void alterna_(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void FormPanelAdministracion_Load(object sender, EventArgs e)
@@ -244,7 +267,8 @@ namespace cacatUA
         /// </summary>
         public void MostrarToolTip()
         {
-            toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver, 30, 30);
+            //toolTip_avanzado.Show(toolTip1.GetToolTip(button_volver), button_volver, 30, 30);
+            timer1.Start();
         }
 
         /// <summary>
@@ -252,7 +276,12 @@ namespace cacatUA
         /// </summary>
         public void OcultarToolTip()
         {
-            toolTip_avanzado.Hide(button_volver);
+            //toolTip_avanzado.Hide(button_volver);
+            timer1.Stop();
+            if (flechaIluminada)
+            {
+                FlechaApagada();
+            }
         }
 
         /// <summary>
@@ -304,6 +333,30 @@ namespace cacatUA
             {
                 e.Cancel = true;
             }
+        }
+
+        private void alterna_flecha_Tick(object sender, EventArgs e)
+        {
+            if (flechaIluminada)
+            {
+                FlechaApagada();
+            }
+            else
+            {
+                FlechaIluminada();
+            }
+        }
+
+        public void FlechaIluminada()
+        {
+            button_volver.Image = global::cacatUA.Properties.Resources.volveriluminado;
+            flechaIluminada = true;
+        }
+
+        public void FlechaApagada()
+        {
+            button_volver.Image = global::cacatUA.Properties.Resources.volver;
+            flechaIluminada = false;
         }
     }
 }

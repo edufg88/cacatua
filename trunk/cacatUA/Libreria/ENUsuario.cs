@@ -516,6 +516,16 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Comprueba cuántos administradores hay en la base de datos.
+        /// </summary>
+        /// <returns>Devuelve la cantidad de administradores totales que hay en la base de datos.</returns>
+        public static int NumAdministradores()
+        {
+            UsuarioCAD usuarioCAD = new UsuarioCAD();
+            return usuarioCAD.NumAdministradores();
+        }
+
+        /// <summary>
         /// Obtiene el último usuario insertado en la base de datos.
         /// </summary>
         /// <returns>Devuelve la entidad de negocio del último usuario registrado en la base de datos.</returns>

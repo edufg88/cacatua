@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3018E7D2-3E10-4183-9931-67C1E9D73602}</ProjectGuid>
     <OutputType>Exe</OutputType>
@@ -91,6 +91,12 @@
     </Compile>
     <Compile Include="FormMaterialesUpload.Designer.cs">
       <DependentUpon>FormMaterialesUpload.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrimeraVez.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrimeraVez.Designer.cs">
+      <DependentUpon>FormPrimeraVez.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUsuarioEncuestas.cs">
       <SubType>UserControl</SubType>
@@ -243,6 +249,9 @@
     <EmbeddedResource Include="FormMaterialesUpload.resx">
       <DependentUpon>FormMaterialesUpload.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrimeraVez.resx">
+      <DependentUpon>FormPrimeraVez.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuarioEncuestas.resx">
       <DependentUpon>FormUsuarioEncuestas.cs</DependentUpon>
@@ -405,6 +414,7 @@
     <Content Include="datos\salir.png" />
     <Content Include="datos\seleccionar.png" />
     <Content Include="datos\tool.png" />
+    <None Include="datos\volveriluminado.png" />
     <None Include="datos\volver.png" />
     <None Include="datos\flecha.png" />
   </ItemGroup>

@@ -30,6 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel_botones = new System.Windows.Forms.TableLayoutPanel();
+            this.label_conectado = new System.Windows.Forms.Label();
+            this.panel = new System.Windows.Forms.Panel();
+            this.toolTip_avanzado = new System.Windows.Forms.ToolTip(this.components);
+            this.flowLayoutPanel_navegacion = new System.Windows.Forms.FlowLayoutPanel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel_navegacion = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button_salir = new System.Windows.Forms.Button();
+            this.button_volver = new System.Windows.Forms.Button();
+            this.button_cancelar = new System.Windows.Forms.Button();
             this.button_categorias = new System.Windows.Forms.Button();
             this.button_general = new System.Windows.Forms.Button();
             this.button_usuarios = new System.Windows.Forms.Button();
@@ -37,16 +49,6 @@
             this.button_grupos = new System.Windows.Forms.Button();
             this.button_foro = new System.Windows.Forms.Button();
             this.button_peticiones = new System.Windows.Forms.Button();
-            this.button_salir = new System.Windows.Forms.Button();
-            this.panel = new System.Windows.Forms.Panel();
-            this.toolTip_avanzado = new System.Windows.Forms.ToolTip(this.components);
-            this.button_volver = new System.Windows.Forms.Button();
-            this.button_cancelar = new System.Windows.Forms.Button();
-            this.flowLayoutPanel_navegacion = new System.Windows.Forms.FlowLayoutPanel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel_navegacion = new System.Windows.Forms.Panel();
             this.tableLayoutPanel_botones.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel_navegacion.SuspendLayout();
@@ -67,9 +69,10 @@
             this.tableLayoutPanel_botones.Controls.Add(this.button_foro, 0, 3);
             this.tableLayoutPanel_botones.Controls.Add(this.button_peticiones, 0, 4);
             this.tableLayoutPanel_botones.Controls.Add(this.button_salir, 0, 7);
+            this.tableLayoutPanel_botones.Controls.Add(this.label_conectado, 0, 8);
             this.tableLayoutPanel_botones.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel_botones.Name = "tableLayoutPanel_botones";
-            this.tableLayoutPanel_botones.RowCount = 8;
+            this.tableLayoutPanel_botones.RowCount = 9;
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
@@ -79,8 +82,132 @@
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel_botones.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel_botones.Size = new System.Drawing.Size(197, 528);
             this.tableLayoutPanel_botones.TabIndex = 1;
+            // 
+            // label_conectado
+            // 
+            this.label_conectado.AutoSize = true;
+            this.label_conectado.ForeColor = System.Drawing.Color.White;
+            this.label_conectado.Location = new System.Drawing.Point(3, 508);
+            this.label_conectado.Name = "label_conectado";
+            this.label_conectado.Size = new System.Drawing.Size(91, 13);
+            this.label_conectado.TabIndex = 8;
+            this.label_conectado.Text = "Conectado como ";
+            // 
+            // panel
+            // 
+            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel.AutoScroll = true;
+            this.panel.AutoScrollMinSize = new System.Drawing.Size(630, 0);
+            this.panel.BackColor = System.Drawing.SystemColors.Control;
+            this.panel.Location = new System.Drawing.Point(197, 30);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(784, 498);
+            this.panel.TabIndex = 0;
+            // 
+            // toolTip_avanzado
+            // 
+            this.toolTip_avanzado.ShowAlways = true;
+            this.toolTip_avanzado.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip_avanzado.ToolTipTitle = "Preparado para volver";
+            // 
+            // flowLayoutPanel_navegacion
+            // 
+            this.flowLayoutPanel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel_navegacion.AutoScroll = true;
+            this.flowLayoutPanel_navegacion.AutoScrollMargin = new System.Drawing.Size(5, 55);
+            this.flowLayoutPanel_navegacion.Location = new System.Drawing.Point(48, 0);
+            this.flowLayoutPanel_navegacion.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel_navegacion.Name = "flowLayoutPanel_navegacion";
+            this.flowLayoutPanel_navegacion.Size = new System.Drawing.Size(736, 31);
+            this.flowLayoutPanel_navegacion.TabIndex = 4;
+            this.flowLayoutPanel_navegacion.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel_navegacion_ControlAdded);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(981, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // panel_navegacion
+            // 
+            this.panel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_navegacion.Controls.Add(this.button_volver);
+            this.panel_navegacion.Controls.Add(this.button_cancelar);
+            this.panel_navegacion.Controls.Add(this.flowLayoutPanel_navegacion);
+            this.panel_navegacion.Location = new System.Drawing.Point(197, 0);
+            this.panel_navegacion.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_navegacion.Name = "panel_navegacion";
+            this.panel_navegacion.Size = new System.Drawing.Size(784, 31);
+            this.panel_navegacion.TabIndex = 6;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 200;
+            // 
+            // button_salir
+            // 
+            this.button_salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button_salir.FlatAppearance.BorderSize = 0;
+            this.button_salir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
+            this.button_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.button_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button_salir.Image = global::cacatUA.Properties.Resources.salir;
+            this.button_salir.Location = new System.Drawing.Point(3, 318);
+            this.button_salir.Name = "button_salir";
+            this.button_salir.Size = new System.Drawing.Size(190, 39);
+            this.button_salir.TabIndex = 7;
+            this.button_salir.UseVisualStyleBackColor = true;
+            this.button_salir.Click += new System.EventHandler(this.button_salir_Click);
+            // 
+            // button_volver
+            // 
+            this.button_volver.AutoEllipsis = true;
+            this.button_volver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_volver.FlatAppearance.BorderSize = 0;
+            this.button_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_volver.Image = global::cacatUA.Properties.Resources.volver;
+            this.button_volver.Location = new System.Drawing.Point(0, 0);
+            this.button_volver.Margin = new System.Windows.Forms.Padding(0);
+            this.button_volver.Name = "button_volver";
+            this.button_volver.Size = new System.Drawing.Size(24, 27);
+            this.button_volver.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.button_volver, "Vuelve al panel anterior");
+            this.button_volver.UseVisualStyleBackColor = true;
+            this.button_volver.Click += new System.EventHandler(this.button_volver_Click);
+            // 
+            // button_cancelar
+            // 
+            this.button_cancelar.AutoEllipsis = true;
+            this.button_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_cancelar.FlatAppearance.BorderSize = 0;
+            this.button_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_cancelar.Image = global::cacatUA.Properties.Resources.cancelar;
+            this.button_cancelar.Location = new System.Drawing.Point(24, 0);
+            this.button_cancelar.Margin = new System.Windows.Forms.Padding(0);
+            this.button_cancelar.Name = "button_cancelar";
+            this.button_cancelar.Size = new System.Drawing.Size(24, 27);
+            this.button_cancelar.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.button_cancelar, "Cancela la selección y vuelve al panel anterior");
+            this.button_cancelar.UseVisualStyleBackColor = true;
+            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
             // 
             // button_categorias
             // 
@@ -181,114 +308,6 @@
             this.button_peticiones.UseVisualStyleBackColor = true;
             this.button_peticiones.Click += new System.EventHandler(this.button_peticiones_Click);
             // 
-            // button_salir
-            // 
-            this.button_salir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_salir.FlatAppearance.BorderSize = 0;
-            this.button_salir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Yellow;
-            this.button_salir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
-            this.button_salir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button_salir.Image = global::cacatUA.Properties.Resources.salir;
-            this.button_salir.Location = new System.Drawing.Point(3, 318);
-            this.button_salir.Name = "button_salir";
-            this.button_salir.Size = new System.Drawing.Size(190, 39);
-            this.button_salir.TabIndex = 7;
-            this.button_salir.UseVisualStyleBackColor = true;
-            this.button_salir.Click += new System.EventHandler(this.button_salir_Click);
-            // 
-            // panel
-            // 
-            this.panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel.AutoScroll = true;
-            this.panel.AutoScrollMinSize = new System.Drawing.Size(630, 0);
-            this.panel.BackColor = System.Drawing.SystemColors.Control;
-            this.panel.Location = new System.Drawing.Point(197, 30);
-            this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(784, 498);
-            this.panel.TabIndex = 0;
-            // 
-            // toolTip_avanzado
-            // 
-            this.toolTip_avanzado.ShowAlways = true;
-            this.toolTip_avanzado.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip_avanzado.ToolTipTitle = "Preparado para volver";
-            // 
-            // button_volver
-            // 
-            this.button_volver.AutoEllipsis = true;
-            this.button_volver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_volver.FlatAppearance.BorderSize = 0;
-            this.button_volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_volver.Image = global::cacatUA.Properties.Resources.volver;
-            this.button_volver.Location = new System.Drawing.Point(0, 0);
-            this.button_volver.Margin = new System.Windows.Forms.Padding(0);
-            this.button_volver.Name = "button_volver";
-            this.button_volver.Size = new System.Drawing.Size(24, 27);
-            this.button_volver.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button_volver, "Vuelve al panel anterior");
-            this.button_volver.UseVisualStyleBackColor = true;
-            this.button_volver.Click += new System.EventHandler(this.button_volver_Click);
-            // 
-            // button_cancelar
-            // 
-            this.button_cancelar.AutoEllipsis = true;
-            this.button_cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_cancelar.FlatAppearance.BorderSize = 0;
-            this.button_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_cancelar.Image = global::cacatUA.Properties.Resources.cancelar;
-            this.button_cancelar.Location = new System.Drawing.Point(24, 0);
-            this.button_cancelar.Margin = new System.Windows.Forms.Padding(0);
-            this.button_cancelar.Name = "button_cancelar";
-            this.button_cancelar.Size = new System.Drawing.Size(24, 27);
-            this.button_cancelar.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.button_cancelar, "Cancela la selección y vuelve al panel anterior");
-            this.button_cancelar.UseVisualStyleBackColor = true;
-            this.button_cancelar.Click += new System.EventHandler(this.button_cancelar_Click);
-            // 
-            // flowLayoutPanel_navegacion
-            // 
-            this.flowLayoutPanel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel_navegacion.AutoScroll = true;
-            this.flowLayoutPanel_navegacion.AutoScrollMargin = new System.Drawing.Size(5, 55);
-            this.flowLayoutPanel_navegacion.Location = new System.Drawing.Point(48, 0);
-            this.flowLayoutPanel_navegacion.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel_navegacion.Name = "flowLayoutPanel_navegacion";
-            this.flowLayoutPanel_navegacion.Size = new System.Drawing.Size(736, 31);
-            this.flowLayoutPanel_navegacion.TabIndex = 4;
-            this.flowLayoutPanel_navegacion.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanel_navegacion_ControlAdded);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 526);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(981, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
-            // 
-            // panel_navegacion
-            // 
-            this.panel_navegacion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_navegacion.Controls.Add(this.button_volver);
-            this.panel_navegacion.Controls.Add(this.button_cancelar);
-            this.panel_navegacion.Controls.Add(this.flowLayoutPanel_navegacion);
-            this.panel_navegacion.Location = new System.Drawing.Point(197, 0);
-            this.panel_navegacion.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_navegacion.Name = "panel_navegacion";
-            this.panel_navegacion.Size = new System.Drawing.Size(784, 31);
-            this.panel_navegacion.TabIndex = 6;
-            // 
             // FormPanelAdministracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,6 +324,7 @@
             this.Load += new System.EventHandler(this.FormPanelAdministracion_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPanelAdministracion_FormClosing);
             this.tableLayoutPanel_botones.ResumeLayout(false);
+            this.tableLayoutPanel_botones.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.panel_navegacion.ResumeLayout(false);
@@ -333,6 +353,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel_navegacion;
+        private System.Windows.Forms.Label label_conectado;
+        private System.Windows.Forms.Timer timer1;
 
 
     }
