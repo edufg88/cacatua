@@ -21,36 +21,32 @@ public partial class mensajes : WebCacatUA.InterfazWeb
     private string ordenar;
     private ENUsuario user;
 
-    private void escribir(string cadena)
-    {
-        const string fic = @"C:\log.txt";
-        System.IO.StreamWriter sw = new System.IO.StreamWriter(fic, true);
-        sw.WriteLine(cadena);
-        sw.Close();
-    }
-
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["usuario"] != null && Request.QueryString["usuario"] != "")
+        if (Session["usuario"] != null && Request.QueryString["usuario"] != null)
         {
             if (Session["usuario"].ToString() == Request.QueryString["usuario"].ToString())
-            {            
-                string usuario = Request.QueryString["usuario"].ToString();
-                user = ENUsuario.Obtener(usuario);
-
+            {
                 extraerParametros();
-                if (!Page.IsPostBack)
+                if (user != null)
                 {
-                    actualizarPaginacion();
-                    actualizarOrdenacion();
-                }
+                    if (!Page.IsPostBack)
+                    {
+                        actualizarPaginacion();
+                        actualizarOrdenacion();
+                    }
 
-                ObtenerMensajes();
+                    ObtenerMensajes();
+                }
+            }
+            else
+            {
+                Response.Redirect("usuario.aspx");
             }
         }
         else
         {
-            Response.Redirect("index.aspx");
+            Response.Redirect("usuarios.aspx");
         }
     }
 
@@ -298,7 +294,17 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         }
         catch (Exception) { }
 
-        totalResultados = ENMensaje.Cantidad(user.Usuario);
+        user = null;
+        try
+        {
+            user = ENUsuario.Obtener(Request["usuario"].ToString());
+        }
+        catch (Exception) { }
+
+        if (user != null)
+            totalResultados = ENMensaje.Cantidad(user.Usuario);
+        else
+            totalResultados = 0;
     }
 
     /// <summary>

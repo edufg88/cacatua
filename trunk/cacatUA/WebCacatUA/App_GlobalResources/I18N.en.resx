@@ -603,4 +603,34 @@
   <data name="NumeroCaracteres1y5000" xml:space="preserve">
     <value>Number of characters must be between 1 and 5000</value>
   </data>
+  <data name="Apuntarse" xml:space="preserve">
+    <value>Join</value>
+  </data>
+  <data name="Crear" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="CrearGrupo" xml:space="preserve">
+    <value>New group</value>
+  </data>
+  <data name="Desapuntarse" xml:space="preserve">
+    <value>Unjoin</value>
+  </data>
+  <data name="EnviarMensaje" xml:space="preserve">
+    <value>New Message</value>
+  </data>
+  <data name="Firmar" xml:space="preserve">
+    <value>Sign</value>
+  </data>
+  <data name="GruposMin" xml:space="preserve">
+    <value>groups</value>
+  </data>
+  <data name="MiembrosMayus" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="NUsuarios" xml:space="preserve">
+    <value>Members count</value>
+  </data>
+  <data name="Para" xml:space="preserve">
+    <value>To</value>
+  </data>
 </root>

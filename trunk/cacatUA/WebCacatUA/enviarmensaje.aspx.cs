@@ -19,25 +19,52 @@ public partial class enviarmensaje : WebCacatUA.InterfazWeb
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["usuario"] != null && Request.QueryString["usuario"].ToString()!=Session["usuario"].ToString())
+        if (Session["usuario"] != null)
         {
-            if (Request.QueryString["usuario"] != null)
+            if (Request.QueryString["usuario"] != null) 
             {
-                Label_para.Text = Request.QueryString["usuario"];
+                if (Request.QueryString["usuario"].ToString() != Session["usuario"].ToString())
+                {
+                    ENUsuario user = null;
+                    try
+                    {
+                        user = ENUsuario.Obtener(Request.QueryString["usuario"]);
+                    }
+                    catch (Exception) { }
+
+                    if (user != null)
+                        Label_para.Text = Request.QueryString["usuario"];
+                    else
+                        Response.Redirect("usuario.aspx");
+                }
+                else
+                {
+                    Response.Redirect("confirmacion.aspx?mensajeerror=2");
+                }
             }
             else
             {
-                Label_para.Text = Request.QueryString["grupo"];
-                usuario = false;
+                ENGrupos group = null;
+                try
+                {
+                    group = ENGrupos.Obtener(int.Parse(Request["grupo"].ToString()));
+                }
+                catch (Exception) { }
+
+                if (group != null && group.NumUsuarios > 0)
+                {
+                    Label_para.Text = group.Nombre;
+                    usuario = false;
+                }
+                else
+                {
+                    Response.Redirect("grupos.aspx");
+                }
             }
-        }
-        else if (Session["usuario"] == null)
-        {
-            Response.Redirect("confirmacion.aspx?mensajeerror=1");
         }
         else
         {
-            Response.Redirect("confirmacion.aspx?mensajeerror=2");
+            Response.Redirect("confirmacion.aspx?mensajeerror=1");
         }
     }
 
