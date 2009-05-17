@@ -205,6 +205,20 @@ namespace Libreria
 
                     // Completamos la transacción
                     transaccion.Commit();
+                    ENMaterial material = ENMaterial.Obtener(id);
+                    if (material != null)
+                    {
+                        ArrayList usuarios = material.Categoria.UsuariosSuscritos();
+                        foreach (ENUsuario i in usuarios)
+                        {
+                            ENMensaje mensaje = new ENMensaje();
+                            mensaje.Emisor = i;
+                            mensaje.Receptor = i;
+                            mensaje.Texto = "Se ha añadido un nuevo material a la categoría " + material.Categoria.Nombre
+                                + " con el nombre " + material.Nombre;
+                            mensaje.Guardar();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
