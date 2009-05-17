@@ -4,7 +4,7 @@
     
 #navegacion_mostrarMaterial
 {
-	font-size:small;
+	font-size:normal;
     padding-bottom:10px;	
 }
 
@@ -61,33 +61,17 @@
 }
 
 
-#ctl00_ContentPlaceHolder_contenido_tabla_mostrarComentatios
-{
-    width:100%;
-    border-color:Black;
-    border-width:2px;
-}
-
 #tabla_nombreMaterial
 {
 	width:100%;
 }
 
-#columna_titulo
-{
-	
-}
 
 #columna_valoracion
 {
     text-align:center;	
     background-color:White;
     width:30px;
-}
-
-#contenido_mostrarMaterial
-{
-
 }
 
 #descargar_mostrarMaterial
@@ -144,11 +128,6 @@ hr {
     text-align:right;	
 }
 
-#tabla_resultados_mostrarMaterial
-{
-	width:100%;
-}
-
 #ordenar_mostrarMaterial
 {
 	text-align:right;
@@ -163,12 +142,6 @@ hr {
 #propiedades_ordenar_mostrarMaterial
 {
 	font-weight:normal;
-	width:100%;
-}
-
-#resultados_mostrarMaterial
-{
-	text-align:left;
 	width:100%;
 }
 
@@ -219,6 +192,50 @@ hr {
     padding-top:10px;
 }
 
+/****************************************************
+#####################################################
+#####################################################
+****************************************************/
+
+.tabla_mostrarComentatios
+{
+    width: 100%;
+    background-color: #fff;    
+}
+
+.columnaTabla_mostrarComentatios
+{
+	border-bottom: 1px solid #ddd;	
+}
+
+#resultados_mostrarMaterial
+{
+	text-align:left;
+	width:100%;
+}
+
+#tabla_resultados_mostrarMaterial
+{
+	width:100%;
+}
+
+#contenidoTabla_mostrarMaterial
+{
+    margin-top: 5px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+#contenido_mostrarMaterial
+{
+
+}
+
 </style>
 </asp:Content>
 
@@ -248,125 +265,122 @@ function incrementarCantidad()
 
 </script>
 
-
-<div id="contenido_mostrarMaterial">
-
-
 <div id="navegacion_mostrarMaterial">
     <%= Resources.I18N.EstasAqui + ":"%>
     <asp:Label ID="Label_ruta" runat="server" Text="ruta"></asp:Label>
 </div>
-
-<div id="nombreMaterial_mostrarMaterial">
-    <asp:Label ID="Label_nombre" runat="server" Text="nombre_material"></asp:Label>
-</div>   
     
-<table id="tabla_mostrarMaterial">
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="usuario_mostrarMaterial">
-                <%= Resources.I18N.Usuario + ":"%>             
-            </div>
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:HyperLink ID="HyperLink_usuario" Text="nombre_usuario" runat="server"></asp:HyperLink> |
-            <asp:HyperLink ID="HyperLink_otrosMateriales" Text="otros materiales" runat="server"></asp:HyperLink>
-        </td>
-    </tr>
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="fecha_mostrarMaterial">
-                <%= Resources.I18N.Fecha + ":"%>  
-            </div>
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:Label ID="Label_fecha" runat="server" Text="fecha"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="descargas_mostrarMaterial">
-                <%= Resources.I18N.Descargas + ":"%>  
-            </div>
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:Label ID="Label_descargas" runat="server" Text="descargas"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="tamaño_mostrarMaterial">
-                <%= Resources.I18N.Tamaño + ":"%>  
-            </div>
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:Label ID="Label_tamaño" runat="server" Text="tamaño"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="valoracion_mostrarMaterial">
-                <%= Resources.I18N.Puntuacion + ":"%>  
-            </div>
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:Label ID="Label_valoracion" runat="server" Text="valoracion"></asp:Label>
-            <asp:Label ID="Label_votos" runat="server" Text="num_votos"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="descripcion_mostrarMaterial">
-                <%= Resources.I18N.Descripcion + ":"%>  
-            </div>            
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:Label ID="Label_descripcion" runat="server" Text="descripcion_material"></asp:Label>
-        </td>
-    </tr>
-    <tr>
-        <td class="titulo_mostrarMaterial">
-            <div id="referencia_mostrarMaterial">
-                <%= Resources.I18N.Referencia + ":"%> 
-            </div>
-        </td>
-        <td class="columnaContenido_mostrarMaterial">
-            <asp:Label ID="Label_referencia" runat="server" Text="referencia_material"></asp:Label>   
-        </td>
-    </tr>
-</table>
+<div id="contenido_mostrarMaterial">
 
-<div id="descargar_mostrarMaterial">
-    <table id="tablaDescargar_mostrarMaterial">
+    <div id="nombreMaterial_mostrarMaterial">
+        <asp:Label ID="Label_nombre" runat="server" Text="nombre_material"></asp:Label>
+    </div>   
+        
+    <table id="tabla_mostrarMaterial">
         <tr>
-            <td>
-                <asp:ImageButton ID="ImageButton1" ImageUrl="~/imagenes/descargar.png" runat="server" />
-                <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>  
+            <td class="titulo_mostrarMaterial">
+                <div id="usuario_mostrarMaterial">
+                    <%= Resources.I18N.Usuario + ":"%>             
+                </div>
             </td>
-            <td class="columnaPuntuacion">
-                <asp:Panel ID="Panel_votar" runat="server">            
-                    <div id="votar_mostrarMaterial">
-                        <%= Resources.I18N.Puntuacion + ":"%> 
-                        <asp:DropDownList ID="DropDownList_votar" runat="server">
-                            <asp:ListItem>1</asp:ListItem>
-                            <asp:ListItem>2</asp:ListItem>
-                            <asp:ListItem>3</asp:ListItem>
-                            <asp:ListItem>4</asp:ListItem>
-                            <asp:ListItem Selected="True">5</asp:ListItem>
-                            <asp:ListItem>6</asp:ListItem>
-                            <asp:ListItem>7</asp:ListItem>
-                            <asp:ListItem>8</asp:ListItem>
-                            <asp:ListItem>9</asp:ListItem>
-                            <asp:ListItem>10</asp:ListItem>
-                        </asp:DropDownList>
-                        <asp:Button ID="Button_votar" runat="server" Text="<%$ Resources: I18N, Votar %>" onclick="Button_votar_Click" />
-                    </div>   
-                </asp:Panel>    
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:HyperLink ID="HyperLink_usuario" Text="nombre_usuario" runat="server"></asp:HyperLink> |
+                <asp:HyperLink ID="HyperLink_otrosMateriales" Text="otros materiales" runat="server"></asp:HyperLink>
+            </td>
+        </tr>
+        <tr>
+            <td class="titulo_mostrarMaterial">
+                <div id="fecha_mostrarMaterial">
+                    <%= Resources.I18N.Fecha + ":"%>  
+                </div>
+            </td>
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:Label ID="Label_fecha" runat="server" Text="fecha"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="titulo_mostrarMaterial">
+                <div id="descargas_mostrarMaterial">
+                    <%= Resources.I18N.Descargas + ":"%>  
+                </div>
+            </td>
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:Label ID="Label_descargas" runat="server" Text="descargas"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="titulo_mostrarMaterial">
+                <div id="tamaño_mostrarMaterial">
+                    <%= Resources.I18N.Tamaño + ":"%>  
+                </div>
+            </td>
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:Label ID="Label_tamaño" runat="server" Text="tamaño"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="titulo_mostrarMaterial">
+                <div id="valoracion_mostrarMaterial">
+                    <%= Resources.I18N.Puntuacion + ":"%>  
+                </div>
+            </td>
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:Label ID="Label_valoracion" runat="server" Text="valoracion"></asp:Label>
+                <asp:Label ID="Label_votos" runat="server" Text="num_votos"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="titulo_mostrarMaterial">
+                <div id="descripcion_mostrarMaterial">
+                    <%= Resources.I18N.Descripcion + ":"%>  
+                </div>            
+            </td>
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:Label ID="Label_descripcion" runat="server" Text="descripcion_material"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="titulo_mostrarMaterial">
+                <div id="referencia_mostrarMaterial">
+                    <%= Resources.I18N.Referencia + ":"%> 
+                </div>
+            </td>
+            <td class="columnaContenido_mostrarMaterial">
+                <asp:Label ID="Label_referencia" runat="server" Text="referencia_material"></asp:Label>   
             </td>
         </tr>
     </table>
 
-</div>
+    <div id="descargar_mostrarMaterial">
+        <table id="tablaDescargar_mostrarMaterial">
+            <tr>
+                <td>
+                    <asp:ImageButton ID="ImageButton1" ImageUrl="~/imagenes/descargar.png" runat="server" />
+                    <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>  
+                </td>
+                <td class="columnaPuntuacion">
+                    <asp:Panel ID="Panel_votar" runat="server">            
+                        <div id="votar_mostrarMaterial">
+                            <%= Resources.I18N.Puntuacion + ":"%> 
+                            <asp:DropDownList ID="DropDownList_votar" runat="server">
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem Selected="True">5</asp:ListItem>
+                                <asp:ListItem>6</asp:ListItem>
+                                <asp:ListItem>7</asp:ListItem>
+                                <asp:ListItem>8</asp:ListItem>
+                                <asp:ListItem>9</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:Button ID="Button_votar" runat="server" Text="<%$ Resources: I18N, Votar %>" onclick="Button_votar_Click" />
+                        </div>   
+                    </asp:Panel>    
+                </td>
+            </tr>
+        </table>
+    </div>
 
 </div>
 <br />
@@ -389,11 +403,13 @@ function incrementarCantidad()
                 </tr>
             </table>
         </div>
-        <hr />
-        <asp:Panel
-            ID="Panel_comentarios" runat="server">
-        </asp:Panel>  
         
+        <div id="contenidoTabla_mostrarMaterial">
+            <asp:Panel
+                ID="Panel_comentarios" runat="server">
+            </asp:Panel>  
+        </div>
+
         
         <div id="paginacion_mostrarMaterial" runat="server">
             <table class="tablaPaginacion_mostrarMaterial">

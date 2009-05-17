@@ -111,7 +111,7 @@ namespace WebCacatUA
                 int numResultados = busqueda.NumResultados;
                 if (numResultados > 0)
                 {
-                    HyperLink_otrosMateriales.Text = "Más materiales (" + numResultados.ToString() + ")";
+                    HyperLink_otrosMateriales.Text = Resources.I18N.masMateriales + " (" + numResultados.ToString() + ")";
                     HyperLink_otrosMateriales.NavigateUrl = "materiales.aspx?usuario=" + material.Usuario.Id.ToString();
                 }
                 else
@@ -132,8 +132,7 @@ namespace WebCacatUA
             Panel_comentarios.Controls.Clear();
 
             HtmlTable tabla = new HtmlTable();
-            tabla.ID = "tabla_mostrarComentatios";
-
+            tabla.Attributes.Add("class", "tabla_mostrarComentatios");
             ActualizarPaginacion(material.NumComentarios);
 
             ArrayList comentarios = material.ObtenerComentarios(pagina, cantidadPorPagina);
@@ -141,17 +140,16 @@ namespace WebCacatUA
             {
                 HtmlTableRow fila = new HtmlTableRow();
                 HtmlTableCell celda = new HtmlTableCell();
+                celda.Attributes.Add("class", "columnaTabla_mostrarComentatios");
                 Control control = Page.LoadControl("comentarioMaterial.ascx");
                 WebCacatUA.comentarioMaterial controlComentario = (WebCacatUA.comentarioMaterial)control;
                 controlComentario.inicializar(comentario);
                 celda.Controls.Add(controlComentario);
                 fila.Cells.Add(celda);
-                
-                // Cambiamos el color de la fila
                 if (tabla.Rows.Count % 2 == 0)
-                    fila.BgColor = "#dcd9cd";
+                    fila.BgColor = "#f5f5f5";
                 else
-                    fila.BgColor = Color.White.Name;
+                    fila.BgColor = Color.White.ToString();
                 tabla.Rows.Add(fila);
             }
             Panel_comentarios.Controls.Add(tabla);
@@ -184,7 +182,7 @@ namespace WebCacatUA
 
                 Label_resultados.Text = Resources.I18N.Resultados + " " + inicial + " - " + final
                        + " " + Resources.I18N.Deminuscula + " " + totalResultados + " "
-                       + Resources.I18N.Materiales.ToLower() + " " + Resources.I18N.EncontradosMin;
+                       + Resources.I18N.comentarios + " " + Resources.I18N.EncontradosMin;
 
                 if (DropDownList_pagina.Text == "1")
                     Button_anterior.Enabled = false;
@@ -205,7 +203,6 @@ namespace WebCacatUA
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //<%= Resources.I18N.DebesIdentificarte %>  
             // Validamos el comentario
             ComentarioMaterial comentario = new ComentarioMaterial();
             comentario.Usuario = usuario;
@@ -214,7 +211,7 @@ namespace WebCacatUA
             if (comentario.Texto.Length > ComentarioMaterial.maxTamTexto || comentario.Texto.Length < ComentarioMaterial.minTamTexto)
             {
                 Panel_mensajeError.Visible = true;
-                Label_mensajeError.Text = "Debe tener entre " + ComentarioMaterial.minTamTexto + " y " + ComentarioMaterial.maxTamTexto + " caracteres";
+                Label_mensajeError.Text = Resources.I18N.NumeroCaracteres1y5000;
                 Button1.Focus();
             }
             else
