@@ -46,34 +46,36 @@ public partial class generalUsuario : WebCacatUA.InterfazWeb
         TableRow fila2 = new TableRow();
         foreach (ENImagen imagen in Imagenes)
         {
-            // Columna de la imágen activa del usuario
-            TableCell c1 = new TableCell();
-            c1.CssClass = "columnaGaleria";
-            Label l1 = new Label();
-            if (imagen.Id == -1) // Comprobamos si tiene imagen activa el usuario
+            if (imagen != null)
             {
-                l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\" width=\"60\" height=\"60\" class=\"imagen\" />";
-            }
-            else
-            {
-                l1.Text = "<img src=\"imagenes/" + imagen.Id + ".jpg\" width=\"100\" height=\"60\" alt=\"Foto de usuario\" class=\"imagen\" />";
-            }
-            Panel p1 = new Panel();
-            p1.Controls.Add(l1);
-            c1.Controls.Add(p1);
+                // Columna de la imágen activa del usuario
+                TableCell c1 = new TableCell();
+                c1.CssClass = "columnaGaleria";
+                Label l1 = new Label();
+                if (imagen.Id == -1) // Comprobamos si tiene imagen activa el usuario
+                {
+                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\" width=\"60\" height=\"60\" class=\"imagen\" />";
+                }
+                else
+                {
+                    l1.Text = "<img src=\"imagenes/" + imagen.Id + ".jpg\" width=\"100\" height=\"60\" alt=\"Foto de usuario\" class=\"imagen\" />";
+                }
+                Panel p1 = new Panel();
+                p1.Controls.Add(l1);
+                c1.Controls.Add(p1);
 
-            if (cont < 4)
-            {
-                fila.Controls.Add(c1);
-                Table_galeria.Controls.Add(fila);
+                if (cont < 4)
+                {
+                    fila.Controls.Add(c1);
+                    Table_galeria.Controls.Add(fila);
+                }
+                else
+                {
+                    fila2.Controls.Add(c1);
+                    Table_galeria.Controls.Add(fila2);
+                }
+                cont++;
             }
-            else
-            {
-                fila2.Controls.Add(c1);
-                Table_galeria.Controls.Add(fila2);
-            }
-
-            cont++;
         }
     }
 
@@ -84,31 +86,34 @@ public partial class generalUsuario : WebCacatUA.InterfazWeb
 
         foreach (ENFirma firma in Firmas)
         {
-            // Fila con la info de la firma y su fecha
-            TableCell celda1 = new TableCell();
-            celda1.CssClass = "infoFirma";
-            Label emisor = new Label();
-            Label fecha = new Label();
-            emisor.Text = firma.Emisor.Usuario.ToString();
-            fecha.Text = firma.Fecha.ToString();
-            emisor.CssClass = "emisorFirma";
-            fecha.CssClass = "fechaFirma";
-            celda1.Controls.Add(emisor);
-            celda1.Controls.Add(fecha);
-            TableRow fila = new TableRow();
-            fila.Cells.Add(celda1);
-            Table_firmas.Rows.Add(fila);
+            if (firma != null)
+            {
+                // Fila con la info de la firma y su fecha
+                TableCell celda1 = new TableCell();
+                celda1.CssClass = "infoFirma";
+                Label emisor = new Label();
+                Label fecha = new Label();
+                emisor.Text = "<a href=\"generalUsuario.aspx?usuario=" + firma.Emisor.Usuario + "\">" + firma.Emisor.Usuario + "</a>";
+                fecha.Text = firma.Fecha.ToString();
+                emisor.CssClass = "emisorFirma";
+                fecha.CssClass = "fechaFirma";
+                celda1.Controls.Add(emisor);
+                celda1.Controls.Add(fecha);
+                TableRow fila = new TableRow();
+                fila.Cells.Add(celda1);
+                Table_firmas.Rows.Add(fila);
 
-            // Fila con el texto de la firma
-            TableCell celda2 = new TableCell();
-            celda2.CssClass = "contenidoFirma";
-            Label texto = new Label();
-            texto.Text = firma.Texto.ToString();
-            texto.CssClass = "textoFirma";
-            celda2.Controls.Add(texto);
-            TableRow fila2 = new TableRow();
-            fila2.Cells.Add(celda2);
-            Table_firmas.Rows.Add(fila2);
+                // Fila con el texto de la firma
+                TableCell celda2 = new TableCell();
+                celda2.CssClass = "contenidoFirma";
+                Label texto = new Label();
+                texto.Text = firma.Texto.ToString();
+                texto.CssClass = "textoFirma";
+                celda2.Controls.Add(texto);
+                TableRow fila2 = new TableRow();
+                fila2.Cells.Add(celda2);
+                Table_firmas.Rows.Add(fila2);
+            }
         }
     }
 

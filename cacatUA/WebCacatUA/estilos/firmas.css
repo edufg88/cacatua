@@ -55,3 +55,12 @@
     -ms-border-radius: 5px;
     -khtml-border-radius: 5px;
 }
+
+#panelFirmar
+{
+	float: left;	
+}
+#botonFirmar
+{
+	float: right;	
+}

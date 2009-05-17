@@ -28,8 +28,10 @@
     </div>
     
     <div id="botones">
-        <asp:Button ID="Button_firmar" runat="server" Text="<%$ Resources: I18N, Firmar %>" 
-            onclick="Button_firmar_Click"/>
+        <div id="botonFirmar">
+            <asp:Button ID="Button_firmar" runat="server" Text="<%$ Resources: I18N, Firmar %>" 
+                onclick="Button_firmar_Click"/>
+        </div>
         <div id="paginaInf">
             <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
                 onclick="Button_paginaAnterior_Click" />
