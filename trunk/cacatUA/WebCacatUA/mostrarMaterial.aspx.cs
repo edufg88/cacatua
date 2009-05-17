@@ -128,7 +128,6 @@ namespace WebCacatUA
 
         private void MostrarComentarios()
         {
-
             Panel_comentarios.Controls.Clear();
 
             HtmlTable tabla = new HtmlTable();
@@ -198,6 +197,7 @@ namespace WebCacatUA
             {
                 paginacion_mostrarMaterial.Visible = false;
                 resultados_mostrarMaterial.Visible = false;
+                contenidoTablaAux_mostrarMaterial.Visible = false;
             }
         }
 
@@ -216,10 +216,8 @@ namespace WebCacatUA
             }
             else
             {
-                Panel_mensajeError.Visible = false;
                 material.GuardarComentario(comentario);
-                TextBox_comentario.Text = "";
-                MostrarComentarios();
+                Response.Redirect("mostrarMaterial.aspx?id=" + material.Id);
             }
         }
 

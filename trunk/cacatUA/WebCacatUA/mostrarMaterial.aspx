@@ -11,8 +11,8 @@
 #nombreMaterial_mostrarMaterial
 {
     font-size:x-large;
-    background-color:#1e6393;
-    padding:5px;
+    padding-bottom:5px;
+    padding-left:2px;
 }
 
 #usuario_mostrarMaterial
@@ -192,6 +192,12 @@ hr {
     padding-top:10px;
 }
 
+.enlaceDescargar
+{
+    color:White;	
+    font-weight:normal;
+}
+
 /****************************************************
 #####################################################
 #####################################################
@@ -233,7 +239,49 @@ hr {
 
 #contenido_mostrarMaterial
 {
+    margin-top: 5px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;	
+    padding-left:10px;
+    padding-right:10px;
+}
 
+#tabla_mostrarMaterial
+{
+    background-color:#DCD9CD;
+    width:100%;	
+}
+
+#tabla_mostrarMaterial td
+{
+	padding-left:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+#tablaDescargar_mostrarMaterial
+{
+	width:100%;
+}
+
+.columnaDescargar
+{
+	
+}
+
+.columnaPuntuacion
+{
+	text-align:right;
+}
+
+#votar_mostrarMaterial
+{
+    color:White;	
 }
 
 </style>
@@ -354,9 +402,9 @@ function incrementarCantidad()
     <div id="descargar_mostrarMaterial">
         <table id="tablaDescargar_mostrarMaterial">
             <tr>
-                <td>
+                <td class="columnaDescargar">
                     <asp:ImageButton ID="ImageButton1" ImageUrl="~/imagenes/descargar.png" runat="server" />
-                    <asp:HyperLink ID="HyperLink_descargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>  
+                    <asp:HyperLink ID="HyperLink_descargar" CssClass="enlaceDescargar" runat="server" Text="<%$ Resources: I18N, Descargar %>"></asp:HyperLink>  
                 </td>
                 <td class="columnaPuntuacion">
                     <asp:Panel ID="Panel_votar" runat="server">            
@@ -384,7 +432,6 @@ function incrementarCantidad()
 
 </div>
 <br />
-<br />
         <div id="resultados_mostrarMaterial" runat="server">
             <table id="tabla_resultados_mostrarMaterial">
                 <tr>
@@ -404,13 +451,14 @@ function incrementarCantidad()
             </table>
         </div>
         
-        <div id="contenidoTabla_mostrarMaterial">
-            <asp:Panel
-                ID="Panel_comentarios" runat="server">
-            </asp:Panel>  
+        <div id="contenidoTablaAux_mostrarMaterial" runat="server">
+            <div id="contenidoTabla_mostrarMaterial">
+                <asp:Panel
+                    ID="Panel_comentarios" runat="server">
+                </asp:Panel>  
+            </div>       
         </div>
 
-        
         <div id="paginacion_mostrarMaterial" runat="server">
             <table class="tablaPaginacion_mostrarMaterial">
                 <tr> 
@@ -418,11 +466,21 @@ function incrementarCantidad()
                         <%= Resources.I18N.CantidadPorPagina + ":" %>
                         <asp:DropDownList ID="DropDownList_cantidadPorPagina" runat="server" 
                             AutoPostBack="True">
-                            <asp:ListItem>1</asp:ListItem>
-                            <asp:ListItem>2</asp:ListItem>
-                            <asp:ListItem>3</asp:ListItem>
-                            <asp:ListItem Selected="True">4</asp:ListItem>
-                            <asp:ListItem>5</asp:ListItem>
+                                <asp:ListItem>1</asp:ListItem>
+                                <asp:ListItem>2</asp:ListItem>
+                                <asp:ListItem>3</asp:ListItem>
+                                <asp:ListItem>4</asp:ListItem>
+                                <asp:ListItem Selected="True">5</asp:ListItem>
+                                <asp:ListItem>10</asp:ListItem>
+                                <asp:ListItem>20</asp:ListItem>
+                                <asp:ListItem>30</asp:ListItem>
+                                <asp:ListItem>40</asp:ListItem>
+                                <asp:ListItem>50</asp:ListItem>
+                                <asp:ListItem>60</asp:ListItem>
+                                <asp:ListItem>70</asp:ListItem>
+                                <asp:ListItem>80</asp:ListItem>
+                                <asp:ListItem>90</asp:ListItem>
+                                <asp:ListItem>100</asp:ListItem>
                         </asp:DropDownList>                       
                     </td>
                     <td>
