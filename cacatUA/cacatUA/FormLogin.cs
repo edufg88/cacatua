@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Libreria;
 
 namespace cacatUA
 {
@@ -14,14 +15,6 @@ namespace cacatUA
         public FormLogin()
         {
             InitializeComponent();
-
-            string mdf = Application.ExecutablePath;
-            mdf = mdf.Remove(mdf.LastIndexOf(@"\bin\"));
-
-            string mdf2 = mdf.Remove(mdf.LastIndexOf(@"\cacatUA"));
-            mdf2 += @"\WebCacatUA\App_Data";
-
-            AppDomain.CurrentDomain.SetData("DataDirectory", @mdf2);
         }
 
         private void button_conectar_Click(object sender, EventArgs e)
@@ -33,9 +26,10 @@ namespace cacatUA
             if (correcto == true)
             {
                 // Mostramos el panel de administración
-                FormPanelAdministracion panel = FormPanelAdministracion.Instancia;
-                panel.Show();
                 this.Hide();
+                FormPanelAdministracion panel = FormPanelAdministracion.Instancia;
+                panel.Usuario = ENUsuario.Obtener(usuario);
+                panel.Show();
             }
             else
             {

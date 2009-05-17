@@ -118,20 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\usuarios.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="examinar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\examinar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\guardar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="seleccionar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\seleccionar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cancelarDescarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\cancelarDescarga.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="volver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\volver.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="avanzar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\avanzar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\salir.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +139,11 @@
   <data name="retroceder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\retroceder.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="refrescar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\refrescar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="materiales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\materiales.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\lupa.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="personas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\personas.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +160,14 @@
   <data name="buscar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\buscar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="foro" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\foro.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\logo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\buscar.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="peticiones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\peticiones.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +175,8 @@
   <data name="general" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\general.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="avanzar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\avanzar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\descargar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,8 +199,8 @@
   <data name="fileopen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\fileopen.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="materiales" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\materiales.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\usuarios.PNG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="categorias" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\categorias.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,16 +211,13 @@
   <data name="nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\datos\nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\buscar.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="seleccionar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\seleccionar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lupa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\lupa.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="refrescar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\refrescar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="foro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\foro.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cancelarDescarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\datos\cancelarDescarga.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="volveriluminado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\datos\volveriluminado.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Libreria;
 
 namespace cacatUA
 {
@@ -15,7 +16,23 @@ namespace cacatUA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLogin());
+
+            string mdf = Application.ExecutablePath;
+            mdf = mdf.Remove(mdf.LastIndexOf(@"\bin\"));
+
+            string mdf2 = mdf.Remove(mdf.LastIndexOf(@"\cacatUA"));
+            mdf2 += @"\WebCacatUA\App_Data";
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", @mdf2);
+
+            if (ENUsuario.NumAdministradores() > 0)
+            {
+                Application.Run(new FormLogin());
+            }
+            else
+            {
+                Application.Run(new FormPrimeraVez());
+            }
         }
     }
 }
