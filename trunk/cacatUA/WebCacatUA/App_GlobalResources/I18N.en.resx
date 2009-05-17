@@ -642,4 +642,37 @@
   <data name="UltimasImagenes" xml:space="preserve">
     <value>Last pictures</value>
   </data>
+  <data name="DesapuntarGrupo" xml:space="preserve">
+    <value>You have unjoined correctly to group</value>
+  </data>
+  <data name="GrupoCreado" xml:space="preserve">
+    <value>The group has been correctly created</value>
+  </data>
+  <data name="InscribirGrupo" xml:space="preserve">
+    <value>You have joined correctly to group</value>
+  </data>
+  <data name="MensajeEnviadoGrupo" xml:space="preserve">
+    <value>The message has been correctly sent to group</value>
+  </data>
+  <data name="MensajeEnviadoUsuario" xml:space="preserve">
+    <value>The message has been correctly sent to user</value>
+  </data>
+  <data name="MensajeErrorLogeado" xml:space="preserve">
+    <value>You must be logged in to send a message</value>
+  </data>
+  <data name="MensajeErrorMismoUsuario" xml:space="preserve">
+    <value>You can't send a message to yourself</value>
+  </data>
+  <data name="NoFirmas" xml:space="preserve">
+    <value>There are no signatures to be shown</value>
+  </data>
+  <data name="NoMensajes" xml:space="preserve">
+    <value>There are no private messages to be shown</value>
+  </data>
+  <data name="PulsarVolver" xml:space="preserve">
+    <value>Click here to return</value>
+  </data>
+  <data name="UsuarioRegistrado" xml:space="preserve">
+    <value>You have been correctly registered</value>
+  </data>
 </root>

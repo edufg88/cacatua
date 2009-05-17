@@ -502,7 +502,7 @@
     <value>No hay firmas para mostrar</value>
   </data>
   <data name="NoMensajes" xml:space="preserve">
-    <value>No tengo mensajes privados</value>
+    <value>No hay mensajes privados para mostrar</value>
   </data>
   <data name="Viendo" xml:space="preserve">
     <value>Viendo</value>

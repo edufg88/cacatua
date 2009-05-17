@@ -1204,7 +1204,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a No tengo mensajes privados.
+        ///   Busca una cadena traducida similar a No hay mensajes privados para mostrar.
         /// </summary>
         internal static string NoMensajes {
             get {
