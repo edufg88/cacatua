@@ -136,6 +136,7 @@
         
         <div id="pie">
             <p>CacatUA - Diseño y Programación Avanzada de Aplicaciones 2008/2009</p>
+            <asp:HyperLink ID="HyperLink_peticiones" runat="server" NavigateUrl="peticion.aspx"><%= Resources.I18N.Contacta %></asp:HyperLink>
         </div>
         
     </div>

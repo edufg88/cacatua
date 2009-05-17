@@ -74,6 +74,14 @@
                 <td class="columna1DatosUsuario">&nbsp;</td>
                 <td class="columna2DatosUsuario">&nbsp;</td>
             </tr>
+            <tr <%= ocultar %>>
+                <td class="columna1DatosUsuario">&nbsp;</td>
+                <td class="columna2DatosUsuario"><asp:Label ID="Label_infoContrasena" runat="server" Text="<%$ Resources: I18N, InfoContrasena %>"></asp:Label></td>
+            </tr>
+            <tr <%= ocultar %>>
+                <td class="columna1DatosUsuario">&nbsp;</td>
+                <td class="columna2DatosUsuario">&nbsp;</td>
+            </tr>
             <tr class="ultimaFilaDatosUsuario">
                 <td class="columna1DatosUsuario"></td>
                 <td class="columna2DatosUsuario">

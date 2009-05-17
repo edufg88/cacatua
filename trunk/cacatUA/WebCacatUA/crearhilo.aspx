@@ -15,7 +15,7 @@
         <tr>
             <td class="columna1CrearHilo"><span>&nbsp;</span></td>
             <td class="columna2CrearHilo">
-                <asp:Label ID="Label_tituloError" runat="server" ForeColor="Red" Text="El número de caracteres debe estar entre 1 y 100." Visible="False"></asp:Label>
+                <asp:Label ID="Label_tituloError" runat="server" ForeColor="Red" Text="<%$ Resources: I18N, NumeroCaracteres1y100 %>" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr id="filaTituloCrearHilo">
@@ -27,7 +27,7 @@
         <tr>
             <td class="columna1CrearHilo"><span>&nbsp;</span></td>
             <td class="columna2CrearHilo">
-                <asp:Label ID="Label_textoError" runat="server" ForeColor="Red" Text="El número de caracteres debe estar entre 1 y 5000." Visible="False"></asp:Label>
+                <asp:Label ID="Label_textoError" runat="server" ForeColor="Red" Text="<%$ Resources: I18N, NumeroCaracteres1y5000 %>" Visible="False"></asp:Label>
             </td>
         </tr>
         <tr id="filaTextoCrearHilo">

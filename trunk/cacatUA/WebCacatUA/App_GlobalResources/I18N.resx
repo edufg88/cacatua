@@ -627,4 +627,46 @@
   <data name="CategoriasSuscritas" xml:space="preserve">
     <value>Categorías suscritas</value>
   </data>
+  <data name="NoHayResultados" xml:space="preserve">
+    <value>No hay resultados</value>
+  </data>
+  <data name="Contacta" xml:space="preserve">
+    <value>Contacta con nosotros</value>
+  </data>
+  <data name="ContrasenaActualIncorrecta" xml:space="preserve">
+    <value>La contraseña introducida no coincide con la contraseña actual</value>
+  </data>
+  <data name="ContrasenaNumeroCaracteres" xml:space="preserve">
+    <value>La contraseña debe tener una cantidad de caracteres entre 1 y 20</value>
+  </data>
+  <data name="ContrasenasLetrasNumero" xml:space="preserve">
+    <value>Sólo se permiten letras y números para la contraseña</value>
+  </data>
+  <data name="ContrasenasNoCoinciden" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="CorreoElectronicoNoValida" xml:space="preserve">
+    <value>La dirección de correo no es válida</value>
+  </data>
+  <data name="DebesIdentificarteContactar" xml:space="preserve">
+    <value>Debes identificarte para contactar con nosotros</value>
+  </data>
+  <data name="DNINumeroCaracteres" xml:space="preserve">
+    <value>El DNI debe tener una cantidad de caracteres menor que 20</value>
+  </data>
+  <data name="InfoContrasena" xml:space="preserve">
+    <value>Sólo es necesario introducir la contraseña si quieres cambiarla</value>
+  </data>
+  <data name="InformacionAdicionalNumeroCaracteres" xml:space="preserve">
+    <value>La información adicional debe tener una cantidad de caracteres menor que 5000</value>
+  </data>
+  <data name="NombreCompletoNumeroCaracteres" xml:space="preserve">
+    <value>El nombre completo debe tener una cantidad de caracteres entre 3 y 50</value>
+  </data>
+  <data name="NumeroCaracteres1y100" xml:space="preserve">
+    <value>El número de caracteres debe estar entre 1 y 100</value>
+  </data>
+  <data name="NumeroCaracteres1y5000" xml:space="preserve">
+    <value>El número de caracteres debe estar entre 1 y 5000</value>
+  </data>
 </root>

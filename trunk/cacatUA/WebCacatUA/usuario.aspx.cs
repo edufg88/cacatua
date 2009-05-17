@@ -159,21 +159,21 @@ public partial class usuario : WebCacatUA.InterfazWeb
         // Nombre completo.
         if (TextBox_nombreCompleto.Text.Length < 3 || TextBox_nombreCompleto.Text.Length >= 50)
         {
-            Label_nombreCompletoError.Text = "El nombre completo debe tener una cantidad de caracteres entre 3 y 50.";
+            Label_nombreCompletoError.Text = Resources.I18N.NombreCompletoNumeroCaracteres;
             correcto = false;
         }
 
         // Información adicional.
         if (TextBox_informacionAdicional.Text.Length >= 5000)
         {
-            Label_informacionAdicionalError.Text = "La información adicional debe tener una cantidad de caracteres menor a 5000.";
+            Label_informacionAdicionalError.Text = Resources.I18N.InformacionAdicionalNumeroCaracteres;
             correcto = false;
         }
 
         // Información adicional.
-        if (TextBox_dni.Text.Length >= 50)
+        if (TextBox_dni.Text.Length >= 20)
         {
-            Label_dniError.Text = "El DNI debe tener una cantidad de caracteres menor a 50.";
+            Label_dniError.Text = Resources.I18N.DNINumeroCaracteres;
             correcto = false;
         }
 
@@ -181,7 +181,7 @@ public partial class usuario : WebCacatUA.InterfazWeb
         Regex email = new Regex(@"^[a-zA-Z0-9_-]{2,}@[a-zA-Z0-9_-]{2,}\.[a-zA-Z]{2,4}(\.[a-zA-Z]{2,4})?$");
         if (!email.IsMatch(TextBox_correoElectronico.Text) && TextBox_correoElectronico.Text.Length > 0)
         {
-            Label_correoElectronicoError.Text = "No es una dirección de correo válida.";
+            Label_correoElectronicoError.Text = Resources.I18N.CorreoElectronicoNoValida;
             correcto = false;
         }
 
@@ -190,14 +190,14 @@ public partial class usuario : WebCacatUA.InterfazWeb
         {
             if (TextBox_contrasenaAnterior.Text != u.Contrasena)
             {
-                Label_contrasenaAnteriorError.Text = "La contraseña introducida no coincide con la contraseña actual.";
+                Label_contrasenaAnteriorError.Text = Resources.I18N.ContrasenaActualIncorrecta;
                 correcto = false;
             }
             else
             {
                 if (TextBox_contrasena.Text != TextBox_contrasena2.Text)
                 {
-                    Label_contrasenaError.Text = "Las contraseñas no coinciden.";
+                    Label_contrasenaError.Text = Resources.I18N.ContrasenasNoCoinciden;
                     correcto = false;
                 }
                 else
@@ -206,14 +206,14 @@ public partial class usuario : WebCacatUA.InterfazWeb
                     {
                         if (TextBox_contrasena.Text != filtrarCadena(TextBox_contrasena.Text))
                         {
-                            Label_contrasenaError.Text = "Sólo se permiten letras y números para la contraseña.";
+                            Label_contrasenaError.Text = Resources.I18N.ContrasenasLetrasNumero;
                             correcto = false;
                         }
                         else
                         {
                             if (TextBox_contrasena.Text.Length < 1 || TextBox_contrasena.Text.Length >= 20)
                             {
-                                Label_contrasenaError.Text = "La contraseña debe tener una cantidad de caracteres entre 1 y 20.";
+                                Label_contrasenaError.Text = Resources.I18N.ContrasenaNumeroCaracteres;
                                 correcto = false;
                             }
                         }

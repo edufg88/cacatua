@@ -23,13 +23,14 @@ namespace WebCacatUA
             extraerParametros();
             if (usuario == null)
             {
-                Response.Redirect("index.aspx");
+                Panel_peticion.Visible = false;
+                Label_peticion.Visible = true;
             }
         }
 
         protected void Button_enviar_Click(object sender, EventArgs e)
         {
-            if (TextBox_Peticion.Text != "" && TextBox_Asunto.Text != "")
+            if (TextBox_Peticion.Text != "" && TextBox_Asunto.Text != "" && usuario != null)
             {
                 ENPeticion peticion = new ENPeticion();
                 peticion.Usuario = usuario;

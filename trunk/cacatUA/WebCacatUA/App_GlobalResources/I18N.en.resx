@@ -561,4 +561,46 @@
   <data name="CategoriasSuscritas" xml:space="preserve">
     <value>Subscribed categories</value>
   </data>
+  <data name="NoHayResultados" xml:space="preserve">
+    <value>No results</value>
+  </data>
+  <data name="Contacta" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="ContrasenaActualIncorrecta" xml:space="preserve">
+    <value>Incorrect current password</value>
+  </data>
+  <data name="ContrasenaNumeroCaracteres" xml:space="preserve">
+    <value>Password lenght must be between 1 and 50</value>
+  </data>
+  <data name="ContrasenasLetrasNumero" xml:space="preserve">
+    <value>Password may only contain letters and numbers</value>
+  </data>
+  <data name="ContrasenasNoCoinciden" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="CorreoElectronicoNoValida" xml:space="preserve">
+    <value>The email provided does not appear to be valid</value>
+  </data>
+  <data name="DebesIdentificarteContactar" xml:space="preserve">
+    <value>You must log in to contact us</value>
+  </data>
+  <data name="DNINumeroCaracteres" xml:space="preserve">
+    <value>DNI length must be least than 20</value>
+  </data>
+  <data name="InfoContrasena" xml:space="preserve">
+    <value>Password field is only required if you want to change your password</value>
+  </data>
+  <data name="InformacionAdicionalNumeroCaracteres" xml:space="preserve">
+    <value>Aditional information length must be least than 5000</value>
+  </data>
+  <data name="NombreCompletoNumeroCaracteres" xml:space="preserve">
+    <value>Full name length must be between 3 and 50 characters</value>
+  </data>
+  <data name="NumeroCaracteres1y100" xml:space="preserve">
+    <value>Number of characters must be between 1 and 100</value>
+  </data>
+  <data name="NumeroCaracteres1y5000" xml:space="preserve">
+    <value>Number of characters must be between 1 and 5000</value>
+  </data>
 </root>
