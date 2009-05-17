@@ -558,4 +558,7 @@
   <data name="PeticionInfo" xml:space="preserve">
     <value>If you have a problem, you can use this form</value>
   </data>
+  <data name="CategoriasSuscritas" xml:space="preserve">
+    <value>Subscribed categories</value>
+  </data>
 </root>

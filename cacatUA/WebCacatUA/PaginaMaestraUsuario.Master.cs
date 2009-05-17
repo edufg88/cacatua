@@ -61,11 +61,13 @@ namespace WebCacatUA
 
             if (mostrar != null)
             {
+                Label l1 = new Label();
+                l1.Text = mostrar.Pregunta;
+                l1.CssClass = "preguntaEncuesta";
+                Panel_encuesta.Controls.Add(l1);
+
                 if (mostrar.HaVotado(uSesion))
                 {
-                    Label l1 = new Label();
-                    l1.Text = mostrar.Pregunta;
-                    Panel_encuesta.Controls.Add(l1);
                     int totalVotos = mostrar.NumVotos();
 
                     foreach (OpcionEncuesta opc in mostrar.Opciones())
@@ -88,10 +90,6 @@ namespace WebCacatUA
                 }
                 else
                 {
-                    Label l1 = new Label();
-                    l1.Text = mostrar.Pregunta;
-                    Panel_encuesta.Controls.Add(l1);
-
                     foreach (OpcionEncuesta opc in mostrar.Opciones())
                     {
                         //Salto de linea (si, es lo peor)
@@ -165,9 +163,11 @@ namespace WebCacatUA
             HyperLink_galeriaUsuario.NavigateUrl = "galeria.aspx?usuario=" + usuario.Usuario;
             HyperLink_galeriaUsuario.Text = Resources.I18N.GaleriaFotos + " (" + usuario.CantidadImagenes() + ")";
 
-            // Sólo mostramos el enlace a los mensajes privados si hay un usuario en la sessión
+            // Sólo mostramos el enlace a los mensajes privados y encuestas si hay un usuario en la sessión
             // y coincide con el usuario que se está visualizando.
             HyperLink_mensajesUsuario.Visible = false;
+            HyperLink_encuestasUsuario.Visible = false;
+            HyperLink_categoriaUsuario.Visible = false;
             if (Session["usuario"] != null)
             {
                 if (ENUsuario.Obtener(Session["usuario"].ToString()).Id == usuario.Id)
@@ -175,6 +175,14 @@ namespace WebCacatUA
                     HyperLink_mensajesUsuario.NavigateUrl = "mensajes.aspx?usuario=" + usuario.Usuario;
                     HyperLink_mensajesUsuario.Text = Resources.I18N.MensajesPrivados + " (" + usuario.CantidadMensajes() + ")";
                     HyperLink_mensajesUsuario.Visible = true;
+
+                    HyperLink_encuestasUsuario.NavigateUrl = "encuestas.aspx?usuario=" + usuario.Usuario;
+                    HyperLink_encuestasUsuario.Text = Resources.I18N.Encuestas + " (" + usuario.CantidadEncuestas() + ")";
+                    HyperLink_encuestasUsuario.Visible = true;
+
+                    HyperLink_categoriaUsuario.NavigateUrl = "categorias.aspx?usuario=" + usuario.Usuario;
+                    HyperLink_categoriaUsuario.Text = Resources.I18N.CategoriasSuscritas;
+                    HyperLink_categoriaUsuario.Visible = true;
                 }
             }
 

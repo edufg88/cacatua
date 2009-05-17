@@ -53,7 +53,7 @@
     background-color: #ffffff;
 }
 
-#grupoUsuario, #preguntaEncuesta
+#grupoUsuario, .preguntaEncuesta
 {
     font-weight: bold;
     padding-bottom: 10px;   

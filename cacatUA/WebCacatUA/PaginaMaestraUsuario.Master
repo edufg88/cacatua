@@ -22,7 +22,8 @@
             <div id="firmasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_firmasUsuario" runat="server">Firmas (13)</asp:HyperLink></div>
             <div id="mensajesUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_mensajesUsuario" runat="server">Mensajes privados (79) (sólo sale si eres tú mismo)</asp:HyperLink></div>
             <div id="galeriaUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_galeriaUsuario" runat="server">Galería de fotos (43)</asp:HyperLink></div>
-            <div id="encuestasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_encuestasUsuario" runat="server">Encuestas (13) (si eres tu mismo, podrás editarlas al entrar)</asp:HyperLink></div>
+            <div id="encuestasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_encuestasUsuario" runat="server">Encuestas (13) (sólo sale si eres tú mismo)</asp:HyperLink></div>
+            <div id="categoriasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_categoriaUsuario" runat="server">Categorías suscritas (13) (sólo sale si eres tú mismo)</asp:HyperLink></div>
             <div id="enviarMensajeUsuario" class="botonUsuario enviarMensajeUsuario"><asp:HyperLink ID="HyperLink_enviarMensajeUsuario" runat="server"><asp:Image ID="Image_enviarMensajeUsuario" runat="server" ImageUrl="imagenes/sobre.png" /></asp:HyperLink></div>
         </div>
         <div id="gruposUsuario">
