@@ -55,7 +55,7 @@ public partial class PaginaMaestra : System.Web.UI.MasterPage
         Button_registrarse.Visible = false;
 
         // Mostramos el boton de logout y la información del login
-        Label_infoLogin.Text = "Usuario conectado:  " + "<a href=\"usuario.aspx?usuario=" + Session["usuario"] + "\">" + Session["usuario"] + "</a>";
+        Label_infoLogin.Text = "Usuario conectado:  " + "<a href=\"generalUsuario.aspx?usuario=" + Session["usuario"] + "\">" + Session["usuario"] + "</a>";
         Label_infoLogin.ForeColor = System.Drawing.Color.Chocolate;
         Label_iniciarSesion.Visible = false;
         Button_logout.Visible = true;

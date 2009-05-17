@@ -104,7 +104,6 @@
             </div>
         </div>
     </div>
-    <a href="generalUsuario.aspx?usuario=jorge"> HOLA PINCHA AQUI </a>
 <p>&nbsp;</p>
 </asp:Content>
 

@@ -286,7 +286,7 @@ public partial class usuarios : WebCacatUA.InterfazWeb
                 TableCell c2 = new TableCell();
                 c2.CssClass = "columna2Usuarios";
                 Label l2 = new Label();
-                l2.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.Usuario + ": </span><a href=\"usuario.aspx?usuario=" + us.Usuario + "\" class=\"usuario\">" + us.Usuario + "</a></p>";
+                l2.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.Usuario + ": </span><a href=\"generalUsuario.aspx?usuario=" + us.Usuario + "\" class=\"usuario\">" + us.Usuario + "</a></p>";
                 l2.CssClass = "usuario";
                 Label l3 = new Label();
                 l3.Text = "<p><span class=\"tituloDato\">" + Resources.I18N.Nombre + ": </span>" + us.Nombre + "</p>";
