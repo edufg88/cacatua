@@ -75,6 +75,7 @@ namespace Libreria
             ENUsuario em = ENUsuario.Obtener(emisor);
             ENUsuario rec = ENUsuario.Obtener(receptor);
 
+            firmaCAD = new FirmaCAD();
             this.id = 0;
             this.emisor = em;
             this.receptor = rec;
