@@ -45,7 +45,7 @@ public partial class creargrupo : WebCacatUA.InterfazWeb
             Response.Redirect("confirmacion.aspx?creargrupo=1");
         }
         else
-            Label_infoGrupo.Text = "Ya existe un grupo con este nombre";
+            Label_infoGrupo.Text = Resources.I18N.GrupoExiste;
     }
 }
 

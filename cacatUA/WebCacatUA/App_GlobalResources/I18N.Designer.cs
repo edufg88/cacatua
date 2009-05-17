@@ -790,6 +790,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a El campo &apos;descipción&apos; no se puede dejar en blanco.
+        /// </summary>
+        internal static string GrupoCrearDescripcion {
+            get {
+                return ResourceManager.GetString("GrupoCrearDescripcion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a El campo &apos;nombre&apos; no se puede dejar en blanco.
+        /// </summary>
+        internal static string GrupoCrearNombre {
+            get {
+                return ResourceManager.GetString("GrupoCrearNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ya existe un grupo con este nombre.
+        /// </summary>
+        internal static string GrupoExiste {
+            get {
+                return ResourceManager.GetString("GrupoExiste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Grupos.
         /// </summary>
         internal static string Grupos {
@@ -1038,6 +1065,15 @@ namespace Resources {
         internal static string MensajeEnviadoUsuario {
             get {
                 return ResourceManager.GetString("MensajeEnviadoUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se puede dejar el texto del mensaje en blanco.
+        /// </summary>
+        internal static string MensajeEnviarError {
+            get {
+                return ResourceManager.GetString("MensajeEnviarError", resourceCulture);
             }
         }
         
