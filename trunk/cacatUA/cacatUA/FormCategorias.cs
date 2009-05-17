@@ -174,31 +174,34 @@ namespace cacatUA
 
         private void button_editarCategoria_Click(object sender, EventArgs e)
         {
-            if (seleccionada == null)
+            if (estado == EstadoFormulario.NINGUNO)
             {
-                MessageBox.Show("Debes seleccionar una categoria.", "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (treeViewCategorias.SelectedNode.Level != 0)
+                if (seleccionada == null)
                 {
-                    enrutada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Parent.Name));
-                    enr = treeViewCategorias.SelectedNode.Parent;
+                    MessageBox.Show("Debes seleccionar una categoria.", "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (treeViewCategorias.SelectedNode.Level != 0)
+                    {
+                        enrutada = ENCategoria.Obtener(int.Parse(treeViewCategorias.SelectedNode.Parent.Name));
+                        enr = treeViewCategorias.SelectedNode.Parent;
+                    }
+
+                    //Activar/Desactivar controles
+                    ActivarEdicion();
+
+                    //Texto en la barra de estado
+                    ultimoMensaje = "Editando la categoria " + seleccionada.Id + " - Utilice el panel de la izquierda para modificar la ruta.";
+                    FormPanelAdministracion.Instancia.MensajeEstado(ultimoMensaje);
+
+                    //Cambiamos el estado del formulario
+                    estado = EstadoFormulario.EDICION;
                 }
 
-                //Activar/Desactivar controles
-                ActivarEdicion();
-
-                //Texto en la barra de estado
-                ultimoMensaje = "Editando la categoria " + seleccionada.Id + " - Utilice el panel de la izquierda para modificar la ruta.";
-                FormPanelAdministracion.Instancia.MensajeEstado(ultimoMensaje);
-                
-                //Cambiamos el estado del formulario
-                estado = EstadoFormulario.EDICION;
+                //Para que se produzca el evento AfterSelect en el siguiente click
+                treeViewCategorias.SelectedNode = null;
             }
-
-            //Para que se produzca el evento AfterSelect en el siguiente click
-            treeViewCategorias.SelectedNode = null;
         }
 
         private void button_borrarCategoria_Click(object sender, EventArgs e)
