@@ -696,4 +696,7 @@
   <data name="masMateriales" xml:space="preserve">
     <value>Más materiales</value>
   </data>
+  <data name="comentarios" xml:space="preserve">
+    <value>comentarios</value>
+  </data>
 </root>
