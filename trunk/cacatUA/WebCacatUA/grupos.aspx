@@ -7,9 +7,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenido" runat="server">
-    <asp:Button ID="Button_crearGrupos" runat="server" 
-        Text="<%$ Resources: I18N, CrearGrupo  %>" onclick="Button_crearGrupos_Click" />
-    
+  
     <div id="busquedaGrupos">
         <div id="filtroBusqueda">
         <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_buscar">              
@@ -84,6 +82,8 @@
     -->
     <div id="mostrandoUsuarios">
         <asp:Label ID="Label_mostrandoGrupos" runat="server" Text=""></asp:Label>
+         <asp:Button ID="Button_crearGrupos" runat="server" 
+            Text="<%$ Resources: I18N, CrearGrupo  %>" onclick="Button_crearGrupos_Click" CausesValidation="False" />
     </div>
      <div id="mostrarGrupos">
          <asp:Table ID="Table_grupos" runat="server" CellPadding="0" CellSpacing="0" CssClass="tablaGrupos"></asp:Table>
