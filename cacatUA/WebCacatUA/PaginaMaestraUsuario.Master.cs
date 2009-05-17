@@ -66,27 +66,57 @@ namespace WebCacatUA
                 l1.CssClass = "preguntaEncuesta";
                 Panel_encuesta.Controls.Add(l1);
 
-                if (mostrar.HaVotado(uSesion))
+                if (uSesion == null || mostrar.HaVotado(uSesion))
                 {
                     int totalVotos = mostrar.NumVotos();
 
+                    Table table = new Table();
+
                     foreach (OpcionEncuesta opc in mostrar.Opciones())
                     {
-                        //Salto de linea (si, es lo peor)
-                        Label br = new Label();
-                        br.Text = "<br/>";
-                        Panel_encuesta.Controls.Add(br);
+                        TableRow tr = new TableRow();
 
-                        int opcionVotos = opc.NumVotos();
+                        if (totalVotos != 0)
+                        {
+                            TableCell tc1 = new TableCell();
+                            tc1.CssClass = "celdaOpcion";
+                            Label lopcion = new Label();
+                            lopcion.Text = opc.Opcion + ": ";
+                            tc1.Controls.Add(lopcion);
 
-                        Label l2 = new Label();
-                        l2.Text = opc.Opcion + ": " + opcionVotos.ToString() + " (" + ((opcionVotos * 100)/totalVotos).ToString() + "%)";
-                        Panel_encuesta.Controls.Add(l2);
+                            TableCell tc2 = new TableCell();
+                            Label lvotos = new Label();
+                            int opcionVotos = opc.NumVotos();
+                            lvotos.Text = opcionVotos.ToString() + " (" + ((opcionVotos * 100) / totalVotos).ToString() + "%)";
+                            tc2.Controls.Add(lvotos);
+
+                            tr.Controls.Add(tc1);
+                            tr.Controls.Add(tc2);
+                            table.Controls.Add(tr);
+                        }
+                        else
+                        {
+                            Label l2 = new Label();
+                            l2.Text = opc.Opcion;
+                            Panel_encuesta.Controls.Add(l2);
+                        }                        
                     }
 
+                    if(totalVotos != 0)
+                        Panel_encuesta.Controls.Add(table);
+
                     Label l3 = new Label();
-                    l3.Text = "<br/>" + Resources.I18N.TotalVotos + ": " + totalVotos.ToString();
+                    l3.CssClass = "totalVotos";
+                    l3.Text = "<br/><strong>" + Resources.I18N.TotalVotos + ":</strong> " + totalVotos.ToString();
                     Panel_encuesta.Controls.Add(l3);
+
+                    if (uSesion == null)
+                    {
+                        Label l4 = new Label();
+                        l4.CssClass = "loginVotar";
+                        l4.Text = "<br/><br/>" + Resources.I18N.LoginParaVotar;
+                        Panel_encuesta.Controls.Add(l4);
+                    }
                 }
                 else
                 {
@@ -99,6 +129,7 @@ namespace WebCacatUA
 
 
                         RadioButton rb1 = new RadioButton();
+                        rb1.CssClass = "opcionEncuesta";
                         rb1.Text = opc.Opcion;
                         rb1.ID = opc.Id.ToString();
                         rb1.GroupName = "Encuesta";
@@ -107,12 +138,6 @@ namespace WebCacatUA
                         if (uSesion == null)
                             rb1.Enabled = false;
                         Panel_encuesta.Controls.Add(rb1);
-                    }
-                    if (uSesion == null)
-                    {
-                        Label l3 = new Label();
-                        l3.Text = "<br/>" + Resources.I18N.LoginParaVotar;
-                        Panel_encuesta.Controls.Add(l3);
                     }
                 }
             }
