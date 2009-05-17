@@ -624,4 +624,7 @@
   <data name="PeticionInfo" xml:space="preserve">
     <value>Si tienes un problema puedes exponerlo en este formulario</value>
   </data>
+  <data name="CategoriasSuscritas" xml:space="preserve">
+    <value>Categorías suscritas</value>
+  </data>
 </root>
