@@ -633,4 +633,13 @@
   <data name="Para" xml:space="preserve">
     <value>To</value>
   </data>
+  <data name="TablonUsuario" xml:space="preserve">
+    <value>User board</value>
+  </data>
+  <data name="UltimasFirmas" xml:space="preserve">
+    <value>Last signatures</value>
+  </data>
+  <data name="UltimasImagenes" xml:space="preserve">
+    <value>Last pictures</value>
+  </data>
 </root>
