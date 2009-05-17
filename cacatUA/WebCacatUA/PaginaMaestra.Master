@@ -58,13 +58,13 @@
      
                 <asp:Panel ID="Panel_panelSup" CssClass="menuPersonal" runat="server" Visible="false">  
                         <asp:LinkButton ID="LinkButton_firmas" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_firmas_Click"><%= Resources.I18N.Firmas %></asp:LinkButton>
+                            onclick="LinkButton_firmas_Click" CausesValidation="False"></asp:LinkButton>
                         <asp:LinkButton ID="LinkButton_mensajes" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_mensajes_Click"><%= Resources.I18N.MensajesPrivados%></asp:LinkButton>
+                            onclick="LinkButton_mensajes_Click" CausesValidation="False"></asp:LinkButton>
                         <asp:LinkButton ID="LinkButton_galeria" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_galeria_Click"><%= Resources.I18N.GaleriaFotos%></asp:LinkButton>
+                            onclick="LinkButton_galeria_Click" CausesValidation="False"></asp:LinkButton>
                         <asp:LinkButton ID="LinkButton_encuestas" runat="server" CssClass="enlace" 
-                            onclick="LinkButton_encuestas_Click"><%= Resources.I18N.Encuestas%></asp:LinkButton>       
+                            onclick="LinkButton_encuestas_Click" CausesValidation="False"></asp:LinkButton>       
                 </asp:Panel>
      
                 <asp:TextBox ID="TextBox_usuario" runat="server" Width="100px"></asp:TextBox>

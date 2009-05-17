@@ -22,13 +22,13 @@ public partial class grupos {
     protected global::System.Web.UI.WebControls.Label Label_titulo;
     
     /// <summary>
-    /// Control Button_crearGrupos.
+    /// Control Panel_panel.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_crearGrupos;
+    protected global::System.Web.UI.WebControls.Panel Panel_panel;
     
     /// <summary>
     /// Control TextBox_filtroBusqueda.
@@ -128,6 +128,15 @@ public partial class grupos {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Label Label_mostrandoGrupos;
+    
+    /// <summary>
+    /// Control Button_crearGrupos.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_crearGrupos;
     
     /// <summary>
     /// Control Table_grupos.
