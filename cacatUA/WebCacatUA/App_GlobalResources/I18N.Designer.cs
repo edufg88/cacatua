@@ -277,6 +277,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to comentarios.
+        /// </summary>
+        internal static string comentarios {
+            get {
+                return ResourceManager.GetString("comentarios", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contacta con nosotros.
         /// </summary>
         internal static string Contacta {
