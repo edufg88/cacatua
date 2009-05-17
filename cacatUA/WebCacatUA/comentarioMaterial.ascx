@@ -9,19 +9,29 @@
     
 #columna1_comentarioMaterial
 {
-
+	padding-left:8px;
+    width: 110px;
+    border-right: 1px solid #ddd;	
 }
 
 #columna2_comentarioMaterial
 {
-	width:100%;
+
+}
+
+.imagen_comentarioMaterial
+{
+    display: block;
+    margin-bottom: 10px;
+    max-width: 100px;
+    max-height: 100px;
 }
 
 .usuario_comentarioMaterial
 {
 	color:#1e6393;
-	text-align:center;
 	text-decoration:none;
+	padding-bottom:5px;
 }
 
 .usuario_comentarioMaterial:visited
@@ -52,12 +62,10 @@
 <table id="tabla_comentarioMaterial">
     <tr>
         <td id="columna1_comentarioMaterial">
-            <div id="imagen_comentarioMaterial">
-                <asp:Image ID="Image_perfil" runat="server" Height="100px" />
-            </div>
             <div class="usuario_comentarioMaterial">
                 <asp:HyperLink ID="HyperLink_usuario" runat="server" Text="nombre_usuario" CssClass="usuario_comentarioMaterial"></asp:HyperLink>
             </div>
+            <asp:Image ID="Image_perfil" runat="server" Height="100px" />
         </td>
         <td id="columna2_comentarioMaterial">
             <div id="fecha_comentarioMaterial">

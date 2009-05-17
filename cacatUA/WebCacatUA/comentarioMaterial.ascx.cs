@@ -24,9 +24,15 @@ namespace WebCacatUA
         {
             Label_comentario.Text = comentario.Texto;
             Label_fecha.Text = comentario.Fecha.ToString();
-            HyperLink_usuario.NavigateUrl = "usuario.aspx?id=" + comentario.Usuario.Id;
+            HyperLink_usuario.NavigateUrl = "usuario.aspx?usuario=" + comentario.Usuario.Usuario;
             HyperLink_usuario.Text = comentario.Usuario.Usuario;
-            Image_perfil.ImageUrl = "~/imagenes/sinImagen.png";
+
+            ENImagen imagenUsuario = ENImagen.Obtener(comentario.Usuario.Imagen);
+            if (imagenUsuario != null)
+                Image_perfil.ImageUrl = "galeria/" + imagenUsuario.Archivo;
+            else
+                Image_perfil.ImageUrl = "imagenes/sinImagen.png";
+            Image_perfil.CssClass = "imagen_comentarioMaterial";
         }
     }
 }
