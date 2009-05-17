@@ -37,7 +37,8 @@
             </td>
         </tr>
         <tr id="filaEnviarCrearHilo">
-            <td colspan="2"><asp:Button ID="Button_enviar" runat="server" Text="<%$ Resources: I18N, Enviar %>" /></td>
+            <td colspan="2"><asp:Button ID="Button_enviar" runat="server" 
+                    Text="<%$ Resources: I18N, Enviar %>" onclick="Button_enviar_Click" /></td>
         </tr>
     </table>
 </asp:Panel>

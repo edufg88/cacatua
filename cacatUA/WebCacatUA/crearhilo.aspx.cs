@@ -30,7 +30,32 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
         {
             Response.Redirect("foro.aspx");
         }
+    }
 
+    private bool validarFormulario()
+    {
+        bool correcto = true;
+
+        Label_tituloError.Visible = false;
+        Label_textoError.Visible = false;
+
+        if (TextBox_titulo.Text.Length <= 0 || TextBox_titulo.Text.Length >= 200)
+        {
+            Label_tituloError.Visible = true;
+            correcto = false;
+        }
+
+        if (TextBox_texto.Text.Length <= 0 || TextBox_texto.Text.Length >= 5000)
+        {
+            Label_textoError.Visible = true;
+            correcto = false;
+        }
+
+        return correcto;
+    }
+
+    protected void Button_enviar_Click(object sender, EventArgs e)
+    {
         string rutaRedireccion = "";
 
         categoria = null;
@@ -72,27 +97,5 @@ public partial class crearhilo : WebCacatUA.InterfazWeb
             if (rutaRedireccion != "")
                 Response.Redirect(rutaRedireccion);
         }
-    }
-
-    private bool validarFormulario()
-    {
-        bool correcto = true;
-
-        Label_tituloError.Visible = false;
-        Label_textoError.Visible = false;
-
-        if (TextBox_titulo.Text.Length <= 0 || TextBox_titulo.Text.Length >= 200)
-        {
-            Label_tituloError.Visible = true;
-            correcto = false;
-        }
-
-        if (TextBox_texto.Text.Length <= 0 || TextBox_texto.Text.Length >= 5000)
-        {
-            Label_textoError.Visible = true;
-            correcto = false;
-        }
-
-        return correcto;
     }
 }
