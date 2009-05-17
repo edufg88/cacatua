@@ -1528,6 +1528,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Tablón del usuario.
+        /// </summary>
+        internal static string TablonUsuario {
+            get {
+                return ResourceManager.GetString("TablonUsuario", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Tamaño.
         /// </summary>
         internal static string Tamaño {
@@ -1587,6 +1596,24 @@ namespace Resources {
         internal static string UltimaRespuesta {
             get {
                 return ResourceManager.GetString("UltimaRespuesta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Últimas firmas.
+        /// </summary>
+        internal static string UltimasFirmas {
+            get {
+                return ResourceManager.GetString("UltimasFirmas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Últimas imágenes.
+        /// </summary>
+        internal static string UltimasImagenes {
+            get {
+                return ResourceManager.GetString("UltimasImagenes", resourceCulture);
             }
         }
         

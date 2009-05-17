@@ -672,4 +672,13 @@
   <data name="GruposMin" xml:space="preserve">
     <value>grupos</value>
   </data>
+  <data name="TablonUsuario" xml:space="preserve">
+    <value>Tablón del usuario</value>
+  </data>
+  <data name="UltimasFirmas" xml:space="preserve">
+    <value>Últimas firmas</value>
+  </data>
+  <data name="UltimasImagenes" xml:space="preserve">
+    <value>Últimas imágenes</value>
+  </data>
 </root>

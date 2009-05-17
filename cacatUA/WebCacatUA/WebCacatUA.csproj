@@ -127,6 +127,13 @@
     <Compile Include="estadoencuesta.aspx.designer.cs">
       <DependentUpon>estadoencuesta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="generalUsuario.aspx.cs">
+      <DependentUpon>generalUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="generalUsuario.aspx.designer.cs">
+      <DependentUpon>generalUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="galeriaEditar.aspx.cs">
       <DependentUpon>galeriaEditar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,10 +418,12 @@
     <Content Include="estilos\grupos.css" />
     <Content Include="estilos\mensajes.css" />
     <Content Include="estilos\peticion.css" />
+    <Content Include="estilos\generalUsuario.css" />
     <Content Include="estilos\usuarios.css" />
     <Content Include="estilos\usuario.css" />
     <Content Include="estilos\encuestasEdicion.css" />
     <Content Include="estilos\hilo.css" />
+    <Content Include="generalUsuario.aspx" />
     <Content Include="galeriaEditar.aspx" />
     <Content Include="galeriaBorrar.aspx" />
     <Content Include="galeriaUpload.aspx" />

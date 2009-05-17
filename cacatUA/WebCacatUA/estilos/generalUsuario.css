@@ -1,0 +1,105 @@
+﻿.textoInfo
+{
+	text-decoration: none;
+	color: White;
+}
+.textoInfo:hover
+{
+	text-decoration: none;
+	color: InfoText;	
+}
+
+.tablaGaleria
+{
+	width: 100%;
+    background-color: #fff;	
+}
+.tablaFirmas
+{
+	width: 100%;
+    background-color: #fff;	
+}
+
+#galeria
+{
+	margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+#infoGaleria
+{
+	padding: 5px 0px 5px 5px
+}
+
+.imagen
+{
+	border: dashed 1px Gray;	
+	padding: 2px 2px 2px 2px;
+}
+
+.columnaGaleria
+{
+	padding: 5px 5px 5px 5px;	
+}
+
+#contenidoGaleria
+{
+	padding: 5px 5px 5px 5px;
+	text-align: center;
+}
+
+#firmas
+{
+	margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+#infoFirmas
+{
+	padding: 5px 0px 5px 5px
+}
+.infoFirma
+{
+	background-color: #edf8fd;
+	padding: 5px 10px 5px 10px;
+}
+.emisorFirma
+{
+	color: #0f6b9a;
+	font-size: small;	
+	padding: 0px 5px 0px 0px;
+}
+.fechaFirma
+{
+	color: Gray;
+	font-size: small;
+	padding: 0px 5px 0px 5px;
+}
+
+#contenidoFirmas
+{
+
+}
+.contenidoFirma
+{
+	padding: 5px 10px 5px 10px;
+}
+.textoFirma
+{
+	font-size: small;
+	color: Black;
+	padding: 0px 5px 0px 0px;
+}
