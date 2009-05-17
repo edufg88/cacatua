@@ -82,7 +82,7 @@ hr {
 
 #buscar
 {
-	background-color:#1e6393;
+	background-color:#777777;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	padding:5px;
@@ -300,6 +300,7 @@ function realizarBusqueda()
     var id = document.getElementById("<%= Hidden_opcionBusqueda.ClientID %>").value;
     var busqueda = "materiales.aspx?categoria=" + id + "&buscar=" + texto; 
     window.location=busqueda;
+    return false;
 }
 
 function cambiarOpcionMateriales()
@@ -342,19 +343,21 @@ function cambiarOpcionCategoria()
     <div id="contenido_materiales">
     
         <div id="buscar">
-            <div id="textBox_buscar_materiales">
-                    <asp:TextBox ID="TextBox_buscar" runat="server" Width="80%"></asp:TextBox> 
-                    <input id="Button1" type="button" value="<%= Resources.I18N.Buscar %>" onclick="realizarBusqueda()"/>
-            </div>
-
-            <div id="opcionesBusqueda">
-                <input id="Radio_materiales" name="opciones" runat="server" type="radio" 
-                    onclick="cambiarOpcionMateriales()" value="Materiales"/>
-                <asp:Label ID="Label_radioMateriales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label>
-                <input id="Radio_categoria" name="opciones" runat="server" checked="true" type="radio" onclick="cambiarOpcionCategoria()"/>        
-                <asp:Label ID="Label_radioCategorias" runat="server" Text="categoria"></asp:Label>
-                <input id="Hidden_opcionBusqueda" type="hidden" runat="server"/>  
-            </div>
+            <asp:Panel ID="Panel_buscar" DefaultButton="Button_buscar" runat="server">
+                <div id="textBox_buscar_materiales">
+                        <asp:TextBox ID="TextBox_buscar" runat="server" Width="80%"></asp:TextBox> 
+                        <asp:Button ID="Button_buscar" Text="<%$ Resources: I18N, Buscar %>" runat="server" onclick="Button_buscar_Click" />
+                </div>
+            
+                <div id="opcionesBusqueda">
+                    <input id="Radio_materiales" name="opciones" runat="server" type="radio" 
+                        onclick="cambiarOpcionMateriales()" value="Materiales"/>
+                    <asp:Label ID="Label_radioMateriales" runat="server" Text="<%$ Resources: I18N, Materiales %>"></asp:Label>
+                    <input id="Radio_categoria" name="opciones" runat="server" checked="true" type="radio" onclick="cambiarOpcionCategoria()"/>        
+                    <asp:Label ID="Label_radioCategorias" runat="server" Text="categoria"></asp:Label>
+                    <input id="Hidden_opcionBusqueda" type="hidden" runat="server"/>  
+                </div>
+           </asp:Panel>    
         </div>
         
         <div id="resultados_materiales">
@@ -389,6 +392,7 @@ function cambiarOpcionCategoria()
             </table>
         </div>
         
+       <div id="contenido_busquedaMaterialesAux" runat="server">
        <div id="contenido_busquedaMateriales">
        <div id="paginacionSuperior_materiales" runat="server">
             <table class="tablaPaginacionSuperior_materiales">
@@ -473,12 +477,13 @@ function cambiarOpcionCategoria()
             </table>
         </div>
         </div>
-        
+    </div>    
         <a name="nuevoMaterial"></a>
         <div id="panel_nuevoMaterial_materiales">
             <asp:Panel ID="Panel_nuevoMaterial" runat="server"></asp:Panel>   
         </div>
 
-    </div>
+    
      </div>
+</div>
 </asp:Content>

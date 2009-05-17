@@ -199,6 +199,7 @@ public partial class materiales : WebCacatUA.InterfazWeb
             Radio_categoria.Visible = false;
             Label_radioCategorias.Visible = false;
             Label_radioMateriales.Visible = false;
+            Hidden_opcionBusqueda.Value = "0";
         }
     }
 
@@ -297,10 +298,6 @@ public partial class materiales : WebCacatUA.InterfazWeb
                 // Cambiamos el color de la fila
                 if (tabla.Rows.Count % 2 == 0)
                     fila.BgColor = "#f5f5f5";
-                else
-                    fila.BgColor = Color.White.ToString();
-                //else
-                //    fila.BgColor = "#fff";
                 tabla.Rows.Add(fila);
             }
             Panel_contenido.Controls.Add(tabla);
@@ -308,10 +305,11 @@ public partial class materiales : WebCacatUA.InterfazWeb
         }
         else
         {
-            Label_resultados.Text = "No hay ningún resultado";
+            Label_resultados.Text = Resources.I18N.NoHayResultados;
             ordenar_materiales.Visible = false;
             paginacionInferior_materiales.Visible = false;
             paginacionSuperior_materiales.Visible = false;
+            contenido_busquedaMaterialesAux.Visible = false;
         }
     }
 
@@ -443,5 +441,12 @@ public partial class materiales : WebCacatUA.InterfazWeb
         {
             Panel_suscribirse.Visible = false;
         }
+    }
+    protected void Button_buscar_Click(object sender, EventArgs e)
+    {
+        string texto = TextBox_buscar.Text;
+        string id = Hidden_opcionBusqueda.Value;
+        string busqueda = "materiales.aspx?categoria=" + id + "&buscar=" + texto;
+        Response.Redirect(busqueda);
     }
 }
