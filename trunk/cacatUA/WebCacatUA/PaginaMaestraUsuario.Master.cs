@@ -151,6 +151,9 @@ namespace WebCacatUA
             if (imagenUsuario != null)
                 Image_fotoUsuario.ImageUrl = "galeria/" + imagenUsuario.Archivo;
 
+            HyperLink_tablonUsuario.NavigateUrl = "generalUsuario.aspx?usuario=" + usuario.Usuario;
+            HyperLink_tablonUsuario.Text = Resources.I18N.TablonUsuario;
+
             HyperLink_datosUsuario.NavigateUrl = "usuario.aspx?usuario=" + usuario.Usuario;
             HyperLink_datosUsuario.Text = Resources.I18N.DatosUsuario;
 
