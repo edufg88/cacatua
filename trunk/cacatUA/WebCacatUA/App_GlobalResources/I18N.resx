@@ -693,4 +693,7 @@
   <data name="MensajeEnviarError" xml:space="preserve">
     <value>No se puede dejar el texto del mensaje en blanco</value>
   </data>
+  <data name="masMateriales" xml:space="preserve">
+    <value>Más materiales</value>
+  </data>
 </root>
