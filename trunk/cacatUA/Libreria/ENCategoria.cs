@@ -178,6 +178,15 @@ namespace Libreria
         }
 
         /// <summary>
+        /// Metodo que obtiene una lista compuesta por todos los usuarios suscritos a la categoria.
+        /// </summary>
+        /// <returns>Devuelve la lista de ENUsuario suscritos.</returns>
+        public ArrayList UsuariosSuscritos()
+        {
+            return cad.UsuariosSuscritosA(this);
+        }
+
+        /// <summary>
         /// Metodo que devuelve cuantos materiales hay actualmente en la base de datos asociados a esta categoria.
         /// </summary>
         /// <returns>Entero que indica el número de materiales.</returns>

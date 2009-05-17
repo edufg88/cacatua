@@ -557,6 +557,16 @@ namespace Libreria
                     }
 
                     dataReader.Close();
+
+                    ArrayList usuarios = hilo.Categoria.UsuariosSuscritos();
+                    foreach (ENUsuario i in usuarios)
+                    {
+                        ENMensaje mensaje = new ENMensaje();
+                        mensaje.Emisor = i;
+                        mensaje.Receptor = i;
+                        mensaje.Texto = "Se ha creado un nuevo hilo con el título \"" + hilo.Titulo + "\" en la categoría \"" + hilo.Categoria.Nombre + "\"";
+                        mensaje.Guardar();
+                    }
                 }
                 catch (Exception ex)
                 {

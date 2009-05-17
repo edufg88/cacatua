@@ -416,6 +416,48 @@ namespace Libreria
             return usuarios;
         }
 
+        /// <summary>
+        /// Obtiene todos los usuarios suscritos a una categoria.
+        /// </summary>
+        /// <param name="categoria">Categoria de la que queremos los usuarios suscritos.</param>
+        /// <returns>Lista de usuarios suscritos a la categoria determinada.</returns>
+        public ArrayList UsuariosSuscritosA(ENCategoria categoria)
+        {
+            ArrayList usuarios = new ArrayList();
+            SqlConnection conexion = null;
+            try
+            {
+                // Creamos la conexion
+                conexion = new SqlConnection(cadenaConexion);
+                // Abrimos la conexión
+                conexion.Open();
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+                comando.CommandText = "SELECT usuario FROM SUSCRIPCIONES WHERE categoria = @idcat ORDER BY usuario asc";
+
+                comando.Parameters.AddWithValue("@idcat", categoria.Id);
+                SqlDataReader reader = comando.ExecuteReader();
+                // Recorremos el reader y vamos insertando en el array list
+                while (reader.Read())
+                {
+                    ENUsuario usuario = ENUsuario.Obtener(int.Parse(reader["usuario"].ToString()));
+                    usuarios.Add(usuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Excepción en el método UsuariosSuscritosA(categoria): ");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine();
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+            return usuarios;
+        }
+
 
         /// <summary>
         /// Obtiene el número de usuarios suscritos a una determinada categoria.
