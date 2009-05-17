@@ -32,12 +32,21 @@ public partial class firmas : WebCacatUA.InterfazWeb
             ObtenerFirmas();
         }
         else
+        {
             Response.Redirect("usuarios.aspx");
+        }
 
         if (Session["usuario"] == null)
+        {
             Button_firmar.Visible = false;
-        else
-            Button_firmar.Visible = true;
+        }
+        else if (Request["usuario"].ToString() != "")
+        {
+            if (Session["usuario"].ToString() == Request["usuario"].ToString())
+                Button_firmar.Visible = false;
+            else
+                Button_firmar.Visible = true;
+        }
     }
 
     /// <summary>
