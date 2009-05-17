@@ -76,6 +76,15 @@ public partial class materiales {
     protected global::System.Web.UI.WebControls.LinkButton LinkButton_dessuscribirse;
     
     /// <summary>
+    /// Panel_buscar control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_buscar;
+    
+    /// <summary>
     /// TextBox_buscar control.
     /// </summary>
     /// <remarks>
@@ -83,6 +92,15 @@ public partial class materiales {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.TextBox TextBox_buscar;
+    
+    /// <summary>
+    /// Button_buscar control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Button Button_buscar;
     
     /// <summary>
     /// Radio_materiales control.
@@ -164,6 +182,15 @@ public partial class materiales {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_propiedadesOrdenar;
+    
+    /// <summary>
+    /// contenido_busquedaMaterialesAux control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlGenericControl contenido_busquedaMaterialesAux;
     
     /// <summary>
     /// paginacionSuperior_materiales control.

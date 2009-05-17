@@ -146,9 +146,7 @@ namespace WebCacatUA
                 celda.Controls.Add(controlComentario);
                 fila.Cells.Add(celda);
                 if (tabla.Rows.Count % 2 == 0)
-                    fila.BgColor = "#f5f5f5";
-                else
-                    fila.BgColor = Color.White.ToString();
+                    fila.BgColor = "f5f5f5";
                 tabla.Rows.Add(fila);
             }
             Panel_comentarios.Controls.Add(tabla);
