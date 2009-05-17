@@ -17,11 +17,17 @@
         <br />
         <asp:TextBox ID="TextBox_mensaje" runat="server" Height="187px" Width="589px" 
             MaxLength="5000"></asp:TextBox>
+        <div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                ControlToValidate="TextBox_mensaje"
+                Text="<%$ Resources: I18N, MensajeEnviarError %>">
+            </asp:RequiredFieldValidator>
+        </div>   
     </div>
     <div id="botones">
         <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click" 
             Text="<%$ Resources: I18N, Enviar %>" />
         <asp:Button ID="Button_borrar" runat="server" onclick="Button_borrar_Click" 
-            Text="<%$  Resources: I18N, Limpiar %>" />
+            Text="<%$  Resources: I18N, Limpiar %>" CausesValidation="False" />
     </div>
 </asp:Content>

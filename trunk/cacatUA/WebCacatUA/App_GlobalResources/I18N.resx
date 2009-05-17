@@ -681,4 +681,16 @@
   <data name="UltimasImagenes" xml:space="preserve">
     <value>Últimas imágenes</value>
   </data>
+  <data name="GrupoCrearDescripcion" xml:space="preserve">
+    <value>El campo 'descipción' no se puede dejar en blanco</value>
+  </data>
+  <data name="GrupoCrearNombre" xml:space="preserve">
+    <value>El campo 'nombre' no se puede dejar en blanco</value>
+  </data>
+  <data name="GrupoExiste" xml:space="preserve">
+    <value>Ya existe un grupo con este nombre</value>
+  </data>
+  <data name="MensajeEnviarError" xml:space="preserve">
+    <value>No se puede dejar el texto del mensaje en blanco</value>
+  </data>
 </root>

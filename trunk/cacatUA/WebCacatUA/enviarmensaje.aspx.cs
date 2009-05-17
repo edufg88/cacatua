@@ -75,26 +75,29 @@ public partial class enviarmensaje : WebCacatUA.InterfazWeb
 
     protected void Button_enviar_Click(object sender, EventArgs e)
     {
-        string text = TextBox_mensaje.Text;
-        string emisor = Session["usuario"].ToString();
-        if (usuario)
+        if (TextBox_mensaje.Text != "")
         {
-            string receptor = Request.QueryString["usuario"];
-            ENMensaje mensaje = new ENMensaje(emisor, text, DateTime.Now, receptor);
-            mensaje.Guardar();
-            Response.Redirect("confirmacion.aspx?mensajeusuario=" + receptor);
-        }
-        else
-        {
-            ENGrupos grupo = ENGrupos.Obtener(int.Parse(Request.QueryString["grupo"]));
-            foreach (ENUsuario user in grupo.Usuarios)
+            string text = TextBox_mensaje.Text;
+            string emisor = Session["usuario"].ToString();
+            if (usuario)
             {
-                string receptor = user.Usuario;
+                string receptor = Request.QueryString["usuario"];
                 ENMensaje mensaje = new ENMensaje(emisor, text, DateTime.Now, receptor);
                 mensaje.Guardar();
+                Response.Redirect("confirmacion.aspx?mensajeusuario=" + receptor);
             }
-            Response.Redirect("confirmacion.aspx?mensajegrupo=" + grupo.Id);
-        }        
+            else
+            {
+                ENGrupos grupo = ENGrupos.Obtener(int.Parse(Request.QueryString["grupo"]));
+                foreach (ENUsuario user in grupo.Usuarios)
+                {
+                    string receptor = user.Usuario;
+                    ENMensaje mensaje = new ENMensaje(emisor, text, DateTime.Now, receptor);
+                    mensaje.Guardar();
+                }
+                Response.Redirect("confirmacion.aspx?mensajegrupo=" + grupo.Id);
+            }
+        }
     }
 }
 

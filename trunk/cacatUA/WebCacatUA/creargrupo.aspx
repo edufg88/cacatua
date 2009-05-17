@@ -14,7 +14,7 @@
         <asp:RequiredFieldValidator id="RequiredFieldValidator_nombre"
                     ControlToValidate="TextBox_nombre"
                     Display="Static"
-                    ErrorMessage="El campo 'nombre' no se puede dejar en blanco"
+                    ErrorMessage="<%$ Resources:I18N, GrupoCrearDescripcion %>"
                     runat="server"/> 
     </div>
     <div id="Descripcion">
@@ -25,7 +25,7 @@
         <asp:RequiredFieldValidator id="RequiredFieldValidator_descripcion"
                     ControlToValidate="TextBox_descripcion"
                     Display="Static"
-                    ErrorMessage="El campo 'descipción' no se puede dejar en blanco"
+                    ErrorMessage="<%$ Resources:I18N, GrupoCrearDescripcion %>"
                     runat="server"/> 
     </div>
     <div id="botones">
