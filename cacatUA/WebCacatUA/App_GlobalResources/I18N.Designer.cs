@@ -1690,6 +1690,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tamaño máximo.
+        /// </summary>
+        internal static string tamañoMaximo {
+            get {
+                return ResourceManager.GetString("tamañoMaximo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Texto.
         /// </summary>
         internal static string Texto {

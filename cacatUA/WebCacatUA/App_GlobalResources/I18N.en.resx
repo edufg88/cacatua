@@ -735,6 +735,9 @@
   <data name="NumeroCaracteresEntre" xml:space="preserve">
     <value>Number of characters must be between</value>
   </data>
+  <data name="tamañoMaximo" xml:space="preserve">
+    <value>Maximum file size</value>
+  </data>
   <data name="y" xml:space="preserve">
     <value>and</value>
   </data>
