@@ -762,10 +762,10 @@
   <data name="FaltaArchivo" xml:space="preserve">
     <value>Debes seleccionar un archivo de imagen</value>
   </data>
-  <data name="FaltaDescripccion" xml:space="preserve">
-    <value>Debes introducir una descripcion para la imagen</value>
-  </data>
   <data name="FaltaTitulo" xml:space="preserve">
     <value>Debes introducir una titulo para la imagen</value>
+  </data>
+  <data name="FaltaDescripcion" xml:space="preserve">
+    <value>Debes introducir una descripcion para la imagen</value>
   </data>
 </root>
