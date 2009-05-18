@@ -21,7 +21,8 @@
         <asp:Label ID="Label_descripcion" runat="server" Text="<%$ Resources: I18N, Descripcion %>"></asp:Label>
         <br />
         <asp:TextBox ID="TextBox_descripcion" runat="server" Height="86px" 
-            Width="305px" MaxLength="5000"></asp:TextBox>
+            Width="305px" MaxLength="5000" TextMode="MultiLine" Rows="5" 
+            ></asp:TextBox>
         <asp:RequiredFieldValidator id="RequiredFieldValidator_descripcion"
                     ControlToValidate="TextBox_descripcion"
                     Display="Static"

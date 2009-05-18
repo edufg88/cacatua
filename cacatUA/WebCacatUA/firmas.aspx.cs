@@ -224,16 +224,21 @@ public partial class firmas : WebCacatUA.InterfazWeb
     protected void Button_firmar_Click(object sender, EventArgs e)
     {
         Panel_firmar.Visible = true;
+        TextBox_firmar.Text = "";
     }
 
     protected void Button_enviar_Click(object sender, EventArgs e)
     {
-        string emisor = Session["usuario"].ToString();
-        string receptor = Request.QueryString["usuario"];
-        ENFirma firma = new ENFirma(emisor, TextBox_firmar.Text, DateTime.Now, receptor);
-        firma.Guardar();
-        Panel_firmar.Visible = false;
-        ObtenerFirmas();
+        if (Page.IsPostBack)
+        {
+            string emisor = Session["usuario"].ToString();
+            string receptor = Request.QueryString["usuario"];
+            TextBox_firmar.Text = filtrarCadena(TextBox_firmar.Text);
+            ENFirma firma = new ENFirma(emisor, TextBox_firmar.Text, DateTime.Now, receptor);
+            firma.Guardar();
+            Panel_firmar.Visible = false;
+            ObtenerFirmas();
+        }
     }
 
     protected void Button_limpiar_Click(object sender, EventArgs e)

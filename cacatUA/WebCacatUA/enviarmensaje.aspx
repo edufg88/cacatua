@@ -17,7 +17,7 @@
             :
             <br />
             <asp:TextBox ID="TextBox_mensaje" runat="server" Height="187px" Width="589px" 
-                MaxLength="5000"></asp:TextBox>
+                MaxLength="5000" TextMode="MultiLine" Rows="10"></asp:TextBox>
             <div>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                     ControlToValidate="TextBox_mensaje"

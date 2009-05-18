@@ -77,9 +77,9 @@ public partial class enviarmensaje : WebCacatUA.InterfazWeb
 
     protected void Button_enviar_Click(object sender, EventArgs e)
     {
-        if (TextBox_mensaje.Text != "")
+        if (Page.IsPostBack)
         {
-            string text = TextBox_mensaje.Text;
+            string text = filtrarCadena(TextBox_mensaje.Text);
             string emisor = Session["usuario"].ToString();
             if (usuario)
             {
