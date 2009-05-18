@@ -738,4 +738,10 @@
   <data name="SinValoracion" xml:space="preserve">
     <value>Sin valoración</value>
   </data>
+  <data name="NumeroCaracteresEntre" xml:space="preserve">
+    <value>El número de caracteres debe estar entre</value>
+  </data>
+  <data name="y" xml:space="preserve">
+    <value>y</value>
+  </data>
 </root>
