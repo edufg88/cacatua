@@ -6,38 +6,33 @@
 
 .columna1Mensajes
 {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
-    text-align: center;
+    /*border: 1px solid #ddd;*/
+    padding: 4px 4px 4px 4px;
+    text-align: left;
     font-size: small;
+    background-color: #edf8fd;	
 }
 
 .columna2Mensajes
 {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
+    /*border: 1px solid #ddd;*/
+    background-color: #edf8fd;
+    padding: 4px 4px 4px 4px;
     text-align: left;
     font-size: small;
-    width: 15%;
+    height: 10%;
+    width: 90%;	
 }
 
 .columna3Mensajes
 {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
+    border: 1px solid #edf8fd;
+    padding: 4px 4px 4px 4px;
     text-align: left;
     font-size: small;
-    width: 15%;
+    /*width: 50%;	*/
 }
 
-.columna4Mensajes
-{
-    border: 1px solid #ddd;
-    padding: 10px 15px;
-    text-align: left;
-    font-size: small;
-    width: 55%;
-}
 .cabeceraMensajes
 {
     border: 0;
@@ -82,4 +77,13 @@
 #ordenar
 {
 	text-align: right;	
+}
+
+.leido
+{
+	padding: 0px 5px 0px 15px;	
+}
+.leer
+{
+	
 }

@@ -137,7 +137,6 @@ public partial class firmas : WebCacatUA.InterfazWeb
 
                 Label fecha = new Label();
                 fecha.Text = " @ " + firma.Fecha.ToString();
-                fecha.Text = " @ " + firma.Fecha.ToString();
                 celda2.Controls.Add(link);
                 celda2.Controls.Add(fecha);
                 fila.Cells.Add(celda1);
