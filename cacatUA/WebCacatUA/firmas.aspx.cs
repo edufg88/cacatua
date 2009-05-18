@@ -116,14 +116,16 @@ public partial class firmas : WebCacatUA.InterfazWeb
                 celda1.RowSpan = 2;
                 celda1.CssClass = "columna1Firmas";
                 Label l1 = new Label();
-                if (firma.Emisor.Imagen == -1) // Comprobamos si tiene imagen activa el usuario
+                ENImagen imagenUsuario = ENImagen.Obtener(firma.Emisor.Imagen);
+                if (imagenUsuario != null)
                 {
-                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\"/>";
+                    l1.Text = "<img src=\"/galeria/" + imagenUsuario.Archivo + "\" alt=\"Foto de usuario\" class=\"fotoUsuario\"/>";
                 }
                 else
                 {
-                    l1.Text = "<img src=\"galeria/" + firma.Emisor.Imagen.ToString() + ".jpg\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
+                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\" class=\"fotoUsuario\"/>";
                 }
+
                 celda1.Controls.Add(l1);
 
                 // Celda con 2 filas para la información de la fila
