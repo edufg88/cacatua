@@ -111,3 +111,12 @@
 	background-color: #fff;	
 	padding-bottom: 10px;
 }
+
+#creargrupo
+{
+	float: right;
+}
+#labelmostrar
+{
+	float: left;
+}

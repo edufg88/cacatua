@@ -79,5 +79,9 @@
 }
 #botonFirmar
 {
+	float: left;	
+}
+#paginaInf
+{
 	float: right;	
 }

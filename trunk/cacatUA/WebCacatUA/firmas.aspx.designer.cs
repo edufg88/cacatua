@@ -67,6 +67,15 @@ public partial class firmas {
     protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente2;
     
     /// <summary>
+    /// Control Panel_resultados.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_resultados;
+    
+    /// <summary>
     /// Control Table_firmas.
     /// </summary>
     /// <remarks>
@@ -83,6 +92,15 @@ public partial class firmas {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button Button_firmar;
+    
+    /// <summary>
+    /// Control Panel_paginación.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_paginación;
     
     /// <summary>
     /// Control Button_paginaAnterior.

@@ -1,4 +1,4 @@
-ï»¿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="firmas.aspx.cs" Inherits="firmas" Title="CacatUA" %>
+<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="firmas.aspx.cs" Inherits="firmas" Title="CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_headUsuario" runat="server">
     <link rel="stylesheet" type="text/css" href="estilos/firmas.css" media="screen" />
 </asp:Content>
@@ -23,10 +23,11 @@
             </div>
             -->
         </div>
-        
+        <asp:Panel ID="Panel_resultados" runat="server">
         <div id="mostrarFirmas">
             <asp:Table ID="Table_firmas" runat="server" CellPadding="0" CellSpacing="0" CssClass="tablaFirmas"></asp:Table>
         </div>
+        </asp:Panel>
         
         <div id="botones">
             <div id="botonFirmar">
@@ -34,14 +35,16 @@
                     onclick="Button_firmar_Click"/>
             </div>
             <div id="paginaInf">
-                <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
-                    onclick="Button_paginaAnterior_Click" />
-                <asp:DropDownList ID="DropDownList_pagina" runat="server" Width="40px" 
-                    onselectedindexchanged="DropDownList_pagina_SelectedIndexChanged" 
-                    AutoPostBack="True">
-                </asp:DropDownList>
-                <asp:Button ID="Button_paginaSiguiente" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
-                    onclick="Button_paginaSiguiente_Click" />
+                <asp:Panel ID="Panel_paginación" runat="server">
+                    <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
+                        onclick="Button_paginaAnterior_Click" />
+                    <asp:DropDownList ID="DropDownList_pagina" runat="server" Width="40px" 
+                        onselectedindexchanged="DropDownList_pagina_SelectedIndexChanged" 
+                        AutoPostBack="True">
+                    </asp:DropDownList>
+                    <asp:Button ID="Button_paginaSiguiente" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
+                        onclick="Button_paginaSiguiente_Click" />
+                </asp:Panel>
             </div>
         </div>
         <div id="panelfirmar">
