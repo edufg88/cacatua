@@ -14,7 +14,7 @@ using Libreria;
 
 namespace WebCacatUA
 {
-    public partial class Formulario_web14 : System.Web.UI.Page
+    public partial class Formulario_web14 : InterfazWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {

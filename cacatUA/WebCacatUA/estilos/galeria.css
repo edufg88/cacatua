@@ -10,7 +10,15 @@
 		
 }
 
+.oculto
+{
+	display:none;
+}
 
+.visible
+{
+	display:block;
+}
 
 #imagenSeleccionada
 {
@@ -83,4 +91,32 @@ td
 #tablaPaginacionSuperior,#tablaPaginacionInferior
 {
 	width:100%;
+}
+
+#divTablaComentario
+{
+	margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: #777;
+    border: 1px solid #888;
+    padding: 4px 4px 4px 4px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_tablaComentarios
+{
+	background-color:#FFF;
+}
+
+#ctl00_ctl00_ContentPlaceHolder_contenido_ContentPlaceHolder_contenidoUsuario_tablaComentarios td
+{
+	
+}
+
+.comentario
+{
+	border:1px solid black;
 }

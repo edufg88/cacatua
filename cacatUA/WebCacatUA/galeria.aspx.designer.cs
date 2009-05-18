@@ -50,13 +50,13 @@ namespace WebCacatUA {
         protected global::System.Web.UI.WebControls.Table tablaImagenes;
         
         /// <summary>
-        /// Control HyperLink1.
+        /// Control subirImagen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink subirImagen;
         
         /// <summary>
         /// Control Table2.

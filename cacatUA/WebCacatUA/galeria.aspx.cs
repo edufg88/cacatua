@@ -125,12 +125,16 @@ namespace WebCacatUA
             r.Controls.Add(c);
 
             tablaImagenes.Controls.Add(r);
+
+            Response.Write("<script type=\"text/javascript\" language=\"javascript\">id=\"\";</script>");
+            Response.Write("<script type=\"text/javascript\" language=\"javascript\">archivo=\"\";</script>");
+
             if (fotos.Count > 0)
             {
                 
                 ENImagen img = (ENImagen)fotos[0];
-                Response.Write("<script type=\"text/javascript\" language=\"javascript\">var id=" + img.Id + ";</script>");
-                Response.Write("<script type=\"text/javascript\" language=\"javascript\">var archivo='" + img.Archivo + "';</script>");
+                Response.Write("<script type=\"text/javascript\" language=\"javascript\">id=" + img.Id + ";</script>");
+                Response.Write("<script type=\"text/javascript\" language=\"javascript\">archivo='" + img.Archivo + "';</script>");
             }
             else{
                 Label lab = new Label();
@@ -138,6 +142,22 @@ namespace WebCacatUA
                 panelImagenPrincipal.Controls.Add(lab);
 
                 
+            }
+
+            if (Session["usuario"] != null && Request.Params["usuario"] != null)
+            {
+                if (Session["usuario"].ToString() == Request.Params["usuario"].ToString())
+                {
+                    subirImagen.Visible = true;
+                }
+                else
+                {
+                    subirImagen.Visible = false;
+                }
+            }
+            else
+            {
+                subirImagen.Visible = false;
             }
 
             
