@@ -768,4 +768,7 @@
   <data name="FaltaDescripcion" xml:space="preserve">
     <value>Debes introducir una descripcion para la imagen</value>
   </data>
+  <data name="NoHayImagenes" xml:space="preserve">
+    <value>No hay imagenes</value>
+  </data>
 </root>
