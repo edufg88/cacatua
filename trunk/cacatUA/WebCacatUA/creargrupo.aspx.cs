@@ -34,18 +34,23 @@ public partial class creargrupo : WebCacatUA.InterfazWeb
 
     protected void Button_crear_Click(object sender, EventArgs e)
     {
-        ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
-        ArrayList aux = new ArrayList();
-        aux.Add(usuario);
-        ENGrupos grupo = new ENGrupos(TextBox_nombre.Text, TextBox_descripcion.Text, DateTime.Now, aux);
-
-        if (!grupo.Existe())
+        if (Page.IsPostBack)
         {
-            grupo.Guardar();
-            Response.Redirect("confirmacion.aspx?creargrupo=1");
+            ENUsuario usuario = ENUsuario.Obtener(Session["usuario"].ToString());
+            ArrayList aux = new ArrayList();
+            aux.Add(usuario);
+            TextBox_nombre.Text = filtrarCadena(TextBox_nombre.Text);
+            TextBox_descripcion.Text = filtrarCadena(TextBox_descripcion.Text);
+            ENGrupos grupo = new ENGrupos(TextBox_nombre.Text, TextBox_descripcion.Text, DateTime.Now, aux);
+
+            if (!grupo.Existe())
+            {
+                grupo.Guardar();
+                Response.Redirect("confirmacion.aspx?creargrupo=1");
+            }
+            else
+                Label_infoGrupo.Text = Resources.I18N.GrupoExiste;
         }
-        else
-            Label_infoGrupo.Text = Resources.I18N.GrupoExiste;
     }
 }
 

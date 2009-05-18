@@ -48,7 +48,7 @@
             <asp:Panel ID="Panel_firmar" runat="server" Height="120px" Width="603px" 
                 Visible="False">
                 <asp:TextBox ID="TextBox_firmar" runat="server" Height="75px" Width="600px" 
-                    MaxLength="5000"></asp:TextBox>
+                    MaxLength="5000" TextMode="MultiLine" Rows="5"></asp:TextBox>
                 <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click" 
                     Text="<%$ Resources: I18N, Enviar %>" />
                 <asp:Button ID="Button_limpiar" runat="server" onclick="Button_limpiar_Click" 
