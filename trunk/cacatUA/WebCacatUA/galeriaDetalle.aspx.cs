@@ -14,7 +14,7 @@ using Libreria;
 
 namespace WebCacatUA
 {
-    public partial class Formulario_web1 : System.Web.UI.Page
+    public partial class Formulario_web1 : InterfazWeb
     {
         private int pagina = 1;
         private int cantidad = 5;
@@ -70,11 +70,11 @@ namespace WebCacatUA
                     int votos = ENImagenVoto.ObtenerValoracion(int.Parse(Request.Params["imagen"]));
                     if (votos < 0)
                     {
-                        Label_valoracion.Text = "Sin valoracion";
+                        Label_valoracion.Text = Resources.I18N.SinValoracion;
                     }
                     else
                     {
-                        Label_valoracion.Text = "Valoracion: " + votos;
+                        Label_valoracion.Text = Resources.I18N.Valoracion + ": " + votos;
                     }
 
                     int voto = ENImagenVoto.ObtenerValoracionUsuario(int.Parse(Request.Params["imagen"]), Session["usuario"].ToString());
@@ -132,8 +132,8 @@ namespace WebCacatUA
                 }
 
                 labelTitulo.Text = i.Titulo;
-                labelFecha.Text = "Imagen tomada el: " + i.Fecha;
-                labelUsuario.Text = "Imagen de: " + i.Usuario.Usuario;
+                labelFecha.Text = Resources.I18N.ImagenSubidaEl + " " + i.Fecha;
+                labelUsuario.Text = Resources.I18N.ImagenDe + " " + i.Usuario.Usuario;
                 imagenPrincipal.ImageUrl = "/galeria/" + i.Archivo;
                 labelDescripcion.Text = i.Descripcion;
 
@@ -160,19 +160,19 @@ namespace WebCacatUA
                 ENImagenComentario comen = new ENImagenComentario();
 
                 LinkButton enlace1 = new LinkButton();
-                enlace1.Text = "Anterior";
+                enlace1.Text = Resources.I18N.Anterior;
                 enlace1.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Siguiente(i.Id,i.Usuario.Id) + "#tituloImagen";
 
                 LinkButton enlace2 = new LinkButton();
-                enlace2.Text = "Borrar";
+                enlace2.Text = Resources.I18N.Borrar;
                 enlace2.PostBackUrl = "/galeriaBorrar.aspx?imagen=" + Request.Params["imagen"].ToString();
 
                 LinkButton enlace4 = new LinkButton();
-                enlace4.Text = "Editar";
+                enlace4.Text = Resources.I18N.Editar;
                 enlace4.PostBackUrl = "/galeriaEditar.aspx?imagen=" + Request.Params["imagen"].ToString();
 
                 LinkButton enlace3 = new LinkButton();
-                enlace3.Text = "Siguiente";
+                enlace3.Text = Resources.I18N.Siguiente;
                 enlace3.PostBackUrl = "/galeriaDetalle.aspx?imagen=" + ENImagen.Anterior(i.Id, i.Usuario.Id) + "#tituloImagen";
 
                 TableCell a1 = new TableCell();

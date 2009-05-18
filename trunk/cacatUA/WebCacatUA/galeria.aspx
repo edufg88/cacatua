@@ -3,13 +3,13 @@
     <link rel="stylesheet" type="text/css" href="estilos/galeria.css" media="screen" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_tituloUsuario" runat="server">
-    <p><a name="comienzoGaleria"><asp:Label ID="Label_nombreUsuario" runat="server" Text="<%$ Resources: I18N, GaleriaUsuario %>"></asp:Label></a></p>
+    <p><a name="comienzoGaleria"><asp:Label ID="Label_nombreUsuario" runat="server" Text="<%$ Resources: I18N, GaleriaFotos %>"></asp:Label></a></p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
     
     <div id="divContenidoGaleria">
     
-        <p style="text-align:center;width:100%;" ><a href="" id="verImagen" >Ver detalles</a></p>
+        <p style="text-align:center;width:100%;" ><a href="" id="verImagen"><%= Resources.I18N.VerDetalles %></a></p>
         
         <br />
         <asp:Panel ID="panelImagenPrincipal" runat="server">
@@ -21,7 +21,7 @@
         <asp:Table ID="tablaImagenes" runat="server" HorizontalAlign="Center">
         </asp:Table>
         </div>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/galeriaUpload.aspx" >Subir imagen</asp:HyperLink>
+        <asp:HyperLink ID="subirImagen" runat="server" NavigateUrl="/galeriaUpload.aspx" ><%= Resources.I18N.SubirImagen %></asp:HyperLink>
         <asp:Table ID="Table2" runat="server">
         </asp:Table>    
     
@@ -30,7 +30,8 @@
     <script type="text/javascript" language="javascript">
 
         
-        
+        var link = document.getElementById("verImagen");
+        link.className = "oculto";
 
         function funcion(archivo,id){
         
@@ -38,11 +39,14 @@
             var elemento = document.getElementById("imagenPrincipal")
             elemento.setAttribute("src","/galeria/" + archivo);
             var link = document.getElementById("verImagen");
-            link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + id);           
+            link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + id); 
+            link.className = "visible";  
+             
+          
         }
-        
-        
-        funcion(archivo,id);
+        if(archivo!="" || id!=""){
+            funcion(archivo,id);
+        }
         
                         
    </script>
