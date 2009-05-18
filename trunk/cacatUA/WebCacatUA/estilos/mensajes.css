@@ -24,6 +24,15 @@
     width: 90%;	
 }
 
+.columna2bMensajes
+{
+	background-color: #edf8fd;
+    padding: 4px 4px 4px 4px;
+    text-align: right;
+    font-size: small;
+    height: 10%;	
+}
+
 .columna3Mensajes
 {
     border: 1px solid #edf8fd;
@@ -39,6 +48,12 @@
     background-color: #777;
     color: #eee;
     font-size: small;
+}
+
+.linkButton
+{
+	padding-right: 4px;
+	padding-left: 4px;	
 }
 
 .tituloMensajes
@@ -69,21 +84,19 @@
     float: left;
 }
 
-#textoMostrando
-{
-	text-align:left; 	
-}
-
-#ordenar
-{
-	text-align: right;	
-}
-
 .leido
 {
 	padding: 0px 5px 0px 15px;	
 }
-.leer
+
+.columna1Ordenar
 {
-	
+	text-align:left;
+	padding-right: 50px;	
+}
+
+.columna2Ordenar
+{
+	text-align:right;
+	padding-left: 50px;
 }
