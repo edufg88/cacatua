@@ -147,13 +147,17 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                 celda1.RowSpan = 2;
                 celda1.CssClass = "columna1Mensajes";
                 Label l1 = new Label();
-                if (mensaje.Emisor.Imagen == -1) // Comprobamos si tiene imagen activa el usuario
+                if (mensaje.Emisor.Imagen <= 0) // Comprobamos si tiene imagen activa el usuario
                 {
                     l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\"/>";
                 }
                 else
                 {
-                    l1.Text = "<img src=\"galeria/" + mensaje.Emisor.Imagen.ToString() + ".jpg\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
+                    ENImagen imagen = ENImagen.Obtener(mensaje.Emisor.Imagen);
+                    if (imagen != null)
+                        l1.Text = "<img src=\"galeria/" + imagen.Archivo + "\" class=\"fotoUsuario\" alt=\"Foto de usuario\"/>";
+                    else
+                        l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\"/>";
                 }
                 celda1.Controls.Add(l1);
 

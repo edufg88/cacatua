@@ -100,3 +100,9 @@
 	text-align:right;
 	padding-left: 50px;
 }
+
+.fotoUsuario
+{
+    max-width: 100px !important;
+    max-height: 100px !important; 
+}
