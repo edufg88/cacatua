@@ -90,10 +90,6 @@ public partial class firmas : WebCacatUA.InterfazWeb
         fila.Controls.Add(c3);
         Table_firmas.Controls.Add(fila);
     }
-    private void borrarFirma()
-    {
-        Label_mostrandoFirmas.Text = "hola";
-    }
 
     public void ObtenerFirmas()
     {
@@ -131,16 +127,47 @@ public partial class firmas : WebCacatUA.InterfazWeb
                 // Celda con 2 filas para la información de la fila
                 TableCell celda2 = new TableCell();
                 celda2.CssClass = "columna2Firmas";
+
                 HyperLink link = new HyperLink();
                 link.Text = firma.Emisor.Usuario;
                 link.NavigateUrl = "usuario.aspx?usuario=" + firma.Emisor.Usuario;                
-
                 Label fecha = new Label();
                 fecha.Text = " @ " + firma.Fecha.ToString();
+
                 celda2.Controls.Add(link);
                 celda2.Controls.Add(fecha);
+
+                TableCell celda2b = new TableCell();
+                // Sólo podemos borrar si estamos identificados y en nuestras firmas
+                if (Session["usuario"] != null)
+                {
+                    if (Request["usuario"].ToString() != "")
+                    {
+                        if (Session["usuario"].ToString() == Request["usuario"].ToString())
+                        {
+                            celda2b.CssClass = "columna2bFirmas";
+
+                            LinkButton borrar = new LinkButton();
+                            borrar.CssClass = "linkButton";
+                            borrar.Text = Resources.I18N.Borrar;
+                            borrar.Click += new EventHandler(borrar_click);
+                            borrar.Attributes["id_firma"] = firma.Id.ToString();
+
+                            LinkButton responder = new LinkButton();
+                            responder.CssClass = "linkButton";
+                            responder.Text = Resources.I18N.Responder;
+                            responder.Click += new EventHandler(responder_click);
+                            responder.Attributes["emisor"] = firma.Emisor.Usuario.ToString();
+
+                            celda2b.Controls.Add(borrar);
+                            celda2b.Controls.Add(responder);
+                        }
+                    }
+                }
+                
                 fila.Cells.Add(celda1);
                 fila.Cells.Add(celda2);
+                fila.Cells.Add(celda2b);
 
                 TableRow fila2 = new TableRow();
                 TableCell celda3 = new TableCell();
@@ -152,6 +179,42 @@ public partial class firmas : WebCacatUA.InterfazWeb
                 
                 Table_firmas.Rows.Add(fila);
                 Table_firmas.Rows.Add(fila2);
+            }
+        }
+    }
+
+    protected void borrar_click(object sender, EventArgs e)
+    {
+        if (sender is LinkButton)
+        {
+            LinkButton aux = (LinkButton)sender;
+            // Borramos la firma seleccionada
+            ENFirma.Borrar(int.Parse(aux.Attributes["id_firma"]));
+
+            if (user != null)
+            {
+                Response.Redirect("firmas.aspx?usuario=" + user.Usuario);
+            }
+            else
+            {
+                Response.Redirect("usuarios.aspx");
+            }
+        }
+    }
+
+    protected void responder_click(object sender, EventArgs e)
+    {
+        if (sender is LinkButton)
+        {
+            LinkButton aux = (LinkButton)sender;
+
+            if (user != null && aux.Attributes["emisor"].ToString() != "")
+            {
+                Response.Redirect("firmas.aspx?usuario=" + aux.Attributes["emisor"].ToString());
+            }
+            else
+            {
+                Response.Redirect("usuarios.aspx");
             }
         }
     }

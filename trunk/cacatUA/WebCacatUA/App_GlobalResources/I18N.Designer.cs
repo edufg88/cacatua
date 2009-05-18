@@ -1555,6 +1555,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Responder.
+        /// </summary>
+        internal static string Responder {
+            get {
+                return ResourceManager.GetString("Responder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Respuesta.
         /// </summary>
         internal static string Respuesta {

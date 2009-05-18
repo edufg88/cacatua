@@ -694,7 +694,7 @@
     <value>comments</value>
   </data>
   <data name="Borrar" xml:space="preserve">
-    <value />
+    <value>Delete</value>
   </data>
   <data name="Comentar" xml:space="preserve">
     <value />
@@ -715,15 +715,18 @@
     <value />
   </data>
   <data name="UtilizarFotoUsuario" xml:space="preserve">
-    <value />
+    <value>Use user photo</value>
   </data>
   <data name="Valoracion" xml:space="preserve">
-    <value />
+    <value>Evaluation</value>
   </data>
   <data name="Valorar" xml:space="preserve">
-    <value />
+    <value>Value</value>
   </data>
   <data name="VerDetalles" xml:space="preserve">
-    <value />
+    <value>Show details</value>
+  </data>
+  <data name="Responder" xml:space="preserve">
+    <value>Replu</value>
   </data>
 </root>
