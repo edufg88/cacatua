@@ -699,4 +699,37 @@
   <data name="comentarios" xml:space="preserve">
     <value>comentarios</value>
   </data>
+  <data name="Borrar" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="Comentar" xml:space="preserve">
+    <value>Comentar</value>
+  </data>
+  <data name="EditarImagen" xml:space="preserve">
+    <value>Editar imagen</value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="ImagenDe" xml:space="preserve">
+    <value>Imagen de</value>
+  </data>
+  <data name="ImagenSubidaEl" xml:space="preserve">
+    <value>Imagen subida el</value>
+  </data>
+  <data name="SubirImagen" xml:space="preserve">
+    <value>Subir imagen</value>
+  </data>
+  <data name="UtilizarFotoUsuario" xml:space="preserve">
+    <value>Utilizar como foto de usuario</value>
+  </data>
+  <data name="Valoracion" xml:space="preserve">
+    <value>Valoracion</value>
+  </data>
+  <data name="Valorar" xml:space="preserve">
+    <value>Valorar</value>
+  </data>
+  <data name="VerDetalles" xml:space="preserve">
+    <value>Ver detalles</value>
+  </data>
 </root>
