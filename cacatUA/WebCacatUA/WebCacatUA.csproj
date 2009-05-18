@@ -56,6 +56,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\I18N.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>I18N.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\I18N.en.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -352,6 +357,7 @@
   <ItemGroup>
     <Content Include="App_GlobalResources\I18N.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>I18N.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
