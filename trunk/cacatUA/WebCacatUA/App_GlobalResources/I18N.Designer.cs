@@ -756,9 +756,9 @@ namespace Resources {
         /// <summary>
         ///   Busca una cadena traducida similar a Debes introducir una descripcion para la imagen.
         /// </summary>
-        internal static string FaltaDescripccion {
+        internal static string FaltaDescripcion {
             get {
-                return ResourceManager.GetString("FaltaDescripccion", resourceCulture);
+                return ResourceManager.GetString("FaltaDescripcion", resourceCulture);
             }
         }
         
