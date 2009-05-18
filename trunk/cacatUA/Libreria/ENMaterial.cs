@@ -14,6 +14,8 @@ namespace Libreria
     /// </remarks>
     public class ENMaterial : InterfazEN
     {
+        MaterialCAD materialCAD;
+
         public const int maxTamNombre = 50;
         public const int minTamNombre = 2;
         public const int maxTamArchivo = 100;
@@ -55,6 +57,7 @@ namespace Libreria
             votos = 0;
             referencia = "";
             numComentarios = 0;
+            materialCAD = new MaterialCAD();
         }
 
         /// <summary>
@@ -162,7 +165,8 @@ namespace Libreria
         /// </summary>
         public static ENMaterial Obtener(int id)
         {
-            return MaterialCAD.Instancia.Obtener(id);
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.Obtener(id);
         }
 
         /// <summary>
@@ -170,7 +174,8 @@ namespace Libreria
         /// </summary>
         public static ArrayList Obtener()
         {
-            return MaterialCAD.Instancia.Obtener();
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.Obtener();
         }
 
         /// <summary>
@@ -184,7 +189,8 @@ namespace Libreria
         /// </summary>
         public static ArrayList Obtener(string propiedadOrdenar, bool ascendente, int pagina, int cantidadPorPagina, BusquedaMaterial busqueda)
         {
-            return MaterialCAD.Instancia.Obtener(propiedadOrdenar, ascendente, pagina, cantidadPorPagina, busqueda);
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.Obtener(propiedadOrdenar, ascendente, pagina, cantidadPorPagina, busqueda);
         }
 
         /// <summary>
@@ -195,7 +201,7 @@ namespace Libreria
         /// </summary>
         override public bool Guardar()
         {
-            return MaterialCAD.Instancia.Guardar(this);
+            return materialCAD.Guardar(this);
         }
 
         /// <summary>
@@ -213,7 +219,7 @@ namespace Libreria
         /// </summary>
         public int CompletarGuardar()
         {
-            return MaterialCAD.Instancia.CompletarGuardar();
+            return materialCAD.CompletarGuardar();
         }
 
         /// <summary>
@@ -223,7 +229,7 @@ namespace Libreria
         /// </summary>
         public bool CancelarGuardar()
         {
-            return MaterialCAD.Instancia.CancelarGuardar();
+            return materialCAD.CancelarGuardar();
         }
 
         /// <summary>
@@ -232,7 +238,7 @@ namespace Libreria
         /// </summary>
         override public bool Borrar()
         {
-            return MaterialCAD.Instancia.Borrar(this);
+            return materialCAD.Borrar(this);
         }
 
         /// <summary>
@@ -241,7 +247,7 @@ namespace Libreria
         /// </summary>
         override public bool Actualizar()
         {
-            return MaterialCAD.Instancia.Actualizar(this);
+            return materialCAD.Actualizar(this);
         }
 
         /// <summary>
@@ -249,12 +255,12 @@ namespace Libreria
         /// </summary>
         public ArrayList ObtenerComentarios()
         {
-            return MaterialCAD.Instancia.ObtenerComentarios(this);
+            return materialCAD.ObtenerComentarios(this);
         }
 
         public ArrayList ObtenerComentarios(int pagina, int cantidadPorPagina)
         {
-            return MaterialCAD.Instancia.ObtenerComentarios(this, pagina, cantidadPorPagina);
+            return materialCAD.ObtenerComentarios(this, pagina, cantidadPorPagina);
         }
 
         /// <summary>
@@ -262,7 +268,8 @@ namespace Libreria
         /// </summary>
         public static ComentarioMaterial ObtenerComentario(int id)
         {
-            return MaterialCAD.Instancia.ObtenerComentario(id);
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.ObtenerComentario(id);
         }
 
         /// <summary>
@@ -271,7 +278,7 @@ namespace Libreria
         /// </summary>
         public bool GuardarComentario(ComentarioMaterial comentario)
         {
-            return MaterialCAD.Instancia.GuardarComentario(comentario);
+            return materialCAD.GuardarComentario(comentario);
         }
 
         /// <summary>
@@ -280,7 +287,7 @@ namespace Libreria
         /// </summary>
         public bool ActualizarComentario(ComentarioMaterial comentario)
         {
-            return MaterialCAD.Instancia.ActualizarComentario(comentario);
+            return materialCAD.ActualizarComentario(comentario);
         }
 
         /// <summary>
@@ -289,7 +296,8 @@ namespace Libreria
         /// </summary>
         public static bool BorrarComentario(ComentarioMaterial comentario)
         {
-            return MaterialCAD.Instancia.BorrarComentario(comentario);
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.BorrarComentario(comentario);
         }
 
         /// <summary>
@@ -297,7 +305,8 @@ namespace Libreria
         /// </summary>
         public static int NumMateriales()
         {
-            return MaterialCAD.Instancia.NumMateriales();
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.NumMateriales();
         }
 
         /// <summary>
@@ -305,7 +314,8 @@ namespace Libreria
         /// </summary>
         public static ENMaterial Ultimo()
         {
-            return MaterialCAD.Instancia.Ultimo();
+            MaterialCAD materialCAD = new MaterialCAD();
+            return materialCAD.Ultimo();
         }
 
         /// <sumary>
@@ -313,7 +323,7 @@ namespace Libreria
         /// </sumary>
         public bool Votar(ENUsuario usuario, int puntuacion)
         {
-            return MaterialCAD.Instancia.Votar(this, usuario, puntuacion);
+            return materialCAD.Votar(this, usuario, puntuacion);
         }
 
         /// <summary>
@@ -322,7 +332,7 @@ namespace Libreria
         /// </summary>
         public int PuntuacionUsuario(ENUsuario usuario)
         {
-            return MaterialCAD.Instancia.PuntuacionUsuario(this, usuario);
+            return materialCAD.PuntuacionUsuario(this, usuario);
         }
 
         /// <summary>
