@@ -1,4 +1,4 @@
-<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="firmas.aspx.cs" Inherits="firmas" Title="CacatUA" %>
+<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="firmas.aspx.cs" Inherits="firmas" Title="Firmas - CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_headUsuario" runat="server">
     <link rel="stylesheet" type="text/css" href="estilos/firmas.css" media="screen" />
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="galeriaUpload.aspx.cs" Inherits="WebCacatUA.Formulario_web12" Title="Página sin título" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="galeriaUpload.aspx.cs" Inherits="WebCacatUA.Formulario_web12" Title="Galería - CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_headUsuario" runat="server">
     <link rel="stylesheet" type="text/css" href="estilos/galeria.css" media="screen" />
 </asp:Content>

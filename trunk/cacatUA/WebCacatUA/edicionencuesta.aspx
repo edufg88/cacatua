@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="edicionencuesta.aspx.cs" Inherits="WebCacatUA.edicionencuesta" Title="Edición encuestas - CacatUA" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestraUsuario.Master" AutoEventWireup="true" CodeBehind="edicionencuesta.aspx.cs" Inherits="WebCacatUA.edicionencuesta" Title="Encuestas - CacatUA" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_headUsuario" runat="server">
     <link rel="stylesheet" type="text/css" href="estilos/encuestasEdicion.css" media="screen" />
