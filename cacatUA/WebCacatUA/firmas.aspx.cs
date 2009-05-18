@@ -48,8 +48,6 @@ public partial class firmas : WebCacatUA.InterfazWeb
             else
                 Button_firmar.Visible = true;
         }
-
-        TextBox_firmar.Focus();
     }
 
     /// <summary>
@@ -103,6 +101,8 @@ public partial class firmas : WebCacatUA.InterfazWeb
         if (totalResultados < 1)
         {
             Label_mostrandoFirmas.Text = Resources.I18N.NoFirmas;
+            Panel_paginación.Visible = false;
+            Panel_resultados.Visible = false;
         }
         else
         {
@@ -237,7 +237,7 @@ public partial class firmas : WebCacatUA.InterfazWeb
             ENFirma firma = new ENFirma(emisor, TextBox_firmar.Text, DateTime.Now, receptor);
             firma.Guardar();
             Panel_firmar.Visible = false;
-            ObtenerFirmas();
+            Response.Redirect("firmas.aspx?usuario=" + Request.QueryString["usuario"]);
         }
     }
 

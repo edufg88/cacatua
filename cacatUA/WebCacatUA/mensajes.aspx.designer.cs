@@ -67,49 +67,13 @@ public partial class mensajes {
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_orden;
     
     /// <summary>
-    /// Control Label_cantidadPagina2.
+    /// Control Panel_resultados.
     /// </summary>
     /// <remarks>
     /// Campo generado automáticamente.
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_cantidadPagina2;
-    
-    /// <summary>
-    /// Control DropDownList_cantidadPagina2.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownList_cantidadPagina2;
-    
-    /// <summary>
-    /// Control Button_paginaAnterior2.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_paginaAnterior2;
-    
-    /// <summary>
-    /// Control DropDownList_pagina2.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.DropDownList DropDownList_pagina2;
-    
-    /// <summary>
-    /// Control Button_paginaSiguiente2.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Button Button_paginaSiguiente2;
+    protected global::System.Web.UI.WebControls.Panel Panel_resultados;
     
     /// <summary>
     /// Control Table_mensajes.

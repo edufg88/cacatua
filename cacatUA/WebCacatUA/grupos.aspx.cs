@@ -141,6 +141,7 @@ public partial class grupos : WebCacatUA.InterfazWeb
         else
         {
            Label_mostrandoGrupos.Text = Resources.I18N.SinResultados;
+           Panel_resultados.Visible = false;
         }
     }
 
@@ -151,50 +152,41 @@ public partial class grupos : WebCacatUA.InterfazWeb
     /// </summary>
     private void actualizarPaginacion()
     {
-        Label_cantidadPagina.Text = Resources.I18N.CantidadPorPagina + ": ";
         Label_cantidadPagina2.Text = Resources.I18N.CantidadPorPagina + ": ";
 
-        Button_paginaAnterior.Enabled = false;
-        Button_paginaSiguiente.Enabled = false;
         Button_paginaAnterior2.Enabled = false;
         Button_paginaSiguiente2.Enabled = false;
         if (cantidad > 0)
         {
             // Calculamos la cantidad de páginas y la insertamos en el ComboBox.
-            DropDownList_pagina.Items.Clear();
             DropDownList_pagina2.Items.Clear();
             int cantidadPaginas = (int)Math.Ceiling(totalResultados / (float)cantidad);
             for (int i = 1; i < cantidadPaginas + 1; i++)
             {
                 ListItem p = new ListItem(i.ToString(), i.ToString());
-                DropDownList_pagina.Items.Add(p);
                 DropDownList_pagina2.Items.Add(p);
             }
 
             // Comprobamos que la página no se exceda del rango y la marcamos como seleccionada.
             if (pagina > cantidadPaginas) pagina = cantidadPaginas;
             if (pagina < 1) pagina = 1;
-            DropDownList_pagina.SelectedIndex = pagina - 1;
             DropDownList_pagina2.SelectedIndex = pagina - 1;
 
             // Según los límites de la página actual, habilitamos o no los botones de navegación.
             if (cantidadPaginas > pagina) 
             {
-                Button_paginaSiguiente.Enabled = true;
                 Button_paginaSiguiente2.Enabled = true;
             }
             if (pagina > 1) 
             {
-                Button_paginaAnterior.Enabled = true;
                 Button_paginaAnterior2.Enabled = true;
             }
 
             // Seleccionamos la cantidad de resultados por página que haya marcada.
-            for (int i = 0; i < DropDownList_cantidadPagina.Items.Count; i++)
+            for (int i = 0; i < DropDownList_cantidadPagina2.Items.Count; i++)
             {
-                if (DropDownList_cantidadPagina.Items[i].Value == cantidad.ToString())
+                if (DropDownList_cantidadPagina2.Items[i].Value == cantidad.ToString())
                 {
-                    DropDownList_cantidadPagina.SelectedIndex = i;
                     DropDownList_cantidadPagina2.SelectedIndex = i;
                     break;
                 }
@@ -350,19 +342,6 @@ public partial class grupos : WebCacatUA.InterfazWeb
     protected void Button_paginaSiguiente_Click(object sender, EventArgs e)
     {
         pagina++;
-        Response.Redirect(calcularRuta());
-    }
-
-    protected void DropDownList_pagina_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        pagina = int.Parse(DropDownList_pagina.SelectedValue);
-        Response.Redirect(calcularRuta());
-    }
-
-    protected void DropDownList_cantidadPagina_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        cantidad = int.Parse(DropDownList_cantidadPagina.SelectedValue);
-        pagina = 1;
         Response.Redirect(calcularRuta());
     }
 
