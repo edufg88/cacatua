@@ -6,28 +6,31 @@
 
 .columna1Firmas
 {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
+    /*border: 1px solid #ddd;*/
+    padding: 4px 4px 4px 4px;
     text-align: left;
-    font-size: small;	
+    font-size: small;
+    background-color: #edf8fd;	
 }
 
 .columna2Firmas
 {
-    border: 1px solid #ddd;
-    padding: 10px 15px;
+    /*border: 1px solid #ddd;*/
+    background-color: #edf8fd;
+    padding: 4px 4px 4px 4px;
     text-align: left;
     font-size: small;
+    height: 10%;
     width: 90%;	
 }
 
 .columna3Firmas
 {
-	border: 1px solid #ddd;
-    padding: 10px 15px;
+    border: 1px solid #edf8fd;
+    padding: 4px 4px 4px 4px;
     text-align: left;
     font-size: small;
-    width: 30%;
+    /*width: 50%;	*/
 }
 
 .cabeceraFirmas
@@ -49,7 +52,7 @@
     margin-bottom: 20px;
     background-color: #777;
     border: 1px solid #888;
-    padding: 4px 4px 4px 4px;
+    padding: 8px 8px 8px 8px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -ms-border-radius: 5px;

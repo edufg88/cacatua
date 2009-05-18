@@ -22,15 +22,6 @@ public partial class mensajes {
     protected global::System.Web.UI.WebControls.Label Label_titulo;
     
     /// <summary>
-    /// Control Label_mostrandoMensajes.
-    /// </summary>
-    /// <remarks>
-    /// Campo generado automáticamente.
-    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label Label_mostrandoMensajes;
-    
-    /// <summary>
     /// Control Label_ordenarPor.
     /// </summary>
     /// <remarks>
@@ -56,6 +47,15 @@ public partial class mensajes {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.DropDownList DropDownList_orden;
+    
+    /// <summary>
+    /// Control Label_mostrandoMensajes.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label Label_mostrandoMensajes;
     
     /// <summary>
     /// Control Label_cantidadPagina2.
