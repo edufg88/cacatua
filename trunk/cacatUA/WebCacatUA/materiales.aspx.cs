@@ -265,6 +265,8 @@ public partial class materiales : WebCacatUA.InterfazWeb
                         Response.Redirect("materiales.aspx?categoria=0");
                 }
             }
+
+            TextBox_buscar.Focus();
         }
         catch (Exception ex)
         {
