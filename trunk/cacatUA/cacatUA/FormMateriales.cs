@@ -16,7 +16,7 @@ namespace cacatUA
     public partial class FormMateriales : InterfazForm
     {
         //private string servidor = cacatUA.Properties.Settings.Default.cacatUA_Uploader_FileUploader;
-        private string servidor = "http://localhost:2592";
+        //private string servidor = "http://localhost:2592";
         public FormMaterialesEdicion formEditarMateriales = null;
         public FormMaterialesBusqueda formMaterialesBusqueda = null;
         private int cantidadPorPagina;

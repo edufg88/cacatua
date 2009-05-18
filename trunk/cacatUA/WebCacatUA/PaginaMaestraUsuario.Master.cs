@@ -222,6 +222,7 @@ namespace WebCacatUA
                 {
                     HyperLink_enviarMensajeUsuario.NavigateUrl = "enviarmensaje.aspx?usuario=" + usuario.Usuario;
                     HyperLink_enviarMensajeUsuario.Visible = true;
+                    HyperLink_enviarMensajeUsuario.Text = "<img src=\"imagenes/sobre.png\" alt=\"" + Resources.I18N.EnviarMensajePrivado + "\" title=\"" + Resources.I18N.EnviarMensajePrivado + "\"/>";
                 }
             }
         }

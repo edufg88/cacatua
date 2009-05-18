@@ -45,7 +45,6 @@ public partial class registroUsuario : WebCacatUA.InterfazWeb
     protected bool ValidarCampos()
     {
         bool valido = true;
-        string error = "";
 
         LimpiarErrores();
 

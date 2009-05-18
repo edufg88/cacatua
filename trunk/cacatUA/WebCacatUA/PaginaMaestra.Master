@@ -88,14 +88,12 @@
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
                     ImageUrl="imagenes/banderas/español.png" 
                     onclick="ImageButton_Español_Click" 
-                    CausesValidation="false"
-                    />
+                    CausesValidation="false" />
                 <asp:ImageButton ID="ImageButton_Ingles" runat="server" AlternateText="en" 
                     BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" 
                     ImageUrl="imagenes/banderas/english.png"
                     onclick="ImageButton_Ingles_Click"
-                    CausesValidation="false"
-                    />
+                    CausesValidation="false" />
             </div>
             
             <div id="cabecera">
