@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="grupo.aspx.cs" Inherits="grupo" Title="CacatUA" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="grupo.aspx.cs" Inherits="grupo" Title="Grupo - CacatUA" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder_titulo" runat="server">
     <asp:Label ID="Label_grupo" runat="server" Text="<%$ Resources: I18N, Grupo %>"></asp:Label> 
     &nbsp;<asp:Label ID="Label_nombre" runat="server"></asp:Label>

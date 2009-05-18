@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="grupos.aspx.cs" Inherits="grupos" Title="CacatUA" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="grupos.aspx.cs" Inherits="grupos" Title="Grupos - CacatUA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="estilos/grupos.css" media="screen" />
 </asp:Content>
