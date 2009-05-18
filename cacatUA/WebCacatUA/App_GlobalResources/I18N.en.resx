@@ -762,4 +762,7 @@
   <data name="FaltaTitulo" xml:space="preserve">
     <value>You must enter a title for the image</value>
   </data>
+  <data name="NoHayImagenes" xml:space="preserve">
+    <value>No images</value>
+  </data>
 </root>
