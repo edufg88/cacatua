@@ -186,9 +186,38 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                 celda2.Controls.Add(fecha);
                 celda2.Controls.Add(leido);
                 celda2.Controls.Add(leer);
-                                
+
+                TableCell celda2b = new TableCell();
+                // Sólo podemos borrar si estamos identificados y en nuestras firmas
+                if (Session["usuario"] != null)
+                {
+                    if (Request["usuario"].ToString() != "")
+                    {
+                        if (Session["usuario"].ToString() == Request["usuario"].ToString())
+                        {
+                            celda2b.CssClass = "columna2bMensajes";
+
+                            LinkButton borrar = new LinkButton();
+                            borrar.CssClass = "linkButton";
+                            borrar.Text = Resources.I18N.Borrar;
+                            borrar.Click += new EventHandler(borrar_click);
+                            borrar.Attributes["id_mensaje"] = mensaje.Id.ToString();
+
+                            LinkButton responder = new LinkButton();
+                            responder.CssClass = "linkButton";
+                            responder.Text = Resources.I18N.Responder;
+                            responder.Click += new EventHandler(responder_click);
+                            responder.Attributes["emisor"] = mensaje.Emisor.Usuario.ToString();
+
+                            celda2b.Controls.Add(borrar);
+                            celda2b.Controls.Add(responder);
+                        }
+                    }
+                }
+
                 fila.Cells.Add(celda1);
                 fila.Cells.Add(celda2);
+                fila.Cells.Add(celda2b);
 
                 TableRow fila2 = new TableRow();
                 TableCell celda3 = new TableCell();
@@ -206,6 +235,42 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         else
         {
             Label_mostrandoMensajes.Text = Resources.I18N.NoMensajes;
+        }
+    }
+
+    protected void borrar_click(object sender, EventArgs e)
+    {
+        if (sender is LinkButton)
+        {
+            LinkButton aux = (LinkButton)sender;
+            // Borramos el mensaje seleccionado
+            ENMensaje.Borrar(int.Parse(aux.Attributes["id_mensaje"]));
+
+            if (user != null)
+            {
+                Response.Redirect("mensajes.aspx?usuario=" + user.Usuario);
+            }
+            else
+            {
+                Response.Redirect("usuarios.aspx");
+            }
+        }
+    }
+
+    protected void responder_click(object sender, EventArgs e)
+    {
+        if (sender is LinkButton)
+        {
+            LinkButton aux = (LinkButton)sender;
+
+            if (user != null && aux.Attributes["emisor"].ToString() != "")
+            {
+                Response.Redirect("enviarmensaje.aspx?usuario=" + aux.Attributes["emisor"].ToString());
+            }
+            else
+            {
+                Response.Redirect("usuarios.aspx");
+            }
         }
     }
 

@@ -8,20 +8,24 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
 
 <div id="mostrandoOrdenar">
-    <div id="ordenar">
-        <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
-        <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="20%" 
-            AutoPostBack="True" 
-            onselectedindexchanged="DropDownList_ordenar_SelectedIndexChanged">
-        </asp:DropDownList>
-        <asp:DropDownList ID="DropDownList_orden" runat="server" Width="15%" 
-            AutoPostBack="True" 
-            onselectedindexchanged="DropDownList_orden_SelectedIndexChanged">
-        </asp:DropDownList>
-    </div>
-    <div id="textoMostrando">
-        <asp:Label ID="Label_mostrandoMensajes" runat="server" Text=""></asp:Label>
-    </div>
+    <asp:Table ID="Table_ordenar" runat="server" Width="100%">
+        <asp:TableRow Width="100%">
+            <asp:TableCell CssClass="columna1Ordenar" Width="50%">
+                <asp:Label ID="Label_mostrandoMensajes" runat="server" Text=""></asp:Label>
+            </asp:TableCell>
+            <asp:TableCell CssClass="columna2Ordenar">
+                <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
+                <asp:DropDownList ID="DropDownList_ordenar" runat="server"
+                    AutoPostBack="True" 
+                    onselectedindexchanged="DropDownList_ordenar_SelectedIndexChanged">
+                </asp:DropDownList>
+                <asp:DropDownList ID="DropDownList_orden" runat="server"
+                    AutoPostBack="True" 
+                    onselectedindexchanged="DropDownList_orden_SelectedIndexChanged">
+                </asp:DropDownList>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
 </div>
 <!--
 <div id="paginacionSup">
