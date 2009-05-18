@@ -12,31 +12,21 @@ using System.Configuration;
 namespace Libreria
 {
     /// <summary>
-    /// Clase singleton que realiza el acceso a la base de datos para manipular los materiales.
+    /// Clase que realiza el acceso a la base de datos para manipular los materiales.
     /// </summary>
-    sealed class MaterialCAD
+    public class MaterialCAD
     {
-        private static readonly MaterialCAD instancia = new MaterialCAD();
         private String cadenaConexion;
-        private SqlTransaction transaccion = null;
-        /// <summary>
-        /// Obtiene la única instancia de la clase MaterialCAD. Si es la primera vez
-        /// que se invoca el método, se crea el objeto; si no, sólo se devuelve la referencia
-        /// al objeto que ya fue creado anteriormente.
-        /// </summary>
-        /// <returns>Devuelve una referencia a la única instancia de la clase.</returns>
-        public static MaterialCAD Instancia
-        {
-            get { return instancia; }
-        }
+        private SqlTransaction transaccion;
 
         /// <summary>
         /// Constructor en el ámbito privado de la clase para no permitir más
         /// de una instancia.
         /// </summary>
-        private MaterialCAD()
+        public MaterialCAD()
         {
             cadenaConexion = ConfigurationManager.ConnectionStrings["cacatua"].ConnectionString;
+            transaccion = null;
         }
 
         /// <summary>
