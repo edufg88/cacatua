@@ -7,7 +7,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-    <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_enviar">
+    <asp:Panel ID="Panel_panel" runat="server">
         <div id="paginacion">
             <asp:Label ID="Label_mostrandoFirmas" runat="server" Text=""></asp:Label>
             <!--

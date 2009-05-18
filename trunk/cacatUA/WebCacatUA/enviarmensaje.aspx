@@ -5,7 +5,7 @@
         <asp:Label ID="Label_enviarMensaje" runat="server" Text="<%$ Resources: I18N, EnviarMensaje %> "></asp:Label>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-    <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_enviar">
+    <asp:Panel ID="Panel_panel" runat="server">
         <div id="para">
             <asp:Label ID="Label_paratext" runat="server" Text="<%$ Resources: I18N, Para %>"></asp:Label>
             :
@@ -26,7 +26,7 @@
             </div>   
         </div>
         <div id="botones">
-            <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click" 
+            <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click"
                 Text="<%$ Resources: I18N, Enviar %>" />
             <asp:Button ID="Button_borrar" runat="server" onclick="Button_borrar_Click" 
                 Text="<%$  Resources: I18N, Limpiar %>" CausesValidation="False" />
