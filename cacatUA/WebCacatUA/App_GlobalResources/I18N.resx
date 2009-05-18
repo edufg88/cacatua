@@ -735,4 +735,7 @@
   <data name="Responder" xml:space="preserve">
     <value>Responder</value>
   </data>
+  <data name="SinValoracion" xml:space="preserve">
+    <value>Sin valoración</value>
+  </data>
 </root>

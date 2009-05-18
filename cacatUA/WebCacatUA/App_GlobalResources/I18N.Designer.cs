@@ -1636,6 +1636,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Sin valoración.
+        /// </summary>
+        internal static string SinValoracion {
+            get {
+                return ResourceManager.GetString("SinValoracion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Subir imagen.
         /// </summary>
         internal static string SubirImagen {
