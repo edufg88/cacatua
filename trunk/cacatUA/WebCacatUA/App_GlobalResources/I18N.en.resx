@@ -697,22 +697,22 @@
     <value>Delete</value>
   </data>
   <data name="Comentar" xml:space="preserve">
-    <value />
+    <value>comment</value>
   </data>
   <data name="EditarImagen" xml:space="preserve">
-    <value />
+    <value>Edit image</value>
   </data>
   <data name="Guardar" xml:space="preserve">
-    <value />
+    <value>Save</value>
   </data>
   <data name="ImagenDe" xml:space="preserve">
-    <value />
+    <value>Image of</value>
   </data>
   <data name="ImagenSubidaEl" xml:space="preserve">
-    <value />
+    <value>Image Upload by</value>
   </data>
   <data name="SubirImagen" xml:space="preserve">
-    <value />
+    <value>Upload Image</value>
   </data>
   <data name="UtilizarFotoUsuario" xml:space="preserve">
     <value>Use user photo</value>
@@ -728,5 +728,8 @@
   </data>
   <data name="Responder" xml:space="preserve">
     <value>Reply</value>
+  </data>
+  <data name="SinValoracion" xml:space="preserve">
+    <value>Unrated</value>
   </data>
 </root>
