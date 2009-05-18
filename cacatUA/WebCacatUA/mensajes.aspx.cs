@@ -134,24 +134,46 @@ public partial class mensajes : WebCacatUA.InterfazWeb
         ArrayList mensajes = ENMensaje.ObtenerMensajes(user.Usuario, orden,ordenarpor,pagina,cantidad);
         Table_mensajes.Controls.Clear();
 
-        insertarCabecera();
+        //insertarCabecera();
         if (totalResultados >= 1)
         {
             Label_mostrandoMensajes.Text = Resources.I18N.Viendo + " " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.MensajesMin;
             foreach (ENMensaje mensaje in mensajes)
             {
-                TableRow fila2 = new TableRow();
-                TableCell celda1 = new TableCell();
-                TableCell celda2 = new TableCell();
-                TableCell celda3 = new TableCell();
-                TableCell celda4 = new TableCell();
+                TableRow fila = new TableRow();
 
+                // Celda con la imagen del usuario
+                TableCell celda1 = new TableCell();
+                celda1.RowSpan = 2;
+                celda1.CssClass = "columna1Mensajes";
+                Label l1 = new Label();
+                if (mensaje.Emisor.Imagen == -1) // Comprobamos si tiene imagen activa el usuario
+                {
+                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\"/>";
+                }
+                else
+                {
+                    l1.Text = "<img src=\"galeria/" + mensaje.Emisor.Imagen.ToString() + ".jpg\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
+                }
+                celda1.Controls.Add(l1);
+
+                // Celda con 2 filas para la información de la fila
+                TableCell celda2 = new TableCell();
+                celda2.CssClass = "columna2Mensajes";
+                HyperLink link = new HyperLink();
+                link.Text = mensaje.Emisor.Usuario;
+                link.NavigateUrl = "usuario.aspx?usuario=" + mensaje.Emisor.Usuario;
+                Label fecha = new Label();
+                fecha.Text = " @ " + mensaje.Fecha.ToString();
+
+                Label leido = new Label();
+                leido.CssClass = "leido";
+                leido.Text = Resources.I18N.Leído + ":  ";
                 CheckBox leer = new CheckBox();
+                leer.CssClass = "leer";
                 leer.AutoPostBack = true;
                 leer.CheckedChanged += new EventHandler(ComentarioLeido);
                 leer.Attributes["id_mensaje"] = mensaje.Id.ToString();
-                //CheckBox1_CheckedChanged
-                //leer 
                 // Activamos o desactivamos según este leido
                 if (mensaje.Leido == 1)
                 {
@@ -159,27 +181,26 @@ public partial class mensajes : WebCacatUA.InterfazWeb
                     leer.Checked = true;
                     leer.Enabled = false;
                 }
-
-                HyperLink link = new HyperLink();
-                Label texto = new Label();
-                Label fecha = new Label();
-                link.Text = mensaje.Emisor.Usuario;
-                link.NavigateUrl = "usuario.aspx?usuario=" + mensaje.Emisor.Usuario;
-                texto.Text = mensaje.Texto;
-                fecha.Text = mensaje.Fecha.ToString();
-                celda1.Controls.Add(leer);
-                celda1.CssClass = "columna1Mensajes";
+                
                 celda2.Controls.Add(link);
-                celda2.CssClass = "columna2Mensajes";
-                celda3.Controls.Add(fecha);
+                celda2.Controls.Add(fecha);
+                celda2.Controls.Add(leido);
+                celda2.Controls.Add(leer);
+                                
+                fila.Cells.Add(celda1);
+                fila.Cells.Add(celda2);
+
+                TableRow fila2 = new TableRow();
+                TableCell celda3 = new TableCell();
                 celda3.CssClass = "columna3Mensajes";
-                celda4.Controls.Add(texto);
-                celda4.CssClass = "columna4Mensajes";
-                fila2.Cells.Add(celda1);
-                fila2.Cells.Add(celda2);
+                Label texto = new Label();
+                texto.Text = "<p>" + mensaje.Texto + "</p>";
+                celda3.Controls.Add(texto);
                 fila2.Cells.Add(celda3);
-                fila2.Cells.Add(celda4);
-                Table_mensajes.Controls.Add(fila2);
+
+                Table_mensajes.Rows.Add(fila);
+                Table_mensajes.Rows.Add(fila2);
+
             }
         }
         else
