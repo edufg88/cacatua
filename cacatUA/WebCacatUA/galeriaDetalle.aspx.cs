@@ -102,6 +102,29 @@ namespace WebCacatUA
                     cantidadPaginas = (numComentarios / cantidad)+1;
                 }
 
+                if (pagina == 1)
+                {
+                    Button_anteriorSuperior.Enabled = false;
+                    Button1.Enabled = false;
+                }
+                else
+                {
+                    Button_anteriorSuperior.Enabled = true;
+                    Button1.Enabled = true;
+                }
+
+                if (pagina == cantidadPaginas)
+                {
+                    Button_siguienteSuperior.Enabled = false;
+                    Button2.Enabled = false;
+                }
+                else
+                {
+                    Button_siguienteSuperior.Enabled = true;
+                    Button2.Enabled = true;
+                }
+                
+
                 ListItem item = new ListItem();
                 DropDownList_paginaSuperior.Items.Clear();
                 DropDownList_paginaInferior.Items.Clear();
@@ -157,7 +180,10 @@ namespace WebCacatUA
                 TableCell c2 = new TableCell();
                 Table t = new Table();
                 Table t1 = new Table();
+                Table t2 = new Table();
                 ENImagenComentario comen = new ENImagenComentario();
+                TableRow rcomentario = new TableRow();
+                TableCell ccomentario = new TableCell();
 
                 LinkButton enlace1 = new LinkButton();
                 enlace1.Text = Resources.I18N.Anterior;
@@ -285,8 +311,15 @@ namespace WebCacatUA
                     c2.Controls.Add(t);
                     r1.Controls.Add(c1);
                     r1.Controls.Add(c2);
-                    tablaComentarios.Controls.Add(r1);
-
+                    t2 = new Table();
+                    t2.Controls.Add(r1);
+                    rcomentario = new TableRow();
+                    ccomentario = new TableCell();
+                    ccomentario.Controls.Add(new LiteralControl("<div class=\"comentario\">"));
+                    ccomentario.Controls.Add(t2);
+                    ccomentario.Controls.Add(new LiteralControl("</div>"));                    
+                    rcomentario.Controls.Add(ccomentario);
+                    tablaComentarios.Controls.Add(rcomentario);
 
                 }
 
