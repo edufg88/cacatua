@@ -76,6 +76,15 @@ public partial class foro {
     protected global::System.Web.UI.WebControls.LinkButton LinkButton_dessuscribirse;
     
     /// <summary>
+    /// Control Panel_panel.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_panel;
+    
+    /// <summary>
     /// Control TextBox_filtroBusqueda.
     /// </summary>
     /// <remarks>
@@ -164,6 +173,15 @@ public partial class foro {
     /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     /// </remarks>
     protected global::System.Web.UI.WebControls.Button Button_crearHiloForo;
+    
+    /// <summary>
+    /// Control Panel_resultados.
+    /// </summary>
+    /// <remarks>
+    /// Campo generado automáticamente.
+    /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel Panel_resultados;
     
     /// <summary>
     /// Control Table_hilosForo.
