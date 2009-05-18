@@ -138,7 +138,7 @@ namespace WebCacatUA
             }
             else{
                 Label lab = new Label();
-                lab.Text = "No hay imagenes";
+                lab.Text = Resources.I18N.NoHayImagenes;
                 panelImagenPrincipal.Controls.Add(lab);
 
                 
