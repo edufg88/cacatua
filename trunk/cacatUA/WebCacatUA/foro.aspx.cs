@@ -247,7 +247,11 @@ public partial class foro : WebCacatUA.InterfazWeb
         if (totalResultados > 0)
             Label_mostrandoForo.Text = Resources.I18N.Resultados + ": " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " (" + totalResultados + ")";
         else
+        {
             Label_mostrandoForo.Text = Resources.I18N.NoHayResultados;
+            Panel_resultados.Visible = false;
+            return;
+        }
 
         Table_hilosForo.Controls.Clear();
         insertarCabecera();
