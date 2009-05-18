@@ -24,13 +24,27 @@
     width: 90%;	
 }
 
+.columna2bFirmas
+{
+	background-color: #edf8fd;
+    padding: 4px 4px 4px 4px;
+    text-align: right;
+    font-size: small;
+    height: 10%;	
+}
+
 .columna3Firmas
 {
-    border: 1px solid #edf8fd;
     padding: 4px 4px 4px 4px;
     text-align: left;
     font-size: small;
     /*width: 50%;	*/
+}
+
+.linkButton
+{
+	padding-right: 4px;
+	padding-left: 4px;	
 }
 
 .cabeceraFirmas
