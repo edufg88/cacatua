@@ -105,7 +105,7 @@ namespace WebCacatUA
                 else
                 {
                     Panel_errorArchivo.Visible = true;
-                    Label_errorArchivo.Text = "Archivo: Debe tener un tamaño máximo de " + maxTamañoFichero.ToString() + " MB";
+                    Label_errorArchivo.Text = Resources.I18N.Archivo + ": " + Resources.I18N.tamañoMaximo + " " + maxTamañoFichero.ToString() + " MB";
                     Button1.Focus();
                 }
             }
@@ -123,15 +123,16 @@ namespace WebCacatUA
             {
                 correcto = false;
                 Panel_errorNombre.Visible = true;
-                //Label_errorNombre.Text = Resources.I18N.Nombre + ":" + 
-                Label_errorNombre.Text = "Nombre: Debe tener entre " + ENMaterial.minTamNombre.ToString() + " y " + ENMaterial.maxTamNombre + " caracteres";
+                Label_errorNombre.Text = Resources.I18N.Nombre + ": " + Resources.I18N.NumeroCaracteresEntre + " " 
+                    + ENMaterial.minTamNombre.ToString() + " " + Resources.I18N.y + " " + ENMaterial.maxTamNombre;
             }
             // Validamos la descripción
             if (material.Descripcion.Length > ENMaterial.maxTamDescripcion || material.Descripcion.Length < ENMaterial.minTamDescripcion)
             {
                 correcto = false;
                 Panel_errorDescripcion.Visible = true;
-                Label_errorDescripcion.Text = "Descripción: Debe tener entre " + ENMaterial.minTamDescripcion.ToString() + " y " + ENMaterial.maxTamDescripcion + " caracteres";
+                Label_errorDescripcion.Text = Resources.I18N.Descripcion + ": " + Resources.I18N.NumeroCaracteresEntre + " "
+                    + ENMaterial.minTamDescripcion.ToString() + " " + Resources.I18N.y + " " + ENMaterial.maxTamDescripcion;
             }
             // Validamos la referencia
             if (material.Referencia != "")
@@ -140,7 +141,8 @@ namespace WebCacatUA
                 {
                     correcto = false;
                     Panel_errorReferencia.Visible = true;
-                    Label_errorReferencia.Text = "Referencia: Debe tener entre " + ENMaterial.minTamReferencia.ToString() + " y " + ENMaterial.maxTamReferencia + " caracteres";
+                    Label_errorReferencia.Text = Resources.I18N.Referencia + ": " + Resources.I18N.NumeroCaracteresEntre + " "
+                        + ENMaterial.minTamReferencia.ToString() + " " + Resources.I18N.y + " " + ENMaterial.maxTamReferencia;
                 }
             }
             // Validamos el archivo
@@ -148,7 +150,8 @@ namespace WebCacatUA
             {
                 correcto = false;
                 Panel_errorArchivo.Visible = true;
-                Label_errorArchivo.Text = "Archivo: Debe tener entre " + ENMaterial.minTamArchivo.ToString() + " y " + ENMaterial.maxTamArchivo + " caracteres";
+                Label_errorArchivo.Text = Resources.I18N.Archivo + ": " + Resources.I18N.NumeroCaracteresEntre + " "
+                    + ENMaterial.minTamArchivo.ToString() + " " + Resources.I18N.y + " " + ENMaterial.maxTamArchivo;
             }
             return correcto;
         }
