@@ -744,4 +744,22 @@
   <data name="EnviarMensajePrivado" xml:space="preserve">
     <value>Send private message</value>
   </data>
+  <data name="ArchivoCargado" xml:space="preserve">
+    <value>Uploaded file</value>
+  </data>
+  <data name="ErrorArchivo" xml:space="preserve">
+    <value>The file must be of JPG</value>
+  </data>
+  <data name="ErrorTamano" xml:space="preserve">
+    <value>The file size must be less than 3MB</value>
+  </data>
+  <data name="FaltaArchivo" xml:space="preserve">
+    <value>You must enter an image file</value>
+  </data>
+  <data name="FaltaDescripcion" xml:space="preserve">
+    <value>You must enter a description for the image</value>
+  </data>
+  <data name="FaltaTitulo" xml:space="preserve">
+    <value>You must enter a title for the image</value>
+  </data>
 </root>

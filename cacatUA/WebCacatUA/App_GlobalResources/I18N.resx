@@ -750,4 +750,22 @@
   <data name="EnviarMensajePrivado" xml:space="preserve">
     <value>Enviar mensaje privado</value>
   </data>
+  <data name="ArchivoCargado" xml:space="preserve">
+    <value>El archivo se ha cargado correctamente</value>
+  </data>
+  <data name="ErrorArchivo" xml:space="preserve">
+    <value>El archivo debe ser del tipo JPG</value>
+  </data>
+  <data name="ErrorTamano" xml:space="preserve">
+    <value>El archivo debe tener un tamaño inferior a 3MB</value>
+  </data>
+  <data name="FaltaArchivo" xml:space="preserve">
+    <value>Debes seleccionar un archivo de imagen</value>
+  </data>
+  <data name="FaltaDescripccion" xml:space="preserve">
+    <value>Debes introducir una descripcion para la imagen</value>
+  </data>
+  <data name="FaltaTitulo" xml:space="preserve">
+    <value>Debes introducir una titulo para la imagen</value>
+  </data>
 </root>
