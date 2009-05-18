@@ -139,11 +139,9 @@ public partial class generalUsuario : WebCacatUA.InterfazWeb
 
     protected void LinkButton_infoFirmas_Click(object sender, EventArgs e)
     {
-        if (Session["usuario"] != null)
-            Response.Redirect("firmas.aspx?usuario=" + Session["usuario"]);
-        else if (Request["usuario"].ToString() != "")
+        if (u != null)
         {
-            Response.Redirect("firmas.aspx?usuario=" + Request["usuario"].ToString());
+            Response.Redirect("firmas.aspx?usuario=" + u.Usuario);
         }
         else
         {
@@ -152,11 +150,9 @@ public partial class generalUsuario : WebCacatUA.InterfazWeb
     }
     protected void LinkButton_infoGaleria_Click(object sender, EventArgs e)
     {
-        if (Session["usuario"] != null)
-            Response.Redirect("galeria.aspx?usuario=" + Session["usuario"]);
-        else if (Request["usuario"].ToString() != "")
+        if (u != null)
         {
-            Response.Redirect("galeria.aspx?usuario=" + Request["usuario"].ToString());
+            Response.Redirect("galeria.aspx?usuario=" + u.Usuario);
         }
         else
         {
