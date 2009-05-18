@@ -36,6 +36,7 @@ public partial class firmas : WebCacatUA.InterfazWeb
             Response.Redirect("usuarios.aspx");
         }
 
+        // Comprobamos que sólo puedas firmar si estas identificado y además que no te firmes a ti mismo
         if (Session["usuario"] == null)
         {
             Button_firmar.Visible = false;
@@ -89,6 +90,10 @@ public partial class firmas : WebCacatUA.InterfazWeb
         fila.Controls.Add(c3);
         Table_firmas.Controls.Add(fila);
     }
+    private void borrarFirma()
+    {
+        Label_mostrandoFirmas.Text = "hola";
+    }
 
     public void ObtenerFirmas()
     {
@@ -106,8 +111,11 @@ public partial class firmas : WebCacatUA.InterfazWeb
             Label_mostrandoFirmas.Text = Resources.I18N.Viendo + " " + ((pagina - 1) * cantidad + 1) + " - " + Math.Min(pagina * cantidad, totalResultados) + " " + Resources.I18N.Deminuscula + " " + totalResultados + " " + Resources.I18N.FirmasMin + ".";
             foreach (ENFirma firma in Firmas)
             {
-                TableRow fila2 = new TableRow();
+                TableRow fila = new TableRow();
+
+                // Celda con la imagen del usuario
                 TableCell celda1 = new TableCell();
+                celda1.RowSpan = 2;
                 celda1.CssClass = "columna1Firmas";
                 Label l1 = new Label();
                 if (firma.Emisor.Imagen == -1) // Comprobamos si tiene imagen activa el usuario
@@ -119,25 +127,31 @@ public partial class firmas : WebCacatUA.InterfazWeb
                     l1.Text = "<img src=\"galeria/" + firma.Emisor.Imagen.ToString() + ".jpg\" width=\"150\" height=\"100\" alt=\"Foto de usuario\"/>";
                 }
                 celda1.Controls.Add(l1);
+
+                // Celda con 2 filas para la información de la fila
                 TableCell celda2 = new TableCell();
                 celda2.CssClass = "columna2Firmas";
-                /*TableCell celda3 = new TableCell();
-                celda3.CssClass = "columna3Firmas";*/
                 HyperLink link = new HyperLink();
-                Label texto = new Label();
-                Label fecha = new Label();
                 link.Text = firma.Emisor.Usuario;
-                link.NavigateUrl = "usuario.aspx?usuario=" + firma.Emisor.Usuario;
-                texto.Text = "<p>" + firma.Texto +"</p>";
+                link.NavigateUrl = "usuario.aspx?usuario=" + firma.Emisor.Usuario;                
+
+                Label fecha = new Label();
                 fecha.Text = " @ " + firma.Fecha.ToString();
-                //celda1.Controls.Add(link);
+                fecha.Text = " @ " + firma.Fecha.ToString();
                 celda2.Controls.Add(link);
                 celda2.Controls.Add(fecha);
-                celda2.Controls.Add(texto);
-                //celda3.Controls.Add(texto);
-                fila2.Cells.Add(celda1);
-                fila2.Cells.Add(celda2);
-                //fila2.Cells.Add(celda3);
+                fila.Cells.Add(celda1);
+                fila.Cells.Add(celda2);
+
+                TableRow fila2 = new TableRow();
+                TableCell celda3 = new TableCell();
+                celda3.CssClass = "columna3Firmas";
+                Label texto = new Label();
+                texto.Text = "<p>" + firma.Texto + "</p>";
+                celda3.Controls.Add(texto);
+                fila2.Cells.Add(celda3);
+                
+                Table_firmas.Rows.Add(fila);
                 Table_firmas.Rows.Add(fila2);
             }
         }

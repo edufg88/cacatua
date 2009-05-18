@@ -8,7 +8,6 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
 
 <div id="mostrandoOrdenar">
-    <asp:Label ID="Label_mostrandoMensajes" runat="server" Text=""></asp:Label>
     <div id="ordenar">
         <asp:Label ID="Label_ordenarPor" runat="server" Text="<%$ Resources: I18N, OrdenarPor %>"></asp:Label>
         <asp:DropDownList ID="DropDownList_ordenar" runat="server" Width="20%" 
@@ -19,6 +18,9 @@
             AutoPostBack="True" 
             onselectedindexchanged="DropDownList_orden_SelectedIndexChanged">
         </asp:DropDownList>
+    </div>
+    <div id="textoMostrando">
+        <asp:Label ID="Label_mostrandoMensajes" runat="server" Text=""></asp:Label>
     </div>
 </div>
 <!--

@@ -73,3 +73,13 @@
 {
     float: left;
 }
+
+#textoMostrando
+{
+	text-align:left; 	
+}
+
+#ordenar
+{
+	text-align: right;	
+}
