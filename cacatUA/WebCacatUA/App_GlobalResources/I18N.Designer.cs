@@ -1330,6 +1330,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No hay imagenes.
+        /// </summary>
+        internal static string NoHayImagenes {
+            get {
+                return ResourceManager.GetString("NoHayImagenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No hay resultados.
         /// </summary>
         internal static string NoHayResultados {
