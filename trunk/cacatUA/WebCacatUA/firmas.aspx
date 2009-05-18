@@ -7,51 +7,53 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder_contenidoUsuario" runat="server">
-    <div id="paginacion">
-        <asp:Label ID="Label_mostrandoFirmas" runat="server" Text=""></asp:Label>
-        <!--
-        <div id="paginaSup">
-            <asp:Button ID="Button_paginaAnterior2" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
-                onclick="Button_paginaAnterior_Click" />
-            <asp:DropDownList ID="DropDownList_pagina2" runat="server" Width="40px" 
-                onselectedindexchanged="DropDownList_pagina2_SelectedIndexChanged" 
-                AutoPostBack="True">
-            </asp:DropDownList>
-            <asp:Button ID="Button_paginaSiguiente2" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
-                onclick="Button_paginaSiguiente_Click" />
+    <asp:Panel ID="Panel_panel" runat="server" DefaultButton="Button_enviar">
+        <div id="paginacion">
+            <asp:Label ID="Label_mostrandoFirmas" runat="server" Text=""></asp:Label>
+            <!--
+            <div id="paginaSup">
+                <asp:Button ID="Button_paginaAnterior2" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
+                    onclick="Button_paginaAnterior_Click" />
+                <asp:DropDownList ID="DropDownList_pagina2" runat="server" Width="40px" 
+                    onselectedindexchanged="DropDownList_pagina2_SelectedIndexChanged" 
+                    AutoPostBack="True">
+                </asp:DropDownList>
+                <asp:Button ID="Button_paginaSiguiente2" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
+                    onclick="Button_paginaSiguiente_Click" />
+            </div>
+            -->
         </div>
-        -->
-    </div>
-    
-    <div id="mostrarFirmas">
-        <asp:Table ID="Table_firmas" runat="server" CellPadding="0" CellSpacing="0" CssClass="tablaFirmas"></asp:Table>
-    </div>
-    
-    <div id="botones">
-        <div id="botonFirmar">
-            <asp:Button ID="Button_firmar" runat="server" Text="<%$ Resources: I18N, Firmar %>" 
-                onclick="Button_firmar_Click"/>
+        
+        <div id="mostrarFirmas">
+            <asp:Table ID="Table_firmas" runat="server" CellPadding="0" CellSpacing="0" CssClass="tablaFirmas"></asp:Table>
         </div>
-        <div id="paginaInf">
-            <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
-                onclick="Button_paginaAnterior_Click" />
-            <asp:DropDownList ID="DropDownList_pagina" runat="server" Width="40px" 
-                onselectedindexchanged="DropDownList_pagina_SelectedIndexChanged" 
-                AutoPostBack="True">
-            </asp:DropDownList>
-            <asp:Button ID="Button_paginaSiguiente" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
-                onclick="Button_paginaSiguiente_Click" />
+        
+        <div id="botones">
+            <div id="botonFirmar">
+                <asp:Button ID="Button_firmar" runat="server" Text="<%$ Resources: I18N, Firmar %>" 
+                    onclick="Button_firmar_Click"/>
+            </div>
+            <div id="paginaInf">
+                <asp:Button ID="Button_paginaAnterior" runat="server" Text="<%$ Resources: I18N, Anterior %>" 
+                    onclick="Button_paginaAnterior_Click" />
+                <asp:DropDownList ID="DropDownList_pagina" runat="server" Width="40px" 
+                    onselectedindexchanged="DropDownList_pagina_SelectedIndexChanged" 
+                    AutoPostBack="True">
+                </asp:DropDownList>
+                <asp:Button ID="Button_paginaSiguiente" runat="server" Text="<%$ Resources: I18N, Siguiente %>" 
+                    onclick="Button_paginaSiguiente_Click" />
+            </div>
         </div>
-    </div>
-    <div id="panelfirmar">
-        <asp:Panel ID="Panel_firmar" runat="server" Height="120px" Width="603px" 
-            Visible="False">
-            <asp:TextBox ID="TextBox_firmar" runat="server" Height="75px" Width="600px" 
-                MaxLength="5000"></asp:TextBox>
-            <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click" 
-                Text="<%$ Resources: I18N, Enviar %>" />
-            <asp:Button ID="Button_limpiar" runat="server" onclick="Button_limpiar_Click" 
-                Text="<%$ Resources: I18N, Limpiar %>" />
-        </asp:Panel>
-    </div>
+        <div id="panelfirmar">
+            <asp:Panel ID="Panel_firmar" runat="server" Height="120px" Width="603px" 
+                Visible="False">
+                <asp:TextBox ID="TextBox_firmar" runat="server" Height="75px" Width="600px" 
+                    MaxLength="5000"></asp:TextBox>
+                <asp:Button ID="Button_enviar" runat="server" onclick="Button_enviar_Click" 
+                    Text="<%$ Resources: I18N, Enviar %>" />
+                <asp:Button ID="Button_limpiar" runat="server" onclick="Button_limpiar_Click" 
+                    Text="<%$ Resources: I18N, Limpiar %>" />
+            </asp:Panel>
+        </div>
+    </asp:Panel>
 </asp:Content>

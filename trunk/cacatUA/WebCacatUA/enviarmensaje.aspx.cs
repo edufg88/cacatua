@@ -66,6 +66,8 @@ public partial class enviarmensaje : WebCacatUA.InterfazWeb
         {
             Response.Redirect("confirmacion.aspx?mensajeerror=1");
         }
+
+        TextBox_mensaje.Focus();
     }
 
     protected void Button_borrar_Click(object sender, EventArgs e)

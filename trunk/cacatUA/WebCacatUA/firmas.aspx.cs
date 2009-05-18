@@ -48,6 +48,8 @@ public partial class firmas : WebCacatUA.InterfazWeb
             else
                 Button_firmar.Visible = true;
         }
+
+        TextBox_firmar.Focus();
     }
 
     /// <summary>
