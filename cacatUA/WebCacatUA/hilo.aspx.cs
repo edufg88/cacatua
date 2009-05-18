@@ -222,7 +222,7 @@ public partial class hilo : WebCacatUA.InterfazWeb
                     // Insertamos la posibilidad de enviar mensaje si no somos nosotros mismos.
                     if (i.Autor.Usuario != ENUsuario.Obtener(Session["usuario"].ToString()).Usuario)
                     {
-                        string sobre = "<img src=\"imagenes/sobre.png\" alt=\"" + Resources.I18N.Enviar + "\" />";
+                        string sobre = "<img src=\"imagenes/sobre.png\" alt=\"" + Resources.I18N.EnviarMensajePrivado + "\" title=\"" + Resources.I18N.EnviarMensajePrivado + "\"/>";
                         l1.Text += "<a href=\"enviarmensaje.aspx?usuario=" + i.Autor.Usuario + "\">" + sobre + "</a>";
                     }
                 }

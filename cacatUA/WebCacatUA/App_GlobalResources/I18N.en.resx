@@ -741,4 +741,7 @@
   <data name="y" xml:space="preserve">
     <value>and</value>
   </data>
+  <data name="EnviarMensajePrivado" xml:space="preserve">
+    <value>Send private message</value>
+  </data>
 </root>

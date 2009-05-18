@@ -25,7 +25,7 @@
             <div id="galeriaUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_galeriaUsuario" runat="server">Galería de fotos (43)</asp:HyperLink></div>
             <div id="encuestasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_encuestasUsuario" runat="server">Encuestas (13) (sólo sale si eres tú mismo)</asp:HyperLink></div>
             <div id="categoriasUsuario" class="botonUsuario"><asp:HyperLink ID="HyperLink_categoriaUsuario" runat="server">Categorías suscritas (13) (sólo sale si eres tú mismo)</asp:HyperLink></div>
-            <div id="enviarMensajeUsuario" class="botonUsuario enviarMensajeUsuario"><asp:HyperLink ID="HyperLink_enviarMensajeUsuario" runat="server"><asp:Image ID="Image_enviarMensajeUsuario" runat="server" ImageUrl="imagenes/sobre.png" /></asp:HyperLink></div>
+            <div id="enviarMensajeUsuario" class="botonUsuario enviarMensajeUsuario"><asp:HyperLink ID="HyperLink_enviarMensajeUsuario" runat="server"></asp:HyperLink></div>
         </div>
         <div id="gruposUsuario">
             <div id="grupoUsuario"><%= Resources.I18N.GruposUsuario %></div>
