@@ -732,4 +732,10 @@
   <data name="SinValoracion" xml:space="preserve">
     <value>Unrated</value>
   </data>
+  <data name="NumeroCaracteresEntre" xml:space="preserve">
+    <value>Number of characters must be between</value>
+  </data>
+  <data name="y" xml:space="preserve">
+    <value>and</value>
+  </data>
 </root>
