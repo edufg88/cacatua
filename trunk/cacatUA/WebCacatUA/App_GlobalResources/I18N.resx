@@ -741,6 +741,9 @@
   <data name="NumeroCaracteresEntre" xml:space="preserve">
     <value>El número de caracteres debe estar entre</value>
   </data>
+  <data name="tamañoMaximo" xml:space="preserve">
+    <value>Tamaño máximo</value>
+  </data>
   <data name="y" xml:space="preserve">
     <value>y</value>
   </data>
