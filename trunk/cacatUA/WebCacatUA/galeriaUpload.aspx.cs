@@ -48,7 +48,7 @@ namespace WebCacatUA
                                     img.Guardar();
                                     imagen.PostedFile.SaveAs(SaveLocation);
 
-                                    this.lblmessage.Text = "El archivo se ha cargado.";
+                                    this.lblmessage.Text = Resources.I18N.ArchivoCargado;
 
                                     Response.Redirect("galeria.aspx?usuario="+ Session["usuario"].ToString());
 
@@ -60,25 +60,25 @@ namespace WebCacatUA
                                 }
                             }
                             else
-                                this.lblmessage.Text = "El tamaño del archivo debe ser menor a 50kbs";
+                                this.lblmessage.Text = Resources.I18N.ErrorTamano;
 
                         }
                         else
-                            this.lblmessage.Text = "No se pudo cargar el archivo seleccionado, por favor seleccione una imagen .jpg, .gif o .png";
+                            this.lblmessage.Text = Resources.I18N.ErrorArchivo;
                     }
                     else
                     {
-                        this.lblmessage.Text = "Seleccione un archivo que cargar.";
+                        this.lblmessage.Text = Resources.I18N.FaltaArchivo;
                     }
                 }
                 else
                 {
-                    this.lblmessage.Text = "Introduczca una descripcion.";
+                    this.lblmessage.Text = Resources.I18N.FaltaDescripcion;
                 }
             }
             else
             {
-                this.lblmessage.Text = "Introduczca un titulo.";
+                this.lblmessage.Text = Resources.I18N.FaltaTitulo;
             }
         }
 
