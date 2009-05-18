@@ -40,6 +40,8 @@
 
 .imagen
 {
+	max-height: 100px;
+	max-width: 150px;
 	border: dashed 1px Gray;	
 	padding: 2px 2px 2px 2px;
 }
