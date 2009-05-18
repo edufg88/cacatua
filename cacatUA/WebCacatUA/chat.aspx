@@ -19,7 +19,8 @@ function limpiar()
     document.getElementById("<%= TextBox_textoEnviado.ClientID %>").value = mensaje;
     //document.getElementById("<%= TextBox_mensajes.ClientID %>").value += "<%= NombreUsuario %>: " + mensaje + "\n";
     document.getElementById("<%= TextBox_mensaje.ClientID %>").focus();
-    anadirMensaje('<%= NombreUsuario %>: ', mensaje);
+    if(mensaje != '')
+        anadirMensaje('<%= NombreUsuario %>: ', mensaje);
 }
 
 function bajarScroll()
