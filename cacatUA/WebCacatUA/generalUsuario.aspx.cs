@@ -52,14 +52,9 @@ public partial class generalUsuario : WebCacatUA.InterfazWeb
                 TableCell c1 = new TableCell();
                 c1.CssClass = "columnaGaleria";
                 Label l1 = new Label();
-                if (imagen.Id == -1) // Comprobamos si tiene imagen activa el usuario
-                {
-                    l1.Text = "<img src=\"imagenes/sinImagen.png\" alt=\"Foto de usuario\" width=\"60\" height=\"60\" class=\"imagen\" />";
-                }
-                else
-                {
-                    l1.Text = "<img src=\"imagenes/" + imagen.Id + ".jpg\" width=\"100\" height=\"60\" alt=\"Foto de usuario\" class=\"imagen\" />";
-                }
+
+                l1.Text = "<img src=\"/galeria/" + imagen.Archivo + "\" alt=\"Foto de usuario\" class=\"imagen\" />";
+
                 Panel p1 = new Panel();
                 p1.Controls.Add(l1);
                 c1.Controls.Add(p1);
