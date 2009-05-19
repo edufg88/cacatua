@@ -19,6 +19,7 @@ namespace WebCacatUA
         private ENImagen imagen = null;
         private int pagina = 1;
         private int numPaginas = 0;
+        public ENUsuario us = null;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,7 +43,7 @@ namespace WebCacatUA
 
             if (Request.Params["usuario"] != null)
             {
-                ENUsuario us = ENUsuario.Obtener(Request.Params["usuario"]);
+                us = ENUsuario.Obtener(Request.Params["usuario"]);
                 Label_nombreUsuario.Text += " " + Request.Params["usuario"];
 
                 if (Request.Params["pag"] != null)

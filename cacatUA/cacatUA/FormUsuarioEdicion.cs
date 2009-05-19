@@ -225,6 +225,8 @@ namespace cacatUA
                 else
                 {
                     nuevo.Id = int.Parse(textBox_id.Text);
+                    ENUsuario antiguo = ENUsuario.Obtener(nuevo.Id);
+                    nuevo.Imagen = antiguo.Imagen;
                     if (nuevo.Actualizar())
                     {
                         if (checkBox_administrador.Checked == true)
