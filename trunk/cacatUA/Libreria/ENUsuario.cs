@@ -16,7 +16,7 @@ namespace Libreria
         // Constantes de tamaño para los distintos campos del formulario
         const int maxTamUsuario = 30;
         const int minTamUsuario = 2;
-        const int minTamContrasena = 5;
+        const int minTamContrasena = 3;
         const int maxTamContrasena = 40;
         const int maxTamNombre = 50;
         const int minTamNombre = 3;
@@ -247,20 +247,9 @@ namespace Libreria
                     break;
 
                 case "nombre":
-                    if (dato == "")
+                    if (dato.Length > maxTamNombre)
                     {
-                        error = campoEnBlanco1 + "'nombre'" + campoEnBlanco2;
-                    }
-                    else
-                    {
-                        if (dato.Length < minTamNombre)
-                        {
-                            error = "El nombre debe tener " + minTamNombre.ToString() + " caracteres como mínimo";
-                        }
-                        else if (dato.Length > maxTamNombre)
-                        {
-                            error = "El nombre puede tener " + maxTamNombre.ToString() + " caracteres como máximo";
-                        }
+                        error = "El nombre puede tener " + maxTamNombre.ToString() + " caracteres como máximo";
                     }
                     break;
 
@@ -279,11 +268,7 @@ namespace Libreria
                     break;
 
                 case "correo":
-                    if (dato == "")
-                    {
-                        error = campoEnBlanco1 + "'correo'" + campoEnBlanco2;
-                    }
-                    else
+                    if (dato != "")
                     {
                         // Creamos una expresión regular para validar el correo
                         Regex er = new Regex(@"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$");

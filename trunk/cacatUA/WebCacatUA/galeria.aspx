@@ -39,7 +39,7 @@
             var elemento = document.getElementById("imagenPrincipal")
             elemento.setAttribute("src","/galeria/" + archivo);
             var link = document.getElementById("verImagen");
-            link.setAttribute("href","/galeriaDetalle.aspx?imagen=" + id); 
+            link.setAttribute("href","/galeriaDetalle.aspx?usuario=<%= us.Usuario %>&imagen=" + id); 
             link.className = "visible";  
              
           
